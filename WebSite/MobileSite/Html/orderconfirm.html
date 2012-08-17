@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title></title>
+        <link rel="stylesheet" href="jquerymobile/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="style/my.css" />         
+    </head>
+    <body>
+	<!-- orderconfirm -->
+	<div data-role="page" id="orderconfirm" data-title="提交订单">
+		<div data-role="header" data-theme="a">
+			<div class="header">
+				<div class="logo">
+					<a href="index.html">
+						<img src="images/logo.png" />
+					</a>
+				</div>
+				<div class="nav">
+					<a href="category.html" class="menu"></a>
+					<a href="myaccount.html" class="user"></a>
+					<a href="shoppingcart.html" class="cart"></a>
+				</div>
+			</div>
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li>
+						<a href="index.html" data-theme="c" data-icon="home">首页</a>
+					</li>
+					<li>
+						<a href="shoppingcart.html" data-theme="c" data-icon="check"  >购物车</a>
+					</li>
+					<li>
+						<a href="orderconfirm.html" data-theme="e" data-icon="arrow-r">提交订单</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+        <div data-role="content">
+            <ul data-role="listview" data-divider-theme="d" data-inset="true">
+                <li data-role="list-divider" role="heading">收货人信息</li>
+                <li>
+                    <a href="addresslist.html">
+                        <p>收货人：王宇鹏</p>
+                        <p>收货地址：上海市普陀区， 澳门路519弄华生大厦1号楼7楼</p>
+                        <p>邮编：200060</p>
+                        <p>电话：13564568304</p>
+                    </a>
+                </li>
+                <li data-role="list-divider" role="heading">支付方式</li>
+                <li>
+                    <a href="#paymentlist">
+                        <p>货到付款</p>
+                    </a>
+                </li>
+                <li data-role="list-divider" role="heading">配送方式</li>
+                <li>
+                    <a href="#deliverylist">
+                        <p>母婴之家快递 上海市区用户，单笔订单满50元免费运费。当日21点前的订单可在次日及次日以后的日期送到，21点以后的订单需第三天及以后的日期送到。</p>
+                        <p>送货日期：只工作日送货(双休日、假日不用送)</p>
+                        <p>付款方式：现金</p>
+                    </a>
+                </li>
+                <li data-role="list-divider" role="heading">发票信息</li>
+                <li data-theme="c">
+                    <a href="#invoice">
+                        <p>发票类型：食品发票</p>
+                        <p>发票抬头：公司 宜家中国</p>
+                    </a>
+                </li>
+                <li data-role="list-divider" role="heading">订单备注</li>
+                <li>
+                    <textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+                </li>
+            </ul>
+            <div class="">
+                <div data-role="fieldcontain">
+                    <label>商品总金额：</label>256元
+                </div>
+                <div data-role="fieldcontain">
+                    <label>+运费：</label>30元
+                </div>
+                <div data-role="fieldcontain">
+                    <label>-优惠金额：</label>10元
+                </div>
+                <div data-role="fieldcontain" class="ui-font-bold">
+                    <label>您需支付总金额：</label>
+                    <strong class="ui-font-red">276元</strong>
+                </div>
+            </div>
+            <a href="makeorder.html" data-role="button" data-theme="a">提交订单</a>
+        </div>
+  
+             
+		<div data-role="footer" data-theme="c" class="p10">
+			<div class="ui-grid-b" style="padding-bottom:5px;">
+				<div class="ui-block-a">
+					<a href="login.html" >登录</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="registration.html" >注册</a>
+				</div>
+				<div class="ui-block-c">
+					<a href="http://www.muyingzhijia.com" >电脑版</a>
+				</div>
+			</div>
+			<div>
+                <span data-role="button" data-icon="arrow-u" data-iconpos="left" id="gotop">回顶部</span>
+			</div>
+			<div>Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+		</div>
+		
+	</div>
+        
+	<!-- paymentlist -->
+	<div data-role="page" id="paymentlist" data-title="选择支付方式">
+		<div data-role="header" data-theme="a">
+			<div class="header">
+				<div class="logo">
+					<a href="index.html">
+						<img src="images/logo.png" />
+					</a>
+				</div>
+				<div class="nav">
+					<a href="category.html" class="menu"></a>
+					<a href="myaccount.html" class="user"></a>
+					<a href="shoppingcart.html" class="cart"></a>
+				</div>
+			</div>
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li>
+						<a href="index.html" data-theme="c" data-icon="home">首页</a>
+					</li>
+					<li>
+						<a href="shoppingcart.html"  data-theme="c" data-icon="check">购物车</a>
+					</li>
+					<li>
+						<a href="orderconfirm.html"  data-theme="e" data-icon="arrow-r" >提交订单</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+ 
+                    
+		<div data-role="content">
+            <div data-role="fieldcontain" >
+			<fieldset data-role="controlgroup">
+				<legend>请选择付款方式</legend>
+				<input type="radio" name="radio-pay-1" id="radio-choice-1" value="choice-1" checked="checked" />
+				<label for="radio-choice-1">在线支付（支持绝大数银行借记卡及部分银行信息卡）</label>
+				<input type="radio" name="radio-pay-1" id="radio-choice-2" value="choice-2" />
+				<label for="radio-choice-2">货到付款（送货上门后再付款，支持现金或POS机刷卡)</label>
+			</fieldset>
+             </div>
+			<a href="orderconfirm.html"   data-role="button" data-theme="a">确认保存</a>
+		</div>
+
+             
+		<div data-role="footer" data-theme="c" class="p10">
+			<div class="ui-grid-b" style="padding-bottom:5px;">
+				<div class="ui-block-a">
+					<a href="login.html" >登录</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="registration.html" >注册</a>
+				</div>
+				<div class="ui-block-c">
+					<a href="http://www.muyingzhijia.com" >电脑版</a>
+				</div>
+			</div>
+			<div>
+				<span data-role="button" data-icon="arrow-u" data-iconpos="left" id="gotop">回顶部</span>
+			</div>
+			<div>Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+		</div>
+           
+	</div>
+        
+	<!-- deliverylist -->
+	<div data-role="page" id="deliverylist" data-title="选择配送方式">
+        <div data-role="header" data-theme="a">
+            <div class="header">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png"/>
+                    </a>
+                </div>
+                <div class="nav">
+                    <a href="category.html" class="menu"></a>
+                    <a href="myaccount.html" class="user"></a>
+                    <a href="shoppingcart.html" class="cart"></a>
+                </div>
+            </div>
+            <div data-role="navbar" data-iconpos="left">
+                <ul>
+                    <li>
+                        <a href="index.html" data-theme="c" data-icon="home">首页</a>
+                    </li>
+                    <li>
+                        <a href="shoppingcart.html" data-theme="c" data-icon="check">购物车</a>
+                    </li>
+                    <li>
+                        <a href="orderconfirm.html" data-theme="e" data-icon="arrow-r">提交订单</a>
+                    </li>
+                </ul>
+            </div>
+		</div>
+                    
+		<div data-role="content">
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    <legend>选择配送方式</legend>
+                    <input type="radio" name="radio-type-1" id="radio-type-1" value="type-1" checked="checked"/>
+                    <label for="radio-type-1">母婴之家快递（覆盖范围上海市区用户）</label>
+                    <input type="radio" name="radio-type-1" id="radio-type-2" value="type-2"/>
+                    <label for="radio-type-2">中通快递送货（覆盖范围江苏、浙江省用户）</label>
+                    <input type="radio" name="radio-type-1" id="radio-type-3" value="type-3"/>
+                    <label for="radio-type-3">EMS邮政特快（覆盖范围全国绝大部分乡镇村）</label>
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="">
+                    <legend>选择送货时间</legend>
+                    <input type="radio" name="radio-date-1" id="radio-date-1" value="date-1" checked="checked"/>
+                    <label for="radio-date-1">只工作日送货（双休日、假日不用送）</label>
+                    <input type="radio" name="radio-date-1" id="radio-date-2" value="date-2"/>
+                    <label for="radio-date-2">工作日、双休日与假日均可送货</label>
+                    <input type="radio" name="radio-date-1" id="radio-date-3" value="date-3"/>
+                    <label for="radio-date-3">只双休日、假日送货（工作日不用送）</label>
+                </fieldset>
+            </div>
+
+            <div data-role="fieldcontain">
+                <legend>付款方式</legend>
+                <fieldset data-role="controlgroup">
+                    <legend></legend>
+                    <input type="radio" name="radio-pay-1" id="radio-choice-1" value="choice-1" checked="checked"/>
+                    <label for="radio-choice-1">现金</label>
+                    <input type="radio" name="radio-pay-1" id="radio-choice-2" value="choice-2"/>
+                    <label for="radio-choice-2">POS机刷卡（仅支持带有银联标识的银行卡）</label>
+                </fieldset>
+            </div>
+        <a href="orderconfirm.html" data-role="button" data-theme="a">确认保存</a>
+		</div>
+
+		<div data-role="footer" data-theme="c" class="p10">
+			<div class="ui-grid-b" style="padding-bottom:5px;">
+				<div class="ui-block-a">
+					<a href="login.html" >登录</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="registration.html" >注册</a>
+				</div>
+				<div class="ui-block-c">
+					<a href="http://www.muyingzhijia.com" >电脑版</a>
+				</div>
+			</div>
+			<div>
+				<span data-role="button" data-icon="arrow-u" data-iconpos="left" id="gotop">回顶部</span>
+			</div>
+			<div>Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+		</div>
+           
+	</div>
+        
+	<!-- invoice -->
+	<div data-role="page" id="invoice" data-title="填写发票信息">
+		<div data-role="header" data-theme="a">
+			<div class="header">
+				<div class="logo">
+					<a href="index.html">
+						<img src="images/logo.png" />
+					</a>
+				</div>
+				<div class="nav">
+					<a href="category.html" class="menu"></a>
+					<a href="myaccount.html" class="user"></a>
+					<a href="shoppingcart.html" class="cart"></a>
+				</div>
+			</div>
+			<div data-role="navbar" data-iconpos="left">
+				<ul>
+					<li>
+						<a href="index.html" data-theme="c" data-icon="home">首页</a>
+					</li>
+					<li>
+						<a href="shoppingcart.html"  data-theme="c" data-icon="check">购物车</a>
+					</li>
+					<li>
+						<a href="orderconfirm.html"  data-theme="e" data-icon="arrow-r" >提交订单</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+   
+                    
+		<div data-role="content">
+            <div data-role="fieldcontain" >
+					<fieldset data-role="controlgroup">
+						<legend>是否需要发票发票</legend>
+						<input type="radio" name="radio-invoice-1" id="radio-need-1" value="need-1" checked="checked" />
+						<label for="radio-need-1">否</label>
+						<input type="radio" name="radio-invoice-1" id="radio-need-2" value="need-2" />
+						<label for="radio-need-2">个人</label>
+						<input type="radio" name="radio-invoice-1" id="radio-need-3" value="need-3" />
+						<label for="radio-need-3">公司</label>
+						<input type="text" id="company" name="company" class="required" placeholder="请填写发票抬头" value="" />
+					</fieldset>
+				</div>
+            <div data-role="fieldcontain" >
+					<fieldset data-role="controlgroup">
+						<legend>发票类型</legend>
+						<input type="radio" name="radio-type-5" id="radio-type-1" value="type-1" checked="checked" />
+						<label for="radio-type-1">食品发票</label>
+						<input type="radio" name="radio-type-5" id="radio-type-2" value="type-2" />
+						<label for="radio-type-2">办公用品</label>
+					</fieldset>
+			</div>
+			<a href="orderconfirm.html"   data-role="button" data-theme="a">确认保存</a>
+		</div>
+
+             
+		<div data-role="footer" data-theme="c" class="p10">
+			<div class="ui-grid-b" style="padding-bottom5px;">
+				<div class="ui-block-a">
+					<a href="login.html" >登录</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="registration.html" >注册</a>
+				</div>
+				<div class="ui-block-c">
+					<a href="http://www.muyingzhijia.com" >电脑版</a>
+				</div>
+			</div>
+			<div>
+				<span data-role="button" data-icon="arrow-u" data-iconpos="left" id="gotop">回顶部</span>
+			</div>
+			<div>Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+		</div>
+           
+	</div> 
+	<script src="jquerymobile/jquery.min.js"></script>
+	<script src="jquerymobile/jquery.mobile-1.1.0.min.js"></script>
+    <script src="js/bk/myapp.js"></script>
+    </body>
+</html>

@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FFBA5C31-DB30-48CD-B7E1-B759497C8354}</ProjectGuid>
+    <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MobileSite</RootNamespace>
+    <AssemblyName>MobileSite</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\RequestProxy.ashx.cs">
+      <DependentUpon>RequestProxy.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Api\WebApi.ashx.cs">
+      <DependentUpon>WebApi.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\addresslist.aspx.cs">
+      <DependentUpon>addresslist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\addresslist.aspx.designer.cs">
+      <DependentUpon>addresslist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\address_add.aspx.cs">
+      <DependentUpon>address_add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\address_add.aspx.designer.cs">
+      <DependentUpon>address_add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\address_edit.aspx.cs">
+      <DependentUpon>address_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\address_edit.aspx.designer.cs">
+      <DependentUpon>address_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\deliverylist.aspx.cs">
+      <DependentUpon>deliverylist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\deliverylist.aspx.designer.cs">
+      <DependentUpon>deliverylist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\makeorder.aspx.cs">
+      <DependentUpon>makeorder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\makeorder.aspx.designer.cs">
+      <DependentUpon>makeorder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\onlinepayment.aspx.cs">
+      <DependentUpon>onlinepayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\onlinepayment.aspx.designer.cs">
+      <DependentUpon>onlinepayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\orderdetail.aspx.cs">
+      <DependentUpon>orderdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\orderdetail.aspx.designer.cs">
+      <DependentUpon>orderdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\orderlist.aspx.cs">
+      <DependentUpon>orderlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\orderlist.aspx.designer.cs">
+      <DependentUpon>orderlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\twomonths.aspx.cs">
+      <DependentUpon>twomonths.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\twomonths.aspx.designer.cs">
+      <DependentUpon>twomonths.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\invoice.aspx.cs">
+      <DependentUpon>invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\invoice.aspx.designer.cs">
+      <DependentUpon>invoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\orderconfirm.aspx.cs">
+      <DependentUpon>orderconfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\orderconfirm.aspx.designer.cs">
+      <DependentUpon>orderconfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\paymentlist.aspx.cs">
+      <DependentUpon>paymentlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\paymentlist.aspx.designer.cs">
+      <DependentUpon>paymentlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\category.aspx.cs">
+      <DependentUpon>category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\category.aspx.designer.cs">
+      <DependentUpon>category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\category_sub.aspx.cs">
+      <DependentUpon>category_sub.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\category_sub.aspx.designer.cs">
+      <DependentUpon>category_sub.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\detail.aspx.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\detail.aspx.designer.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forgetpassword.aspx.cs">
+      <DependentUpon>forgetpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgetpassword.aspx.designer.cs">
+      <DependentUpon>forgetpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getpassword-success.aspx.cs">
+      <DependentUpon>getpassword-success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="getpassword-success.aspx.designer.cs">
+      <DependentUpon>getpassword-success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\MyHome.aspx.cs">
+      <DependentUpon>MyHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\MyHome.aspx.designer.cs">
+      <DependentUpon>MyHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mobile.Master.cs">
+      <DependentUpon>Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mobile.Master.designer.cs">
+      <DependentUpon>Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Member\myaccount.aspx.cs">
+      <DependentUpon>myaccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\myaccount.aspx.designer.cs">
+      <DependentUpon>myaccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\noticedetail.aspx.cs">
+      <DependentUpon>noticedetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\noticedetail.aspx.designer.cs">
+      <DependentUpon>noticedetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\noticelist.aspx.cs">
+      <DependentUpon>noticelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\noticelist.aspx.designer.cs">
+      <DependentUpon>noticelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\productdetailinfo.aspx.cs">
+      <DependentUpon>productdetailinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\productdetailinfo.aspx.designer.cs">
+      <DependentUpon>productdetailinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\productlist.aspx.cs">
+      <DependentUpon>productlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\productlist.aspx.designer.cs">
+      <DependentUpon>productlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="registration.aspx.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registration.aspx.designer.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut\shoppingcart.aspx.cs">
+      <DependentUpon>shoppingcart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut\shoppingcart.aspx.designer.cs">
+      <DependentUpon>shoppingcart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userpolicy.aspx.cs">
+      <DependentUpon>userpolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userpolicy.aspx.designer.cs">
+      <DependentUpon>userpolicy.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Api\RequestProxy.ashx" />
+    <Content Include="Api\WebApi.ashx" />
+    <Content Include="CheckOut\addresslist.aspx" />
+    <Content Include="CheckOut\address_add.aspx" />
+    <Content Include="CheckOut\address_edit.aspx" />
+    <Content Include="CheckOut\deliverylist.aspx" />
+    <Content Include="CheckOut\makeorder.aspx" />
+    <Content Include="CheckOut\onlinepayment.aspx" />
+    <Content Include="CheckOut\orderdetail.aspx" />
+    <Content Include="CheckOut\orderlist.aspx" />
+    <Content Include="CheckOut\twomonths.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Html\address-add.html" />
+    <Content Include="Html\address-edit.html" />
+    <Content Include="Html\addresslist.html" />
+    <Content Include="Html\category.html" />
+    <Content Include="Html\category_sub.html" />
+    <Content Include="Html\makeorder.html" />
+    <Content Include="Html\noticedetail.html" />
+    <Content Include="Html\noticelist.html" />
+    <Content Include="Html\onlinepayment.html" />
+    <Content Include="Html\orderconfirm.html" />
+    <Content Include="CheckOut\invoice.aspx" />
+    <Content Include="CheckOut\orderconfirm.aspx" />
+    <Content Include="CheckOut\paymentlist.aspx" />
+    <Content Include="Html\orderdetail.html" />
+    <Content Include="Html\orderlist.html" />
+    <Content Include="images\camera-loader.gif" />
+    <Content Include="images\camera_skins.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\slides\Accessories0705_1000x400.jpg" />
+    <Content Include="images\slides\Diapers0710_1000x400.jpg" />
+    <Content Include="images\slides\Milk0710_1.jpg" />
+    <Content Include="images\slides\Pampers0711_1000x400.jpg" />
+    <Content Include="images\slides\wanju0705_1000x4000.jpg" />
+    <Content Include="jquerymobile\images\icon-custom.png" />
+    <Content Include="js\bk\camera.js" />
+    <Content Include="js\bk\camera.min.js" />
+    <Content Include="js\bk\jquery.easing.1.3.js" />
+    <Content Include="js\bk\jquery.mobile.customized.min.js" />
+    <Content Include="js\mobile.checkout.js" />
+    <Content Include="Product\category.aspx" />
+    <Content Include="Product\category_sub.aspx" />
+    <Content Include="Product\noticedetail.aspx" />
+    <Content Include="Product\noticelist.aspx" />
+    <Content Include="style\camera.css" />
+    <Content Include="Useragent.html" />
+    <Content Include="Html\index.html" />
+    <Content Include="images\picLoading.gif" />
+    <Content Include="index.aspx" />
+    <Content Include="js\bk\useragents.js" />
+    <Content Include="Product\detail.aspx" />
+    <Content Include="forgetpassword.aspx" />
+    <Content Include="getpassword-success.aspx" />
+    <Content Include="Html\getpassword-success.html" />
+    <Content Include="images\16-sinaweibo.png" />
+    <Content Include="images\alipay.jpg" />
+    <Content Include="images\alipay.png" />
+    <Content Include="images\bank01.jpg" />
+    <Content Include="images\errorImg_big.jpg" />
+    <Content Include="images\errorImg_small.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\nav.png" />
+    <Content Include="images\qq.png" />
+    <Content Include="jquerymobile\images\ajax-loader.gif" />
+    <Content Include="jquerymobile\images\icons-18-black.png" />
+    <Content Include="jquerymobile\images\icons-18-white.png" />
+    <Content Include="jquerymobile\images\icons-36-black.png" />
+    <Content Include="jquerymobile\images\icons-36-white.png" />
+    <Content Include="jquerymobile\jquery.min.js" />
+    <Content Include="jquerymobile\jquery.mobile-1.1.0.min.css" />
+    <Content Include="jquerymobile\jquery.mobile-1.1.0.min.js" />
+    <Content Include="js\bk\ember-0.9.8.1.min.js" />
+    <Content Include="js\bk\handlebars-1.0.0.beta.6.js" />
+    <Content Include="js\bk\my.validate.js" />
+    <Content Include="js\date.js" />
+    <Content Include="js\jquery-1.7.2.min.js" />
+    <Content Include="js\jquery-jtemplates.js" />
+    <Content Include="js\bk\jquery-jtemplates_uncompressed.js" />
+    <Content Include="js\jquery.cookie.js" />
+    <Content Include="js\jquery.mobile-1.1.0.min.js" />
+    <Content Include="js\bk\jquery.mobile.pagination.css" />
+    <Content Include="js\bk\jquery.mobile.pagination.js" />
+    <Content Include="js\bk\jquery.validate.min.js" />
+    <Content Include="js\bk\jquery.mobile.swipegallery.js" />
+    <Content Include="js\json2.js" />
+    <Content Include="js\live.js" />
+    <Content Include="js\md5.js" />
+    <Content Include="js\bk\_md5.js" />
+    <Content Include="js\mobile.common.js" />
+    <Content Include="js\mobile.goods.js" />
+    <Content Include="js\mobile.main.js" />
+    <Content Include="js\mobile.member.js" />
+    <Content Include="js\bk\myapp.js" />
+    <Content Include="js\require.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Html\login.html" />
+    <Content Include="Member\MyHome.aspx" />
+    <Content Include="Member\myaccount.aspx" />
+    <Content Include="Html\myaccount.html" />
+    <Content Include="Product\productdetailinfo.aspx" />
+    <Content Include="Html\productdetailinfo.html" />
+    <Content Include="Product\productlist.aspx" />
+    <Content Include="Html\productlist.html" />
+    <Content Include="registration.aspx" />
+    <Content Include="Html\registration.html" />
+    <Content Include="CheckOut\shoppingcart.aspx" />
+    <Content Include="Html\shoppingcart.html" />
+    <Content Include="style\my.css" />
+    <Content Include="userpolicy.aspx" />
+    <Content Include="_Default.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configs\SiteUrls.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Configs\appSettings.config" />
+    <None Include="images\alipay.psd" />
+    <Content Include="js\HttpCombiner.ashx" />
+    <Content Include="Mobile.Master" />
+    <None Include="README.md" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ExtLibary\HttpManager\HttpManager.csproj">
+      <Project>{F8D0E5C4-FAAC-4B6D-BCBB-C81CA9424E6E}</Project>
+      <Name>HttpManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExtLibary\MobileSite.BaseLib\MobileSite.BaseLib.csproj">
+      <Project>{4ACD0453-6F92-4813-8B91-3A63251F8ACA}</Project>
+      <Name>MobileSite.BaseLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5883</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://m.muyingzhijia.me</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

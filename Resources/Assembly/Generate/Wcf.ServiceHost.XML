@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wcf.ServiceHost</name>
+    </assembly>
+    <members>
+        <member name="T:Wcf.ServiceHost.Global">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title></title>
+        <link rel="stylesheet" href="js/lib/jquerymobile/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="style/my.css" />            
+    </head>
+    <body>
+        <!-- shoppingcart -->
+        <div data-role="page" id="shoppingcart" data-title="购物车">
+            <div data-role="header" data-theme="a">
+                <div class="header">
+                    <div class="logo"><a href="index.html"><img src="images/logo.png"/></a></div>
+                    <div class="nav">
+                        <a href="category.html" class="menu"></a>
+                        <a href="myaccount.html" class="user"></a>
+                        <a href="shoppingcart.html" class="cart"></a><span class="cart-count ui-btn-up-c ui-btn-corner-all">2</span>
+                    </div>
+                </div>
+
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="index.html" data-theme="c" data-icon="home">首页</a>
+                        </li>
+                        <li>
+                            <a href="#" data-theme="e" data-icon="check">购物车</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="content">
+                <div class="content-primary">
+                    <div>您共有<strong>2</strong>件商品</div>
+                    <ul data-role="listview" data-inset="true">
+                        <li><img src="http://img.muyingzhijia.com/product/normal/34690_01_01.jpg" alt="商品名称商品名称商品名称11" />
+                            <h3><a href="productdetailinfo.html">商品名称商品名称商品名称11</a></h3>
+                            <div data-role="fieldcontain" data-theme="c">
+                                <label>价格:</label> <strong class="ui-font-red">￥212.00</strong></div>
+                            <div data-role="fieldcontain" data-theme="c"><label>数量： </label>
+                                <input type="range" name="slider"   id="slider" value="1"  min="1" max="10" />
+                            </div>
+                            <div data-role="controlgroup" data-type="horizontal">
+                                <a href="#" data-role="button"  data-icon="delete"  data-iconpos="left">删除</a></div>
+                            <p class="error-text">商品库存不足</p>
+                        </li>
+                        <li><img src="http://img.muyingzhijia.com/product/normal/34690_01_01.jpg"  alt="商品名称商品名称商品名称11" />
+                            <h3><a href="productdetailinfo.html">商品名称商品名称商品名称11</a></h3>
+                            <div data-role="fieldcontain" data-theme="c">
+                                <label>价格：</label> <strong class="ui-font-red">￥212.00</strong></div>
+                            <div data-role="fieldcontain" data-theme="c"><label>数量：</label>
+                                <input type="range" name="slider" id="slider" value="1" min="1" max="10" />
+                            </div>
+                            <div data-role="controlgroup" data-type="horizontal">
+                                <a href="#"  data-role="button"  data-icon="delete" data-iconpos="left">删除</a></div>
+                            <p class="error-text">商品库存不足</p>
+                        </li>
+                    </ul>
+                    <div class="ui-font-bold">实际总金额：<strong class="ui-font-red">25145元</strong></div>
+                    <a href="productlist.html"  data-role="button" data-icon="arrow-l"
+                       data-iconpos="left" data-theme="c" data-inline="true" data-mini="true">继续购物</a>
+                    <a href="orderconfirm.html"  data-role="button" data-icon="arrow-r"
+                       data-iconpos="right" data-theme="a" data-inline="true" id="balance">去结算</a>
+                    <ul class="error">
+                        <li class="error-text">系统提示</li>
+                        <li class="error-text">系统提示</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div data-role="footer" data-theme="c" class="p10">
+                <div class="ui-grid-b" style="padding-bottom:5px;">
+                    <div class="ui-block-a">
+                        <a href="login.html" >
+                            登录
+                        </a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a href="registration.html" >
+                            注册
+                        </a>
+                    </div>
+                    <div class="ui-block-c">
+                        <a href="" >
+                            电脑版
+                        </a>
+                    </div>
+                </div>
+                <div><a href="#productlist" data-role="button" data-icon="arrow-u" data-iconpos="left">回顶部</a></div>
+                <div>Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+            </div>
+        </div>
+        <script src="js/lib/jquery/jquery-1.7.1.min.js"></script>
+        <script src="js/lib/jquerymobile/jquery.mobile-1.1.0.min.js"></script>        
+		<script src="js/myapp.js"></script>
+    </body>
+</html>

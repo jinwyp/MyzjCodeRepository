@@ -1,0 +1,5 @@
+
+call redis-server
+
+
+pause;

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2E5AA90-3908-49C1-8916-4DCB9A5029B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Resources\Assembly\Generate\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Resources\Assembly\Generate\Core.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Enyim.Caching">
+      <HintPath>..\..\Resources\Assembly\Common\Memcached\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\Resources\Assembly\Common\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MemcachedProviders">
+      <HintPath>..\..\Resources\Assembly\Common\Memcached\MemcachedProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\Resources\Assembly\Common\MongoDb\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\Resources\Assembly\Common\MongoDb\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Resources\Assembly\Common\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\..\Resources\Assembly\Common\Redis\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\..\Resources\Assembly\Common\Redis\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\..\Resources\Assembly\Common\Redis\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\Resources\Assembly\Common\Redis\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\Resources\Assembly\Common\SpringDotNet\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\CacheBase.cs" />
+    <Compile Include="Caching\MCacheManager.cs" />
+    <Compile Include="Caching\ICache.cs" />
+    <Compile Include="Caching\Memcached\MMemcache.cs" />
+    <Compile Include="DataBase\MMongoDbManager.cs" />
+    <Compile Include="Caching\Redis\MRedisCache.cs" />
+    <Compile Include="ConfigUtility\MConfigurationSectionHandler.cs" />
+    <Compile Include="ConfigUtility\MConfigManager.cs" />
+    <Compile Include="DataTypeUtility\MCvHelper.cs" />
+    <Compile Include="DataTypeUtility\MDataTypeUtiity.cs" />
+    <Compile Include="DataTypeUtility\MEfUtility.cs" />
+    <Compile Include="DataType\MResult.cs" />
+    <Compile Include="EncryptUtility\EncryptUtility.cs" />
+    <Compile Include="Enums\EnumUtility.cs" />
+    <Compile Include="Enums\MCaching.cs" />
+    <Compile Include="Enums\MConfigs.cs" />
+    <Compile Include="Enums\MLogGroup.cs" />
+    <Compile Include="Enums\MRandomType.cs" />
+    <Compile Include="Enums\MResultStatus.cs" />
+    <Compile Include="ExtMethod\ByteExt.cs" />
+    <Compile Include="ExtMethod\DataRowExt.cs" />
+    <Compile Include="ExtMethod\DictionaryExt.cs" />
+    <Compile Include="ExtMethod\DistinctExt.cs" />
+    <Compile Include="ExtMethod\ExtBase.cs" />
+    <Compile Include="ExtMethod\IEnumerableExt.cs" />
+    <Compile Include="ExtMethod\MainExt.cs" />
+    <Compile Include="ExtMethod\ObjectExt.cs" />
+    <Compile Include="ExtMethod\QueryableExt.cs" />
+    <Compile Include="ExtMethod\RandomExt.cs" />
+    <Compile Include="ExtMethod\RequestExt.cs" />
+    <Compile Include="ExtMethod\StringExt.cs" />
+    <Compile Include="ExtMethod\TypeExt.cs" />
+    <Compile Include="Ioc\MIocUtility.cs" />
+    <Compile Include="Mail\MailConfig.cs" />
+    <Compile Include="NetUtility\MHttpHelper.cs" />
+    <Compile Include="FactoryUtility\MFactoryManager.cs" />
+    <Compile Include="LogUtility\MLog4Net.cs" />
+    <Compile Include="LogUtility\MLogManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenUtility\MHttpVerify.cs" />
+    <Compile Include="TokenUtility\ToKenManager.cs" />
+    <Compile Include="WcfHostUtility\MWcfHostManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

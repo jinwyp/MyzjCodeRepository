@@ -1,0 +1,1629 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MobileWcf.DataContext.HolycaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="MobileWcfDataContextHolycaModelStoreContainer">
+          <EntitySet Name="Base_Brand" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Brand" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Base_Deliver" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Deliver" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Base_Deliver_Area" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Deliver_Area" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Base_Deliver_Pay" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Deliver_Pay" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Base_Pay_Type" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Pay_Type" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Base_Region" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Region" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Pdt_Base_Info" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Base_Info" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Pdt_Other_Info" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Other_Info" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Pdt_Pic" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Pic" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Pdt_Stock" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Stock" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Sale_ShoppingCart" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_ShoppingCart" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="User_Consignee_Address" EntityType="MobileWcf.DataContext.HolycaModel.Store.User_Consignee_Address" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Web_Pdt_Type" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Pdt_Type" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Web_Type_FlagBrand" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Type_FlagBrand" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Web_Type_HotProduct" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Type_HotProduct" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Vi_User_Shortage" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_User_Shortage" store:Type="Views" store:Schema="dbo" store:Name="Vi_User_Shortage" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [Vi_User_Shortage].[intShortageID] AS [intShortageID], 
+      [Vi_User_Shortage].[intProductID] AS [intProductID], 
+      [Vi_User_Shortage].[intCateID] AS [intCateID], 
+      [Vi_User_Shortage].[vchCateName] AS [vchCateName], 
+      [Vi_User_Shortage].[vchMainPicURL] AS [vchMainPicURL], 
+      [Vi_User_Shortage].[vchProductName] AS [vchProductName], 
+      [Vi_User_Shortage].[intInformType] AS [intInformType], 
+      [Vi_User_Shortage].[vchInformCode] AS [vchInformCode], 
+      [Vi_User_Shortage].[dtAddTime] AS [dtAddTime], 
+      [Vi_User_Shortage].[intIndate] AS [intIndate], 
+      [Vi_User_Shortage].[dtEndTime] AS [dtEndTime], 
+      [Vi_User_Shortage].[intState] AS [intState], 
+      [Vi_User_Shortage].[dtInformTime] AS [dtInformTime], 
+      [Vi_User_Shortage].[intStockQty] AS [intStockQty], 
+      [Vi_User_Shortage].[numHerdPrice] AS [numHerdPrice], 
+      [Vi_User_Shortage].[intIsProm] AS [intIsProm], 
+      [Vi_User_Shortage].[intUserID] AS [intUserID], 
+      [Vi_User_Shortage].[intHerdID] AS [intHerdID], 
+      [Vi_User_Shortage].[intAreaID] AS [intAreaID], 
+      [Vi_User_Shortage].[intChannelID] AS [intChannelID]
+      FROM [dbo].[Vi_User_Shortage] AS [Vi_User_Shortage]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vi_Web_Pdt_AllList" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_Web_Pdt_AllList" store:Type="Views" store:Schema="dbo" store:Name="Vi_Web_Pdt_AllList" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [Vi_Web_Pdt_AllList].[intIsGroup] AS [intIsGroup], 
+      [Vi_Web_Pdt_AllList].[vchProductName] AS [vchProductName], 
+      [Vi_Web_Pdt_AllList].[vchMainPicURL] AS [vchMainPicURL], 
+      [Vi_Web_Pdt_AllList].[intProductID] AS [intProductID], 
+      [Vi_Web_Pdt_AllList].[numMarketPrice] AS [numMarketPrice], 
+      [Vi_Web_Pdt_AllList].[numVipPrice] AS [numVipPrice], 
+      [Vi_Web_Pdt_AllList].[numCost] AS [numCost], 
+      [Vi_Web_Pdt_AllList].[numCleanCost] AS [numCleanCost], 
+      [Vi_Web_Pdt_AllList].[intIsNew] AS [intIsNew], 
+      [Vi_Web_Pdt_AllList].[intIsProm] AS [intIsProm], 
+      [Vi_Web_Pdt_AllList].[intBrandID] AS [intBrandID], 
+      [Vi_Web_Pdt_AllList].[vchProductPrinted] AS [vchProductPrinted], 
+      [Vi_Web_Pdt_AllList].[vchBrandName] AS [vchBrandName], 
+      [Vi_Web_Pdt_AllList].[intWebType] AS [intWebType], 
+      [Vi_Web_Pdt_AllList].[vchCateName] AS [vchCateName], 
+      [Vi_Web_Pdt_AllList].[intWebChildType] AS [intWebChildType], 
+      [Vi_Web_Pdt_AllList].[intWebThirdType] AS [intWebThirdType], 
+      [Vi_Web_Pdt_AllList].[vchCateChildName] AS [vchCateChildName], 
+      [Vi_Web_Pdt_AllList].[intFirstCategory] AS [intFirstCategory], 
+      [Vi_Web_Pdt_AllList].[intSecondCategory] AS [intSecondCategory], 
+      [Vi_Web_Pdt_AllList].[intThreeCategory] AS [intThreeCategory], 
+      [Vi_Web_Pdt_AllList].[intStartAge] AS [intStartAge], 
+      [Vi_Web_Pdt_AllList].[intEndAge] AS [intEndAge], 
+      [Vi_Web_Pdt_AllList].[intChannelID] AS [intChannelID], 
+      [Vi_Web_Pdt_AllList].[intHerdID] AS [intHerdID], 
+      [Vi_Web_Pdt_AllList].[intScore] AS [intScore], 
+      [Vi_Web_Pdt_AllList].[numHerdPrice] AS [numHerdPrice], 
+      [Vi_Web_Pdt_AllList].[intAreaID] AS [intAreaID], 
+      [Vi_Web_Pdt_AllList].[intStockQty] AS [intStockQty], 
+      [Vi_Web_Pdt_AllList].[intGroupID] AS [intGroupID], 
+      [Vi_Web_Pdt_AllList].[intCommentVolume] AS [intCommentVolume], 
+      [Vi_Web_Pdt_AllList].[intSalesVolume] AS [intSalesVolume], 
+      [Vi_Web_Pdt_AllList].[vchShortName] AS [vchShortName]
+      FROM [dbo].[Vi_Web_Pdt_AllList] AS [Vi_Web_Pdt_AllList]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vi_Web_Pdt_Detail" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_Web_Pdt_Detail" store:Type="Views" store:Schema="dbo" store:Name="Vi_Web_Pdt_Detail" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [Vi_Web_Pdt_Detail].[vchProductName] AS [vchProductName], 
+      [Vi_Web_Pdt_Detail].[vchMainPicURL] AS [vchMainPicURL], 
+      [Vi_Web_Pdt_Detail].[intProductID] AS [intProductID], 
+      [Vi_Web_Pdt_Detail].[intGroupID] AS [intGroupID], 
+      [Vi_Web_Pdt_Detail].[intIsNew] AS [intIsNew], 
+      [Vi_Web_Pdt_Detail].[intIsProm] AS [intIsProm], 
+      [Vi_Web_Pdt_Detail].[intBrandID] AS [intBrandID], 
+      [Vi_Web_Pdt_Detail].[intWebType] AS [intWebType], 
+      [Vi_Web_Pdt_Detail].[intWebChildType] AS [intWebChildType], 
+      [Vi_Web_Pdt_Detail].[intWebThirdType] AS [intWebThirdType], 
+      [Vi_Web_Pdt_Detail].[intFirstCategory] AS [intFirstCategory], 
+      [Vi_Web_Pdt_Detail].[intSecondCategory] AS [intSecondCategory], 
+      [Vi_Web_Pdt_Detail].[intThreeCategory] AS [intThreeCategory], 
+      [Vi_Web_Pdt_Detail].[intStartAge] AS [intStartAge], 
+      [Vi_Web_Pdt_Detail].[intEndAge] AS [intEndAge], 
+      [Vi_Web_Pdt_Detail].[vchProColr] AS [vchProColr], 
+      [Vi_Web_Pdt_Detail].[vchSpec] AS [vchSpec], 
+      [Vi_Web_Pdt_Detail].[vchProductPrinted] AS [vchProductPrinted], 
+      [Vi_Web_Pdt_Detail].[intAttribute] AS [intAttribute], 
+      [Vi_Web_Pdt_Detail].[numMarketPrice] AS [numMarketPrice], 
+      [Vi_Web_Pdt_Detail].[numVipPrice] AS [numVipPrice], 
+      [Vi_Web_Pdt_Detail].[numCost] AS [numCost], 
+      [Vi_Web_Pdt_Detail].[numCleanCost] AS [numCleanCost], 
+      [Vi_Web_Pdt_Detail].[intSaleState] AS [intSaleState], 
+      [Vi_Web_Pdt_Detail].[vchBrandName] AS [vchBrandName], 
+      [Vi_Web_Pdt_Detail].[vchCateName] AS [vchCateName], 
+      [Vi_Web_Pdt_Detail].[vchCateChildName] AS [vchCateChildName], 
+      [Vi_Web_Pdt_Detail].[intScore] AS [intScore], 
+      [Vi_Web_Pdt_Detail].[numHerdPrice] AS [numHerdPrice], 
+      [Vi_Web_Pdt_Detail].[intChannelID] AS [intChannelID], 
+      [Vi_Web_Pdt_Detail].[intHerdID] AS [intHerdID], 
+      [Vi_Web_Pdt_Detail].[intWeight] AS [intWeight], 
+      [Vi_Web_Pdt_Detail].[txtWebShowInfo] AS [txtWebShowInfo], 
+      [Vi_Web_Pdt_Detail].[intAreaID] AS [intAreaID], 
+      [Vi_Web_Pdt_Detail].[intStockQty] AS [intStockQty], 
+      [Vi_Web_Pdt_Detail].[vchShortName] AS [vchShortName], 
+      [Vi_Web_Pdt_Detail].[vchproductcode] AS [vchproductcode], 
+      [Vi_Web_Pdt_Detail].[PromotionMemo] AS [PromotionMemo], 
+      [Vi_Web_Pdt_Detail].[intCommentVolume] AS [intCommentVolume], 
+      [Vi_Web_Pdt_Detail].[intSalesVolume] AS [intSalesVolume]
+      FROM [dbo].[Vi_Web_Pdt_Detail] AS [Vi_Web_Pdt_Detail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vi_Web_Pdt_List" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_Web_Pdt_List" store:Type="Views" store:Schema="dbo" store:Name="Vi_Web_Pdt_List" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+      [Vi_Web_Pdt_List].[vchProductName] AS [vchProductName], 
+      [Vi_Web_Pdt_List].[vchMainPicURL] AS [vchMainPicURL], 
+      [Vi_Web_Pdt_List].[intProductID] AS [intProductID], 
+      [Vi_Web_Pdt_List].[numMarketPrice] AS [numMarketPrice], 
+      [Vi_Web_Pdt_List].[numVipPrice] AS [numVipPrice], 
+      [Vi_Web_Pdt_List].[numCost] AS [numCost], 
+      [Vi_Web_Pdt_List].[numCleanCost] AS [numCleanCost], 
+      [Vi_Web_Pdt_List].[intIsNew] AS [intIsNew], 
+      [Vi_Web_Pdt_List].[intIsProm] AS [intIsProm], 
+      [Vi_Web_Pdt_List].[intBrandID] AS [intBrandID], 
+      [Vi_Web_Pdt_List].[vchProductPrinted] AS [vchProductPrinted], 
+      [Vi_Web_Pdt_List].[vchBrandName] AS [vchBrandName], 
+      [Vi_Web_Pdt_List].[intWebType] AS [intWebType], 
+      [Vi_Web_Pdt_List].[vchCateName] AS [vchCateName], 
+      [Vi_Web_Pdt_List].[intWebChildType] AS [intWebChildType], 
+      [Vi_Web_Pdt_List].[intWebThirdType] AS [intWebThirdType], 
+      [Vi_Web_Pdt_List].[vchCateChildName] AS [vchCateChildName], 
+      [Vi_Web_Pdt_List].[intFirstCategory] AS [intFirstCategory], 
+      [Vi_Web_Pdt_List].[intSecondCategory] AS [intSecondCategory], 
+      [Vi_Web_Pdt_List].[intThreeCategory] AS [intThreeCategory], 
+      [Vi_Web_Pdt_List].[intStartAge] AS [intStartAge], 
+      [Vi_Web_Pdt_List].[intEndAge] AS [intEndAge], 
+      [Vi_Web_Pdt_List].[intChannelID] AS [intChannelID], 
+      [Vi_Web_Pdt_List].[intHerdID] AS [intHerdID], 
+      [Vi_Web_Pdt_List].[intScore] AS [intScore], 
+      [Vi_Web_Pdt_List].[numHerdPrice] AS [numHerdPrice], 
+      [Vi_Web_Pdt_List].[intAreaID] AS [intAreaID], 
+      [Vi_Web_Pdt_List].[intStockQty] AS [intStockQty], 
+      [Vi_Web_Pdt_List].[intGroupID] AS [intGroupID], 
+      [Vi_Web_Pdt_List].[intCommentVolume] AS [intCommentVolume], 
+      [Vi_Web_Pdt_List].[intSalesVolume] AS [intSalesVolume], 
+      [Vi_Web_Pdt_List].[vchShortName] AS [vchShortName]
+      FROM [dbo].[Vi_Web_Pdt_List] AS [Vi_Web_Pdt_List]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="Base_Brand">
+          <Key>
+            <PropertyRef Name="intBrandID" />
+          </Key>
+          <Property Name="intBrandID" Type="int" Nullable="false" />
+          <Property Name="vchBrandName" Type="nvarchar" MaxLength="25" />
+          <Property Name="intSort" Type="int" />
+          <Property Name="intIsEnable" Type="tinyint" />
+          <Property Name="intIsVisibleIndex" Type="tinyint" Nullable="false" />
+          <Property Name="vchLandingPage" Type="varchar" MaxLength="128" />
+          <Property Name="vchDesc" Type="nvarchar" MaxLength="2048" />
+        </EntityType>
+        <EntityType Name="Base_Deliver">
+          <Key>
+            <PropertyRef Name="intDeliverID" />
+          </Key>
+          <Property Name="intDeliverID" Type="int" Nullable="false" />
+          <Property Name="vchDeliverName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchDeliverDesc" Type="nvarchar" />
+          <Property Name="intSort" Type="int" />
+          <Property Name="intIsCarriage" Type="tinyint" />
+          <Property Name="intIsEnable" Type="tinyint" />
+          <Property Name="intAddUserID" Type="int" Nullable="false" />
+          <Property Name="dtAddDate" Type="datetime" Nullable="false" />
+          <Property Name="intModUserID" Type="int" />
+          <Property Name="dtModDate" Type="datetime" />
+          <Property Name="tb_code" Type="varchar" MaxLength="20" />
+          <Property Name="tb_id" Type="int" />
+          <Property Name="tb_name" Type="varchar" MaxLength="50" />
+          <Property Name="tb_reg_mail_no" Type="varchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="Base_Deliver_Area">
+          <Key>
+            <PropertyRef Name="intDeliverAreaID" />
+          </Key>
+          <Property Name="intDeliverAreaID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intDeliverID" Type="int" Nullable="false" />
+          <Property Name="intRegionID" Type="int" />
+          <Property Name="intType" Type="int" Nullable="false" />
+          <Property Name="intAddUserID" Type="int" Nullable="false" />
+          <Property Name="dtAddDate" Type="datetime" Nullable="false" />
+          <Property Name="intModUserID" Type="int" />
+          <Property Name="dtModDate" Type="datetime" />
+          <Property Name="intIsEnable" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Base_Deliver_Pay">
+          <Key>
+            <PropertyRef Name="intDeliverPayID" />
+          </Key>
+          <Property Name="intDeliverPayID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intDeliverID" Type="int" Nullable="false" />
+          <Property Name="intPayID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Base_Pay_Type">
+          <Key>
+            <PropertyRef Name="intPayID" />
+          </Key>
+          <Property Name="intPayID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vchPayName" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="vchPayDesc" Type="nvarchar" MaxLength="256" />
+          <Property Name="vchPicAddr" Type="varchar" MaxLength="128" />
+          <Property Name="intIsEnable" Type="tinyint" />
+          <Property Name="intPayGroup" Type="tinyint" Nullable="false" />
+          <Property Name="vchPayURL" Type="varchar" MaxLength="128" />
+          <Property Name="vchSignPName" Type="varchar" MaxLength="128" />
+          <Property Name="vchParam" Type="varchar" MaxLength="128" />
+          <Property Name="vchPayRtnURL" Type="varchar" MaxLength="128" />
+          <Property Name="vchPaySynRtnURL" Type="varchar" MaxLength="128" />
+          <Property Name="vchAccountName" Type="nvarchar" MaxLength="64" />
+          <Property Name="vchAccount" Type="varchar" MaxLength="64" />
+          <Property Name="vchVeriCode" Type="varchar" MaxLength="64" />
+          <Property Name="vchKey" Type="varchar" MaxLength="64" />
+          <Property Name="intAddUserID" Type="int" Nullable="false" />
+          <Property Name="dtAddDate" Type="datetime" Nullable="false" />
+          <Property Name="intModUserID" Type="int" />
+          <Property Name="dtModDate" Type="datetime" />
+          <Property Name="vchPayType" Type="varchar" MaxLength="32" />
+          <Property Name="intPrePay" Type="int" />
+          <Property Name="intPlatform" Type="int" />
+          <Property Name="intSortID" Type="int" />
+        </EntityType>
+        <EntityType Name="Base_Region">
+          <Key>
+            <PropertyRef Name="intRegionID" />
+          </Key>
+          <Property Name="intRegionID" Type="int" Nullable="false" />
+          <Property Name="intRegionType" Type="int" Nullable="false" />
+          <Property Name="vchRegionName" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="intFRegionID" Type="int" Nullable="false" />
+          <Property Name="vchPostCode" Type="varchar" MaxLength="6" />
+          <Property Name="vchAreaCode" Type="varchar" MaxLength="6" />
+          <Property Name="intIsEnable" Type="int" />
+          <Property Name="intAreaID" Type="int" Nullable="false" />
+          <Property Name="vchShortSpell" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Pdt_Base_Info">
+          <Key>
+            <PropertyRef Name="intProductID" />
+          </Key>
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="vchPorductNO" Type="varchar" MaxLength="32" />
+          <Property Name="vchProductPrinted" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vchProductFactoryNo" Type="varchar" MaxLength="64" />
+          <Property Name="vchProductName" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="vchShortName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intBrandID" Type="int" Nullable="false" />
+          <Property Name="vchUnit" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchSpec" Type="nvarchar" MaxLength="32" />
+          <Property Name="intState" Type="tinyint" Nullable="false" />
+          <Property Name="intFirstCategory" Type="int" Nullable="false" />
+          <Property Name="intSecondCategory" Type="int" Nullable="false" />
+          <Property Name="intThreeCategory" Type="int" Nullable="false" />
+          <Property Name="intWebType" Type="int" Nullable="false" />
+          <Property Name="intWebChildType" Type="int" Nullable="false" />
+          <Property Name="intIsExpress" Type="tinyint" />
+          <Property Name="intScoreMulriple" Type="int" Nullable="false" />
+          <Property Name="vchBarCode" Type="varchar" MaxLength="32" />
+          <Property Name="vchKeyWords" Type="nvarchar" MaxLength="128" />
+          <Property Name="intAttribute" Type="int" Nullable="false" />
+          <Property Name="intWeight" Type="int" />
+          <Property Name="vchMainPicURL" Type="varchar" MaxLength="128" />
+          <Property Name="vchPageURL" Type="varchar" MaxLength="128" />
+          <Property Name="intScore" Type="int" />
+          <Property Name="vchProductStunt" Type="nvarchar" MaxLength="3000" />
+          <Property Name="intMajorProductID" Type="int" />
+          <Property Name="intGroupID" Type="int" />
+          <Property Name="intIsGroup" Type="int" />
+          <Property Name="intStartAge" Type="smallint" />
+          <Property Name="intEndAge" Type="smallint" />
+          <Property Name="vchProColr" Type="nvarchar" MaxLength="32" />
+          <Property Name="intIsProm" Type="int" />
+          <Property Name="intIsNew" Type="int" />
+          <Property Name="intWebThirdType" Type="int" />
+          <Property Name="vchproductcode" Type="varchar" MaxLength="50" />
+          <Property Name="vchTips" Type="varchar" MaxLength="50" />
+          <Property Name="PromotionMemo" Type="varchar" MaxLength="250" />
+          <Property Name="vchFxDescription" Type="varchar" MaxLength="50" />
+          <Property Name="numcost" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Pdt_Other_Info">
+          <Key>
+            <PropertyRef Name="intProductID" />
+          </Key>
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="vchProPattern" Type="nvarchar" MaxLength="16" />
+          <Property Name="vchProShape" Type="nvarchar" MaxLength="16" />
+          <Property Name="intShelfLift" Type="smallint" />
+          <Property Name="intPurchaseSpec" Type="smallint" />
+          <Property Name="vchServciePhone" Type="varchar" MaxLength="64" />
+          <Property Name="vchFactory" Type="nvarchar" MaxLength="128" />
+          <Property Name="vchMaterial" Type="nvarchar" MaxLength="64" />
+          <Property Name="vchWebURL" Type="varchar" MaxLength="128" />
+          <Property Name="intSeason" Type="tinyint" />
+          <Property Name="numInputTax" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="intPeriod" Type="int" />
+          <Property Name="intTargetUser" Type="tinyint" />
+          <Property Name="dtCreateDate" Type="datetime" />
+          <Property Name="vchCreatePerson" Type="varchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="Pdt_Pic">
+          <Key>
+            <PropertyRef Name="intPicID" />
+          </Key>
+          <Property Name="intPicID" Type="int" Nullable="false" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="vchPicType" Type="varchar" MaxLength="5" />
+          <Property Name="vchPicURL" Type="varchar" MaxLength="128" />
+          <Property Name="dtAddTime" Type="datetime" />
+          <Property Name="intAddBy" Type="int" />
+          <Property Name="intIsEnable" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pdt_Stock">
+          <Key>
+            <PropertyRef Name="intStockID" />
+            <PropertyRef Name="intAreaID" />
+            <PropertyRef Name="intProductID" />
+          </Key>
+          <Property Name="intStockID" Type="int" Nullable="false" />
+          <Property Name="intAreaID" Type="int" Nullable="false" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="intStockQty" Type="int" />
+        </EntityType>
+        <EntityType Name="Sale_ShoppingCart">
+          <Key>
+            <PropertyRef Name="intShopCartID" />
+          </Key>
+          <Property Name="intShopCartID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intChannelID" Type="int" Nullable="false" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="intBuyCount" Type="int" Nullable="false" />
+          <Property Name="chrIsGift" Type="tinyint" Nullable="false" />
+          <Property Name="numSalePrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="numOrgPrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="intScore" Type="int" Nullable="false" />
+          <Property Name="intOrgScore" Type="int" Nullable="false" />
+          <Property Name="intSuitID" Type="int" />
+          <Property Name="nchSuitName" Type="nvarchar" MaxLength="100" />
+          <Property Name="dtAddTime" Type="datetime" Nullable="false" />
+          <Property Name="intCateId" Type="int" Nullable="false" />
+          <Property Name="intBrandID" Type="int" Nullable="false" />
+          <Property Name="intTagID" Type="int" />
+          <Property Name="nchProductName" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="intIsDelete" Type="tinyint" Nullable="false" />
+          <Property Name="intPromCount" Type="int" />
+          <Property Name="numCost" Type="numeric" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="numCleanCost" Type="numeric" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="vchProductPrinted" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="intPriceID" Type="int" Nullable="false" />
+          <Property Name="vchPicURL" Type="varchar" MaxLength="128" />
+          <Property Name="intWeight" Type="int" />
+          <Property Name="intGiftType" Type="int" />
+          <Property Name="intPromID" Type="int" />
+          <Property Name="intAreaID" Type="int" />
+          <Property Name="vchCoponCode" Type="varchar" MaxLength="16" />
+          <Property Name="vchGuid" Type="varchar" MaxLength="50" />
+          <Property Name="vchproductcode" Type="varchar" MaxLength="50" />
+          <Property Name="intProductType" Type="int" />
+          <Property Name="numMarketPrice" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="User_Consignee_Address">
+          <Key>
+            <PropertyRef Name="intAddressID" />
+          </Key>
+          <Property Name="intAddressID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+          <Property Name="vchCAName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchConsignee" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchPhone" Type="varchar" MaxLength="16" />
+          <Property Name="vchMobile" Type="varchar" MaxLength="16" />
+          <Property Name="intAddrType" Type="tinyint" Nullable="false" />
+          <Property Name="intStateID" Type="int" />
+          <Property Name="vchStateName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intCityID" Type="int" />
+          <Property Name="vchCityName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intCountyID" Type="int" />
+          <Property Name="vchCountyName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchDetailAddr" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="vchPostCode" Type="varchar" MaxLength="10" />
+          <Property Name="vchRoadName" Type="nvarchar" MaxLength="256" />
+          <Property Name="vchHausnummer" Type="nvarchar" MaxLength="16" />
+          <Property Name="intIsDefaultAddr" Type="tinyint" />
+          <Property Name="dtAddTime" Type="datetime" Nullable="false" />
+          <Property Name="dtLastModTime" Type="datetime" Nullable="false" />
+          <Property Name="intDeliverID" Type="int" />
+          <Property Name="intPayID" Type="int" />
+        </EntityType>
+        <EntityType Name="Web_Pdt_Type">
+          <Key>
+            <PropertyRef Name="intCateID" />
+          </Key>
+          <Property Name="intCateID" Type="int" Nullable="false" />
+          <Property Name="vchCateName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intCateLevel" Type="int" Nullable="false" />
+          <Property Name="intCateFather" Type="int" />
+          <Property Name="intSortOrder" Type="int" />
+          <Property Name="intIsVisible" Type="tinyint" Nullable="false" />
+          <Property Name="vchCateNo" Type="varchar" MaxLength="32" />
+          <Property Name="vchPicAddr" Type="varchar" MaxLength="128" />
+          <Property Name="vchViewEn" Type="varchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="Web_Type_FlagBrand">
+          <Key>
+            <PropertyRef Name="intID" />
+          </Key>
+          <Property Name="intID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intCateID" Type="int" Nullable="false" />
+          <Property Name="intBrandID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Web_Type_HotProduct">
+          <Key>
+            <PropertyRef Name="hotID" />
+          </Key>
+          <Property Name="hotID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intTypeID" Type="int" Nullable="false" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="intShowID" Type="int" />
+          <Property Name="intSort" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“Holyca.dbo.Vi_User_Shortage”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="Vi_User_Shortage">
+          <Key>
+            <PropertyRef Name="intShortageID" />
+            <PropertyRef Name="intProductID" />
+            <PropertyRef Name="intCateID" />
+            <PropertyRef Name="vchProductName" />
+            <PropertyRef Name="intInformType" />
+            <PropertyRef Name="dtAddTime" />
+            <PropertyRef Name="dtEndTime" />
+            <PropertyRef Name="numHerdPrice" />
+            <PropertyRef Name="intUserID" />
+            <PropertyRef Name="intHerdID" />
+            <PropertyRef Name="intChannelID" />
+          </Key>
+          <Property Name="intShortageID" Type="int" Nullable="false" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="intCateID" Type="int" Nullable="false" />
+          <Property Name="vchCateName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchMainPicURL" Type="varchar" MaxLength="128" />
+          <Property Name="vchProductName" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="intInformType" Type="tinyint" Nullable="false" />
+          <Property Name="vchInformCode" Type="varchar" MaxLength="16" />
+          <Property Name="dtAddTime" Type="datetime" Nullable="false" />
+          <Property Name="intIndate" Type="int" />
+          <Property Name="dtEndTime" Type="datetime" Nullable="false" />
+          <Property Name="intState" Type="tinyint" />
+          <Property Name="dtInformTime" Type="datetime" />
+          <Property Name="intStockQty" Type="int" />
+          <Property Name="numHerdPrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="intIsProm" Type="int" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+          <Property Name="intHerdID" Type="smallint" Nullable="false" />
+          <Property Name="intAreaID" Type="int" />
+          <Property Name="intChannelID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“Holyca.dbo.Vi_Web_Pdt_AllList”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="Vi_Web_Pdt_AllList">
+          <Key>
+            <PropertyRef Name="vchProductName" />
+            <PropertyRef Name="intProductID" />
+            <PropertyRef Name="intBrandID" />
+            <PropertyRef Name="vchProductPrinted" />
+            <PropertyRef Name="intWebType" />
+            <PropertyRef Name="intWebChildType" />
+            <PropertyRef Name="intFirstCategory" />
+            <PropertyRef Name="intSecondCategory" />
+            <PropertyRef Name="intThreeCategory" />
+            <PropertyRef Name="intChannelID" />
+            <PropertyRef Name="intHerdID" />
+            <PropertyRef Name="numHerdPrice" />
+          </Key>
+          <Property Name="intIsGroup" Type="int" />
+          <Property Name="vchProductName" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="vchMainPicURL" Type="varchar" MaxLength="128" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="numMarketPrice" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="numVipPrice" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="numCost" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="numCleanCost" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="intIsNew" Type="int" />
+          <Property Name="intIsProm" Type="int" />
+          <Property Name="intBrandID" Type="int" Nullable="false" />
+          <Property Name="vchProductPrinted" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vchBrandName" Type="nvarchar" MaxLength="25" />
+          <Property Name="intWebType" Type="int" Nullable="false" />
+          <Property Name="vchCateName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intWebChildType" Type="int" Nullable="false" />
+          <Property Name="intWebThirdType" Type="int" />
+          <Property Name="vchCateChildName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intFirstCategory" Type="int" Nullable="false" />
+          <Property Name="intSecondCategory" Type="int" Nullable="false" />
+          <Property Name="intThreeCategory" Type="int" Nullable="false" />
+          <Property Name="intStartAge" Type="smallint" />
+          <Property Name="intEndAge" Type="smallint" />
+          <Property Name="intChannelID" Type="int" Nullable="false" />
+          <Property Name="intHerdID" Type="smallint" Nullable="false" />
+          <Property Name="intScore" Type="int" />
+          <Property Name="numHerdPrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="intAreaID" Type="int" />
+          <Property Name="intStockQty" Type="int" />
+          <Property Name="intGroupID" Type="int" />
+          <Property Name="intCommentVolume" Type="int" />
+          <Property Name="intSalesVolume" Type="int" />
+          <Property Name="vchShortName" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“Holyca.dbo.Vi_Web_Pdt_Detail”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="Vi_Web_Pdt_Detail">
+          <Key>
+            <PropertyRef Name="vchProductName" />
+            <PropertyRef Name="intProductID" />
+            <PropertyRef Name="intBrandID" />
+            <PropertyRef Name="intWebType" />
+            <PropertyRef Name="intWebChildType" />
+            <PropertyRef Name="intFirstCategory" />
+            <PropertyRef Name="intSecondCategory" />
+            <PropertyRef Name="intThreeCategory" />
+            <PropertyRef Name="vchProductPrinted" />
+            <PropertyRef Name="intAttribute" />
+            <PropertyRef Name="intSaleState" />
+            <PropertyRef Name="numHerdPrice" />
+            <PropertyRef Name="intChannelID" />
+            <PropertyRef Name="intHerdID" />
+          </Key>
+          <Property Name="vchProductName" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="vchMainPicURL" Type="varchar" MaxLength="128" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="intGroupID" Type="int" />
+          <Property Name="intIsNew" Type="int" />
+          <Property Name="intIsProm" Type="int" />
+          <Property Name="intBrandID" Type="int" Nullable="false" />
+          <Property Name="intWebType" Type="int" Nullable="false" />
+          <Property Name="intWebChildType" Type="int" Nullable="false" />
+          <Property Name="intWebThirdType" Type="int" />
+          <Property Name="intFirstCategory" Type="int" Nullable="false" />
+          <Property Name="intSecondCategory" Type="int" Nullable="false" />
+          <Property Name="intThreeCategory" Type="int" Nullable="false" />
+          <Property Name="intStartAge" Type="smallint" />
+          <Property Name="intEndAge" Type="smallint" />
+          <Property Name="vchProColr" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchSpec" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchProductPrinted" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="intAttribute" Type="int" Nullable="false" />
+          <Property Name="numMarketPrice" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="numVipPrice" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="numCost" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="numCleanCost" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="intSaleState" Type="tinyint" Nullable="false" />
+          <Property Name="vchBrandName" Type="nvarchar" MaxLength="25" />
+          <Property Name="vchCateName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchCateChildName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intScore" Type="int" />
+          <Property Name="numHerdPrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="intChannelID" Type="int" Nullable="false" />
+          <Property Name="intHerdID" Type="smallint" Nullable="false" />
+          <Property Name="intWeight" Type="int" />
+          <Property Name="txtWebShowInfo" Type="text" />
+          <Property Name="intAreaID" Type="int" />
+          <Property Name="intStockQty" Type="int" />
+          <Property Name="vchShortName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchproductcode" Type="varchar" MaxLength="50" />
+          <Property Name="PromotionMemo" Type="varchar" MaxLength="250" />
+          <Property Name="intCommentVolume" Type="int" />
+          <Property Name="intSalesVolume" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“Holyca.dbo.Vi_Web_Pdt_List”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="Vi_Web_Pdt_List">
+          <Key>
+            <PropertyRef Name="vchProductName" />
+            <PropertyRef Name="intProductID" />
+            <PropertyRef Name="intBrandID" />
+            <PropertyRef Name="vchProductPrinted" />
+            <PropertyRef Name="intWebType" />
+            <PropertyRef Name="intWebChildType" />
+            <PropertyRef Name="intFirstCategory" />
+            <PropertyRef Name="intSecondCategory" />
+            <PropertyRef Name="intThreeCategory" />
+            <PropertyRef Name="intChannelID" />
+            <PropertyRef Name="intHerdID" />
+            <PropertyRef Name="numHerdPrice" />
+          </Key>
+          <Property Name="vchProductName" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="vchMainPicURL" Type="varchar" MaxLength="128" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="numMarketPrice" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="numVipPrice" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="numCost" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="numCleanCost" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="intIsNew" Type="int" />
+          <Property Name="intIsProm" Type="int" />
+          <Property Name="intBrandID" Type="int" Nullable="false" />
+          <Property Name="vchProductPrinted" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vchBrandName" Type="nvarchar" MaxLength="25" />
+          <Property Name="intWebType" Type="int" Nullable="false" />
+          <Property Name="vchCateName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intWebChildType" Type="int" Nullable="false" />
+          <Property Name="intWebThirdType" Type="int" />
+          <Property Name="vchCateChildName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intFirstCategory" Type="int" Nullable="false" />
+          <Property Name="intSecondCategory" Type="int" Nullable="false" />
+          <Property Name="intThreeCategory" Type="int" Nullable="false" />
+          <Property Name="intStartAge" Type="smallint" />
+          <Property Name="intEndAge" Type="smallint" />
+          <Property Name="intChannelID" Type="int" Nullable="false" />
+          <Property Name="intHerdID" Type="smallint" Nullable="false" />
+          <Property Name="intScore" Type="int" />
+          <Property Name="numHerdPrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="intAreaID" Type="int" />
+          <Property Name="intStockQty" Type="int" />
+          <Property Name="intGroupID" Type="int" />
+          <Property Name="intCommentVolume" Type="int" />
+          <Property Name="intSalesVolume" Type="int" />
+          <Property Name="vchShortName" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <Function Name="Up_ShopCart_GetCarriage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="intweight" Type="int" Mode="In" />
+          <Parameter Name="deliverId" Type="int" Mode="In" />
+          <Parameter Name="cityId" Type="int" Mode="In" />
+          <Parameter Name="intcarriage" Type="int" Mode="InOut" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MobileWcf.DataContext.HolycaModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="HolycaEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="Base_Brand" EntityType="MobileWcf.DataContext.HolycaModel.Base_Brand" />
+          <EntitySet Name="Base_Region" EntityType="MobileWcf.DataContext.HolycaModel.Base_Region" />
+          <EntitySet Name="Web_Pdt_Type" EntityType="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type" />
+          <EntitySet Name="Web_Type_FlagBrand" EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_FlagBrand" />
+          <EntitySet Name="Pdt_Base_Info" EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Base_Info" />
+          <EntitySet Name="Vi_Web_Pdt_AllList" EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_AllList" />
+          <EntitySet Name="Vi_Web_Pdt_Detail" EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_Detail" />
+          <EntitySet Name="Vi_Web_Pdt_List" EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_List" />
+          <EntitySet Name="Web_Type_HotProduct" EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_HotProduct" />
+          <EntitySet Name="Pdt_Pic" EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Pic" />
+          <EntitySet Name="Pdt_Other_Info" EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Other_Info" />
+          <EntitySet Name="Sale_ShoppingCart" EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShoppingCart" />
+          <EntitySet Name="Pdt_Stock" EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Stock" />
+          <EntitySet Name="Base_Deliver" EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver" />
+          <EntitySet Name="Base_Deliver_Area" EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Area" />
+          <EntitySet Name="Base_Deliver_Pay" EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Pay" />
+          <EntitySet Name="Base_Pay_Type" EntityType="MobileWcf.DataContext.HolycaModel.Base_Pay_Type" />
+          <EntitySet Name="User_Consignee_Address" EntityType="MobileWcf.DataContext.HolycaModel.User_Consignee_Address" />
+          <EntitySet Name="Vi_User_Shortage" EntityType="MobileWcf.DataContext.HolycaModel.Vi_User_Shortage" />
+          <FunctionImport Name="Up_ShopCart_GetCarriage">
+            <Parameter Name="intweight" Mode="In" Type="Int32" />
+            <Parameter Name="deliverId" Mode="In" Type="Int32" />
+            <Parameter Name="cityId" Mode="In" Type="Int32" />
+            <Parameter Name="intcarriage" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Base_Brand">
+          <Key>
+            <PropertyRef Name="intBrandID" />
+          </Key>
+          <Property Name="intBrandID" Type="Int32" Nullable="false" />
+          <Property Name="vchBrandName" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="intSort" Type="Int32" />
+          <Property Name="intIsEnable" Type="Byte" />
+          <Property Name="intIsVisibleIndex" Type="Byte" Nullable="false" />
+          <Property Name="vchLandingPage" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="vchDesc" Type="String" MaxLength="2048" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Base_Region">
+          <Key>
+            <PropertyRef Name="intRegionID" />
+          </Key>
+          <Property Name="intRegionID" Type="Int32" Nullable="false" />
+          <Property Name="intRegionType" Type="Int32" Nullable="false" />
+          <Property Name="vchRegionName" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="intFRegionID" Type="Int32" Nullable="false" />
+          <Property Name="vchPostCode" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="vchAreaCode" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="intIsEnable" Type="Int32" />
+          <Property Name="intAreaID" Type="Int32" Nullable="false" />
+          <Property Name="vchShortSpell" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Web_Pdt_Type">
+          <Key>
+            <PropertyRef Name="intCateID" />
+          </Key>
+          <Property Name="intCateID" Type="Int32" Nullable="false" />
+          <Property Name="vchCateName" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="intCateLevel" Type="Int32" Nullable="false" />
+          <Property Name="intCateFather" Type="Int32" />
+          <Property Name="intSortOrder" Type="Int32" />
+          <Property Name="intIsVisible" Type="Byte" Nullable="false" />
+          <Property Name="vchCateNo" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="vchPicAddr" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="vchViewEn" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Web_Type_FlagBrand">
+          <Key>
+            <PropertyRef Name="intID" />
+          </Key>
+          <Property Name="intID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="intCateID" Type="Int32" Nullable="false" />
+          <Property Name="intBrandID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pdt_Base_Info">
+          <Key>
+            <PropertyRef Name="intProductID" />
+          </Key>
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="String" Name="vchPorductNO" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchProductPrinted" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchProductFactoryNo" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchProductName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchShortName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intBrandID" Nullable="false" />
+          <Property Type="String" Name="vchUnit" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchSpec" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="intState" Nullable="false" />
+          <Property Type="Int32" Name="intFirstCategory" Nullable="false" />
+          <Property Type="Int32" Name="intSecondCategory" Nullable="false" />
+          <Property Type="Int32" Name="intThreeCategory" Nullable="false" />
+          <Property Type="Int32" Name="intWebType" Nullable="false" />
+          <Property Type="Int32" Name="intWebChildType" Nullable="false" />
+          <Property Type="Byte" Name="intIsExpress" />
+          <Property Type="Int32" Name="intScoreMulriple" Nullable="false" />
+          <Property Type="String" Name="vchBarCode" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchKeyWords" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intAttribute" Nullable="false" />
+          <Property Type="Int32" Name="intWeight" />
+          <Property Type="String" Name="vchMainPicURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchPageURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intScore" />
+          <Property Type="String" Name="vchProductStunt" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intMajorProductID" />
+          <Property Type="Int32" Name="intGroupID" />
+          <Property Type="Int32" Name="intIsGroup" />
+          <Property Type="Int16" Name="intStartAge" />
+          <Property Type="Int16" Name="intEndAge" />
+          <Property Type="String" Name="vchProColr" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intIsProm" />
+          <Property Type="Int32" Name="intIsNew" />
+          <Property Type="Int32" Name="intWebThirdType" />
+          <Property Type="String" Name="vchproductcode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchTips" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PromotionMemo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchFxDescription" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="numcost" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Vi_Web_Pdt_AllList">
+          <Key>
+            <PropertyRef Name="vchProductName" />
+            <PropertyRef Name="intProductID" />
+            <PropertyRef Name="intBrandID" />
+            <PropertyRef Name="vchProductPrinted" />
+            <PropertyRef Name="intWebType" />
+            <PropertyRef Name="intWebChildType" />
+            <PropertyRef Name="intFirstCategory" />
+            <PropertyRef Name="intSecondCategory" />
+            <PropertyRef Name="intThreeCategory" />
+            <PropertyRef Name="intChannelID" />
+            <PropertyRef Name="intHerdID" />
+            <PropertyRef Name="numHerdPrice" />
+          </Key>
+          <Property Type="Int32" Name="intIsGroup" />
+          <Property Type="String" Name="vchProductName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchMainPicURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="Decimal" Name="numMarketPrice" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="numVipPrice" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="numCost" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="numCleanCost" Precision="10" Scale="4" />
+          <Property Type="Int32" Name="intIsNew" />
+          <Property Type="Int32" Name="intIsProm" />
+          <Property Type="Int32" Name="intBrandID" Nullable="false" />
+          <Property Type="String" Name="vchProductPrinted" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchBrandName" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intWebType" Nullable="false" />
+          <Property Type="String" Name="vchCateName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intWebChildType" Nullable="false" />
+          <Property Type="Int32" Name="intWebThirdType" />
+          <Property Type="String" Name="vchCateChildName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intFirstCategory" Nullable="false" />
+          <Property Type="Int32" Name="intSecondCategory" Nullable="false" />
+          <Property Type="Int32" Name="intThreeCategory" Nullable="false" />
+          <Property Type="Int16" Name="intStartAge" />
+          <Property Type="Int16" Name="intEndAge" />
+          <Property Type="Int32" Name="intChannelID" Nullable="false" />
+          <Property Type="Int16" Name="intHerdID" Nullable="false" />
+          <Property Type="Int32" Name="intScore" />
+          <Property Type="Decimal" Name="numHerdPrice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="intAreaID" />
+          <Property Type="Int32" Name="intStockQty" />
+          <Property Type="Int32" Name="intGroupID" />
+          <Property Type="Int32" Name="intCommentVolume" />
+          <Property Type="Int32" Name="intSalesVolume" />
+          <Property Type="String" Name="vchShortName" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vi_Web_Pdt_Detail">
+          <Key>
+            <PropertyRef Name="vchProductName" />
+            <PropertyRef Name="intProductID" />
+            <PropertyRef Name="intBrandID" />
+            <PropertyRef Name="intWebType" />
+            <PropertyRef Name="intWebChildType" />
+            <PropertyRef Name="intFirstCategory" />
+            <PropertyRef Name="intSecondCategory" />
+            <PropertyRef Name="intThreeCategory" />
+            <PropertyRef Name="vchProductPrinted" />
+            <PropertyRef Name="intAttribute" />
+            <PropertyRef Name="intSaleState" />
+            <PropertyRef Name="numHerdPrice" />
+            <PropertyRef Name="intChannelID" />
+            <PropertyRef Name="intHerdID" />
+          </Key>
+          <Property Type="String" Name="vchProductName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchMainPicURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="Int32" Name="intGroupID" />
+          <Property Type="Int32" Name="intIsNew" />
+          <Property Type="Int32" Name="intIsProm" />
+          <Property Type="Int32" Name="intBrandID" Nullable="false" />
+          <Property Type="Int32" Name="intWebType" Nullable="false" />
+          <Property Type="Int32" Name="intWebChildType" Nullable="false" />
+          <Property Type="Int32" Name="intWebThirdType" />
+          <Property Type="Int32" Name="intFirstCategory" Nullable="false" />
+          <Property Type="Int32" Name="intSecondCategory" Nullable="false" />
+          <Property Type="Int32" Name="intThreeCategory" Nullable="false" />
+          <Property Type="Int16" Name="intStartAge" />
+          <Property Type="Int16" Name="intEndAge" />
+          <Property Type="String" Name="vchProColr" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchSpec" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchProductPrinted" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intAttribute" Nullable="false" />
+          <Property Type="Decimal" Name="numMarketPrice" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="numVipPrice" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="numCost" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="numCleanCost" Precision="10" Scale="4" />
+          <Property Type="Byte" Name="intSaleState" Nullable="false" />
+          <Property Type="String" Name="vchBrandName" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchCateName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchCateChildName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intScore" />
+          <Property Type="Decimal" Name="numHerdPrice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="intChannelID" Nullable="false" />
+          <Property Type="Int16" Name="intHerdID" Nullable="false" />
+          <Property Type="Int32" Name="intWeight" />
+          <Property Type="String" Name="txtWebShowInfo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intAreaID" />
+          <Property Type="Int32" Name="intStockQty" />
+          <Property Type="String" Name="vchShortName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchproductcode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PromotionMemo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intCommentVolume" />
+          <Property Type="Int32" Name="intSalesVolume" />
+        </EntityType>
+        <EntityType Name="Vi_Web_Pdt_List">
+          <Key>
+            <PropertyRef Name="vchProductName" />
+            <PropertyRef Name="intProductID" />
+            <PropertyRef Name="intBrandID" />
+            <PropertyRef Name="vchProductPrinted" />
+            <PropertyRef Name="intWebType" />
+            <PropertyRef Name="intWebChildType" />
+            <PropertyRef Name="intFirstCategory" />
+            <PropertyRef Name="intSecondCategory" />
+            <PropertyRef Name="intThreeCategory" />
+            <PropertyRef Name="intChannelID" />
+            <PropertyRef Name="intHerdID" />
+            <PropertyRef Name="numHerdPrice" />
+          </Key>
+          <Property Type="String" Name="vchProductName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchMainPicURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="Decimal" Name="numMarketPrice" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="numVipPrice" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="numCost" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="numCleanCost" Precision="10" Scale="4" />
+          <Property Type="Int32" Name="intIsNew" />
+          <Property Type="Int32" Name="intIsProm" />
+          <Property Type="Int32" Name="intBrandID" Nullable="false" />
+          <Property Type="String" Name="vchProductPrinted" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchBrandName" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intWebType" Nullable="false" />
+          <Property Type="String" Name="vchCateName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intWebChildType" Nullable="false" />
+          <Property Type="Int32" Name="intWebThirdType" />
+          <Property Type="String" Name="vchCateChildName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intFirstCategory" Nullable="false" />
+          <Property Type="Int32" Name="intSecondCategory" Nullable="false" />
+          <Property Type="Int32" Name="intThreeCategory" Nullable="false" />
+          <Property Type="Int16" Name="intStartAge" />
+          <Property Type="Int16" Name="intEndAge" />
+          <Property Type="Int32" Name="intChannelID" Nullable="false" />
+          <Property Type="Int16" Name="intHerdID" Nullable="false" />
+          <Property Type="Int32" Name="intScore" />
+          <Property Type="Decimal" Name="numHerdPrice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="intAreaID" />
+          <Property Type="Int32" Name="intStockQty" />
+          <Property Type="Int32" Name="intGroupID" />
+          <Property Type="Int32" Name="intCommentVolume" />
+          <Property Type="Int32" Name="intSalesVolume" />
+          <Property Type="String" Name="vchShortName" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Web_Type_HotProduct">
+          <Key>
+            <PropertyRef Name="hotID" />
+          </Key>
+          <Property Type="Int32" Name="hotID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intTypeID" Nullable="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="Int32" Name="intShowID" />
+          <Property Type="Int32" Name="intSort" />
+        </EntityType>
+        <EntityType Name="Pdt_Pic">
+          <Key>
+            <PropertyRef Name="intPicID" />
+          </Key>
+          <Property Type="Int32" Name="intPicID" Nullable="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="String" Name="vchPicType" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchPicURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dtAddTime" />
+          <Property Type="Int32" Name="intAddBy" />
+          <Property Type="Byte" Name="intIsEnable" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pdt_Other_Info">
+          <Key>
+            <PropertyRef Name="intProductID" />
+          </Key>
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="String" Name="vchProPattern" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchProShape" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="intShelfLift" />
+          <Property Type="Int16" Name="intPurchaseSpec" />
+          <Property Type="String" Name="vchServciePhone" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchFactory" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchMaterial" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchWebURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="intSeason" />
+          <Property Type="Decimal" Name="numInputTax" Precision="5" Scale="2" />
+          <Property Type="Int32" Name="intPeriod" />
+          <Property Type="Byte" Name="intTargetUser" />
+          <Property Type="DateTime" Name="dtCreateDate" />
+          <Property Type="String" Name="vchCreatePerson" MaxLength="16" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sale_ShoppingCart">
+          <Key>
+            <PropertyRef Name="intShopCartID" />
+          </Key>
+          <Property Type="Int32" Name="intShopCartID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intChannelID" Nullable="false" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="Int32" Name="intBuyCount" Nullable="false" />
+          <Property Type="Byte" Name="chrIsGift" Nullable="false" />
+          <Property Type="Decimal" Name="numSalePrice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="numOrgPrice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="intScore" Nullable="false" />
+          <Property Type="Int32" Name="intOrgScore" Nullable="false" />
+          <Property Type="Int32" Name="intSuitID" />
+          <Property Type="String" Name="nchSuitName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dtAddTime" Nullable="false" />
+          <Property Type="Int32" Name="intCateId" Nullable="false" />
+          <Property Type="Int32" Name="intBrandID" Nullable="false" />
+          <Property Type="Int32" Name="intTagID" />
+          <Property Type="String" Name="nchProductName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="intIsDelete" Nullable="false" />
+          <Property Type="Int32" Name="intPromCount" />
+          <Property Type="Decimal" Name="numCost" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="numCleanCost" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="String" Name="vchProductPrinted" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intPriceID" Nullable="false" />
+          <Property Type="String" Name="vchPicURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intWeight" />
+          <Property Type="Int32" Name="intGiftType" />
+          <Property Type="Int32" Name="intPromID" />
+          <Property Type="Int32" Name="intAreaID" />
+          <Property Type="String" Name="vchCoponCode" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchGuid" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchproductcode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intProductType" />
+          <Property Type="Decimal" Name="numMarketPrice" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Pdt_Stock">
+          <Key>
+            <PropertyRef Name="intStockID" />
+            <PropertyRef Name="intAreaID" />
+            <PropertyRef Name="intProductID" />
+          </Key>
+          <Property Type="Int32" Name="intStockID" Nullable="false" />
+          <Property Type="Int32" Name="intAreaID" Nullable="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="Int32" Name="intStockQty" />
+        </EntityType>
+        <EntityType Name="Base_Deliver">
+          <Key>
+            <PropertyRef Name="intDeliverID" />
+          </Key>
+          <Property Type="Int32" Name="intDeliverID" Nullable="false" />
+          <Property Type="String" Name="vchDeliverName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchDeliverDesc" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intSort" />
+          <Property Type="Byte" Name="intIsCarriage" />
+          <Property Type="Byte" Name="intIsEnable" />
+          <Property Type="Int32" Name="intAddUserID" Nullable="false" />
+          <Property Type="DateTime" Name="dtAddDate" Nullable="false" />
+          <Property Type="Int32" Name="intModUserID" />
+          <Property Type="DateTime" Name="dtModDate" />
+          <Property Type="String" Name="tb_code" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="tb_id" />
+          <Property Type="String" Name="tb_name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tb_reg_mail_no" MaxLength="400" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Base_Deliver_Area">
+          <Key>
+            <PropertyRef Name="intDeliverAreaID" />
+          </Key>
+          <Property Type="Int32" Name="intDeliverAreaID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intDeliverID" Nullable="false" />
+          <Property Type="Int32" Name="intRegionID" />
+          <Property Type="Int32" Name="intType" Nullable="false" />
+          <Property Type="Int32" Name="intAddUserID" Nullable="false" />
+          <Property Type="DateTime" Name="dtAddDate" Nullable="false" />
+          <Property Type="Int32" Name="intModUserID" />
+          <Property Type="DateTime" Name="dtModDate" />
+          <Property Type="Byte" Name="intIsEnable" />
+        </EntityType>
+        <EntityType Name="Base_Deliver_Pay">
+          <Key>
+            <PropertyRef Name="intDeliverPayID" />
+          </Key>
+          <Property Type="Int32" Name="intDeliverPayID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intDeliverID" Nullable="false" />
+          <Property Type="Int32" Name="intPayID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Base_Pay_Type">
+          <Key>
+            <PropertyRef Name="intPayID" />
+          </Key>
+          <Property Type="Int32" Name="intPayID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="vchPayName" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchPayDesc" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchPicAddr" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="intIsEnable" />
+          <Property Type="Byte" Name="intPayGroup" Nullable="false" />
+          <Property Type="String" Name="vchPayURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchSignPName" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchParam" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchPayRtnURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchPaySynRtnURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchAccountName" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchAccount" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchVeriCode" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchKey" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intAddUserID" Nullable="false" />
+          <Property Type="DateTime" Name="dtAddDate" Nullable="false" />
+          <Property Type="Int32" Name="intModUserID" />
+          <Property Type="DateTime" Name="dtModDate" />
+          <Property Type="String" Name="vchPayType" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intPrePay" />
+          <Property Type="Int32" Name="intPlatform" />
+          <Property Type="Int32" Name="intSortID" />
+        </EntityType>
+        <EntityType Name="User_Consignee_Address">
+          <Key>
+            <PropertyRef Name="intAddressID" />
+          </Key>
+          <Property Type="Int32" Name="intAddressID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+          <Property Type="String" Name="vchCAName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchConsignee" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchPhone" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchMobile" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="intAddrType" Nullable="false" />
+          <Property Type="Int32" Name="intStateID" />
+          <Property Type="String" Name="vchStateName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intCityID" />
+          <Property Type="String" Name="vchCityName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intCountyID" />
+          <Property Type="String" Name="vchCountyName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchDetailAddr" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchPostCode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchRoadName" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchHausnummer" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="intIsDefaultAddr" />
+          <Property Type="DateTime" Name="dtAddTime" Nullable="false" />
+          <Property Type="DateTime" Name="dtLastModTime" Nullable="false" />
+          <Property Type="Int32" Name="intDeliverID" />
+          <Property Type="Int32" Name="intPayID" />
+        </EntityType>
+        <EntityType Name="Vi_User_Shortage">
+          <Key>
+            <PropertyRef Name="intShortageID" />
+            <PropertyRef Name="intProductID" />
+            <PropertyRef Name="intCateID" />
+            <PropertyRef Name="vchProductName" />
+            <PropertyRef Name="intInformType" />
+            <PropertyRef Name="dtAddTime" />
+            <PropertyRef Name="dtEndTime" />
+            <PropertyRef Name="numHerdPrice" />
+            <PropertyRef Name="intUserID" />
+            <PropertyRef Name="intHerdID" />
+            <PropertyRef Name="intChannelID" />
+          </Key>
+          <Property Type="Int32" Name="intShortageID" Nullable="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="Int32" Name="intCateID" Nullable="false" />
+          <Property Type="String" Name="vchCateName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchMainPicURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchProductName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="intInformType" Nullable="false" />
+          <Property Type="String" Name="vchInformCode" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dtAddTime" Nullable="false" />
+          <Property Type="Int32" Name="intIndate" />
+          <Property Type="DateTime" Name="dtEndTime" Nullable="false" />
+          <Property Type="Byte" Name="intState" />
+          <Property Type="DateTime" Name="dtInformTime" />
+          <Property Type="Int32" Name="intStockQty" />
+          <Property Type="Decimal" Name="numHerdPrice" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="intIsProm" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+          <Property Type="Int16" Name="intHerdID" Nullable="false" />
+          <Property Type="Int32" Name="intAreaID" />
+          <Property Type="Int32" Name="intChannelID" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MobileWcfDataContextHolycaModelStoreContainer" CdmEntityContainer="HolycaEntities">
+          <EntitySetMapping Name="Base_Brand"><EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Base_Brand"><MappingFragment StoreEntitySet="Base_Brand">
+            <ScalarProperty Name="intBrandID" ColumnName="intBrandID" />
+            <ScalarProperty Name="vchBrandName" ColumnName="vchBrandName" />
+            <ScalarProperty Name="intSort" ColumnName="intSort" />
+            <ScalarProperty Name="intIsEnable" ColumnName="intIsEnable" />
+            <ScalarProperty Name="intIsVisibleIndex" ColumnName="intIsVisibleIndex" />
+            <ScalarProperty Name="vchLandingPage" ColumnName="vchLandingPage" />
+            <ScalarProperty Name="vchDesc" ColumnName="vchDesc" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Base_Region"><EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Base_Region"><MappingFragment StoreEntitySet="Base_Region">
+            <ScalarProperty Name="intRegionID" ColumnName="intRegionID" />
+            <ScalarProperty Name="intRegionType" ColumnName="intRegionType" />
+            <ScalarProperty Name="vchRegionName" ColumnName="vchRegionName" />
+            <ScalarProperty Name="intFRegionID" ColumnName="intFRegionID" />
+            <ScalarProperty Name="vchPostCode" ColumnName="vchPostCode" />
+            <ScalarProperty Name="vchAreaCode" ColumnName="vchAreaCode" />
+            <ScalarProperty Name="intIsEnable" ColumnName="intIsEnable" />
+            <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
+            <ScalarProperty Name="vchShortSpell" ColumnName="vchShortSpell" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Web_Pdt_Type"><EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type"><MappingFragment StoreEntitySet="Web_Pdt_Type">
+            <ScalarProperty Name="intCateID" ColumnName="intCateID" />
+            <ScalarProperty Name="vchCateName" ColumnName="vchCateName" />
+            <ScalarProperty Name="intCateLevel" ColumnName="intCateLevel" />
+            <ScalarProperty Name="intCateFather" ColumnName="intCateFather" />
+            <ScalarProperty Name="intSortOrder" ColumnName="intSortOrder" />
+            <ScalarProperty Name="intIsVisible" ColumnName="intIsVisible" />
+            <ScalarProperty Name="vchCateNo" ColumnName="vchCateNo" />
+            <ScalarProperty Name="vchPicAddr" ColumnName="vchPicAddr" />
+            <ScalarProperty Name="vchViewEn" ColumnName="vchViewEn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Web_Type_FlagBrand"><EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Type_FlagBrand"><MappingFragment StoreEntitySet="Web_Type_FlagBrand">
+            <ScalarProperty Name="intID" ColumnName="intID" />
+            <ScalarProperty Name="intCateID" ColumnName="intCateID" />
+            <ScalarProperty Name="intBrandID" ColumnName="intBrandID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Pdt_Base_Info">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Pdt_Base_Info">
+              <MappingFragment StoreEntitySet="Pdt_Base_Info">
+                <ScalarProperty Name="numcost" ColumnName="numcost" />
+                <ScalarProperty Name="vchFxDescription" ColumnName="vchFxDescription" />
+                <ScalarProperty Name="PromotionMemo" ColumnName="PromotionMemo" />
+                <ScalarProperty Name="vchTips" ColumnName="vchTips" />
+                <ScalarProperty Name="vchproductcode" ColumnName="vchproductcode" />
+                <ScalarProperty Name="intWebThirdType" ColumnName="intWebThirdType" />
+                <ScalarProperty Name="intIsNew" ColumnName="intIsNew" />
+                <ScalarProperty Name="intIsProm" ColumnName="intIsProm" />
+                <ScalarProperty Name="vchProColr" ColumnName="vchProColr" />
+                <ScalarProperty Name="intEndAge" ColumnName="intEndAge" />
+                <ScalarProperty Name="intStartAge" ColumnName="intStartAge" />
+                <ScalarProperty Name="intIsGroup" ColumnName="intIsGroup" />
+                <ScalarProperty Name="intGroupID" ColumnName="intGroupID" />
+                <ScalarProperty Name="intMajorProductID" ColumnName="intMajorProductID" />
+                <ScalarProperty Name="vchProductStunt" ColumnName="vchProductStunt" />
+                <ScalarProperty Name="intScore" ColumnName="intScore" />
+                <ScalarProperty Name="vchPageURL" ColumnName="vchPageURL" />
+                <ScalarProperty Name="vchMainPicURL" ColumnName="vchMainPicURL" />
+                <ScalarProperty Name="intWeight" ColumnName="intWeight" />
+                <ScalarProperty Name="intAttribute" ColumnName="intAttribute" />
+                <ScalarProperty Name="vchKeyWords" ColumnName="vchKeyWords" />
+                <ScalarProperty Name="vchBarCode" ColumnName="vchBarCode" />
+                <ScalarProperty Name="intScoreMulriple" ColumnName="intScoreMulriple" />
+                <ScalarProperty Name="intIsExpress" ColumnName="intIsExpress" />
+                <ScalarProperty Name="intWebChildType" ColumnName="intWebChildType" />
+                <ScalarProperty Name="intWebType" ColumnName="intWebType" />
+                <ScalarProperty Name="intThreeCategory" ColumnName="intThreeCategory" />
+                <ScalarProperty Name="intSecondCategory" ColumnName="intSecondCategory" />
+                <ScalarProperty Name="intFirstCategory" ColumnName="intFirstCategory" />
+                <ScalarProperty Name="intState" ColumnName="intState" />
+                <ScalarProperty Name="vchSpec" ColumnName="vchSpec" />
+                <ScalarProperty Name="vchUnit" ColumnName="vchUnit" />
+                <ScalarProperty Name="intBrandID" ColumnName="intBrandID" />
+                <ScalarProperty Name="vchShortName" ColumnName="vchShortName" />
+                <ScalarProperty Name="vchProductName" ColumnName="vchProductName" />
+                <ScalarProperty Name="vchProductFactoryNo" ColumnName="vchProductFactoryNo" />
+                <ScalarProperty Name="vchProductPrinted" ColumnName="vchProductPrinted" />
+                <ScalarProperty Name="vchPorductNO" ColumnName="vchPorductNO" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vi_Web_Pdt_AllList">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_AllList">
+              <MappingFragment StoreEntitySet="Vi_Web_Pdt_AllList">
+                <ScalarProperty Name="vchShortName" ColumnName="vchShortName" />
+                <ScalarProperty Name="intSalesVolume" ColumnName="intSalesVolume" />
+                <ScalarProperty Name="intCommentVolume" ColumnName="intCommentVolume" />
+                <ScalarProperty Name="intGroupID" ColumnName="intGroupID" />
+                <ScalarProperty Name="intStockQty" ColumnName="intStockQty" />
+                <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
+                <ScalarProperty Name="numHerdPrice" ColumnName="numHerdPrice" />
+                <ScalarProperty Name="intScore" ColumnName="intScore" />
+                <ScalarProperty Name="intHerdID" ColumnName="intHerdID" />
+                <ScalarProperty Name="intChannelID" ColumnName="intChannelID" />
+                <ScalarProperty Name="intEndAge" ColumnName="intEndAge" />
+                <ScalarProperty Name="intStartAge" ColumnName="intStartAge" />
+                <ScalarProperty Name="intThreeCategory" ColumnName="intThreeCategory" />
+                <ScalarProperty Name="intSecondCategory" ColumnName="intSecondCategory" />
+                <ScalarProperty Name="intFirstCategory" ColumnName="intFirstCategory" />
+                <ScalarProperty Name="vchCateChildName" ColumnName="vchCateChildName" />
+                <ScalarProperty Name="intWebThirdType" ColumnName="intWebThirdType" />
+                <ScalarProperty Name="intWebChildType" ColumnName="intWebChildType" />
+                <ScalarProperty Name="vchCateName" ColumnName="vchCateName" />
+                <ScalarProperty Name="intWebType" ColumnName="intWebType" />
+                <ScalarProperty Name="vchBrandName" ColumnName="vchBrandName" />
+                <ScalarProperty Name="vchProductPrinted" ColumnName="vchProductPrinted" />
+                <ScalarProperty Name="intBrandID" ColumnName="intBrandID" />
+                <ScalarProperty Name="intIsProm" ColumnName="intIsProm" />
+                <ScalarProperty Name="intIsNew" ColumnName="intIsNew" />
+                <ScalarProperty Name="numCleanCost" ColumnName="numCleanCost" />
+                <ScalarProperty Name="numCost" ColumnName="numCost" />
+                <ScalarProperty Name="numVipPrice" ColumnName="numVipPrice" />
+                <ScalarProperty Name="numMarketPrice" ColumnName="numMarketPrice" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="vchMainPicURL" ColumnName="vchMainPicURL" />
+                <ScalarProperty Name="vchProductName" ColumnName="vchProductName" />
+                <ScalarProperty Name="intIsGroup" ColumnName="intIsGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vi_Web_Pdt_Detail">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_Detail">
+              <MappingFragment StoreEntitySet="Vi_Web_Pdt_Detail">
+                <ScalarProperty Name="intSalesVolume" ColumnName="intSalesVolume" />
+                <ScalarProperty Name="intCommentVolume" ColumnName="intCommentVolume" />
+                <ScalarProperty Name="PromotionMemo" ColumnName="PromotionMemo" />
+                <ScalarProperty Name="vchproductcode" ColumnName="vchproductcode" />
+                <ScalarProperty Name="vchShortName" ColumnName="vchShortName" />
+                <ScalarProperty Name="intStockQty" ColumnName="intStockQty" />
+                <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
+                <ScalarProperty Name="txtWebShowInfo" ColumnName="txtWebShowInfo" />
+                <ScalarProperty Name="intWeight" ColumnName="intWeight" />
+                <ScalarProperty Name="intHerdID" ColumnName="intHerdID" />
+                <ScalarProperty Name="intChannelID" ColumnName="intChannelID" />
+                <ScalarProperty Name="numHerdPrice" ColumnName="numHerdPrice" />
+                <ScalarProperty Name="intScore" ColumnName="intScore" />
+                <ScalarProperty Name="vchCateChildName" ColumnName="vchCateChildName" />
+                <ScalarProperty Name="vchCateName" ColumnName="vchCateName" />
+                <ScalarProperty Name="vchBrandName" ColumnName="vchBrandName" />
+                <ScalarProperty Name="intSaleState" ColumnName="intSaleState" />
+                <ScalarProperty Name="numCleanCost" ColumnName="numCleanCost" />
+                <ScalarProperty Name="numCost" ColumnName="numCost" />
+                <ScalarProperty Name="numVipPrice" ColumnName="numVipPrice" />
+                <ScalarProperty Name="numMarketPrice" ColumnName="numMarketPrice" />
+                <ScalarProperty Name="intAttribute" ColumnName="intAttribute" />
+                <ScalarProperty Name="vchProductPrinted" ColumnName="vchProductPrinted" />
+                <ScalarProperty Name="vchSpec" ColumnName="vchSpec" />
+                <ScalarProperty Name="vchProColr" ColumnName="vchProColr" />
+                <ScalarProperty Name="intEndAge" ColumnName="intEndAge" />
+                <ScalarProperty Name="intStartAge" ColumnName="intStartAge" />
+                <ScalarProperty Name="intThreeCategory" ColumnName="intThreeCategory" />
+                <ScalarProperty Name="intSecondCategory" ColumnName="intSecondCategory" />
+                <ScalarProperty Name="intFirstCategory" ColumnName="intFirstCategory" />
+                <ScalarProperty Name="intWebThirdType" ColumnName="intWebThirdType" />
+                <ScalarProperty Name="intWebChildType" ColumnName="intWebChildType" />
+                <ScalarProperty Name="intWebType" ColumnName="intWebType" />
+                <ScalarProperty Name="intBrandID" ColumnName="intBrandID" />
+                <ScalarProperty Name="intIsProm" ColumnName="intIsProm" />
+                <ScalarProperty Name="intIsNew" ColumnName="intIsNew" />
+                <ScalarProperty Name="intGroupID" ColumnName="intGroupID" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="vchMainPicURL" ColumnName="vchMainPicURL" />
+                <ScalarProperty Name="vchProductName" ColumnName="vchProductName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vi_Web_Pdt_List">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_List">
+              <MappingFragment StoreEntitySet="Vi_Web_Pdt_List">
+                <ScalarProperty Name="vchShortName" ColumnName="vchShortName" />
+                <ScalarProperty Name="intSalesVolume" ColumnName="intSalesVolume" />
+                <ScalarProperty Name="intCommentVolume" ColumnName="intCommentVolume" />
+                <ScalarProperty Name="intGroupID" ColumnName="intGroupID" />
+                <ScalarProperty Name="intStockQty" ColumnName="intStockQty" />
+                <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
+                <ScalarProperty Name="numHerdPrice" ColumnName="numHerdPrice" />
+                <ScalarProperty Name="intScore" ColumnName="intScore" />
+                <ScalarProperty Name="intHerdID" ColumnName="intHerdID" />
+                <ScalarProperty Name="intChannelID" ColumnName="intChannelID" />
+                <ScalarProperty Name="intEndAge" ColumnName="intEndAge" />
+                <ScalarProperty Name="intStartAge" ColumnName="intStartAge" />
+                <ScalarProperty Name="intThreeCategory" ColumnName="intThreeCategory" />
+                <ScalarProperty Name="intSecondCategory" ColumnName="intSecondCategory" />
+                <ScalarProperty Name="intFirstCategory" ColumnName="intFirstCategory" />
+                <ScalarProperty Name="vchCateChildName" ColumnName="vchCateChildName" />
+                <ScalarProperty Name="intWebThirdType" ColumnName="intWebThirdType" />
+                <ScalarProperty Name="intWebChildType" ColumnName="intWebChildType" />
+                <ScalarProperty Name="vchCateName" ColumnName="vchCateName" />
+                <ScalarProperty Name="intWebType" ColumnName="intWebType" />
+                <ScalarProperty Name="vchBrandName" ColumnName="vchBrandName" />
+                <ScalarProperty Name="vchProductPrinted" ColumnName="vchProductPrinted" />
+                <ScalarProperty Name="intBrandID" ColumnName="intBrandID" />
+                <ScalarProperty Name="intIsProm" ColumnName="intIsProm" />
+                <ScalarProperty Name="intIsNew" ColumnName="intIsNew" />
+                <ScalarProperty Name="numCleanCost" ColumnName="numCleanCost" />
+                <ScalarProperty Name="numCost" ColumnName="numCost" />
+                <ScalarProperty Name="numVipPrice" ColumnName="numVipPrice" />
+                <ScalarProperty Name="numMarketPrice" ColumnName="numMarketPrice" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="vchMainPicURL" ColumnName="vchMainPicURL" />
+                <ScalarProperty Name="vchProductName" ColumnName="vchProductName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Web_Type_HotProduct">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Type_HotProduct">
+              <MappingFragment StoreEntitySet="Web_Type_HotProduct">
+                <ScalarProperty Name="intSort" ColumnName="intSort" />
+                <ScalarProperty Name="intShowID" ColumnName="intShowID" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intTypeID" ColumnName="intTypeID" />
+                <ScalarProperty Name="hotID" ColumnName="hotID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pdt_Pic">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Pdt_Pic">
+              <MappingFragment StoreEntitySet="Pdt_Pic">
+                <ScalarProperty Name="intIsEnable" ColumnName="intIsEnable" />
+                <ScalarProperty Name="intAddBy" ColumnName="intAddBy" />
+                <ScalarProperty Name="dtAddTime" ColumnName="dtAddTime" />
+                <ScalarProperty Name="vchPicURL" ColumnName="vchPicURL" />
+                <ScalarProperty Name="vchPicType" ColumnName="vchPicType" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intPicID" ColumnName="intPicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pdt_Other_Info">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Pdt_Other_Info">
+              <MappingFragment StoreEntitySet="Pdt_Other_Info">
+                <ScalarProperty Name="vchCreatePerson" ColumnName="vchCreatePerson" />
+                <ScalarProperty Name="dtCreateDate" ColumnName="dtCreateDate" />
+                <ScalarProperty Name="intTargetUser" ColumnName="intTargetUser" />
+                <ScalarProperty Name="intPeriod" ColumnName="intPeriod" />
+                <ScalarProperty Name="numInputTax" ColumnName="numInputTax" />
+                <ScalarProperty Name="intSeason" ColumnName="intSeason" />
+                <ScalarProperty Name="vchWebURL" ColumnName="vchWebURL" />
+                <ScalarProperty Name="vchMaterial" ColumnName="vchMaterial" />
+                <ScalarProperty Name="vchFactory" ColumnName="vchFactory" />
+                <ScalarProperty Name="vchServciePhone" ColumnName="vchServciePhone" />
+                <ScalarProperty Name="intPurchaseSpec" ColumnName="intPurchaseSpec" />
+                <ScalarProperty Name="intShelfLift" ColumnName="intShelfLift" />
+                <ScalarProperty Name="vchProShape" ColumnName="vchProShape" />
+                <ScalarProperty Name="vchProPattern" ColumnName="vchProPattern" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_ShoppingCart">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_ShoppingCart">
+              <MappingFragment StoreEntitySet="Sale_ShoppingCart">
+                <ScalarProperty Name="numMarketPrice" ColumnName="numMarketPrice" />
+                <ScalarProperty Name="intProductType" ColumnName="intProductType" />
+                <ScalarProperty Name="vchproductcode" ColumnName="vchproductcode" />
+                <ScalarProperty Name="vchGuid" ColumnName="vchGuid" />
+                <ScalarProperty Name="vchCoponCode" ColumnName="vchCoponCode" />
+                <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
+                <ScalarProperty Name="intPromID" ColumnName="intPromID" />
+                <ScalarProperty Name="intGiftType" ColumnName="intGiftType" />
+                <ScalarProperty Name="intWeight" ColumnName="intWeight" />
+                <ScalarProperty Name="vchPicURL" ColumnName="vchPicURL" />
+                <ScalarProperty Name="intPriceID" ColumnName="intPriceID" />
+                <ScalarProperty Name="vchProductPrinted" ColumnName="vchProductPrinted" />
+                <ScalarProperty Name="numCleanCost" ColumnName="numCleanCost" />
+                <ScalarProperty Name="numCost" ColumnName="numCost" />
+                <ScalarProperty Name="intPromCount" ColumnName="intPromCount" />
+                <ScalarProperty Name="intIsDelete" ColumnName="intIsDelete" />
+                <ScalarProperty Name="nchProductName" ColumnName="nchProductName" />
+                <ScalarProperty Name="intTagID" ColumnName="intTagID" />
+                <ScalarProperty Name="intBrandID" ColumnName="intBrandID" />
+                <ScalarProperty Name="intCateId" ColumnName="intCateId" />
+                <ScalarProperty Name="dtAddTime" ColumnName="dtAddTime" />
+                <ScalarProperty Name="nchSuitName" ColumnName="nchSuitName" />
+                <ScalarProperty Name="intSuitID" ColumnName="intSuitID" />
+                <ScalarProperty Name="intOrgScore" ColumnName="intOrgScore" />
+                <ScalarProperty Name="intScore" ColumnName="intScore" />
+                <ScalarProperty Name="numOrgPrice" ColumnName="numOrgPrice" />
+                <ScalarProperty Name="numSalePrice" ColumnName="numSalePrice" />
+                <ScalarProperty Name="chrIsGift" ColumnName="chrIsGift" />
+                <ScalarProperty Name="intBuyCount" ColumnName="intBuyCount" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="intChannelID" ColumnName="intChannelID" />
+                <ScalarProperty Name="intShopCartID" ColumnName="intShopCartID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pdt_Stock">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Pdt_Stock">
+              <MappingFragment StoreEntitySet="Pdt_Stock">
+                <ScalarProperty Name="intStockQty" ColumnName="intStockQty" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
+                <ScalarProperty Name="intStockID" ColumnName="intStockID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Base_Deliver">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Base_Deliver">
+              <MappingFragment StoreEntitySet="Base_Deliver">
+                <ScalarProperty Name="tb_reg_mail_no" ColumnName="tb_reg_mail_no" />
+                <ScalarProperty Name="tb_name" ColumnName="tb_name" />
+                <ScalarProperty Name="tb_id" ColumnName="tb_id" />
+                <ScalarProperty Name="tb_code" ColumnName="tb_code" />
+                <ScalarProperty Name="dtModDate" ColumnName="dtModDate" />
+                <ScalarProperty Name="intModUserID" ColumnName="intModUserID" />
+                <ScalarProperty Name="dtAddDate" ColumnName="dtAddDate" />
+                <ScalarProperty Name="intAddUserID" ColumnName="intAddUserID" />
+                <ScalarProperty Name="intIsEnable" ColumnName="intIsEnable" />
+                <ScalarProperty Name="intIsCarriage" ColumnName="intIsCarriage" />
+                <ScalarProperty Name="intSort" ColumnName="intSort" />
+                <ScalarProperty Name="vchDeliverDesc" ColumnName="vchDeliverDesc" />
+                <ScalarProperty Name="vchDeliverName" ColumnName="vchDeliverName" />
+                <ScalarProperty Name="intDeliverID" ColumnName="intDeliverID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Base_Deliver_Area">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Base_Deliver_Area">
+              <MappingFragment StoreEntitySet="Base_Deliver_Area">
+                <ScalarProperty Name="intIsEnable" ColumnName="intIsEnable" />
+                <ScalarProperty Name="dtModDate" ColumnName="dtModDate" />
+                <ScalarProperty Name="intModUserID" ColumnName="intModUserID" />
+                <ScalarProperty Name="dtAddDate" ColumnName="dtAddDate" />
+                <ScalarProperty Name="intAddUserID" ColumnName="intAddUserID" />
+                <ScalarProperty Name="intType" ColumnName="intType" />
+                <ScalarProperty Name="intRegionID" ColumnName="intRegionID" />
+                <ScalarProperty Name="intDeliverID" ColumnName="intDeliverID" />
+                <ScalarProperty Name="intDeliverAreaID" ColumnName="intDeliverAreaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Base_Deliver_Pay">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Base_Deliver_Pay">
+              <MappingFragment StoreEntitySet="Base_Deliver_Pay">
+                <ScalarProperty Name="intPayID" ColumnName="intPayID" />
+                <ScalarProperty Name="intDeliverID" ColumnName="intDeliverID" />
+                <ScalarProperty Name="intDeliverPayID" ColumnName="intDeliverPayID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Base_Pay_Type">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Base_Pay_Type">
+              <MappingFragment StoreEntitySet="Base_Pay_Type">
+                <ScalarProperty Name="intSortID" ColumnName="intSortID" />
+                <ScalarProperty Name="intPlatform" ColumnName="intPlatform" />
+                <ScalarProperty Name="intPrePay" ColumnName="intPrePay" />
+                <ScalarProperty Name="vchPayType" ColumnName="vchPayType" />
+                <ScalarProperty Name="dtModDate" ColumnName="dtModDate" />
+                <ScalarProperty Name="intModUserID" ColumnName="intModUserID" />
+                <ScalarProperty Name="dtAddDate" ColumnName="dtAddDate" />
+                <ScalarProperty Name="intAddUserID" ColumnName="intAddUserID" />
+                <ScalarProperty Name="vchKey" ColumnName="vchKey" />
+                <ScalarProperty Name="vchVeriCode" ColumnName="vchVeriCode" />
+                <ScalarProperty Name="vchAccount" ColumnName="vchAccount" />
+                <ScalarProperty Name="vchAccountName" ColumnName="vchAccountName" />
+                <ScalarProperty Name="vchPaySynRtnURL" ColumnName="vchPaySynRtnURL" />
+                <ScalarProperty Name="vchPayRtnURL" ColumnName="vchPayRtnURL" />
+                <ScalarProperty Name="vchParam" ColumnName="vchParam" />
+                <ScalarProperty Name="vchSignPName" ColumnName="vchSignPName" />
+                <ScalarProperty Name="vchPayURL" ColumnName="vchPayURL" />
+                <ScalarProperty Name="intPayGroup" ColumnName="intPayGroup" />
+                <ScalarProperty Name="intIsEnable" ColumnName="intIsEnable" />
+                <ScalarProperty Name="vchPicAddr" ColumnName="vchPicAddr" />
+                <ScalarProperty Name="vchPayDesc" ColumnName="vchPayDesc" />
+                <ScalarProperty Name="vchPayName" ColumnName="vchPayName" />
+                <ScalarProperty Name="intPayID" ColumnName="intPayID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Consignee_Address">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.User_Consignee_Address">
+              <MappingFragment StoreEntitySet="User_Consignee_Address">
+                <ScalarProperty Name="intPayID" ColumnName="intPayID" />
+                <ScalarProperty Name="intDeliverID" ColumnName="intDeliverID" />
+                <ScalarProperty Name="dtLastModTime" ColumnName="dtLastModTime" />
+                <ScalarProperty Name="dtAddTime" ColumnName="dtAddTime" />
+                <ScalarProperty Name="intIsDefaultAddr" ColumnName="intIsDefaultAddr" />
+                <ScalarProperty Name="vchHausnummer" ColumnName="vchHausnummer" />
+                <ScalarProperty Name="vchRoadName" ColumnName="vchRoadName" />
+                <ScalarProperty Name="vchPostCode" ColumnName="vchPostCode" />
+                <ScalarProperty Name="vchDetailAddr" ColumnName="vchDetailAddr" />
+                <ScalarProperty Name="vchCountyName" ColumnName="vchCountyName" />
+                <ScalarProperty Name="intCountyID" ColumnName="intCountyID" />
+                <ScalarProperty Name="vchCityName" ColumnName="vchCityName" />
+                <ScalarProperty Name="intCityID" ColumnName="intCityID" />
+                <ScalarProperty Name="vchStateName" ColumnName="vchStateName" />
+                <ScalarProperty Name="intStateID" ColumnName="intStateID" />
+                <ScalarProperty Name="intAddrType" ColumnName="intAddrType" />
+                <ScalarProperty Name="vchMobile" ColumnName="vchMobile" />
+                <ScalarProperty Name="vchPhone" ColumnName="vchPhone" />
+                <ScalarProperty Name="vchConsignee" ColumnName="vchConsignee" />
+                <ScalarProperty Name="vchCAName" ColumnName="vchCAName" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="intAddressID" ColumnName="intAddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vi_User_Shortage">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Vi_User_Shortage">
+              <MappingFragment StoreEntitySet="Vi_User_Shortage">
+                <ScalarProperty Name="intChannelID" ColumnName="intChannelID" />
+                <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
+                <ScalarProperty Name="intHerdID" ColumnName="intHerdID" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="intIsProm" ColumnName="intIsProm" />
+                <ScalarProperty Name="numHerdPrice" ColumnName="numHerdPrice" />
+                <ScalarProperty Name="intStockQty" ColumnName="intStockQty" />
+                <ScalarProperty Name="dtInformTime" ColumnName="dtInformTime" />
+                <ScalarProperty Name="intState" ColumnName="intState" />
+                <ScalarProperty Name="dtEndTime" ColumnName="dtEndTime" />
+                <ScalarProperty Name="intIndate" ColumnName="intIndate" />
+                <ScalarProperty Name="dtAddTime" ColumnName="dtAddTime" />
+                <ScalarProperty Name="vchInformCode" ColumnName="vchInformCode" />
+                <ScalarProperty Name="intInformType" ColumnName="intInformType" />
+                <ScalarProperty Name="vchProductName" ColumnName="vchProductName" />
+                <ScalarProperty Name="vchMainPicURL" ColumnName="vchMainPicURL" />
+                <ScalarProperty Name="vchCateName" ColumnName="vchCateName" />
+                <ScalarProperty Name="intCateID" ColumnName="intCateID" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intShortageID" ColumnName="intShortageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Up_ShopCart_GetCarriage" FunctionName="MobileWcf.DataContext.HolycaModel.Store.Up_ShopCart_GetCarriage" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="默认" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Holyca" ZoomLevel="74" DisplayType="false" ShowGrid="true">
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Brand" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3520719401041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Region" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type" Width="1.5" PointX="4.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_FlagBrand" Width="1.5" PointX="0.75" PointY="4.75" Height="1.5879931640624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Base_Info" Width="1.5" PointX="3.375" PointY="4.75" Height="8.4647021484375" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_AllList" Width="1.5" PointX="5.75" PointY="4.75" Height="7.318583984375" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_Detail" Width="1.5" PointX="7.75" PointY="0.75" Height="8.6557218424479174" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_List" Width="1.5" PointX="0.75" PointY="7.75" Height="7.1275642903645853" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_HotProduct" Width="1.5" PointX="10.375" PointY="0.75" Height="1.9700325520833317" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Pic" Width="1.5" PointX="9.5" PointY="3.125" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Other_Info" Width="1.5" PointX="10.375" PointY="6.75" Height="3.8802294921875031" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShoppingCart" Width="1.5" PointX="8.375" PointY="11.75" Height="7.3185839843750031" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Stock" Width="1.5" PointX="10.375" PointY="11.75" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver" Width="1.5" PointX="12.375" PointY="0.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Area" Width="1.5" PointX="12.375" PointY="4.75" Height="2.7341113281250031" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Pay" Width="1.5" PointX="12.375" PointY="8.75" Height="1.5879931640625031" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Pay_Type" Width="1.5" PointX="12.375" PointY="11.75" Height="5.4083870442708388" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.User_Consignee_Address" Width="1.5" PointX="5.375" PointY="13.75" Height="5.2173673502604174" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_User_Shortage" Width="1.5" PointX="14.375" PointY="0.75" Height="4.8353279622395888" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

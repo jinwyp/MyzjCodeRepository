@@ -1,0 +1,945 @@
+﻿日志时间：2012-08-14 12:39:27,773  
+[系统:system;描述:Redis缓存;代码:1010]设置缓存 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectSuccess(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.Set(String key, Byte[] value)
+   在 ServiceStack.Redis.RedisClient.Set[T](String key, T value)
+   在 ServiceStack.Redis.RedisClient.SetEntry(String key, String value)
+   在 ServiceStack.Redis.RedisClient.Set[T](String key, T value)
+   在 Myzj.Common.Caching.Redis.MRedisCache.Set[T](String key, CacheGroup cacheGroup, T obj) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 211
+日志时间：2012-08-14 12:39:30,181  
+[系统:system;描述:Redis缓存;代码:1010]设置缓存 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectSuccess(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.Set(String key, Byte[] value)
+   在 ServiceStack.Redis.RedisClient.Set[T](String key, T value)
+   在 ServiceStack.Redis.RedisClient.SetEntry(String key, String value)
+   在 ServiceStack.Redis.RedisClient.Set[T](String key, T value)
+   在 Myzj.Common.Caching.Redis.MRedisCache.Set[T](String key, CacheGroup cacheGroup, T obj) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 211
+日志时间：2012-08-14 12:39:31,187  
+[系统:system;描述:Redis缓存;代码:1010]设置缓存 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectSuccess(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.Set(String key, Byte[] value)
+   在 ServiceStack.Redis.RedisClient.Set[T](String key, T value)
+   在 ServiceStack.Redis.RedisClient.SetEntry(String key, String value)
+   在 ServiceStack.Redis.RedisClient.Set[T](String key, T value)
+   在 Myzj.Common.Caching.Redis.MRedisCache.Set[T](String key, CacheGroup cacheGroup, T obj) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 211
+日志时间：2012-08-14 12:39:38,844  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:39:43,596  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:39:45,065  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:42:11,050  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:42:12,513  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:42:14,052  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:42:51,472  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:42:52,690  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:42:54,236  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:42:56,881  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:42:58,335  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:42:59,368  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:43:27,177  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:43:28,714  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:43:29,851  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:43:33,851  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:43:35,262  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:43:36,402  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:43:41,964  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:43:43,512  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:44:58,031  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:44:59,382  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:45:00,917  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:45:53,057  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:45:54,588  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:45:56,112  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:01,542  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:03,017  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:07,339  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:08,756  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:19,514  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:20,861  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:21,982  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:24,045  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:25,863  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:27,118  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:31,318  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:32,772  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:35,801  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:37,108  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:38,639  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:40,839  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:42,282  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:43,772  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:53,839  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:46:55,274  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:53:57,789  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:54:31,316  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:56:31,505  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:56:33,101  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:56:39,803  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:56:41,774  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:56:52,533  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:56:59,375  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:57:04,110  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:57:08,181  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:57:12,892  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:57:17,142  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:57:21,695  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351
+日志时间：2012-08-14 12:57:26,119  
+[系统:system;描述:Redis缓存;代码:1010]获取缓存值 出错！ ServiceStack.Redis.RedisException: could not connect to redis Instance at 127.0.0.1:6380 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 127.0.0.1:6380
+   在 System.Net.Sockets.Socket.Connect(IPAddress[] addresses, Int32 port)
+   在 System.Net.Sockets.Socket.Connect(String host, Int32 port)
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ServiceStack.Redis.RedisNativeClient.Connect()
+   在 ServiceStack.Redis.RedisNativeClient.AssertConnectedSocket()
+   在 ServiceStack.Redis.RedisNativeClient.SendCommand(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.SendExpectData(Byte[][] cmdWithBinaryArgs)
+   在 ServiceStack.Redis.RedisNativeClient.GetBytes(String key)
+   在 ServiceStack.Redis.RedisNativeClient.Get(String key)
+   在 ServiceStack.Redis.RedisClient.GetValue(String key)
+   在 ServiceStack.Redis.RedisClient.Get[T](String key)
+   在 Myzj.Common.Caching.Redis.MRedisCache.GetValByKey[T](String key) 位置 E:\Project\Web\WCF\手机WCF\开发\Myzj.Common\Caching\Redis\MRedisCache.cs:行号 351

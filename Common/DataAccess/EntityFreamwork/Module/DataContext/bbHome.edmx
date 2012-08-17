@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EF.Model.bbHomeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="MobileWcfModelbbHomeModelStoreContainer">
+          <EntitySet Name="base_t_membAddr" EntityType="EF.Model.bbHomeModel.Store.base_t_membAddr" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="base_t_member" EntityType="EF.Model.bbHomeModel.Store.base_t_member" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+        </EntityContainer>
+        <EntityType Name="base_t_membAddr">
+          <Key>
+            <PropertyRef Name="addressNo" />
+          </Key>
+          <Property Name="addressNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="membNo" Type="int" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="200" />
+          <Property Name="roadName" Type="varchar" MaxLength="50" />
+          <Property Name="areaName" Type="varchar" MaxLength="50" />
+          <Property Name="doorPost" Type="int" />
+          <Property Name="zip" Type="varchar" MaxLength="10" />
+          <Property Name="tel" Type="varchar" MaxLength="20" />
+          <Property Name="tel1" Type="varchar" MaxLength="20" />
+          <Property Name="tel2" Type="varchar" MaxLength="20" />
+          <Property Name="busiCircles" Type="varchar" MaxLength="50" />
+          <Property Name="courtyard" Type="varchar" MaxLength="100" />
+          <Property Name="addrType" Type="int" />
+          <Property Name="definedZip" Type="varchar" MaxLength="10" />
+          <Property Name="memo" Type="varchar" MaxLength="500" />
+          <Property Name="beSendAddr" Type="int" />
+          <Property Name="createTime" Type="datetime" Nullable="false" />
+          <Property Name="createBy" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="updateBy" Type="char" MaxLength="10" />
+          <Property Name="regionId" Type="int" />
+          <Property Name="nearRoad" Type="varchar" MaxLength="100" />
+          <Property Name="provinceId" Type="int" />
+          <Property Name="districtId" Type="int" />
+        </EntityType>
+        <EntityType Name="base_t_member">
+          <Key>
+            <PropertyRef Name="membNo" />
+          </Key>
+          <Property Name="membNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userCode" Type="varchar" MaxLength="30" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="regTime" Type="datetime" />
+          <Property Name="createBy" Type="char" MaxLength="10" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="updateBy" Type="varchar" MaxLength="10" />
+          <Property Name="cardNO" Type="varchar" MaxLength="50" />
+          <Property Name="noteFlag" Type="int" />
+          <Property Name="userGroupId" Type="int" />
+          <Property Name="policymaker" Type="int" />
+          <Property Name="ReferrerMembNo" Type="int" />
+          <Property Name="province" Type="int" />
+          <Property Name="city" Type="int" />
+          <Property Name="district" Type="int" />
+          <Property Name="scores" Type="int" />
+          <Property Name="valid" Type="int" />
+          <Property Name="mobileTel" Type="varchar" MaxLength="20" />
+          <Property Name="tel" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="userLevel" Type="int" />
+          <Property Name="areaNo" Type="int" />
+          <Property Name="regType" Type="int" />
+          <Property Name="clusterId" Type="int" />
+          <Property Name="regFrom" Type="int" />
+          <Property Name="passward" Type="nvarchar" MaxLength="50" />
+          <Property Name="nickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="sex" Type="tinyint" />
+          <Property Name="question" Type="nvarchar" MaxLength="100" />
+          <Property Name="answer" Type="nvarchar" MaxLength="100" />
+          <Property Name="qq" Type="nvarchar" MaxLength="50" />
+          <Property Name="msn" Type="nvarchar" MaxLength="50" />
+          <Property Name="beValidate" Type="int" />
+          <Property Name="orderTimes" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EF.Model.bbHomeModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="bbHomeEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="base_t_membAddr" EntityType="EF.Model.bbHomeModel.base_t_membAddr" />
+          <EntitySet Name="base_t_member" EntityType="EF.Model.bbHomeModel.base_t_member" />
+        </EntityContainer>
+        <EntityType Name="base_t_membAddr">
+          <Key>
+            <PropertyRef Name="addressNo" />
+          </Key>
+          <Property Name="addressNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="membNo" Type="Int32" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="roadName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="areaName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="doorPost" Type="Int32" />
+          <Property Name="zip" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="tel" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="tel1" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="tel2" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="busiCircles" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="courtyard" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="addrType" Type="Int32" />
+          <Property Name="definedZip" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="memo" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="beSendAddr" Type="Int32" />
+          <Property Name="createTime" Type="DateTime" Nullable="false" />
+          <Property Name="createBy" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="updateTime" Type="DateTime" />
+          <Property Name="updateBy" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="regionId" Type="Int32" />
+          <Property Name="nearRoad" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="provinceId" Type="Int32" />
+          <Property Name="districtId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="base_t_member">
+          <Key>
+            <PropertyRef Name="membNo" />
+          </Key>
+          <Property Name="membNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="userCode" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="userName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="regTime" Type="DateTime" />
+          <Property Name="createBy" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="updateTime" Type="DateTime" />
+          <Property Name="updateBy" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="cardNO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="noteFlag" Type="Int32" />
+          <Property Name="userGroupId" Type="Int32" />
+          <Property Name="policymaker" Type="Int32" />
+          <Property Name="ReferrerMembNo" Type="Int32" />
+          <Property Name="province" Type="Int32" />
+          <Property Name="city" Type="Int32" />
+          <Property Name="district" Type="Int32" />
+          <Property Name="scores" Type="Int32" />
+          <Property Name="valid" Type="Int32" />
+          <Property Name="mobileTel" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="tel" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="userLevel" Type="Int32" />
+          <Property Name="areaNo" Type="Int32" />
+          <Property Name="regType" Type="Int32" />
+          <Property Name="clusterId" Type="Int32" />
+          <Property Name="regFrom" Type="Int32" />
+          <Property Name="passward" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nickName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="sex" Type="Byte" />
+          <Property Name="question" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="answer" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="qq" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="msn" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="beValidate" Type="Int32" />
+          <Property Name="orderTimes" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MobileWcfModelbbHomeModelStoreContainer" CdmEntityContainer="bbHomeEntities">
+          <EntitySetMapping Name="base_t_membAddr"><EntityTypeMapping TypeName="EF.Model.bbHomeModel.base_t_membAddr"><MappingFragment StoreEntitySet="base_t_membAddr">
+            <ScalarProperty Name="addressNo" ColumnName="addressNo" />
+            <ScalarProperty Name="membNo" ColumnName="membNo" />
+            <ScalarProperty Name="address" ColumnName="address" />
+            <ScalarProperty Name="roadName" ColumnName="roadName" />
+            <ScalarProperty Name="areaName" ColumnName="areaName" />
+            <ScalarProperty Name="doorPost" ColumnName="doorPost" />
+            <ScalarProperty Name="zip" ColumnName="zip" />
+            <ScalarProperty Name="tel" ColumnName="tel" />
+            <ScalarProperty Name="tel1" ColumnName="tel1" />
+            <ScalarProperty Name="tel2" ColumnName="tel2" />
+            <ScalarProperty Name="busiCircles" ColumnName="busiCircles" />
+            <ScalarProperty Name="courtyard" ColumnName="courtyard" />
+            <ScalarProperty Name="addrType" ColumnName="addrType" />
+            <ScalarProperty Name="definedZip" ColumnName="definedZip" />
+            <ScalarProperty Name="memo" ColumnName="memo" />
+            <ScalarProperty Name="beSendAddr" ColumnName="beSendAddr" />
+            <ScalarProperty Name="createTime" ColumnName="createTime" />
+            <ScalarProperty Name="createBy" ColumnName="createBy" />
+            <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+            <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+            <ScalarProperty Name="regionId" ColumnName="regionId" />
+            <ScalarProperty Name="nearRoad" ColumnName="nearRoad" />
+            <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+            <ScalarProperty Name="districtId" ColumnName="districtId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="base_t_member"><EntityTypeMapping TypeName="EF.Model.bbHomeModel.base_t_member"><MappingFragment StoreEntitySet="base_t_member">
+            <ScalarProperty Name="membNo" ColumnName="membNo" />
+            <ScalarProperty Name="userCode" ColumnName="userCode" />
+            <ScalarProperty Name="userName" ColumnName="userName" />
+            <ScalarProperty Name="regTime" ColumnName="regTime" />
+            <ScalarProperty Name="createBy" ColumnName="createBy" />
+            <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+            <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+            <ScalarProperty Name="cardNO" ColumnName="cardNO" />
+            <ScalarProperty Name="noteFlag" ColumnName="noteFlag" />
+            <ScalarProperty Name="userGroupId" ColumnName="userGroupId" />
+            <ScalarProperty Name="policymaker" ColumnName="policymaker" />
+            <ScalarProperty Name="ReferrerMembNo" ColumnName="ReferrerMembNo" />
+            <ScalarProperty Name="province" ColumnName="province" />
+            <ScalarProperty Name="city" ColumnName="city" />
+            <ScalarProperty Name="district" ColumnName="district" />
+            <ScalarProperty Name="scores" ColumnName="scores" />
+            <ScalarProperty Name="valid" ColumnName="valid" />
+            <ScalarProperty Name="mobileTel" ColumnName="mobileTel" />
+            <ScalarProperty Name="tel" ColumnName="tel" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="userLevel" ColumnName="userLevel" />
+            <ScalarProperty Name="areaNo" ColumnName="areaNo" />
+            <ScalarProperty Name="regType" ColumnName="regType" />
+            <ScalarProperty Name="clusterId" ColumnName="clusterId" />
+            <ScalarProperty Name="regFrom" ColumnName="regFrom" />
+            <ScalarProperty Name="passward" ColumnName="passward" />
+            <ScalarProperty Name="nickName" ColumnName="nickName" />
+            <ScalarProperty Name="sex" ColumnName="sex" />
+            <ScalarProperty Name="question" ColumnName="question" />
+            <ScalarProperty Name="answer" ColumnName="answer" />
+            <ScalarProperty Name="qq" ColumnName="qq" />
+            <ScalarProperty Name="msn" ColumnName="msn" />
+            <ScalarProperty Name="beValidate" ColumnName="beValidate" />
+            <ScalarProperty Name="orderTimes" ColumnName="orderTimes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="默认" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="bbHome">
+        <EntityTypeShape EntityType="EF.Model.bbHomeModel.base_t_membAddr" Width="1.5" PointX="0.75" PointY="0.75" Height="5.59940673828125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Model.bbHomeModel.base_t_member" Width="1.5" PointX="2.75" PointY="0.75" Height="7.5096036783854156" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

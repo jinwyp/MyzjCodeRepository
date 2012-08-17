@@ -1,0 +1,1428 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wcf.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:Wcf.Entity.Goods.Product">
+            <summary>
+            产品结构
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.product_id">
+            <summary>
+            产品ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.product_code">
+            <summary>
+            产品code
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.created">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.cid">
+            <summary>
+            分类ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.cname">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.bid">
+            <summary>
+            品牌ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.bname">
+            <summary>
+            品牌名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.name">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.saleprice">
+            <summary>
+            销售价格
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.desc">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.modified">
+            <summary>
+            更改时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.product_imgs">
+            <summary>
+            图片列表
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.status">
+            <summary>
+            产品状态 0下架；1上架
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.Product.pic_path">
+            <summary>
+            产品主图
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Order.ItemOrderDetails">
+            <summary>
+            订单明细，商品信息
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.oid">
+            <summary>
+            订单ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.gid">
+            <summary>
+            商品ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.title">
+            <summary>
+            商品标题
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.costprice">
+            <summary>
+            成本价
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.price">
+            <summary>
+            销售价
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.meal_id">
+            <summary>
+            套餐ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.meal_name">
+            <summary>
+            套餐名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.sku_id">
+            <summary>
+            sku id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.sku_name">
+            <summary>
+            sku 名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.num">
+            <summary>
+            商品数量
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.discount_fee">
+            <summary>
+            优惠金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.adjust_fee">
+            <summary>
+            调整金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.aftersales_fee">
+            <summary>
+            售后金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrderDetails.modified">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.oid">
+            <summary>
+            订单ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.status">
+            <summary>
+            订单状态
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.total_fee">
+            <summary>
+            订单总额 不包括邮费
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.total_freight">
+            <summary>
+            运费总额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.payment">
+            <summary>
+            支付金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.discount_fee">
+            <summary>
+            优惠金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.adjust_fee">
+            <summary>
+            调整金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.aftersales_fee">
+            <summary>
+            售后金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.modified">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.buyer_nick">
+            <summary>
+            买家昵称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.buyer_uid">
+            <summary>
+            买家字符串ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.created">
+            <summary>
+            订单创建时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.timeout_action">
+            <summary>
+            订单超时日期
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.buyer_rate">
+            <summary>
+            买家是否已评价 true 已评价 false 未评价
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Goods.ItemGoodsSearch">
+            <summary>
+            商品搜索结构
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsSearch.gid">
+            <summary>
+            商品Id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsSearch.title">
+            <summary>
+            商品标题
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsSearch.pic_url">
+            <summary>
+            商品图片
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsSearch.price">
+            <summary>
+            商品价格
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.gid">
+            <summary>
+            商品Id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.title">
+            <summary>
+            商品标题
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.pic_url">
+            <summary>
+            商品图片
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.attrs">
+            <summary>
+            商品属性
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.desc">
+            <summary>
+            商品描述
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.price">
+            <summary>
+            商品价格
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.stock">
+            <summary>
+            库存
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.marketprice">
+            <summary>
+            市场价
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.productcode">
+            <summary>
+            商品编号
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoodsDetails.score">
+            <summary>
+            积分
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Enum.Invoice">
+            <summary>
+            发票
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Enum.Invoice.TitleType">
+            <summary>
+            发票title 类型
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.Invoice.TitleType.Personal">
+            <summary>
+            个人
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.Invoice.TitleType.Company">
+            <summary>
+            公司
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Enum.Invoice.InvoiceCategory">
+            <summary>
+            发票分类
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.Invoice.InvoiceCategory.Food">
+            <summary>
+            用品
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.Invoice.InvoiceCategory.Articles">
+            <summary>
+            食品
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Order.Shipping">
+            <summary>
+            物流数据结构
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.oid">
+            <summary>
+            订单ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.doid">
+            <summary>
+            发货单ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.status">
+            <summary>
+            状态 CREATED(订单已创建) RECREATED(订单重新创建) CANCELLED(订单已取消) CLOSED(订单关闭) SENDING(等候发送给物流公司) ACCEPTING(已发送给物流公司,等待接单) ACCEPTED(物流公司已接单) REJECTED(物流公司不接单) PICK_UP(物流公司揽收成功) PICK_UP_FAILED(物流公司揽收失败) LOST(物流公司丢单) REJECTED_BY_RECEIVER(对方拒签) ACCEPTED_BY_RECEIVER(发货方式在线下单：对方已签收；自己联系：卖家已发货)
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.buyer_nick">
+            <summary>
+            买家昵称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.buyer_uid">
+            <summary>
+            买家字符串id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.out_sid">
+            <summary>
+            运单号
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.location">
+            <summary>
+            收货地址信息
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.receiver_name">
+            <summary>
+            收货人姓名
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.receiver_phone">
+            <summary>
+            收货人电话
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.receiver_mobile">
+            <summary>
+            收货人手机
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.type">
+            <summary>
+            物流方式
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.freight_payer">
+            <summary>
+            运费承担方式  buyer(买家承担),seller(卖家承担运费)
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.company_name">
+            <summary>
+            物流公司名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.created">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.Shipping.modified">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.BaseData.ItemLogistics">
+            <summary>
+            物流项目
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemLogistics.id">
+            <summary>
+            配送 id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemLogistics.name">
+            <summary>
+            配送 名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemLogistics.remark">
+            <summary>
+            配送 备注
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Goods.ProductImg">
+            <summary>
+            产品属性图片
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ProductImg.id">
+            <summary>
+            图片ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ProductImg.product_id">
+            <summary>
+            产品ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ProductImg.url">
+            <summary>
+            图片连接地址
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ProductImg.position">
+            <summary>
+            图片位置
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ProductImg.created">
+            <summary>
+            图片创建时间
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.BaseData.ItemPay">
+            <summary>
+            支付项目
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemPay.payid">
+            <summary>
+            支付id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemPay.payname">
+            <summary>
+            支付名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemPay.paytype">
+            <summary>
+            支付类型
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemPay.remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Order.ShoppingCartEntity">
+            <summary>
+            购物车
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.channel_id">
+            <summary>
+            /渠道id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.product_id">
+            <summary>
+            商品id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.is_gift">
+            <summary>
+            是否为赠品
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.org_price">
+            <summary>
+            原价
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.sale_price">
+            <summary>
+            销售价
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.score">
+            <summary>
+            所得积分
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.org_score">
+            <summary>
+            原可得积分
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.suit_id">
+            <summary>
+            套装id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.suit_name">
+            <summary>
+            套装名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.add_time">
+            <summary>
+            添加时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.category_id">
+            <summary>
+            分类id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.session_id">
+            <summary>
+            sessionid
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.brand_id">
+            <summary>
+            品牌id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.tag_id">
+            <summary>
+            标签id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.cluster_id">
+            <summary>
+            会员等级id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.cost">
+            <summary>
+            成本
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.clean_cost">
+            <summary>
+            去税成本
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intShopCartID">
+            <summary>
+            购物车ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intChannelID">
+            <summary>
+            渠道ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intUserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intProductID">
+            <summary>
+            产品ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intBuyCount">
+            <summary>
+            购买数量
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.chrIsGift">
+            <summary>
+            是否是礼物
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.numSalePrice">
+            <summary>
+            销售价
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.numOrgPrice">
+            <summary>
+            原始价
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intScore">
+            <summary>
+            幸运星
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intOrgScore">
+            <summary>
+            原始幸运星
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intSuitID">
+            <summary>
+            套装ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.nchSuitName">
+            <summary>
+            套装名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.dtAddTime">
+            <summary>
+            增加时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intCateId">
+            <summary>
+            分类ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intBrandID">
+            <summary>
+            品牌ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intTagID">
+            <summary>
+            票识ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.nchProductName">
+            <summary>
+            商品名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intIsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intPromCount">
+            <summary>
+            促销数量
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.numCost">
+            <summary>
+            成本价
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.numCleanCost">
+            <summary>
+            扣税成本
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.vchProductPrinted">
+            <summary>
+            目录册ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intPriceID">
+            <summary>
+            介格ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.vchPicURL">
+            <summary>
+            产品图片
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intWeight">
+            <summary>
+            总重量
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intGiftType">
+            <summary>
+            赠品类型
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intPromID">
+            <summary>
+            促销ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intAreaID">
+            <summary>
+            区域ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.vchCoponCode">
+            <summary>
+            优惠码
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.vchGuid">
+            <summary>
+            Guid临时用户ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.vchproductcode">
+            <summary>
+            产品Code
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.intProductType">
+            <summary>
+            商品类型
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartEntity.numMarketPrice">
+            <summary>
+            市场价
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Member.AddressEntity">
+            <summary>
+            地址库返回信息
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.id">
+            <summary>
+            地址库ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.contact_id">
+            <summary>
+            联系人ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.contact_name">
+            <summary>
+            联系人姓名
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.province">
+            <summary>
+            省份
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.province_id">
+            <summary>
+            省份ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.city">
+            <summary>
+            城市
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.city_id">
+            <summary>
+            城市ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.county">
+            <summary>
+            区县
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.county_id">
+            <summary>
+            国家ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.country">
+            <summary>
+            国家
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.country_id">
+            <summary>
+            区域ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.addr">
+            <summary>
+            详细街道地址
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.zip">
+            <summary>
+            邮编
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.type">
+            <summary>
+            地址类型
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.seller_company">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.area_id">
+            <summary>
+            区域id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.deliver_id">
+            <summary>
+            配送id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.pay_id">
+            <summary>
+            支付id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.send_def">
+            <summary>
+            默认发货地址
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.get_def">
+            <summary>
+            默认收货地址
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.cancel_def">
+            <summary>
+            默认退货地址
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.created">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.AddressEntity.modify_date">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Member.UserEntity">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.user_id">
+            <summary>
+            用户数字ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.uid">
+            <summary>
+            用户字符串ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.nick">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.sex">
+            <summary>
+            用户性别 可选值:m(男),f(女)
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.location">
+            <summary>
+            用户当前居住地公开信息。如：location.city获取其中的city数据
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.created">
+            <summary>
+            用户注册时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.last_login">
+            <summary>
+            最近登陆时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.birthday">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.babybirthday">
+            <summary>
+            宝宝生日
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.type">
+            <summary>
+            用户类型
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.status">
+            <summary>
+            状态。可选值:normal(正常),inactive(未激活),delete(删除),reeze(冻结),supervise(监管)
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.avatar">
+            <summary>
+            用户头像地址
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.email">
+            <summary>
+            联系人email
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.mobile">
+            <summary>
+            手机
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.userlevel">
+            <summary>
+            会员等级
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.registertype">
+            <summary>
+            注册类型
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.locky">
+            <summary>
+            幸运星
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.orderstotal">
+            <summary>
+            累计订单总数
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserEntity.consumetotal">
+            <summary>
+            消费总额
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Order.OrderEntity">
+            <summary>
+            订单数据结构
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.oid">
+            <summary>
+            订单ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.total_fee">
+            <summary>
+            订单总额 不包括邮费
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.total_freight">
+            <summary>
+            运费总额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.payment">
+            <summary>
+            支付金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.discount_fee">
+            <summary>
+            优惠金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.adjust_fee">
+            <summary>
+            调整金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.buyer_nick">
+            <summary>
+            买家昵称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.buyer_uid">
+            <summary>
+            买家字符串ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.addressid">
+            <summary>
+            收货地址ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.payid">
+            <summary>
+            支付方式id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.logisticsid">
+            <summary>
+            配送方式id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.titletype">
+            <summary>
+            发票抬头类型
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.invoicecategory">
+            <summary>
+            发票分类
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.invoicetitle">
+            <summary>
+            发票抬头
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.remark">
+            <summary>
+            订单备注
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.SystemType.PhoneSale">
+            <summary>
+            电销
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.SystemType.WebSite">
+            <summary>
+            网站
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.SystemType.MobileWebSite">
+            <summary>
+            手机网站
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Product.ItemComment">
+            <summary>
+            评价列表
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.comment_id">
+            <summary>
+            评价id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.gid">
+            <summary>
+            商品ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.tid">
+            <summary>
+            订单ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.nick">
+            <summary>
+            评价人昵称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.result">
+            <summary>
+            评价结果
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.crated">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.last_replytime">
+            <summary>
+            最后回复时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.item_title">
+            <summary>
+            商品标题
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.price">
+            <summary>
+            商品价格
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.content">
+            <summary>
+            评价内容
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Product.ItemComment.reply">
+            <summary>
+            回复内容
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartResult.shoppingcart_list">
+            <summary>
+            购物车商品列表
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ShoppingCartResult.shoppingcart_total">
+            <summary>
+            总金额
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Order.CarriageDetail">
+            <summary>
+            物流资费相关
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderResult.total_score">
+            <summary>
+            总积分
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderResult.total_goods">
+            <summary>
+            商品总数
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderResult.total_weight">
+            <summary>
+            总重量
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderResult.total_freight">
+            <summary>
+            总运费
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderResult.total_goods_fee">
+            <summary>
+            商品总额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderResult.total_order_fee">
+            <summary>
+            订单总额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderResult.total_original">
+            <summary>
+            优惠前总额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderResult.total_discount_fee">
+            <summary>
+            优惠总额
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Member.Location">
+            <summary>
+            用户位置信息
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.Location.zip">
+            <summary>
+            邮编
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.Location.address">
+            <summary>
+            详细地址
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.Location.city">
+            <summary>
+            所在城市
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.Location.state">
+            <summary>
+            所在省份
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.Location.country">
+            <summary>
+            国家名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.Location.district">
+            <summary>
+            区/县
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Enum.SortType">
+            <summary>
+            排序类型
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.SortType.SalesAsc">
+            <summary>
+            销量 升序
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.SortType.SalesDesc">
+            <summary>
+            销量 降序
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.SortType.PriceAsc">
+            <summary>
+            价格 升序
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.SortType.PriceDesc">
+            <summary>
+            价格 降序
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.SortType.EnableTimeAsc">
+            <summary>
+            上架时间 升序
+            </summary>
+        </member>
+        <member name="F:Wcf.Entity.Enum.SortType.EnableTimeDesc">
+            <summary>
+            上架时间 降序
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemMethodVerify.MethodName">
+            <summary>
+            方法名
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemMethodVerify.IsVerifySystemId">
+            <summary>
+            是否验证系统ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemMethodVerify.IsVerifyToken">
+            <summary>
+            是否验证 Token
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemMethodVerify.IsVerifyData">
+            <summary>
+            是否验证数据一致性
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemMethodVerify.IsVerfiyPemissions">
+            <summary>
+            是否验证权限
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.BaseData.ItemRegion">
+            <summary>
+            地区行数据
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemRegion.id">
+            <summary>
+            地区id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemRegion.pid">
+            <summary>
+            父级id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemRegion.name">
+            <summary>
+            地区名称
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemRegion.type">
+            <summary>
+            区域类型
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemRegion.zip">
+            <summary>
+            邮编
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemRegion.code">
+            <summary>
+            简码
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.ItemRegion.child_total">
+            <summary>
+            子节点总数
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Order.ItemShoppingCartGoodsSmall">
+            <summary>
+            购物车商品 简单 实体
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Member.UserRegister">
+            <summary>
+            用户注册
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserRegister.email">
+            <summary>
+            联系人email
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserRegister.uid">
+            <summary>
+            用户字符串ID
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserRegister.pwd">
+            <summary>
+            用户密码
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserRegister.mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserRegister.babybirthday">
+            <summary>
+            宝宝生日
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Member.UserRegister.registertype">
+            <summary>
+            注册类型（来源）
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Goods.ItemGoods">
+            <summary>
+            商品结构
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoods.gid">
+            <summary>
+            商品Id
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoods.title">
+            <summary>
+            商品标题
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoods.pic_url">
+            <summary>
+            商品图片
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoods.price">
+            <summary>
+            商品价格
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoods.marketprice">
+            <summary>
+            市场价
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoods.productcode">
+            <summary>
+            商品编号
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Goods.ItemGoods.score">
+            <summary>
+            积分
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.LogisticsResult.logistics_info">
+            <summary>
+            物流信息
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.LogisticsResult.total_fee">
+            <summary>
+            总运费
+            </summary>
+        </member>
+    </members>
+</doc>

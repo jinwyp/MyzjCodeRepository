@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EFDAL</name>
+    </assembly>
+    <members>
+        <!-- 对于成员“M:EF.DAL.BaseData.GetPayList(System.Int32,System.Int32)”忽略有格式错误的 XML 注释 -->
+        <member name="M:EF.DAL.BaseData.GetDeliverList(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取配送方式列
+            </summary>
+            <param name="channelId"></param>
+            <param name="regionId"></param>
+            <param name="payGroupId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.BaseData.GetDeliverInfo(System.Int32)">
+            <summary>
+            获取配送方式
+            </summary>
+            <param name="deliveryId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.BaseData.GetCarriage(System.Int64,System.Int32,System.Int32)">
+            <summary>
+            计算运费
+            </summary>
+            <param name="weight"></param>
+            <param name="deliveId"></param>
+            <param name="cityId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.BaseData.GetRegionList(System.Int32)">
+            <summary>
+            获取地区数据
+            </summary>
+            <param name="parentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.BaseData.GetAllRegionList(System.Int32)">
+            <summary>
+            获取全部地区数据
+            </summary>
+            <param name="regionType">地区类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.GetMemberInfo(System.String)">
+            <summary>
+            获取会员信息
+            </summary>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.GetMemberAddressList(System.Int32)">
+            <summary>
+            获取会员收货地址列表
+            </summary>
+            <param name="user_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.AddMemberAddress(EF.Model.DataContext.User_Consignee_Address)">
+            <summary>
+            添加会员收货地址
+            </summary>
+            <param name="addressEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.UpdateMemberAddress(System.Int32,EF.Model.DataContext.User_Consignee_Address)">
+            <summary>
+            更新会员收货地址
+            </summary>
+            <param name="id"></param>
+            <param name="addressEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.GetMemberAddressInfo(System.Int32)">
+            <summary>
+            获取用户收货地址信息
+            </summary>
+            <param name="addressId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.GetMemberDefaultAddressInfo(System.Int32)">
+            <summary>
+            获取用户默认收货地址信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.GetMemberAddressCount(System.Int32)">
+            <summary>
+            获取用户收货地址总数
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.CheckAddresExists(EF.Model.DataContext.User_Consignee_Address)">
+            <summary>
+            检查收货地址信息是否存在
+            </summary>
+            <param name="addressEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.SetDefaultAddress(System.Int32,System.Int32)">
+            <summary>
+            设置用户默认收货地址
+            </summary>
+            <param name="userId"></param>
+            <param name="addressId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.ReSetAddressDefaultStatus(System.Int32)">
+            <summary>
+            重置用户全部地址默认状态为 0 （非默认地址）
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Goods.GetGoodsList(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Nullable{Wcf.Entity.Enum.SortType},System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            获取商品列表数据
+            </summary>
+            <param name="userLevel">会员等级</param>
+            <param name="channelId">渠道id</param>
+            <param name="categoryId">分类id</param>
+            <param name="brandId">品牌id</param>
+            <param name="starAge">开始年龄</param>
+            <param name="endAge">结束年龄</param>
+            <param name="startPrice">开始价格</param>
+            <param name="endPrice">结束价格</param>
+            <param name="sortType">排序类型</param>
+            <param name="pageSize">每页数据条数</param>
+            <param name="pageIndex">分页索引</param>
+            <param name="pageTotal">数据总数</param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Goods.GetGoodsPicList(System.Int32)">
+            <summary>
+            获取商品图片列表
+            </summary>
+            <param name="gid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Goods.GetGoodsInfo(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取商品信息
+            </summary>
+            <param name="userLevel"></param>
+            <param name="channelId"></param>
+            <param name="gid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Goods.GetGoodsOtherInfo(System.Int32)">
+            <summary>
+            获取商品其他信息
+            </summary>
+            <param name="gid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Goods.CheckProductStockByProductID(System.Int32,System.Int32)">
+            <summary>
+            检测商品库存
+            </summary>
+            <param name="productId">商品ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.ShoppingCartDal.GetShoppingCartProductInfosByUserIDGuidChannelID(System.Int32,System.String,System.Int32)">
+            <summary>
+            获取当前用户的购物车中的商品信息
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="guid">用户全局变量</param>
+            <param name="channelId">渠道ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.ShoppingCartDal.DeleteShoppingCartByProductIdUserID(System.Int32)">
+            <summary>
+            删除购物车中的商品信息
+            </summary>
+            <param name="shoppingCartId">购物车ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.ShoppingCartDal.AddShoppingCartProductInfo(Wcf.Entity.Order.ShoppingCartEntity)">
+            <summary>
+            增加购物车商品信息
+            </summary>
+            <param name="shoppingCartEntity">购物车信息实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.ShoppingCartDal.SetShoppingCartGoodsNum(System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+            设置购物车商品数量
+            </summary>
+            <param name="user_id"></param>
+            <param name="guid"></param>
+            <param name="shoppingCartId"></param>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.ShoppingCartDal.GetShoppingTotal(System.Int32,System.String,System.Int32)">
+            <summary>
+            获取购物车总金额
+            </summary>
+            <param name="user_id"></param>
+            <param name="guid"></param>
+            <param name="channelId"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.ShoppingCartDal.GetShoppingCartGoodsNum(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            获取购物车商品数量
+            </summary>
+            <param name="token"> </param>
+            <param name="channelId"></param>
+            <param name="uid"></param>
+            <param name="user_id"> </param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Core</name>
+    </assembly>
+    <members>
+        <member name="M:Core.Ioc.MIocUtility.#cctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Core.Ioc.MIocUtility.GetObject``1(System.String)">
+            <summary>
+            获取注入对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.MDataTypeUtiity.CopyObject``2(``0,``1)">
+            <summary>
+            复制对象
+            </summary>
+            <typeparam name="T1"> </typeparam>
+            <typeparam name="T2"> </typeparam>
+            <param name="from">源实例</param>
+            <param name="to">目标实例</param>
+        </member>
+        <member name="T:Core.Caching.Redis.MRedisCache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Core.Caching.CacheBase.FormatKey(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            格式化 Key
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.CacheBase.VerifyKeyInGroup(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            校验 该key 是否属于该组
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.Caching.ICache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Core.Caching.ICache.Open">
+            <summary>
+            打开客户端连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Close">
+            <summary>
+            关闭客户端连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Clear">
+            <summary>
+            清除所有缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Set(System.String,Core.Enums.MCaching.CacheGroup,System.Object,System.DateTime)">
+            <summary>
+            设置缓存 如果存在则更新，否则新增
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <param name="expired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Set(System.String,Core.Enums.MCaching.CacheGroup,System.Object)">
+            <summary>
+            设置缓存 如果存在则更新，否则新增
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Set``1(System.String,Core.Enums.MCaching.CacheGroup,``0,System.DateTime)">
+            <summary>
+            设置缓存 如果存在则更新，否则新增
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <param name="expired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Set``1(System.String,Core.Enums.MCaching.CacheGroup,``0)">
+            <summary>
+            设置缓存 如果存在则更新，否则新增
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Add(System.String,Core.Enums.MCaching.CacheGroup,System.Object,System.DateTime)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <param name="expired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Add(System.String,Core.Enums.MCaching.CacheGroup,System.Object)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Add``1(System.String,Core.Enums.MCaching.CacheGroup,``0,System.DateTime)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <param name="expired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Add``1(System.String,Core.Enums.MCaching.CacheGroup,``0)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.GetValByKey(System.String)">
+            <summary>
+            获取缓存值 来自 缓存Key
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.GetValByKey(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            获取缓存值 来自 缓存Key
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.GetValByKey``1(System.String)">
+            <summary>
+            获取缓存值 来自 缓存Key
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.GetValByKey``1(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            获取缓存值 来自 缓存Key
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.GetValByKeys``1(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取缓存值列表 来自 缓存Keys
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.GetValByKeys``1(System.Collections.Generic.List{System.String},Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            获取缓存值列表 来自 缓存Keys
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="keys"></param>
+            <param name="cacheGroup"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.GetKeys">
+            <summary>
+            获取所有缓存Key
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.GetKeys(Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            获取所有缓存Key 
+            </summary>
+            <param name="cacheGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.RemoveByKey(System.String)">
+            <summary>
+            移除缓存 来自 缓存Key
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.RemoveByKey(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            移除缓存 来自 缓存Key
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.RemoveByKeyGroup(Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            移除缓存 来自 缓存分组
+            </summary>
+            <param name="cacheGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.ICache.Contains(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            是否存在 该Key
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetClient">
+            <summary>
+            从连接池取连接对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetInstance">
+            <summary>
+            获取实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Open">
+            <summary>
+            打开客户端连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Close">
+            <summary>
+            关闭客户端连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Clear">
+            <summary>
+            清除所有缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Set(System.String,Core.Enums.MCaching.CacheGroup,System.Object,System.DateTime)">
+            <summary>
+            设置缓存 如果存在则更新，否则新增
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <param name="expired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Set(System.String,Core.Enums.MCaching.CacheGroup,System.Object)">
+            <summary>
+            设置缓存 如果存在则更新，否则新增
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Set``1(System.String,Core.Enums.MCaching.CacheGroup,``0,System.DateTime)">
+            <summary>
+            设置缓存 如果存在则更新，否则新增
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <param name="expired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Set``1(System.String,Core.Enums.MCaching.CacheGroup,``0)">
+            <summary>
+            设置缓存 如果存在则更新，否则新增
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Add(System.String,Core.Enums.MCaching.CacheGroup,System.Object,System.DateTime)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <param name="expired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Add(System.String,Core.Enums.MCaching.CacheGroup,System.Object)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Add``1(System.String,Core.Enums.MCaching.CacheGroup,``0,System.DateTime)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <param name="expired"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Add``1(System.String,Core.Enums.MCaching.CacheGroup,``0)">
+            <summary>
+            添加缓存
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKey(System.String)">
+            <summary>
+            获取缓存值 来自 缓存Key
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKey(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            获取缓存值 来自 缓存Key
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKey``1(System.String)">
+            <summary>
+            获取缓存值 来自 缓存Key
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKey``1(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            获取缓存值 来自 缓存Key
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKeys``1(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取缓存值列表 来自 缓存Keys
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKeys``1(System.Collections.Generic.List{System.String},Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            获取缓存值列表 来自 缓存Keys
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="keys"></param>
+            <param name="cacheGroup"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetKeys">
+            <summary>
+            获取所有缓存Key
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.GetKeys(Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            获取所有缓存Key 
+            </summary>
+            <param name="cacheGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.RemoveByKey(System.String)">
+            <summary>
+            移除缓存 来自 缓存Key
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.RemoveByKey(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            移除缓存 来自 缓存Key
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.RemoveByKeyGroup(Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            移除缓存 来自 缓存分组
+            </summary>
+            <param name="cacheGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Redis.MRedisCache.Contains(System.String,Core.Enums.MCaching.CacheGroup)">
+            <summary>
+            是否存在 该Key
+            </summary>
+            <param name="key"></param>
+            <param name="cacheGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.MEncryptUtility.MD5Encrypt(System.String,System.Int32)">
+            <summary>
+            MD5加密
+            </summary>
+            <param name="txtEncrypt">加密字符串</param>
+            <param name="number">固定入参16,密码截取前16位</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Core.MEncryptUtility.NewGuid">
+            <summary>
+            创建一个Guid字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.MEncryptUtility.NewRandomStr(System.Int32,Core.Enums.MRandomType)">
+            <summary>
+            创建随机字符串
+            </summary>
+            <param name="len"></param>
+            <param name="randomType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.Enums.MResultStatus">
+            <summary>
+            执行状态
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MResultStatus.ExceptionError">
+            <summary>
+            异常错误
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MResultStatus.ParamsError">
+            <summary>
+            参数错误
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MResultStatus.LogicError">
+            <summary>
+            逻辑错误
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MResultStatus.ExecutionError">
+            <summary>
+            执行错误
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MResultStatus.Undefined">
+            <summary>
+            未定义
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MResultStatus.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="T:Core.Enums.MLogGroup.Member">
+            <summary>
+            用户相关 取值 100-199
+            </summary>
+        </member>
+        <member name="T:Core.Enums.MLogGroup.Goods">
+            <summary>
+            商品相关 取值 200-399
+            </summary>
+        </member>
+        <member name="T:Core.Enums.MLogGroup.Order">
+            <summary>
+            订单相关 取值 400-599
+            </summary>
+        </member>
+        <member name="T:Core.Enums.MLogGroup.AopAdvice">
+            <summary>
+            面向切面通知 取值 700-899
+            </summary>
+        </member>
+        <member name="T:Core.Enums.MLogGroup.WcfService">
+            <summary>
+            wcf 服务 记录类型 取值 900-999
+            </summary>
+        </member>
+        <member name="T:Core.Enums.MLogGroup.Other">
+            <summary>
+            其他 取值 1000-1199
+            </summary>
+        </member>
+        <member name="T:Core.WcfHostUtility.MWcfHostManager`1">
+             <summary>
+            ServiceHost 的摘要说明
+             </summary>
+        </member>
+        <member name="M:Core.WcfHostUtility.MWcfHostManager`1.WcfServiceInit">
+            <summary>
+            初始化Wcf服务
+            </summary>
+        </member>
+        <member name="P:Core.WcfHostUtility.MWcfHostManager`1.Host">
+            <summary>
+            Wcf服务对象
+            </summary>
+        </member>
+        <member name="M:Core.ExtMethod.DataRowExt.DataRowToEntity``1(System.Data.DataRow)">
+            <summary>
+            DataRow 转 实体类
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ConfigUtility.MConfigManager">
+            <summary>
+            配置文件
+            </summary>
+        </member>
+        <member name="M:Core.ConfigUtility.MConfigManager.#cctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Core.ConfigUtility.MConfigManager.FormatKey(System.String,Core.Enums.MConfigs.ConfigsCategory)">
+            <summary>
+            解析 Config Key
+            </summary>
+            <param name="configsCategory"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ConfigUtility.MConfigManager.GetAppSettingsValue``1(System.String,``0[])">
+            <summary>
+            获取 配置文件 AppSettings 节点的值
+            </summary>
+            <param name="key">配置文件的Key</param>
+            <param name="def">如果不存在</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ConfigUtility.MConfigManager.AddAppSettings(System.String,System.String)">
+            <summary>
+            添加 配置文件 AppSettings 节点
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ConfigUtility.MConfigManager.SetAppSettingsValue(System.String,System.String)">
+            <summary>
+            设置 配置文件 AppSettings 节点的值
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ConfigUtility.MConfigManager.RemoveAppSettings(System.String)">
+            <summary>
+            移除 配置文件 AppSettings 节点
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.DataBase.MMongoDbManager.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:Core.ExtMethod.ObjectExt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Core.ExtMethod.ObjectExt.MConvertTo``1(System.Object,``0[])">
+            <summary>
+            数据类型转换
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="def"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ExtMethod.ObjectExt.MConvertToArray``1(System.Object)">
+            <summary>
+            转换为数组
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.DataTypeUtility.MCvHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Core.DataTypeUtility.MCvHelper.To``1(System.Object,``0[])">
+            <summary>
+            数据类型转换
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="def"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.DataTypeUtility.MCvHelper.ToArray``1(System.Object)">
+            <summary>
+            转换为数组
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.DataTypeUtility.MCvHelper.ObjectCopyTo(System.Object,System.Object)">
+            <summary>
+            对象 数据 拷贝
+            </summary>
+            <param name="source">源对象</param>
+            <param name="destination">目的对象</param>
+            <returns>是否有异常</returns>
+        </member>
+        <member name="M:Core.Caching.Memcached.MMemcache.GetInstance">
+            <summary>
+            获取单例实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Memcached.MMemcache.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Core.Caching.Memcached.MMemcache.Open">
+            <summary>
+            打开客户端连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Memcached.MMemcache.Close">
+            <summary>
+            关闭客户端连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.Memcached.MMemcache.Clear">
+            <summary>
+            清除所有缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Core.NetUtility.MHttpHelper">
+            <summary>
+            http 操作类
+            </summary>
+        </member>
+        <member name="M:Core.NetUtility.MHttpHelper.GetParam``1(System.String,``0[])">
+            <summary>
+            获取参数值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="paramName"></param>
+            <param name="def"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.NetUtility.MHttpHelper.GetParams``1(System.String)">
+            <summary>
+            获取数组
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ExtMethod.DictionaryExt.TryAdd``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            尝试将键和值添加到字典中：如果不存在，才添加；存在，不添加也不抛导常
+            </summary>
+        </member>
+        <member name="M:Core.ExtMethod.DictionaryExt.AddOrReplace``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            将键和值添加或替换到字典中：如果不存在，则添加；存在，则替换
+            </summary>
+        </member>
+        <member name="M:Core.ExtMethod.DictionaryExt.GetValue``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            获取与指定的键相关联的值，如果没有则返回输入的默认值
+            </summary>
+        </member>
+        <member name="M:Core.ExtMethod.DictionaryExt.AddRange``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},System.Boolean)">
+            <summary>
+            向字典中批量添加键值对
+            </summary>
+            <param name="replaceExisted">如果已存在，是否替换</param>
+        </member>
+        <member name="T:Core.DataType.MResult">
+            <summary>
+            返回结果
+            </summary>
+        </member>
+        <member name="P:Core.DataType.MResult.msg">
+            <summary>
+            返回文字信息
+            </summary>
+        </member>
+        <member name="P:Core.DataType.MResult.status">
+            <summary>
+            返回状态
+            </summary>
+        </member>
+        <member name="P:Core.DataType.MResult.data">
+            <summary>
+            返回数据
+            </summary>
+        </member>
+        <member name="T:Core.DataType.MResultList`1">
+            <summary>
+            返回结果
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Core.DataType.MResultList`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Core.DataType.MResultList`1.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="isInit">是否初始化数据实例</param>
+        </member>
+        <member name="P:Core.DataType.MResultList`1.list">
+            <summary>
+            列表数据
+            </summary>
+        </member>
+        <member name="P:Core.DataType.MResultList`1.total">
+            <summary>
+            列表总数
+            </summary>
+        </member>
+        <member name="P:Core.DataType.MResultList`1.page">
+            <summary>
+            列表页数
+            </summary>
+        </member>
+        <member name="P:Core.DataType.MResultList`1.size">
+            <summary>
+            每页大小
+            </summary>
+        </member>
+        <member name="T:Core.DataType.MResult`1">
+            <summary>
+            返回结果
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Core.DataType.MResult`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Core.DataType.MResult`1.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="isInit">是否初始化数据实例</param>
+        </member>
+        <member name="P:Core.DataType.MResult`1.info">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="M:Core.TokenUtility.MHttpVerify.Create(System.Uri,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            创建验证 url
+            </summary>
+            <param name="uri"></param>
+            <param name="paramNvc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.TokenUtility.MHttpVerify.Verify(System.Uri,System.TimeSpan,System.Collections.Specialized.NameValueCollection@)">
+            <summary>
+            Url 验证
+            </summary>
+            <param name="uri"></param>
+            <param name="timeSpan"></param>
+            <param name="paramNvc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.LogUtility.MLog4Net">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Core.LogUtility.MLog4Net.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Core.LogUtility.MLog4Net.GetInstance">
+            <summary>
+            获取实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.LogUtility.MLog4Net.Debug(System.String,System.Object[])">
+            <summary>
+            写调试日志
+            </summary>
+            <param name="msg"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Core.LogUtility.MLog4Net.Warn(System.String,System.Exception[])">
+            <summary>
+            写警告日志
+            </summary>
+            <param name="msg"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Core.LogUtility.MLog4Net.Info(System.String,System.Object[])">
+            <summary>
+            写信息日志
+            </summary>
+            <param name="msg"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Core.LogUtility.MLog4Net.Error(System.String,System.Exception[])">
+            <summary>
+            写错误日志
+            </summary>
+            <param name="msg"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Core.ExtMethod.StringExt.mToSBC(System.String)">
+            <summary>
+            转全角(SBC case)
+            </summary>
+            <param name="input">任意字符串</param>
+            <returns>全角字符串</returns>
+        </member>
+        <member name="M:Core.ExtMethod.StringExt.mToDBC(System.String)">
+            <summary>
+            转半角(DBC case)
+            </summary>
+            <param name="input">任意字符串</param>
+            <returns>半角字符串</returns>
+        </member>
+        <member name="T:Core.Caching.MCacheManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Core.Caching.MCacheManager.GetCacheObj(Core.Enums.MCaching.Provider)">
+            <summary>
+            获取缓存对象 自定义缓存类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.MCacheManager.GetCacheObj">
+            <summary>
+            获取缓存对象 采用 配置文件配置
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.DataTypeUtility.MEfUtility.GetQuerySql``1(System.Linq.IQueryable{``0})">
+            <summary>
+            获取 Entity FrameWork 执行的 sql 代码
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.Enums.MConfigs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Core.Enums.MConfigs.ConfigsCategory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MConfigs.ConfigsCategory.Cache">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MConfigs.ConfigsCategory.DataBase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MConfigs.ConfigsCategory.Host">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Core.LogUtility.MLogManager">
+            <summary>
+            日志类
+            </summary>
+        </member>
+        <member name="M:Core.LogUtility.MLogManager.FormatMsg(System.Enum,System.String,System.String@)">
+            <summary>
+            格式化消息内容
+            </summary>
+            <param name="group"></param>
+            <param name="sid"></param>
+            <param name="msg"></param>
+        </member>
+        <member name="M:Core.LogUtility.MLogManager.Debug(System.Enum,System.String,System.String,System.Object[])">
+            <summary>
+            写调试日志
+            </summary>
+            <param name="group">MLogGroup.x</param>
+            <param name="sid"> </param>
+            <param name="msg"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Core.LogUtility.MLogManager.Warn(System.Enum,System.String,System.String,System.Exception[])">
+            <summary>
+            写警告日志
+            </summary>
+            <param name="group">MLogGroup.x</param>
+            <param name="sid"> </param>
+            <param name="msg"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Core.LogUtility.MLogManager.Info(System.Enum,System.String,System.String,System.Object[])">
+            <summary>
+            写信息日志
+            </summary>
+            <param name="group">MLogGroup.x</param>
+            <param name="sid"> </param>
+            <param name="msg"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Core.LogUtility.MLogManager.Error(System.Enum,System.String,System.String,System.Exception[])">
+            <summary>
+            写错误日志
+            </summary>
+            <param name="group">MLogGroup.x</param>
+            <param name="sid"> </param>
+            <param name="msg"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="M:Core.Mail.MailConfig.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="M:Core.Mail.MailConfig.#ctor(System.String,System.String,System.String)">
+            <summary>
+             封装邮件类 主要参数 构造函数
+            </summary>
+            <param name="to">收件人</param>
+            <param name="subject">主题</param>
+            <param name="body">内容</param>
+        </member>
+        <member name="M:Core.Mail.MailConfig.#ctor(System.String,System.String[],System.String[],System.Net.Mail.MailPriority,System.String,System.String,System.String,System.Text.Encoding,System.Boolean)">
+            <summary>
+            封装邮件类 构造函数
+            </summary>
+            <param name="mailTo">收件人</param>
+            <param name="bcc">暗送人列表</param>
+            <param name="cc">抄送列表</param>
+            <param name="priority">优先级</param>
+            <param name="subject">主题</param>
+            <param name="body">内容</param>
+            <param name="bodyformat">内容格式</param>
+            <param name="bodyencoding">内容编码</param>
+            <param name="isHtml">邮件是否为Html格式</param>
+        </member>
+        <member name="P:Core.Mail.MailConfig.MailTo">
+            <summary>
+            邮件收件人地址列表
+            </summary>
+        </member>
+        <member name="P:Core.Mail.MailConfig.Priority">
+            <summary>
+            邮件优先级
+            </summary>
+        </member>
+        <member name="P:Core.Mail.MailConfig.Bcc">
+            <summary>
+            暗送地址列表
+            </summary>
+        </member>
+        <member name="P:Core.Mail.MailConfig.Cc">
+            <summary>
+            抄送地址列表
+            </summary>
+        </member>
+        <member name="P:Core.Mail.MailConfig.Subject">
+            <summary>
+            邮件主题
+            </summary>
+        </member>
+        <member name="P:Core.Mail.MailConfig.Body">
+            <summary>
+            邮件内容
+            </summary>
+        </member>
+        <member name="P:Core.Mail.MailConfig.Bodyencoding">
+            <summary>
+            邮件内容编码
+            </summary>
+        </member>
+        <member name="P:Core.Mail.MailConfig.IsHtml">
+            <summary>
+            邮件格式是否为Html格式
+            </summary>
+        </member>
+        <member name="F:Core.FactoryUtility.MFactoryManager._assemblyDict">
+            <summary>
+            被缓存的程序集方法
+            </summary>
+        </member>
+        <member name="M:Core.FactoryUtility.MFactoryManager.GetFactoryAssembly``1(System.String,System.String,System.Boolean)">
+            <summary>
+            获取程序集
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="modelName"></param>
+            <param name="sectionPath">groupSectionName/sectionName</param>
+            <param name="enableCache"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ExtMethod.RequestExt.mGetParam``1(System.Web.HttpRequest,System.String,``0[])">
+            <summary>
+            获取参数值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="request"></param>
+            <param name="paramName"></param>
+            <param name="def"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ExtMethod.RequestExt.mGetParams``1(System.Web.HttpRequest,System.String)">
+            <summary>
+            获取数组
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="request"></param>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.Enums.MCaching.Provider">
+            <summary>
+            缓存提供器
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MCaching.Provider.HttpRuntime">
+            <summary>
+            默认Web 缓存
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MCaching.Provider.Redis">
+            <summary>
+            Key Value 缓存服务器
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MCaching.Provider.Memcached">
+            <summary>
+            分布式缓存
+            </summary>
+        </member>
+        <member name="T:Core.Enums.MCaching.CacheGroup">
+            <summary>
+            缓存 Key 分组
+            </summary>
+        </member>
+    </members>
+</doc>

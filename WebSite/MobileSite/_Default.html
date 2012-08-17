@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="/jquerymobile/jquery.mobile-1.1.0.min.css" />
+    <link rel="stylesheet" href="http://m.muyingzhijia.me/style/my.css" />
+    <script src="http://m.muyingzhijia.me/js/HttpCombiner.ashx?s=Set_head_Min_Com&t=text/javascript&v=1" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.WebRoot = 'http://m.muyingzhijia.me/';
+        window.JsRoot = 'http://m.muyingzhijia.me/js/';
+        window.PicRoot = 'http://img.muyingzhijia.com/';
+    </script>
+    
+
+    <script src="http://m.muyingzhijia.me/js/HttpCombiner.ashx?s=Set_Mobile_1.1.0s&t=text/javascript&v=1" type="text/javascript"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="a">
+            <div class="header">
+                <div class="logo">
+                    <a href="index.aspx">
+                        <img src="/images/logo.png" />
+                    </a>
+                </div>
+                <div class="nav">
+                    <a href="category.aspx" class="menu"></a><a href="http://m.muyingzhijia.me/Member/myaccount.aspx" class="user" rel="external"></a>
+                    <a href="http://m.muyingzhijia.me/CheckOut/shoppingcart.aspx" class="cart" rel="external"></a><span class="cart-count ui-btn-up-c ui-btn-corner-all">2</span>
+                </div>
+            </div>
+            
+    <div data-role="navbar" data-iconpos="left">
+        <ul>
+            <li><a href="/" data-theme="e" data-icon="star">个人中心</a></li>
+        </ul>
+    </div>
+
+        </div>
+        
+    <div data-role="content">
+        <ul data-role="listview" id="myAccount_content" data-divider-theme="d" data-inset="true">
+            
+        </ul>
+        <ul data-role="listview" data-divider-theme="d" data-inset="true">
+            <li data-role="list-divider">订单中心</li>
+            <li><a href="orderlist.html">我的订单</a></li>
+        </ul>
+        <a id="logout" data-role="button" data-inline="true" data-mini="true" data-theme="d">
+            退出登录</a>
+    </div>
+    <script id="myAccount_Template" type="text/template">
+    <li data-role="list-divider">个人信息</li>
+            <li>用户名：<strong>{$T.email}</strong></li>
+            <li>会员等级：<strong>{#if $T.userlevel == 1} 普通宝宝 {#elseif $T.userlevel == 2} 星星宝宝 {#elseif $T.userlevel == 3} 月亮宝宝 {#elseif $T.userlevel == 4}太阳宝宝 {#/if}</strong></li>
+            <li>已累积幸运星：<strong>0颗</strong>（再累积5000颗幸运星，就能成为星星宝宝享受更多优惠！）</li>
+            <li>累计消费：<strong>¥0.00</strong></li>
+    </script>
+
+        <div data-role="footer" data-theme="c" class="p10">
+            <div class="ui-grid-b" style="padding-bottom: 5px;">
+                <div class="ui-block-a">
+                    <a href="http://m.muyingzhijia.me/Login.aspx?returnurl=" rel="external">登录</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="http://m.muyingzhijia.me/registration.aspx" rel="external">注册</a>
+                </div>
+                <div class="ui-block-c">
+                    <a href="http://www.muyingzhijia.com">电脑版</a>
+                </div>
+            </div>
+            <div>
+                <span data-role="button" data-icon="arrow-u" data-iconpos="left" id="gotop">回顶部</span>
+            </div>
+            <div>
+                Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
+        </div>
+        <script src="http://m.muyingzhijia.me/js/HttpCombiner.ashx?s=Set_footer_Min_Com&t=text/javascript&v=1" type="text/javascript"></script>
+        
+<script src="http://m.muyingzhijia.me/js/mobile.member.js" type="text/javascript"></script>   
+
+        
+    </div>
+    
+</body>
+</html>

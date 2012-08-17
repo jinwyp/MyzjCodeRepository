@@ -1,0 +1,491 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wcf.ServiceLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.AddGoodsToShoppingCart(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            添加商品到购物车
+            </summary>
+            <param name="token"> </param>
+            <param name="uid"> </param>
+            <param name="sid"></param>
+            <param name="guid"> </param>
+            <param name="area_id"> </param>
+            <param name="gid"> </param>
+            <param name="num"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.RemoveShoppingCartByScId(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            删除购物车数据
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="shoppingcarid">购物车ID</param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.SetShoppingCartGoodsNum(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            设置购物车商品数量
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="shoppingcarid">购物车ID</param>
+            <param name="gid">商品ID</param>
+            <param name="num">商品数量</param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.GetShoppingCartGoodsList(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取购物车商品列表
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="uid"></param>
+            <param name="guid"> </param>
+            <param name="user_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.GetShoppingCartGoodsNum(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取购物车商品数量
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="uid"></param>
+            <param name="guid"> </param>
+            <param name="user_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.CreateOrder(System.String,System.String,System.String,System.String,System.String,Wcf.Entity.Order.OrderEntity)">
+            <summary>
+            创建订单
+            </summary>
+            <param name="token"> </param>
+            <param name="user_id"> </param>
+            <param name="uid"> </param>
+            <param name="order">订单实体</param>
+            <param name="sid"></param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.GetTempOrderInfo(System.String,System.String,System.String,System.String,System.String,Wcf.Entity.Order.OrderEntity)">
+            <summary>
+            获取临时订单信息
+            </summary>
+            <param name="token"> </param>
+            <param name="uid"> </param>
+            <param name="order">订单实体</param>
+            <param name="sid"></param>
+            <param name="guid"> </param>
+            <param name="user_id"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.GetOrderInfo(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取订单信息
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="user_id"> </param>
+            <param name="uid"> </param>
+            <param name="orderId">订单ID</param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.BaseWcfService.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.BaseWcfService.InitPermissionsVerifyList">
+            <summary>
+            初始化 权限验证列表
+            </summary>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.BaseWcfService.InitMethodVerifyList">
+            <summary>
+            初始化 方法验证列表
+            </summary>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.BaseData.IBaseDataService.GetPayList(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取支付方式
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="regionid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.BaseData.IBaseDataService.GetLogisticsList(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取配送方式
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="regionid"> </param>
+            <param name="paygroupid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.BaseData.IBaseDataService.GetRegionList(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取区域数据
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="guid"></param>
+            <param name="user_id"></param>
+            <param name="uid"></param>
+            <param name="regionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.BaseData.IBaseDataService.GetAllRegionList(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取全部区域数据
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="guid"></param>
+            <param name="user_id"></param>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Goods.IGoodsService.GetGoodsList(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取商品列表
+            </summary>
+            <param name="sid">系统ID</param>
+            <param name="token">用户令牌</param>
+            <param name="uid">用户ID</param>
+            <param name="bid">品牌ID</param>
+            <param name="cid">分类ID</param>
+            <param name="price">价格区间 10-20</param>
+            <param name="sort">排序 类型</param>
+            <param name="page">分页索引</param>
+            <param name="size">每页大小</param>
+            <param name="age">年龄区间 1-3</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Goods.IGoodsService.GetGoodsInfo(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取商品详细信息
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="user_id"> </param>
+            <param name="uid"> </param>
+            <param name="gid">商品ID</param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Goods.IGoodsService.GetGoodsPicList(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取商品图片列表
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="uid"></param>
+            <param name="gid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.RegisterMember(System.String,System.String,System.String,System.String,System.String,Wcf.Entity.Member.UserRegister)">
+            <summary>
+            注册用户
+            </summary>
+            <param name="sid"> </param>
+            <param name="uid"> </param>
+            <param name="user"></param>
+            <param name="token"> </param>
+            <param name="guid"> </param>
+            <param name="user_id"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.LoginMember(System.String,System.String,System.String,System.String,System.String,Wcf.Entity.Member.LoginEntity)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="sid"> </param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="token"> </param>
+            <param name="guid"> </param>
+            <param name="loginEntity"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.ReLoginMember(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            重新登录
+            </summary>
+            <param name="sid"> </param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="token"></param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.LogOut(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            注销 登出
+            </summary>
+            <param name="sid"></param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.ResetLoginPassword(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            重置密码
+            </summary>
+            <param name="sid"></param>
+            <param name="token"> </param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.GetMemberInfo(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取用户信息
+            </summary>
+            <param name="sid"> </param>
+            <param name="token"> </param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.GetDefaultAddress(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取默认收货地址
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.GetAddressInfo(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取用户地址信息
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="guid"> </param>
+            <param name="address_id"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.GetAddressList(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取用户收货地址列表
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.SetAddress(System.String,System.String,System.String,System.String,System.String,Wcf.Entity.Member.AddressEntity)">
+            <summary>
+            设置用户收货地址
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="address"></param>
+            <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Member.IMemberService.SetDefaultAddress(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            设置用户默认收货地址
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="guid"></param>
+            <param name="user_id"></param>
+            <param name="uid"></param>
+            <param name="address_id"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.CommonUri.JAVASCRIPT_CALLBACKNAME">
+            <summary>
+            传递回调函数的名称
+            </summary>
+        </member>
+        <member name="T:Wcf.ServiceLibrary.BaseDataUri">
+            sid：系统ID 
+            token：用户令牌
+            uid:用户账号（一般为邮箱）
+        </member>
+        <member name="F:Wcf.ServiceLibrary.BaseDataUri.GETREGIONLIST">
+            <summary>
+            获取地区列表
+            sid：系统ID 
+            token：用户令牌
+            parentid：上级id
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.BaseDataUri.GETALLREGIONLIST">
+            <summary>
+            获取全部地区列表
+            sid：系统ID 
+            token：用户令牌
+            parentid：上级id
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.BaseDataUri.GETPAYMENTLIST">
+            <summary>
+            获取支付方式列表
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.BaseDataUri.GETLOGISTICSLIST">
+            <summary>
+            获取配送列表
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.REGISTER">
+            <summary>
+            会员注册
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.LOGIN">
+            <summary>
+            登录
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.LOGOUT">
+            <summary>
+            注销
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.RELOGIN">
+            <summary>
+            重新登录
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.RESETLOGINPASSWORD">
+            <summary>
+            重置密码
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.GETMEMBERINFO">
+            <summary>
+            获取用户信息
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.SETADDRESS">
+            <summary>
+            设置用户收货地址
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.GETADDRESSINFO">
+            <summary>
+            获取用户地址信息
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.SETDEFAULTADDRESS">
+            <summary>
+            设置默认收货地址
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.GETDEFAULTADDRESS">
+            <summary>
+            获取用户默认收货地址
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.MemberUri.GETADDRESSLIST">
+            <summary>
+            获取用户收货地址
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.ADDGOODSTOSHOPPINGCAR">
+            <summary>
+            添加商品到购物车
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.DELSHOPPINGCARTBYSCID">
+            <summary>
+            删除购物车数据
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.SETSHOPPINGCARTGOODSNUM">
+            <summary>
+            设置购物车商品数量
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.GETSHOPPINGCARTGOODSLIST">
+            <summary>
+            获取购物车商品列表
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.GETSHOPPINGCARTGOODSNUM">
+            <summary>
+            获取购物车商品数量
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.CREATEORDER">
+            <summary>
+            创建订单
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.GETTEMPORDERINFO">
+            <summary>
+            获取临时订单信息
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.GETORDERSLIST">
+            <summary>
+            获取我的订单列表
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.GETORDERSINFO">
+            <summary>
+            获取订单信息
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.GETORDERSDETAILS">
+            <summary>
+            获取订单详细
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.OrderUri.GETORDERSSHIPPINGINFO">
+            <summary>
+            获取订单运送信息
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.GoodsUri.GETGOODSLIST">
+            <summary>
+            获取商品列表
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.GoodsUri.GETGOODSINFO">
+            <summary>
+            获取商品详细
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.GoodsUri.GETGOODSPICLIST">
+            <summary>
+            获取商品图片列表
+            </summary>
+        </member>
+        <member name="F:Wcf.ServiceLibrary.GoodsUri.GETGOODSCOMMENT">
+            <summary>
+            获取商品评论列表
+            </summary>
+        </member>
+    </members>
+</doc>

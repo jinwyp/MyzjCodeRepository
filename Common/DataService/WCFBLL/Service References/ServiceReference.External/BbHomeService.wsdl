@@ -1,0 +1,1858 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BbHomeService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IBbHomeService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://holyca-backup1:10001/WcfBBHome.BbHomeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://holyca-backup1:10001/WcfBBHome.BbHomeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://holyca-backup1:10001/WcfBBHome.BbHomeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfBBHome" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBbHomeService_GetProductDetailByOrderId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductDetailByOrderId" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetProductDetailByOrderId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductDetailByOrderIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderById" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetALLOrderById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetALLOrderById" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetALLOrderById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetALLOrderByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderStatusByOrderNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderStatusByOrderNo" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderStatusByOrderNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderStatusByOrderNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetPrePayOrderLists_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrePayOrderLists" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetPrePayOrderLists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrePayOrderListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderDetailsByOrderCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderDetailsByOrderCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderDetailsByOrderCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderDetailsByOrderCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderNumberByOrderCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderNumberByOrderCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderNumberByOrderCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderNumberByOrderCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetUserOrderCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserOrderCount" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetUserOrderCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserOrderCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateUserScoures_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserScoures" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateUserScoures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserScouresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetWmsDetailByOrderId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWmsDetailByOrderId" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetWmsDetailByOrderId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWmsDetailByOrderIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerInfoByUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerInfoByUserName" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerInfoByUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerInfoByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SaveRtnOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRtnOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SaveRtnOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRtnOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertRtnItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRtnItem" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertRtnItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRtnItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertRtnOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRtnOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertRtnOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRtnOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertRtnStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRtnStatus" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertRtnStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRtnStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetRtnCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRtnCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetRtnCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRtnCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertCAAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCAAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertCAAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCAAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectCustomerTranlogs_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectCustomerTranlogs" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectCustomerTranlogs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectCustomerTranlogsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRules" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectCustomerAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectCustomerAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectCustomerAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectCustomerAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertCATranInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCATranInfos" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertCATranInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCATranInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UserOrderCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserOrderCount" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UserOrderCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserOrderCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckResourceParm_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckResourceParm" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckResourceParm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckResourceParmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckRecomCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRecomCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckRecomCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckRecomCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectPromRecommendByCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectPromRecommendByCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectPromRecommendByCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectPromRecommendByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdatePromRecommend_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePromRecommend" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdatePromRecommend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePromRecommendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertPromRecommend_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPromRecommend" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertPromRecommend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPromRecommendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectPromRecommend_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectPromRecommend" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectPromRecommend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectPromRecommendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectRecommendByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRecommendByID" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SelectRecommendByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRecommendByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertSaleTSource_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSaleTSource" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertSaleTSource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSaleTSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertSaleOrderSource_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSaleOrderSource" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertSaleOrderSource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSaleOrderSourceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateOrderDeliveryMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderDeliveryMethod" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateOrderDeliveryMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderDeliveryMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetSoreNameByTypeCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoreNameByTypeCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetSoreNameByTypeCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSoreNameByTypeCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetStoreExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreExist" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetStoreExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStoreExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckPswKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPswKey" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckPswKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPswKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ChangePswKeyStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePswKeyStatus" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ChangePswKeyStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePswKeyStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ChangePassWordByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassWordByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ChangePassWordByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassWordByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckPswKeyStatusByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPswKeyStatusByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckPswKeyStatusByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPswKeyStatusByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertPswKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPswKey" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertPswKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPswKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetUserAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetUserAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetPayList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayList" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetPayList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckSaleAreaState_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSaleAreaState" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckSaleAreaState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSaleAreaStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckSaleAreaStateByPdt_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSaleAreaStateByPdt" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckSaleAreaStateByPdt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSaleAreaStateByPdtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateLSAmt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLSAmt" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateLSAmt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLSAmtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetInvoiceByInvoiceNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceByInvoiceNo" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetInvoiceByInvoiceNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceByInvoiceNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getUserPromIdByRecommend_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserPromIdByRecommend" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getUserPromIdByRecommend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserPromIdByRecommendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPreRecomCodeExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPreRecomCodeExist" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPreRecomCodeExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPreRecomCodeExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPregnantByPre_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPregnantByPre" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPregnantByPre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPregnantByPreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPregnantByParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPregnantByParam" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPregnantByParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPregnantByParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_changePregnant_InputMessage">
+    <wsdl:part name="parameters" element="tns:changePregnant" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_changePregnant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changePregnantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_changePregnantImg_InputMessage">
+    <wsdl:part name="parameters" element="tns:changePregnantImg" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_changePregnantImg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changePregnantImgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPregnantCouponCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPregnantCouponCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPregnantCouponCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPregnantCouponCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPregnantNoExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPregnantNoExist" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getPregnantNoExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPregnantNoExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberBaby_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberBaby" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberBaby_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberBabyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SaveMemberBaby_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMemberBaby" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SaveMemberBaby_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveMemberBabyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateMemberBaby_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMemberBaby" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateMemberBaby_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMemberBabyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetInviteEmailByUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInviteEmailByUserId" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetInviteEmailByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInviteEmailByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetBabyBirthday_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBabyBirthday" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetBabyBirthday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBabyBirthdayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SetStore4Order_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetStore4Order" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SetStore4Order_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetStore4OrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UserLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SearchOrderByTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchOrderByTime" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SearchOrderByTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchOrderByTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetProductListByOrderId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductListByOrderId" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetProductListByOrderId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductListByOrderIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ValidateCustomerPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCustomerPassword" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ValidateCustomerPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateCustomerPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateCustomerClusterID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerClusterID" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateCustomerClusterID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerClusterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerByUserCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByUserCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerByUserCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByUserCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerByMemberNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByMemberNo" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerByMemberNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByMemberNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerByMobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByMobile" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetCustomerByMobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerByMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_DeleteMemberActor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMemberActor" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_DeleteMemberActor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMemberActorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberList" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberListByParam_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberListByParam" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberListByParam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberListByParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberActorByMemberNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberActorByMemberNo" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberActorByMemberNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberActorByMemberNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_BindUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:BindUser" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_BindUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BindUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertMemberAddr_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMemberAddr" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_InsertMemberAddr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMemberAddrResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getUserOrderByPromId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserOrderByPromId" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_getUserOrderByPromId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserOrderByPromIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderNoByOrderCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderNoByOrderCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderNoByOrderCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderNoByOrderCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SaveWebOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveWebOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_SaveWebOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveWebOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateWebOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWebOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_UpdateWebOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWebOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CancelWebOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelWebOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CancelWebOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelWebOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ChangeStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatus" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_ChangeStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderByMembNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderByMembNo" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetOrderByMembNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderByMembNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetLatestOrderByMembNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestOrderByMembNo" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetLatestOrderByMembNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestOrderByMembNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckUserBuy_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserBuy" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckUserBuy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserBuyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckUserOrderEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserOrderEmail" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckUserOrderEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserOrderEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckUserBlacklist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserBlacklist" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_CheckUserBlacklist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserBlacklistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GenerateASN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateASN" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GenerateASN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateASNResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberByUserCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberByUserCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetMemberByUserCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberByUserCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetSumScoreByUserCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSumScoreByUserCode" />
+  </wsdl:message>
+  <wsdl:message name="IBbHomeService_GetSumScoreByUserCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSumScoreByUserCodeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBbHomeService">
+    <wsdl:operation name="GetProductDetailByOrderId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetProductDetailByOrderId" message="tns:IBbHomeService_GetProductDetailByOrderId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetProductDetailByOrderIdResponse" message="tns:IBbHomeService_GetProductDetailByOrderId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderById" message="tns:IBbHomeService_GetOrderById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderByIdResponse" message="tns:IBbHomeService_GetOrderById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetALLOrderById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetALLOrderById" message="tns:IBbHomeService_GetALLOrderById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetALLOrderByIdResponse" message="tns:IBbHomeService_GetALLOrderById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatusByOrderNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderStatusByOrderNo" message="tns:IBbHomeService_GetOrderStatusByOrderNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderStatusByOrderNoResponse" message="tns:IBbHomeService_GetOrderStatusByOrderNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrePayOrderLists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetPrePayOrderLists" message="tns:IBbHomeService_GetPrePayOrderLists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetPrePayOrderListsResponse" message="tns:IBbHomeService_GetPrePayOrderLists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetailsByOrderCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderDetailsByOrderCode" message="tns:IBbHomeService_GetOrderDetailsByOrderCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderDetailsByOrderCodeResponse" message="tns:IBbHomeService_GetOrderDetailsByOrderCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNumberByOrderCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderNumberByOrderCode" message="tns:IBbHomeService_GetOrderNumberByOrderCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderNumberByOrderCodeResponse" message="tns:IBbHomeService_GetOrderNumberByOrderCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserOrderCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetUserOrderCount" message="tns:IBbHomeService_GetUserOrderCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetUserOrderCountResponse" message="tns:IBbHomeService_GetUserOrderCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserScoures">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UpdateUserScoures" message="tns:IBbHomeService_UpdateUserScoures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UpdateUserScouresResponse" message="tns:IBbHomeService_UpdateUserScoures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWmsDetailByOrderId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetWmsDetailByOrderId" message="tns:IBbHomeService_GetWmsDetailByOrderId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetWmsDetailByOrderIdResponse" message="tns:IBbHomeService_GetWmsDetailByOrderId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerInfoByUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerInfoByUserName" message="tns:IBbHomeService_GetCustomerInfoByUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerInfoByUserNameResponse" message="tns:IBbHomeService_GetCustomerInfoByUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRtnOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SaveRtnOrder" message="tns:IBbHomeService_SaveRtnOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SaveRtnOrderResponse" message="tns:IBbHomeService_SaveRtnOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRtnItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertRtnItem" message="tns:IBbHomeService_InsertRtnItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertRtnItemResponse" message="tns:IBbHomeService_InsertRtnItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRtnOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertRtnOrder" message="tns:IBbHomeService_InsertRtnOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertRtnOrderResponse" message="tns:IBbHomeService_InsertRtnOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRtnStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertRtnStatus" message="tns:IBbHomeService_InsertRtnStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertRtnStatusResponse" message="tns:IBbHomeService_InsertRtnStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRtnCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetRtnCode" message="tns:IBbHomeService_GetRtnCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetRtnCodeResponse" message="tns:IBbHomeService_GetRtnCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCAAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertCAAccount" message="tns:IBbHomeService_InsertCAAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertCAAccountResponse" message="tns:IBbHomeService_InsertCAAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCustomerTranlogs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SelectCustomerTranlogs" message="tns:IBbHomeService_SelectCustomerTranlogs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SelectCustomerTranlogsResponse" message="tns:IBbHomeService_SelectCustomerTranlogs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SelectRules" message="tns:IBbHomeService_SelectRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SelectRulesResponse" message="tns:IBbHomeService_SelectRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCustomerAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SelectCustomerAccount" message="tns:IBbHomeService_SelectCustomerAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SelectCustomerAccountResponse" message="tns:IBbHomeService_SelectCustomerAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCATranInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertCATranInfos" message="tns:IBbHomeService_InsertCATranInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertCATranInfosResponse" message="tns:IBbHomeService_InsertCATranInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserOrderCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UserOrderCount" message="tns:IBbHomeService_UserOrderCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UserOrderCountResponse" message="tns:IBbHomeService_UserOrderCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckResourceParm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckResourceParm" message="tns:IBbHomeService_CheckResourceParm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckResourceParmResponse" message="tns:IBbHomeService_CheckResourceParm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecomCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckRecomCode" message="tns:IBbHomeService_CheckRecomCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckRecomCodeResponse" message="tns:IBbHomeService_CheckRecomCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectPromRecommendByCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SelectPromRecommendByCode" message="tns:IBbHomeService_SelectPromRecommendByCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SelectPromRecommendByCodeResponse" message="tns:IBbHomeService_SelectPromRecommendByCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePromRecommend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UpdatePromRecommend" message="tns:IBbHomeService_UpdatePromRecommend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UpdatePromRecommendResponse" message="tns:IBbHomeService_UpdatePromRecommend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPromRecommend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertPromRecommend" message="tns:IBbHomeService_InsertPromRecommend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertPromRecommendResponse" message="tns:IBbHomeService_InsertPromRecommend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectPromRecommend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SelectPromRecommend" message="tns:IBbHomeService_SelectPromRecommend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SelectPromRecommendResponse" message="tns:IBbHomeService_SelectPromRecommend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRecommendByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SelectRecommendByID" message="tns:IBbHomeService_SelectRecommendByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SelectRecommendByIDResponse" message="tns:IBbHomeService_SelectRecommendByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSaleTSource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertSaleTSource" message="tns:IBbHomeService_InsertSaleTSource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertSaleTSourceResponse" message="tns:IBbHomeService_InsertSaleTSource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSaleOrderSource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertSaleOrderSource" message="tns:IBbHomeService_InsertSaleOrderSource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertSaleOrderSourceResponse" message="tns:IBbHomeService_InsertSaleOrderSource_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderDeliveryMethod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UpdateOrderDeliveryMethod" message="tns:IBbHomeService_UpdateOrderDeliveryMethod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UpdateOrderDeliveryMethodResponse" message="tns:IBbHomeService_UpdateOrderDeliveryMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoreNameByTypeCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetSoreNameByTypeCode" message="tns:IBbHomeService_GetSoreNameByTypeCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetSoreNameByTypeCodeResponse" message="tns:IBbHomeService_GetSoreNameByTypeCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetStoreExist" message="tns:IBbHomeService_GetStoreExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetStoreExistResponse" message="tns:IBbHomeService_GetStoreExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPswKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckPswKey" message="tns:IBbHomeService_CheckPswKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckPswKeyResponse" message="tns:IBbHomeService_CheckPswKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckQuestion" message="tns:IBbHomeService_CheckQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckQuestionResponse" message="tns:IBbHomeService_CheckQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePswKeyStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/ChangePswKeyStatus" message="tns:IBbHomeService_ChangePswKeyStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/ChangePswKeyStatusResponse" message="tns:IBbHomeService_ChangePswKeyStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassWordByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/ChangePassWordByEmail" message="tns:IBbHomeService_ChangePassWordByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/ChangePassWordByEmailResponse" message="tns:IBbHomeService_ChangePassWordByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPswKeyStatusByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckPswKeyStatusByEmail" message="tns:IBbHomeService_CheckPswKeyStatusByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckPswKeyStatusByEmailResponse" message="tns:IBbHomeService_CheckPswKeyStatusByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPswKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertPswKey" message="tns:IBbHomeService_InsertPswKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertPswKeyResponse" message="tns:IBbHomeService_InsertPswKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetUserAccount" message="tns:IBbHomeService_GetUserAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetUserAccountResponse" message="tns:IBbHomeService_GetUserAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetPayList" message="tns:IBbHomeService_GetPayList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetPayListResponse" message="tns:IBbHomeService_GetPayList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSaleAreaState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckSaleAreaState" message="tns:IBbHomeService_CheckSaleAreaState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckSaleAreaStateResponse" message="tns:IBbHomeService_CheckSaleAreaState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSaleAreaStateByPdt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckSaleAreaStateByPdt" message="tns:IBbHomeService_CheckSaleAreaStateByPdt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckSaleAreaStateByPdtResponse" message="tns:IBbHomeService_CheckSaleAreaStateByPdt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLSAmt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UpdateLSAmt" message="tns:IBbHomeService_UpdateLSAmt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UpdateLSAmtResponse" message="tns:IBbHomeService_UpdateLSAmt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceByInvoiceNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetInvoiceByInvoiceNo" message="tns:IBbHomeService_GetInvoiceByInvoiceNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetInvoiceByInvoiceNoResponse" message="tns:IBbHomeService_GetInvoiceByInvoiceNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserPromIdByRecommend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/getUserPromIdByRecommend" message="tns:IBbHomeService_getUserPromIdByRecommend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/getUserPromIdByRecommendResponse" message="tns:IBbHomeService_getUserPromIdByRecommend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPreRecomCodeExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/getPreRecomCodeExist" message="tns:IBbHomeService_getPreRecomCodeExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/getPreRecomCodeExistResponse" message="tns:IBbHomeService_getPreRecomCodeExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPregnantByPre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/getPregnantByPre" message="tns:IBbHomeService_getPregnantByPre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/getPregnantByPreResponse" message="tns:IBbHomeService_getPregnantByPre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPregnantByParam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/getPregnantByParam" message="tns:IBbHomeService_getPregnantByParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/getPregnantByParamResponse" message="tns:IBbHomeService_getPregnantByParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="changePregnant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/changePregnant" message="tns:IBbHomeService_changePregnant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/changePregnantResponse" message="tns:IBbHomeService_changePregnant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="changePregnantImg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/changePregnantImg" message="tns:IBbHomeService_changePregnantImg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/changePregnantImgResponse" message="tns:IBbHomeService_changePregnantImg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPregnantCouponCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/getPregnantCouponCode" message="tns:IBbHomeService_getPregnantCouponCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/getPregnantCouponCodeResponse" message="tns:IBbHomeService_getPregnantCouponCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPregnantNoExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/getPregnantNoExist" message="tns:IBbHomeService_getPregnantNoExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/getPregnantNoExistResponse" message="tns:IBbHomeService_getPregnantNoExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberBaby">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberBaby" message="tns:IBbHomeService_GetMemberBaby_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberBabyResponse" message="tns:IBbHomeService_GetMemberBaby_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMemberBaby">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SaveMemberBaby" message="tns:IBbHomeService_SaveMemberBaby_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SaveMemberBabyResponse" message="tns:IBbHomeService_SaveMemberBaby_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMemberBaby">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UpdateMemberBaby" message="tns:IBbHomeService_UpdateMemberBaby_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UpdateMemberBabyResponse" message="tns:IBbHomeService_UpdateMemberBaby_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInviteEmailByUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetInviteEmailByUserId" message="tns:IBbHomeService_GetInviteEmailByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetInviteEmailByUserIdResponse" message="tns:IBbHomeService_GetInviteEmailByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBabyBirthday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetBabyBirthday" message="tns:IBbHomeService_GetBabyBirthday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetBabyBirthdayResponse" message="tns:IBbHomeService_GetBabyBirthday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetStore4Order">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SetStore4Order" message="tns:IBbHomeService_SetStore4Order_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SetStore4OrderResponse" message="tns:IBbHomeService_SetStore4Order_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UserLogin" message="tns:IBbHomeService_UserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UserLoginResponse" message="tns:IBbHomeService_UserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetUser" message="tns:IBbHomeService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetUserResponse" message="tns:IBbHomeService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchOrderByTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SearchOrderByTime" message="tns:IBbHomeService_SearchOrderByTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SearchOrderByTimeResponse" message="tns:IBbHomeService_SearchOrderByTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductListByOrderId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetProductListByOrderId" message="tns:IBbHomeService_GetProductListByOrderId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetProductListByOrderIdResponse" message="tns:IBbHomeService_GetProductListByOrderId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCustomerPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/ValidateCustomerPassword" message="tns:IBbHomeService_ValidateCustomerPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/ValidateCustomerPasswordResponse" message="tns:IBbHomeService_ValidateCustomerPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertCustomer" message="tns:IBbHomeService_InsertCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertCustomerResponse" message="tns:IBbHomeService_InsertCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UpdateCustomer" message="tns:IBbHomeService_UpdateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UpdateCustomerResponse" message="tns:IBbHomeService_UpdateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerClusterID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UpdateCustomerClusterID" message="tns:IBbHomeService_UpdateCustomerClusterID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UpdateCustomerClusterIDResponse" message="tns:IBbHomeService_UpdateCustomerClusterID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/ChangePassword" message="tns:IBbHomeService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/ChangePasswordResponse" message="tns:IBbHomeService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByUserCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerByUserCode" message="tns:IBbHomeService_GetCustomerByUserCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerByUserCodeResponse" message="tns:IBbHomeService_GetCustomerByUserCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByMemberNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerByMemberNo" message="tns:IBbHomeService_GetCustomerByMemberNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerByMemberNoResponse" message="tns:IBbHomeService_GetCustomerByMemberNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/ResetPassword" message="tns:IBbHomeService_ResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/ResetPasswordResponse" message="tns:IBbHomeService_ResetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomer" message="tns:IBbHomeService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerResponse" message="tns:IBbHomeService_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerByEmail" message="tns:IBbHomeService_GetCustomerByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerByEmailResponse" message="tns:IBbHomeService_GetCustomerByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByMobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerByMobile" message="tns:IBbHomeService_GetCustomerByMobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetCustomerByMobileResponse" message="tns:IBbHomeService_GetCustomerByMobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMemberActor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/DeleteMemberActor" message="tns:IBbHomeService_DeleteMemberActor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/DeleteMemberActorResponse" message="tns:IBbHomeService_DeleteMemberActor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberList" message="tns:IBbHomeService_GetMemberList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberListResponse" message="tns:IBbHomeService_GetMemberList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberListByParam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberListByParam" message="tns:IBbHomeService_GetMemberListByParam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberListByParamResponse" message="tns:IBbHomeService_GetMemberListByParam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberActorByMemberNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberActorByMemberNo" message="tns:IBbHomeService_GetMemberActorByMemberNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberActorByMemberNoResponse" message="tns:IBbHomeService_GetMemberActorByMemberNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BindUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/BindUser" message="tns:IBbHomeService_BindUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/BindUserResponse" message="tns:IBbHomeService_BindUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMemberAddr">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/InsertMemberAddr" message="tns:IBbHomeService_InsertMemberAddr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/InsertMemberAddrResponse" message="tns:IBbHomeService_InsertMemberAddr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserOrderByPromId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/getUserOrderByPromId" message="tns:IBbHomeService_getUserOrderByPromId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/getUserOrderByPromIdResponse" message="tns:IBbHomeService_getUserOrderByPromId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNoByOrderCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderNoByOrderCode" message="tns:IBbHomeService_GetOrderNoByOrderCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderNoByOrderCodeResponse" message="tns:IBbHomeService_GetOrderNoByOrderCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveWebOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/SaveWebOrder" message="tns:IBbHomeService_SaveWebOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/SaveWebOrderResponse" message="tns:IBbHomeService_SaveWebOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWebOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/UpdateWebOrder" message="tns:IBbHomeService_UpdateWebOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/UpdateWebOrderResponse" message="tns:IBbHomeService_UpdateWebOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelWebOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CancelWebOrder" message="tns:IBbHomeService_CancelWebOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CancelWebOrderResponse" message="tns:IBbHomeService_CancelWebOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/ChangeStatus" message="tns:IBbHomeService_ChangeStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/ChangeStatusResponse" message="tns:IBbHomeService_ChangeStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderCode" message="tns:IBbHomeService_GetOrderCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderCodeResponse" message="tns:IBbHomeService_GetOrderCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderByMembNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderByMembNo" message="tns:IBbHomeService_GetOrderByMembNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetOrderByMembNoResponse" message="tns:IBbHomeService_GetOrderByMembNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestOrderByMembNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetLatestOrderByMembNo" message="tns:IBbHomeService_GetLatestOrderByMembNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetLatestOrderByMembNoResponse" message="tns:IBbHomeService_GetLatestOrderByMembNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserBuy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckUserBuy" message="tns:IBbHomeService_CheckUserBuy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckUserBuyResponse" message="tns:IBbHomeService_CheckUserBuy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserOrderEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckUserOrderEmail" message="tns:IBbHomeService_CheckUserOrderEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckUserOrderEmailResponse" message="tns:IBbHomeService_CheckUserOrderEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserBlacklist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/CheckUserBlacklist" message="tns:IBbHomeService_CheckUserBlacklist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/CheckUserBlacklistResponse" message="tns:IBbHomeService_CheckUserBlacklist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateASN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GenerateASN" message="tns:IBbHomeService_GenerateASN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GenerateASNResponse" message="tns:IBbHomeService_GenerateASN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberByUserCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberByUserCode" message="tns:IBbHomeService_GetMemberByUserCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetMemberByUserCodeResponse" message="tns:IBbHomeService_GetMemberByUserCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSumScoreByUserCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBbHomeService/GetSumScoreByUserCode" message="tns:IBbHomeService_GetSumScoreByUserCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBbHomeService/GetSumScoreByUserCodeResponse" message="tns:IBbHomeService_GetSumScoreByUserCode_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IBbHomeService" type="tns:IBbHomeService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IBbHomeService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductDetailByOrderId">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetProductDetailByOrderId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderById">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetOrderById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetALLOrderById">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetALLOrderById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatusByOrderNo">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetOrderStatusByOrderNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrePayOrderLists">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetPrePayOrderLists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetailsByOrderCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetOrderDetailsByOrderCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNumberByOrderCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetOrderNumberByOrderCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserOrderCount">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetUserOrderCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserScoures">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UpdateUserScoures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWmsDetailByOrderId">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetWmsDetailByOrderId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerInfoByUserName">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetCustomerInfoByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRtnOrder">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SaveRtnOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRtnItem">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertRtnItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRtnOrder">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertRtnOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRtnStatus">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertRtnStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRtnCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetRtnCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCAAccount">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertCAAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCustomerTranlogs">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SelectCustomerTranlogs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRules">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SelectRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCustomerAccount">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SelectCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCATranInfos">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertCATranInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserOrderCount">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UserOrderCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckResourceParm">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckResourceParm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecomCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckRecomCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPromRecommendByCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SelectPromRecommendByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePromRecommend">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UpdatePromRecommend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPromRecommend">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertPromRecommend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPromRecommend">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SelectPromRecommend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRecommendByID">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SelectRecommendByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSaleTSource">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertSaleTSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSaleOrderSource">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertSaleOrderSource" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderDeliveryMethod">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UpdateOrderDeliveryMethod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoreNameByTypeCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetSoreNameByTypeCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreExist">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetStoreExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPswKey">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckPswKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckQuestion">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePswKeyStatus">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/ChangePswKeyStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassWordByEmail">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/ChangePassWordByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPswKeyStatusByEmail">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckPswKeyStatusByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPswKey">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertPswKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAccount">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetUserAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayList">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetPayList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSaleAreaState">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckSaleAreaState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSaleAreaStateByPdt">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckSaleAreaStateByPdt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLSAmt">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UpdateLSAmt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceByInvoiceNo">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetInvoiceByInvoiceNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserPromIdByRecommend">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/getUserPromIdByRecommend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPreRecomCodeExist">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/getPreRecomCodeExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPregnantByPre">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/getPregnantByPre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPregnantByParam">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/getPregnantByParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changePregnant">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/changePregnant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changePregnantImg">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/changePregnantImg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPregnantCouponCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/getPregnantCouponCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPregnantNoExist">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/getPregnantNoExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberBaby">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetMemberBaby" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMemberBaby">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SaveMemberBaby" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMemberBaby">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UpdateMemberBaby" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInviteEmailByUserId">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetInviteEmailByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBabyBirthday">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetBabyBirthday" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetStore4Order">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SetStore4Order" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UserLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchOrderByTime">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SearchOrderByTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductListByOrderId">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetProductListByOrderId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCustomerPassword">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/ValidateCustomerPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerClusterID">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UpdateCustomerClusterID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByUserCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetCustomerByUserCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByMemberNo">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetCustomerByMemberNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByEmail">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetCustomerByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerByMobile">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetCustomerByMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMemberActor">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/DeleteMemberActor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberList">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetMemberList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberListByParam">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetMemberListByParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberActorByMemberNo">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetMemberActorByMemberNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BindUser">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/BindUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMemberAddr">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/InsertMemberAddr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserOrderByPromId">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/getUserOrderByPromId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNoByOrderCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetOrderNoByOrderCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveWebOrder">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/SaveWebOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWebOrder">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/UpdateWebOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelWebOrder">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CancelWebOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeStatus">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/ChangeStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetOrderCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderByMembNo">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetOrderByMembNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestOrderByMembNo">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetLatestOrderByMembNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserBuy">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckUserBuy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserOrderEmail">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckUserOrderEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserBlacklist">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/CheckUserBlacklist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateASN">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GenerateASN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberByUserCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetMemberByUserCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSumScoreByUserCode">
+      <soap12:operation soapAction="http://tempuri.org/IBbHomeService/GetSumScoreByUserCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BbHomeService">
+    <wsdl:port name="WSHttpBinding_IBbHomeService" binding="tns:WSHttpBinding_IBbHomeService">
+      <soap12:address location="http://holyca-backup1:10001/WcfBBHome.BbHomeService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://holyca-backup1:10001/WcfBBHome.BbHomeService.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

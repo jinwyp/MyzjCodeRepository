@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{44438E27-5943-4CF1-A4C0-DBAE6492CC32}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wcf.Entity</RootNamespace>
+    <AssemblyName>Wcf.Entity</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Resources\Assembly\Generate\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\Resources\Assembly\Generate\Wcf.Entity.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Myzj.ProjectResources\Assembly\Common\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseData\ItemLogistics.cs" />
+    <Compile Include="BaseData\ItemPay.cs" />
+    <Compile Include="BaseData\ItemMethodVerify.cs" />
+    <Compile Include="BaseData\ItemRegion.cs" />
+    <Compile Include="BaseData\LogisticsResult.cs" />
+    <Compile Include="Enum\InvoiceType.cs" />
+    <Compile Include="Enum\SeasonType.cs" />
+    <Compile Include="Enum\SortType.cs" />
+    <Compile Include="Enum\SystemType.cs" />
+    <Compile Include="Enum\UserLevel.cs" />
+    <Compile Include="Goods\ItemGoodsDetails.cs" />
+    <Compile Include="Goods\ItemGoods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Goods\ItemGoodsSearch.cs" />
+    <Compile Include="Member\ItemPermissions.cs" />
+    <Compile Include="Member\LoginEntity.cs" />
+    <Compile Include="Member\UserRegister.cs" />
+    <Compile Include="Member\AddressEntity.cs" />
+    <Compile Include="BaseData\CarriageDetail.cs" />
+    <Compile Include="Order\ItemOrder.cs" />
+    <Compile Include="Order\ItemOrderDetails.cs" />
+    <Compile Include="Order\ItemShoppingCartGoods.cs" />
+    <Compile Include="Order\OrderEntity.cs" />
+    <Compile Include="Order\OrderResult.cs" />
+    <Compile Include="Order\Shipping.cs" />
+    <Compile Include="Order\ShoppingCartResult.cs" />
+    <Compile Include="Order\ShoppingCartEntity.cs" />
+    <Compile Include="Product\Product.cs" />
+    <Compile Include="Product\ProductImg.cs" />
+    <Compile Include="Member\Location.cs" />
+    <Compile Include="Member\UserEntity.cs" />
+    <Compile Include="Product\ItemComment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

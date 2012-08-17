@@ -1,0 +1,3 @@
+bin\mongo
+
+pause
