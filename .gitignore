@@ -7,3 +7,4 @@ TestResults
 /MyzjCodeRepository.suo
 *.suo
 /MyzjCodeRepository.sln
+/API/WCF/Wcf.ServiceHost/Log
