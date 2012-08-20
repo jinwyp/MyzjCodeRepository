@@ -79,6 +79,7 @@
     <Compile Include="Order\ItemShoppingCartGoods.cs" />
     <Compile Include="Order\OrderEntity.cs" />
     <Compile Include="Order\OrderResult.cs" />
+    <Compile Include="Order\OrderSumaryEntity.cs" />
     <Compile Include="Order\Shipping.cs" />
     <Compile Include="Order\ShoppingCartResult.cs" />
     <Compile Include="Order\ShoppingCartEntity.cs" />

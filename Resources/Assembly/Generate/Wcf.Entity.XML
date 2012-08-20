@@ -309,6 +309,11 @@
             发票title 类型
             </summary>
         </member>
+        <member name="F:Wcf.Entity.Enum.Invoice.TitleType.NoNeed">
+            <summary>
+            不需要
+            </summary>
+        </member>
         <member name="F:Wcf.Entity.Enum.Invoice.TitleType.Personal">
             <summary>
             个人
@@ -1422,6 +1427,46 @@
         <member name="P:Wcf.Entity.BaseData.LogisticsResult.total_fee">
             <summary>
             总运费
+            </summary>
+        </member>
+        <member name="T:Wcf.Entity.Order.OrderSumaryEntity">
+            <summary>
+            订单汇总信息
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderSumaryEntity.TotalScore">
+            <summary>
+            总积分
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderSumaryEntity.TotalGoodsFee">
+            <summary>
+            订单商品总金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderSumaryEntity.TotalWeight">
+            <summary>
+            总重量
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderSumaryEntity.TotalOriginal">
+            <summary>
+            优惠前总金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderSumaryEntity.TotalFreight">
+            <summary>
+            总运费
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderSumaryEntity.TotalDiscountFee">
+            <summary>
+            总优惠金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.OrderSumaryEntity.TotalOrderFee">
+            <summary>
+            订单总金额
             </summary>
         </member>
     </members>

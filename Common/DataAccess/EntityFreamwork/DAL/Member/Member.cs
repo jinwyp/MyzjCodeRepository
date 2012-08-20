@@ -220,5 +220,23 @@ namespace EF.DAL
             return result;
         }
 
+        /// <summary>
+        /// 检查用户是否存在黑名单里
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public bool CheckUserIdInBackList(int userId)
+        {
+            var result = false;
+            using (var db = new bbHomeEntities())
+            {
+                var queryTxt = from a in db.tb_Blacklist
+                               where a.intUserID == userId
+                               select a;
+                result = queryTxt.Any();
+            }
+            return result;
+        }
+
     }
 }

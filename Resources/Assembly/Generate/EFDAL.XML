@@ -115,6 +115,13 @@
             <param name="userId"></param>
             <returns></returns>
         </member>
+        <member name="M:EF.DAL.Member.CheckUserIdInBackList(System.Int32)">
+            <summary>
+            检查用户是否存在黑名单里
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
         <member name="M:EF.DAL.Goods.GetGoodsList(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Nullable{Wcf.Entity.Enum.SortType},System.Int32,System.Int32,System.Int32@)">
             <summary>
             获取商品列表数据

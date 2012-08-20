@@ -36,7 +36,7 @@
         </member>
         <member name="M:Wcf.BLL.ShoppingCart.ShoppingCartBll.GetShoppingCartGoodsList(System.Int32,System.String,System.Int32)">
             <summary>
-            获取购物车商品列表
+            获取购物车商品列表 筛选 没有删除的商品，和 图片路径已经被格式化
             </summary>
             <param name="userId">用户ID</param>
             <param name="guid">用户全局变量</param>
@@ -108,6 +108,18 @@
             <param name="uid"></param>
             <param name="userId"></param>
             <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.BLL.ShoppingCart.ShoppingCartBll.SummaryOrderInfo(System.Collections.Generic.List{Wcf.Entity.Order.ShoppingCartEntity},System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            订单汇总信息
+            </summary>
+            <param name="norMalShoppingCart">购物车列表</param>
+            <param name="channelId">区域ID</param>
+            <param name="userId">用户id</param>
+            <param name="payId">支付id</param>
+            <param name="logisticsId">配送id</param>
+            <param name="cityId">城市id</param>
             <returns></returns>
         </member>
         <member name="M:Wcf.BLL.Member.MemberBLL.CreateUserToKen">

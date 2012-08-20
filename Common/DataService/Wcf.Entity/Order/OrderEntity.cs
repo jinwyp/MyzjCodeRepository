@@ -83,13 +83,13 @@ namespace Wcf.Entity.Order
         /// 发票抬头类型
         /// </summary>
         [DataMember]
-        public Invoice.TitleType titletype { get; set; }
+        public Invoice.TitleType? titletype { get; set; }
 
         /// <summary>
         /// 发票分类
         /// </summary>
         [DataMember]
-        public Invoice.InvoiceCategory invoicecategory { get; set; }
+        public Invoice.InvoiceCategory? invoicecategory { get; set; }
 
         /// <summary>
         /// 发票抬头

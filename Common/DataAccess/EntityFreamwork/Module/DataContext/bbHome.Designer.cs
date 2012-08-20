@@ -96,6 +96,22 @@ namespace EF.Model.DataContext
             }
         }
         private ObjectSet<base_t_member> _base_t_member;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tb_Blacklist> tb_Blacklist
+        {
+            get
+            {
+                if ((_tb_Blacklist == null))
+                {
+                    _tb_Blacklist = base.CreateObjectSet<tb_Blacklist>("tb_Blacklist");
+                }
+                return _tb_Blacklist;
+            }
+        }
+        private ObjectSet<tb_Blacklist> _tb_Blacklist;
 
         #endregion
         #region AddTo 方法
@@ -114,6 +130,14 @@ namespace EF.Model.DataContext
         public void AddTobase_t_member(base_t_member base_t_member)
         {
             base.AddObject("base_t_member", base_t_member);
+        }
+    
+        /// <summary>
+        /// 用于向 tb_Blacklist EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotb_Blacklist(tb_Blacklist tb_Blacklist)
+        {
+            base.AddObject("tb_Blacklist", tb_Blacklist);
         }
 
         #endregion
@@ -1581,6 +1605,183 @@ namespace EF.Model.DataContext
         private global::System.Int32 _orderTimes;
         partial void OnorderTimesChanging(global::System.Int32 value);
         partial void OnorderTimesChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EF.Model.bbHomeModel", Name="tb_Blacklist")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_Blacklist : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_Blacklist 对象。
+        /// </summary>
+        /// <param name="intBlackID">intBlackID 属性的初始值。</param>
+        /// <param name="intUserID">intUserID 属性的初始值。</param>
+        public static tb_Blacklist Createtb_Blacklist(global::System.Int32 intBlackID, global::System.Int32 intUserID)
+        {
+            tb_Blacklist tb_Blacklist = new tb_Blacklist();
+            tb_Blacklist.intBlackID = intBlackID;
+            tb_Blacklist.intUserID = intUserID;
+            return tb_Blacklist;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intBlackID
+        {
+            get
+            {
+                return _intBlackID;
+            }
+            set
+            {
+                if (_intBlackID != value)
+                {
+                    OnintBlackIDChanging(value);
+                    ReportPropertyChanging("intBlackID");
+                    _intBlackID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intBlackID");
+                    OnintBlackIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intBlackID;
+        partial void OnintBlackIDChanging(global::System.Int32 value);
+        partial void OnintBlackIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intUserID
+        {
+            get
+            {
+                return _intUserID;
+            }
+            set
+            {
+                OnintUserIDChanging(value);
+                ReportPropertyChanging("intUserID");
+                _intUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intUserID");
+                OnintUserIDChanged();
+            }
+        }
+        private global::System.Int32 _intUserID;
+        partial void OnintUserIDChanging(global::System.Int32 value);
+        partial void OnintUserIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchUserName
+        {
+            get
+            {
+                return _vchUserName;
+            }
+            set
+            {
+                OnvchUserNameChanging(value);
+                ReportPropertyChanging("vchUserName");
+                _vchUserName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchUserName");
+                OnvchUserNameChanged();
+            }
+        }
+        private global::System.String _vchUserName;
+        partial void OnvchUserNameChanging(global::System.String value);
+        partial void OnvchUserNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchTel
+        {
+            get
+            {
+                return _vchTel;
+            }
+            set
+            {
+                OnvchTelChanging(value);
+                ReportPropertyChanging("vchTel");
+                _vchTel = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchTel");
+                OnvchTelChanged();
+            }
+        }
+        private global::System.String _vchTel;
+        partial void OnvchTelChanging(global::System.String value);
+        partial void OnvchTelChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchMobile
+        {
+            get
+            {
+                return _vchMobile;
+            }
+            set
+            {
+                OnvchMobileChanging(value);
+                ReportPropertyChanging("vchMobile");
+                _vchMobile = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchMobile");
+                OnvchMobileChanged();
+            }
+        }
+        private global::System.String _vchMobile;
+        partial void OnvchMobileChanging(global::System.String value);
+        partial void OnvchMobileChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchAddress
+        {
+            get
+            {
+                return _vchAddress;
+            }
+            set
+            {
+                OnvchAddressChanging(value);
+                ReportPropertyChanging("vchAddress");
+                _vchAddress = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchAddress");
+                OnvchAddressChanged();
+            }
+        }
+        private global::System.String _vchAddress;
+        partial void OnvchAddressChanging(global::System.String value);
+        partial void OnvchAddressChanged();
 
         #endregion
     

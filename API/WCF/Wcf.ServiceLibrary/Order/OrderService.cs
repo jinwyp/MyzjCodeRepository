@@ -10,6 +10,9 @@ using Wcf.BLL.ShoppingCart;
 
 namespace Wcf.ServiceLibrary.Order
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [JavascriptCallbackBehavior(UrlParameterName = CommonUri.JAVASCRIPT_CALLBACKNAME)]
     public class OrderService : BaseWcfService, IOrderService

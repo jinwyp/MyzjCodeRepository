@@ -16,6 +16,10 @@ namespace Wcf.Entity.Enum
         public enum TitleType
         {
             /// <summary>
+            /// 不需要
+            /// </summary>
+            NoNeed = 0,
+            /// <summary>
             /// 个人
             /// </summary>
             Personal = 1,

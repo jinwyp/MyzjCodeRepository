@@ -4,3 +4,6 @@ obj
 
 # mstest test results
 TestResults
+/MyzjCodeRepository.suo
+*.suo
+/MyzjCodeRepository.sln

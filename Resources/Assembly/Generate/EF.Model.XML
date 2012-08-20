@@ -2203,12 +2203,22 @@
             用于向 base_t_member EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
             </summary>
         </member>
+        <member name="M:EF.Model.DataContext.bbHomeEntities.AddTotb_Blacklist(EF.Model.DataContext.tb_Blacklist)">
+            <summary>
+            用于向 tb_Blacklist EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
         <member name="P:EF.Model.DataContext.bbHomeEntities.base_t_membAddr">
             <summary>
             没有元数据文档可用。
             </summary>
         </member>
         <member name="P:EF.Model.DataContext.bbHomeEntities.base_t_member">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.bbHomeEntities.tb_Blacklist">
             <summary>
             没有元数据文档可用。
             </summary>
@@ -2525,6 +2535,48 @@
             </summary>
         </member>
         <member name="P:EF.Model.DataContext.base_t_member.orderTimes">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="T:EF.Model.DataContext.tb_Blacklist">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.tb_Blacklist.Createtb_Blacklist(System.Int32,System.Int32)">
+            <summary>
+            创建新的 tb_Blacklist 对象。
+            </summary>
+            <param name="intBlackID">intBlackID 属性的初始值。</param>
+            <param name="intUserID">intUserID 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.tb_Blacklist.intBlackID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.tb_Blacklist.intUserID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.tb_Blacklist.vchUserName">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.tb_Blacklist.vchTel">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.tb_Blacklist.vchMobile">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.tb_Blacklist.vchAddress">
             <summary>
             没有元数据文档可用。
             </summary>

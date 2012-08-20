@@ -252,7 +252,7 @@ namespace Wcf.BLL.ShoppingCart
         }
 
         /// <summary>
-        /// 获取购物车商品列表
+        /// 获取购物车商品列表 筛选 没有删除的商品，和 图片路径已经被格式化
         /// </summary>
         /// <param name="userId">用户ID</param>
         /// <param name="guid">用户全局变量</param>
@@ -261,10 +261,11 @@ namespace Wcf.BLL.ShoppingCart
         public static MResult<ShoppingCartResult> GetShoppingCartGoodsList(int userId, string guid, int channelId)
         {
             var result = new MResult<ShoppingCartResult>(true);
-            var goodsList = GetShoppingCartProductInfosByUserIDGuidChannelID(userId, guid, channelId);
-            if (goodsList.info.shoppingcart_list.Any())
+            var shoppingCart = Factory.DALFactory.ShoppingCartDal();
+            var goodsList = shoppingCart.GetShoppingCartProductInfosByUserIDGuidChannelID(userId, guid, channelId);
+            if (goodsList.Any())
             {
-                result.info.shoppingcart_list = goodsList.info.shoppingcart_list.FindAll(item => item.intIsDelete == 0);
+                result.info.shoppingcart_list = goodsList.FindAll(item => item.intIsDelete == 0);
                 result.info.shoppingcart_list.ForEach(item =>
                 {
                     item.vchPicURL = GoodsBLL.FormatProductPicUrl(item.vchPicURL);
@@ -439,7 +440,126 @@ namespace Wcf.BLL.ShoppingCart
         public static MResult<ItemOrder> CreateOrder(string guid, int channelId, string uid, int userId, OrderEntity order)
         {
             var result = new MResult<ItemOrder>();
+            var memberDal = DALFactory.Member();
+            var shoppingCart = Factory.DALFactory.ShoppingCartDal();
 
+            #region 验证数据
+
+            #region 用户是否登录
+            if (userId <= 0)
+            {
+                result.msg = "请登录后再操作！";
+                result.status = MResultStatus.ParamsError;
+                return result;
+            }
+            #endregion
+
+            #region 收货地址
+            if (order.addressid <= 0)
+            {
+                result.msg = "请选择收货地址！";
+                result.status = MResultStatus.ParamsError;
+                return result;
+            }
+            #endregion
+
+            #region 支付方式
+            if (order.payid <= 0)
+            {
+                result.msg = "请选择支付方式！";
+                result.status = MResultStatus.ParamsError;
+                return result;
+            }
+            #endregion
+
+            #region 配送方式
+            if (order.logisticsid <= 0)
+            {
+                result.msg = "请选择配送方式！";
+                result.status = MResultStatus.ParamsError;
+                return result;
+            }
+            #endregion
+
+            #region 发票信息是否完整
+            if (order.titletype == null)
+            {
+                result.msg = "请选择发票类型！";
+                result.status = MResultStatus.ParamsError;
+                return result;
+            }
+            if (order.invoicecategory == null)
+            {
+                result.msg = "请选择发票分类！";
+                result.status = MResultStatus.ParamsError;
+                return result;
+            }
+            if (order.titletype != Entity.Enum.Invoice.TitleType.NoNeed)
+            {
+                if (string.IsNullOrEmpty(order.invoicetitle))
+                {
+                    result.msg = "请填写发票抬头！";
+                    result.status = MResultStatus.ParamsError;
+                    return result;
+                }
+            }
+            #endregion
+
+            #endregion
+
+            //购物车商品数据
+            List<ShoppingCartEntity> norMalShoppingCartList = null;
+
+            #region 判断购物车是否有商品
+            var shoppingCartList = shoppingCart.GetShoppingCartProductInfosByUserIDGuidChannelID(userId, guid, channelId);
+            if (shoppingCartList == null || shoppingCartList.Any())
+            {
+                result.msg = "购物车没有商品！";
+                result.status = MResultStatus.LogicError;
+                return result;
+            }
+            norMalShoppingCartList = (from a in shoppingCartList
+                                      where a.intIsDelete == 0
+                                      select a).ToList();
+
+            if (!norMalShoppingCartList.Any())
+            {
+                result.msg = "购物车没有商品！";
+                result.status = MResultStatus.LogicError;
+                return result;
+            }
+            #endregion
+
+            #region 该用户是否是黑名单
+            var isExistBacklist = memberDal.CheckUserIdInBackList(userId);
+            if (isExistBacklist)
+            {
+                result.msg = "您的用户出现异常，请联系我们的客服人员进行解决！";
+                result.status = MResultStatus.LogicError;
+                return result;
+            }
+            #endregion
+
+            //收货地址信息
+            var addressInfo = memberDal.GetMemberAddressInfo(order.addressid);
+
+            #region 验证收货地址
+            #region 是否存在
+            if (addressInfo == null || addressInfo.intAddressID <= 0 || addressInfo.intCityID <= 0 && order.payid <= 0 && order.logisticsid <= 0)
+            {
+                result.msg = "收货地址信息不正确！";
+                result.status = MResultStatus.ParamsError;
+                return result;
+            }
+            #endregion
+            if (addressInfo.intCityID != 21)
+            {
+                
+            }
+            #endregion
+
+            var summaryOrderInfo = SummaryOrderInfo(norMalShoppingCartList, channelId, userId, order.payid, order.logisticsid,
+                                                 MCvHelper.To<int>(addressInfo.intCityID));
 
 
             return result;
@@ -477,23 +597,18 @@ namespace Wcf.BLL.ShoppingCart
                             var notDelShoppingCart = (from a in shoppingCartList where a.intIsDelete == 0 select a).ToList();
                             if (notDelShoppingCart.Any())
                             {
-                                result.info.total_score = notDelShoppingCart.Sum(c => c.intScore * c.intBuyCount);
-                                result.info.total_discount_fee = 0;
-                                result.info.total_goods_fee = notDelShoppingCart.Sum(c => c.intBuyCount * c.numSalePrice);
-                                result.info.total_weight = notDelShoppingCart.Sum(c => c.intBuyCount * c.intWeight ?? 0);
-                                result.info.total_original = notDelShoppingCart.Sum(c => c.intBuyCount * c.numOrgPrice);
-                                result.info.total_freight =
-                                    BaseDataBLL.GetLogisticsInfo(
-                                                                channelId,
-                                                                userId,
-                                                                MCvHelper.To<int>(addressInfo.intCityID, 0),
-                                                                order.payid, order.logisticsid,
-                                                                result.info.total_weight, result.info.total_goods_fee).info;
-                                result.info.total_discount_fee = result.info.total_goods_fee -
-                                                                 result.info.total_original;
-                                result.info.total_order_fee = result.info.total_freight +
-                                                              result.info.total_goods_fee -
-                                                              result.info.total_discount_fee;
+                                var summaryOrderInfo = SummaryOrderInfo(notDelShoppingCart, channelId, userId, order.payid, order.logisticsid,
+                                                 MCvHelper.To<int>(addressInfo.intCityID));
+                                if (summaryOrderInfo != null)
+                                {
+                                    result.info.total_discount_fee = summaryOrderInfo.TotalDiscountFee;
+                                    result.info.total_freight = summaryOrderInfo.TotalFreight;
+                                    result.info.total_goods_fee = summaryOrderInfo.TotalGoodsFee;
+                                    result.info.total_order_fee = summaryOrderInfo.TotalOrderFee;
+                                    result.info.total_original = summaryOrderInfo.TotalOriginal;
+                                    result.info.total_score = summaryOrderInfo.TotalScore;
+                                    result.info.total_weight = summaryOrderInfo.TotalWeight;
+                                }
                             }
                             else
                             {
@@ -527,5 +642,45 @@ namespace Wcf.BLL.ShoppingCart
 
             return result;
         }
+
+        /// <summary>
+        /// 订单汇总信息
+        /// </summary>
+        /// <param name="norMalShoppingCart">购物车列表</param>
+        /// <param name="channelId">区域ID</param>
+        /// <param name="userId">用户id</param>
+        /// <param name="payId">支付id</param>
+        /// <param name="logisticsId">配送id</param>
+        /// <param name="cityId">城市id</param>
+        /// <returns></returns>
+        public static OrderSumaryEntity SummaryOrderInfo(List<ShoppingCartEntity> norMalShoppingCart, int channelId, int userId, int payId, int logisticsId, int cityId)
+        {
+            var result = new OrderSumaryEntity();
+            try
+            {
+                result.TotalScore = norMalShoppingCart.Sum(c => c.intScore * c.intBuyCount);
+                result.TotalGoodsFee = norMalShoppingCart.Sum(c => c.intBuyCount * c.numSalePrice);
+                result.TotalWeight = norMalShoppingCart.Sum(c => c.intBuyCount * c.intWeight ?? 0);
+                result.TotalOriginal = norMalShoppingCart.Sum(c => c.intBuyCount * c.numOrgPrice);
+                result.TotalFreight =
+                    BaseDataBLL.GetLogisticsInfo(
+                                                channelId,
+                                                userId,
+                                                MCvHelper.To<int>(cityId, 0),
+                                                payId, logisticsId,
+                                                result.TotalWeight, result.TotalGoodsFee).info;
+                result.TotalDiscountFee = result.TotalGoodsFee -
+                                    result.TotalOriginal;
+                result.TotalOrderFee = result.TotalFreight +
+                                              result.TotalGoodsFee -
+                                              result.TotalDiscountFee;
+            }
+            catch
+            {
+
+            }
+            return result;
+        }
+
     }
 }

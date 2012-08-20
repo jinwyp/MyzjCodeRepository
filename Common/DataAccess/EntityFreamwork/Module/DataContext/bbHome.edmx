@@ -4,10 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EF.Model.bbHomeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="MobileWcfModelbbHomeModelStoreContainer">
-          <EntitySet Name="base_t_membAddr" EntityType="EF.Model.bbHomeModel.Store.base_t_membAddr" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="base_t_member" EntityType="EF.Model.bbHomeModel.Store.base_t_member" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <Schema Namespace="EF.Model.bbHomeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EFModelbbHomeModelStoreContainer">
+          <EntitySet Name="base_t_membAddr" EntityType="EF.Model.bbHomeModel.Store.base_t_membAddr" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="base_t_member" EntityType="EF.Model.bbHomeModel.Store.base_t_member" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_Blacklist" EntityType="EF.Model.bbHomeModel.Store.tb_Blacklist" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="base_t_membAddr">
           <Key>
@@ -77,14 +78,25 @@
           <Property Name="beValidate" Type="int" />
           <Property Name="orderTimes" Type="int" Nullable="false" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityType Name="tb_Blacklist">
+          <Key>
+            <PropertyRef Name="intBlackID" />
+          </Key>
+          <Property Name="intBlackID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+          <Property Name="vchUserName" Type="varchar" MaxLength="32" />
+          <Property Name="vchTel" Type="varchar" MaxLength="16" />
+          <Property Name="vchMobile" Type="varchar" MaxLength="16" />
+          <Property Name="vchAddress" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EF.Model.bbHomeModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="bbHomeEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="base_t_membAddr" EntityType="EF.Model.bbHomeModel.base_t_membAddr" />
           <EntitySet Name="base_t_member" EntityType="EF.Model.bbHomeModel.base_t_member" />
+          <EntitySet Name="tb_Blacklist" EntityType="EF.Model.bbHomeModel.tb_Blacklist" />
         </EntityContainer>
         <EntityType Name="base_t_membAddr">
           <Key>
@@ -154,12 +166,23 @@
           <Property Name="beValidate" Type="Int32" />
           <Property Name="orderTimes" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="tb_Blacklist">
+          <Key>
+            <PropertyRef Name="intBlackID" />
+          </Key>
+          <Property Type="Int32" Name="intBlackID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+          <Property Type="String" Name="vchUserName" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchTel" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchMobile" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchAddress" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MobileWcfModelbbHomeModelStoreContainer" CdmEntityContainer="bbHomeEntities">
+        <EntityContainerMapping StorageEntityContainer="EFModelbbHomeModelStoreContainer" CdmEntityContainer="bbHomeEntities">
           <EntitySetMapping Name="base_t_membAddr"><EntityTypeMapping TypeName="EF.Model.bbHomeModel.base_t_membAddr"><MappingFragment StoreEntitySet="base_t_membAddr">
             <ScalarProperty Name="addressNo" ColumnName="addressNo" />
             <ScalarProperty Name="membNo" ColumnName="membNo" />
@@ -222,6 +245,18 @@
             <ScalarProperty Name="beValidate" ColumnName="beValidate" />
             <ScalarProperty Name="orderTimes" ColumnName="orderTimes" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tb_Blacklist">
+            <EntityTypeMapping TypeName="EF.Model.bbHomeModel.tb_Blacklist">
+              <MappingFragment StoreEntitySet="tb_Blacklist">
+                <ScalarProperty Name="vchAddress" ColumnName="vchAddress" />
+                <ScalarProperty Name="vchMobile" ColumnName="vchMobile" />
+                <ScalarProperty Name="vchTel" ColumnName="vchTel" />
+                <ScalarProperty Name="vchUserName" ColumnName="vchUserName" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="intBlackID" ColumnName="intBlackID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -246,6 +281,7 @@
       <Diagram Name="bbHome">
         <EntityTypeShape EntityType="EF.Model.bbHomeModel.base_t_membAddr" Width="1.5" PointX="0.75" PointY="0.75" Height="5.59940673828125" IsExpanded="true" />
         <EntityTypeShape EntityType="EF.Model.bbHomeModel.base_t_member" Width="1.5" PointX="2.75" PointY="0.75" Height="7.5096036783854156" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Model.bbHomeModel.tb_Blacklist" Width="1.5" PointX="5.375" PointY="0.75" Height="2.1610522460937496" />
       </Diagram>
     </Diagrams>
   </Designer>

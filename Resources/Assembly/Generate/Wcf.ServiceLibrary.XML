@@ -101,6 +101,11 @@
             <param name="guid"> </param>
             <returns></returns>
         </member>
+        <member name="T:Wcf.ServiceLibrary.Order.OrderService">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Wcf.ServiceLibrary.BaseWcfService.#ctor">
             <summary>
             构造函数
