@@ -551,6 +551,31 @@
             <param name="dr"></param>
             <returns></returns>
         </member>
+        <member name="T:Core.Enums.MMethodType">
+            <summary>
+            请求类型
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MMethodType.GET">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MMethodType.POST">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MMethodType.PUT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Core.Enums.MMethodType.DELETE">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Core.ConfigUtility.MConfigManager">
             <summary>
             配置文件
@@ -1106,31 +1131,6 @@
         <member name="T:Core.Enums.MCaching.CacheGroup">
             <summary>
             缓存 Key 分组
-            </summary>
-        </member>
-        <member name="T:Core.Enums.MMethodType">
-            <summary>
-            请求类型
-            </summary>
-        </member>
-        <member name="F:Core.Enums.MMethodType.GET">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Core.Enums.MMethodType.POST">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Core.Enums.MMethodType.PUT">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Core.Enums.MMethodType.DELETE">
-            <summary>
-            
             </summary>
         </member>
     </members>
