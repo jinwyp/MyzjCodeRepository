@@ -221,7 +221,7 @@ var orderEntity = {
         var FaTHeader = LS.get("FaTHeader"); //发票抬头
         var remark = $("#remark").text(); //订单备注
         var posttimetype = LS.get("delivery_sh_time_id"); //配送时间类型
-
+        //alert(typeof (posttimetype));
         //alert(typeof(isorInvice) + ":" + typeof(invoice_Type) + ":" + typeof(FaTHeader) + ":" + typeof(remark));
         //alert(isorInvice + ":" + invoice_Type + ":" + FaTHeader + ":" + remark);
 
@@ -237,7 +237,7 @@ var orderEntity = {
         if (remark != "") {
             order.remark = remark;
         }
-        if (remark != null) {
+        if (posttimetype != "null") {
             order.posttimetype = posttimetype;
         }
 
@@ -373,9 +373,10 @@ function orderconfirm_Fun() {
     Final_Price();
 
     //#region 提交订单
-    var orderEntity_c = orderEntity.createNew();
-    if (orderEntity.init_Judge(orderEntity_c)) {
-        $("#orderConfirm_btn").click(function () {
+
+    $("#orderConfirm_btn").click(function () {
+        var orderEntity_c = orderEntity.createNew();
+        if (orderEntity.init_Judge(orderEntity_c)) {
             PostWcf({
                 _api: "Order.add_order_info",
                 _data: JSON.stringify(orderEntity_c)
@@ -402,8 +403,12 @@ function orderconfirm_Fun() {
                 }
 
             }, true);
-        });
-    }
+        }
+        else {
+            alert("信息还不完全！");
+        }
+    });
+
     //#endregion
 }
 //#endregion
@@ -416,7 +421,7 @@ function addresslist_Fun() {
     }, function (jsonString) {
         var addresslist_cont = $('#addresslist_cont');
         if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list != null && jsonString.list.length > 0) {
-            var selected_addressId = LS.get("selected_addressId");
+            var selected_addressId = LS.get("current_addressid");
 
             for (var i = 0; i < jsonString.list.length; i++) {
                 //alert((jsonString.list[i].id.toString() === selected_addressId.toString()) + ":" + jsonString.list[i].id + ":" + selected_addressId);
@@ -489,7 +494,7 @@ function addresslist_Fun() {
                             ]
                         };
                         Delelt_Delivery_info_Object(delivery_array);
-                        LS.set("selected_addressId", address_id); //设置默认收货地址
+                        LS.set("current_addressid", address_id); //设置默认收货地址
                         window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
                     } else {
                         alert(jsonString.msg);
@@ -902,8 +907,8 @@ address_add_update_Object.address_valite_c = function (id_obj) {
                 _data: JSON.stringify(jobj)
             }, function (json) {
                 if (json.status == 1) {
-                    if (id_obj > 0) { LS.set("selected_addressId", id_obj); } else {
-                        LS.set("selected_addressId", json.info);
+                    if (id_obj > 0) { LS.set("current_addressid", id_obj); } else {
+                        LS.set("current_addressid", json.info);
                     }
                     window.location.href = window.WebRoot + "CheckOut/addresslist.aspx";
                 } else
@@ -966,7 +971,7 @@ var makeorder_Fun = function () {
     $("#make_posttimetype").text(LS.get("make_posttimetype")); //送货时间
 
     if (LS.get("make_paytype") === "货到付款") {
-        $("#online_pay").css("display","none");
+        $("#online_pay").css("display", "none");
     }
 }
 //#endregion
@@ -992,7 +997,7 @@ $(document).ready(function () {
     }
     else if (/address_edit.aspx/i.test(url)) {
         address_edit_Fun();
-    }else if (/makeorder.aspx/i.test(url)) {
+    } else if (/makeorder.aspx/i.test(url)) {
         makeorder_Fun();
     }
     $('#gotop').tap(function () {

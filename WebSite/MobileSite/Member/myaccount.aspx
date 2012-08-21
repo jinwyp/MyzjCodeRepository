@@ -6,14 +6,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div data-role="navbar" data-iconpos="left">
         <ul>
-            <li><li><a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" data-theme="c" data-icon="star" rel="external">个人中心</a></li></li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" data-theme="c" data-icon="star"
+                rel="external">个人中心</a></li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" data-theme="c" data-icon="arrow-l"
+                data-rel="back">返回</a> </li>
         </ul>
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content">
         <ul data-role="listview" id="myAccount_content" data-divider-theme="d" data-inset="true">
-            
         </ul>
         <ul data-role="listview" data-divider-theme="d" data-inset="true">
             <li data-role="list-divider">订单中心</li>
@@ -31,5 +33,5 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-<script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.member.js" type="text/javascript"></script>   
+    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.member.js" type="text/javascript"></script>
 </asp:Content>
