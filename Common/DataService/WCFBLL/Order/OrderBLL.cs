@@ -8,7 +8,6 @@ using Core.DataTypeUtility;
 using Core.Enums;
 using Core.LogUtility;
 using EF.Model.DataContext;
-using EF.Model.Entity;
 using Factory;
 using Wcf.BLL.BaseData;
 using Wcf.BLL.ServiceReference.External;
