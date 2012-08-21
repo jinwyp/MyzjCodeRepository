@@ -382,6 +382,7 @@ function orderconfirm_Fun() {
                 _data: JSON.stringify(orderEntity_c)
             }, function (json) {
                 if (json.status === 1 && typeof (json.info) == "object" && json.info != null) {
+                    LS.clear();//先清再存
                     var delivery_array = {
                         slides: [
                                 "make_oid", //订单号

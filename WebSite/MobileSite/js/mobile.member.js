@@ -108,6 +108,7 @@ function Login_Fun() {
 
                     var wUr = GetUrlParam("returnurl") || window.WebRoot + "Member/myaccount.aspx";
                     if (wUr === "undefined") wUr = window.WebRoot + "Member/myaccount.aspx";
+                    LS.clear();
                     window.location.href = wUr;
                 } else
                     jQuery("#ErroMesg").css("display", "block").text(json.msg);
