@@ -382,7 +382,7 @@ function orderconfirm_Fun() {
                 _data: JSON.stringify(orderEntity_c)
             }, function (json) {
                 if (json.status === 1 && typeof (json.info) == "object" && json.info != null) {
-                    LS.clear();//先清再存
+                    LS.clear(); //先清再存
                     var delivery_array = {
                         slides: [
                                 "make_oid", //订单号
@@ -965,13 +965,30 @@ function address_edit_Fun() {
 
 //#region 订单成功页面
 var makeorder_Fun = function () {
-    $("#make_oid").text(LS.get("make_oid")); //订单号
-    $("#make_total_order").text(parseFloat(LS.get("make_total_order")).toFixed(2) + "元"); //应付金额
-    $("#make_paytype").text(LS.get("make_paytype")); //支付方式
-    $("#make_logisticstype").text(LS.get("make_logisticstype")); //配送方式
-    $("#make_posttimetype").text(LS.get("make_posttimetype")); //送货时间
+    var make_oid = LS.get("make_oid") || "no_c";
+    var make_total_order = LS.get("make_total_order") || "no_c";
+    var make_paytype = LS.get("make_paytype") || "no_c";
+    var make_logisticstype = LS.get("make_logisticstype") || "no_c";
+    var make_posttimetype = LS.get("make_posttimetype") || "no_c";
+    var make_Nub = function (canstring, cansb) {
+        if (cansb === "no_c") {
+            $("#" + canstring).hide().text("");
+            $("#" + canstring).prev().hide();
+            $("#" + canstring).parent().hide();
+        } else {
+            if (canstring === "make_total_order") { $("#" + canstring).show().text(parseFloat(cansb).toFixed(2) + "元"); } else {
+                $("#" + canstring).show().text(cansb);
+            }
+        }
+    }
 
-    if (LS.get("make_paytype") === "货到付款") {
+    make_Nub("make_oid", make_oid); //订单号
+    make_Nub("make_total_order", make_total_order); //应付金额
+    make_Nub("make_paytype", make_paytype); //支付方式
+    make_Nub("make_logisticstype", make_logisticstype); //配送方式
+    make_Nub("make_posttimetype", make_posttimetype); //送货时间
+
+    if (make_paytype === "货到付款") {
         $("#online_pay").css("display", "none");
     }
 }
