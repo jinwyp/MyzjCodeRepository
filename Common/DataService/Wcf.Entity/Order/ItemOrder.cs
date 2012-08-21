@@ -92,5 +92,29 @@ namespace Wcf.Entity.Order
         /// </summary>
         [DataMember]
         public bool buyer_rate { get; set; }
+
+        /// <summary>
+        /// 支付方式
+        /// </summary>
+        [DataMember]
+        public string paytype { get; set; }
+
+        /// <summary>
+        /// 配送方式
+        /// </summary>
+        [DataMember]
+        public string logisticstype { get; set; }
+
+        /// <summary>
+        /// 送货时间
+        /// </summary>
+        [DataMember]
+        public string posttimetype { get; set; }
+
+        /// <summary>
+        /// 订单总金额
+        /// </summary>
+        [DataMember]
+        public decimal? total_order { get; set; }
     }
 }

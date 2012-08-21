@@ -33,13 +33,16 @@ namespace Wcf.BLL.Order
         /// <returns></returns>
         public static MResult<ItemOrder> CreateOrder(string guid, int channelId, string uid, int userId, OrderEntity orderEntity)
         {
-            var result = new MResult<ItemOrder>();
+            var result = new MResult<ItemOrder>(true);
 
             try
             {
                 var memberDal = DALFactory.Member();
-                var shoppingCart = Factory.DALFactory.ShoppingCartDal();
+                var baseDataDal = DALFactory.BaseData();
+                var shoppingCart = DALFactory.ShoppingCartDal();
                 var orderDal = DALFactory.Order();
+
+                var payId = MCvHelper.To<int>(orderEntity.payid, -1);
 
                 #region 验证数据
 
@@ -62,7 +65,7 @@ namespace Wcf.BLL.Order
                 #endregion
 
                 #region 支付方式
-                if (orderEntity.payid != null)
+                if (payId < 0)
                 {
                     result.msg = "请选择支付方式！";
                     result.status = MResultStatus.ParamsError;
@@ -121,7 +124,7 @@ namespace Wcf.BLL.Order
 
                 #region 判断购物车是否有商品
                 var shoppingCartList = shoppingCart.GetShoppingCartProductInfosByUserIDGuidChannelID(userId, guid, channelId);
-                if (shoppingCartList == null || shoppingCartList.Any())
+                if (shoppingCartList == null || !shoppingCartList.Any())
                 {
                     result.msg = "购物车没有商品！";
                     result.status = MResultStatus.LogicError;
@@ -154,21 +157,29 @@ namespace Wcf.BLL.Order
 
                 #region 验证收货地址
                 #region 是否存在
-                if (addressInfo == null || addressInfo.intAddressID <= 0 || addressInfo.intCityID <= 0 && orderEntity.payid <= 0 && orderEntity.logisticsid <= 0)
+                if (addressInfo == null || addressInfo.intAddressID <= 0 || addressInfo.intCityID <= 0 && payId <= 0 && orderEntity.logisticsid <= 0)
                 {
                     result.msg = "收货地址信息不正确！";
                     result.status = MResultStatus.ParamsError;
                     return result;
                 }
                 #endregion
-                if (addressInfo.intCityID != 21)
-                {
+                #endregion
 
+                //配送方式
+                var deliverInfo = baseDataDal.GetDeliverInfo(orderEntity.logisticsid);
+
+                #region 验证配送方式
+                if (deliverInfo == null || deliverInfo.intDeliverID == 0)
+                {
+                    result.msg = "验证配送方式信息不正确！";
+                    result.status = MResultStatus.ParamsError;
+                    return result;
                 }
                 #endregion
 
                 #region 检查商品销售区域
-                var checkGoodsSaleAreaState = CheckGoodsSaleArea(userId, MCvHelper.To<int>(addressInfo.intCityID), channelId);
+                var checkGoodsSaleAreaState = CheckGoodsSaleArea(norMalShoppingCartList, userId, MCvHelper.To<int>(addressInfo.intCityID), channelId);
                 if (checkGoodsSaleAreaState.Any())
                 {
                     result.msg = "有部分商品不在您选择的区域内销售！";
@@ -178,13 +189,13 @@ namespace Wcf.BLL.Order
                 }
                 #endregion
 
-                var summaryOrderInfo = SummaryOrderInfo(norMalShoppingCartList, channelId, userId, MCvHelper.To<int>(orderEntity.payid,-1), orderEntity.logisticsid,
+                var summaryOrderInfo = SummaryOrderInfo(norMalShoppingCartList, channelId, userId,
+                    payId, orderEntity.logisticsid,
                                                      MCvHelper.To<int>(addressInfo.intCityID));
 
                 #region 开始创建订单
                 if (summaryOrderInfo != null && summaryOrderInfo.TotalGoodsFee > 0)
                 {
-                    //TODO: 创建订单数据
                     var order = new Sale_Order();
 
                     #region 订单主表信息
@@ -196,7 +207,7 @@ namespace Wcf.BLL.Order
                     order.intLogisticsID = 21;
                     order.intOrderState = 1;
                     order.intOrderType = 1;
-                    order.intPayID = MCvHelper.To<int>(orderEntity.payid, -1);
+                    order.intPayID = payId;
                     order.intPayState = 0;
                     order.intStockID = 100;
                     order.intTotalStars = summaryOrderInfo.TotalScore;
@@ -207,7 +218,7 @@ namespace Wcf.BLL.Order
                     order.numGoodsAmount = summaryOrderInfo.TotalGoodsFee;
                     order.numCouponAmount = summaryOrderInfo.TotalDiscountFee;
                     order.numReceAmount = summaryOrderInfo.TotalOrderFee;
-                    order.numWeight= summaryOrderInfo.TotalWeight;
+                    order.numWeight = summaryOrderInfo.TotalWeight;
                     order.vchSendTime = order.dtSendDate.ToShortTimeString();
                     order.vchUserCode = memberInfo.userCode;
                     order.vchOrderCode = GetOrderCode();
@@ -217,7 +228,7 @@ namespace Wcf.BLL.Order
 
                     var deliver = new Sale_Order_Deliver();
                     deliver.intAddressID = addressInfo.intAddressID;
-                    deliver.intCityID= MCvHelper.To<int>(addressInfo.intCityID, 0);
+                    deliver.intCityID = MCvHelper.To<int>(addressInfo.intCityID, 0);
                     deliver.vchCityName = addressInfo.vchCityName;
                     deliver.vchConsignee = addressInfo.vchConsignee;
                     deliver.intCountyID = MCvHelper.To<int>(addressInfo.intCountyID, 0);
@@ -226,11 +237,11 @@ namespace Wcf.BLL.Order
                     deliver.vchHausnummer = addressInfo.vchHausnummer;
                     deliver.vchMobile = addressInfo.vchMobile;
                     deliver.vchPhone = addressInfo.vchPhone;
-                    deliver.vchPostCode= addressInfo.vchPostCode;
+                    deliver.vchPostCode = addressInfo.vchPostCode;
                     deliver.vchRoadName = addressInfo.vchRoadName;
                     deliver.intStateID = MCvHelper.To<int>(addressInfo.intStateID, 0);
                     deliver.vchStateName = addressInfo.vchStateName;
-                    deliver.vchUserMemo= orderEntity.remark;
+                    deliver.vchUserMemo = orderEntity.remark;
                     deliver.vchOrderCode = order.vchOrderCode;
 
                     #endregion
@@ -253,7 +264,7 @@ namespace Wcf.BLL.Order
                         invoice.intInvoiceKind = 1;
                         invoice.numAmount = order.numReceAmount;
                         invoice.dtBillingTime = DateTime.Now;
-                        invoice.dtCreateDate= DateTime.Now;
+                        invoice.dtCreateDate = DateTime.Now;
                         invoice.intIsBilling = 1;
                         invoice.intIsDetail = 0;
                         invoice.vchOrderCode = order.vchOrderCode;
@@ -266,6 +277,37 @@ namespace Wcf.BLL.Order
                     #region 保存订单
                     string message;
                     result.info.oid = orderDal.SaveWebOrder(order, invoice, deliver, null, userId, guid, channelId, MCvHelper.To<int>(memberInfo.clusterId, 0), -1, out message);
+                    if (result.info.oid > 0)
+                    {
+                        result.status = MResultStatus.Success;
+
+                        var payType = string.Empty;
+                        if (payId == 0)
+                            payType = "货到付款";
+                        else if (payId == 1)
+                            payType = "在线支付";
+                        var postTimetype = string.Empty;
+                        switch (orderEntity.posttimetype)
+                        {
+                            case 1:
+                                postTimetype = "工作日送货";
+                                break;
+                            case 2:
+                                postTimetype = "工作日、双休日均可送货";
+                                break;
+                            case 3:
+                                postTimetype = "只双休日送货";
+                                break;
+                        }
+
+                        result.info.paytype = payType;
+                        result.info.logisticstype = deliverInfo.vchDeliverName;
+                        result.info.total_fee = order.numGoodsAmount;
+                        result.info.total_freight = order.numCarriage;
+                        result.info.total_order = order.numReceAmount;
+                        result.info.posttimetype = postTimetype;
+                    }
+
                     #endregion
 
                 }
@@ -312,7 +354,7 @@ namespace Wcf.BLL.Order
                             var notDelShoppingCart = (from a in shoppingCartList where a.intIsDelete == 0 select a).ToList();
                             if (notDelShoppingCart.Any())
                             {
-                                var summaryOrderInfo = SummaryOrderInfo(notDelShoppingCart, channelId, userId, MCvHelper.To<int>(order.payid,-1), order.logisticsid,
+                                var summaryOrderInfo = SummaryOrderInfo(notDelShoppingCart, channelId, userId, MCvHelper.To<int>(order.payid, -1), order.logisticsid,
                                                  MCvHelper.To<int>(addressInfo.intCityID));
                                 if (summaryOrderInfo != null)
                                 {
@@ -400,18 +442,24 @@ namespace Wcf.BLL.Order
         /// <summary>
         /// 检查商品销售区域
         /// </summary>
+        /// <param name="shoppingList"> </param>
         /// <param name="userId"></param>
         /// <param name="cityId"></param>
         /// <param name="channelId"></param>
         /// <returns>无效的 商品ID</returns>
-        public static List<int> CheckGoodsSaleArea(int userId, int cityId, int channelId)
+        public static List<int> CheckGoodsSaleArea(List<ShoppingCartEntity> shoppingList, int userId, int cityId, int channelId)
         {
             var result = new List<int>();
 
             try
             {
                 var orderDal = DALFactory.Order();
-                result = orderDal.CheckGoodsSaleArea(userId, cityId, channelId);
+                var norMalShoppingCartIdList = orderDal.CheckGoodsSaleArea(userId, cityId, channelId);
+                shoppingList.ForEach(item =>
+                                         {
+                                             if (!norMalShoppingCartIdList.Contains(item.intShopCartID))
+                                                 result.Add(item.intProductID);
+                                         });
             }
             catch (Exception ex)
             {

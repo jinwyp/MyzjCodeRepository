@@ -34,8 +34,8 @@ namespace EF.DAL
                                join b in db.Base_SaleArea_Product on a.intProductID equals b.intProductID
                                join c in db.Base_Region on b.intAreaID equals c.intAreaID
                                where a.intUserID == userId && c.intRegionID == cityId && b.intState == 1 && a.intChannelID == channelId
-                               select a.intProductID;
-                result = queryTxt.ToList();
+                               select a.intShopCartID;
+                result = queryTxt.Distinct().ToList();
             }
 
             return result;

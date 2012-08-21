@@ -230,6 +230,37 @@
             <param name="invokeParmeter"></param>
             <returns></returns>
         </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.ApiResult(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.ApiResult(Core.Enums.MResultStatus)">
+            <summary>
+            
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.ApiResult(System.String,Core.Enums.MResultStatus)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.ApiResult(System.String,Core.Enums.MResultStatus,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="status"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
         <member name="M:MobileSite.BaseLib.WebUtility.ToJson``1(``0)">
             <summary>
             序列化 实体类
@@ -246,6 +277,11 @@
             <param name="str"></param>
             <returns>实体类</returns>
         </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.RefreshGuid">
+            <summary>
+            刷新Guid
+            </summary>
+        </member>
         <member name="M:MobileSite.BaseLib.WebUtility.SetMemberSession(System.Int32,System.String,System.String)">
             <summary>
             设置会员session
@@ -253,7 +289,6 @@
             <param name="user_id"> </param>
             <param name="uid"></param>
             <param name="token"></param>
-            <param name="guid"> </param>
             <returns></returns>
         </member>
         <member name="M:MobileSite.BaseLib.WebUtility.RemoveMemberSession">
@@ -268,64 +303,14 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:MobileSite.BaseLib.MResult">
-            <summary>
-            返回类型
-            </summary>
-        </member>
-        <member name="P:MobileSite.BaseLib.MResult.msg">
-            <summary>
-            返回文字信息
-            </summary>
-        </member>
-        <member name="P:MobileSite.BaseLib.MResult.status">
-            <summary>
-            返回状态
-            </summary>
-        </member>
-        <member name="P:MobileSite.BaseLib.MResult.data">
-            <summary>
-            返回数据
-            </summary>
-        </member>
         <member name="T:MobileSite.BaseLib.InvokeParmeter">
             <summary>
             调用api参数
             </summary>
         </member>
-        <member name="T:MobileSite.BaseLib.MethodType">
+        <member name="T:MobileSite.BaseLib.BasePage">
             <summary>
-            请求类型
-            </summary>
-        </member>
-        <member name="T:MobileSite.BaseLib.MResultStatus">
-            <summary>
-            状态枚举
-            </summary>
-        </member>
-        <member name="F:MobileSite.BaseLib.MResultStatus.ParamsError">
-            <summary>
-            参数错误
-            </summary>
-        </member>
-        <member name="F:MobileSite.BaseLib.MResultStatus.LogicError">
-            <summary>
-            逻辑错误
-            </summary>
-        </member>
-        <member name="F:MobileSite.BaseLib.MResultStatus.ExecutionError">
-            <summary>
-            执行错误
-            </summary>
-        </member>
-        <member name="F:MobileSite.BaseLib.MResultStatus.Undefined">
-            <summary>
-            未定义
-            </summary>
-        </member>
-        <member name="F:MobileSite.BaseLib.MResultStatus.Success">
-            <summary>
-            成功
+            
             </summary>
         </member>
         <member name="M:MobileSite.BaseLib.MemberContent.BaseMember.CheckMemberLoginStatus">

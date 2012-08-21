@@ -386,17 +386,21 @@ namespace Wcf.BLL.ShoppingCart
         {
             var result = false;
             var mergeSuccessGids = new List<int>();
+            var shoppingCart = DALFactory.ShoppingCartDal();
 
-            var guidList = GetShoppingCartProductInfosByUserIDGuidChannelID(0, guid, channelId);
-            var userIdList = GetShoppingCartProductInfosByUserIDGuidChannelID(userID, "", channelId);
-            var shoppingcart = DALFactory.ShoppingCartDal();
+            //guid 的 购物车数据
+            var guidList = shoppingCart.GetShoppingCartProductInfosByUserIDGuidChannelID(0, guid, channelId);
+            //userId 的 购物车数据
+            var userIdList = shoppingCart.GetShoppingCartProductInfosByUserIDGuidChannelID(userID, "", channelId);
 
-            if (guidList != null && guidList.info.shoppingcart_list.Any())
+            if (guidList != null && guidList.Any())
             {
-                var userIdGiList = new List<int>();
-                userIdList.info.shoppingcart_list.ForEach(item => userIdGiList.Add(item.intProductID));
+                //userId 的 所有商品id
+                var gidListByUserId = new List<int>();
+                //获取 userId 的 所有商品id
+                userIdList.ForEach(item => gidListByUserId.Add(item.intProductID));
 
-                guidList.info.shoppingcart_list.ForEach(item =>
+                guidList.ForEach(item =>
                                                         {
                                                             try
                                                             {
@@ -409,12 +413,9 @@ namespace Wcf.BLL.ShoppingCart
                                                                                                     item.intProductID + "",
                                                                                                     item.intBuyCount + "");
 
-                                                                if (insertResult.status == MResultStatus.Success)
-                                                                {
-                                                                    //删除已经合并的 购物车商品
-                                                                    if (shoppingcart.DeleteShoppingCartByProductIdUserID(item.intShopCartID))
-                                                                        mergeSuccessGids.Add(item.intProductID);
-                                                                }
+                                                                //删除已经合并的 购物车商品
+                                                                if (shoppingCart.DeleteShoppingCartByProductIdUserID(item.intShopCartID))
+                                                                    mergeSuccessGids.Add(item.intProductID);
                                                             }
                                                             catch
                                                             {

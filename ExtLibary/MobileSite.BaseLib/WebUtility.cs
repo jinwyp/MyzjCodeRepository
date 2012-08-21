@@ -8,10 +8,12 @@ using System.Text;
 using System.Web;
 using System.Web.SessionState;
 using System.Configuration;
+using Core.DataType;
+using Core.Enums;
 
 namespace MobileSite.BaseLib
 {
-    public class WebUtility
+    public class WebUtility : IRequiresSessionState
     {
         /// <summary>
         /// 调用 Api
@@ -32,7 +34,7 @@ namespace MobileSite.BaseLib
                 webRequest.Timeout = 1000 * 60;
                 webRequest.Method = invokeParmeter.Method.ToString();
 
-                if (invokeParmeter.Method == MethodType.POST || invokeParmeter.Method == MethodType.PUT)
+                if (invokeParmeter.Method == MMethodType.POST || invokeParmeter.Method == MMethodType.PUT)
                 {
                     var _params = Encoding.UTF8.GetBytes(invokeParmeter.Data);
 
@@ -50,7 +52,7 @@ namespace MobileSite.BaseLib
                     }
                     flag = true;
                 }
-                else if (invokeParmeter.Method == MethodType.GET || invokeParmeter.Method == MethodType.DELETE)
+                else if (invokeParmeter.Method == MMethodType.GET || invokeParmeter.Method == MMethodType.DELETE)
                 {
                     flag = true;
                 }
@@ -112,19 +114,42 @@ namespace MobileSite.BaseLib
         }
 
         #region 设置返回信息
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         public static string ApiResult(string msg)
         {
-            return ApiResult(msg, -1);
+            return ApiResult(msg, MResultStatus.Undefined);
         }
-        public static string ApiResult(int status)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        public static string ApiResult(MResultStatus status)
         {
             return ApiResult("调用错误！", status);
         }
-        public static string ApiResult(string msg, int status)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        public static string ApiResult(string msg, MResultStatus status)
         {
             return ApiResult(msg, status, null);
         }
-        public static string ApiResult(string msg, int status, string data)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="status"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static string ApiResult(string msg, MResultStatus status, string data)
         {
             return ToJson<MResult>(new MResult()
                                        {
@@ -185,12 +210,22 @@ namespace MobileSite.BaseLib
         #region 会员Session
 
         /// <summary>
+        /// 刷新Guid
+        /// </summary>
+        public static void RefreshGuid()
+        {
+            var session = HttpContext.Current.Session;
+            if (session["s_guid"] != null)
+                session.Remove("s_guid");
+            session.Add("s_guid", Guid.NewGuid().ToString("N"));
+        }
+
+        /// <summary>
         /// 设置会员session
         /// </summary>
         /// <param name="user_id"> </param>
         /// <param name="uid"></param>
         /// <param name="token"></param>
-        /// <param name="guid"> </param>
         /// <returns></returns>
         public static bool SetMemberSession(int user_id, string uid, string token)
         {
@@ -259,34 +294,13 @@ namespace MobileSite.BaseLib
     }
 
     /// <summary>
-    /// 返回类型
-    /// </summary>
-    public class MResult
-    {
-        /// <summary>
-        /// 返回文字信息
-        /// </summary>
-        public string msg { get; set; }
-
-        /// <summary>
-        /// 返回状态
-        /// </summary>
-        public int status { get; set; }
-
-        /// <summary>
-        /// 返回数据
-        /// </summary>
-        public string data { get; set; }
-    }
-
-    /// <summary>
     /// 调用api参数
     /// </summary>
     public class InvokeParmeter
     {
         public Uri Uri { get; set; }
 
-        public MethodType Method { get; set; }
+        public MMethodType Method { get; set; }
 
         public string Data { get; set; }
 
@@ -296,43 +310,4 @@ namespace MobileSite.BaseLib
 
         public string Callback { get; set; }
     }
-
-    /// <summary>
-    /// 请求类型
-    /// </summary>
-    public enum MethodType
-    {
-        GET,
-        POST,
-        PUT,
-        DELETE
-    }
-
-    /// <summary>
-    /// 状态枚举
-    /// </summary>
-    public enum MResultStatus
-    {
-        /// <summary>
-        /// 参数错误
-        /// </summary>
-        ParamsError = -3,
-        /// <summary>
-        /// 逻辑错误
-        /// </summary>
-        LogicError = -2,
-        /// <summary>
-        /// 执行错误
-        /// </summary>
-        ExecutionError = -1,
-        /// <summary>
-        /// 未定义
-        /// </summary>
-        Undefined = 0,
-        /// <summary>
-        /// 成功
-        /// </summary>
-        Success = 1
-    }
-
 }

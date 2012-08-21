@@ -307,10 +307,11 @@
             <param name="cityId">城市id</param>
             <returns></returns>
         </member>
-        <member name="M:Wcf.BLL.Order.OrderBLL.CheckGoodsSaleArea(System.Int32,System.Int32,System.Int32)">
+        <member name="M:Wcf.BLL.Order.OrderBLL.CheckGoodsSaleArea(System.Collections.Generic.List{Wcf.Entity.Order.ShoppingCartEntity},System.Int32,System.Int32,System.Int32)">
             <summary>
             检查商品销售区域
             </summary>
+            <param name="shoppingList"> </param>
             <param name="userId"></param>
             <param name="cityId"></param>
             <param name="channelId"></param>

@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.ServiceModel;
 using System;
+using Core.Enums;
 using MobileSite.BaseLib;
 using System.Web.SessionState;
 using MemberInfo = MobileSite.BaseLib.MemberContent.MemberInfo;
@@ -74,7 +75,7 @@ namespace MobileSite
                         + "&md5="
                         + System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(string.Format("{0}{1}{2}{3}", requestUrl, requestTime, data, systemkey).ToUpper(), "MD5"));
 
-                    var method = (MethodType)Enum.Parse(typeof(MethodType), context.Request["_type"] ?? "GET");
+                    var method = (MMethodType)Enum.Parse(typeof(MMethodType), context.Request["_type"] ?? "GET");
 
                     var contentType = context.Request["_contentType"] ?? "";
                     var accept = context.Request["_accept"] ?? "";

@@ -224,6 +224,26 @@
             买家是否已评价 true 已评价 false 未评价
             </summary>
         </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.paytype">
+            <summary>
+            支付方式
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.logisticstype">
+            <summary>
+            配送方式
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.posttimetype">
+            <summary>
+            送货时间
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.Order.ItemOrder.total_order">
+            <summary>
+            订单总金额
+            </summary>
+        </member>
         <member name="T:Wcf.Entity.Goods.ItemGoodsSearch">
             <summary>
             商品搜索结构

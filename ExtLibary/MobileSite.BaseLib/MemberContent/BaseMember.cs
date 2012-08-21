@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MobileSite.BaseLib.MemberContent
 {
-    public class BaseMember : System.Web.UI.Page
+    public class BaseMember : BasePage
     {
         /// <summary>
         /// 检查用户登录超时，跳转到登陆页面
