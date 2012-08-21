@@ -103,7 +103,7 @@ namespace Wcf.ServiceLibrary.Order
 
             try
             {
-                result = ShoppingCartBll.CreateOrder(guid, (int)SystemType, Uid, UserId, order);
+                result = OrderBLL.CreateOrder(guid, (int)SystemType, Uid, UserId, order);
             }
             catch (Exception ex)
             {
@@ -120,7 +120,7 @@ namespace Wcf.ServiceLibrary.Order
 
             try
             {
-                result = ShoppingCartBll.GetTempOrderInfo(guid, (int)SystemType, Uid, UserId, order);
+                result = OrderBLL.GetTempOrderInfo(guid, (int)SystemType, Uid, UserId, order);
             }
             catch (Exception ex)
             {

@@ -107,7 +107,6 @@ namespace MobileSite.BaseLib
             catch (Exception ex)
             {
                 result = ApiResult("初始化调用异常！" + ex);
-                //TODO:错误日志
             }
             return result;
         }

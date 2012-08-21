@@ -4,24 +4,33 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MobileWcf.DataContext.HolycaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="MobileWcf.DataContext.HolycaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="MobileWcfDataContextHolycaModelStoreContainer">
-          <EntitySet Name="Base_Brand" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Brand" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Base_Deliver" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Deliver" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Base_Deliver_Area" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Deliver_Area" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Base_Deliver_Pay" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Deliver_Pay" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Base_Pay_Type" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Pay_Type" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Base_Region" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Region" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Pdt_Base_Info" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Base_Info" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Pdt_Other_Info" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Other_Info" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Pdt_Pic" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Pic" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Pdt_Stock" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Stock" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Sale_ShoppingCart" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_ShoppingCart" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="User_Consignee_Address" EntityType="MobileWcf.DataContext.HolycaModel.Store.User_Consignee_Address" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Web_Pdt_Type" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Pdt_Type" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Web_Type_FlagBrand" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Type_FlagBrand" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Web_Type_HotProduct" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Type_HotProduct" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Vi_User_Shortage" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_User_Shortage" store:Type="Views" store:Schema="dbo" store:Name="Vi_User_Shortage" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="Base_Brand" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Brand" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Base_Deliver" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Deliver" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Base_Deliver_Area" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Deliver_Area" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Base_Deliver_Pay" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Deliver_Pay" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Base_Pay_Type" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Pay_Type" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Base_Region" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_Region" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Base_SaleArea_Product" EntityType="MobileWcf.DataContext.HolycaModel.Store.Base_SaleArea_Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pdt_Base_Info" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Base_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pdt_Other_Info" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Other_Info" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pdt_Pic" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Pic" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pdt_Stock" EntityType="MobileWcf.DataContext.HolycaModel.Store.Pdt_Stock" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale_Order" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_Order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale_Order_Deliver" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_Order_Deliver" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale_Order_Detail" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_Order_Detail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale_Order_Invoice" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_Order_Invoice" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale_Order_PayState" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_Order_PayState" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale_Order_Prom_Rela" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_Order_Prom_Rela" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale_Order_State" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_Order_State" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale_ShopCart_Prom_Rela" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_ShopCart_Prom_Rela" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale_ShoppingCart" EntityType="MobileWcf.DataContext.HolycaModel.Store.Sale_ShoppingCart" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User_Consignee_Address" EntityType="MobileWcf.DataContext.HolycaModel.Store.User_Consignee_Address" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Web_Pdt_Type" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Pdt_Type" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Web_Type_FlagBrand" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Type_FlagBrand" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Web_Type_HotProduct" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Type_HotProduct" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Vi_User_Shortage" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_User_Shortage" store:Type="Views" store:Schema="dbo" store:Name="Vi_User_Shortage">
             <DefiningQuery>SELECT 
       [Vi_User_Shortage].[intShortageID] AS [intShortageID], 
       [Vi_User_Shortage].[intProductID] AS [intProductID], 
@@ -45,7 +54,7 @@
       [Vi_User_Shortage].[intChannelID] AS [intChannelID]
       FROM [dbo].[Vi_User_Shortage] AS [Vi_User_Shortage]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Vi_Web_Pdt_AllList" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_Web_Pdt_AllList" store:Type="Views" store:Schema="dbo" store:Name="Vi_Web_Pdt_AllList" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="Vi_Web_Pdt_AllList" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_Web_Pdt_AllList" store:Type="Views" store:Schema="dbo" store:Name="Vi_Web_Pdt_AllList">
             <DefiningQuery>SELECT 
       [Vi_Web_Pdt_AllList].[intIsGroup] AS [intIsGroup], 
       [Vi_Web_Pdt_AllList].[vchProductName] AS [vchProductName], 
@@ -82,7 +91,7 @@
       [Vi_Web_Pdt_AllList].[vchShortName] AS [vchShortName]
       FROM [dbo].[Vi_Web_Pdt_AllList] AS [Vi_Web_Pdt_AllList]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Vi_Web_Pdt_Detail" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_Web_Pdt_Detail" store:Type="Views" store:Schema="dbo" store:Name="Vi_Web_Pdt_Detail" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="Vi_Web_Pdt_Detail" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_Web_Pdt_Detail" store:Type="Views" store:Schema="dbo" store:Name="Vi_Web_Pdt_Detail">
             <DefiningQuery>SELECT 
       [Vi_Web_Pdt_Detail].[vchProductName] AS [vchProductName], 
       [Vi_Web_Pdt_Detail].[vchMainPicURL] AS [vchMainPicURL], 
@@ -126,7 +135,7 @@
       [Vi_Web_Pdt_Detail].[intSalesVolume] AS [intSalesVolume]
       FROM [dbo].[Vi_Web_Pdt_Detail] AS [Vi_Web_Pdt_Detail]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="Vi_Web_Pdt_List" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_Web_Pdt_List" store:Type="Views" store:Schema="dbo" store:Name="Vi_Web_Pdt_List" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="Vi_Web_Pdt_List" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_Web_Pdt_List" store:Type="Views" store:Schema="dbo" store:Name="Vi_Web_Pdt_List">
             <DefiningQuery>SELECT 
       [Vi_Web_Pdt_List].[vchProductName] AS [vchProductName], 
       [Vi_Web_Pdt_List].[vchMainPicURL] AS [vchMainPicURL], 
@@ -258,6 +267,15 @@
           <Property Name="intAreaID" Type="int" Nullable="false" />
           <Property Name="vchShortSpell" Type="varchar" MaxLength="10" />
         </EntityType>
+        <EntityType Name="Base_SaleArea_Product">
+          <Key>
+            <PropertyRef Name="intSalesID" />
+          </Key>
+          <Property Name="intSalesID" Type="int" Nullable="false" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="intAreaID" Type="int" />
+          <Property Name="intState" Type="tinyint" />
+        </EntityType>
         <EntityType Name="Pdt_Base_Info">
           <Key>
             <PropertyRef Name="intProductID" />
@@ -345,6 +363,163 @@
           <Property Name="intProductID" Type="int" Nullable="false" />
           <Property Name="intStockQty" Type="int" />
         </EntityType>
+        <EntityType Name="Sale_Order">
+          <Key>
+            <PropertyRef Name="intOrderNO" />
+          </Key>
+          <Property Name="intOrderNO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vchOrderCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="dtCreateDate" Type="datetime" Nullable="false" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+          <Property Name="vchUserCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="intOrderType" Type="int" Nullable="false" />
+          <Property Name="dtSendDate" Type="datetime" Nullable="false" />
+          <Property Name="vchSendTime" Type="varchar" MaxLength="32" />
+          <Property Name="numAddAmount" Type="numeric" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="numCarriage" Type="numeric" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="numGoodsAmount" Type="numeric" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="numReceAmount" Type="numeric" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="numChange" Type="numeric" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="numWeight" Type="numeric" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="intPayID" Type="int" Nullable="false" />
+          <Property Name="intDeliverID" Type="int" Nullable="false" />
+          <Property Name="intChannel" Type="int" Nullable="false" />
+          <Property Name="intTotalStars" Type="int" Nullable="false" />
+          <Property Name="intOrderState" Type="int" Nullable="false" />
+          <Property Name="intPayState" Type="int" Nullable="false" />
+          <Property Name="intCreaterID" Type="int" Nullable="false" />
+          <Property Name="intLogisticsID" Type="int" />
+          <Property Name="intStockID" Type="int" />
+          <Property Name="intAreaID" Type="int" />
+          <Property Name="intSpId" Type="int" />
+          <Property Name="vchMemo" Type="varchar" MaxLength="50" />
+          <Property Name="numCouponAmount" Type="numeric" Precision="12" Scale="4" />
+          <Property Name="paymentAmount" Type="decimal" Scale="4" />
+          <Property Name="accountAmount" Type="decimal" Scale="4" />
+        </EntityType>
+        <EntityType Name="Sale_Order_Deliver">
+          <Key>
+            <PropertyRef Name="intOrderDeliverID" />
+          </Key>
+          <Property Name="intOrderDeliverID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vchOrderCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="intAddressID" Type="int" Nullable="false" />
+          <Property Name="vchConsignee" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="vchPhone" Type="varchar" MaxLength="16" />
+          <Property Name="vchMobile" Type="varchar" MaxLength="16" />
+          <Property Name="intStateID" Type="int" Nullable="false" />
+          <Property Name="vchStateName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intCityID" Type="int" Nullable="false" />
+          <Property Name="vchCityName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intCountyID" Type="int" Nullable="false" />
+          <Property Name="vchCountyName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchDetailAddr" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="vchPostCode" Type="varchar" MaxLength="6" />
+          <Property Name="vchRoadName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchHausnummer" Type="nvarchar" MaxLength="16" />
+          <Property Name="vchUserMemo" Type="nvarchar" MaxLength="512" />
+          <Property Name="vchInMemo" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Sale_Order_Detail">
+          <Key>
+            <PropertyRef Name="intDetailID" />
+          </Key>
+          <Property Name="intDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vchOrderCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="vchProductPrinted" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="vchProductName" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="intQty" Type="int" Nullable="false" />
+          <Property Name="numSalePrice" Type="numeric" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="numTotalAmount" Type="numeric" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="intHerdPriceID" Type="int" Nullable="false" />
+          <Property Name="numStandarPrice" Type="numeric" Precision="12" Scale="4" />
+          <Property Name="intRtnQty" Type="int" Nullable="false" />
+          <Property Name="numCost" Type="numeric" Precision="12" Scale="4" />
+          <Property Name="numCleanCost" Type="numeric" Precision="12" Scale="4" />
+          <Property Name="numMonthCost" Type="numeric" Precision="12" Scale="4" />
+          <Property Name="numMonthCleanCost" Type="numeric" Precision="12" Scale="4" />
+          <Property Name="intBaseStar" Type="int" Nullable="false" />
+          <Property Name="intScores" Type="int" Nullable="false" />
+          <Property Name="intStockID" Type="int" />
+          <Property Name="intLogisticsID" Type="int" />
+          <Property Name="dtOpDate" Type="datetime" Nullable="false" />
+          <Property Name="intChannel" Type="int" Nullable="false" />
+          <Property Name="intIsDelete" Type="tinyint" Nullable="false" />
+          <Property Name="intPromID" Type="int" Nullable="false" />
+          <Property Name="intIsInvoice" Type="tinyint" Nullable="false" />
+          <Property Name="vchCoponCode" Type="varchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="Sale_Order_Invoice">
+          <Key>
+            <PropertyRef Name="intInvoicID" />
+          </Key>
+          <Property Name="intInvoicID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vchOrderCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="intUserID" Type="int" />
+          <Property Name="intInvoiceType" Type="int" />
+          <Property Name="intInvoiceKind" Type="int" />
+          <Property Name="vchAccount" Type="varchar" MaxLength="200" />
+          <Property Name="numAmount" Type="numeric" Precision="16" Scale="4" />
+          <Property Name="vchAddress" Type="varchar" MaxLength="200" />
+          <Property Name="vchInvoicTitile" Type="varchar" MaxLength="200" />
+          <Property Name="dtBillingTime" Type="datetime" />
+          <Property Name="intCreaterID" Type="int" />
+          <Property Name="vchInvoiceID" Type="varchar" MaxLength="200" />
+          <Property Name="vchPhone" Type="varchar" MaxLength="50" />
+          <Property Name="vchMemo" Type="varchar" MaxLength="500" />
+          <Property Name="intIsBilling" Type="tinyint" />
+          <Property Name="intIsDetail" Type="tinyint" />
+          <Property Name="dtCreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sale_Order_PayState">
+          <Key>
+            <PropertyRef Name="intOrderPayStateID" />
+          </Key>
+          <Property Name="intOrderPayStateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vchOrderCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="intPayState" Type="int" Nullable="false" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+          <Property Name="dtOpdate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale_Order_Prom_Rela">
+          <Key>
+            <PropertyRef Name="intID" />
+          </Key>
+          <Property Name="intID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intDetailID" Type="int" />
+          <Property Name="vchOrderCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="intPromID" Type="int" Nullable="false" />
+          <Property Name="dtCreateDate" Type="datetime" Nullable="false" />
+          <Property Name="intType" Type="tinyint" Nullable="false" />
+          <Property Name="intProductID" Type="int" />
+          <Property Name="intChannelID" Type="int" Nullable="false" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale_Order_State">
+          <Key>
+            <PropertyRef Name="intOrderStateHisID" />
+          </Key>
+          <Property Name="intOrderStateHisID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vchOrderCode" Type="varchar" Nullable="false" MaxLength="16" />
+          <Property Name="intOrderState" Type="int" Nullable="false" />
+          <Property Name="dtOpdate" Type="datetime" Nullable="false" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale_ShopCart_Prom_Rela">
+          <Key>
+            <PropertyRef Name="intID" />
+          </Key>
+          <Property Name="intID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intShopCartID" Type="int" Nullable="false" />
+          <Property Name="intPromID" Type="int" />
+          <Property Name="dtCreateDate" Type="datetime" />
+          <Property Name="intType" Type="int" />
+          <Property Name="intProductID" Type="int" />
+          <Property Name="intChannelID" Type="int" Nullable="false" />
+          <Property Name="intUserID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Sale_ShoppingCart">
           <Key>
             <PropertyRef Name="intShopCartID" />
@@ -416,10 +591,14 @@
           </Key>
           <Property Name="intCateID" Type="int" Nullable="false" />
           <Property Name="vchCateName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchWebShowName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchMenuShowName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchMobileShowName" Type="nvarchar" MaxLength="32" />
           <Property Name="intCateLevel" Type="int" Nullable="false" />
           <Property Name="intCateFather" Type="int" />
           <Property Name="intSortOrder" Type="int" />
           <Property Name="intIsVisible" Type="tinyint" Nullable="false" />
+          <Property Name="intMenuIsVisible" Type="int" />
           <Property Name="vchCateNo" Type="varchar" MaxLength="32" />
           <Property Name="vchPicAddr" Type="varchar" MaxLength="128" />
           <Property Name="vchViewEn" Type="varchar" MaxLength="32" />
@@ -650,6 +829,10 @@
           <Parameter Name="cityId" Type="int" Mode="In" />
           <Parameter Name="intcarriage" Type="int" Mode="InOut" />
         </Function>
+        <Function Name="Up_Syn_ToBBHome_Now" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderCode" Type="varchar" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -679,6 +862,19 @@
             <Parameter Name="deliverId" Mode="In" Type="Int32" />
             <Parameter Name="cityId" Mode="In" Type="Int32" />
             <Parameter Name="intcarriage" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Base_SaleArea_Product" EntityType="MobileWcf.DataContext.HolycaModel.Base_SaleArea_Product" />
+          <EntitySet Name="Sale_Order" EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order" />
+          <EntitySet Name="Sale_Order_Invoice" EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Invoice" />
+          <EntitySet Name="Sale_Order_State" EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_State" />
+          <EntitySet Name="Sale_Order_Detail" EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Detail" />
+          <EntitySet Name="Sale_Order_Prom_Rela" EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Prom_Rela" />
+          <EntitySet Name="Sale_Order_Deliver" EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Deliver" />
+          <EntitySet Name="Sale_Order_PayState" EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_PayState" />
+          <EntitySet Name="Sale_ShopCart_Prom_Rela" EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShopCart_Prom_Rela" />
+          <FunctionImport Name="Up_Syn_ToBBHome_Now">
+            <Parameter Name="OrderCode" Mode="In" Type="String" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="Base_Brand">
@@ -720,6 +916,10 @@
           <Property Name="vchCateNo" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
           <Property Name="vchPicAddr" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
           <Property Name="vchViewEn" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Type="String" Name="vchWebShowName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchMenuShowName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchMobileShowName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intMenuIsVisible" />
         </EntityType>
         <EntityType Name="Web_Type_FlagBrand">
           <Key>
@@ -1150,6 +1350,172 @@
           <Property Type="Int32" Name="intAreaID" />
           <Property Type="Int32" Name="intChannelID" Nullable="false" />
         </EntityType>
+        <EntityType Name="Base_SaleArea_Product">
+          <Key>
+            <PropertyRef Name="intSalesID" />
+          </Key>
+          <Property Type="Int32" Name="intSalesID" Nullable="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="Int32" Name="intAreaID" />
+          <Property Type="Byte" Name="intState" />
+        </EntityType>
+        <EntityType Name="Sale_Order">
+          <Key>
+            <PropertyRef Name="intOrderNO" />
+          </Key>
+          <Property Type="Int32" Name="intOrderNO" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="vchOrderCode" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dtCreateDate" Nullable="false" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+          <Property Type="String" Name="vchUserCode" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intOrderType" Nullable="false" />
+          <Property Type="DateTime" Name="dtSendDate" Nullable="false" />
+          <Property Type="String" Name="vchSendTime" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="numAddAmount" Nullable="false" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="numCarriage" Nullable="false" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="numGoodsAmount" Nullable="false" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="numReceAmount" Nullable="false" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="numChange" Nullable="false" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="numWeight" Nullable="false" Precision="12" Scale="4" />
+          <Property Type="Int32" Name="intPayID" Nullable="false" />
+          <Property Type="Int32" Name="intDeliverID" Nullable="false" />
+          <Property Type="Int32" Name="intChannel" Nullable="false" />
+          <Property Type="Int32" Name="intTotalStars" Nullable="false" />
+          <Property Type="Int32" Name="intOrderState" Nullable="false" />
+          <Property Type="Int32" Name="intPayState" Nullable="false" />
+          <Property Type="Int32" Name="intCreaterID" Nullable="false" />
+          <Property Type="Int32" Name="intLogisticsID" />
+          <Property Type="Int32" Name="intStockID" />
+          <Property Type="Int32" Name="intAreaID" />
+          <Property Type="Int32" Name="intSpId" />
+          <Property Type="String" Name="vchMemo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="numCouponAmount" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="paymentAmount" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="accountAmount" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="Sale_Order_Invoice">
+          <Key>
+            <PropertyRef Name="intInvoicID" />
+          </Key>
+          <Property Type="Int32" Name="intInvoicID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="vchOrderCode" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intUserID" />
+          <Property Type="Int32" Name="intInvoiceType" />
+          <Property Type="Int32" Name="intInvoiceKind" />
+          <Property Type="String" Name="vchAccount" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="numAmount" Precision="16" Scale="4" />
+          <Property Type="String" Name="vchAddress" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchInvoicTitile" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dtBillingTime" />
+          <Property Type="Int32" Name="intCreaterID" />
+          <Property Type="String" Name="vchInvoiceID" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchMemo" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="intIsBilling" />
+          <Property Type="Byte" Name="intIsDetail" />
+          <Property Type="DateTime" Name="dtCreateDate" />
+        </EntityType>
+        <EntityType Name="Sale_Order_State">
+          <Key>
+            <PropertyRef Name="intOrderStateHisID" />
+          </Key>
+          <Property Type="Int32" Name="intOrderStateHisID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="vchOrderCode" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intOrderState" Nullable="false" />
+          <Property Type="DateTime" Name="dtOpdate" Nullable="false" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale_Order_Detail">
+          <Key>
+            <PropertyRef Name="intDetailID" />
+          </Key>
+          <Property Type="Int32" Name="intDetailID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="vchOrderCode" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="String" Name="vchProductPrinted" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchProductName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intQty" Nullable="false" />
+          <Property Type="Decimal" Name="numSalePrice" Nullable="false" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="numTotalAmount" Nullable="false" Precision="12" Scale="4" />
+          <Property Type="Int32" Name="intHerdPriceID" Nullable="false" />
+          <Property Type="Decimal" Name="numStandarPrice" Precision="12" Scale="4" />
+          <Property Type="Int32" Name="intRtnQty" Nullable="false" />
+          <Property Type="Decimal" Name="numCost" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="numCleanCost" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="numMonthCost" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="numMonthCleanCost" Precision="12" Scale="4" />
+          <Property Type="Int32" Name="intBaseStar" Nullable="false" />
+          <Property Type="Int32" Name="intScores" Nullable="false" />
+          <Property Type="Int32" Name="intStockID" />
+          <Property Type="Int32" Name="intLogisticsID" />
+          <Property Type="DateTime" Name="dtOpDate" Nullable="false" />
+          <Property Type="Int32" Name="intChannel" Nullable="false" />
+          <Property Type="Byte" Name="intIsDelete" Nullable="false" />
+          <Property Type="Int32" Name="intPromID" Nullable="false" />
+          <Property Type="Byte" Name="intIsInvoice" Nullable="false" />
+          <Property Type="String" Name="vchCoponCode" MaxLength="16" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sale_Order_Prom_Rela">
+          <Key>
+            <PropertyRef Name="intID" />
+          </Key>
+          <Property Type="Int32" Name="intID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intDetailID" />
+          <Property Type="String" Name="vchOrderCode" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intPromID" Nullable="false" />
+          <Property Type="DateTime" Name="dtCreateDate" Nullable="false" />
+          <Property Type="Byte" Name="intType" Nullable="false" />
+          <Property Type="Int32" Name="intProductID" />
+          <Property Type="Int32" Name="intChannelID" Nullable="false" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale_Order_Deliver">
+          <Key>
+            <PropertyRef Name="intOrderDeliverID" />
+          </Key>
+          <Property Type="Int32" Name="intOrderDeliverID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="vchOrderCode" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intAddressID" Nullable="false" />
+          <Property Type="String" Name="vchConsignee" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchPhone" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchMobile" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intStateID" Nullable="false" />
+          <Property Type="String" Name="vchStateName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intCityID" Nullable="false" />
+          <Property Type="String" Name="vchCityName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intCountyID" Nullable="false" />
+          <Property Type="String" Name="vchCountyName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchDetailAddr" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchPostCode" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchRoadName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchHausnummer" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchUserMemo" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchInMemo" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sale_Order_PayState">
+          <Key>
+            <PropertyRef Name="intOrderPayStateID" />
+          </Key>
+          <Property Type="Int32" Name="intOrderPayStateID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="vchOrderCode" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intPayState" Nullable="false" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+          <Property Type="DateTime" Name="dtOpdate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sale_ShopCart_Prom_Rela">
+          <Key>
+            <PropertyRef Name="intID" />
+          </Key>
+          <Property Type="Int32" Name="intID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intShopCartID" Nullable="false" />
+          <Property Type="Int32" Name="intPromID" />
+          <Property Type="DateTime" Name="dtCreateDate" />
+          <Property Type="Int32" Name="intType" />
+          <Property Type="Int32" Name="intProductID" />
+          <Property Type="Int32" Name="intChannelID" Nullable="false" />
+          <Property Type="Int32" Name="intUserID" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1177,7 +1543,11 @@
             <ScalarProperty Name="vchShortSpell" ColumnName="vchShortSpell" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Web_Pdt_Type"><EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type"><MappingFragment StoreEntitySet="Web_Pdt_Type">
-            <ScalarProperty Name="intCateID" ColumnName="intCateID" />
+            <ScalarProperty Name="intMenuIsVisible" ColumnName="intMenuIsVisible" />
+                <ScalarProperty Name="vchMobileShowName" ColumnName="vchMobileShowName" />
+                <ScalarProperty Name="vchMenuShowName" ColumnName="vchMenuShowName" />
+                <ScalarProperty Name="vchWebShowName" ColumnName="vchWebShowName" />
+                <ScalarProperty Name="intCateID" ColumnName="intCateID" />
             <ScalarProperty Name="vchCateName" ColumnName="vchCateName" />
             <ScalarProperty Name="intCateLevel" ColumnName="intCateLevel" />
             <ScalarProperty Name="intCateFather" ColumnName="intCateFather" />
@@ -1582,6 +1952,182 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Up_ShopCart_GetCarriage" FunctionName="MobileWcf.DataContext.HolycaModel.Store.Up_ShopCart_GetCarriage" />
+          <EntitySetMapping Name="Base_SaleArea_Product">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Base_SaleArea_Product">
+              <MappingFragment StoreEntitySet="Base_SaleArea_Product">
+                <ScalarProperty Name="intState" ColumnName="intState" />
+                <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intSalesID" ColumnName="intSalesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_Order">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_Order">
+              <MappingFragment StoreEntitySet="Sale_Order">
+                <ScalarProperty Name="accountAmount" ColumnName="accountAmount" />
+                <ScalarProperty Name="paymentAmount" ColumnName="paymentAmount" />
+                <ScalarProperty Name="numCouponAmount" ColumnName="numCouponAmount" />
+                <ScalarProperty Name="vchMemo" ColumnName="vchMemo" />
+                <ScalarProperty Name="intSpId" ColumnName="intSpId" />
+                <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
+                <ScalarProperty Name="intStockID" ColumnName="intStockID" />
+                <ScalarProperty Name="intLogisticsID" ColumnName="intLogisticsID" />
+                <ScalarProperty Name="intCreaterID" ColumnName="intCreaterID" />
+                <ScalarProperty Name="intPayState" ColumnName="intPayState" />
+                <ScalarProperty Name="intOrderState" ColumnName="intOrderState" />
+                <ScalarProperty Name="intTotalStars" ColumnName="intTotalStars" />
+                <ScalarProperty Name="intChannel" ColumnName="intChannel" />
+                <ScalarProperty Name="intDeliverID" ColumnName="intDeliverID" />
+                <ScalarProperty Name="intPayID" ColumnName="intPayID" />
+                <ScalarProperty Name="numWeight" ColumnName="numWeight" />
+                <ScalarProperty Name="numChange" ColumnName="numChange" />
+                <ScalarProperty Name="numReceAmount" ColumnName="numReceAmount" />
+                <ScalarProperty Name="numGoodsAmount" ColumnName="numGoodsAmount" />
+                <ScalarProperty Name="numCarriage" ColumnName="numCarriage" />
+                <ScalarProperty Name="numAddAmount" ColumnName="numAddAmount" />
+                <ScalarProperty Name="vchSendTime" ColumnName="vchSendTime" />
+                <ScalarProperty Name="dtSendDate" ColumnName="dtSendDate" />
+                <ScalarProperty Name="intOrderType" ColumnName="intOrderType" />
+                <ScalarProperty Name="vchUserCode" ColumnName="vchUserCode" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="dtCreateDate" ColumnName="dtCreateDate" />
+                <ScalarProperty Name="vchOrderCode" ColumnName="vchOrderCode" />
+                <ScalarProperty Name="intOrderNO" ColumnName="intOrderNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_Order_Invoice">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_Order_Invoice">
+              <MappingFragment StoreEntitySet="Sale_Order_Invoice">
+                <ScalarProperty Name="dtCreateDate" ColumnName="dtCreateDate" />
+                <ScalarProperty Name="intIsDetail" ColumnName="intIsDetail" />
+                <ScalarProperty Name="intIsBilling" ColumnName="intIsBilling" />
+                <ScalarProperty Name="vchMemo" ColumnName="vchMemo" />
+                <ScalarProperty Name="vchPhone" ColumnName="vchPhone" />
+                <ScalarProperty Name="vchInvoiceID" ColumnName="vchInvoiceID" />
+                <ScalarProperty Name="intCreaterID" ColumnName="intCreaterID" />
+                <ScalarProperty Name="dtBillingTime" ColumnName="dtBillingTime" />
+                <ScalarProperty Name="vchInvoicTitile" ColumnName="vchInvoicTitile" />
+                <ScalarProperty Name="vchAddress" ColumnName="vchAddress" />
+                <ScalarProperty Name="numAmount" ColumnName="numAmount" />
+                <ScalarProperty Name="vchAccount" ColumnName="vchAccount" />
+                <ScalarProperty Name="intInvoiceKind" ColumnName="intInvoiceKind" />
+                <ScalarProperty Name="intInvoiceType" ColumnName="intInvoiceType" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="vchOrderCode" ColumnName="vchOrderCode" />
+                <ScalarProperty Name="intInvoicID" ColumnName="intInvoicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_Order_State">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_Order_State">
+              <MappingFragment StoreEntitySet="Sale_Order_State">
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="dtOpdate" ColumnName="dtOpdate" />
+                <ScalarProperty Name="intOrderState" ColumnName="intOrderState" />
+                <ScalarProperty Name="vchOrderCode" ColumnName="vchOrderCode" />
+                <ScalarProperty Name="intOrderStateHisID" ColumnName="intOrderStateHisID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_Order_Detail">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_Order_Detail">
+              <MappingFragment StoreEntitySet="Sale_Order_Detail">
+                <ScalarProperty Name="vchCoponCode" ColumnName="vchCoponCode" />
+                <ScalarProperty Name="intIsInvoice" ColumnName="intIsInvoice" />
+                <ScalarProperty Name="intPromID" ColumnName="intPromID" />
+                <ScalarProperty Name="intIsDelete" ColumnName="intIsDelete" />
+                <ScalarProperty Name="intChannel" ColumnName="intChannel" />
+                <ScalarProperty Name="dtOpDate" ColumnName="dtOpDate" />
+                <ScalarProperty Name="intLogisticsID" ColumnName="intLogisticsID" />
+                <ScalarProperty Name="intStockID" ColumnName="intStockID" />
+                <ScalarProperty Name="intScores" ColumnName="intScores" />
+                <ScalarProperty Name="intBaseStar" ColumnName="intBaseStar" />
+                <ScalarProperty Name="numMonthCleanCost" ColumnName="numMonthCleanCost" />
+                <ScalarProperty Name="numMonthCost" ColumnName="numMonthCost" />
+                <ScalarProperty Name="numCleanCost" ColumnName="numCleanCost" />
+                <ScalarProperty Name="numCost" ColumnName="numCost" />
+                <ScalarProperty Name="intRtnQty" ColumnName="intRtnQty" />
+                <ScalarProperty Name="numStandarPrice" ColumnName="numStandarPrice" />
+                <ScalarProperty Name="intHerdPriceID" ColumnName="intHerdPriceID" />
+                <ScalarProperty Name="numTotalAmount" ColumnName="numTotalAmount" />
+                <ScalarProperty Name="numSalePrice" ColumnName="numSalePrice" />
+                <ScalarProperty Name="intQty" ColumnName="intQty" />
+                <ScalarProperty Name="vchProductName" ColumnName="vchProductName" />
+                <ScalarProperty Name="vchProductPrinted" ColumnName="vchProductPrinted" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="vchOrderCode" ColumnName="vchOrderCode" />
+                <ScalarProperty Name="intDetailID" ColumnName="intDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_Order_Prom_Rela">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_Order_Prom_Rela">
+              <MappingFragment StoreEntitySet="Sale_Order_Prom_Rela">
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="intChannelID" ColumnName="intChannelID" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intType" ColumnName="intType" />
+                <ScalarProperty Name="dtCreateDate" ColumnName="dtCreateDate" />
+                <ScalarProperty Name="intPromID" ColumnName="intPromID" />
+                <ScalarProperty Name="vchOrderCode" ColumnName="vchOrderCode" />
+                <ScalarProperty Name="intDetailID" ColumnName="intDetailID" />
+                <ScalarProperty Name="intID" ColumnName="intID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_Order_Deliver">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_Order_Deliver">
+              <MappingFragment StoreEntitySet="Sale_Order_Deliver">
+                <ScalarProperty Name="vchInMemo" ColumnName="vchInMemo" />
+                <ScalarProperty Name="vchUserMemo" ColumnName="vchUserMemo" />
+                <ScalarProperty Name="vchHausnummer" ColumnName="vchHausnummer" />
+                <ScalarProperty Name="vchRoadName" ColumnName="vchRoadName" />
+                <ScalarProperty Name="vchPostCode" ColumnName="vchPostCode" />
+                <ScalarProperty Name="vchDetailAddr" ColumnName="vchDetailAddr" />
+                <ScalarProperty Name="vchCountyName" ColumnName="vchCountyName" />
+                <ScalarProperty Name="intCountyID" ColumnName="intCountyID" />
+                <ScalarProperty Name="vchCityName" ColumnName="vchCityName" />
+                <ScalarProperty Name="intCityID" ColumnName="intCityID" />
+                <ScalarProperty Name="vchStateName" ColumnName="vchStateName" />
+                <ScalarProperty Name="intStateID" ColumnName="intStateID" />
+                <ScalarProperty Name="vchMobile" ColumnName="vchMobile" />
+                <ScalarProperty Name="vchPhone" ColumnName="vchPhone" />
+                <ScalarProperty Name="vchConsignee" ColumnName="vchConsignee" />
+                <ScalarProperty Name="intAddressID" ColumnName="intAddressID" />
+                <ScalarProperty Name="vchOrderCode" ColumnName="vchOrderCode" />
+                <ScalarProperty Name="intOrderDeliverID" ColumnName="intOrderDeliverID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_Order_PayState">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_Order_PayState">
+              <MappingFragment StoreEntitySet="Sale_Order_PayState">
+                <ScalarProperty Name="dtOpdate" ColumnName="dtOpdate" />
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="intPayState" ColumnName="intPayState" />
+                <ScalarProperty Name="vchOrderCode" ColumnName="vchOrderCode" />
+                <ScalarProperty Name="intOrderPayStateID" ColumnName="intOrderPayStateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sale_ShopCart_Prom_Rela">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_ShopCart_Prom_Rela">
+              <MappingFragment StoreEntitySet="Sale_ShopCart_Prom_Rela">
+                <ScalarProperty Name="intUserID" ColumnName="intUserID" />
+                <ScalarProperty Name="intChannelID" ColumnName="intChannelID" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intType" ColumnName="intType" />
+                <ScalarProperty Name="dtCreateDate" ColumnName="dtCreateDate" />
+                <ScalarProperty Name="intPromID" ColumnName="intPromID" />
+                <ScalarProperty Name="intShopCartID" ColumnName="intShopCartID" />
+                <ScalarProperty Name="intID" ColumnName="intID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Up_Syn_ToBBHome_Now" FunctionName="MobileWcf.DataContext.HolycaModel.Store.Up_Syn_ToBBHome_Now" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1603,7 +2149,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Holyca" ZoomLevel="74" DisplayType="false" ShowGrid="true">
+      <Diagram Name="Holyca" ZoomLevel="73" DisplayType="false" ShowGrid="true">
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Brand" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3520719401041665" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Region" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type" Width="1.5" PointX="4.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
@@ -1623,6 +2169,15 @@
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Pay_Type" Width="1.5" PointX="12.375" PointY="11.75" Height="5.4083870442708388" />
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.User_Consignee_Address" Width="1.5" PointX="5.375" PointY="13.75" Height="5.2173673502604174" />
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_User_Shortage" Width="1.5" PointX="14.375" PointY="0.75" Height="4.8353279622395888" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_SaleArea_Product" Width="1.5" PointX="14.375" PointY="6.75" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order" Width="1.5" PointX="14.75" PointY="9.75" Height="6.5545052083333282" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Invoice" Width="1.5" PointX="0.75" PointY="15.75" Height="4.2622688802083264" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_State" Width="1.5" PointX="2.75" PointY="15.75" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Detail" Width="1.5" PointX="16.375" PointY="0.75" Height="5.9814461263020746" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Prom_Rela" Width="1.5" PointX="17.375" PointY="7.75" Height="2.7341113281250102" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Deliver" Width="1.5" PointX="17.375" PointY="11.75" Height="4.45328857421876" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_PayState" Width="1.5" PointX="14.375" PointY="17.75" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShopCart_Prom_Rela" Width="1.5" PointX="16.375" PointY="17.75" Height="2.5430916341145746" />
       </Diagram>
     </Diagrams>
   </Designer>

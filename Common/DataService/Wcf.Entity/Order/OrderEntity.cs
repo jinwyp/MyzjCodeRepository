@@ -71,13 +71,19 @@ namespace Wcf.Entity.Order
         /// 支付方式id
         /// </summary>
         [DataMember]
-        public int payid { get; set; }
+        public int? payid { get; set; }
 
         /// <summary>
         /// 配送方式id
         /// </summary>
         [DataMember]
         public int logisticsid { get; set; }
+
+        /// <summary>
+        /// 配送时间类型
+        /// </summary>
+        [DataMember]
+        public int posttimetype { get; set; }
 
         /// <summary>
         /// 发票抬头类型

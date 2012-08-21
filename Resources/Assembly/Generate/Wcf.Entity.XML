@@ -1054,6 +1054,11 @@
             配送方式id
             </summary>
         </member>
+        <member name="P:Wcf.Entity.Order.OrderEntity.posttimetype">
+            <summary>
+            配送时间类型
+            </summary>
+        </member>
         <member name="P:Wcf.Entity.Order.OrderEntity.titletype">
             <summary>
             发票抬头类型
@@ -1419,16 +1424,6 @@
             积分
             </summary>
         </member>
-        <member name="P:Wcf.Entity.BaseData.LogisticsResult.logistics_info">
-            <summary>
-            物流信息
-            </summary>
-        </member>
-        <member name="P:Wcf.Entity.BaseData.LogisticsResult.total_fee">
-            <summary>
-            总运费
-            </summary>
-        </member>
         <member name="T:Wcf.Entity.Order.OrderSumaryEntity">
             <summary>
             订单汇总信息
@@ -1467,6 +1462,16 @@
         <member name="P:Wcf.Entity.Order.OrderSumaryEntity.TotalOrderFee">
             <summary>
             订单总金额
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.LogisticsResult.logistics_info">
+            <summary>
+            物流信息
+            </summary>
+        </member>
+        <member name="P:Wcf.Entity.BaseData.LogisticsResult.total_fee">
+            <summary>
+            总运费
             </summary>
         </member>
     </members>

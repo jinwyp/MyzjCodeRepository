@@ -368,6 +368,150 @@ namespace EF.Model.DataContext
             }
         }
         private ObjectSet<Vi_User_Shortage> _Vi_User_Shortage;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Base_SaleArea_Product> Base_SaleArea_Product
+        {
+            get
+            {
+                if ((_Base_SaleArea_Product == null))
+                {
+                    _Base_SaleArea_Product = base.CreateObjectSet<Base_SaleArea_Product>("Base_SaleArea_Product");
+                }
+                return _Base_SaleArea_Product;
+            }
+        }
+        private ObjectSet<Base_SaleArea_Product> _Base_SaleArea_Product;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Sale_Order> Sale_Order
+        {
+            get
+            {
+                if ((_Sale_Order == null))
+                {
+                    _Sale_Order = base.CreateObjectSet<Sale_Order>("Sale_Order");
+                }
+                return _Sale_Order;
+            }
+        }
+        private ObjectSet<Sale_Order> _Sale_Order;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Sale_Order_Invoice> Sale_Order_Invoice
+        {
+            get
+            {
+                if ((_Sale_Order_Invoice == null))
+                {
+                    _Sale_Order_Invoice = base.CreateObjectSet<Sale_Order_Invoice>("Sale_Order_Invoice");
+                }
+                return _Sale_Order_Invoice;
+            }
+        }
+        private ObjectSet<Sale_Order_Invoice> _Sale_Order_Invoice;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Sale_Order_State> Sale_Order_State
+        {
+            get
+            {
+                if ((_Sale_Order_State == null))
+                {
+                    _Sale_Order_State = base.CreateObjectSet<Sale_Order_State>("Sale_Order_State");
+                }
+                return _Sale_Order_State;
+            }
+        }
+        private ObjectSet<Sale_Order_State> _Sale_Order_State;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Sale_Order_Detail> Sale_Order_Detail
+        {
+            get
+            {
+                if ((_Sale_Order_Detail == null))
+                {
+                    _Sale_Order_Detail = base.CreateObjectSet<Sale_Order_Detail>("Sale_Order_Detail");
+                }
+                return _Sale_Order_Detail;
+            }
+        }
+        private ObjectSet<Sale_Order_Detail> _Sale_Order_Detail;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Sale_Order_Prom_Rela> Sale_Order_Prom_Rela
+        {
+            get
+            {
+                if ((_Sale_Order_Prom_Rela == null))
+                {
+                    _Sale_Order_Prom_Rela = base.CreateObjectSet<Sale_Order_Prom_Rela>("Sale_Order_Prom_Rela");
+                }
+                return _Sale_Order_Prom_Rela;
+            }
+        }
+        private ObjectSet<Sale_Order_Prom_Rela> _Sale_Order_Prom_Rela;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Sale_Order_Deliver> Sale_Order_Deliver
+        {
+            get
+            {
+                if ((_Sale_Order_Deliver == null))
+                {
+                    _Sale_Order_Deliver = base.CreateObjectSet<Sale_Order_Deliver>("Sale_Order_Deliver");
+                }
+                return _Sale_Order_Deliver;
+            }
+        }
+        private ObjectSet<Sale_Order_Deliver> _Sale_Order_Deliver;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Sale_Order_PayState> Sale_Order_PayState
+        {
+            get
+            {
+                if ((_Sale_Order_PayState == null))
+                {
+                    _Sale_Order_PayState = base.CreateObjectSet<Sale_Order_PayState>("Sale_Order_PayState");
+                }
+                return _Sale_Order_PayState;
+            }
+        }
+        private ObjectSet<Sale_Order_PayState> _Sale_Order_PayState;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Sale_ShopCart_Prom_Rela> Sale_ShopCart_Prom_Rela
+        {
+            get
+            {
+                if ((_Sale_ShopCart_Prom_Rela == null))
+                {
+                    _Sale_ShopCart_Prom_Rela = base.CreateObjectSet<Sale_ShopCart_Prom_Rela>("Sale_ShopCart_Prom_Rela");
+                }
+                return _Sale_ShopCart_Prom_Rela;
+            }
+        }
+        private ObjectSet<Sale_ShopCart_Prom_Rela> _Sale_ShopCart_Prom_Rela;
 
         #endregion
         #region AddTo 方法
@@ -523,6 +667,78 @@ namespace EF.Model.DataContext
         {
             base.AddObject("Vi_User_Shortage", vi_User_Shortage);
         }
+    
+        /// <summary>
+        /// 用于向 Base_SaleArea_Product EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToBase_SaleArea_Product(Base_SaleArea_Product base_SaleArea_Product)
+        {
+            base.AddObject("Base_SaleArea_Product", base_SaleArea_Product);
+        }
+    
+        /// <summary>
+        /// 用于向 Sale_Order EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToSale_Order(Sale_Order sale_Order)
+        {
+            base.AddObject("Sale_Order", sale_Order);
+        }
+    
+        /// <summary>
+        /// 用于向 Sale_Order_Invoice EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToSale_Order_Invoice(Sale_Order_Invoice sale_Order_Invoice)
+        {
+            base.AddObject("Sale_Order_Invoice", sale_Order_Invoice);
+        }
+    
+        /// <summary>
+        /// 用于向 Sale_Order_State EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToSale_Order_State(Sale_Order_State sale_Order_State)
+        {
+            base.AddObject("Sale_Order_State", sale_Order_State);
+        }
+    
+        /// <summary>
+        /// 用于向 Sale_Order_Detail EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToSale_Order_Detail(Sale_Order_Detail sale_Order_Detail)
+        {
+            base.AddObject("Sale_Order_Detail", sale_Order_Detail);
+        }
+    
+        /// <summary>
+        /// 用于向 Sale_Order_Prom_Rela EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToSale_Order_Prom_Rela(Sale_Order_Prom_Rela sale_Order_Prom_Rela)
+        {
+            base.AddObject("Sale_Order_Prom_Rela", sale_Order_Prom_Rela);
+        }
+    
+        /// <summary>
+        /// 用于向 Sale_Order_Deliver EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToSale_Order_Deliver(Sale_Order_Deliver sale_Order_Deliver)
+        {
+            base.AddObject("Sale_Order_Deliver", sale_Order_Deliver);
+        }
+    
+        /// <summary>
+        /// 用于向 Sale_Order_PayState EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToSale_Order_PayState(Sale_Order_PayState sale_Order_PayState)
+        {
+            base.AddObject("Sale_Order_PayState", sale_Order_PayState);
+        }
+    
+        /// <summary>
+        /// 用于向 Sale_ShopCart_Prom_Rela EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToSale_ShopCart_Prom_Rela(Sale_ShopCart_Prom_Rela sale_ShopCart_Prom_Rela)
+        {
+            base.AddObject("Sale_ShopCart_Prom_Rela", sale_ShopCart_Prom_Rela);
+        }
 
         #endregion
         #region 函数导入
@@ -567,6 +783,26 @@ namespace EF.Model.DataContext
             }
     
             return base.ExecuteFunction("Up_ShopCart_GetCarriage", intweightParameter, deliverIdParameter, cityIdParameter, intcarriage);
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        /// <param name="orderCode">没有元数据文档可用。</param>
+        /// <param name="result">没有元数据文档可用。</param>
+        public int Up_Syn_ToBBHome_Now(global::System.String orderCode, ObjectParameter result)
+        {
+            ObjectParameter orderCodeParameter;
+            if (orderCode != null)
+            {
+                orderCodeParameter = new ObjectParameter("OrderCode", orderCode);
+            }
+            else
+            {
+                orderCodeParameter = new ObjectParameter("OrderCode", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("Up_Syn_ToBBHome_Now", orderCodeParameter, result);
         }
 
         #endregion
@@ -2360,6 +2596,135 @@ namespace EF.Model.DataContext
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Base_SaleArea_Product")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Base_SaleArea_Product : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Base_SaleArea_Product 对象。
+        /// </summary>
+        /// <param name="intSalesID">intSalesID 属性的初始值。</param>
+        /// <param name="intProductID">intProductID 属性的初始值。</param>
+        public static Base_SaleArea_Product CreateBase_SaleArea_Product(global::System.Int32 intSalesID, global::System.Int32 intProductID)
+        {
+            Base_SaleArea_Product base_SaleArea_Product = new Base_SaleArea_Product();
+            base_SaleArea_Product.intSalesID = intSalesID;
+            base_SaleArea_Product.intProductID = intProductID;
+            return base_SaleArea_Product;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intSalesID
+        {
+            get
+            {
+                return _intSalesID;
+            }
+            set
+            {
+                if (_intSalesID != value)
+                {
+                    OnintSalesIDChanging(value);
+                    ReportPropertyChanging("intSalesID");
+                    _intSalesID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intSalesID");
+                    OnintSalesIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intSalesID;
+        partial void OnintSalesIDChanging(global::System.Int32 value);
+        partial void OnintSalesIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intProductID
+        {
+            get
+            {
+                return _intProductID;
+            }
+            set
+            {
+                OnintProductIDChanging(value);
+                ReportPropertyChanging("intProductID");
+                _intProductID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intProductID");
+                OnintProductIDChanged();
+            }
+        }
+        private global::System.Int32 _intProductID;
+        partial void OnintProductIDChanging(global::System.Int32 value);
+        partial void OnintProductIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intAreaID
+        {
+            get
+            {
+                return _intAreaID;
+            }
+            set
+            {
+                OnintAreaIDChanging(value);
+                ReportPropertyChanging("intAreaID");
+                _intAreaID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intAreaID");
+                OnintAreaIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intAreaID;
+        partial void OnintAreaIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintAreaIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Byte> intState
+        {
+            get
+            {
+                return _intState;
+            }
+            set
+            {
+                OnintStateChanging(value);
+                ReportPropertyChanging("intState");
+                _intState = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intState");
+                OnintStateChanged();
+            }
+        }
+        private Nullable<global::System.Byte> _intState;
+        partial void OnintStateChanging(Nullable<global::System.Byte> value);
+        partial void OnintStateChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Pdt_Base_Info")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -4072,6 +4437,3184 @@ namespace EF.Model.DataContext
         private Nullable<global::System.Int32> _intStockQty;
         partial void OnintStockQtyChanging(Nullable<global::System.Int32> value);
         partial void OnintStockQtyChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Sale_Order")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sale_Order : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Sale_Order 对象。
+        /// </summary>
+        /// <param name="intOrderNO">intOrderNO 属性的初始值。</param>
+        /// <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+        /// <param name="dtCreateDate">dtCreateDate 属性的初始值。</param>
+        /// <param name="intUserID">intUserID 属性的初始值。</param>
+        /// <param name="vchUserCode">vchUserCode 属性的初始值。</param>
+        /// <param name="intOrderType">intOrderType 属性的初始值。</param>
+        /// <param name="dtSendDate">dtSendDate 属性的初始值。</param>
+        /// <param name="numAddAmount">numAddAmount 属性的初始值。</param>
+        /// <param name="numCarriage">numCarriage 属性的初始值。</param>
+        /// <param name="numGoodsAmount">numGoodsAmount 属性的初始值。</param>
+        /// <param name="numReceAmount">numReceAmount 属性的初始值。</param>
+        /// <param name="numChange">numChange 属性的初始值。</param>
+        /// <param name="numWeight">numWeight 属性的初始值。</param>
+        /// <param name="intPayID">intPayID 属性的初始值。</param>
+        /// <param name="intDeliverID">intDeliverID 属性的初始值。</param>
+        /// <param name="intChannel">intChannel 属性的初始值。</param>
+        /// <param name="intTotalStars">intTotalStars 属性的初始值。</param>
+        /// <param name="intOrderState">intOrderState 属性的初始值。</param>
+        /// <param name="intPayState">intPayState 属性的初始值。</param>
+        /// <param name="intCreaterID">intCreaterID 属性的初始值。</param>
+        public static Sale_Order CreateSale_Order(global::System.Int32 intOrderNO, global::System.String vchOrderCode, global::System.DateTime dtCreateDate, global::System.Int32 intUserID, global::System.String vchUserCode, global::System.Int32 intOrderType, global::System.DateTime dtSendDate, global::System.Decimal numAddAmount, global::System.Decimal numCarriage, global::System.Decimal numGoodsAmount, global::System.Decimal numReceAmount, global::System.Decimal numChange, global::System.Decimal numWeight, global::System.Int32 intPayID, global::System.Int32 intDeliverID, global::System.Int32 intChannel, global::System.Int32 intTotalStars, global::System.Int32 intOrderState, global::System.Int32 intPayState, global::System.Int32 intCreaterID)
+        {
+            Sale_Order sale_Order = new Sale_Order();
+            sale_Order.intOrderNO = intOrderNO;
+            sale_Order.vchOrderCode = vchOrderCode;
+            sale_Order.dtCreateDate = dtCreateDate;
+            sale_Order.intUserID = intUserID;
+            sale_Order.vchUserCode = vchUserCode;
+            sale_Order.intOrderType = intOrderType;
+            sale_Order.dtSendDate = dtSendDate;
+            sale_Order.numAddAmount = numAddAmount;
+            sale_Order.numCarriage = numCarriage;
+            sale_Order.numGoodsAmount = numGoodsAmount;
+            sale_Order.numReceAmount = numReceAmount;
+            sale_Order.numChange = numChange;
+            sale_Order.numWeight = numWeight;
+            sale_Order.intPayID = intPayID;
+            sale_Order.intDeliverID = intDeliverID;
+            sale_Order.intChannel = intChannel;
+            sale_Order.intTotalStars = intTotalStars;
+            sale_Order.intOrderState = intOrderState;
+            sale_Order.intPayState = intPayState;
+            sale_Order.intCreaterID = intCreaterID;
+            return sale_Order;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intOrderNO
+        {
+            get
+            {
+                return _intOrderNO;
+            }
+            set
+            {
+                if (_intOrderNO != value)
+                {
+                    OnintOrderNOChanging(value);
+                    ReportPropertyChanging("intOrderNO");
+                    _intOrderNO = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intOrderNO");
+                    OnintOrderNOChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intOrderNO;
+        partial void OnintOrderNOChanging(global::System.Int32 value);
+        partial void OnintOrderNOChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchOrderCode
+        {
+            get
+            {
+                return _vchOrderCode;
+            }
+            set
+            {
+                OnvchOrderCodeChanging(value);
+                ReportPropertyChanging("vchOrderCode");
+                _vchOrderCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchOrderCode");
+                OnvchOrderCodeChanged();
+            }
+        }
+        private global::System.String _vchOrderCode;
+        partial void OnvchOrderCodeChanging(global::System.String value);
+        partial void OnvchOrderCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dtCreateDate
+        {
+            get
+            {
+                return _dtCreateDate;
+            }
+            set
+            {
+                OndtCreateDateChanging(value);
+                ReportPropertyChanging("dtCreateDate");
+                _dtCreateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtCreateDate");
+                OndtCreateDateChanged();
+            }
+        }
+        private global::System.DateTime _dtCreateDate;
+        partial void OndtCreateDateChanging(global::System.DateTime value);
+        partial void OndtCreateDateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intUserID
+        {
+            get
+            {
+                return _intUserID;
+            }
+            set
+            {
+                OnintUserIDChanging(value);
+                ReportPropertyChanging("intUserID");
+                _intUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intUserID");
+                OnintUserIDChanged();
+            }
+        }
+        private global::System.Int32 _intUserID;
+        partial void OnintUserIDChanging(global::System.Int32 value);
+        partial void OnintUserIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchUserCode
+        {
+            get
+            {
+                return _vchUserCode;
+            }
+            set
+            {
+                OnvchUserCodeChanging(value);
+                ReportPropertyChanging("vchUserCode");
+                _vchUserCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchUserCode");
+                OnvchUserCodeChanged();
+            }
+        }
+        private global::System.String _vchUserCode;
+        partial void OnvchUserCodeChanging(global::System.String value);
+        partial void OnvchUserCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intOrderType
+        {
+            get
+            {
+                return _intOrderType;
+            }
+            set
+            {
+                OnintOrderTypeChanging(value);
+                ReportPropertyChanging("intOrderType");
+                _intOrderType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intOrderType");
+                OnintOrderTypeChanged();
+            }
+        }
+        private global::System.Int32 _intOrderType;
+        partial void OnintOrderTypeChanging(global::System.Int32 value);
+        partial void OnintOrderTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dtSendDate
+        {
+            get
+            {
+                return _dtSendDate;
+            }
+            set
+            {
+                OndtSendDateChanging(value);
+                ReportPropertyChanging("dtSendDate");
+                _dtSendDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtSendDate");
+                OndtSendDateChanged();
+            }
+        }
+        private global::System.DateTime _dtSendDate;
+        partial void OndtSendDateChanging(global::System.DateTime value);
+        partial void OndtSendDateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchSendTime
+        {
+            get
+            {
+                return _vchSendTime;
+            }
+            set
+            {
+                OnvchSendTimeChanging(value);
+                ReportPropertyChanging("vchSendTime");
+                _vchSendTime = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchSendTime");
+                OnvchSendTimeChanged();
+            }
+        }
+        private global::System.String _vchSendTime;
+        partial void OnvchSendTimeChanging(global::System.String value);
+        partial void OnvchSendTimeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal numAddAmount
+        {
+            get
+            {
+                return _numAddAmount;
+            }
+            set
+            {
+                OnnumAddAmountChanging(value);
+                ReportPropertyChanging("numAddAmount");
+                _numAddAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numAddAmount");
+                OnnumAddAmountChanged();
+            }
+        }
+        private global::System.Decimal _numAddAmount;
+        partial void OnnumAddAmountChanging(global::System.Decimal value);
+        partial void OnnumAddAmountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal numCarriage
+        {
+            get
+            {
+                return _numCarriage;
+            }
+            set
+            {
+                OnnumCarriageChanging(value);
+                ReportPropertyChanging("numCarriage");
+                _numCarriage = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numCarriage");
+                OnnumCarriageChanged();
+            }
+        }
+        private global::System.Decimal _numCarriage;
+        partial void OnnumCarriageChanging(global::System.Decimal value);
+        partial void OnnumCarriageChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal numGoodsAmount
+        {
+            get
+            {
+                return _numGoodsAmount;
+            }
+            set
+            {
+                OnnumGoodsAmountChanging(value);
+                ReportPropertyChanging("numGoodsAmount");
+                _numGoodsAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numGoodsAmount");
+                OnnumGoodsAmountChanged();
+            }
+        }
+        private global::System.Decimal _numGoodsAmount;
+        partial void OnnumGoodsAmountChanging(global::System.Decimal value);
+        partial void OnnumGoodsAmountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal numReceAmount
+        {
+            get
+            {
+                return _numReceAmount;
+            }
+            set
+            {
+                OnnumReceAmountChanging(value);
+                ReportPropertyChanging("numReceAmount");
+                _numReceAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numReceAmount");
+                OnnumReceAmountChanged();
+            }
+        }
+        private global::System.Decimal _numReceAmount;
+        partial void OnnumReceAmountChanging(global::System.Decimal value);
+        partial void OnnumReceAmountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal numChange
+        {
+            get
+            {
+                return _numChange;
+            }
+            set
+            {
+                OnnumChangeChanging(value);
+                ReportPropertyChanging("numChange");
+                _numChange = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numChange");
+                OnnumChangeChanged();
+            }
+        }
+        private global::System.Decimal _numChange;
+        partial void OnnumChangeChanging(global::System.Decimal value);
+        partial void OnnumChangeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal numWeight
+        {
+            get
+            {
+                return _numWeight;
+            }
+            set
+            {
+                OnnumWeightChanging(value);
+                ReportPropertyChanging("numWeight");
+                _numWeight = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numWeight");
+                OnnumWeightChanged();
+            }
+        }
+        private global::System.Decimal _numWeight;
+        partial void OnnumWeightChanging(global::System.Decimal value);
+        partial void OnnumWeightChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intPayID
+        {
+            get
+            {
+                return _intPayID;
+            }
+            set
+            {
+                OnintPayIDChanging(value);
+                ReportPropertyChanging("intPayID");
+                _intPayID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intPayID");
+                OnintPayIDChanged();
+            }
+        }
+        private global::System.Int32 _intPayID;
+        partial void OnintPayIDChanging(global::System.Int32 value);
+        partial void OnintPayIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intDeliverID
+        {
+            get
+            {
+                return _intDeliverID;
+            }
+            set
+            {
+                OnintDeliverIDChanging(value);
+                ReportPropertyChanging("intDeliverID");
+                _intDeliverID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intDeliverID");
+                OnintDeliverIDChanged();
+            }
+        }
+        private global::System.Int32 _intDeliverID;
+        partial void OnintDeliverIDChanging(global::System.Int32 value);
+        partial void OnintDeliverIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intChannel
+        {
+            get
+            {
+                return _intChannel;
+            }
+            set
+            {
+                OnintChannelChanging(value);
+                ReportPropertyChanging("intChannel");
+                _intChannel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intChannel");
+                OnintChannelChanged();
+            }
+        }
+        private global::System.Int32 _intChannel;
+        partial void OnintChannelChanging(global::System.Int32 value);
+        partial void OnintChannelChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intTotalStars
+        {
+            get
+            {
+                return _intTotalStars;
+            }
+            set
+            {
+                OnintTotalStarsChanging(value);
+                ReportPropertyChanging("intTotalStars");
+                _intTotalStars = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intTotalStars");
+                OnintTotalStarsChanged();
+            }
+        }
+        private global::System.Int32 _intTotalStars;
+        partial void OnintTotalStarsChanging(global::System.Int32 value);
+        partial void OnintTotalStarsChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intOrderState
+        {
+            get
+            {
+                return _intOrderState;
+            }
+            set
+            {
+                OnintOrderStateChanging(value);
+                ReportPropertyChanging("intOrderState");
+                _intOrderState = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intOrderState");
+                OnintOrderStateChanged();
+            }
+        }
+        private global::System.Int32 _intOrderState;
+        partial void OnintOrderStateChanging(global::System.Int32 value);
+        partial void OnintOrderStateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intPayState
+        {
+            get
+            {
+                return _intPayState;
+            }
+            set
+            {
+                OnintPayStateChanging(value);
+                ReportPropertyChanging("intPayState");
+                _intPayState = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intPayState");
+                OnintPayStateChanged();
+            }
+        }
+        private global::System.Int32 _intPayState;
+        partial void OnintPayStateChanging(global::System.Int32 value);
+        partial void OnintPayStateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intCreaterID
+        {
+            get
+            {
+                return _intCreaterID;
+            }
+            set
+            {
+                OnintCreaterIDChanging(value);
+                ReportPropertyChanging("intCreaterID");
+                _intCreaterID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intCreaterID");
+                OnintCreaterIDChanged();
+            }
+        }
+        private global::System.Int32 _intCreaterID;
+        partial void OnintCreaterIDChanging(global::System.Int32 value);
+        partial void OnintCreaterIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intLogisticsID
+        {
+            get
+            {
+                return _intLogisticsID;
+            }
+            set
+            {
+                OnintLogisticsIDChanging(value);
+                ReportPropertyChanging("intLogisticsID");
+                _intLogisticsID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intLogisticsID");
+                OnintLogisticsIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intLogisticsID;
+        partial void OnintLogisticsIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintLogisticsIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intStockID
+        {
+            get
+            {
+                return _intStockID;
+            }
+            set
+            {
+                OnintStockIDChanging(value);
+                ReportPropertyChanging("intStockID");
+                _intStockID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intStockID");
+                OnintStockIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intStockID;
+        partial void OnintStockIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintStockIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intAreaID
+        {
+            get
+            {
+                return _intAreaID;
+            }
+            set
+            {
+                OnintAreaIDChanging(value);
+                ReportPropertyChanging("intAreaID");
+                _intAreaID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intAreaID");
+                OnintAreaIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intAreaID;
+        partial void OnintAreaIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintAreaIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intSpId
+        {
+            get
+            {
+                return _intSpId;
+            }
+            set
+            {
+                OnintSpIdChanging(value);
+                ReportPropertyChanging("intSpId");
+                _intSpId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intSpId");
+                OnintSpIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intSpId;
+        partial void OnintSpIdChanging(Nullable<global::System.Int32> value);
+        partial void OnintSpIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchMemo
+        {
+            get
+            {
+                return _vchMemo;
+            }
+            set
+            {
+                OnvchMemoChanging(value);
+                ReportPropertyChanging("vchMemo");
+                _vchMemo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchMemo");
+                OnvchMemoChanged();
+            }
+        }
+        private global::System.String _vchMemo;
+        partial void OnvchMemoChanging(global::System.String value);
+        partial void OnvchMemoChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> numCouponAmount
+        {
+            get
+            {
+                return _numCouponAmount;
+            }
+            set
+            {
+                OnnumCouponAmountChanging(value);
+                ReportPropertyChanging("numCouponAmount");
+                _numCouponAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numCouponAmount");
+                OnnumCouponAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _numCouponAmount;
+        partial void OnnumCouponAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnnumCouponAmountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> paymentAmount
+        {
+            get
+            {
+                return _paymentAmount;
+            }
+            set
+            {
+                OnpaymentAmountChanging(value);
+                ReportPropertyChanging("paymentAmount");
+                _paymentAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("paymentAmount");
+                OnpaymentAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _paymentAmount;
+        partial void OnpaymentAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnpaymentAmountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> accountAmount
+        {
+            get
+            {
+                return _accountAmount;
+            }
+            set
+            {
+                OnaccountAmountChanging(value);
+                ReportPropertyChanging("accountAmount");
+                _accountAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("accountAmount");
+                OnaccountAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _accountAmount;
+        partial void OnaccountAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnaccountAmountChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Sale_Order_Deliver")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sale_Order_Deliver : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Sale_Order_Deliver 对象。
+        /// </summary>
+        /// <param name="intOrderDeliverID">intOrderDeliverID 属性的初始值。</param>
+        /// <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+        /// <param name="intAddressID">intAddressID 属性的初始值。</param>
+        /// <param name="vchConsignee">vchConsignee 属性的初始值。</param>
+        /// <param name="intStateID">intStateID 属性的初始值。</param>
+        /// <param name="intCityID">intCityID 属性的初始值。</param>
+        /// <param name="intCountyID">intCountyID 属性的初始值。</param>
+        /// <param name="vchDetailAddr">vchDetailAddr 属性的初始值。</param>
+        public static Sale_Order_Deliver CreateSale_Order_Deliver(global::System.Int32 intOrderDeliverID, global::System.String vchOrderCode, global::System.Int32 intAddressID, global::System.String vchConsignee, global::System.Int32 intStateID, global::System.Int32 intCityID, global::System.Int32 intCountyID, global::System.String vchDetailAddr)
+        {
+            Sale_Order_Deliver sale_Order_Deliver = new Sale_Order_Deliver();
+            sale_Order_Deliver.intOrderDeliverID = intOrderDeliverID;
+            sale_Order_Deliver.vchOrderCode = vchOrderCode;
+            sale_Order_Deliver.intAddressID = intAddressID;
+            sale_Order_Deliver.vchConsignee = vchConsignee;
+            sale_Order_Deliver.intStateID = intStateID;
+            sale_Order_Deliver.intCityID = intCityID;
+            sale_Order_Deliver.intCountyID = intCountyID;
+            sale_Order_Deliver.vchDetailAddr = vchDetailAddr;
+            return sale_Order_Deliver;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intOrderDeliverID
+        {
+            get
+            {
+                return _intOrderDeliverID;
+            }
+            set
+            {
+                if (_intOrderDeliverID != value)
+                {
+                    OnintOrderDeliverIDChanging(value);
+                    ReportPropertyChanging("intOrderDeliverID");
+                    _intOrderDeliverID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intOrderDeliverID");
+                    OnintOrderDeliverIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intOrderDeliverID;
+        partial void OnintOrderDeliverIDChanging(global::System.Int32 value);
+        partial void OnintOrderDeliverIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchOrderCode
+        {
+            get
+            {
+                return _vchOrderCode;
+            }
+            set
+            {
+                OnvchOrderCodeChanging(value);
+                ReportPropertyChanging("vchOrderCode");
+                _vchOrderCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchOrderCode");
+                OnvchOrderCodeChanged();
+            }
+        }
+        private global::System.String _vchOrderCode;
+        partial void OnvchOrderCodeChanging(global::System.String value);
+        partial void OnvchOrderCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intAddressID
+        {
+            get
+            {
+                return _intAddressID;
+            }
+            set
+            {
+                OnintAddressIDChanging(value);
+                ReportPropertyChanging("intAddressID");
+                _intAddressID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intAddressID");
+                OnintAddressIDChanged();
+            }
+        }
+        private global::System.Int32 _intAddressID;
+        partial void OnintAddressIDChanging(global::System.Int32 value);
+        partial void OnintAddressIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchConsignee
+        {
+            get
+            {
+                return _vchConsignee;
+            }
+            set
+            {
+                OnvchConsigneeChanging(value);
+                ReportPropertyChanging("vchConsignee");
+                _vchConsignee = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchConsignee");
+                OnvchConsigneeChanged();
+            }
+        }
+        private global::System.String _vchConsignee;
+        partial void OnvchConsigneeChanging(global::System.String value);
+        partial void OnvchConsigneeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchPhone
+        {
+            get
+            {
+                return _vchPhone;
+            }
+            set
+            {
+                OnvchPhoneChanging(value);
+                ReportPropertyChanging("vchPhone");
+                _vchPhone = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchPhone");
+                OnvchPhoneChanged();
+            }
+        }
+        private global::System.String _vchPhone;
+        partial void OnvchPhoneChanging(global::System.String value);
+        partial void OnvchPhoneChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchMobile
+        {
+            get
+            {
+                return _vchMobile;
+            }
+            set
+            {
+                OnvchMobileChanging(value);
+                ReportPropertyChanging("vchMobile");
+                _vchMobile = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchMobile");
+                OnvchMobileChanged();
+            }
+        }
+        private global::System.String _vchMobile;
+        partial void OnvchMobileChanging(global::System.String value);
+        partial void OnvchMobileChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intStateID
+        {
+            get
+            {
+                return _intStateID;
+            }
+            set
+            {
+                OnintStateIDChanging(value);
+                ReportPropertyChanging("intStateID");
+                _intStateID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intStateID");
+                OnintStateIDChanged();
+            }
+        }
+        private global::System.Int32 _intStateID;
+        partial void OnintStateIDChanging(global::System.Int32 value);
+        partial void OnintStateIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchStateName
+        {
+            get
+            {
+                return _vchStateName;
+            }
+            set
+            {
+                OnvchStateNameChanging(value);
+                ReportPropertyChanging("vchStateName");
+                _vchStateName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchStateName");
+                OnvchStateNameChanged();
+            }
+        }
+        private global::System.String _vchStateName;
+        partial void OnvchStateNameChanging(global::System.String value);
+        partial void OnvchStateNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intCityID
+        {
+            get
+            {
+                return _intCityID;
+            }
+            set
+            {
+                OnintCityIDChanging(value);
+                ReportPropertyChanging("intCityID");
+                _intCityID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intCityID");
+                OnintCityIDChanged();
+            }
+        }
+        private global::System.Int32 _intCityID;
+        partial void OnintCityIDChanging(global::System.Int32 value);
+        partial void OnintCityIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchCityName
+        {
+            get
+            {
+                return _vchCityName;
+            }
+            set
+            {
+                OnvchCityNameChanging(value);
+                ReportPropertyChanging("vchCityName");
+                _vchCityName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchCityName");
+                OnvchCityNameChanged();
+            }
+        }
+        private global::System.String _vchCityName;
+        partial void OnvchCityNameChanging(global::System.String value);
+        partial void OnvchCityNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intCountyID
+        {
+            get
+            {
+                return _intCountyID;
+            }
+            set
+            {
+                OnintCountyIDChanging(value);
+                ReportPropertyChanging("intCountyID");
+                _intCountyID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intCountyID");
+                OnintCountyIDChanged();
+            }
+        }
+        private global::System.Int32 _intCountyID;
+        partial void OnintCountyIDChanging(global::System.Int32 value);
+        partial void OnintCountyIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchCountyName
+        {
+            get
+            {
+                return _vchCountyName;
+            }
+            set
+            {
+                OnvchCountyNameChanging(value);
+                ReportPropertyChanging("vchCountyName");
+                _vchCountyName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchCountyName");
+                OnvchCountyNameChanged();
+            }
+        }
+        private global::System.String _vchCountyName;
+        partial void OnvchCountyNameChanging(global::System.String value);
+        partial void OnvchCountyNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchDetailAddr
+        {
+            get
+            {
+                return _vchDetailAddr;
+            }
+            set
+            {
+                OnvchDetailAddrChanging(value);
+                ReportPropertyChanging("vchDetailAddr");
+                _vchDetailAddr = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchDetailAddr");
+                OnvchDetailAddrChanged();
+            }
+        }
+        private global::System.String _vchDetailAddr;
+        partial void OnvchDetailAddrChanging(global::System.String value);
+        partial void OnvchDetailAddrChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchPostCode
+        {
+            get
+            {
+                return _vchPostCode;
+            }
+            set
+            {
+                OnvchPostCodeChanging(value);
+                ReportPropertyChanging("vchPostCode");
+                _vchPostCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchPostCode");
+                OnvchPostCodeChanged();
+            }
+        }
+        private global::System.String _vchPostCode;
+        partial void OnvchPostCodeChanging(global::System.String value);
+        partial void OnvchPostCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchRoadName
+        {
+            get
+            {
+                return _vchRoadName;
+            }
+            set
+            {
+                OnvchRoadNameChanging(value);
+                ReportPropertyChanging("vchRoadName");
+                _vchRoadName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchRoadName");
+                OnvchRoadNameChanged();
+            }
+        }
+        private global::System.String _vchRoadName;
+        partial void OnvchRoadNameChanging(global::System.String value);
+        partial void OnvchRoadNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchHausnummer
+        {
+            get
+            {
+                return _vchHausnummer;
+            }
+            set
+            {
+                OnvchHausnummerChanging(value);
+                ReportPropertyChanging("vchHausnummer");
+                _vchHausnummer = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchHausnummer");
+                OnvchHausnummerChanged();
+            }
+        }
+        private global::System.String _vchHausnummer;
+        partial void OnvchHausnummerChanging(global::System.String value);
+        partial void OnvchHausnummerChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchUserMemo
+        {
+            get
+            {
+                return _vchUserMemo;
+            }
+            set
+            {
+                OnvchUserMemoChanging(value);
+                ReportPropertyChanging("vchUserMemo");
+                _vchUserMemo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchUserMemo");
+                OnvchUserMemoChanged();
+            }
+        }
+        private global::System.String _vchUserMemo;
+        partial void OnvchUserMemoChanging(global::System.String value);
+        partial void OnvchUserMemoChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchInMemo
+        {
+            get
+            {
+                return _vchInMemo;
+            }
+            set
+            {
+                OnvchInMemoChanging(value);
+                ReportPropertyChanging("vchInMemo");
+                _vchInMemo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchInMemo");
+                OnvchInMemoChanged();
+            }
+        }
+        private global::System.String _vchInMemo;
+        partial void OnvchInMemoChanging(global::System.String value);
+        partial void OnvchInMemoChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Sale_Order_Detail")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sale_Order_Detail : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Sale_Order_Detail 对象。
+        /// </summary>
+        /// <param name="intDetailID">intDetailID 属性的初始值。</param>
+        /// <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+        /// <param name="intUserID">intUserID 属性的初始值。</param>
+        /// <param name="intProductID">intProductID 属性的初始值。</param>
+        /// <param name="vchProductPrinted">vchProductPrinted 属性的初始值。</param>
+        /// <param name="vchProductName">vchProductName 属性的初始值。</param>
+        /// <param name="intQty">intQty 属性的初始值。</param>
+        /// <param name="numSalePrice">numSalePrice 属性的初始值。</param>
+        /// <param name="numTotalAmount">numTotalAmount 属性的初始值。</param>
+        /// <param name="intHerdPriceID">intHerdPriceID 属性的初始值。</param>
+        /// <param name="intRtnQty">intRtnQty 属性的初始值。</param>
+        /// <param name="intBaseStar">intBaseStar 属性的初始值。</param>
+        /// <param name="intScores">intScores 属性的初始值。</param>
+        /// <param name="dtOpDate">dtOpDate 属性的初始值。</param>
+        /// <param name="intChannel">intChannel 属性的初始值。</param>
+        /// <param name="intIsDelete">intIsDelete 属性的初始值。</param>
+        /// <param name="intPromID">intPromID 属性的初始值。</param>
+        /// <param name="intIsInvoice">intIsInvoice 属性的初始值。</param>
+        public static Sale_Order_Detail CreateSale_Order_Detail(global::System.Int32 intDetailID, global::System.String vchOrderCode, global::System.Int32 intUserID, global::System.Int32 intProductID, global::System.String vchProductPrinted, global::System.String vchProductName, global::System.Int32 intQty, global::System.Decimal numSalePrice, global::System.Decimal numTotalAmount, global::System.Int32 intHerdPriceID, global::System.Int32 intRtnQty, global::System.Int32 intBaseStar, global::System.Int32 intScores, global::System.DateTime dtOpDate, global::System.Int32 intChannel, global::System.Byte intIsDelete, global::System.Int32 intPromID, global::System.Byte intIsInvoice)
+        {
+            Sale_Order_Detail sale_Order_Detail = new Sale_Order_Detail();
+            sale_Order_Detail.intDetailID = intDetailID;
+            sale_Order_Detail.vchOrderCode = vchOrderCode;
+            sale_Order_Detail.intUserID = intUserID;
+            sale_Order_Detail.intProductID = intProductID;
+            sale_Order_Detail.vchProductPrinted = vchProductPrinted;
+            sale_Order_Detail.vchProductName = vchProductName;
+            sale_Order_Detail.intQty = intQty;
+            sale_Order_Detail.numSalePrice = numSalePrice;
+            sale_Order_Detail.numTotalAmount = numTotalAmount;
+            sale_Order_Detail.intHerdPriceID = intHerdPriceID;
+            sale_Order_Detail.intRtnQty = intRtnQty;
+            sale_Order_Detail.intBaseStar = intBaseStar;
+            sale_Order_Detail.intScores = intScores;
+            sale_Order_Detail.dtOpDate = dtOpDate;
+            sale_Order_Detail.intChannel = intChannel;
+            sale_Order_Detail.intIsDelete = intIsDelete;
+            sale_Order_Detail.intPromID = intPromID;
+            sale_Order_Detail.intIsInvoice = intIsInvoice;
+            return sale_Order_Detail;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intDetailID
+        {
+            get
+            {
+                return _intDetailID;
+            }
+            set
+            {
+                if (_intDetailID != value)
+                {
+                    OnintDetailIDChanging(value);
+                    ReportPropertyChanging("intDetailID");
+                    _intDetailID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intDetailID");
+                    OnintDetailIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intDetailID;
+        partial void OnintDetailIDChanging(global::System.Int32 value);
+        partial void OnintDetailIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchOrderCode
+        {
+            get
+            {
+                return _vchOrderCode;
+            }
+            set
+            {
+                OnvchOrderCodeChanging(value);
+                ReportPropertyChanging("vchOrderCode");
+                _vchOrderCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchOrderCode");
+                OnvchOrderCodeChanged();
+            }
+        }
+        private global::System.String _vchOrderCode;
+        partial void OnvchOrderCodeChanging(global::System.String value);
+        partial void OnvchOrderCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intUserID
+        {
+            get
+            {
+                return _intUserID;
+            }
+            set
+            {
+                OnintUserIDChanging(value);
+                ReportPropertyChanging("intUserID");
+                _intUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intUserID");
+                OnintUserIDChanged();
+            }
+        }
+        private global::System.Int32 _intUserID;
+        partial void OnintUserIDChanging(global::System.Int32 value);
+        partial void OnintUserIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intProductID
+        {
+            get
+            {
+                return _intProductID;
+            }
+            set
+            {
+                OnintProductIDChanging(value);
+                ReportPropertyChanging("intProductID");
+                _intProductID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intProductID");
+                OnintProductIDChanged();
+            }
+        }
+        private global::System.Int32 _intProductID;
+        partial void OnintProductIDChanging(global::System.Int32 value);
+        partial void OnintProductIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchProductPrinted
+        {
+            get
+            {
+                return _vchProductPrinted;
+            }
+            set
+            {
+                OnvchProductPrintedChanging(value);
+                ReportPropertyChanging("vchProductPrinted");
+                _vchProductPrinted = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchProductPrinted");
+                OnvchProductPrintedChanged();
+            }
+        }
+        private global::System.String _vchProductPrinted;
+        partial void OnvchProductPrintedChanging(global::System.String value);
+        partial void OnvchProductPrintedChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchProductName
+        {
+            get
+            {
+                return _vchProductName;
+            }
+            set
+            {
+                OnvchProductNameChanging(value);
+                ReportPropertyChanging("vchProductName");
+                _vchProductName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchProductName");
+                OnvchProductNameChanged();
+            }
+        }
+        private global::System.String _vchProductName;
+        partial void OnvchProductNameChanging(global::System.String value);
+        partial void OnvchProductNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intQty
+        {
+            get
+            {
+                return _intQty;
+            }
+            set
+            {
+                OnintQtyChanging(value);
+                ReportPropertyChanging("intQty");
+                _intQty = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intQty");
+                OnintQtyChanged();
+            }
+        }
+        private global::System.Int32 _intQty;
+        partial void OnintQtyChanging(global::System.Int32 value);
+        partial void OnintQtyChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal numSalePrice
+        {
+            get
+            {
+                return _numSalePrice;
+            }
+            set
+            {
+                OnnumSalePriceChanging(value);
+                ReportPropertyChanging("numSalePrice");
+                _numSalePrice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numSalePrice");
+                OnnumSalePriceChanged();
+            }
+        }
+        private global::System.Decimal _numSalePrice;
+        partial void OnnumSalePriceChanging(global::System.Decimal value);
+        partial void OnnumSalePriceChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal numTotalAmount
+        {
+            get
+            {
+                return _numTotalAmount;
+            }
+            set
+            {
+                OnnumTotalAmountChanging(value);
+                ReportPropertyChanging("numTotalAmount");
+                _numTotalAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numTotalAmount");
+                OnnumTotalAmountChanged();
+            }
+        }
+        private global::System.Decimal _numTotalAmount;
+        partial void OnnumTotalAmountChanging(global::System.Decimal value);
+        partial void OnnumTotalAmountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intHerdPriceID
+        {
+            get
+            {
+                return _intHerdPriceID;
+            }
+            set
+            {
+                OnintHerdPriceIDChanging(value);
+                ReportPropertyChanging("intHerdPriceID");
+                _intHerdPriceID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intHerdPriceID");
+                OnintHerdPriceIDChanged();
+            }
+        }
+        private global::System.Int32 _intHerdPriceID;
+        partial void OnintHerdPriceIDChanging(global::System.Int32 value);
+        partial void OnintHerdPriceIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> numStandarPrice
+        {
+            get
+            {
+                return _numStandarPrice;
+            }
+            set
+            {
+                OnnumStandarPriceChanging(value);
+                ReportPropertyChanging("numStandarPrice");
+                _numStandarPrice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numStandarPrice");
+                OnnumStandarPriceChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _numStandarPrice;
+        partial void OnnumStandarPriceChanging(Nullable<global::System.Decimal> value);
+        partial void OnnumStandarPriceChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intRtnQty
+        {
+            get
+            {
+                return _intRtnQty;
+            }
+            set
+            {
+                OnintRtnQtyChanging(value);
+                ReportPropertyChanging("intRtnQty");
+                _intRtnQty = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intRtnQty");
+                OnintRtnQtyChanged();
+            }
+        }
+        private global::System.Int32 _intRtnQty;
+        partial void OnintRtnQtyChanging(global::System.Int32 value);
+        partial void OnintRtnQtyChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> numCost
+        {
+            get
+            {
+                return _numCost;
+            }
+            set
+            {
+                OnnumCostChanging(value);
+                ReportPropertyChanging("numCost");
+                _numCost = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numCost");
+                OnnumCostChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _numCost;
+        partial void OnnumCostChanging(Nullable<global::System.Decimal> value);
+        partial void OnnumCostChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> numCleanCost
+        {
+            get
+            {
+                return _numCleanCost;
+            }
+            set
+            {
+                OnnumCleanCostChanging(value);
+                ReportPropertyChanging("numCleanCost");
+                _numCleanCost = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numCleanCost");
+                OnnumCleanCostChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _numCleanCost;
+        partial void OnnumCleanCostChanging(Nullable<global::System.Decimal> value);
+        partial void OnnumCleanCostChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> numMonthCost
+        {
+            get
+            {
+                return _numMonthCost;
+            }
+            set
+            {
+                OnnumMonthCostChanging(value);
+                ReportPropertyChanging("numMonthCost");
+                _numMonthCost = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numMonthCost");
+                OnnumMonthCostChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _numMonthCost;
+        partial void OnnumMonthCostChanging(Nullable<global::System.Decimal> value);
+        partial void OnnumMonthCostChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> numMonthCleanCost
+        {
+            get
+            {
+                return _numMonthCleanCost;
+            }
+            set
+            {
+                OnnumMonthCleanCostChanging(value);
+                ReportPropertyChanging("numMonthCleanCost");
+                _numMonthCleanCost = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numMonthCleanCost");
+                OnnumMonthCleanCostChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _numMonthCleanCost;
+        partial void OnnumMonthCleanCostChanging(Nullable<global::System.Decimal> value);
+        partial void OnnumMonthCleanCostChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intBaseStar
+        {
+            get
+            {
+                return _intBaseStar;
+            }
+            set
+            {
+                OnintBaseStarChanging(value);
+                ReportPropertyChanging("intBaseStar");
+                _intBaseStar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intBaseStar");
+                OnintBaseStarChanged();
+            }
+        }
+        private global::System.Int32 _intBaseStar;
+        partial void OnintBaseStarChanging(global::System.Int32 value);
+        partial void OnintBaseStarChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intScores
+        {
+            get
+            {
+                return _intScores;
+            }
+            set
+            {
+                OnintScoresChanging(value);
+                ReportPropertyChanging("intScores");
+                _intScores = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intScores");
+                OnintScoresChanged();
+            }
+        }
+        private global::System.Int32 _intScores;
+        partial void OnintScoresChanging(global::System.Int32 value);
+        partial void OnintScoresChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intStockID
+        {
+            get
+            {
+                return _intStockID;
+            }
+            set
+            {
+                OnintStockIDChanging(value);
+                ReportPropertyChanging("intStockID");
+                _intStockID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intStockID");
+                OnintStockIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intStockID;
+        partial void OnintStockIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintStockIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intLogisticsID
+        {
+            get
+            {
+                return _intLogisticsID;
+            }
+            set
+            {
+                OnintLogisticsIDChanging(value);
+                ReportPropertyChanging("intLogisticsID");
+                _intLogisticsID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intLogisticsID");
+                OnintLogisticsIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intLogisticsID;
+        partial void OnintLogisticsIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintLogisticsIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dtOpDate
+        {
+            get
+            {
+                return _dtOpDate;
+            }
+            set
+            {
+                OndtOpDateChanging(value);
+                ReportPropertyChanging("dtOpDate");
+                _dtOpDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtOpDate");
+                OndtOpDateChanged();
+            }
+        }
+        private global::System.DateTime _dtOpDate;
+        partial void OndtOpDateChanging(global::System.DateTime value);
+        partial void OndtOpDateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intChannel
+        {
+            get
+            {
+                return _intChannel;
+            }
+            set
+            {
+                OnintChannelChanging(value);
+                ReportPropertyChanging("intChannel");
+                _intChannel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intChannel");
+                OnintChannelChanged();
+            }
+        }
+        private global::System.Int32 _intChannel;
+        partial void OnintChannelChanging(global::System.Int32 value);
+        partial void OnintChannelChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte intIsDelete
+        {
+            get
+            {
+                return _intIsDelete;
+            }
+            set
+            {
+                OnintIsDeleteChanging(value);
+                ReportPropertyChanging("intIsDelete");
+                _intIsDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intIsDelete");
+                OnintIsDeleteChanged();
+            }
+        }
+        private global::System.Byte _intIsDelete;
+        partial void OnintIsDeleteChanging(global::System.Byte value);
+        partial void OnintIsDeleteChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intPromID
+        {
+            get
+            {
+                return _intPromID;
+            }
+            set
+            {
+                OnintPromIDChanging(value);
+                ReportPropertyChanging("intPromID");
+                _intPromID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intPromID");
+                OnintPromIDChanged();
+            }
+        }
+        private global::System.Int32 _intPromID;
+        partial void OnintPromIDChanging(global::System.Int32 value);
+        partial void OnintPromIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte intIsInvoice
+        {
+            get
+            {
+                return _intIsInvoice;
+            }
+            set
+            {
+                OnintIsInvoiceChanging(value);
+                ReportPropertyChanging("intIsInvoice");
+                _intIsInvoice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intIsInvoice");
+                OnintIsInvoiceChanged();
+            }
+        }
+        private global::System.Byte _intIsInvoice;
+        partial void OnintIsInvoiceChanging(global::System.Byte value);
+        partial void OnintIsInvoiceChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchCoponCode
+        {
+            get
+            {
+                return _vchCoponCode;
+            }
+            set
+            {
+                OnvchCoponCodeChanging(value);
+                ReportPropertyChanging("vchCoponCode");
+                _vchCoponCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchCoponCode");
+                OnvchCoponCodeChanged();
+            }
+        }
+        private global::System.String _vchCoponCode;
+        partial void OnvchCoponCodeChanging(global::System.String value);
+        partial void OnvchCoponCodeChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Sale_Order_Invoice")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sale_Order_Invoice : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Sale_Order_Invoice 对象。
+        /// </summary>
+        /// <param name="intInvoicID">intInvoicID 属性的初始值。</param>
+        /// <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+        public static Sale_Order_Invoice CreateSale_Order_Invoice(global::System.Int32 intInvoicID, global::System.String vchOrderCode)
+        {
+            Sale_Order_Invoice sale_Order_Invoice = new Sale_Order_Invoice();
+            sale_Order_Invoice.intInvoicID = intInvoicID;
+            sale_Order_Invoice.vchOrderCode = vchOrderCode;
+            return sale_Order_Invoice;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intInvoicID
+        {
+            get
+            {
+                return _intInvoicID;
+            }
+            set
+            {
+                if (_intInvoicID != value)
+                {
+                    OnintInvoicIDChanging(value);
+                    ReportPropertyChanging("intInvoicID");
+                    _intInvoicID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intInvoicID");
+                    OnintInvoicIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intInvoicID;
+        partial void OnintInvoicIDChanging(global::System.Int32 value);
+        partial void OnintInvoicIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchOrderCode
+        {
+            get
+            {
+                return _vchOrderCode;
+            }
+            set
+            {
+                OnvchOrderCodeChanging(value);
+                ReportPropertyChanging("vchOrderCode");
+                _vchOrderCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchOrderCode");
+                OnvchOrderCodeChanged();
+            }
+        }
+        private global::System.String _vchOrderCode;
+        partial void OnvchOrderCodeChanging(global::System.String value);
+        partial void OnvchOrderCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intUserID
+        {
+            get
+            {
+                return _intUserID;
+            }
+            set
+            {
+                OnintUserIDChanging(value);
+                ReportPropertyChanging("intUserID");
+                _intUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intUserID");
+                OnintUserIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intUserID;
+        partial void OnintUserIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintUserIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intInvoiceType
+        {
+            get
+            {
+                return _intInvoiceType;
+            }
+            set
+            {
+                OnintInvoiceTypeChanging(value);
+                ReportPropertyChanging("intInvoiceType");
+                _intInvoiceType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intInvoiceType");
+                OnintInvoiceTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intInvoiceType;
+        partial void OnintInvoiceTypeChanging(Nullable<global::System.Int32> value);
+        partial void OnintInvoiceTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intInvoiceKind
+        {
+            get
+            {
+                return _intInvoiceKind;
+            }
+            set
+            {
+                OnintInvoiceKindChanging(value);
+                ReportPropertyChanging("intInvoiceKind");
+                _intInvoiceKind = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intInvoiceKind");
+                OnintInvoiceKindChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intInvoiceKind;
+        partial void OnintInvoiceKindChanging(Nullable<global::System.Int32> value);
+        partial void OnintInvoiceKindChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchAccount
+        {
+            get
+            {
+                return _vchAccount;
+            }
+            set
+            {
+                OnvchAccountChanging(value);
+                ReportPropertyChanging("vchAccount");
+                _vchAccount = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchAccount");
+                OnvchAccountChanged();
+            }
+        }
+        private global::System.String _vchAccount;
+        partial void OnvchAccountChanging(global::System.String value);
+        partial void OnvchAccountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> numAmount
+        {
+            get
+            {
+                return _numAmount;
+            }
+            set
+            {
+                OnnumAmountChanging(value);
+                ReportPropertyChanging("numAmount");
+                _numAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numAmount");
+                OnnumAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _numAmount;
+        partial void OnnumAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnnumAmountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchAddress
+        {
+            get
+            {
+                return _vchAddress;
+            }
+            set
+            {
+                OnvchAddressChanging(value);
+                ReportPropertyChanging("vchAddress");
+                _vchAddress = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchAddress");
+                OnvchAddressChanged();
+            }
+        }
+        private global::System.String _vchAddress;
+        partial void OnvchAddressChanging(global::System.String value);
+        partial void OnvchAddressChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchInvoicTitile
+        {
+            get
+            {
+                return _vchInvoicTitile;
+            }
+            set
+            {
+                OnvchInvoicTitileChanging(value);
+                ReportPropertyChanging("vchInvoicTitile");
+                _vchInvoicTitile = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchInvoicTitile");
+                OnvchInvoicTitileChanged();
+            }
+        }
+        private global::System.String _vchInvoicTitile;
+        partial void OnvchInvoicTitileChanging(global::System.String value);
+        partial void OnvchInvoicTitileChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dtBillingTime
+        {
+            get
+            {
+                return _dtBillingTime;
+            }
+            set
+            {
+                OndtBillingTimeChanging(value);
+                ReportPropertyChanging("dtBillingTime");
+                _dtBillingTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtBillingTime");
+                OndtBillingTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dtBillingTime;
+        partial void OndtBillingTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OndtBillingTimeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intCreaterID
+        {
+            get
+            {
+                return _intCreaterID;
+            }
+            set
+            {
+                OnintCreaterIDChanging(value);
+                ReportPropertyChanging("intCreaterID");
+                _intCreaterID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intCreaterID");
+                OnintCreaterIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intCreaterID;
+        partial void OnintCreaterIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintCreaterIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchInvoiceID
+        {
+            get
+            {
+                return _vchInvoiceID;
+            }
+            set
+            {
+                OnvchInvoiceIDChanging(value);
+                ReportPropertyChanging("vchInvoiceID");
+                _vchInvoiceID = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchInvoiceID");
+                OnvchInvoiceIDChanged();
+            }
+        }
+        private global::System.String _vchInvoiceID;
+        partial void OnvchInvoiceIDChanging(global::System.String value);
+        partial void OnvchInvoiceIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchPhone
+        {
+            get
+            {
+                return _vchPhone;
+            }
+            set
+            {
+                OnvchPhoneChanging(value);
+                ReportPropertyChanging("vchPhone");
+                _vchPhone = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchPhone");
+                OnvchPhoneChanged();
+            }
+        }
+        private global::System.String _vchPhone;
+        partial void OnvchPhoneChanging(global::System.String value);
+        partial void OnvchPhoneChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchMemo
+        {
+            get
+            {
+                return _vchMemo;
+            }
+            set
+            {
+                OnvchMemoChanging(value);
+                ReportPropertyChanging("vchMemo");
+                _vchMemo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchMemo");
+                OnvchMemoChanged();
+            }
+        }
+        private global::System.String _vchMemo;
+        partial void OnvchMemoChanging(global::System.String value);
+        partial void OnvchMemoChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Byte> intIsBilling
+        {
+            get
+            {
+                return _intIsBilling;
+            }
+            set
+            {
+                OnintIsBillingChanging(value);
+                ReportPropertyChanging("intIsBilling");
+                _intIsBilling = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intIsBilling");
+                OnintIsBillingChanged();
+            }
+        }
+        private Nullable<global::System.Byte> _intIsBilling;
+        partial void OnintIsBillingChanging(Nullable<global::System.Byte> value);
+        partial void OnintIsBillingChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Byte> intIsDetail
+        {
+            get
+            {
+                return _intIsDetail;
+            }
+            set
+            {
+                OnintIsDetailChanging(value);
+                ReportPropertyChanging("intIsDetail");
+                _intIsDetail = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intIsDetail");
+                OnintIsDetailChanged();
+            }
+        }
+        private Nullable<global::System.Byte> _intIsDetail;
+        partial void OnintIsDetailChanging(Nullable<global::System.Byte> value);
+        partial void OnintIsDetailChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dtCreateDate
+        {
+            get
+            {
+                return _dtCreateDate;
+            }
+            set
+            {
+                OndtCreateDateChanging(value);
+                ReportPropertyChanging("dtCreateDate");
+                _dtCreateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtCreateDate");
+                OndtCreateDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dtCreateDate;
+        partial void OndtCreateDateChanging(Nullable<global::System.DateTime> value);
+        partial void OndtCreateDateChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Sale_Order_PayState")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sale_Order_PayState : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Sale_Order_PayState 对象。
+        /// </summary>
+        /// <param name="intOrderPayStateID">intOrderPayStateID 属性的初始值。</param>
+        /// <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+        /// <param name="intPayState">intPayState 属性的初始值。</param>
+        /// <param name="intUserID">intUserID 属性的初始值。</param>
+        /// <param name="dtOpdate">dtOpdate 属性的初始值。</param>
+        public static Sale_Order_PayState CreateSale_Order_PayState(global::System.Int32 intOrderPayStateID, global::System.String vchOrderCode, global::System.Int32 intPayState, global::System.Int32 intUserID, global::System.DateTime dtOpdate)
+        {
+            Sale_Order_PayState sale_Order_PayState = new Sale_Order_PayState();
+            sale_Order_PayState.intOrderPayStateID = intOrderPayStateID;
+            sale_Order_PayState.vchOrderCode = vchOrderCode;
+            sale_Order_PayState.intPayState = intPayState;
+            sale_Order_PayState.intUserID = intUserID;
+            sale_Order_PayState.dtOpdate = dtOpdate;
+            return sale_Order_PayState;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intOrderPayStateID
+        {
+            get
+            {
+                return _intOrderPayStateID;
+            }
+            set
+            {
+                if (_intOrderPayStateID != value)
+                {
+                    OnintOrderPayStateIDChanging(value);
+                    ReportPropertyChanging("intOrderPayStateID");
+                    _intOrderPayStateID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intOrderPayStateID");
+                    OnintOrderPayStateIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intOrderPayStateID;
+        partial void OnintOrderPayStateIDChanging(global::System.Int32 value);
+        partial void OnintOrderPayStateIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchOrderCode
+        {
+            get
+            {
+                return _vchOrderCode;
+            }
+            set
+            {
+                OnvchOrderCodeChanging(value);
+                ReportPropertyChanging("vchOrderCode");
+                _vchOrderCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchOrderCode");
+                OnvchOrderCodeChanged();
+            }
+        }
+        private global::System.String _vchOrderCode;
+        partial void OnvchOrderCodeChanging(global::System.String value);
+        partial void OnvchOrderCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intPayState
+        {
+            get
+            {
+                return _intPayState;
+            }
+            set
+            {
+                OnintPayStateChanging(value);
+                ReportPropertyChanging("intPayState");
+                _intPayState = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intPayState");
+                OnintPayStateChanged();
+            }
+        }
+        private global::System.Int32 _intPayState;
+        partial void OnintPayStateChanging(global::System.Int32 value);
+        partial void OnintPayStateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intUserID
+        {
+            get
+            {
+                return _intUserID;
+            }
+            set
+            {
+                OnintUserIDChanging(value);
+                ReportPropertyChanging("intUserID");
+                _intUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intUserID");
+                OnintUserIDChanged();
+            }
+        }
+        private global::System.Int32 _intUserID;
+        partial void OnintUserIDChanging(global::System.Int32 value);
+        partial void OnintUserIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dtOpdate
+        {
+            get
+            {
+                return _dtOpdate;
+            }
+            set
+            {
+                OndtOpdateChanging(value);
+                ReportPropertyChanging("dtOpdate");
+                _dtOpdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtOpdate");
+                OndtOpdateChanged();
+            }
+        }
+        private global::System.DateTime _dtOpdate;
+        partial void OndtOpdateChanging(global::System.DateTime value);
+        partial void OndtOpdateChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Sale_Order_Prom_Rela")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sale_Order_Prom_Rela : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Sale_Order_Prom_Rela 对象。
+        /// </summary>
+        /// <param name="intID">intID 属性的初始值。</param>
+        /// <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+        /// <param name="intPromID">intPromID 属性的初始值。</param>
+        /// <param name="dtCreateDate">dtCreateDate 属性的初始值。</param>
+        /// <param name="intType">intType 属性的初始值。</param>
+        /// <param name="intChannelID">intChannelID 属性的初始值。</param>
+        /// <param name="intUserID">intUserID 属性的初始值。</param>
+        public static Sale_Order_Prom_Rela CreateSale_Order_Prom_Rela(global::System.Int32 intID, global::System.String vchOrderCode, global::System.Int32 intPromID, global::System.DateTime dtCreateDate, global::System.Byte intType, global::System.Int32 intChannelID, global::System.Int32 intUserID)
+        {
+            Sale_Order_Prom_Rela sale_Order_Prom_Rela = new Sale_Order_Prom_Rela();
+            sale_Order_Prom_Rela.intID = intID;
+            sale_Order_Prom_Rela.vchOrderCode = vchOrderCode;
+            sale_Order_Prom_Rela.intPromID = intPromID;
+            sale_Order_Prom_Rela.dtCreateDate = dtCreateDate;
+            sale_Order_Prom_Rela.intType = intType;
+            sale_Order_Prom_Rela.intChannelID = intChannelID;
+            sale_Order_Prom_Rela.intUserID = intUserID;
+            return sale_Order_Prom_Rela;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intID
+        {
+            get
+            {
+                return _intID;
+            }
+            set
+            {
+                if (_intID != value)
+                {
+                    OnintIDChanging(value);
+                    ReportPropertyChanging("intID");
+                    _intID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intID");
+                    OnintIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intID;
+        partial void OnintIDChanging(global::System.Int32 value);
+        partial void OnintIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intDetailID
+        {
+            get
+            {
+                return _intDetailID;
+            }
+            set
+            {
+                OnintDetailIDChanging(value);
+                ReportPropertyChanging("intDetailID");
+                _intDetailID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intDetailID");
+                OnintDetailIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intDetailID;
+        partial void OnintDetailIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintDetailIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchOrderCode
+        {
+            get
+            {
+                return _vchOrderCode;
+            }
+            set
+            {
+                OnvchOrderCodeChanging(value);
+                ReportPropertyChanging("vchOrderCode");
+                _vchOrderCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchOrderCode");
+                OnvchOrderCodeChanged();
+            }
+        }
+        private global::System.String _vchOrderCode;
+        partial void OnvchOrderCodeChanging(global::System.String value);
+        partial void OnvchOrderCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intPromID
+        {
+            get
+            {
+                return _intPromID;
+            }
+            set
+            {
+                OnintPromIDChanging(value);
+                ReportPropertyChanging("intPromID");
+                _intPromID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intPromID");
+                OnintPromIDChanged();
+            }
+        }
+        private global::System.Int32 _intPromID;
+        partial void OnintPromIDChanging(global::System.Int32 value);
+        partial void OnintPromIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dtCreateDate
+        {
+            get
+            {
+                return _dtCreateDate;
+            }
+            set
+            {
+                OndtCreateDateChanging(value);
+                ReportPropertyChanging("dtCreateDate");
+                _dtCreateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtCreateDate");
+                OndtCreateDateChanged();
+            }
+        }
+        private global::System.DateTime _dtCreateDate;
+        partial void OndtCreateDateChanging(global::System.DateTime value);
+        partial void OndtCreateDateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte intType
+        {
+            get
+            {
+                return _intType;
+            }
+            set
+            {
+                OnintTypeChanging(value);
+                ReportPropertyChanging("intType");
+                _intType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intType");
+                OnintTypeChanged();
+            }
+        }
+        private global::System.Byte _intType;
+        partial void OnintTypeChanging(global::System.Byte value);
+        partial void OnintTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intProductID
+        {
+            get
+            {
+                return _intProductID;
+            }
+            set
+            {
+                OnintProductIDChanging(value);
+                ReportPropertyChanging("intProductID");
+                _intProductID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intProductID");
+                OnintProductIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intProductID;
+        partial void OnintProductIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintProductIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intChannelID
+        {
+            get
+            {
+                return _intChannelID;
+            }
+            set
+            {
+                OnintChannelIDChanging(value);
+                ReportPropertyChanging("intChannelID");
+                _intChannelID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intChannelID");
+                OnintChannelIDChanged();
+            }
+        }
+        private global::System.Int32 _intChannelID;
+        partial void OnintChannelIDChanging(global::System.Int32 value);
+        partial void OnintChannelIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intUserID
+        {
+            get
+            {
+                return _intUserID;
+            }
+            set
+            {
+                OnintUserIDChanging(value);
+                ReportPropertyChanging("intUserID");
+                _intUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intUserID");
+                OnintUserIDChanged();
+            }
+        }
+        private global::System.Int32 _intUserID;
+        partial void OnintUserIDChanging(global::System.Int32 value);
+        partial void OnintUserIDChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Sale_Order_State")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sale_Order_State : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Sale_Order_State 对象。
+        /// </summary>
+        /// <param name="intOrderStateHisID">intOrderStateHisID 属性的初始值。</param>
+        /// <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+        /// <param name="intOrderState">intOrderState 属性的初始值。</param>
+        /// <param name="dtOpdate">dtOpdate 属性的初始值。</param>
+        /// <param name="intUserID">intUserID 属性的初始值。</param>
+        public static Sale_Order_State CreateSale_Order_State(global::System.Int32 intOrderStateHisID, global::System.String vchOrderCode, global::System.Int32 intOrderState, global::System.DateTime dtOpdate, global::System.Int32 intUserID)
+        {
+            Sale_Order_State sale_Order_State = new Sale_Order_State();
+            sale_Order_State.intOrderStateHisID = intOrderStateHisID;
+            sale_Order_State.vchOrderCode = vchOrderCode;
+            sale_Order_State.intOrderState = intOrderState;
+            sale_Order_State.dtOpdate = dtOpdate;
+            sale_Order_State.intUserID = intUserID;
+            return sale_Order_State;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intOrderStateHisID
+        {
+            get
+            {
+                return _intOrderStateHisID;
+            }
+            set
+            {
+                if (_intOrderStateHisID != value)
+                {
+                    OnintOrderStateHisIDChanging(value);
+                    ReportPropertyChanging("intOrderStateHisID");
+                    _intOrderStateHisID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intOrderStateHisID");
+                    OnintOrderStateHisIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intOrderStateHisID;
+        partial void OnintOrderStateHisIDChanging(global::System.Int32 value);
+        partial void OnintOrderStateHisIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String vchOrderCode
+        {
+            get
+            {
+                return _vchOrderCode;
+            }
+            set
+            {
+                OnvchOrderCodeChanging(value);
+                ReportPropertyChanging("vchOrderCode");
+                _vchOrderCode = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("vchOrderCode");
+                OnvchOrderCodeChanged();
+            }
+        }
+        private global::System.String _vchOrderCode;
+        partial void OnvchOrderCodeChanging(global::System.String value);
+        partial void OnvchOrderCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intOrderState
+        {
+            get
+            {
+                return _intOrderState;
+            }
+            set
+            {
+                OnintOrderStateChanging(value);
+                ReportPropertyChanging("intOrderState");
+                _intOrderState = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intOrderState");
+                OnintOrderStateChanged();
+            }
+        }
+        private global::System.Int32 _intOrderState;
+        partial void OnintOrderStateChanging(global::System.Int32 value);
+        partial void OnintOrderStateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime dtOpdate
+        {
+            get
+            {
+                return _dtOpdate;
+            }
+            set
+            {
+                OndtOpdateChanging(value);
+                ReportPropertyChanging("dtOpdate");
+                _dtOpdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtOpdate");
+                OndtOpdateChanged();
+            }
+        }
+        private global::System.DateTime _dtOpdate;
+        partial void OndtOpdateChanging(global::System.DateTime value);
+        partial void OndtOpdateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intUserID
+        {
+            get
+            {
+                return _intUserID;
+            }
+            set
+            {
+                OnintUserIDChanging(value);
+                ReportPropertyChanging("intUserID");
+                _intUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intUserID");
+                OnintUserIDChanged();
+            }
+        }
+        private global::System.Int32 _intUserID;
+        partial void OnintUserIDChanging(global::System.Int32 value);
+        partial void OnintUserIDChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Sale_ShopCart_Prom_Rela")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Sale_ShopCart_Prom_Rela : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Sale_ShopCart_Prom_Rela 对象。
+        /// </summary>
+        /// <param name="intID">intID 属性的初始值。</param>
+        /// <param name="intShopCartID">intShopCartID 属性的初始值。</param>
+        /// <param name="intChannelID">intChannelID 属性的初始值。</param>
+        /// <param name="intUserID">intUserID 属性的初始值。</param>
+        public static Sale_ShopCart_Prom_Rela CreateSale_ShopCart_Prom_Rela(global::System.Int32 intID, global::System.Int32 intShopCartID, global::System.Int32 intChannelID, global::System.Int32 intUserID)
+        {
+            Sale_ShopCart_Prom_Rela sale_ShopCart_Prom_Rela = new Sale_ShopCart_Prom_Rela();
+            sale_ShopCart_Prom_Rela.intID = intID;
+            sale_ShopCart_Prom_Rela.intShopCartID = intShopCartID;
+            sale_ShopCart_Prom_Rela.intChannelID = intChannelID;
+            sale_ShopCart_Prom_Rela.intUserID = intUserID;
+            return sale_ShopCart_Prom_Rela;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intID
+        {
+            get
+            {
+                return _intID;
+            }
+            set
+            {
+                if (_intID != value)
+                {
+                    OnintIDChanging(value);
+                    ReportPropertyChanging("intID");
+                    _intID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intID");
+                    OnintIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intID;
+        partial void OnintIDChanging(global::System.Int32 value);
+        partial void OnintIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intShopCartID
+        {
+            get
+            {
+                return _intShopCartID;
+            }
+            set
+            {
+                OnintShopCartIDChanging(value);
+                ReportPropertyChanging("intShopCartID");
+                _intShopCartID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intShopCartID");
+                OnintShopCartIDChanged();
+            }
+        }
+        private global::System.Int32 _intShopCartID;
+        partial void OnintShopCartIDChanging(global::System.Int32 value);
+        partial void OnintShopCartIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intPromID
+        {
+            get
+            {
+                return _intPromID;
+            }
+            set
+            {
+                OnintPromIDChanging(value);
+                ReportPropertyChanging("intPromID");
+                _intPromID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intPromID");
+                OnintPromIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intPromID;
+        partial void OnintPromIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintPromIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dtCreateDate
+        {
+            get
+            {
+                return _dtCreateDate;
+            }
+            set
+            {
+                OndtCreateDateChanging(value);
+                ReportPropertyChanging("dtCreateDate");
+                _dtCreateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtCreateDate");
+                OndtCreateDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dtCreateDate;
+        partial void OndtCreateDateChanging(Nullable<global::System.DateTime> value);
+        partial void OndtCreateDateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intType
+        {
+            get
+            {
+                return _intType;
+            }
+            set
+            {
+                OnintTypeChanging(value);
+                ReportPropertyChanging("intType");
+                _intType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intType");
+                OnintTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intType;
+        partial void OnintTypeChanging(Nullable<global::System.Int32> value);
+        partial void OnintTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intProductID
+        {
+            get
+            {
+                return _intProductID;
+            }
+            set
+            {
+                OnintProductIDChanging(value);
+                ReportPropertyChanging("intProductID");
+                _intProductID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intProductID");
+                OnintProductIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intProductID;
+        partial void OnintProductIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintProductIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intChannelID
+        {
+            get
+            {
+                return _intChannelID;
+            }
+            set
+            {
+                OnintChannelIDChanging(value);
+                ReportPropertyChanging("intChannelID");
+                _intChannelID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intChannelID");
+                OnintChannelIDChanged();
+            }
+        }
+        private global::System.Int32 _intChannelID;
+        partial void OnintChannelIDChanging(global::System.Int32 value);
+        partial void OnintChannelIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intUserID
+        {
+            get
+            {
+                return _intUserID;
+            }
+            set
+            {
+                OnintUserIDChanging(value);
+                ReportPropertyChanging("intUserID");
+                _intUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intUserID");
+                OnintUserIDChanged();
+            }
+        }
+        private global::System.Int32 _intUserID;
+        partial void OnintUserIDChanging(global::System.Int32 value);
+        partial void OnintUserIDChanged();
 
         #endregion
     
@@ -9100,6 +12643,102 @@ namespace EF.Model.DataContext
         private global::System.String _vchViewEn;
         partial void OnvchViewEnChanging(global::System.String value);
         partial void OnvchViewEnChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchWebShowName
+        {
+            get
+            {
+                return _vchWebShowName;
+            }
+            set
+            {
+                OnvchWebShowNameChanging(value);
+                ReportPropertyChanging("vchWebShowName");
+                _vchWebShowName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchWebShowName");
+                OnvchWebShowNameChanged();
+            }
+        }
+        private global::System.String _vchWebShowName;
+        partial void OnvchWebShowNameChanging(global::System.String value);
+        partial void OnvchWebShowNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchMenuShowName
+        {
+            get
+            {
+                return _vchMenuShowName;
+            }
+            set
+            {
+                OnvchMenuShowNameChanging(value);
+                ReportPropertyChanging("vchMenuShowName");
+                _vchMenuShowName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchMenuShowName");
+                OnvchMenuShowNameChanged();
+            }
+        }
+        private global::System.String _vchMenuShowName;
+        partial void OnvchMenuShowNameChanging(global::System.String value);
+        partial void OnvchMenuShowNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchMobileShowName
+        {
+            get
+            {
+                return _vchMobileShowName;
+            }
+            set
+            {
+                OnvchMobileShowNameChanging(value);
+                ReportPropertyChanging("vchMobileShowName");
+                _vchMobileShowName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchMobileShowName");
+                OnvchMobileShowNameChanged();
+            }
+        }
+        private global::System.String _vchMobileShowName;
+        partial void OnvchMobileShowNameChanging(global::System.String value);
+        partial void OnvchMobileShowNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intMenuIsVisible
+        {
+            get
+            {
+                return _intMenuIsVisible;
+            }
+            set
+            {
+                OnintMenuIsVisibleChanging(value);
+                ReportPropertyChanging("intMenuIsVisible");
+                _intMenuIsVisible = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intMenuIsVisible");
+                OnintMenuIsVisibleChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intMenuIsVisible;
+        partial void OnintMenuIsVisibleChanging(Nullable<global::System.Int32> value);
+        partial void OnintMenuIsVisibleChanged();
 
         #endregion
     

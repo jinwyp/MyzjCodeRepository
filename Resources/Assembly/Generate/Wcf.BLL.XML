@@ -72,7 +72,7 @@
             <summary>
             获取购物车商品信息
             </summary>
-            <param name="token"> </param>
+            <param name="guid"> </param>
             <param name="channelId"></param>
             <param name="uid"></param>
             <param name="user_id"> </param>
@@ -86,40 +86,6 @@
             <param name="channelId"></param>
             <param name="uid"></param>
             <param name="userID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Wcf.BLL.ShoppingCart.ShoppingCartBll.CreateOrder(System.String,System.Int32,System.String,System.Int32,Wcf.Entity.Order.OrderEntity)">
-            <summary>
-            创建订单
-            </summary>
-            <param name="guid"></param>
-            <param name="channelId"></param>
-            <param name="uid"></param>
-            <param name="userId"></param>
-            <param name="order"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Wcf.BLL.ShoppingCart.ShoppingCartBll.GetTempOrderInfo(System.String,System.Int32,System.String,System.Int32,Wcf.Entity.Order.OrderEntity)">
-            <summary>
-            获取临时订单信息
-            </summary>
-            <param name="guid"></param>
-            <param name="channelId"> </param>
-            <param name="uid"></param>
-            <param name="userId"></param>
-            <param name="order"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Wcf.BLL.ShoppingCart.ShoppingCartBll.SummaryOrderInfo(System.Collections.Generic.List{Wcf.Entity.Order.ShoppingCartEntity},System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            订单汇总信息
-            </summary>
-            <param name="norMalShoppingCart">购物车列表</param>
-            <param name="channelId">区域ID</param>
-            <param name="userId">用户id</param>
-            <param name="payId">支付id</param>
-            <param name="logisticsId">配送id</param>
-            <param name="cityId">城市id</param>
             <returns></returns>
         </member>
         <member name="M:Wcf.BLL.Member.MemberBLL.CreateUserToKen">
@@ -300,6 +266,68 @@
             </summary>
             <param name="productId">商品ID</param>
             <param name="stockQuantity">商品数量</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wcf.BLL.Order.OrderBLL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Wcf.BLL.Order.OrderBLL.CreateOrder(System.String,System.Int32,System.String,System.Int32,Wcf.Entity.Order.OrderEntity)">
+            <summary>
+            创建订单
+            </summary>
+            <param name="guid"></param>
+            <param name="channelId"></param>
+            <param name="uid"></param>
+            <param name="userId"></param>
+            <param name="orderEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.BLL.Order.OrderBLL.GetTempOrderInfo(System.String,System.Int32,System.String,System.Int32,Wcf.Entity.Order.OrderEntity)">
+            <summary>
+            获取临时订单信息
+            </summary>
+            <param name="guid"></param>
+            <param name="channelId"> </param>
+            <param name="uid"></param>
+            <param name="userId"></param>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.BLL.Order.OrderBLL.SummaryOrderInfo(System.Collections.Generic.List{Wcf.Entity.Order.ShoppingCartEntity},System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            订单汇总信息
+            </summary>
+            <param name="norMalShoppingCart">购物车列表</param>
+            <param name="channelId">区域ID</param>
+            <param name="userId">用户id</param>
+            <param name="payId">支付id</param>
+            <param name="logisticsId">配送id</param>
+            <param name="cityId">城市id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.BLL.Order.OrderBLL.CheckGoodsSaleArea(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            检查商品销售区域
+            </summary>
+            <param name="userId"></param>
+            <param name="cityId"></param>
+            <param name="channelId"></param>
+            <returns>无效的 商品ID</returns>
+        </member>
+        <member name="M:Wcf.BLL.Order.OrderBLL.CheckDateTime(System.Int32,System.Int32)">
+            <summary>
+            计算送货时间
+            </summary>
+            <param name="num"></param>
+            <param name="deliverID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.BLL.Order.OrderBLL.GetOrderCode">
+            <summary>
+            获取订单编号
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Wcf.BLL.BaseData.BaseDataBLL">

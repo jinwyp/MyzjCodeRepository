@@ -119,6 +119,51 @@
             用于向 Vi_User_Shortage EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
             </summary>
         </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.AddToBase_SaleArea_Product(EF.Model.DataContext.Base_SaleArea_Product)">
+            <summary>
+            用于向 Base_SaleArea_Product EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.AddToSale_Order(EF.Model.DataContext.Sale_Order)">
+            <summary>
+            用于向 Sale_Order EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.AddToSale_Order_Invoice(EF.Model.DataContext.Sale_Order_Invoice)">
+            <summary>
+            用于向 Sale_Order_Invoice EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.AddToSale_Order_State(EF.Model.DataContext.Sale_Order_State)">
+            <summary>
+            用于向 Sale_Order_State EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.AddToSale_Order_Detail(EF.Model.DataContext.Sale_Order_Detail)">
+            <summary>
+            用于向 Sale_Order_Detail EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.AddToSale_Order_Prom_Rela(EF.Model.DataContext.Sale_Order_Prom_Rela)">
+            <summary>
+            用于向 Sale_Order_Prom_Rela EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.AddToSale_Order_Deliver(EF.Model.DataContext.Sale_Order_Deliver)">
+            <summary>
+            用于向 Sale_Order_Deliver EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.AddToSale_Order_PayState(EF.Model.DataContext.Sale_Order_PayState)">
+            <summary>
+            用于向 Sale_Order_PayState EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.AddToSale_ShopCart_Prom_Rela(EF.Model.DataContext.Sale_ShopCart_Prom_Rela)">
+            <summary>
+            用于向 Sale_ShopCart_Prom_Rela EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+            </summary>
+        </member>
         <member name="M:EF.Model.DataContext.HolycaEntities.Up_ShopCart_GetCarriage(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Data.Objects.ObjectParameter)">
             <summary>
             没有元数据文档可用。
@@ -127,6 +172,13 @@
             <param name="deliverId">没有元数据文档可用。</param>
             <param name="cityId">没有元数据文档可用。</param>
             <param name="intcarriage">没有元数据文档可用。</param>
+        </member>
+        <member name="M:EF.Model.DataContext.HolycaEntities.Up_Syn_ToBBHome_Now(System.String,System.Data.Objects.ObjectParameter)">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+            <param name="orderCode">没有元数据文档可用。</param>
+            <param name="result">没有元数据文档可用。</param>
         </member>
         <member name="P:EF.Model.DataContext.HolycaEntities.Base_Brand">
             <summary>
@@ -219,6 +271,51 @@
             </summary>
         </member>
         <member name="P:EF.Model.DataContext.HolycaEntities.Vi_User_Shortage">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.HolycaEntities.Base_SaleArea_Product">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.HolycaEntities.Sale_Order">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.HolycaEntities.Sale_Order_Invoice">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.HolycaEntities.Sale_Order_State">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.HolycaEntities.Sale_Order_Detail">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.HolycaEntities.Sale_Order_Prom_Rela">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.HolycaEntities.Sale_Order_Deliver">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.HolycaEntities.Sale_Order_PayState">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.HolycaEntities.Sale_ShopCart_Prom_Rela">
             <summary>
             没有元数据文档可用。
             </summary>
@@ -631,6 +728,38 @@
             没有元数据文档可用。
             </summary>
         </member>
+        <member name="T:EF.Model.DataContext.Base_SaleArea_Product">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.Base_SaleArea_Product.CreateBase_SaleArea_Product(System.Int32,System.Int32)">
+            <summary>
+            创建新的 Base_SaleArea_Product 对象。
+            </summary>
+            <param name="intSalesID">intSalesID 属性的初始值。</param>
+            <param name="intProductID">intProductID 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.Base_SaleArea_Product.intSalesID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Base_SaleArea_Product.intProductID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Base_SaleArea_Product.intAreaID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Base_SaleArea_Product.intState">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
         <member name="T:EF.Model.DataContext.Pdt_Base_Info">
             <summary>
             没有元数据文档可用。
@@ -1011,6 +1140,740 @@
             </summary>
         </member>
         <member name="P:EF.Model.DataContext.Pdt_Stock.intStockQty">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="T:EF.Model.DataContext.Sale_Order">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.Sale_Order.CreateSale_Order(System.Int32,System.String,System.DateTime,System.Int32,System.String,System.Int32,System.DateTime,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Decimal,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            创建新的 Sale_Order 对象。
+            </summary>
+            <param name="intOrderNO">intOrderNO 属性的初始值。</param>
+            <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+            <param name="dtCreateDate">dtCreateDate 属性的初始值。</param>
+            <param name="intUserID">intUserID 属性的初始值。</param>
+            <param name="vchUserCode">vchUserCode 属性的初始值。</param>
+            <param name="intOrderType">intOrderType 属性的初始值。</param>
+            <param name="dtSendDate">dtSendDate 属性的初始值。</param>
+            <param name="numAddAmount">numAddAmount 属性的初始值。</param>
+            <param name="numCarriage">numCarriage 属性的初始值。</param>
+            <param name="numGoodsAmount">numGoodsAmount 属性的初始值。</param>
+            <param name="numReceAmount">numReceAmount 属性的初始值。</param>
+            <param name="numChange">numChange 属性的初始值。</param>
+            <param name="numWeight">numWeight 属性的初始值。</param>
+            <param name="intPayID">intPayID 属性的初始值。</param>
+            <param name="intDeliverID">intDeliverID 属性的初始值。</param>
+            <param name="intChannel">intChannel 属性的初始值。</param>
+            <param name="intTotalStars">intTotalStars 属性的初始值。</param>
+            <param name="intOrderState">intOrderState 属性的初始值。</param>
+            <param name="intPayState">intPayState 属性的初始值。</param>
+            <param name="intCreaterID">intCreaterID 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intOrderNO">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.vchOrderCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.dtCreateDate">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intUserID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.vchUserCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intOrderType">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.dtSendDate">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.vchSendTime">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.numAddAmount">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.numCarriage">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.numGoodsAmount">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.numReceAmount">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.numChange">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.numWeight">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intPayID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intDeliverID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intChannel">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intTotalStars">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intOrderState">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intPayState">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intCreaterID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intLogisticsID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intStockID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intAreaID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.intSpId">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.vchMemo">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.numCouponAmount">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.paymentAmount">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order.accountAmount">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="T:EF.Model.DataContext.Sale_Order_Deliver">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.Sale_Order_Deliver.CreateSale_Order_Deliver(System.Int32,System.String,System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            创建新的 Sale_Order_Deliver 对象。
+            </summary>
+            <param name="intOrderDeliverID">intOrderDeliverID 属性的初始值。</param>
+            <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+            <param name="intAddressID">intAddressID 属性的初始值。</param>
+            <param name="vchConsignee">vchConsignee 属性的初始值。</param>
+            <param name="intStateID">intStateID 属性的初始值。</param>
+            <param name="intCityID">intCityID 属性的初始值。</param>
+            <param name="intCountyID">intCountyID 属性的初始值。</param>
+            <param name="vchDetailAddr">vchDetailAddr 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.intOrderDeliverID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchOrderCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.intAddressID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchConsignee">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchPhone">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchMobile">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.intStateID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchStateName">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.intCityID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchCityName">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.intCountyID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchCountyName">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchDetailAddr">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchPostCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchRoadName">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchHausnummer">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchUserMemo">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Deliver.vchInMemo">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="T:EF.Model.DataContext.Sale_Order_Detail">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.Sale_Order_Detail.CreateSale_Order_Detail(System.Int32,System.String,System.Int32,System.Int32,System.String,System.String,System.Int32,System.Decimal,System.Decimal,System.Int32,System.Int32,System.Int32,System.Int32,System.DateTime,System.Int32,System.Byte,System.Int32,System.Byte)">
+            <summary>
+            创建新的 Sale_Order_Detail 对象。
+            </summary>
+            <param name="intDetailID">intDetailID 属性的初始值。</param>
+            <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+            <param name="intUserID">intUserID 属性的初始值。</param>
+            <param name="intProductID">intProductID 属性的初始值。</param>
+            <param name="vchProductPrinted">vchProductPrinted 属性的初始值。</param>
+            <param name="vchProductName">vchProductName 属性的初始值。</param>
+            <param name="intQty">intQty 属性的初始值。</param>
+            <param name="numSalePrice">numSalePrice 属性的初始值。</param>
+            <param name="numTotalAmount">numTotalAmount 属性的初始值。</param>
+            <param name="intHerdPriceID">intHerdPriceID 属性的初始值。</param>
+            <param name="intRtnQty">intRtnQty 属性的初始值。</param>
+            <param name="intBaseStar">intBaseStar 属性的初始值。</param>
+            <param name="intScores">intScores 属性的初始值。</param>
+            <param name="dtOpDate">dtOpDate 属性的初始值。</param>
+            <param name="intChannel">intChannel 属性的初始值。</param>
+            <param name="intIsDelete">intIsDelete 属性的初始值。</param>
+            <param name="intPromID">intPromID 属性的初始值。</param>
+            <param name="intIsInvoice">intIsInvoice 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intDetailID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.vchOrderCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intUserID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intProductID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.vchProductPrinted">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.vchProductName">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intQty">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.numSalePrice">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.numTotalAmount">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intHerdPriceID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.numStandarPrice">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intRtnQty">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.numCost">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.numCleanCost">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.numMonthCost">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.numMonthCleanCost">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intBaseStar">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intScores">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intStockID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intLogisticsID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.dtOpDate">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intChannel">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intIsDelete">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intPromID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.intIsInvoice">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Detail.vchCoponCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="T:EF.Model.DataContext.Sale_Order_Invoice">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.Sale_Order_Invoice.CreateSale_Order_Invoice(System.Int32,System.String)">
+            <summary>
+            创建新的 Sale_Order_Invoice 对象。
+            </summary>
+            <param name="intInvoicID">intInvoicID 属性的初始值。</param>
+            <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.intInvoicID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.vchOrderCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.intUserID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.intInvoiceType">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.intInvoiceKind">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.vchAccount">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.numAmount">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.vchAddress">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.vchInvoicTitile">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.dtBillingTime">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.intCreaterID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.vchInvoiceID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.vchPhone">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.vchMemo">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.intIsBilling">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.intIsDetail">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Invoice.dtCreateDate">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="T:EF.Model.DataContext.Sale_Order_PayState">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.Sale_Order_PayState.CreateSale_Order_PayState(System.Int32,System.String,System.Int32,System.Int32,System.DateTime)">
+            <summary>
+            创建新的 Sale_Order_PayState 对象。
+            </summary>
+            <param name="intOrderPayStateID">intOrderPayStateID 属性的初始值。</param>
+            <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+            <param name="intPayState">intPayState 属性的初始值。</param>
+            <param name="intUserID">intUserID 属性的初始值。</param>
+            <param name="dtOpdate">dtOpdate 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_PayState.intOrderPayStateID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_PayState.vchOrderCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_PayState.intPayState">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_PayState.intUserID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_PayState.dtOpdate">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="T:EF.Model.DataContext.Sale_Order_Prom_Rela">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.Sale_Order_Prom_Rela.CreateSale_Order_Prom_Rela(System.Int32,System.String,System.Int32,System.DateTime,System.Byte,System.Int32,System.Int32)">
+            <summary>
+            创建新的 Sale_Order_Prom_Rela 对象。
+            </summary>
+            <param name="intID">intID 属性的初始值。</param>
+            <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+            <param name="intPromID">intPromID 属性的初始值。</param>
+            <param name="dtCreateDate">dtCreateDate 属性的初始值。</param>
+            <param name="intType">intType 属性的初始值。</param>
+            <param name="intChannelID">intChannelID 属性的初始值。</param>
+            <param name="intUserID">intUserID 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Prom_Rela.intID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Prom_Rela.intDetailID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Prom_Rela.vchOrderCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Prom_Rela.intPromID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Prom_Rela.dtCreateDate">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Prom_Rela.intType">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Prom_Rela.intProductID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Prom_Rela.intChannelID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_Prom_Rela.intUserID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="T:EF.Model.DataContext.Sale_Order_State">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.Sale_Order_State.CreateSale_Order_State(System.Int32,System.String,System.Int32,System.DateTime,System.Int32)">
+            <summary>
+            创建新的 Sale_Order_State 对象。
+            </summary>
+            <param name="intOrderStateHisID">intOrderStateHisID 属性的初始值。</param>
+            <param name="vchOrderCode">vchOrderCode 属性的初始值。</param>
+            <param name="intOrderState">intOrderState 属性的初始值。</param>
+            <param name="dtOpdate">dtOpdate 属性的初始值。</param>
+            <param name="intUserID">intUserID 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_State.intOrderStateHisID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_State.vchOrderCode">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_State.intOrderState">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_State.dtOpdate">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_Order_State.intUserID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="T:EF.Model.DataContext.Sale_ShopCart_Prom_Rela">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="M:EF.Model.DataContext.Sale_ShopCart_Prom_Rela.CreateSale_ShopCart_Prom_Rela(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            创建新的 Sale_ShopCart_Prom_Rela 对象。
+            </summary>
+            <param name="intID">intID 属性的初始值。</param>
+            <param name="intShopCartID">intShopCartID 属性的初始值。</param>
+            <param name="intChannelID">intChannelID 属性的初始值。</param>
+            <param name="intUserID">intUserID 属性的初始值。</param>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_ShopCart_Prom_Rela.intID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_ShopCart_Prom_Rela.intShopCartID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_ShopCart_Prom_Rela.intPromID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_ShopCart_Prom_Rela.dtCreateDate">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_ShopCart_Prom_Rela.intType">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_ShopCart_Prom_Rela.intProductID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_ShopCart_Prom_Rela.intChannelID">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Sale_ShopCart_Prom_Rela.intUserID">
             <summary>
             没有元数据文档可用。
             </summary>
@@ -2107,6 +2970,26 @@
             没有元数据文档可用。
             </summary>
         </member>
+        <member name="P:EF.Model.DataContext.Web_Pdt_Type.vchWebShowName">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Web_Pdt_Type.vchMenuShowName">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Web_Pdt_Type.vchMobileShowName">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.DataContext.Web_Pdt_Type.intMenuIsVisible">
+            <summary>
+            没有元数据文档可用。
+            </summary>
+        </member>
         <member name="T:EF.Model.DataContext.Web_Type_FlagBrand">
             <summary>
             没有元数据文档可用。
@@ -2579,6 +3462,316 @@
         <member name="P:EF.Model.DataContext.tb_Blacklist.vchAddress">
             <summary>
             没有元数据文档可用。
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.OrderNo">
+            <summary>
+            属性: 订单标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.OrderCode">
+            <summary>
+            属性: 订单编号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.CreateDate">
+            <summary>
+            属性: 创建时间
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.UserCode">
+            <summary>
+            属性: 用户编号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.OrderType">
+            <summary>
+            属性: 业务类型（1销售订单，5奥优订单，6代理商订单，11客服批发订单，12特殊）
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.SendDate">
+            <summary>
+            属性: 送货日期
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.SendTime">
+            <summary>
+            属性: 送货时间
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.CouponAmount">
+            <summary>
+            属性: 整单优惠金额
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.AddAmount">
+            <summary>
+            属性: 附加金额
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.Carriage">
+            <summary>
+            属性: 附加金额（运费、保险。。。）
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.GoodsAmount">
+            <summary>
+            总货款
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.ReceAmount">
+            <summary>
+            实收金额
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.Change">
+            <summary>
+            属性: 零头
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.Weight">
+            <summary>
+            重量
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.PayID">
+            <summary>
+            付款方式标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.DeliverID">
+            <summary>
+            送货方式标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.Channel">
+            <summary>
+            渠道编号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.TotalStars">
+            <summary>
+            总幸运星数
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.OrderState">
+            <summary>
+            订单状态
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.PayState">
+            <summary>
+            支付状态
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.CreaterID">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.LogisticsID">
+            <summary>
+            物流中心标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.StockID">
+            <summary>
+            仓库标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.Items">
+            <summary>
+            订单明细
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.Memo">
+            <summary>
+            订单备注
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Order.SpID">
+            <summary>
+            SpID价格ID
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.CreateDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.IsDetail">
+            <summary>
+            是否显示明细（0 不显示，1显示）
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.IsBilling">
+            <summary>
+            是否开发票（0 未开票，1已经开票）
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.Memo">
+            <summary>
+            发票备注
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.Phone">
+            <summary>
+            开票电话
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.InvoiceID">
+            <summary>
+            开票编号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.CreaterID">
+            <summary>
+            开票人
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.BillingTime">
+            <summary>
+            开票时间
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.InvoicTitile">
+            <summary>
+            发票抬头
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.Address">
+            <summary>
+            开票地址
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.Amount">
+            <summary>
+            发票金额
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.Account">
+            <summary>
+            开票帐号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.InvoiceKind">
+            <summary>
+            发票类别(1普票2增票)
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.InvoiceType">
+            <summary>
+            发票类型(1用品2食品)
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.UserID">
+            <summary>
+            会员编号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.OrderCode">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderInvoice.InvoicID">
+            <summary>
+            发票标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.InMemo">
+            <summary>
+            内部备注（ERP上限制100个汉字，200个字符）
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.UserMemo">
+            <summary>
+            用户备注（ERP上限制250个汉字，500个字符）
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.Hausnummer">
+            <summary>
+            门牌号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.RoadName">
+            <summary>
+            路名
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.PostCode">
+            <summary>
+            邮编
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.DetailAddr">
+            <summary>
+            详细地址
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.CountyName">
+            <summary>
+            区县名称
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.CountyID">
+            <summary>
+            区县标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.CityName">
+            <summary>
+            市名称
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.CityID">
+            <summary>
+            市标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.StateName">
+            <summary>
+            省名称
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.StateID">
+            <summary>
+            省标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.Mobile">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.Phone">
+            <summary>
+            电话号码
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.Consignee">
+            <summary>
+            收货人名称
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.AddressID">
+            <summary>
+            收货人地址标识
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.OrderCode">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDeliver.OrderDeliverID">
+            <summary>
+            订单配送信息标识
             </summary>
         </member>
     </members>

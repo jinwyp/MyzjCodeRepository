@@ -4,13 +4,562 @@ using System.Linq;
 using System.Text;
 
 using Core.DataType;
-
+using Core.DataTypeUtility;
+using Core.Enums;
+using Core.LogUtility;
+using EF.Model.DataContext;
+using EF.Model.Entity;
+using Factory;
+using Wcf.BLL.BaseData;
+using Wcf.BLL.ServiceReference.External;
+using Wcf.Entity.Enum;
 using Wcf.Entity.Order;
 
 namespace Wcf.BLL.Order
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class OrderBLL
     {
-        
+        /// <summary>
+        /// 创建订单
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <param name="channelId"></param>
+        /// <param name="uid"></param>
+        /// <param name="userId"></param>
+        /// <param name="orderEntity"></param>
+        /// <returns></returns>
+        public static MResult<ItemOrder> CreateOrder(string guid, int channelId, string uid, int userId, OrderEntity orderEntity)
+        {
+            var result = new MResult<ItemOrder>();
+
+            try
+            {
+                var memberDal = DALFactory.Member();
+                var shoppingCart = Factory.DALFactory.ShoppingCartDal();
+                var orderDal = DALFactory.Order();
+
+                #region 验证数据
+
+                #region 用户是否登录
+                if (userId <= 0)
+                {
+                    result.msg = "请登录后再操作！";
+                    result.status = MResultStatus.ParamsError;
+                    return result;
+                }
+                #endregion
+
+                #region 收货地址
+                if (orderEntity.addressid <= 0)
+                {
+                    result.msg = "请选择收货地址！";
+                    result.status = MResultStatus.ParamsError;
+                    return result;
+                }
+                #endregion
+
+                #region 支付方式
+                if (orderEntity.payid != null)
+                {
+                    result.msg = "请选择支付方式！";
+                    result.status = MResultStatus.ParamsError;
+                    return result;
+                }
+                #endregion
+
+                #region 配送方式
+                if (orderEntity.logisticsid <= 0)
+                {
+                    result.msg = "请选择配送方式！";
+                    result.status = MResultStatus.ParamsError;
+                    return result;
+                }
+                #endregion
+
+                #region 发票信息是否完整
+                if (orderEntity.titletype == null)
+                {
+                    result.msg = "请选择发票类型！";
+                    result.status = MResultStatus.ParamsError;
+                    return result;
+                }
+                if (orderEntity.titletype != Entity.Enum.Invoice.TitleType.NoNeed)
+                {
+                    if (orderEntity.invoicecategory == null)
+                    {
+                        result.msg = "请选择发票分类！";
+                        result.status = MResultStatus.ParamsError;
+                        return result;
+                    }
+                    if (orderEntity.titletype == Entity.Enum.Invoice.TitleType.Company && string.IsNullOrEmpty(orderEntity.invoicetitle))
+                    {
+                        result.msg = "请填写发票抬头！";
+                        result.status = MResultStatus.ParamsError;
+                        return result;
+                    }
+                }
+                #endregion
+
+                #endregion
+
+                var memberInfo = memberDal.GetMemberInfo(uid);
+
+                #region 验证用户是否存在
+                if (memberInfo == null || memberInfo.membNo <= 0)
+                {
+                    result.msg = "该用户不存在！";
+                    result.status = MResultStatus.ParamsError;
+                    return result;
+                }
+                #endregion
+
+                //购物车商品数据
+                List<ShoppingCartEntity> norMalShoppingCartList = null;
+
+                #region 判断购物车是否有商品
+                var shoppingCartList = shoppingCart.GetShoppingCartProductInfosByUserIDGuidChannelID(userId, guid, channelId);
+                if (shoppingCartList == null || shoppingCartList.Any())
+                {
+                    result.msg = "购物车没有商品！";
+                    result.status = MResultStatus.LogicError;
+                    return result;
+                }
+                norMalShoppingCartList = (from a in shoppingCartList
+                                          where a.intIsDelete == 0
+                                          select a).ToList();
+
+                if (!norMalShoppingCartList.Any())
+                {
+                    result.msg = "购物车没有商品！";
+                    result.status = MResultStatus.LogicError;
+                    return result;
+                }
+                #endregion
+
+                #region 该用户是否是黑名单
+                var isExistBacklist = memberDal.CheckUserIdInBackList(userId);
+                if (isExistBacklist)
+                {
+                    result.msg = "您的用户出现异常，请联系我们的客服人员进行解决！";
+                    result.status = MResultStatus.LogicError;
+                    return result;
+                }
+                #endregion
+
+                //收货地址信息
+                var addressInfo = memberDal.GetMemberAddressInfo(orderEntity.addressid);
+
+                #region 验证收货地址
+                #region 是否存在
+                if (addressInfo == null || addressInfo.intAddressID <= 0 || addressInfo.intCityID <= 0 && orderEntity.payid <= 0 && orderEntity.logisticsid <= 0)
+                {
+                    result.msg = "收货地址信息不正确！";
+                    result.status = MResultStatus.ParamsError;
+                    return result;
+                }
+                #endregion
+                if (addressInfo.intCityID != 21)
+                {
+
+                }
+                #endregion
+
+                #region 检查商品销售区域
+                var checkGoodsSaleAreaState = CheckGoodsSaleArea(userId, MCvHelper.To<int>(addressInfo.intCityID), channelId);
+                if (checkGoodsSaleAreaState.Any())
+                {
+                    result.msg = "有部分商品不在您选择的区域内销售！";
+                    result.status = MResultStatus.LogicError;
+                    result.data = String.Join(",", checkGoodsSaleAreaState.ToArray());
+                    return result;
+                }
+                #endregion
+
+                var summaryOrderInfo = SummaryOrderInfo(norMalShoppingCartList, channelId, userId, MCvHelper.To<int>(orderEntity.payid,-1), orderEntity.logisticsid,
+                                                     MCvHelper.To<int>(addressInfo.intCityID));
+
+                #region 开始创建订单
+                if (summaryOrderInfo != null && summaryOrderInfo.TotalGoodsFee > 0)
+                {
+                    //TODO: 创建订单数据
+                    var order = new Sale_Order();
+
+                    #region 订单主表信息
+                    order.dtCreateDate = DateTime.Now;
+                    order.dtSendDate = CheckDateTime(orderEntity.posttimetype, orderEntity.logisticsid);                         //处理送货日期
+                    order.intChannel = channelId;
+                    order.intCreaterID = 555;
+                    order.intDeliverID = orderEntity.logisticsid;
+                    order.intLogisticsID = 21;
+                    order.intOrderState = 1;
+                    order.intOrderType = 1;
+                    order.intPayID = MCvHelper.To<int>(orderEntity.payid, -1);
+                    order.intPayState = 0;
+                    order.intStockID = 100;
+                    order.intTotalStars = summaryOrderInfo.TotalScore;
+                    order.intUserID = userId;
+                    order.numAddAmount = 0;
+                    order.numCarriage = summaryOrderInfo.TotalFreight;
+                    order.numChange = 0;
+                    order.numGoodsAmount = summaryOrderInfo.TotalGoodsFee;
+                    order.numCouponAmount = summaryOrderInfo.TotalDiscountFee;
+                    order.numReceAmount = summaryOrderInfo.TotalOrderFee;
+                    order.numWeight= summaryOrderInfo.TotalWeight;
+                    order.vchSendTime = order.dtSendDate.ToShortTimeString();
+                    order.vchUserCode = memberInfo.userCode;
+                    order.vchOrderCode = GetOrderCode();
+                    #endregion
+
+                    #region 配送信息
+
+                    var deliver = new Sale_Order_Deliver();
+                    deliver.intAddressID = addressInfo.intAddressID;
+                    deliver.intCityID= MCvHelper.To<int>(addressInfo.intCityID, 0);
+                    deliver.vchCityName = addressInfo.vchCityName;
+                    deliver.vchConsignee = addressInfo.vchConsignee;
+                    deliver.intCountyID = MCvHelper.To<int>(addressInfo.intCountyID, 0);
+                    deliver.vchCountyName = addressInfo.vchCountyName;
+                    deliver.vchDetailAddr = addressInfo.vchStateName + "," + addressInfo.vchCityName + "," + addressInfo.vchCountyName + "," + addressInfo.vchDetailAddr;
+                    deliver.vchHausnummer = addressInfo.vchHausnummer;
+                    deliver.vchMobile = addressInfo.vchMobile;
+                    deliver.vchPhone = addressInfo.vchPhone;
+                    deliver.vchPostCode= addressInfo.vchPostCode;
+                    deliver.vchRoadName = addressInfo.vchRoadName;
+                    deliver.intStateID = MCvHelper.To<int>(addressInfo.intStateID, 0);
+                    deliver.vchStateName = addressInfo.vchStateName;
+                    deliver.vchUserMemo= orderEntity.remark;
+                    deliver.vchOrderCode = order.vchOrderCode;
+
+                    #endregion
+
+                    #region 发票信息
+
+                    var invoice = new Sale_Order_Invoice();
+                    if (orderEntity.titletype != null && orderEntity.titletype != Invoice.TitleType.NoNeed)
+                    {
+                        if (orderEntity.titletype != Invoice.TitleType.Personal)
+                        {
+                            invoice.vchInvoicTitile = "个人";
+                        }
+                        else if (orderEntity.titletype != Invoice.TitleType.Company)
+                        {
+                            invoice.vchInvoicTitile = orderEntity.invoicetitle;
+                        }
+
+                        invoice.intInvoiceType = (int)orderEntity.invoicecategory;
+                        invoice.intInvoiceKind = 1;
+                        invoice.numAmount = order.numReceAmount;
+                        invoice.dtBillingTime = DateTime.Now;
+                        invoice.dtCreateDate= DateTime.Now;
+                        invoice.intIsBilling = 1;
+                        invoice.intIsDetail = 0;
+                        invoice.vchOrderCode = order.vchOrderCode;
+                        invoice.vchPhone = addressInfo.vchPhone;
+                        invoice.intUserID = userId;
+                    }
+
+                    #endregion
+
+                    #region 保存订单
+                    string message;
+                    result.info.oid = orderDal.SaveWebOrder(order, invoice, deliver, null, userId, guid, channelId, MCvHelper.To<int>(memberInfo.clusterId, 0), -1, out message);
+                    #endregion
+
+                }
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExecutionError;
+                MLogManager.Error(MLogGroup.Order.创建订单, null, "", ex);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 获取临时订单信息
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <param name="channelId"> </param>
+        /// <param name="uid"></param>
+        /// <param name="userId"></param>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        public static MResult<OrderResult> GetTempOrderInfo(string guid, int channelId, string uid, int userId, OrderEntity order)
+        {
+            var result = new MResult<OrderResult>(true);
+
+            try
+            {
+                if (order.addressid > 0)
+                {
+                    var memberDal = DALFactory.Member();
+                    var shoppingCartDal = DALFactory.ShoppingCartDal();
+                    //获取用户选择的收货地址
+                    var addressInfo = memberDal.GetMemberAddressInfo(order.addressid);
+                    //判断地址是否存在，并且判断 支付方式和配送方式是否已选择
+                    if (addressInfo != null && addressInfo.intCityID > 0 && order.payid != null && order.logisticsid > 0)
+                    {
+                        //查询该用户购物车所有商品
+                        var shoppingCartList = shoppingCartDal.GetShoppingCartProductInfosByUserIDGuidChannelID(userId, guid, channelId);
+                        if (shoppingCartList.Any())
+                        {
+                            //排除 已删除的商品
+                            var notDelShoppingCart = (from a in shoppingCartList where a.intIsDelete == 0 select a).ToList();
+                            if (notDelShoppingCart.Any())
+                            {
+                                var summaryOrderInfo = SummaryOrderInfo(notDelShoppingCart, channelId, userId, MCvHelper.To<int>(order.payid,-1), order.logisticsid,
+                                                 MCvHelper.To<int>(addressInfo.intCityID));
+                                if (summaryOrderInfo != null)
+                                {
+                                    result.info.total_discount_fee = summaryOrderInfo.TotalDiscountFee;
+                                    result.info.total_freight = summaryOrderInfo.TotalFreight;
+                                    result.info.total_goods_fee = summaryOrderInfo.TotalGoodsFee;
+                                    result.info.total_order_fee = summaryOrderInfo.TotalOrderFee;
+                                    result.info.total_original = summaryOrderInfo.TotalOriginal;
+                                    result.info.total_score = summaryOrderInfo.TotalScore;
+                                    result.info.total_weight = summaryOrderInfo.TotalWeight;
+                                }
+                            }
+                            else
+                            {
+                                result.status = Core.Enums.MResultStatus.LogicError;
+                                result.msg = "购物车没有商品！";
+                            }
+                        }
+                        else
+                        {
+                            result.status = Core.Enums.MResultStatus.LogicError;
+                            result.msg = "购物车没有商品！";
+                        }
+                    }
+                    else
+                    {
+                        result.status = Core.Enums.MResultStatus.LogicError;
+                        result.msg = "请选择支付方式和配送方式！";
+                    }
+                }
+                else
+                {
+                    result.status = Core.Enums.MResultStatus.LogicError;
+                    result.msg = "请选择收货地址！";
+                }
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExecutionError;
+                MLogManager.Error(MLogGroup.Order.获取临时订单信息, null, "", ex);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 订单汇总信息
+        /// </summary>
+        /// <param name="norMalShoppingCart">购物车列表</param>
+        /// <param name="channelId">区域ID</param>
+        /// <param name="userId">用户id</param>
+        /// <param name="payId">支付id</param>
+        /// <param name="logisticsId">配送id</param>
+        /// <param name="cityId">城市id</param>
+        /// <returns></returns>
+        public static OrderSumaryEntity SummaryOrderInfo(List<ShoppingCartEntity> norMalShoppingCart, int channelId, int userId, int payId, int logisticsId, int cityId)
+        {
+            var result = new OrderSumaryEntity();
+            try
+            {
+                result.TotalScore = norMalShoppingCart.Sum(c => c.intScore * c.intBuyCount);
+                result.TotalGoodsFee = norMalShoppingCart.Sum(c => c.intBuyCount * c.numSalePrice);
+                result.TotalWeight = norMalShoppingCart.Sum(c => c.intBuyCount * c.intWeight ?? 0);
+                result.TotalOriginal = norMalShoppingCart.Sum(c => c.intBuyCount * c.numOrgPrice);
+                result.TotalFreight =
+                    BaseDataBLL.GetLogisticsInfo(
+                                                channelId,
+                                                userId,
+                                                MCvHelper.To<int>(cityId, 0),
+                                                payId, logisticsId,
+                                                result.TotalWeight, result.TotalGoodsFee).info;
+                result.TotalDiscountFee = result.TotalGoodsFee -
+                                    result.TotalOriginal;
+                result.TotalOrderFee = result.TotalFreight +
+                                              result.TotalGoodsFee -
+                                              result.TotalDiscountFee;
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Order.订单汇总信息, null, "", ex);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 检查商品销售区域
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="cityId"></param>
+        /// <param name="channelId"></param>
+        /// <returns>无效的 商品ID</returns>
+        public static List<int> CheckGoodsSaleArea(int userId, int cityId, int channelId)
+        {
+            var result = new List<int>();
+
+            try
+            {
+                var orderDal = DALFactory.Order();
+                result = orderDal.CheckGoodsSaleArea(userId, cityId, channelId);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Order.检查商品销售区域, null, "", ex);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 计算送货时间
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="deliverID"></param>
+        /// <returns></returns>
+        private static DateTime CheckDateTime(int num, int deliverID)
+        {
+            //获取当前日期是星期几
+            string dt = DateTime.Today.DayOfWeek.ToString();
+            DateTime week = DateTime.Now.Date;
+            int count = 0;
+            int max = 1;
+
+            if (deliverID == 1)
+            {
+                if (num == 1)
+                {
+                    #region
+
+                    for (int i = 0; i < 7; i++)
+                    {
+                        dt = DateTime.Today.AddDays(max).DayOfWeek.ToString();
+
+                        //根据取得的星期英文单词返回汉字
+                        switch (dt)
+                        {
+                            case "Monday":
+                                count = 1;
+                                break;
+                            case "Tuesday":
+                                count = 1;
+                                break;
+                            case "Wednesday":
+                                count = 1;
+                                break;
+                            case "Thursday":
+                                count = 1;
+                                break;
+                            case "Friday":
+                                count = 1;
+                                break;
+                            default:
+                                count = 0;
+                                break;
+                        }
+
+                        if (count == 1)
+                        {
+                            break;
+                        }
+                        max = max + 1;
+                    }
+
+                    #endregion
+                }
+
+                if (num == 3)
+                {
+                    #region
+
+                    for (int j = 0; j < 7; j++)
+                    {
+                        dt = DateTime.Today.AddDays(max).DayOfWeek.ToString();
+                        switch (dt)
+                        {
+                            case "Saturday":
+                                count = 1;
+                                break;
+                            case "Sunday":
+                                count = 1;
+                                break;
+                            default:
+                                count = 0;
+                                break;
+                        }
+
+                        if (count == 1)
+                        {
+                            break;
+                        }
+                        max = max + 1;
+                    }
+
+                    #endregion
+                }
+            }
+
+            week = DateTime.Now.AddDays(max).Date;
+
+            //21点之后下单，送货日期如果是明天则自动延伸至后天
+            if (DateTime.Now.Hour >= 21 && week <= DateTime.Now.AddDays(1).Date)
+            {
+                week = week.AddDays(1);
+            }
+
+            if (deliverID == 1)
+            {
+                string addt = week.ToString();
+                addt = addt.Substring(0, addt.Length - 2);
+                if (num == 1)
+                {
+                    week = Convert.ToDateTime(addt + "1");
+                }
+                if (num == 2)
+                {
+                    week = Convert.ToDateTime(addt + "2");
+                }
+                if (num == 3)
+                {
+                    week = Convert.ToDateTime(addt + "3");
+                }
+            }
+
+            return week;
+        }
+
+        /// <summary>
+        /// 获取订单编号
+        /// </summary>
+        /// <returns></returns>
+        public static string GetOrderCode()
+        {
+            var result = string.Empty;
+            using (var wmsvClient = new BbHomeServiceClient())
+            {
+                try
+                {
+                    wmsvClient.Open();
+                    result = wmsvClient.GetOrderCode();
+                    wmsvClient.Close();
+                }
+                catch
+                {
+
+                }
+            }
+            return result;
+        }
+
     }
 }
