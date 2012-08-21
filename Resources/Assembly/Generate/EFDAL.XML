@@ -4,6 +4,36 @@
         <name>EFDAL</name>
     </assembly>
     <members>
+        <member name="T:EF.DAL.Order">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EF.DAL.Order.CheckGoodsSaleArea(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            检查商品销售区域
+            </summary>
+            <param name="userId"></param>
+            <param name="cityId"></param>
+            <param name="channelId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Order.SaveWebOrder(EF.Model.DataContext.Sale_Order,EF.Model.DataContext.Sale_Order_Invoice,EF.Model.DataContext.Sale_Order_Deliver,EF.Model.DataContext.Sale_Order_Prom_Rela,System.Int32,System.String,System.Int32,System.Int32,System.Int32,System.String@)">
+            <summary>
+            创建订单
+            </summary>
+            <param name="order"></param>
+            <param name="invoice"></param>
+            <param name="deliver"></param>
+            <param name="orderProm"></param>
+            <param name="userId"></param>
+            <param name="guid"></param>
+            <param name="channelId"></param>
+            <param name="clusterId"></param>
+            <param name="promID"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
         <!-- 对于成员“M:EF.DAL.BaseData.GetPayList(System.Int32,System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:EF.DAL.BaseData.GetDeliverList(System.Int32,System.Int32,System.Int32)">
             <summary>

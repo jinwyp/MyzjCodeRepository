@@ -413,6 +413,10 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Core\Core.csproj">
+      <Project>{A2E5AA90-3908-49C1-8916-4DCB9A5029B7}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ExtLibary\HttpManager\HttpManager.csproj">
       <Project>{F8D0E5C4-FAAC-4B6D-BCBB-C81CA9424E6E}</Project>
       <Name>HttpManager</Name>

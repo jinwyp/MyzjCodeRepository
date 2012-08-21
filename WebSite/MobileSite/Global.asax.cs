@@ -20,8 +20,7 @@ namespace MobileSite
         protected void Session_Start(object sender, EventArgs e)
         {
             //MyzjHttpUtility.CheckRequestClient(false);
-
-            HttpContext.Current.Session.Add("s_guid", Guid.NewGuid().ToString("N"));
+            WebUtility.RefreshGuid();
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

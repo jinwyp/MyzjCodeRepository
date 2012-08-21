@@ -57,6 +57,9 @@
   <ItemGroup>
     <Compile Include="ApiFactory.cs" />
     <Compile Include="BaseApi.cs" />
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="MConfigUtility.cs" />
     <Compile Include="MemberContent\BaseMember.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -66,7 +69,12 @@
     <Compile Include="WebUtility.cs" />
     <Compile Include="WebUrls.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Core\Core.csproj">
+      <Project>{A2E5AA90-3908-49C1-8916-4DCB9A5029B7}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

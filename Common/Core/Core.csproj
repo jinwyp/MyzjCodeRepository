@@ -108,6 +108,7 @@
     <Compile Include="Enums\MCaching.cs" />
     <Compile Include="Enums\MConfigs.cs" />
     <Compile Include="Enums\MLogGroup.cs" />
+    <Compile Include="Enums\MMethodType.cs" />
     <Compile Include="Enums\MRandomType.cs" />
     <Compile Include="Enums\MResultStatus.cs" />
     <Compile Include="ExtMethod\ByteExt.cs" />

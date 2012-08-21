@@ -322,9 +322,100 @@
             <param name="gid"></param>
             <returns></returns>
         </member>
+<<<<<<< HEAD
         <member name="M:MobileSite.BaseLib.MConfigUtility.Get(System.String)">
             <summary>
             获取值
+=======
+        <member name="M:MobileSite.BaseLib.WebUtility.InvokeRestApi(MobileSite.BaseLib.InvokeParmeter)">
+            <summary>
+            调用 Api
+            </summary>
+            <param name="invokeParmeter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.ApiResult(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.ApiResult(Core.Enums.MResultStatus)">
+            <summary>
+            
+            </summary>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.ApiResult(System.String,Core.Enums.MResultStatus)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.ApiResult(System.String,Core.Enums.MResultStatus,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <param name="status"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.ToJson``1(``0)">
+            <summary>
+            序列化 实体类
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="item"></param>
+            <returns>json 数据</returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.JsonTo``1(System.String)">
+            <summary>
+            序列化 字符串
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="str"></param>
+            <returns>实体类</returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.RefreshGuid">
+            <summary>
+            刷新Guid
+            </summary>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.SetMemberSession(System.Int32,System.String,System.String)">
+            <summary>
+            设置会员session
+            </summary>
+            <param name="user_id"> </param>
+            <param name="uid"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.RemoveMemberSession">
+            <summary>
+            移除会员session
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileSite.BaseLib.WebUtility.VerifyMemberSession">
+            <summary>
+            验证会员session
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MobileSite.BaseLib.InvokeParmeter">
+            <summary>
+            调用api参数
+            </summary>
+        </member>
+        <member name="T:MobileSite.BaseLib.BasePage">
+            <summary>
+            
+>>>>>>> 3a78b97473573d18fd3035d561d479334cb8ec35
             </summary>
             <param name="name"></param>
         </member>

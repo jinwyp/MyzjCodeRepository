@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using Core.Enums;
 using MobileSite.BaseLib.MemberContent;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -39,6 +40,7 @@ namespace MobileSite.BaseLib
                     if (resultStatus == (long)MResultStatus.Success)
                     {
                         WebUtility.RemoveMemberSession();
+                        WebUtility.RefreshGuid();
                     }
                 }
                 #endregion

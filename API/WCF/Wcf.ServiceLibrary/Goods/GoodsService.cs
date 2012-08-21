@@ -58,7 +58,6 @@ namespace Wcf.ServiceLibrary.Goods
             {
                 result.status = MResultStatus.ExceptionError;
                 result.msg = "处理数据出错！";
-                //TODO:log
             }
             return result;
         }

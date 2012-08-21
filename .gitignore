@@ -8,3 +8,4 @@ TestResults
 *.suo
 /MyzjCodeRepository.sln
 /API/WCF/Wcf.ServiceHost/Log
+/Resources/Assembly/Generate
