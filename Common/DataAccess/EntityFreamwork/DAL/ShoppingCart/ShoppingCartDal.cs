@@ -197,5 +197,25 @@ namespace EF.DAL
             }
         }
 
+        /// <summary>
+        /// 清除购物车数据
+        /// </summary>
+        /// <param name="userId"></param>
+        public void ClearShoppingCart(int userId)
+        {
+            using (var db = new HolycaEntities())
+            {
+                var queryTxt = from a in db.Sale_ShoppingCart
+                               where a.intUserID == userId
+                               select a;
+                var shoppingCartList = queryTxt.ToList();
+                foreach (var saleShoppingCart in shoppingCartList)
+                {
+                    db.Sale_ShoppingCart.DeleteObject(saleShoppingCart);
+                }
+                db.SaveChanges();
+            }
+        }
+
     }
 }

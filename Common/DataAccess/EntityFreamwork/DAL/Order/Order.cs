@@ -229,16 +229,7 @@ namespace EF.DAL
 
                             //提交所有更改
                             tran.Commit();
-
-                            #region 同步订单信息到 BBHome
-                            var objectParameter = new ObjectParameter("result", DbType.Int32);
-                            ctx.Up_Syn_ToBBHome_Now(order.vchOrderCode, objectParameter);
-                            if (MCvHelper.To<int>(objectParameter.Value, -1) != 0)
-                            {
-                                message = "订单" + order.vchOrderCode + "同步失败";
-                            }
-                            #endregion
-
+                            
                         }
                     }
                     catch (Exception e)
@@ -252,5 +243,19 @@ namespace EF.DAL
             return orderNo;
         }
 
+        /// <summary>
+        /// 同步订单信息到 BBHome
+        /// </summary>
+        /// <param name="orderCode"></param>
+        /// <returns></returns>
+        public bool SyncOrderInfoToBBHome(string orderCode)
+        {
+            using(var db=new HolycaEntities())
+            {
+                var objectParameter = new ObjectParameter("result", DbType.Int32);
+                db.Up_Syn_ToBBHome_Now(orderCode, objectParameter);
+                return MCvHelper.To<int>(objectParameter.Value, -1) != -1;
+            }
+        }
     }
 }

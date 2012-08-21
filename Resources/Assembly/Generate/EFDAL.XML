@@ -34,6 +34,13 @@
             <param name="message"></param>
             <returns></returns>
         </member>
+        <member name="M:EF.DAL.Order.SyncOrderInfoToBBHome(System.String)">
+            <summary>
+            同步订单信息到 BBHome
+            </summary>
+            <param name="orderCode"></param>
+            <returns></returns>
+        </member>
         <!-- 对于成员“M:EF.DAL.BaseData.GetPayList(System.Int32,System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:EF.DAL.BaseData.GetDeliverList(System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -251,6 +258,12 @@
             <param name="uid"></param>
             <param name="user_id"> </param>
             <returns></returns>
+        </member>
+        <member name="M:EF.DAL.ShoppingCartDal.ClearShoppingCart(System.Int32)">
+            <summary>
+            清除购物车数据
+            </summary>
+            <param name="userId"></param>
         </member>
     </members>
 </doc>

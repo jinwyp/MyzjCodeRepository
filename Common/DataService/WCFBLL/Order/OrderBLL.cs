@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Objects;
 using System.Linq;
 using System.Text;
 
@@ -38,7 +40,7 @@ namespace Wcf.BLL.Order
             {
                 var memberDal = DALFactory.Member();
                 var baseDataDal = DALFactory.BaseData();
-                var shoppingCart = DALFactory.ShoppingCartDal();
+                var shoppingCartDal = DALFactory.ShoppingCartDal();
                 var orderDal = DALFactory.Order();
 
                 var payId = MCvHelper.To<int>(orderEntity.payid, -1);
@@ -122,7 +124,7 @@ namespace Wcf.BLL.Order
                 List<ShoppingCartEntity> norMalShoppingCartList = null;
 
                 #region 判断购物车是否有商品
-                var shoppingCartList = shoppingCart.GetShoppingCartProductInfosByUserIDGuidChannelID(userId, guid, channelId);
+                var shoppingCartList = shoppingCartDal.GetShoppingCartProductInfosByUserIDGuidChannelID(userId, guid, channelId);
                 if (shoppingCartList == null || !shoppingCartList.Any())
                 {
                     result.msg = "购物车没有商品！";
@@ -278,6 +280,14 @@ namespace Wcf.BLL.Order
                     result.info.oid = orderDal.SaveWebOrder(order, invoice, deliver, null, userId, guid, channelId, MCvHelper.To<int>(memberInfo.clusterId, 0), -1, out message);
                     if (result.info.oid > 0)
                     {
+                        #region 清空购物车
+                        shoppingCartDal.ClearShoppingCart(userId);
+                        #endregion
+
+                        #region 同步订单信息到 BBHome
+                        orderDal.SyncOrderInfoToBBHome(result.info.oid.ToString());
+                        #endregion
+
                         result.status = MResultStatus.Success;
 
                         var payType = string.Empty;
