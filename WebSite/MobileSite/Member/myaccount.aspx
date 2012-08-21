@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div data-role="navbar" data-iconpos="left">
         <ul>
-            <li><a href="/" data-theme="e" data-icon="star">个人中心</a></li>
+            <li><li><a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" data-theme="c" data-icon="star" rel="external">个人中心</a></li></li>
         </ul>
     </div>
 </asp:Content>

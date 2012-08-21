@@ -42,6 +42,8 @@ namespace MobileSite.BaseLib
                 ApiUrlDict.Add("Order.set_shoppingcartgoodsnum", wcfHost + "order.svc/set_shoppingcartgoodsnum");
                 ApiUrlDict.Add("Order.add_goodstoshoppingcar", wcfHost + "order.svc/add_goodstoshoppingcar");
                 ApiUrlDict.Add("Order.del_shoppingcart", wcfHost + "order.svc/del_shoppingcart");
+                ApiUrlDict.Add("Order.get_temporder_info", wcfHost + "order.svc/get_temporder_info");
+                ApiUrlDict.Add("Order.add_order_info", wcfHost + "order.svc/add_order_info");
 
             }
         }

@@ -17,7 +17,7 @@
         <div data-role="fieldcontain" id="deliverylist_cont">
             
         </div>
-        <div id="sh_time" data-role="fieldcontain">
+        <div id="sh_time" data-role="fieldcontain" style="display:none;">
             <fieldset data-role="controlgroup" data-type="">
                 <legend>选择送货时间</legend>
                 <input type="radio" name="radio-date-1" id="radio-date-1" value="1" checked="checked" />
@@ -31,7 +31,7 @@
                     只双休日、假日送货（工作日不用送）</label>
             </fieldset>
         </div>
-        <div id="fk_type" data-role="fieldcontain">
+        <div id="fk_type" data-role="fieldcontain" style="display:none;">
             <legend>付款方式</legend>
             <fieldset data-role="controlgroup">
                 <legend></legend>
