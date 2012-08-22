@@ -827,10 +827,10 @@ function getTown() {
 function BindClick_Pro_City_Town_Event_Fun() {
     GetPrCiTownAjaxDate();
     ProViceCityTown_Function();
-    $("#s1s").live("click", function () {
+    $("#s1s").live("change", function () {
         getCity();
     });
-    $("#s2s").live("click", function () {
+    $("#s2s").live("change", function () {
         getTown();
     });
 }
