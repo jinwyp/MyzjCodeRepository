@@ -41,7 +41,6 @@ namespace Core.Caching.Redis
                                                                                                     MaxWritePoolSize = 100
                                                                                                 });
 
-
                 //GetClient() = new RedisClient(host, port);
             }
             catch (Exception ex)
@@ -56,6 +55,10 @@ namespace Core.Caching.Redis
         /// <returns></returns>
         public static IRedisClient GetClient()
         {
+            //if (_cacheClient != null)
+            //{
+            //    return _cacheClient;
+            //}
             if (_cachePool != null)
             {
                 _cacheClient = _cachePool.GetClient();
