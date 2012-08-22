@@ -68,7 +68,7 @@ namespace Wcf.ServiceLibrary
 
             foreach (var methodInfo in methodDict)
             {
-                MCacheManager.GetCacheObj().Set<ItemMethodVerify>(methodInfo.Key, Core.Enums.MCaching.CacheGroup.System, methodInfo.Value);
+                MCacheManager.GetCacheObj().Set<ItemMethodVerify>(methodInfo.Key, Core.Enums.MCaching.CacheGroup.Pemissions, methodInfo.Value);
             }
 
         }
