@@ -31,6 +31,7 @@ namespace Core.Enums
         /// </summary>
         public enum CacheGroup
         {
+            Pemissions,
             Debug,
             System,
             Member,

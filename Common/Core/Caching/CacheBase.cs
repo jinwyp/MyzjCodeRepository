@@ -20,8 +20,9 @@ namespace Core.Caching
         /// <returns></returns>
         public static string FormatKey(string key, MCaching.CacheGroup cacheGroup)
         {
-            var versionId = MConfigManager.GetAppSettingsValue<string>(MConfigManager.FormatKey("Version", MConfigs.ConfigsCategory.Cache), "1.0");
-            return string.Format("{0}.{1},{2}", cacheGroup, versionId, key);
+            var versionId = MConfigManager.GetAppSettingsValue<string>(
+                MConfigManager.FormatKey(cacheGroup + "_Version", MConfigs.ConfigsCategory.Cache),"1.0");
+            return string.Format("{0}.{1}.{2}", cacheGroup, versionId, key);
         }
 
         /// <summary>
