@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Core.Enums;
+using Core.ConfigUtility;
 
 namespace Core.Caching
 {
+    /// <summary>
+    /// 缓存基类
+    /// </summary>
     public class CacheBase
     {
         /// <summary>
@@ -14,9 +18,10 @@ namespace Core.Caching
         /// <param name="key"></param>
         /// <param name="cacheGroup"></param>
         /// <returns></returns>
-        public string FormatKey(string key, MCaching.CacheGroup cacheGroup)
+        public static string FormatKey(string key, MCaching.CacheGroup cacheGroup)
         {
-            return string.Format("{0}.{1}", cacheGroup, key);
+            var versionId = MConfigManager.GetAppSettingsValue<string>(MConfigManager.FormatKey("Version", MConfigs.ConfigsCategory.Cache), "1.0");
+            return string.Format("{0}.{1},{2}", cacheGroup, versionId, key);
         }
 
         /// <summary>
@@ -25,7 +30,7 @@ namespace Core.Caching
         /// <param name="key"></param>
         /// <param name="cacheGroup"></param>
         /// <returns></returns>
-        public bool VerifyKeyInGroup(string key, MCaching.CacheGroup cacheGroup)
+        public static bool VerifyKeyInGroup(string key, MCaching.CacheGroup cacheGroup)
         {
             var groupName = (key ?? "").Split('.')[0];
             return groupName.Equals(cacheGroup.ToString(), StringComparison.InvariantCultureIgnoreCase);

@@ -11,9 +11,13 @@ using Core.DataType;
 using Factory;
 using Core.Enums;
 using Core.DataTypeUtility;
+using Core.Caching;
 
 namespace Wcf.ServiceLibrary.BaseData
 {
+    /// <summary>
+    /// 基础数据
+    /// </summary>
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [JavascriptCallbackBehavior(UrlParameterName = CommonUri.JAVASCRIPT_CALLBACKNAME)]
     public class BaseDataService : BaseWcfService, IBaseDataService
@@ -24,7 +28,9 @@ namespace Wcf.ServiceLibrary.BaseData
             try
             {
                 var regionId = MCvHelper.To<int>(regionid);
-                result = BaseDataBLL.GetPayList((int)SystemType, regionId);
+                result = MCacheManager.UseCached<MResultList<ItemPay>>(
+                        string.Concat("GetPayList_{0}_{1}", sid, regionid),
+                        MCaching.CacheGroup.BaseData, () => BaseDataBLL.GetPayList((int)SystemType, regionId));
             }
             catch (Exception ex)
             {
@@ -42,7 +48,10 @@ namespace Wcf.ServiceLibrary.BaseData
                 var regionId = MCvHelper.To<int>(regionid);
                 var paygroupId = MCvHelper.To<int>(paygroupid);
 
-                result = BaseDataBLL.GetDeliverList((int)SystemType, regionId, paygroupId);
+                result = MCacheManager.UseCached<MResultList<ItemLogistics>>(
+                        string.Concat("GetLogisticsList_{0}_{1}_{2}", sid, regionid, paygroupid),
+                        MCaching.CacheGroup.BaseData, () => BaseDataBLL.GetDeliverList((int)SystemType, regionId,
+                                                                                     paygroupId));
             }
             catch (Exception ex)
             {
@@ -73,7 +82,12 @@ namespace Wcf.ServiceLibrary.BaseData
             var result = new MResult<List<ItemRegion>[]>();
             try
             {
-                result = BaseDataBLL.GetAllRegionList();
+                result =
+                    MCacheManager.UseCached<MResult<List<ItemRegion>[]>>(
+                        string.Concat("GetAllRegionList_{0}", sid),
+                        MCaching.CacheGroup.BaseData,
+                        BaseDataBLL.GetAllRegionList);
+
             }
             catch (Exception)
             {

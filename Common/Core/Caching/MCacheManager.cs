@@ -76,25 +76,64 @@ namespace Core.Caching
             return _cacheObj;
         }
 
-
-        public static T UseCached<T>(string key, MCaching.CacheGroup cacheGroup, ICache cache, Delegate func) where T : class
+        /// <summary>
+        /// 使用缓存
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key"></param>
+        /// <param name="cacheGroup"></param>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public static T UseCached<T>(string key, MCaching.CacheGroup cacheGroup, Func<object> func) where T : class
         {
-            #region 使用缓存
-
-            var cacheResult = cache.GetValByKey<T>(key, cacheGroup);
-            if (cacheResult == null)
-            {
-                cacheResult = (T)func.DynamicInvoke();
-                cache.Set<T>(key, cacheGroup, cacheResult);
-                return cacheResult;
-            }
-            else
-            {
-                return cacheResult;
-            }
-
-            #endregion
+            return UseCached<T>(key, cacheGroup, DateTime.Now.AddMinutes(30), GetCacheObj(), func);
         }
 
+        /// <summary>
+        /// 使用缓存
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key"></param>
+        /// <param name="cacheGroup"></param>
+        /// <param name="expired"> </param>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public static T UseCached<T>(string key, MCaching.CacheGroup cacheGroup,DateTime expired, Func<object> func) where T : class
+        {
+            return UseCached<T>(key, cacheGroup, expired, GetCacheObj(), func);
+        }
+
+        /// <summary>
+        /// 使用缓存
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key"></param>
+        /// <param name="cacheGroup"></param>
+        /// <param name="expired"> </param>
+        /// <param name="cache"></param>
+        /// <param name="func"></param>
+        public static T UseCached<T>(string key, MCaching.CacheGroup cacheGroup, DateTime expired, ICache cache, Func<object> func) where T : class
+        {
+            try
+            {
+                T cacheResult;
+                if (cache.Contains(key, cacheGroup))
+                {
+                    cacheResult = cache.GetValByKey<T>(key, cacheGroup);
+                    return cacheResult;
+                }
+                else
+                {
+                    cacheResult = func.Invoke() as T;
+                    cache.Set<T>(key, cacheGroup, cacheResult, expired);
+                    return cacheResult;
+                }
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Redis缓存, "", "使用缓存数据出错！", ex);
+            }
+            return null;
+        }
     }
 }

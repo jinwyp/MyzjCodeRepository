@@ -8,9 +8,13 @@ using Core.DataType;
 using System.Web;
 using Core.Enums;
 using Core.DataTypeUtility;
+using Core.Caching;
 
 namespace Wcf.ServiceLibrary.Member
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [JavascriptCallbackBehavior(UrlParameterName = CommonUri.JAVASCRIPT_CALLBACKNAME)]
     public class MemberService : BaseWcfService, IMemberService
@@ -21,7 +25,7 @@ namespace Wcf.ServiceLibrary.Member
 
             try
             {
-                result = MemberBLL.RegisterMember(guid,(int)SystemType, user);
+                result = MemberBLL.RegisterMember(guid, (int)SystemType, user);
             }
             catch (Exception ex)
             {
@@ -37,7 +41,7 @@ namespace Wcf.ServiceLibrary.Member
 
             try
             {
-                result = MemberBLL.LoginMember(guid,(int)SystemType, loginEntity.uid, loginEntity.pwd);
+                result = MemberBLL.LoginMember(guid, (int)SystemType, loginEntity.uid, loginEntity.pwd);
             }
             catch (Exception ex)
             {
@@ -152,7 +156,9 @@ namespace Wcf.ServiceLibrary.Member
 
             try
             {
-                result = MemberBLL.GetMemberAddressList(UserId);
+                result = MCacheManager.UseCached<MResultList<AddressEntity>>(string.Format("GetAddressList_{0}_{1}", sid, user_id),
+                     MCaching.CacheGroup.Member,
+                     () => MemberBLL.GetMemberAddressList(UserId));
             }
             catch (Exception)
             {
@@ -166,7 +172,7 @@ namespace Wcf.ServiceLibrary.Member
         public MResult<int> SetAddress(string sid, string token, string guid, string user_id, string uid, AddressEntity address)
         {
             var result = new MResult<int>();
-            
+
             try
             {
                 result = MemberBLL.SetAddress(sid, token, UserId, uid, address);

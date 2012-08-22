@@ -10,6 +10,7 @@ using Core.DataType;
 using Core.Enums;
 using System.Web;
 using Core.DataTypeUtility;
+using Core.Caching;
 
 namespace Wcf.BLL.BaseData
 {
@@ -153,7 +154,7 @@ namespace Wcf.BLL.BaseData
                     }
 
                     //月亮太阳会员不收运费
-                    if (memberInfo != null 
+                    if (memberInfo != null
                         && (memberInfo.clusterId == 3 || memberInfo.clusterId == 4 || memberInfo.clusterId == 17 || memberInfo.clusterId == 18))
                     {
                         result.info = 0;
@@ -234,6 +235,7 @@ namespace Wcf.BLL.BaseData
             var result = new MResult<List<ItemRegion>[]>();
             try
             {
+
                 var provinceList = new List<ItemRegion>();
                 var cityList = new List<ItemRegion>();
                 var countyList = new List<ItemRegion>();
@@ -243,70 +245,72 @@ namespace Wcf.BLL.BaseData
 
                 #region 处理地区数据 转换
                 list.ForEach(item =>
+                {
+                    try
+                    {
+                        var regionType = string.Empty;
+                        switch (item.intRegionType)
                         {
-                            try
-                            {
-                                var regionType = string.Empty;
-                                switch (item.intRegionType)
+                            case 1:
+                                regionType = "国家";
+                                break;
+                            case 2:
+                                regionType = "省/直辖市";
+                                provinceList.Add(new ItemRegion()
                                 {
-                                    case 1:
-                                        regionType = "国家";
-                                        break;
-                                    case 2:
-                                        regionType = "省/直辖市";
-                                        provinceList.Add(new ItemRegion()
-                                        {
-                                            id = item.intRegionID,
-                                            name = item.vchRegionName,
-                                            zip = item.vchPostCode,
-                                            code = item.vchShortSpell,
-                                            pid = item.intFRegionID,
-                                            type = regionType
-                                        });
-                                        break;
-                                    case 3:
-                                        regionType = "地区";
-                                        cityList.Add(new ItemRegion()
-                                        {
-                                            id = item.intRegionID,
-                                            name = item.vchRegionName,
-                                            zip = item.vchPostCode,
-                                            code = item.vchShortSpell,
-                                            pid = item.intFRegionID,
-                                            type = regionType
-                                        });
-                                        break;
-                                    case 4:
-                                        regionType = "区县";
-                                        countyList.Add(new ItemRegion()
-                                        {
-                                            id = item.intRegionID,
-                                            name = item.vchRegionName,
-                                            zip = item.vchPostCode,
-                                            code = item.vchShortSpell,
-                                            pid = item.intFRegionID,
-                                            type = regionType
-                                        });
-                                        break;
-                                    default:
-                                        regionType = item.intRegionType + "";
-                                        break;
-                                }
-                            }
-                            catch
-                            {
-                            }
-                        });
+                                    id = item.intRegionID,
+                                    name = item.vchRegionName,
+                                    zip = item.vchPostCode,
+                                    code = item.vchShortSpell,
+                                    pid = item.intFRegionID,
+                                    type = regionType
+                                });
+                                break;
+                            case 3:
+                                regionType = "地区";
+                                cityList.Add(new ItemRegion()
+                                {
+                                    id = item.intRegionID,
+                                    name = item.vchRegionName,
+                                    zip = item.vchPostCode,
+                                    code = item.vchShortSpell,
+                                    pid = item.intFRegionID,
+                                    type = regionType
+                                });
+                                break;
+                            case 4:
+                                regionType = "区县";
+                                countyList.Add(new ItemRegion()
+                                {
+                                    id = item.intRegionID,
+                                    name = item.vchRegionName,
+                                    zip = item.vchPostCode,
+                                    code = item.vchShortSpell,
+                                    pid = item.intFRegionID,
+                                    type = regionType
+                                });
+                                break;
+                            default:
+                                regionType = item.intRegionType + "";
+                                break;
+                        }
+                    }
+                    catch
+                    {
+                    }
+                });
                 #endregion
 
                 result.info = new[]
-                                  {
-                                      provinceList,
-                                      cityList,
-                                      countyList
-                                  };
+                        {
+                            provinceList,
+                            cityList,
+                            countyList
+                        };
 
                 result.status = MResultStatus.Success;
+                return result;
+
             }
             catch (Exception)
             {

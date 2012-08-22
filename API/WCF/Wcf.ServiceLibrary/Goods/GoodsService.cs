@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
+using Core.Caching;
 using Wcf.BLL.Goods;
 using Wcf.Entity.Enum;
 using Wcf.Entity.Goods;
@@ -18,6 +19,9 @@ using System.Web;
 
 namespace Wcf.ServiceLibrary.Goods
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [JavascriptCallbackBehavior(UrlParameterName = CommonUri.JAVASCRIPT_CALLBACKNAME)]
     public class GoodsService : BaseWcfService, IGoodsService
@@ -34,7 +38,9 @@ namespace Wcf.ServiceLibrary.Goods
                 var pSize = MCvHelper.To<int>(size);
                 var channelId = MCvHelper.To<SystemType>(sid);
 
-                result = GoodsBLL.GetGoodsList(sid, uid, (int)channelId, categoryId, brandId, age, price, sort, pSize, pIndex);
+                result = MCacheManager.UseCached<MResultList<ItemGoods>>(
+                        string.Format("GetGoodsList_{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}", sid, user_id, bid, cid, age, price, sort, page, size),
+                        MCaching.CacheGroup.Goods, () => GoodsBLL.GetGoodsList(sid, uid, (int)channelId, categoryId, brandId, age, price, sort, pSize, pIndex));
             }
             catch (Exception ex)
             {
@@ -69,7 +75,10 @@ namespace Wcf.ServiceLibrary.Goods
             try
             {
                 var iGid = MCvHelper.To<int>(gid);
-                result = GoodsBLL.GetGoodsPicList(sid, uid, iGid);
+                result = MCacheManager.UseCached<MResultList<ProductImg>>(
+                        string.Format("GetGoodsPicList{0}_{1}", sid, gid),
+                        MCaching.CacheGroup.Goods,
+                        () => GoodsBLL.GetGoodsPicList(sid, uid, iGid));
             }
             catch (Exception)
             {

@@ -163,6 +163,16 @@
             <param name="uid"></param>
             <returns></returns>
         </member>
+        <member name="T:Wcf.ServiceLibrary.BaseData.BaseDataService">
+            <summary>
+            基础数据
+            </summary>
+        </member>
+        <member name="T:Wcf.ServiceLibrary.Goods.GoodsService">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Wcf.ServiceLibrary.Goods.IGoodsService.GetGoodsList(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             获取商品列表
@@ -200,6 +210,11 @@
             <param name="uid"></param>
             <param name="gid"></param>
             <returns></returns>
+        </member>
+        <member name="T:Wcf.ServiceLibrary.Member.MemberService">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:Wcf.ServiceLibrary.Member.IMemberService.RegisterMember(System.String,System.String,System.String,System.String,System.String,Wcf.Entity.Member.UserRegister)">
             <summary>

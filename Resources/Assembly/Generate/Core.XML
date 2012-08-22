@@ -31,6 +31,11 @@
             
             </summary>
         </member>
+        <member name="T:Core.Caching.CacheBase">
+            <summary>
+            缓存基类
+            </summary>
+        </member>
         <member name="M:Core.Caching.CacheBase.FormatKey(System.String,Core.Enums.MCaching.CacheGroup)">
             <summary>
             格式化 Key
@@ -924,6 +929,38 @@
             获取缓存对象 采用 配置文件配置
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Core.Caching.MCacheManager.UseCached``1(System.String,Core.Enums.MCaching.CacheGroup,System.Func{System.Object})">
+            <summary>
+            使用缓存
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="cacheGroup"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.MCacheManager.UseCached``1(System.String,Core.Enums.MCaching.CacheGroup,System.DateTime,System.Func{System.Object})">
+            <summary>
+            使用缓存
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="cacheGroup"></param>
+            <param name="expired"> </param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.Caching.MCacheManager.UseCached``1(System.String,Core.Enums.MCaching.CacheGroup,System.DateTime,Core.Caching.ICache,System.Func{System.Object})">
+            <summary>
+            使用缓存
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <param name="cacheGroup"></param>
+            <param name="expired"> </param>
+            <param name="cache"></param>
+            <param name="func"></param>
         </member>
         <member name="M:Core.DataTypeUtility.MEfUtility.GetQuerySql``1(System.Linq.IQueryable{``0})">
             <summary>

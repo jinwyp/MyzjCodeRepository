@@ -35,7 +35,8 @@ namespace Core.Enums
             System,
             Member,
             Goods,
-            Order
+            Order,
+            BaseData
         }
 
     }
