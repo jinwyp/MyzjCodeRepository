@@ -28,7 +28,7 @@ namespace Wcf.SpringDotNetAdvice
         {
             var shopWatch = new Stopwatch();
             object result = null;
-            var EnableMethodLog = MConfigManager.GetAppSettingsValue<bool>("EnableMethodLog", false);
+            var enableMethodLog = MConfigManager.GetAppSettingsValue<bool>("EnableMethodLog", false);
             try
             {
                 shopWatch.Start();
@@ -91,7 +91,7 @@ namespace Wcf.SpringDotNetAdvice
                     var resultType = invocation.Method.ReturnType;
                     result = Activator.CreateInstance(resultType);
                 }
-                if (EnableMethodLog)
+                if (enableMethodLog)
                 {
                     shopWatch.Stop();
                     MLogManager.Info(MLogGroup.AopAdvice.方法拦截, "", "执行用时：{0}毫秒;请求信息：{1};返回信息：{2};",

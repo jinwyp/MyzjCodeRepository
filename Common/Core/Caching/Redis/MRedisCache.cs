@@ -38,8 +38,8 @@ namespace Core.Caching.Redis
                                                           new RedisClientManagerConfig
                                                           {
                                                               AutoStart = true,
-                                                              MaxReadPoolSize = 10000,
-                                                              MaxWritePoolSize = 10000
+                                                              MaxReadPoolSize = onlyReadServers.Length * 5,
+                                                              MaxWritePoolSize = readWriteServers.Length * 5
                                                           });
 
                 //GetClient() = new RedisClient(host, port);
