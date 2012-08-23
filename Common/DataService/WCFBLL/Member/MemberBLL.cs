@@ -481,6 +481,11 @@ namespace Wcf.BLL.Member
             {
                 var member = DALFactory.Member();
                 var item = member.GetMemberDefaultAddressInfo(user_id);
+                if(item==null||item.intAddressID<=0)
+                {
+                    result.status = MResultStatus.Undefined;
+                    result.msg = "没有数据！";
+                }
                 result.info = new AddressEntity
                 {
                     id = item.intAddressID,
@@ -551,7 +556,6 @@ namespace Wcf.BLL.Member
                                               vchDetailAddr = address.addr,
                                               vchPostCode = address.zip,
                                               intIsDefaultAddr = (byte)(address.get_def ? 1 : 0),
-                                              dtAddTime = address.created,
                                               dtLastModTime = address.modify_date,
                                               intDeliverID = address.deliver_id,
                                               intPayID = address.pay_id,

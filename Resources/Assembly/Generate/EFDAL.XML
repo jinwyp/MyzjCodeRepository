@@ -41,6 +41,39 @@
             <param name="orderCode"></param>
             <returns></returns>
         </member>
+        <member name="M:EF.DAL.Order.GetOrderInfo(System.Int32,System.String)">
+            <summary>
+            获取订单信息
+            </summary>
+            <param name="userId"></param>
+            <param name="orderCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Order.GetOrderGoodsList(System.Int32,System.String,System.Int32)">
+            <summary>
+            获取商品
+            </summary>
+            <param name="userId"></param>
+            <param name="orderCode"></param>
+            <param name="clusterId"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Order.GetOrderDeliveryinfo(System.String)">
+            <summary>
+            查询订单配送信息
+            </summary>
+            <param name="orderCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Order.GetOrdersList(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            获取订单列表
+            </summary>
+            <param name="userId"></param>
+            <param name="begimTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
         <!-- 对于成员“M:EF.DAL.BaseData.GetPayList(System.Int32,System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:EF.DAL.BaseData.GetDeliverList(System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -86,6 +119,13 @@
             获取会员信息
             </summary>
             <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EF.DAL.Member.GetMemberInfo(System.Int32)">
+            <summary>
+            获取会员信息
+            </summary>
+            <param name="userId"></param>
             <returns></returns>
         </member>
         <member name="M:EF.DAL.Member.GetMemberAddressList(System.Int32)">
@@ -163,7 +203,7 @@
             <summary>
             获取商品列表数据
             </summary>
-            <param name="userLevel">会员等级</param>
+            <param name="clusterId">群Id</param>
             <param name="channelId">渠道id</param>
             <param name="categoryId">分类id</param>
             <param name="brandId">品牌id</param>
@@ -188,7 +228,7 @@
             <summary>
             获取商品信息
             </summary>
-            <param name="userLevel"></param>
+            <param name="clusterId"></param>
             <param name="channelId"></param>
             <param name="gid"></param>
             <returns></returns>
@@ -205,6 +245,7 @@
             检测商品库存
             </summary>
             <param name="productId">商品ID</param>
+            <param name="stockQuantity"> </param>
             <returns></returns>
         </member>
         <member name="M:EF.DAL.ShoppingCartDal.GetShoppingCartProductInfosByUserIDGuidChannelID(System.Int32,System.String,System.Int32)">

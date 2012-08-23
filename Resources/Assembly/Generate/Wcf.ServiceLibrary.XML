@@ -97,8 +97,33 @@
             <param name="token"></param>
             <param name="user_id"> </param>
             <param name="uid"> </param>
-            <param name="orderId">订单ID</param>
+            <param name="orderCode">订单ID</param>
             <param name="guid"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.GetOrderGoodsList(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取订单商品列表
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="guid"></param>
+            <param name="user_id"></param>
+            <param name="uid"></param>
+            <param name="orderCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.ServiceLibrary.Order.IOrderService.GetOrdersList(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            获取订单列表
+            </summary>
+            <param name="sid"></param>
+            <param name="token"></param>
+            <param name="guid"></param>
+            <param name="user_id"></param>
+            <param name="uid"></param>
+            <param name="begintime"></param>
+            <param name="endtime"></param>
             <returns></returns>
         </member>
         <member name="T:Wcf.ServiceLibrary.Order.OrderService">
@@ -477,14 +502,9 @@
             获取订单信息
             </summary>
         </member>
-        <member name="F:Wcf.ServiceLibrary.OrderUri.GETORDERSDETAILS">
+        <member name="F:Wcf.ServiceLibrary.OrderUri.GETORDERGOODSLIST">
             <summary>
             获取订单详细
-            </summary>
-        </member>
-        <member name="F:Wcf.ServiceLibrary.OrderUri.GETORDERSSHIPPINGINFO">
-            <summary>
-            获取订单运送信息
             </summary>
         </member>
         <member name="F:Wcf.ServiceLibrary.GoodsUri.GETGOODSLIST">

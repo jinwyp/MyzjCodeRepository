@@ -131,10 +131,57 @@ namespace Wcf.ServiceLibrary.Order
             return result;
         }
 
-        public MResult<ItemOrder> GetOrderInfo(string sid, string token, string guid, string user_id, string uid, string orderId)
+        public MResult<ItemOrderDetails> GetOrderInfo(string sid, string token, string guid, string user_id, string uid, string orderCode)
         {
-            //TODO:GetOrderInfo
-            throw new NotImplementedException();
+            var result = new MResult<ItemOrderDetails>();
+            try
+            {
+                result = OrderBLL.GetOrderinfo((int)SystemType, Uid, UserId, orderCode);
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "处理数据出错！";
+            }
+
+            return result;
         }
+
+        public MResultList<ItemOrderGoods> GetOrderGoodsList(string sid, string token, string guid, string user_id, string uid,
+                                                      string orderCode)
+        {
+            var result = new MResultList<ItemOrderGoods>();
+            try
+            {
+                result = OrderBLL.GetOrderGoodsList((int)SystemType, Uid, UserId, orderCode);
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "处理数据出错！";
+            }
+
+            return result;
+        }
+
+        public MResultList<ItemOrder> GetOrdersList(string sid, string token, string guid, string user_id, string uid, string begintime, string endtime)
+        {
+            var result = new MResultList<ItemOrder>();
+            try
+            {
+                var begimTime = MCvHelper.To<DateTime>(begintime, DateTime.Now.AddMonths(-1));
+                var endTime = MCvHelper.To<DateTime>(endtime, DateTime.Now);
+
+                result = OrderBLL.GetOrdersList((int)SystemType, Uid, UserId, begimTime, endTime);
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "处理数据出错！";
+            }
+
+            return result;
+        }
+
     }
 }

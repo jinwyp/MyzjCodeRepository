@@ -3464,5 +3464,120 @@
             没有元数据文档可用。
             </summary>
         </member>
+        <member name="T:EF.Model.Entity.Sale_Order_Detail_And_GoodsInfo">
+            <summary>
+            订单详细列表
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.Sale_Order_Detail_And_GoodsInfo.PicUrl">
+            <summary>
+            商品图片url
+            </summary>
+        </member>
+        <member name="T:EF.Model.Entity.OrderDetails_ExtInfo">
+            <summary>
+            订单扩展信息
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.OrderNo">
+            <summary>
+            订单id
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.OrderCode">
+            <summary>
+            订单编号
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.Consignee">
+            <summary>
+            收货人
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.AddressInfo">
+            <summary>
+            收货地址信息
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.Zip">
+            <summary>
+            邮编
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.DeliveryType">
+            <summary>
+            配送方式
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.PayId">
+            <summary>
+            支付方式
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.PayStatusId">
+            <summary>
+            支付状态Id
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.PayStatus">
+            <summary>
+            支付状态
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.InvoiceType">
+            <summary>
+            发票类型
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.InvoiceCategory">
+            <summary>
+            发票分类
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.InvoiceTitle">
+            <summary>
+            发票抬头
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.OrderStatus">
+            <summary>
+            订单状态
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.OrderStatusId">
+            <summary>
+            订单状态Id
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.PayType">
+            <summary>
+            支付方式
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.Provinces">
+            <summary>
+            省份
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.City">
+            <summary>
+            城市
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.County">
+            <summary>
+            区县
+            </summary>
+        </member>
+        <member name="P:EF.Model.Entity.OrderDetails_ExtInfo.Mobile">
+            <summary>
+            手机
+            </summary>
+        </member>
     </members>
 </doc>

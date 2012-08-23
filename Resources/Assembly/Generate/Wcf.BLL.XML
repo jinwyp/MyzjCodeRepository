@@ -331,6 +331,37 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Wcf.BLL.Order.OrderBLL.GetOrderinfo(System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+            获取订单信息
+            </summary>
+            <param name="sid"></param>
+            <param name="uid"></param>
+            <param name="userId"></param>
+            <param name="orderCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.BLL.Order.OrderBLL.GetOrderGoodsList(System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+            获取订单商品列表
+            </summary>
+            <param name="sid"></param>
+            <param name="uid"></param>
+            <param name="userId"></param>
+            <param name="orderCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wcf.BLL.Order.OrderBLL.GetOrdersList(System.Int32,System.String,System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            获取订单列表
+            </summary>
+            <param name="sid"></param>
+            <param name="uid"></param>
+            <param name="userId"></param>
+            <param name="begimTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
         <member name="T:Wcf.BLL.BaseData.BaseDataBLL">
             <summary>
             
