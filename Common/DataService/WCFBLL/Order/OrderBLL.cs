@@ -253,11 +253,11 @@ namespace Wcf.BLL.Order
                     var invoice = new Sale_Order_Invoice();
                     if (orderEntity.titletype != null && orderEntity.titletype != Invoice.TitleType.NoNeed)
                     {
-                        if (orderEntity.titletype != Invoice.TitleType.Personal)
+                        if (orderEntity.titletype == Invoice.TitleType.Personal)
                         {
                             invoice.vchInvoicTitile = "个人";
                         }
-                        else if (orderEntity.titletype != Invoice.TitleType.Company)
+                        else if (orderEntity.titletype == Invoice.TitleType.Company)
                         {
                             invoice.vchInvoicTitile = orderEntity.invoicetitle;
                         }
@@ -677,7 +677,7 @@ namespace Wcf.BLL.Order
                     #endregion
                     orderInfo.OrderStatus = orderStatus;
 
-                    var invoiceCategory = MCvHelper.To<Invoice.InvoiceCategory>(orderInfo.InvoiceCategory).ToString();
+                    var invoiceCategory = MCvHelper.To<int>(orderInfo.InvoiceCategory, 0);
 
                     result.info = new ItemOrderDetails
                                          {
@@ -856,6 +856,7 @@ namespace Wcf.BLL.Order
                                                                   };
                                               result.list.Add(orderInfo);
                                           });
+                    result.status = MResultStatus.Success;
                 }
 
             }

@@ -138,7 +138,7 @@ namespace Wcf.Entity.Order
         /// 发票分类
         /// </summary>
         [DataMember]
-        public string invoicecategory { get; set; }
+        public int invoicecategory { get; set; }
 
         /// <summary>
         /// 发票抬头

@@ -43,5 +43,12 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
+        <member name="M:Wcf.SpringDotNetAdvice.MethodInterceptor.Invoke(AopAlliance.Intercept.IMethodInvocation)">
+            <summary>
+            
+            </summary>
+            <param name="invocation"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

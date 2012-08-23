@@ -29,7 +29,7 @@ namespace Wcf.ServiceLibrary.BaseData
             {
                 var regionId = MCvHelper.To<int>(regionid);
                 result = MCacheManager.UseCached<MResultList<ItemPay>>(
-                        string.Concat("GetPayList_{0}_{1}", sid, regionid),
+                        string.Format("GetPayList_{0}_{1}", sid, regionid),
                         MCaching.CacheGroup.BaseData, () => BaseDataBLL.GetPayList((int)SystemType, regionId));
             }
             catch (Exception ex)
@@ -49,7 +49,7 @@ namespace Wcf.ServiceLibrary.BaseData
                 var paygroupId = MCvHelper.To<int>(paygroupid);
 
                 result = MCacheManager.UseCached<MResultList<ItemLogistics>>(
-                        string.Concat("GetLogisticsList_{0}_{1}_{2}", sid, regionid, paygroupid),
+                        string.Format("GetLogisticsList_{0}_{1}_{2}", sid, regionid, paygroupid),
                         MCaching.CacheGroup.BaseData, () => BaseDataBLL.GetDeliverList((int)SystemType, regionId,
                                                                                      paygroupId));
             }
@@ -84,7 +84,7 @@ namespace Wcf.ServiceLibrary.BaseData
             {
                 result =
                     MCacheManager.UseCached<MResult<List<ItemRegion>[]>>(
-                        string.Concat("GetAllRegionList_{0}", sid),
+                        string.Format("GetAllRegionList_{0}", sid),
                         MCaching.CacheGroup.BaseData,
                         BaseDataBLL.GetAllRegionList);
 

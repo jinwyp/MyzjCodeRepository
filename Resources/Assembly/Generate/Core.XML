@@ -75,25 +75,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Core.Caching.ICache.Set(System.String,Core.Enums.MCaching.CacheGroup,System.Object,System.DateTime)">
-            <summary>
-            设置缓存 如果存在则更新，否则新增
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <param name="obj"></param>
-            <param name="expired"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.ICache.Set(System.String,Core.Enums.MCaching.CacheGroup,System.Object)">
-            <summary>
-            设置缓存 如果存在则更新，否则新增
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
         <member name="M:Core.Caching.ICache.Set``1(System.String,Core.Enums.MCaching.CacheGroup,``0,System.DateTime)">
             <summary>
             设置缓存 如果存在则更新，否则新增
@@ -107,25 +88,6 @@
         <member name="M:Core.Caching.ICache.Set``1(System.String,Core.Enums.MCaching.CacheGroup,``0)">
             <summary>
             设置缓存 如果存在则更新，否则新增
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.ICache.Add(System.String,Core.Enums.MCaching.CacheGroup,System.Object,System.DateTime)">
-            <summary>
-            添加缓存
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <param name="obj"></param>
-            <param name="expired"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.ICache.Add(System.String,Core.Enums.MCaching.CacheGroup,System.Object)">
-            <summary>
-            添加缓存
             </summary>
             <param name="key"></param>
             <param name="cacheGroup"> </param>
@@ -151,29 +113,6 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="M:Core.Caching.ICache.GetValByKey(System.String)">
-            <summary>
-            获取缓存值 来自 缓存Key
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.ICache.GetValByKey(System.String,Core.Enums.MCaching.CacheGroup)">
-            <summary>
-            获取缓存值 来自 缓存Key
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.ICache.GetValByKey``1(System.String)">
-            <summary>
-            获取缓存值 来自 缓存Key
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
         <member name="M:Core.Caching.ICache.GetValByKey``1(System.String,Core.Enums.MCaching.CacheGroup)">
             <summary>
             获取缓存值 来自 缓存Key
@@ -181,14 +120,6 @@
             <typeparam name="T"></typeparam>
             <param name="key"></param>
             <param name="cacheGroup"> </param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.ICache.GetValByKeys``1(System.Collections.Generic.List{System.String})">
-            <summary>
-            获取缓存值列表 来自 缓存Keys
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="keys"></param>
             <returns></returns>
         </member>
         <member name="M:Core.Caching.ICache.GetValByKeys``1(System.Collections.Generic.List{System.String},Core.Enums.MCaching.CacheGroup)">
@@ -278,25 +209,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Core.Caching.Redis.MRedisCache.Set(System.String,Core.Enums.MCaching.CacheGroup,System.Object,System.DateTime)">
-            <summary>
-            设置缓存 如果存在则更新，否则新增
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <param name="obj"></param>
-            <param name="expired"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.Redis.MRedisCache.Set(System.String,Core.Enums.MCaching.CacheGroup,System.Object)">
-            <summary>
-            设置缓存 如果存在则更新，否则新增
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
         <member name="M:Core.Caching.Redis.MRedisCache.Set``1(System.String,Core.Enums.MCaching.CacheGroup,``0,System.DateTime)">
             <summary>
             设置缓存 如果存在则更新，否则新增
@@ -310,25 +222,6 @@
         <member name="M:Core.Caching.Redis.MRedisCache.Set``1(System.String,Core.Enums.MCaching.CacheGroup,``0)">
             <summary>
             设置缓存 如果存在则更新，否则新增
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.Redis.MRedisCache.Add(System.String,Core.Enums.MCaching.CacheGroup,System.Object,System.DateTime)">
-            <summary>
-            添加缓存
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <param name="obj"></param>
-            <param name="expired"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.Redis.MRedisCache.Add(System.String,Core.Enums.MCaching.CacheGroup,System.Object)">
-            <summary>
-            添加缓存
             </summary>
             <param name="key"></param>
             <param name="cacheGroup"> </param>
@@ -354,29 +247,6 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKey(System.String)">
-            <summary>
-            获取缓存值 来自 缓存Key
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKey(System.String,Core.Enums.MCaching.CacheGroup)">
-            <summary>
-            获取缓存值 来自 缓存Key
-            </summary>
-            <param name="key"></param>
-            <param name="cacheGroup"> </param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKey``1(System.String)">
-            <summary>
-            获取缓存值 来自 缓存Key
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
         <member name="M:Core.Caching.Redis.MRedisCache.GetValByKey``1(System.String,Core.Enums.MCaching.CacheGroup)">
             <summary>
             获取缓存值 来自 缓存Key
@@ -384,14 +254,6 @@
             <typeparam name="T"></typeparam>
             <param name="key"></param>
             <param name="cacheGroup"> </param>
-            <returns></returns>
-        </member>
-        <member name="M:Core.Caching.Redis.MRedisCache.GetValByKeys``1(System.Collections.Generic.List{System.String})">
-            <summary>
-            获取缓存值列表 来自 缓存Keys
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="keys"></param>
             <returns></returns>
         </member>
         <member name="M:Core.Caching.Redis.MRedisCache.GetValByKeys``1(System.Collections.Generic.List{System.String},Core.Enums.MCaching.CacheGroup)">
@@ -686,6 +548,11 @@
             <param name="source">源对象</param>
             <param name="destination">目的对象</param>
             <returns>是否有异常</returns>
+        </member>
+        <member name="T:Core.Caching.Memcached.MMemcache">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:Core.Caching.Memcached.MMemcache.GetInstance">
             <summary>
@@ -1169,6 +1036,17 @@
             <summary>
             缓存 Key 分组
             </summary>
+        </member>
+        <member name="T:Core.Caching.NotCache">
+            <summary>
+             没有缓存的 虚拟类
+            </summary>
+        </member>
+        <member name="M:Core.Caching.NotCache.GetInstance">
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>
