@@ -785,6 +785,11 @@
             
             </summary>
         </member>
+        <member name="F:Core.Caching.MCacheManager.IsEnable">
+            <summary>
+            是否启用缓存
+            </summary>
+        </member>
         <member name="M:Core.Caching.MCacheManager.GetCacheObj(Core.Enums.MCaching.Provider)">
             <summary>
             获取缓存对象 自定义缓存类型
@@ -978,6 +983,17 @@
             邮件格式是否为Html格式
             </summary>
         </member>
+        <member name="T:Core.Caching.NotCache">
+            <summary>
+             没有缓存的 虚拟类
+            </summary>
+        </member>
+        <member name="M:Core.Caching.NotCache.GetInstance">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="F:Core.FactoryUtility.MFactoryManager._assemblyDict">
             <summary>
             被缓存的程序集方法
@@ -1036,17 +1052,6 @@
             <summary>
             缓存 Key 分组
             </summary>
-        </member>
-        <member name="T:Core.Caching.NotCache">
-            <summary>
-             没有缓存的 虚拟类
-            </summary>
-        </member>
-        <member name="M:Core.Caching.NotCache.GetInstance">
-            <summary>
-            
-            </summary>
-            <returns></returns>
         </member>
     </members>
 </doc>
