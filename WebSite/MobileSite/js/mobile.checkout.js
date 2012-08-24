@@ -1071,6 +1071,7 @@ var nearly_N_month = function (n) {
 
 //#region 绑定订单列表
 var BindOrderlist = function (nc) {
+    alert(nc);
     var begintime = nearly_N_month(nc).toString(), endtime = nearly_N_month(0).toString();
     var orderlist_template_container = $("#orderlist_template_container");
     GetWcf({
