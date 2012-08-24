@@ -14,104 +14,66 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content">
         <div class="content-primary">
-            <ul data-role="listview" data-inset="true" data-divider-theme="d">
-                <li data-role="list-divider">订单5373753信息</li>
-                <li>
-                    <p>
-                        收货人：王宇鹏</p>
-                    <p>
-                        收货地址：上海市普陀区， 澳门路519弄华生大厦1号楼7楼</p>
-                    <p>
-                        邮编：200060</p>
-                    <p>
-                        电话：13564568304</p>
-                </li>
-                <li>支付方式：在线支付</li>
-                <li>送货方式：<strong>母婴之家快递</strong></li>
-                <li>
-                    <p>
-                        发票类型：食品发票</p>
-                    <p>
-                        发票抬头：公司 宜家中国</p>
-                </li>
+            <ul id="orderdetail_template_container" data-role="listview" data-inset="true" data-divider-theme="d">
+                
             </ul>
+            <script id="orderdetail_template" type="text/template">
+                <li data-role="list-divider">订单{$T.ocode}信息</li>
+                <li>
+                    <p>
+                        收货人：{$T.contact_name}</p>
+                    <p>
+                        收货地址：{$T.addr}</p>
+                    <p>
+                        邮编：{$T.zip}</p>
+                    <p>
+                        电话：{$T.mobile}</p>
+                </li>
+                <li>支付方式：{$T.paytype}</li>
+                <li>送货方式：<strong>{$T.deliverytype}</strong></li>
+                <li>
+                    {#if $T.titletype==1}
+                    <p>
+                        发票类型：{#if $T.invoicecategory===1}用品发票{#elseif $T.invoicecategory===2}食品发票{#/if}</p>
+                    {#elseif $T.titletype==2}
+                    <p>
+                        发票类型：{#if $T.invoicecategory===1}用品发票{#elseif $T.invoicecategory===2}食品发票{#/if}</p>
+                    <p>
+                        发票抬头：{$T.invoicetitle}</p>
+                    {#/if}
+                </li>
+            </script>
             <div data-role="">
-                <a href="<%= MobileSite.BaseLib.WebUrls.onlinepayment() %>" data-role="button" data-inline="true" data-theme="e">在线支付</a><a
-                    href="#" data-role="button" data-inline="true" data-mini="true">取消订单</a></div>
-            <ul data-role="listview" data-inset="true" data-divider-theme="d">
-                <li data-role="list-divider">订单商品列表</li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productdetailinfo() %>">
-                    <img src="http://img.muyingzhijia.com/product/normal/66158_01_01.jpg" />
+                <a href="<%= MobileSite.BaseLib.WebUrls.onlinepayment() %>" data-role="button" data-inline="true" data-theme="e" class="zaixian">在线支付</a><a
+                    href="#" data-role="button" data-inline="true" data-mini="true" class="cancels_btn">取消订单</a></div>
+            <ul id="ordergoods_list_template_container" data-role="listview" data-inset="true" data-divider-theme="d">
+                
+            </ul>
+            <script id="ordergoods_list_template" type="text/template">
+            <li data-role="list-divider">订单商品列表</li>
+                {#foreach $T as dr}
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.dr.gid}") %>">
+                    <img src="{$T.dr.pic_url}" />
                     <p>
-                        商品编号：<strong>119902</strong></p>
+                        商品编号：<strong>{$T.dr.gid}</strong></p>
                     <p>
-                        名称：<strong>商品名称商品名称商品名称22</strong></p>
+                        名称：<strong>{$T.dr.title}</strong></p>
                     <p>
-                        单价：<strong>￥212.00</strong></p>
+                        单价：<strong>￥{$T.dr.price}</strong></p>
                     <p>
-                        数量：<strong>1</strong></p>
+                        数量：<strong>{$T.dr.num}</strong></p>
                     <p>
-                        小计：<strong class="ui-font-red">￥212.00</strong></p>
+                        小计：<strong class="ui-font-red">￥{$T.dr.total}</strong></p>
                 </a></li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productdetailinfo() %>">
-                    <img src="http://img.muyingzhijia.com/product/normal/66158_01_01.jpg" />
-                    <p>
-                        商品编号：<strong>119902</strong></p>
-                    <p>
-                        名称：<strong>商品名称商品名称商品名称22</strong></p>
-                    <p>
-                        单价：<strong>￥212.00</strong></p>
-                    <p>
-                        数量：<strong>1</strong></p>
-                    <p>
-                        小计：<strong class="ui-font-red">￥212.00</strong></p>
-                </a></li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productdetailinfo() %>">
-                    <img src="http://img.muyingzhijia.com/product/normal/66158_01_01.jpg" />
-                    <p>
-                        商品编号：<strong>119902</strong></p>
-                    <p>
-                        名称：<strong>商品名称商品名称商品名称22</strong></p>
-                    <p>
-                        单价：<strong>￥212.00</strong></p>
-                    <p>
-                        数量：<strong>1</strong></p>
-                    <p>
-                        小计：<strong class="ui-font-red">￥212.00</strong></p>
-                </a></li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productdetailinfo() %>">
-                    <img src="http://img.muyingzhijia.com/product/normal/66158_01_01.jpg" />
-                    <p>
-                        商品编号：<strong>119902</strong></p>
-                    <p>
-                        名称：<strong>商品名称商品名称商品名称22</strong></p>
-                    <p>
-                        单价：<strong>￥212.00</strong></p>
-                    <p>
-                        数量：<strong>1</strong></p>
-                    <p>
-                        小计：<strong class="ui-font-red">￥212.00</strong></p>
-                </a></li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productdetailinfo() %>">
-                    <img src="http://img.muyingzhijia.com/product/normal/66158_01_01.jpg" />
-                    <p>
-                        商品编号：<strong>119902</strong></p>
-                    <p>
-                        名称：<strong>商品名称商品名称商品名称22</strong></p>
-                    <p>
-                        单价：<strong>￥212.00</strong></p>
-                    <p>
-                        数量：<strong>1</strong></p>
-                    <p>
-                        小计：<strong class="ui-font-red">￥212.00</strong></p>
-                </a></li>
+                {#/for}
                 <li data-icon="arrow-l" data-iconpos="left"><a href="<%= MobileSite.BaseLib.WebUrls.orderlist() %>">返回</a> </li>
-            </ul>
+            </script>
             <div data-role="">
-                <a href="<%= MobileSite.BaseLib.WebUrls.onlinepayment() %>" data-role="button" data-inline="true" data-theme="e">在线支付</a><a
-                    href="#" data-role="button" data-inline="true" data-mini="true">取消订单</a></div>
+                <a href="<%= MobileSite.BaseLib.WebUrls.onlinepayment() %>" data-role="button" data-inline="true" data-theme="e" class="zaixian">在线支付</a><a
+                    href="#" data-role="button" data-inline="true" data-mini="true" class="cancels_btn">取消订单</a></div>
         </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
+<script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.checkout.js" type="text/javascript"></script>
 </asp:Content>

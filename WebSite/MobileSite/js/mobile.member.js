@@ -10,14 +10,6 @@
 //};
 //AddScript("js/jquery-jtemplates.js,js/jquery.cookie.js,js/json2.js,js/md5.js,js/mobile.common.js");
 
-//#region 获取url中的参数
-function getParameter(name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-    var r = window.location.search.substr(1).match(reg);
-    if (r != null) return r[2]; return null;
-}
-//#endregion
-
 //#region 退出登录
 function LoingOut() {
     jQuery("#logout").click(function () {
