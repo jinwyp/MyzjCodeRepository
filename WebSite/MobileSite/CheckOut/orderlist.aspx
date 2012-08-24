@@ -15,8 +15,8 @@
     <div data-role="content">
         <div data-role="controlgroup" data-type="horizontal">
             <a id="oneMonth" data-theme="e" data-role="button" data-icon="arrow-d" data-mini="true">
-                近一个月订单</a> <a id="twoMonth" data-theme="c" data-role="button" data-icon="arrow-d"
-                    data-mini="true">近两个月订单</a>
+                近一个月订单</a> <a id="twoMonth" data-theme="e" data-role="button" data-icon="arrow-d" data-mini="true">
+                    近两个月订单</a>
         </div>
         <div class="content-primary">
             <ul id="orderlist_template_container" data-role="listview" data-inset="true" data-divider-theme="d">
@@ -24,7 +24,7 @@
             </ul>
             <script id="orderlist_template" type="text/template">
             {#foreach $T as dr}
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.orderdetail() %>">
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.orderdetail("{$T.dr.ocode}") %>">
                     <h3>
                         订单号：{$T.dr.ocode}</h3>
                     <p>

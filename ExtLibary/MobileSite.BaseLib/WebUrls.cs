@@ -325,9 +325,9 @@ namespace MobileSite.BaseLib
         /// </summary>
         /// <param name="gid"></param>
         /// <returns></returns>
-        public static string orderdetail()
+        public static string orderdetail(object ocode)
         {
-            return GetUrlData("orderdetail");
+            return GetUrlData("orderdetail",ocode);
         }
 
         /// <summary>

@@ -19,7 +19,7 @@
         </ul>
         <ul data-role="listview" data-divider-theme="d" data-inset="true">
             <li data-role="list-divider">订单中心</li>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.orderlist() %>">我的订单</a></li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.orderlist() %>" rel="external">我的订单</a></li>
         </ul>
         <a id="logout" data-role="button" data-inline="true" data-mini="true" data-theme="d">
             退出登录</a>
