@@ -102,7 +102,7 @@ var CallWcf = function (method, data, callback, showLoading, options) {
                     if (typeof (options) != "undefined") {
                         if (typeof (options.ref_loading) == "object" && options.ref_loading.length > 0) {
                             //options.ref_loading.empty();
-                        }
+                        } 
                     } else {
                         $.mobile.hidePageLoadingMsg();
                     }
@@ -244,48 +244,6 @@ var Log = function (logstr) {
     else
         alert(logstr);
 };
-
-//#region 获取url中的参数
-var getParameter = function (name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-    var r = window.location.search.substr(1).match(reg);
-    if (r != null) return r[2]; return null;
-}
-//#endregion
-
-//#region 时间转换
-var WcfDateToJsDate = function (wcfDate) {
-    var date = new Date(parseInt(wcfDate.substring(6)));
-    return date;
-};
-var JsDateToWcfDate = function (jsDate) {
-    // \/Date(568310400000+0800)\/
-    return "\/Date(" + jsDate.getTime() + "+0000)\/";
-};
-var format = function (date,format) {
-    var o = {
-
-        "M+": date.getMonth() + 1, //month  
-        "d+": date.getDate(), //day  
-        "h+": date.getHours(), //hour  
-        "m+": date.getMinutes(), //minute  
-        "s+": date.getSeconds(), //second  
-        "q+": Math.floor((date.getMonth() + 3) / 3), //quarter  
-        "S": date.getMilliseconds() //millisecond  
-    }
-
-    if (/(y+)/.test(format))
-        format = format.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-    for (var k in o)
-        if (new RegExp("(" + k + ")").test(format))
-            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
-    return format;
-}
-
-var timeDate = function (obj) {
-    return format(WcfDateToJsDate(obj), "yyyy/MM/dd hh:mm:ss");
-}
-//#endregion
 
 //验证用户Cookie 信息（登录信息）
 var VerifyUserCookie = function () {

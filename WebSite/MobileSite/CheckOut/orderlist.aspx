@@ -14,33 +14,75 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content">
         <div data-role="controlgroup" data-type="horizontal">
-            <a id="oneMonth" data-theme="e" data-role="button" data-icon="arrow-d" data-mini="true">
-                近一个月订单</a> <a id="twoMonth" data-theme="c" data-role="button" data-icon="arrow-d"
+            <a href="#onemonth" data-theme="e" data-role="button" data-icon="arrow-d" data-mini="true">
+                近一个月订单</a> <a href="#twomonths" data-theme="c" data-role="button" data-icon="arrow-d"
                     data-mini="true">近两个月订单</a>
         </div>
         <div class="content-primary">
-            <ul id="orderlist_template_container" data-role="listview" data-inset="true" data-divider-theme="d">
-                
-            </ul>
-            <script id="orderlist_template" type="text/template">
-            {#foreach $T as dr}
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.orderdetail() %>">
+            <ul data-role="listview" data-inset="true" data-divider-theme="d">
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.orderdetail() %>">
                     <h3>
-                        订单号：{$T.dr.ocode}</h3>
+                        订单号：5373753</h3>
                     <p>
-                        订单状态：<strong class="ui-font-red">{$T.dr.status}</strong></p>
+                        订单状态：<strong class="ui-font-red">等待付款</strong></p>
                     <p>
-                        订单金额：<strong class="ui-font-red">￥{$T.dr.total_order}</strong></p>
+                        订单金额：<strong class="ui-font-red">￥212.00</strong></p>
                     <p>
-                        付款方式：<strong>{$T.dr.paytype}</strong></p>
+                        付款方式：<strong>在线支付</strong></p>
                     <p>
-                        订单日期：<strong>{$T.dr.created}</strong></p>
+                        订单日期：<strong>2012/6/26 13:50:27</strong></p>
                 </a></li>
-                {#/for}
-            </script>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.orderdetail() %>">
+                    <h3>
+                        订单号：5373753</h3>
+                    <p>
+                        订单状态：<strong class="ui-font-red">等待付款</strong></p>
+                    <p>
+                        订单金额：<strong class="ui-font-red">￥212.00</strong></p>
+                    <p>
+                        付款方式：<strong>在线支付</strong></p>
+                    <p>
+                        订单日期：<strong>2012/6/26 13:50:27</strong></p>
+                </a></li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.orderdetail() %>">
+                    <h3>
+                        订单号：5373753</h3>
+                    <p>
+                        订单状态：<strong class="ui-font-red">等待付款</strong></p>
+                    <p>
+                        订单金额：<strong class="ui-font-red">￥212.00</strong></p>
+                    <p>
+                        付款方式：<strong>在线支付</strong></p>
+                    <p>
+                        订单日期：<strong>2012/6/26 13:50:27</strong></p>
+                </a></li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.orderdetail() %>">
+                    <h3>
+                        订单号：5373753</h3>
+                    <p>
+                        订单状态：<strong class="ui-font-red">等待付款</strong></p>
+                    <p>
+                        订单金额：<strong class="ui-font-red">￥212.00</strong></p>
+                    <p>
+                        付款方式：<strong>在线支付</strong></p>
+                    <p>
+                        订单日期：<strong>2012/6/26 13:50:27</strong></p>
+                </a></li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.orderdetail() %>">
+                    <h3>
+                        订单号：5373753</h3>
+                    <p>
+                        订单状态：<strong class="ui-font-red">等待付款</strong></p>
+                    <p>
+                        订单金额：<strong class="ui-font-red">￥212.00</strong></p>
+                    <p>
+                        付款方式：<strong>在线支付</strong></p>
+                    <p>
+                        订单日期：<strong>2012/6/26 13:50:27</strong></p>
+                </a></li>
+            </ul>
         </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-<script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.checkout.js"></script>
 </asp:Content>

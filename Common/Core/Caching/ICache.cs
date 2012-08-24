@@ -35,25 +35,6 @@ namespace Core.Caching
         /// <param name="obj"></param>
         /// <param name="expired"></param>
         /// <returns></returns>
-        bool Set(string key, MCaching.CacheGroup cacheGroup, object obj, DateTime expired);
-
-        /// <summary>
-        /// 设置缓存 如果存在则更新，否则新增
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="cacheGroup"> </param>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        bool Set(string key, MCaching.CacheGroup cacheGroup, object obj);
-
-        /// <summary>
-        /// 设置缓存 如果存在则更新，否则新增
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="cacheGroup"> </param>
-        /// <param name="obj"></param>
-        /// <param name="expired"></param>
-        /// <returns></returns>
         bool Set<T>(string key, MCaching.CacheGroup cacheGroup, T obj, DateTime expired);
 
         /// <summary>
@@ -64,25 +45,6 @@ namespace Core.Caching
         /// <param name="obj"></param>
         /// <returns></returns>
         bool Set<T>(string key, MCaching.CacheGroup cacheGroup, T obj);
-
-        /// <summary>
-        /// 添加缓存
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="cacheGroup"> </param>
-        /// <param name="obj"></param>
-        /// <param name="expired"></param>
-        /// <returns></returns>
-        bool Add(string key, MCaching.CacheGroup cacheGroup, object obj, DateTime expired);
-
-        /// <summary>
-        /// 添加缓存
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="cacheGroup"> </param>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        bool Add(string key, MCaching.CacheGroup cacheGroup, object obj);
 
         /// <summary>
         /// 添加缓存
@@ -106,42 +68,11 @@ namespace Core.Caching
         /// <summary>
         /// 获取缓存值 来自 缓存Key
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        object GetValByKey(string key);
-
-        /// <summary>
-        /// 获取缓存值 来自 缓存Key
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="cacheGroup"> </param>
-        /// <returns></returns>
-        object GetValByKey(string key, MCaching.CacheGroup cacheGroup);
-
-        /// <summary>
-        /// 获取缓存值 来自 缓存Key
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        T GetValByKey<T>(string key);
-
-        /// <summary>
-        /// 获取缓存值 来自 缓存Key
-        /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key"></param>
         /// <param name="cacheGroup"> </param>
         /// <returns></returns>
         T GetValByKey<T>(string key, MCaching.CacheGroup cacheGroup);
-
-        /// <summary>
-        /// 获取缓存值列表 来自 缓存Keys
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="keys"></param>
-        /// <returns></returns>
-        Dictionary<string, T> GetValByKeys<T>(List<string> keys);
 
         /// <summary>
         /// 获取缓存值列表 来自 缓存Keys

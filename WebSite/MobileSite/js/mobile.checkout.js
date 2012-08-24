@@ -1,4 +1,4 @@
-﻿//#region 信息
+﻿//#region
 var intervalID_mesage = 0;
 function setMesage(mesag, product_id) {
     hideMesage();
@@ -219,7 +219,7 @@ var orderEntity = {
         var isorInvice = LS.get("isorInvice") || "0"; //发票抬头类型
         var invoice_Type = LS.get("invoice_Type"); //发票分类
         var FaTHeader = LS.get("FaTHeader"); //发票抬头
-        var remark = $("#remark").val(); //订单备注
+        var remark = $("#remark").text(); //订单备注
         var posttimetype = LS.get("delivery_sh_time_id"); //配送时间类型
         //alert(typeof (posttimetype));
         //alert(typeof(isorInvice) + ":" + typeof(invoice_Type) + ":" + typeof(FaTHeader) + ":" + typeof(remark));
@@ -385,14 +385,14 @@ function orderconfirm_Fun() {
                     LS.clear(); //先清再存
                     var delivery_array = {
                         slides: [
-                                "make_ocode", //订单号
+                                "make_oid", //订单号
                                 "make_total_order", //应付金额
                                 "make_paytype", //支付方式
                                 "make_logisticstype", //配送方式
                                 "make_posttimetype" //送货时间
                             ],
                         values: [
-                                json.info.ocode,
+                                json.info.oid,
                                 json.info.total_order,
                                 json.info.paytype,
                                 json.info.logisticstype,
@@ -401,11 +401,6 @@ function orderconfirm_Fun() {
                     };
                     Delivery_info_Object(delivery_array);
                     window.location.href = window.WebRoot + "CheckOut/makeorder.aspx";
-                } else if (json.status == "-2") {
-                    alert(json.msg);
-                    window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
-                } else {
-                    alert(json.msg);
                 }
 
             }, true);
@@ -428,6 +423,7 @@ function addresslist_Fun() {
         var addresslist_cont = $('#addresslist_cont');
         if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list != null && jsonString.list.length > 0) {
             var selected_addressId = LS.get("current_addressid");
+
             for (var i = 0; i < jsonString.list.length; i++) {
                 //alert((jsonString.list[i].id.toString() === selected_addressId.toString()) + ":" + jsonString.list[i].id + ":" + selected_addressId);
                 if (jsonString.list[i].id.toString() === selected_addressId.toString()) {
@@ -969,7 +965,7 @@ function address_edit_Fun() {
 
 //#region 订单成功页面
 var makeorder_Fun = function () {
-    var make_oid = LS.get("make_ocode") || "no_c";
+    var make_oid = LS.get("make_oid") || "no_c";
     var make_total_order = LS.get("make_total_order") || "no_c";
     var make_paytype = LS.get("make_paytype") || "no_c";
     var make_logisticstype = LS.get("make_logisticstype") || "no_c";
@@ -998,132 +994,6 @@ var makeorder_Fun = function () {
 }
 //#endregion
 
-//#region 查看订单详细页
-function orderdetail_Fun() {
-    var ocode = LS.get("make_ocode") || "no_c";
-    if (ocode != "no_c") {
-        //#region 获取订单用户信息
-        var orderdetail_template_container = $("#orderdetail_template_container");
-        GetWcf({
-            _api: "Order.get_order_info",
-            _url: ocode
-        }, function (jsonString) {
-            if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info != null) {
-                if (jsonString.info.paystatusid === 0) {//未付款
-                    $(".zaixian").css("display", "inline-block");
-                }
-                alert("statusid" + jsonString.info.statusid);
-                if (jsonString.info.statusid == 0 || jsonString.info.statusid == 1) {
-                    $(".cancels_btn").css("display", "inline-block");
-                }
-                orderdetail_template_container.setTemplate($('#orderdetail_template').html());
-                orderdetail_template_container.processTemplate(jsonString.info, null, { append: false });
-                orderdetail_template_container.listview('refresh');
-            } else {
-                orderdetail_template_container.setTemplate("<li>暂无用户信息</li>");
-                orderdetail_template_container.processTemplate(jsonString.info, null, { append: false });
-                orderdetail_template_container.listview('refresh');
-            }
-        }, true, {
-            "ref_loading": orderdetail_template_container, "ref_loading_text": '<li style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></li>'
-        });
-        //#endregion
-
-        //#region 获取订单商品信息
-        var ordergoods_list_template_container = $("#ordergoods_list_template_container");
-        GetWcf({
-            _api: "Order.get_ordergoods_list",
-            _url: ocode
-        }, function (jsonString) {
-            if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list != null) {
-                for (var i = 0; i < jsonString.list.length; i++) {
-                    jsonString.list[i].pic_url = jsonString.list[i].pic_url.toString().replace("{0}", "normal");
-                }
-                ordergoods_list_template_container.setTemplate($('#ordergoods_list_template').html());
-                ordergoods_list_template_container.processTemplate(jsonString.list, null, { append: false });
-                ordergoods_list_template_container.listview('refresh');
-            } else {
-                ordergoods_list_template_container.setTemplate("<li>赞无商品信息</li>");
-                ordergoods_list_template_container.processTemplate(jsonString.info, null, { append: false });
-                ordergoods_list_template_container.listview('refresh');
-            }
-        }, true, {
-            "ref_loading": ordergoods_list_template_container, "ref_loading_text": '<li style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></li>'
-        });
-        //#endregion
-    }
-}
-//#endregion
-
-//#region 近N个月
-var nearly_N_month = function (n) {
-    var currentDate = new Date();
-   
-    var year = currentDate.getFullYear();
-    var month = currentDate.getMonth() + 1-n;
-    var day = currentDate.getDate();
-    var hour=currentDate.getHours();
-    var min=currentDate.getMinutes();
-
-    return year + "-" + month + "-" + day + " " + hour + ":" + min+":00";
-}
-//#endregion
-
-//#region 绑定订单列表
-var BindOrderlist = function (nc) {
-    var begintime = nearly_N_month(nc).toString(), endtime = nearly_N_month(0).toString();
-    var orderlist_template_container = $("#orderlist_template_container");
-    GetWcf({
-        _api: "Order.get_order_list",
-        _url: "/" + begintime + "/" + endtime
-    }, function (jsonString) {
-        if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list != null) {
-            for (var i = 0; i < jsonString.list.length; i++) {
-                jsonString.list[i].created = timeDate(jsonString.list[i].created);
-            }
-            orderlist_template_container.setTemplate($('#orderlist_template').html());
-            orderlist_template_container.processTemplate(jsonString.list, null, { append: false });
-            orderlist_template_container.listview('refresh');
-        } else {
-            orderlist_template_container.setTemplate("<li>暂无用户信息</li>");
-            orderlist_template_container.processTemplate(jsonString.list, null, { append: false });
-            orderlist_template_container.listview('refresh');
-        }
-    }, true, {
-        "ref_loading": orderlist_template_container, "ref_loading_text": '<li style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></li>'
-    });
-}
-//#endregion
-
-//#region 菜单选中
-var changNav = {
-    cange: function (obj) {
-        //alert($(obj).attr("id"));
-        $("#oneMonth,#twoMonth").removeClass("ui-btn-up-e").addClass("ui-btn-up-c");
-        $(obj).removeClass("ui-btn-up-c").addClass("ui-btn-up-e");
-
-    },
-    trige: function () {
-        $("#oneMonth,#twoMonth").bind("click", function () {
-            changNav.cange($(this));
-            var id = $(this).attr("id");
-            if (id === "oneMonth") {
-                BindOrderlist(1);
-            } else {
-                BindOrderlist(2);
-            }
-        });
-    }
-}
-//#endregion
-
-//#region 订单列表页
-function orderlist_Fun() {
-    BindOrderlist(1);
-    changNav.trige();
-}
-//#endregion
-
 
 $(document).ready(function () {
     var url = window.location.href;
@@ -1142,14 +1012,11 @@ $(document).ready(function () {
         invoice_Fun();
     } else if (/address_add.aspx/i.test(url)) {
         address_add_Fun();
-    } else if (/address_edit.aspx/i.test(url)) {
+    }
+    else if (/address_edit.aspx/i.test(url)) {
         address_edit_Fun();
     } else if (/makeorder.aspx/i.test(url)) {
         makeorder_Fun();
-    } else if (/orderdetail.aspx/i.test(url)) {
-        orderdetail_Fun();
-    } else if (/orderlist.aspx/i.test(url)) {
-        orderlist_Fun();
     }
     $('#gotop').tap(function () {
         $.mobile.silentScroll(10);

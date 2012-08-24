@@ -14,7 +14,7 @@ namespace EF.DAL
         /// <summary>
         /// 获取商品列表数据
         /// </summary>
-        /// <param name="userLevel">会员等级</param>
+        /// <param name="clusterId">群Id</param>
         /// <param name="channelId">渠道id</param>
         /// <param name="categoryId">分类id</param>
         /// <param name="brandId">品牌id</param>
@@ -27,7 +27,7 @@ namespace EF.DAL
         /// <param name="pageIndex">分页索引</param>
         /// <param name="pageTotal">数据总数</param>
         /// <returns></returns>
-        public List<Vi_Web_Pdt_List> GetGoodsList(int userLevel, int channelId, int categoryId, int brandId,
+        public List<Vi_Web_Pdt_List> GetGoodsList(int clusterId, int channelId, int categoryId, int brandId,
                                                     int starAge, int endAge, decimal startPrice, decimal endPrice,
                                                     SortType? sortType, int pageSize, int pageIndex,
                                                     out int pageTotal)
@@ -37,7 +37,7 @@ namespace EF.DAL
                 sortType = SortType.SalesDesc;
 
             var queryTxt = from c in holycaDb.Vi_Web_Pdt_List
-                           where c.intHerdID == userLevel && c.intChannelID == channelId
+                           where c.intHerdID == clusterId && c.intChannelID == channelId
                            select c;
 
             #region 处理查询条件

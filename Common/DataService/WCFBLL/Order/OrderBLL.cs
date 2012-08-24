@@ -12,6 +12,7 @@ using Core.LogUtility;
 using EF.Model.DataContext;
 using Factory;
 using Wcf.BLL.BaseData;
+using Wcf.BLL.Goods;
 using Wcf.BLL.ServiceReference.External;
 using Wcf.Entity.Enum;
 using Wcf.Entity.Order;
@@ -252,11 +253,11 @@ namespace Wcf.BLL.Order
                     var invoice = new Sale_Order_Invoice();
                     if (orderEntity.titletype != null && orderEntity.titletype != Invoice.TitleType.NoNeed)
                     {
-                        if (orderEntity.titletype != Invoice.TitleType.Personal)
+                        if (orderEntity.titletype == Invoice.TitleType.Personal)
                         {
                             invoice.vchInvoicTitile = "个人";
                         }
-                        else if (orderEntity.titletype != Invoice.TitleType.Company)
+                        else if (orderEntity.titletype == Invoice.TitleType.Company)
                         {
                             invoice.vchInvoicTitile = orderEntity.invoicetitle;
                         }
@@ -309,6 +310,7 @@ namespace Wcf.BLL.Order
                                 break;
                         }
 
+                        result.info.ocode = order.vchOrderCode;
                         result.info.paytype = payType;
                         result.info.logisticstype = deliverInfo.vchDeliverName;
                         result.info.total_fee = order.numGoodsAmount;
@@ -618,5 +620,253 @@ namespace Wcf.BLL.Order
             return result;
         }
 
+        /// <summary>
+        /// 获取订单信息
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="uid"></param>
+        /// <param name="userId"></param>
+        /// <param name="orderCode"></param>
+        /// <returns></returns>
+        public static MResult<ItemOrderDetails> GetOrderinfo(int sid, string uid, int userId, string orderCode)
+        {
+            var result = new MResult<ItemOrderDetails>();
+
+            try
+            {
+                #region 参数判断
+                if (userId <= 0)
+                {
+                    result.status = MResultStatus.ParamsError;
+                    result.msg = "用户标识错误！";
+                }
+                if (string.IsNullOrEmpty(orderCode))
+                {
+                    result.status = MResultStatus.ParamsError;
+                    result.msg = "订单标识错误！";
+                }
+                #endregion
+
+                var orderDal = DALFactory.Order();
+                var baseDataDal = DALFactory.BaseData();
+
+                var orderInfo = orderDal.GetOrderInfo(userId, orderCode);
+                if (orderInfo != null && orderInfo.OrderNo > 0)
+                {
+                    orderInfo.PayType = orderInfo.PayId == 0 ? "货到付款" : "在线支付";
+
+                    orderInfo.InvoiceType = (int)(string.IsNullOrEmpty(orderInfo.InvoiceTitle)
+                                                 ? Invoice.TitleType.NoNeed
+                                                 : orderInfo.InvoiceTitle.StartsWith("个人")
+                                                       ? Invoice.TitleType.Personal
+                                                       : Invoice.TitleType.Company);
+                    orderInfo.PayStatus = orderInfo.PayStatusId == 2 ? "已付款" : "未付款";
+                    #region 订单状态
+                    string orderStatus;
+                    switch (orderInfo.OrderStatusId)
+                    {
+                        case 0: orderStatus = "付款未审核"; break;
+                        case 1: orderStatus = "未确定"; break;
+                        case 4: orderStatus = "客户已确认"; break;
+                        case 5: orderStatus = "生成配货单"; break;
+                        case 7: orderStatus = "已出库"; break;
+                        case 20: orderStatus = "完成"; break;
+                        default:
+                            orderStatus = "未知"; break;
+                    }
+                    #endregion
+                    orderInfo.OrderStatus = orderStatus;
+
+                    var invoiceCategory = MCvHelper.To<int>(orderInfo.InvoiceCategory, 0);
+
+                    result.info = new ItemOrderDetails
+                                         {
+                                             oid = orderInfo.OrderNo,
+                                             ocode = orderInfo.OrderCode,
+                                             status = orderInfo.OrderStatus,
+                                             addr = orderInfo.AddressInfo,
+                                             province = orderInfo.Provinces,
+                                             city = orderInfo.City,
+                                             county = orderInfo.County,
+                                             contact_name = orderInfo.Consignee,
+                                             invoicecategory = invoiceCategory,
+                                             invoicetitle = orderInfo.InvoiceTitle,
+                                             phone = orderInfo.Phone,
+                                             titletype = orderInfo.InvoiceType,
+                                             mobile = orderInfo.Mobile,
+                                             paytype = orderInfo.PayType,
+                                             statusid = orderInfo.OrderStatusId,
+                                             zip = orderInfo.Zip,
+                                             paystatus = orderInfo.PayStatus,
+                                             paystatusid = orderInfo.PayStatusId,
+                                             deliverytype = orderInfo.DeliveryType
+                                         };
+                    result.status = MResultStatus.Success;
+                }
+                else
+                {
+                    result.status = MResultStatus.Undefined;
+                    result.msg = "没有数据！";
+                }
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExecutionError;
+                MLogManager.Error(MLogGroup.Order.获取订单信息, null, "获取订单信息", ex);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 获取订单商品列表
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="uid"></param>
+        /// <param name="userId"></param>
+        /// <param name="orderCode"></param>
+        /// <returns></returns>
+        public static MResultList<ItemOrderGoods> GetOrderGoodsList(int sid, string uid, int userId, string orderCode)
+        {
+            var result = new MResultList<ItemOrderGoods>(true);
+
+            try
+            {
+                #region 参数判断
+                if (userId <= 0)
+                {
+                    result.status = MResultStatus.ParamsError;
+                    result.msg = "用户标识错误！";
+                }
+                if (string.IsNullOrEmpty(orderCode))
+                {
+                    result.status = MResultStatus.ParamsError;
+                    result.msg = "订单标识错误！";
+                }
+                #endregion
+
+                var orderDal = DALFactory.Order();
+                var memberDal = DALFactory.Member();
+
+                var memberInfo = memberDal.GetMemberInfo(userId);
+                if (memberInfo == null || memberInfo.membNo <= 0)
+                {
+                    result.status = MResultStatus.Undefined;
+                    result.msg = "用户不存在！";
+                }
+                var clusterId = MCvHelper.To(memberInfo.clusterId, 1);
+
+                var orderGoodsList = orderDal.GetOrderGoodsList(userId, orderCode, clusterId);
+                if (orderGoodsList.Any())
+                {
+                    orderGoodsList.ForEach(item =>
+                                               {
+                                                   var goodsItem = new ItemOrderGoods()
+                                                                       {
+                                                                           gid = item.intProductID,
+                                                                           title = item.vchProductName,
+                                                                           price = item.numSalePrice,
+                                                                           num = item.intQty,
+                                                                           total = item.numTotalAmount,
+                                                                           pic_url = GoodsBLL.FormatProductPicUrl(item.PicUrl),
+                                                                           score = item.intScores,
+                                                                           marketprice = MCvHelper.To<decimal>(item.numStandarPrice, item.numSalePrice),
+                                                                           productcode = item.vchProductPrinted
+                                                                       };
+                                                   result.list.Add(goodsItem);
+                                               });
+                    result.status = MResultStatus.Success;
+                }
+                else
+                {
+                    result.status = MResultStatus.Undefined;
+                    result.msg = "没有数据！";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExecutionError;
+                MLogManager.Error(MLogGroup.Order.获取订单信息, null, "获取订单信息", ex);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 获取订单列表
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="uid"></param>
+        /// <param name="userId"></param>
+        /// <param name="begimTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        public static MResultList<ItemOrder> GetOrdersList(int sid, string uid, int userId, DateTime begimTime, DateTime endTime)
+        {
+            var result = new MResultList<ItemOrder>(true);
+
+            #region 参数验证
+
+            if (userId <= 0)
+            {
+                result.status = MResultStatus.ParamsError;
+                result.msg = "用户标识错误！";
+            }
+
+            #endregion
+
+            try
+            {
+                var orderDal = DALFactory.Order();
+
+                var orderList = orderDal.GetOrdersList(userId, begimTime, endTime);
+                if (orderList.Any())
+                {
+                    orderList.ForEach(item =>
+                                          {
+                                              var payType = item.intPayID == 0 ? "货到付款" : "在线支付";
+
+                                              var payStatus = item.intPayState == 2 ? "已付款" : "未付款";
+                                              #region 订单状态
+                                              string orderStatus;
+                                              switch (item.intOrderState)
+                                              {
+                                                  case 0: orderStatus = "付款未审核"; break;
+                                                  case 1: orderStatus = "未确定"; break;
+                                                  case 4: orderStatus = "客户已确认"; break;
+                                                  case 5: orderStatus = "生成配货单"; break;
+                                                  case 7: orderStatus = "已出库"; break;
+                                                  case 20: orderStatus = "完成"; break;
+                                                  default:
+                                                      orderStatus = "未知"; break;
+                                              }
+                                              #endregion
+                                              var orderInfo = new ItemOrder
+                                                                  {
+                                                                      oid = item.intOrderNO,
+                                                                      ocode = item.vchOrderCode,
+                                                                      created = item.dtCreateDate,
+                                                                      statusid = item.intOrderState,
+                                                                      paytype = payType,
+                                                                      status = orderStatus,
+                                                                      total_fee = item.numGoodsAmount,
+                                                                      total_freight = item.numCarriage,
+                                                                      total_order = item.numReceAmount
+                                                                  };
+                                              result.list.Add(orderInfo);
+                                          });
+                    result.status = MResultStatus.Success;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExecutionError;
+                MLogManager.Error(MLogGroup.Order.获取订单列表, null, "获取订单列表", ex);
+            }
+
+            return result;
+        }
     }
 }

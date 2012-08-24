@@ -28,5 +28,19 @@ namespace EF.DAL
             return querylinq.FirstOrDefault();
         }
 
+        /// <summary>
+        /// 获取会员信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public base_t_member GetMemberInfo(int userId)
+        {
+            var bbhome = new bbHomeEntities();
+            var querylinq = from a in bbhome.base_t_member
+                            where a.membNo == userId
+                            select a;
+            return querylinq.FirstOrDefault();
+        }
+
     }
 }

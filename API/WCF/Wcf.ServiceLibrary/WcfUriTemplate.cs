@@ -136,15 +136,11 @@ namespace Wcf.ServiceLibrary
         /// <summary>
         /// 获取订单信息
         /// </summary>
-        public const string GETORDERSINFO = "/get_order_info/{sid}/{token}/{guid}/{user_id}/{uid}/{orderid}";
+        public const string GETORDERSINFO = "/get_order_info/{sid}/{token}/{guid}/{user_id}/{uid}/{ordercode}";
         /// <summary>
         /// 获取订单详细
         /// </summary>
-        public const string GETORDERSDETAILS = "/get_order_details/{sid}/{token}/{guid}/{user_id}/{uid}/{orderid}";
-        /// <summary>
-        /// 获取订单运送信息
-        /// </summary>
-        public const string GETORDERSSHIPPINGINFO = "/get_ordershipping_info/{sid}/{token}/{guid}/{user_id}/{uid}/{orderid}";
+        public const string GETORDERGOODSLIST = "/get_ordergoods_list/{sid}/{token}/{guid}/{user_id}/{uid}/{ordercode}";
         
     }
     internal static class GoodsUri

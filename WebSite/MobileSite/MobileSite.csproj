@@ -318,14 +318,6 @@
     <Content Include="Html\orderlist.html" />
     <Content Include="images\camera-loader.gif" />
     <Content Include="images\camera_skins.png" />
-    <Content Include="images\icon\Icon%402x.png" />
-    <Content Include="images\icon\Icon-144.png" />
-    <Content Include="images\icon\Icon-72.png" />
-    <Content Include="images\icon\Icon-Small%402x.png" />
-    <Content Include="images\icon\Icon-Small-50.png" />
-    <Content Include="images\icon\Icon-Small.png" />
-    <Content Include="images\icon\Icon.png" />
-    <Content Include="images\icon\iTunesArtwork.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\slides\Accessories0705_1000x400.jpg" />
     <Content Include="images\slides\Diapers0710_1000x400.jpg" />

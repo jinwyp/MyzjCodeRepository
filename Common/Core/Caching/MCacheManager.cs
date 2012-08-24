@@ -18,6 +18,15 @@ namespace Core.Caching
     {
 
         private static ICache _cacheObj = null;
+        /// <summary>
+        /// 是否启用缓存
+        /// </summary>
+        private static readonly bool IsEnable = false;
+
+        static MCacheManager()
+        {
+            IsEnable = MConfigManager.GetAppSettingsValue<bool>(MConfigManager.FormatKey("IsEnable", MConfigs.ConfigsCategory.Cache), false);
+        }
 
         /// <summary>
         /// 获取缓存对象 自定义缓存类型
@@ -27,23 +36,31 @@ namespace Core.Caching
         {
             if (_cacheObj == null)
             {
-                switch (provider)
+                if (IsEnable)
                 {
-                    case MCaching.Provider.Redis:
-                        {
-                            _cacheObj = MRedisCache.GetInstance();
-                        }
-                        break;
-                    case MCaching.Provider.Memcached:
-                        {
-                            _cacheObj = MMemcache.GetInstance();
-                        }
-                        break;
-                    default:
-                        {
-                            MLogManager.Error(MLogGroup.Other.获取缓存对象, "", "缓存方式错误 没有指定 " + MCaching.Provider.Memcached + " 缓存的实现方法！");
-                        }
-                        break;
+                    switch (provider)
+                    {
+                        case MCaching.Provider.Redis:
+                            {
+                                _cacheObj = MRedisCache.GetInstance();
+                            }
+                            break;
+                        case MCaching.Provider.Memcached:
+                            {
+                                _cacheObj = MMemcache.GetInstance();
+                            }
+                            break;
+                        default:
+                            {
+                                MLogManager.Error(MLogGroup.Other.获取缓存对象, "",
+                                                  "缓存方式错误 没有指定 " + MCaching.Provider.Memcached + " 缓存的实现方法！");
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    _cacheObj = NotCache.GetInstance();
                 }
             }
             return _cacheObj;
@@ -57,20 +74,28 @@ namespace Core.Caching
         {
             if (_cacheObj == null)
             {
-                var key = MConfigManager.FormatKey("Default", MConfigs.ConfigsCategory.Cache);
-                var cacheType = MConfigManager.GetAppSettingsValue(key, "");
-                if (!string.IsNullOrEmpty(cacheType))
+                if (IsEnable)
                 {
-                    if (cacheType.Equals(MCaching.Provider.Redis.ToString(), StringComparison.OrdinalIgnoreCase))
-                        _cacheObj = MRedisCache.GetInstance();
-                    else if (cacheType.Equals(MCaching.Provider.Memcached.ToString(), StringComparison.OrdinalIgnoreCase))
-                        _cacheObj = MMemcache.GetInstance();
+                    var key = MConfigManager.FormatKey("Default", MConfigs.ConfigsCategory.Cache);
+                    var cacheType = MConfigManager.GetAppSettingsValue(key, "");
+                    if (!string.IsNullOrEmpty(cacheType))
+                    {
+                        if (cacheType.Equals(MCaching.Provider.Redis.ToString(), StringComparison.OrdinalIgnoreCase))
+                            _cacheObj = MRedisCache.GetInstance();
+                        else if (cacheType.Equals(MCaching.Provider.Memcached.ToString(),
+                                                  StringComparison.OrdinalIgnoreCase))
+                            _cacheObj = MMemcache.GetInstance();
+                        else
+                            MLogManager.Error(MLogGroup.Other.获取缓存对象, "", "缓存方式配置无法识别，节点" + key);
+                    }
                     else
-                        MLogManager.Error(MLogGroup.Other.获取缓存对象, "", "缓存方式配置无法识别，节点" + key);
+                    {
+                        MLogManager.Error(MLogGroup.Other.获取缓存对象, "", "请配置缓存方式，节点" + key);
+                    }
                 }
                 else
                 {
-                    MLogManager.Error(MLogGroup.Other.获取缓存对象, "", "请配置缓存方式，节点" + key);
+                    _cacheObj = NotCache.GetInstance();
                 }
             }
             return _cacheObj;
@@ -98,7 +123,7 @@ namespace Core.Caching
         /// <param name="expired"> </param>
         /// <param name="func"></param>
         /// <returns></returns>
-        public static T UseCached<T>(string key, MCaching.CacheGroup cacheGroup,DateTime expired, Func<object> func) where T : class
+        public static T UseCached<T>(string key, MCaching.CacheGroup cacheGroup, DateTime expired, Func<object> func) where T : class
         {
             return UseCached<T>(key, cacheGroup, expired, GetCacheObj(), func);
         }
