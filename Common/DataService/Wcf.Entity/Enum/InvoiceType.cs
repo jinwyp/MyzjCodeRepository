@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Runtime.Serialization;
 
 namespace Wcf.Entity.Enum
 {
@@ -14,7 +13,6 @@ namespace Wcf.Entity.Enum
         /// <summary>
         /// 发票title 类型
         /// </summary>
-        [DataContract]
         public enum TitleType
         {
             /// <summary>
@@ -33,7 +31,6 @@ namespace Wcf.Entity.Enum
         /// <summary>
         /// 发票分类
         /// </summary>
-        [DataContract]
         public enum InvoiceCategory
         {
             /// <summary>

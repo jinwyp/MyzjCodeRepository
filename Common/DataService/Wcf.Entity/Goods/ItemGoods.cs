@@ -11,49 +11,49 @@ namespace Wcf.Entity.Goods
     /// <summary>
     /// 商品结构
     /// </summary>
-    [DataContract]
+    [JsonObject]
     public class ItemGoods
     {
         /// <summary>
         /// 商品Id
         /// </summary>
-        [DataMember]
+        [JsonProperty]
         public int gid { get; set; }
 
         /// <summary>
         /// 商品标题
         /// </summary>
-        [DataMember]
+        [JsonProperty]
         public string title { get; set; }
 
         /// <summary>
         /// 商品图片
         /// </summary>
-        [DataMember]
+        [JsonProperty]
         public string pic_url { get; set; }
 
         /// <summary>
         /// 商品价格
         /// </summary>
-        [DataMember]
+        [JsonProperty]
         public decimal price { get; set; }
 
         /// <summary>
         /// 市场价
         /// </summary>
-        [DataMember]
+        [JsonProperty]
         public decimal marketprice { get; set; }
 
         /// <summary>
         /// 商品编号
         /// </summary>
-        [DataMember]
+        [JsonProperty]
         public string productcode { get; set; }
 
         /// <summary>
         /// 积分
         /// </summary>
-        [DataMember]
+        [JsonProperty]
         public int score { get; set; }
     }
 }

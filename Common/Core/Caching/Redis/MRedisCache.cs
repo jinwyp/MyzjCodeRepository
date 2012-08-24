@@ -27,20 +27,19 @@ namespace Core.Caching.Redis
             try
             {
                 var onlyReadServers = MConfigManager.GetAppSettingsValue<string>(
-                        MConfigManager.FormatKey("RedisServers_readOnly", MConfigs.ConfigsCategory.Cache),
-                        "").Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                MConfigManager.FormatKey("RedisServers_readOnly", MConfigs.ConfigsCategory.Cache),
+                "").Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
                 var readWriteServers = MConfigManager.GetAppSettingsValue<string>(
-                    MConfigManager.FormatKey("RedisServers_readWrite", MConfigs.ConfigsCategory.Cache),
-                    "").Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                MConfigManager.FormatKey("RedisServers_readWrite", MConfigs.ConfigsCategory.Cache),
+                "").Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
-                _cachePool = new PooledRedisClientManager(readWriteServers, onlyReadServers,
-                                                          new RedisClientManagerConfig
-                                                          {
-                                                              AutoStart = true,
-                                                              MaxReadPoolSize = onlyReadServers.Length * 5,
-                                                              MaxWritePoolSize = readWriteServers.Length * 5
-                                                          });
+                _cachePool = new PooledRedisClientManager(readWriteServers, onlyReadServers, new RedisClientManagerConfig
+                                                                                                {
+                                                                                                    AutoStart = true,
+                                                                                                    MaxReadPoolSize = 100,
+                                                                                                    MaxWritePoolSize = 100
+                                                                                                });
 
                 //GetClient() = new RedisClient(host, port);
             }
@@ -62,17 +61,8 @@ namespace Core.Caching.Redis
             //}
             if (_cachePool != null)
             {
-                try
-                {
-                    if (_cacheClient == null)
-                        _cacheClient = _cachePool.GetClient();
-                    return _cacheClient;
-                }
-                catch (Exception)
-                {
-                    MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取缓存连接对象失败！");
-                    throw new Exception("获取缓存连接对象失败!");
-                }
+                _cacheClient = _cachePool.GetClient();
+                return _cacheClient;
             }
             else
             {
@@ -148,6 +138,51 @@ namespace Core.Caching.Redis
         /// <param name="obj"></param>
         /// <param name="expired"></param>
         /// <returns></returns>
+        public bool Set(string key, MCaching.CacheGroup cacheGroup, object obj, DateTime expired)
+        {
+            var result = false;
+            try
+            {
+                var cacheKey = FormatKey(key, cacheGroup);
+                result = GetClient().Set(cacheKey, obj, expired);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "设置缓存 出错！", ex);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 设置缓存 如果存在则更新，否则新增
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="cacheGroup"> </param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool Set(string key, MCaching.CacheGroup cacheGroup, object obj)
+        {
+            var result = false;
+            try
+            {
+                var cacheKey = FormatKey(key, cacheGroup);
+                result = GetClient().Set(cacheKey, obj);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "设置缓存 出错！", ex);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 设置缓存 如果存在则更新，否则新增
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="cacheGroup"> </param>
+        /// <param name="obj"></param>
+        /// <param name="expired"></param>
+        /// <returns></returns>
         public bool Set<T>(string key, MCaching.CacheGroup cacheGroup, T obj, DateTime expired)
         {
             var result = false;
@@ -181,6 +216,51 @@ namespace Core.Caching.Redis
             catch (Exception ex)
             {
                 MLogManager.Error(MLogGroup.Other.Redis缓存, null, "设置缓存 出错！", ex);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 添加缓存
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="cacheGroup"> </param>
+        /// <param name="obj"></param>
+        /// <param name="expired"></param>
+        /// <returns></returns>
+        public bool Add(string key, MCaching.CacheGroup cacheGroup, object obj, DateTime expired)
+        {
+            var result = false;
+            try
+            {
+                var cacheKey = FormatKey(key, cacheGroup);
+                result = GetClient().Add(cacheKey, obj, expired);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "添加缓存 出错！", ex);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 添加缓存
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="cacheGroup"> </param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool Add(string key, MCaching.CacheGroup cacheGroup, object obj)
+        {
+            var result = false;
+            try
+            {
+                var cacheKey = FormatKey(key, cacheGroup);
+                result = GetClient().Add(cacheKey, obj);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "添加缓存 出错！", ex);
             }
             return result;
         }
@@ -233,15 +313,87 @@ namespace Core.Caching.Redis
         /// <summary>
         /// 获取缓存值 来自 缓存Key
         /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public object GetValByKey(string key)
+        {
+            object result = null;
+            try
+            {
+                result = GetClient().Get<object>(key);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取缓存值 出错！", ex);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取缓存值 来自 缓存Key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="cacheGroup"> </param>
+        /// <returns></returns>
+        public object GetValByKey(string key, MCaching.CacheGroup cacheGroup)
+        {
+            return GetValByKey(FormatKey(key, cacheGroup));
+        }
+
+        /// <summary>
+        /// 获取缓存值 来自 缓存Key
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public T GetValByKey<T>(string key)
+        {
+            var result = default(T);
+            try
+            {
+                result = GetClient().Get<T>(key);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取缓存值 出错！", ex);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取缓存值 来自 缓存Key
+        /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key"></param>
         /// <param name="cacheGroup"> </param>
         /// <returns></returns>
         public T GetValByKey<T>(string key, MCaching.CacheGroup cacheGroup)
         {
-            var cacheKey = FormatKey(key, cacheGroup);
-            var result = GetClient().Get<T>(cacheKey);
-            return result;
+            var result = GetValByKey<T>(FormatKey(key, cacheGroup));
+            return (T)result;
+        }
+
+        /// <summary>
+        /// 获取缓存值列表 来自 缓存Keys
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keys"></param>
+        /// <returns></returns>
+        public Dictionary<string, T> GetValByKeys<T>(List<string> keys)
+        {
+            var result = default(IDictionary<string, T>);
+            if (keys != null && keys.Count > 0)
+            {
+                try
+                {
+                    result = GetClient().GetAll<T>(keys);
+                }
+                catch (Exception ex)
+                {
+                    MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取缓存值 出错！", ex);
+                }
+            }
+            return (Dictionary<string, T>)result;
         }
 
         /// <summary>
@@ -257,14 +409,13 @@ namespace Core.Caching.Redis
             var keyList = new List<string>();
             if (keys != null)
             {
-
                 foreach (var key in keys)
                 {
                     var nKey = FormatKey(key, cacheGroup);
                     if (!keyList.Contains(nKey))
                         keyList.Add(nKey);
                 }
-                result = (Dictionary<string, T>)GetClient().GetAll<T>(keyList);
+                result = GetValByKeys<T>(keyList);
             }
             return result;
         }

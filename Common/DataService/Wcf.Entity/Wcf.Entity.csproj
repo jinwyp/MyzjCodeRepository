@@ -76,7 +76,6 @@
     <Compile Include="BaseData\CarriageDetail.cs" />
     <Compile Include="Order\ItemOrder.cs" />
     <Compile Include="Order\ItemOrderDetails.cs" />
-    <Compile Include="Order\ItemOrderGoods.cs" />
     <Compile Include="Order\ItemShoppingCartGoods.cs" />
     <Compile Include="Order\OrderEntity.cs" />
     <Compile Include="Order\OrderResult.cs" />

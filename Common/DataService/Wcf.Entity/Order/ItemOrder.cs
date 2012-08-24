@@ -16,16 +16,10 @@ namespace Wcf.Entity.Order
         public long? oid { get; set; }
 
         /// <summary>
-        /// 订单编码
-        /// </summary>
-        [DataMember]
-        public string ocode { get; set; }
-
-        /// <summary>
         /// 订单状态
         /// </summary>
         [DataMember]
-        public int? statusid { get; set; }
+        public int? status { get; set; }
 
         /// <summary>
         /// 订单总额 不包括邮费
@@ -122,11 +116,5 @@ namespace Wcf.Entity.Order
         /// </summary>
         [DataMember]
         public decimal? total_order { get; set; }
-
-        /// <summary>
-        /// 订单状态
-        /// </summary>
-        [DataMember]
-        public string status { get; set; }
     }
 }

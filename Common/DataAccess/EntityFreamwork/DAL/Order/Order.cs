@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
-using Core.DataType;
+
 using EF.Model;
 using EF.Model.DataContext;
 using System.Data.Objects;
 using System.Data;
 using Core.DataTypeUtility;
-using EF.Model.Entity;
-using Wcf.Entity.Enum;
 
 namespace EF.DAL
 {
@@ -231,7 +229,7 @@ namespace EF.DAL
 
                             //提交所有更改
                             tran.Commit();
-
+                            
                         }
                     }
                     catch (Exception e)
@@ -252,113 +250,11 @@ namespace EF.DAL
         /// <returns></returns>
         public bool SyncOrderInfoToBBHome(string orderCode)
         {
-            using (var db = new HolycaEntities())
+            using(var db=new HolycaEntities())
             {
                 var objectParameter = new ObjectParameter("result", DbType.Int32);
                 db.Up_Syn_ToBBHome_Now(orderCode, objectParameter);
                 return MCvHelper.To<int>(objectParameter.Value, -1) != -1;
-            }
-        }
-
-        /// <summary>
-        /// 获取订单信息
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="orderCode"></param>
-        /// <returns></returns>
-        public OrderDetails_ExtInfo GetOrderInfo(int userId, string orderCode)
-        {
-            using (var db = new HolycaEntities())
-            {
-                var queryTxt = from a in db.Sale_Order
-                               join b in db.Sale_Order_State on a.vchOrderCode equals b.vchOrderCode
-                               join c in db.Sale_Order_Invoice on a.vchOrderCode equals c.vchOrderCode
-                               join d in db.Sale_Order_Deliver on a.vchOrderCode equals d.vchOrderCode
-                               join e in db.Sale_Order_PayState on a.vchOrderCode equals e.vchOrderCode
-                               join f in db.Base_Deliver on a.intDeliverID equals f.intDeliverID
-                               where a.intUserID == userId && a.vchOrderCode == orderCode
-                               select new OrderDetails_ExtInfo
-                                          {
-                                              OrderNo = a.intOrderNO,
-                                              OrderCode = a.vchOrderCode,
-                                              Provinces = d.vchStateName,
-                                              City = d.vchCityName,
-                                              County = d.vchCountyName,
-                                              AddressInfo = d.vchDetailAddr,
-                                              Phone = d.vchPhone,
-                                              Mobile = d.vchMobile,
-                                              Consignee = d.vchConsignee,
-                                              InvoiceCategory = c.intInvoiceType,
-                                              InvoiceTitle = c.vchInvoicTitile,
-                                              Zip = d.vchPostCode,
-                                              PayStatusId = e.intPayState,
-                                              OrderStatusId = a.intOrderState,
-                                              DeliveryType = f.vchDeliverName
-                                          };
-                return queryTxt.FirstOrDefault();
-            }
-        }
-
-        /// <summary>
-        /// 获取商品
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="orderCode"></param>
-        /// <param name="clusterId"> </param>
-        /// <returns></returns>
-        public List<Sale_Order_Detail_And_GoodsInfo> GetOrderGoodsList(int userId, string orderCode, int clusterId)
-        {
-            using (var db = new HolycaEntities())
-            {
-                var queryTxt = from a in db.Sale_Order_Detail
-                               join b in db.Vi_Web_Pdt_Detail on a.intProductID equals b.intProductID
-                               where a.intUserID == userId && a.vchOrderCode == orderCode && b.intHerdID == clusterId
-                               select new Sale_Order_Detail_And_GoodsInfo
-                                          {
-                                              PicUrl = b.vchMainPicURL,
-                                              intProductID = a.intProductID,
-                                              vchProductName = a.vchProductName,
-                                              numSalePrice = a.numSalePrice,
-                                              intHerdPriceID = a.intHerdPriceID,
-                                              intQty = a.intQty,
-                                              intScores = a.intScores,
-                                              numTotalAmount = a.numTotalAmount
-                                          };
-                return queryTxt.ToList();
-            }
-        }
-
-        /// <summary>
-        /// 查询订单配送信息
-        /// </summary>
-        /// <param name="orderCode"></param>
-        /// <returns></returns>
-        public Sale_Order_Deliver GetOrderDeliveryinfo(string orderCode)
-        {
-            using (var db = new HolycaEntities())
-            {
-                var queryTxt = from a in db.Sale_Order_Deliver
-                               where a.vchOrderCode == orderCode
-                               select a;
-                return queryTxt.FirstOrDefault();
-            }
-        }
-
-        /// <summary>
-        /// 获取订单列表
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="begimTime"></param>
-        /// <param name="endTime"></param>
-        /// <returns></returns>
-        public List<Sale_Order> GetOrdersList(int userId, DateTime begimTime, DateTime endTime)
-        {
-            using (var db = new HolycaEntities())
-            {
-                var queryTxt = from a in db.Sale_Order
-                               where a.intUserID == userId && a.dtCreateDate <= endTime && a.dtCreateDate >= begimTime
-                               select a;
-                return queryTxt.ToList();
             }
         }
     }

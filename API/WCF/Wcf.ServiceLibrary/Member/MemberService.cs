@@ -156,7 +156,9 @@ namespace Wcf.ServiceLibrary.Member
 
             try
             {
-                result = MemberBLL.GetMemberAddressList(UserId);
+                result = MCacheManager.UseCached<MResultList<AddressEntity>>(string.Format("GetAddressList_{0}_{1}", sid, user_id),
+                     MCaching.CacheGroup.Member,
+                     () => MemberBLL.GetMemberAddressList(UserId));
             }
             catch (Exception)
             {

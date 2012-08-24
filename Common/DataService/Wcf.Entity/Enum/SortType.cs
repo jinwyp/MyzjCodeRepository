@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 
 namespace Wcf.Entity.Enum
@@ -9,7 +8,6 @@ namespace Wcf.Entity.Enum
     /// <summary>
     /// 排序类型
     /// </summary>
-    [DataContract]
     public enum SortType
     {
         /// <summary>

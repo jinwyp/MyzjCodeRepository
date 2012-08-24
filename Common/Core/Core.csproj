@@ -95,7 +95,6 @@
     <Compile Include="Caching\MCacheManager.cs" />
     <Compile Include="Caching\ICache.cs" />
     <Compile Include="Caching\Memcached\MMemcache.cs" />
-    <Compile Include="Caching\NotCache.cs" />
     <Compile Include="DataBase\MMongoDbManager.cs" />
     <Compile Include="Caching\Redis\MRedisCache.cs" />
     <Compile Include="ConfigUtility\MConfigurationSectionHandler.cs" />

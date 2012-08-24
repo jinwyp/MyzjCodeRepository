@@ -20,12 +20,6 @@ namespace Wcf.Entity.Order
         public long? oid { get; set; }
 
         /// <summary>
-        /// 订单编码
-        /// </summary>
-        [DataMember]
-        public string ocode { get; set; }
-
-        /// <summary>
         /// 订单总额 不包括邮费
         /// </summary>
         [DataMember]

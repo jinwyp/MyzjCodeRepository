@@ -115,42 +115,12 @@ namespace Wcf.ServiceLibrary.Order
         /// <param name="token"></param>
         /// <param name="user_id"> </param>
         /// <param name="uid"> </param>
-        /// <param name="orderCode">订单ID</param>
+        /// <param name="orderId">订单ID</param>
         /// <param name="guid"> </param>
         /// <returns></returns>
         [WebInvoke(Method = "GET", UriTemplate = OrderUri.GETORDERSINFO)]
         [OperationContract]
-        MResult<ItemOrderDetails> GetOrderInfo(string sid, string token, string guid, string user_id, string uid, string orderCode);
-
-        /// <summary>
-        /// 获取订单商品列表
-        /// </summary>
-        /// <param name="sid"></param>
-        /// <param name="token"></param>
-        /// <param name="guid"></param>
-        /// <param name="user_id"></param>
-        /// <param name="uid"></param>
-        /// <param name="orderCode"></param>
-        /// <returns></returns>
-        [WebInvoke(Method = "GET", UriTemplate = OrderUri.GETORDERGOODSLIST)]
-        [OperationContract]
-        MResultList<ItemOrderGoods> GetOrderGoodsList(string sid, string token, string guid, string user_id, string uid,
-                                                      string orderCode);
-
-        /// <summary>
-        /// 获取订单列表
-        /// </summary>
-        /// <param name="sid"></param>
-        /// <param name="token"></param>
-        /// <param name="guid"></param>
-        /// <param name="user_id"></param>
-        /// <param name="uid"></param>
-        /// <param name="begintime"></param>
-        /// <param name="endtime"></param>
-        /// <returns></returns>
-        [WebInvoke(Method = "GET", UriTemplate = OrderUri.GETORDERSLIST)]
-        [OperationContract]
-        MResultList<ItemOrder> GetOrdersList(string sid, string token, string guid, string user_id, string uid,string begintime,string endtime);
+        MResult<ItemOrder> GetOrderInfo(string sid, string token, string guid, string user_id, string uid, string orderId);
 
     }
 }

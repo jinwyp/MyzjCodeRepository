@@ -13,16 +13,16 @@ namespace EF.DAL
         /// <summary>
         /// 获取商品信息
         /// </summary>
-        /// <param name="clusterId"></param>
+        /// <param name="userLevel"></param>
         /// <param name="channelId"></param>
         /// <param name="gid"></param>
         /// <returns></returns>
-        public Vi_Web_Pdt_Detail GetGoodsInfo(int clusterId, int channelId, int gid)
+        public Vi_Web_Pdt_Detail GetGoodsInfo(int userLevel, int channelId, int gid)
         {
             var holycaDb = new HolycaEntities();
 
             var queryTxt = from a in holycaDb.Vi_Web_Pdt_Detail
-                           where a.intProductID == gid && a.intChannelID == channelId && a.intHerdID == clusterId
+                           where a.intProductID == gid && a.intChannelID == channelId && a.intHerdID == userLevel
                            select a;
             return queryTxt.FirstOrDefault();
         }
@@ -47,7 +47,6 @@ namespace EF.DAL
         /// 检测商品库存
         /// </summary>
         /// <param name="productId">商品ID</param>
-        /// <param name="stockQuantity"> </param>
         /// <returns></returns>
         public bool CheckProductStockByProductID(int productId, int stockQuantity)
         {

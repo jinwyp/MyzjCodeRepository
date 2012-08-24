@@ -78,7 +78,7 @@ namespace EF.DAL
                         addressInfo.vchPhone = addressEntity.vchPhone;
                         addressInfo.vchPostCode = addressEntity.vchPostCode;
                         addressInfo.vchStateName = addressEntity.vchStateName;
-                        addressInfo.intIsDefaultAddr = addressInfo.intIsDefaultAddr;
+                        addressInfo.intIsDefaultAddr = addressEntity.intIsDefaultAddr;
                         addressInfo.dtLastModTime = addressEntity.dtLastModTime;
 
                         //holycaDb.ApplyCurrentValues("User_Consignee_Address", addressInfo);
@@ -119,8 +119,7 @@ namespace EF.DAL
             using (var holycaDb = new HolycaEntities())
             {
                 var queryTxt = from a in holycaDb.User_Consignee_Address
-                               where a.intUserID == userId
-                               orderby a.intIsDefaultAddr descending
+                               where a.intIsDefaultAddr == 1 && a.intUserID == userId
                                select a;
                 return queryTxt.FirstOrDefault();
             }

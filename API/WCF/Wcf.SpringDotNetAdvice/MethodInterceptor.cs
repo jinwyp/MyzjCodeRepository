@@ -19,16 +19,11 @@ namespace Wcf.SpringDotNetAdvice
 {
     public class MethodInterceptor : IMethodInterceptor
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="invocation"></param>
-        /// <returns></returns>
         public object Invoke(IMethodInvocation invocation)
         {
             var shopWatch = new Stopwatch();
             object result = null;
-            var enableMethodLog = MConfigManager.GetAppSettingsValue<bool>("EnableMethodLog", false);
+            var EnableMethodLog = MConfigManager.GetAppSettingsValue<bool>("EnableMethodLog", false);
             try
             {
                 shopWatch.Start();
@@ -78,6 +73,11 @@ namespace Wcf.SpringDotNetAdvice
                     }
                 }
 
+                if (result == null)
+                {
+                    var resultType = invocation.Method.ReturnType;
+                    return Activator.CreateInstance(resultType);
+                }
                 return result;
             }
             catch (Exception ex)
@@ -86,12 +86,7 @@ namespace Wcf.SpringDotNetAdvice
             }
             finally
             {
-                if (result == null)
-                {
-                    var resultType = invocation.Method.ReturnType;
-                    result = Activator.CreateInstance(resultType);
-                }
-                if (enableMethodLog)
+                if (EnableMethodLog)
                 {
                     shopWatch.Stop();
                     MLogManager.Info(MLogGroup.AopAdvice.方法拦截, "", "执行用时：{0}毫秒;请求信息：{1};返回信息：{2};",

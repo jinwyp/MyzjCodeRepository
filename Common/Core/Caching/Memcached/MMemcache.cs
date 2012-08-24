@@ -9,9 +9,6 @@ using Enyim.Caching.Memcached;
 
 namespace Core.Caching.Memcached
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class MMemcache : CacheBase, ICache
     {
         private static readonly object LockObj = new object();
@@ -93,6 +90,40 @@ namespace Core.Caching.Memcached
             return result;
         }
 
+        public bool Set(string key, Enums.MCaching.CacheGroup cacheGroup, object obj, DateTime expired)
+        {
+            var result = false;
+
+            try
+            {
+                var cacheKey = FormatKey(key, cacheGroup);
+                result = _cacheClient.Store(StoreMode.Set, cacheKey, obj, expired);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "设置缓存 出错！", ex);
+            }
+
+            return result;
+        }
+
+        public bool Set(string key, Enums.MCaching.CacheGroup cacheGroup, object obj)
+        {
+            var result = false;
+
+            try
+            {
+                var cacheKey = FormatKey(key, cacheGroup);
+                result = _cacheClient.Store(StoreMode.Set, cacheKey, obj);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "设置缓存 出错！", ex);
+            }
+
+            return result;
+        }
+
         public bool Set<T>(string key, Enums.MCaching.CacheGroup cacheGroup, T obj, DateTime expired)
         {
             var result = false;
@@ -122,6 +153,40 @@ namespace Core.Caching.Memcached
             catch (Exception ex)
             {
                 MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "设置缓存 出错！", ex);
+            }
+
+            return result;
+        }
+
+        public bool Add(string key, Enums.MCaching.CacheGroup cacheGroup, object obj, DateTime expired)
+        {
+            var result = false;
+
+            try
+            {
+                var cacheKey = FormatKey(key, cacheGroup);
+                result = _cacheClient.Store(StoreMode.Add, cacheKey, obj, expired);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "添加缓存 出错！", ex);
+            }
+
+            return result;
+        }
+
+        public bool Add(string key, Enums.MCaching.CacheGroup cacheGroup, object obj)
+        {
+            var result = false;
+
+            try
+            {
+                var cacheKey = FormatKey(key, cacheGroup);
+                result = _cacheClient.Store(StoreMode.Add, cacheKey, obj);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "添加缓存 出错！", ex);
             }
 
             return result;
@@ -161,6 +226,53 @@ namespace Core.Caching.Memcached
             return result;
         }
 
+        public object GetValByKey(string key)
+        {
+            var result = new object();
+
+            try
+            {
+                result = _cacheClient.Get(key);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "获取缓存 出错！", ex);
+            }
+
+            return result;
+        }
+
+        public object GetValByKey(string key, Enums.MCaching.CacheGroup cacheGroup)
+        {
+            var result = new object();
+
+            try
+            {
+                var cacheKey = FormatKey(key, cacheGroup);
+                result = _cacheClient.Get(cacheKey);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "获取缓存 出错！", ex);
+            }
+
+            return result;
+        }
+
+        public T GetValByKey<T>(string key)
+        {
+            var result = default(T);
+            try
+            {
+                result = _cacheClient.Get<T>(key);
+            }
+            catch (Exception ex)
+            {
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "获取缓存值 出错！", ex);
+            }
+            return result;
+        }
+
         public T GetValByKey<T>(string key, Enums.MCaching.CacheGroup cacheGroup)
         {
             var result = default(T);
@@ -176,6 +288,26 @@ namespace Core.Caching.Memcached
             return result;
         }
 
+        public Dictionary<string, T> GetValByKeys<T>(List<string> keys)
+        {
+            var result = new Dictionary<string, T>();
+            if (keys != null && keys.Count > 0)
+            {
+                foreach (var key in keys)
+                {
+                    try
+                    {
+                        result.Add(key, GetValByKey<T>(key));
+                    }
+                    catch (Exception ex)
+                    {
+                        MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取缓存值 出错！", ex);
+                    }
+                }
+            }
+            return result;
+        }
+
         public Dictionary<string, T> GetValByKeys<T>(List<string> keys, Enums.MCaching.CacheGroup cacheGroup)
         {
             var result = new Dictionary<string, T>();
@@ -185,7 +317,8 @@ namespace Core.Caching.Memcached
                 {
                     try
                     {
-                        result.Add(key, GetValByKey<T>(key, cacheGroup));
+                        var cacheKey = FormatKey(key, cacheGroup);
+                        result.Add(key, GetValByKey<T>(cacheKey));
                     }
                     catch (Exception ex)
                     {
