@@ -16,19 +16,19 @@
         </fieldset>
         </form>
         <div class="content-primary">
-
-                <div class="camera_wrap camera_azure_skin" id="foucs">
-                        <div  data-src="../images/slides/Accessories0705_1000x400.jpg">
-                        </div>
-                        <div data-src="../images/slides/Diapers0710_1000x400.jpg">
-                        </div>
-                        <div  data-src="../images/slides/Milk0710_1.jpg">
-                        </div>
-                        <div  data-src="../images/slides/Pampers0711_1000x400.jpg">
-                        </div>
-                        <div data-src="../images/slides/wanju0705_1000x4000.jpg">
-                        </div>
-  </div><!-- #foucs -->
+            <div class="camera_wrap camera_azure_skin" id="foucsPic">
+                <div data-src="images/slides/Accessories0705_1000x400.jpg">
+                </div>
+                <div data-src="images/slides/Diapers0710_1000x400.jpg">
+                </div>
+                <div data-src="images/slides/Milk0710_1.jpg">
+                </div>
+                <div data-src="images/slides/Pampers0711_1000x400.jpg">
+                </div>
+                <div data-src="images/slides/wanju0705_1000x4000.jpg">
+                </div>
+            </div>
+            <!-- #foucs -->
             <!-- #camera_wrap_1 -->
             <ul data-role="listview" data-inset="true" data-theme="c">
                 <li><a href="productlist.html"><span class="icon-custom icon-custom-01"></span>限时抢购</a>
@@ -43,7 +43,7 @@
                 </li>
             </ul>
             <ul data-role="listview" data-inset="true" data-dividertheme="d">
-                <li data-role="list-divider">公告</li>
+                <li data-role="list-divider">公告11</li>
                 <li><a href="noticedetail.html">在线客服试运行 </a></li>
                 <li><a href="noticedetail.html">在线客服试运行 </a></li>
                 <li><a href="noticedetail.html">在线客服试运行 </a></li>
@@ -54,6 +54,6 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
     <%--<script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/jquery.mobile.customized.min.js"></script>--%>
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/jquery.easing.1.3.js"></script>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/camera.min.js"></script>
+    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>camera.min.js"></script>
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.member.js" type="text/javascript"></script>
 </asp:Content>

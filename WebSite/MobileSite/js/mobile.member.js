@@ -32,7 +32,7 @@ function LoingOut() {
 //#region 首页动画
 function Index_Fun() {
     //alert("aaa");
-    jQuery('#foucs').camera({
+    jQuery('#foucsPic').camera({
         thumbnails: false,
         pauseOnClick: false,
         pagination: false,
@@ -705,6 +705,10 @@ $(document).ready(function () {
     } else if (/forgetpassword.aspx/i.test(url)) {
         Forgetpassword();
     }
+    else {
+        Index_Fun();
+    }
+
     $('#gotop').tap(function () {
         $.mobile.silentScroll(10);
     });
