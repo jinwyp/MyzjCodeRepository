@@ -339,6 +339,8 @@
     <Content Include="js\bk\camera.min.js" />
     <Content Include="js\bk\jquery.easing.1.3.js" />
     <Content Include="js\bk\jquery.mobile.customized.min.js" />
+    <Content Include="js\camera.js" />
+    <Content Include="js\camera.min.js" />
     <Content Include="js\mobile.checkout.js" />
     <Content Include="Product\category.aspx" />
     <Content Include="Product\category_sub.aspx" />
