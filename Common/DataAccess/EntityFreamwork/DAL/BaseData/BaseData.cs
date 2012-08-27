@@ -17,7 +17,7 @@ namespace EF.DAL
         /// </summary>
         /// <param name="channelId"></param>
         /// <param name="regionId"> </param>
-        /// <returns>list< 支付名称 , 支付组id ></returns>
+        /// <returns>list</returns>
         public List<ItemPay> GetPayList(int channelId, int regionId)
         {
             var result = new List<ItemPay>();
@@ -39,6 +39,8 @@ namespace EF.DAL
                                     if (item.Key == 1)
                                         result.Add(new ItemPay { payid = 1, payname = "在线支付", paytype = 1, remark = "（支持绝大数银行借记卡及部分银行信息卡）" });
                                 });
+
+            result.Sort((l1, l2) => l2.payid.CompareTo(l1.payid));
 
             return result;
         }

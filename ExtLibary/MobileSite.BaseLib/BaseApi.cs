@@ -10,7 +10,7 @@ namespace MobileSite.BaseLib
     public class BaseApi : IRequiresSessionState
     {
         protected static Dictionary<string, string> ApiUrlDict = null;
-        protected const string SystemId = "WebSite";
+        protected const string SystemId = "MobileWebSite";
 
         public BaseApi()
         {

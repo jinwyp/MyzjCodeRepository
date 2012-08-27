@@ -10,6 +10,9 @@ using Newtonsoft.Json.Linq;
 
 namespace MobileSite.BaseLib
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ApiFactory
     {
         public static void FormatResult(ref string result, string apiName,MemberInfo memberInfo, HttpContext context)
