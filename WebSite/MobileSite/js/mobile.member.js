@@ -684,7 +684,7 @@ function productDetail_Fun() {
 
 $(document).ready(function () {
     var url = window.location.href;
-
+    
     if (/index.aspx/i.test(url)) {
         Index_Fun();
     }
