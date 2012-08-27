@@ -288,12 +288,13 @@ function orderconfirm_Fun() {
         var address_message = $('#address_message');
         if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info.contact_name != null) {
             Default_Consignee_information_Fun(jsonString.info);
+            address_default.removeAttr("href").attr("href", window.WebRoot + "CheckOut/addresslist.aspx");
             address_default.setTemplate($('#address_default_template').html());
             address_default.processTemplate(jsonString.info, null, { append: false });
             address_message.listview('refresh');
         } else {
+            address_default.removeAttr("href").attr("href", window.WebRoot + "CheckOut/address_add.aspx");
             address_default.setTemplate("<p>暂无收货信息，请添加！</p>");
-
             address_default.processTemplate(jsonString.info, null, { append: false });
             address_message.listview('refresh');
         }
@@ -815,6 +816,7 @@ function getTown() {
     var s3C = [];
     s3.empty();
     for (var i = 0, len = townA.length; i < len; i++) {
+        //if (s2 == townA[i].pid && townA[i].name != '市辖区') {
         if (s2 == townA[i].pid) {
             s3C[i] = "<option value='" + townA[i].id + "'>" + townA[i].name + "</option>";
         }
@@ -827,6 +829,7 @@ function getTown() {
 }
 //#endregion
 
+var a = 0;
 //#region 给省市区绑定事件
 function BindClick_Pro_City_Town_Event_Fun() {
     GetPrCiTownAjaxDate();
@@ -869,7 +872,8 @@ address_add_update_Object.address_valite_c = function (id_obj) {
             },
             mobilePhone: {
                 required: true,
-                number: true
+                number: true,
+                rangelength: [11, 11]
             }
         },
 
@@ -887,7 +891,8 @@ address_add_update_Object.address_valite_c = function (id_obj) {
             },
             mobilePhone: {
                 required: "请填写手机号码",
-                number: "请填写正确的手机号码"
+                number: "请填写正确的手机号码",
+                rangelength: "手机号码只能是{0}位"
             }
         },
         submitHandler: function (form) {
@@ -946,11 +951,13 @@ function address_edit_Fun() {
             $("#acc_id").val(jsonString.info.id);
             $("#email").val(jsonString.info.contact_name);
             $("#s1s option[value=" + jsonString.info.province_id + "]").attr("selected", true); //省
-            $("#s1s").selectmenu('refresh').trigger("click");
+            $("#s1s").selectmenu('refresh').trigger("change");
             $("#s2s option[value=" + jsonString.info.city_id + "]").attr("selected", true); //市
-            $("#s2s").selectmenu('refresh').trigger("click");
+            $("#s2s").selectmenu('refresh').trigger("change");
             $("#s3s option[value=" + jsonString.info.county_id + "]").attr("selected", true); //区
             $("#s3s").selectmenu('refresh');
+
+            //alert(jsonString.info.city_id);
 
             $("#addr").val(jsonString.info.addr);
             $("#zipCode").val(jsonString.info.zip);

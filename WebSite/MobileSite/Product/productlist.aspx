@@ -28,10 +28,12 @@
             </div>
             <div data-role="controlgroup" data-type="horizontal" data-mini="true" data-theme="c"
                 class="page">
-                <a href="#prev" data-role="button" data-icon="arrow-l" data-iconpos="left" class="paging"
+                <%--<a href="#prev" data-role="button" data-icon="arrow-l" data-iconpos="left" class="paging"
                     id="PrevPage">上一页</a>&nbsp;&nbsp;<span id="CurrentPages">1/3</span>&nbsp;&nbsp;<a
                         href="#next" data-role="button" data-icon="arrow-r" data-iconpos="right" id="NextPage"
-                        class="paging">下一页</a>
+                        class="paging">下一页</a>--%>
+                        <div id="loading_list"></div>
+                       <a href="#" data-role="button" data-icon="arrow-d" data-iconpos="left" id="morePage">再显示10条</a>
             </div>
         </div>
     </div>

@@ -329,6 +329,7 @@
     <Content Include="images\icon\Icon.png" />
     <Content Include="images\icon\iTunesArtwork.png" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\loading3.gif" />
     <Content Include="images\slides\Accessories0705_1000x400.jpg" />
     <Content Include="images\slides\Diapers0710_1000x400.jpg" />
     <Content Include="images\slides\Milk0710_1.jpg" />

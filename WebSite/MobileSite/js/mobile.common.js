@@ -81,6 +81,10 @@ var CallWcf = function (method, data, callback, showLoading, options) {
                         if (typeof (options.ref_loading) == "object" && options.ref_loading.length > 0) {
                             options.ref_loading.html(options.ref_loading_text);
                         }
+                        if (typeof (options.ref_loading_c) == "object" && options.ref_loading_c.length > 0) {
+                            options.ref_loading_c.show();
+                            options.ref_loading_c.html(options.ref_loading_text_c);
+                        }
                     } else {
                         //$.mobile.showPageLoadingMsg();
                         $.mobile.loadingMessageTextVisible = false;
@@ -102,6 +106,9 @@ var CallWcf = function (method, data, callback, showLoading, options) {
                     if (typeof (options) != "undefined") {
                         if (typeof (options.ref_loading) == "object" && options.ref_loading.length > 0) {
                             //options.ref_loading.empty();
+                        }
+                        if (typeof (options.ref_loading_c) == "object" && options.ref_loading_c.length > 0) {
+                            options.ref_loading_c.hide();
                         }
                     } else {
                         $.mobile.hidePageLoadingMsg();

@@ -7,7 +7,7 @@
     <div data-role="navbar" data-iconpos="left">
         <ul>
             <li><a href="<%= MobileSite.BaseLib.WebUrls.category() %>" data-theme="c" data-icon="grid" rel="external">商品分类</a> </li>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.category_sub() %>" data-theme="e" data-icon="grid" rel="external">妈妈食品</a></li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.category_sub() %>" data-theme="c" data-icon="arrow-l"  data-rel="back">返回</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -85,7 +85,7 @@
             <script id="picList" type="text/template">
                 {#foreach $T.list as Puct}
                     <li>
-                        <img src="{$T.Puct.url}" style="background:url(/images/errorImg_big.jpg) no-repeat center;" onerror='this.src="/images/errorImg_big.jpg"' width="300"
+                        <img src="{$T.Puct.url}" onerror='this.src="/images/errorImg_big.jpg"' width="300"
                             height="300" /></li>
                 {#/for} 
             </script>

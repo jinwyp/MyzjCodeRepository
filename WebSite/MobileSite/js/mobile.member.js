@@ -163,7 +163,8 @@ function Register_Fun() {
             },
             mobile: {
                 required: true,
-                number: true
+                number: true,
+                rangelength: [11, 11]
             },
             checkbox_agree: "required"
         },
@@ -186,8 +187,8 @@ function Register_Fun() {
             },
             mobile: {
                 required: "请输入手机号",
-                number: "请输入有效的手机号码"
-
+                number: "请输入有效的手机号码",
+                rangelength: "手机号码只能是{0}位"
             },
             checkbox_agree: {
                 required: "您还没有同意母婴之家”注册条款“！"
@@ -258,24 +259,24 @@ function Register_Fun() {
 //#region 忘记密码
 function Forgetpassword() {
     jQuery("#frmgetpassword").validate({
-    errorElement:"span",
-    rules: {
-        email: {
-            required: true,
-            email: true
+        errorElement: "span",
+        rules: {
+            email: {
+                required: true,
+                email: true
+            }
+        },
+
+        messages: {
+            email: {
+                required: "请输入Email地址",
+                email: "请输入正确的email地址 / 填写的用户名不存在"
+            }
         }
-    },
 
-    messages: {
-        email: {
-            required: "请输入Email地址",
-            email: "请输入正确的email地址 / 填写的用户名不存在"
-        }
-    }
+    });
 
-});
-
-} 
+}
 //#endregion
 
 //#region 用户协议
@@ -290,11 +291,11 @@ function userpolicy_Fun() {
 //#region 购物车页全局变量
 var currentPage = $.cookie("currentPage") || 1; //当前页
 //alert(":p1"+currentPage);
-if (window.location.href.toString().indexOf('&page') > 0) {
-    if ($.mobile.path.parseUrl(window.location.href).search.toString().split('&')[1].replace("page=", "") > 0) {
-        currentPage = $.mobile.path.parseUrl(window.location.href).search.toString().split('&')[1].replace("page=", "");
-    }
-}
+//if (window.location.href.toString().indexOf('&page') > 0) {
+//    if ($.mobile.path.parseUrl(window.location.href).search.toString().split('&')[1].replace("page=", "") > 0) {
+//        currentPage = $.mobile.path.parseUrl(window.location.href).search.toString().split('&')[1].replace("page=", "");
+//    }
+//}
 //alert(":p2" + currentPage);
 var lastPage = 1; //总页数
 var pageSize = 10; //每页显示的条数
@@ -302,27 +303,30 @@ var pageSize = 10; //每页显示的条数
 
 //#region 销量、价格、上架时间
 var sorts = $.cookie("sorts") || "100";
-var urls_ca = $.cookie("urls_ca") || "productlist.aspx?100";
-if ($.mobile.path.parseUrl(window.location.href).search != "") {
-    urls_ca = "productlist.aspx" + $.mobile.path.parseUrl(window.location.href).search;
-}
+//var urls_ca = $.cookie("urls_ca") || "productlist.aspx?100";
+//if ($.mobile.path.parseUrl(window.location.href).search != "") {
+//    urls_ca = "productlist.aspx" + $.mobile.path.parseUrl(window.location.href).search;
+//}
 //alert(urls_ca);
 //#endregion
 
 //#region 销量、价格、上架时间变换过程
 function Salec_Price_newTime_Cha_Fun(sorts_cookie, asc_c, aseac_c) {
-    //alert($.cookie("sorts"));
     if ($.cookie("sorts") != asc_c && $.cookie("sorts") != aseac_c) {
-        $.cookie("sorts", asc_c); urls_ca = "productlist.aspx?" + asc_c;
+        $.cookie("sorts", asc_c); 
+        //urls_ca = "productlist.aspx?" + asc_c;
     } else if ($.cookie("sorts") == asc_c && $.cookie("sorts") != aseac_c) {
-        $.cookie("sorts", aseac_c); urls_ca = "productlist.aspx?" + aseac_c;
+        $.cookie("sorts", aseac_c); 
+        //urls_ca = "productlist.aspx?" + aseac_c;
     } else if ($.cookie("sorts") == aseac_c && $.cookie("sorts") != asc_c) {
-        $.cookie("sorts", asc_c); urls_ca = "productlist.aspx?" + asc_c;
+        $.cookie("sorts", asc_c); 
+        //urls_ca = "productlist.aspx?" + asc_c;
     }
-    $.cookie("urls_ca", urls_ca);
+    //$.cookie("urls_ca", urls_ca);
     $.cookie("currentPage", 1);
     currentPage = 1;
-    DisplayUI(1, urls_ca);
+    //DisplayUI(1, urls_ca);
+    DisplayUI(1, $.cookie("sorts"));
 }
 //#endregion
 
@@ -330,18 +334,21 @@ function Salec_Price_newTime_Cha_Fun(sorts_cookie, asc_c, aseac_c) {
 function Salec_Price_newTime_Fun() {
     //#region 100升序 101降序
     $("#sales").click(function () {
+        $('#productlistContent').empty();
         Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "100", "101");
     });
     //#endregion
 
     //#region 200升序 201降序
     $("#price").click(function () {
+        $('#productlistContent').empty();
         Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "200", "201");
     });
     //#endregion
 
     //#region 300升序 301降序
     $("#upTime").click(function () {
+        $('#productlistContent').empty();
         Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "300", "301");
     });
     //#endregion
@@ -381,6 +388,7 @@ function Change_DateIcon_Fun(id_c, arrow_c, ui_arrow_1s, ui_arrow_2s, ui_btn_1s,
 
 //#region 改变a便签样式
 function Change_DateIcon_Diao_Fun(sorts) {
+    console.log("sorts2:"+sorts);
     switch (sorts) {
         case "?100": Change_DateIcon_Fun("#sales", "arrow-u", "ui-icon-arrow-d", "ui-icon-arrow-u", "ui-btn-up-c", "ui-btn-up-e"); break;
         case "?101": Change_DateIcon_Fun("#sales", "arrow-d", "ui-icon-arrow-u", "ui-icon-arrow-d", "ui-btn-up-c", "ui-btn-up-e"); break;
@@ -410,14 +418,20 @@ function Change_browser_Fun(urls) {
 function DisplayUI(page, urls) {
     var token = $.cookie("m_token");
     var uid = $.cookie("m_uid");
-    var obj = $.mobile.path.parseUrl(urls);
-    obj = obj.search;
-    if (obj == "" || obj == "undefined") {
-        obj = "?100";
-    }
-    sorts = obj.split('&')[0];
-    Change_browser_Fun(urls);
+    //var obj = $.mobile.path.parseUrl(urls);
+    //obj = obj.search;
+    //    if (obj == "" || obj == "undefined") {
+    //        obj = "?100";
+    //    }
+    //sorts = obj.split('&')[0];
+    //Change_browser_Fun(urls);
+    console.log("url:" + $.cookie("sorts"));
+    var obj = $.cookie("sorts") || "?100";
+    console.log("obj:" + obj);
+    console.log("sorts:" + "?" + obj);
+    sorts = "?" + obj;
     Change_DateIcon_Diao_Fun(sorts);
+    //Change_DateIcon_Diao_Fun(sorts);
     GetWcf({
         _api: "Goods.goodList",
         _url: "0/0/0/0/" + sorts.replace("?", "") + "/" + page + "/" + pageSize
@@ -429,21 +443,18 @@ function DisplayUI(page, urls) {
             }
 
             ApplyTemplate(jsonString);
-            $("#CurrentPages").text(page + "/" + lastPage);
+            //$("#CurrentPages").text(page + "/" + lastPage);
         } else {
             alert(jsonString.msg);
         }
-    }, true, {
-        "ref_loading": $('#productlistContent'), "ref_loading_text": '<li style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></li>'
-    });
+    }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
 }
 //#endregion
 
 //#region 给模板赋值
 function ApplyTemplate(jsonString) {
     $('#productlistContent').setTemplate($('#jTemplate').html());
-    //$('#content').processTemplate(jsonString,null,{append:true});
-    $('#productlistContent').processTemplate(jsonString, null, { append: false });
+    $('#productlistContent').processTemplate(jsonString, null, { append: true });
     $("#productlistContent").listview("refresh");
     UpdatePaging();
 }
@@ -451,29 +462,31 @@ function ApplyTemplate(jsonString) {
 
 //#region 显示隐藏上一页下一页
 function DisplayProgressIndication() {
-    //alert($("#productlistContent li").length);
     if ($("#productlistContent li").length < 1) {
-        $('.paging').hide();
-        $('.paging').unbind();
+        //$('.paging').hide();
+        //$('.paging').unbind();
+        $(".page").hide();
     }
 }
 //#endregion
 
 //#region 更新分页数据
 function UpdatePaging() {
-    if (currentPage != 1) {
-        $('#PrevPage').attr('href', '#');
-        $('#PrevPage').unbind("click").click(PrevPage);
-    } else {
-        $('#PrevPage').removeAttr('href', '#');
-        $('#PrevPage').unbind("click");
-    }
+    //if (currentPage != 1) {
+        //$('#PrevPage').attr('href', '#');
+        //$('#PrevPage').unbind("click").click(PrevPage);
+    //} else {
+        //$('#PrevPage').removeAttr('href', '#');
+        //$('#PrevPage').unbind("click");
+    //}
     if (currentPage != lastPage) {
-        $('#NextPage').attr('href', '#');
-        $('#NextPage').unbind("click").click(NextPage);
+        $("#morePage").unbind("click").click(NextPage); ;
+        //$('#NextPage').attr('href', '#');
+        //$('#NextPage').unbind("click").click(NextPage);
     } else {
-        $('#NextPage').removeAttr('href', '#');
-        $('#NextPage').unbind("click");
+        $("#morePage").unbind("click");
+        //$('#NextPage').removeAttr('href', '#');
+        //$('#NextPage').unbind("click");
     }
 }
 //#endregion
@@ -498,8 +511,9 @@ function NextPage(evt) {
     DisplayProgressIndication();
     currentPage = parseInt(currentPage) + parseInt(1);
 
-    Change_Location_curret(currentPage);
-    DisplayUI(currentPage, urls_ca);
+    //Change_Location_curret(currentPage);
+    //DisplayUI(currentPage, urls_ca);
+    DisplayUI(currentPage, $.cookie("sorts"));
 }
 //#endregion
 
@@ -509,15 +523,17 @@ function PrevPage(evt) {
     DisplayProgressIndication();
     currentPage = parseInt(currentPage) - parseInt(1);
 
-    Change_Location_curret(currentPage);
-    DisplayUI(currentPage, urls_ca);
+    //Change_Location_curret(currentPage);
+    //DisplayUI(currentPage, urls_ca);
+    DisplayUI(currentPage, $.cookie("sorts"));
 }
 //#endregion
 
 //#region 显示商品列表
 function GoodProductList() {
-    Change_Location_curret(currentPage);
-    DisplayUI(currentPage, urls_ca); //显示第一页
+    //Change_Location_curret(currentPage);
+    //DisplayUI(currentPage, urls_ca);
+    DisplayUI(currentPage, $.cookie("sorts")); //显示第一页
 };
 //#endregion
 
@@ -656,7 +672,7 @@ function productDetail_Fun() {
             $('#imggallery_iteminfo').processTemplate(jsonString, null, { append: false });
         }
     }, true, {
-        "ref_loading": $('#imggallery_iteminfo'), "ref_loading_text": '<li style="text-align:center; background:#ffffff url(../images/loading.gif) no-repeat center center; height:300px;"></li>'
+        "ref_loading": $('#imggallery_iteminfo'), "ref_loading_text": '<li style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:300px;"></li>'
     });
     //#endregion
 
@@ -683,30 +699,32 @@ function productDetail_Fun() {
 //#endregion
 
 $(document).ready(function () {
-    var url = window.location.href;
-    
-    if (/index.aspx/i.test(url)) {
+    var url = window.location.pathname;
+    //alert(/\//i.test(url));
+    if (/\//i.test(url) && url.length == 1) {
         Index_Fun();
-    }
-    else if (/login.aspx/i.test(url)) {
-        Login_Fun();
-    } else if (/registration.aspx/i.test(url)) {
-        Register_Fun();
-    } else if (/userpolicy.aspx/i.test(url)) {
-        //userpolicy_Fun();
-    } else if (/productlist.aspx/i.test(url)) {
-        GoodProductList();
-        Salec_Price_newTime_Fun();
-    } else if (/myaccount.aspx/i.test(url)) {
-        myAccount_Fun();
-        LoingOut();
-    } else if (/productdetailinfo.aspx/i.test(url)) {
-        productDetail_Fun();
-    } else if (/forgetpassword.aspx/i.test(url)) {
-        Forgetpassword();
-    }
-    else {
-        Index_Fun();
+
+    } else {
+        if (/index.aspx/i.test(url)) {
+            Index_Fun();
+        }
+        else if (/login.aspx/i.test(url)) {
+            Login_Fun();
+        } else if (/registration.aspx/i.test(url)) {
+            Register_Fun();
+        } else if (/userpolicy.aspx/i.test(url)) {
+            //userpolicy_Fun();
+        } else if (/productlist.aspx/i.test(url)) {
+            GoodProductList();
+            Salec_Price_newTime_Fun();
+        } else if (/myaccount.aspx/i.test(url)) {
+            myAccount_Fun();
+            LoingOut();
+        } else if (/productdetailinfo.aspx/i.test(url)) {
+            productDetail_Fun();
+        } else if (/forgetpassword.aspx/i.test(url)) {
+            Forgetpassword();
+        }
     }
 
     $('#gotop').tap(function () {
