@@ -425,16 +425,17 @@ function DisplayUI(page, urls) {
     //    }
     //sorts = obj.split('&')[0];
     //Change_browser_Fun(urls);
-    console.log("url:" + $.cookie("sorts"));
-    var obj = $.cookie("sorts") || "?100";
-    console.log("obj:" + obj);
-    console.log("sorts:" + "?" + obj);
+    //console.log("url:" + $.cookie("sorts"));
+    var obj = $.cookie("sorts") || "100";
+    //console.log("obj:" + obj);
+    //console.log("sorts:" + "?" + obj);
     sorts = "?" + obj;
     Change_DateIcon_Diao_Fun(sorts);
     //Change_DateIcon_Diao_Fun(sorts);
+
     GetWcf({
         _api: "Goods.goodList",
-        _url: "0/0/0/0/" + sorts.replace("?", "") + "/" + page + "/" + pageSize
+        _url: "0/0/0/0/" + obj + "/" + page + "/" + pageSize
     }, function (jsonString) {
         if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list.length > 0) {
             lastPage = Math.ceil(jsonString.total / pageSize);
