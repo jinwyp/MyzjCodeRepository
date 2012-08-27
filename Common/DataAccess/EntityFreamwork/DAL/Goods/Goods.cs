@@ -19,6 +19,7 @@ namespace EF.DAL
         /// <returns></returns>
         public Vi_Web_Pdt_Detail GetGoodsInfo(int clusterId, int channelId, int gid)
         {
+            channelId = 102;
             var holycaDb = new HolycaEntities();
 
             var queryTxt = from a in holycaDb.Vi_Web_Pdt_Detail

@@ -32,6 +32,7 @@ namespace EF.DAL
                                                     SortType? sortType, int pageSize, int pageIndex,
                                                     out int pageTotal)
         {
+            channelId = 102;
             var holycaDb = new HolycaEntities();
             if (sortType == null)
                 sortType = SortType.SalesDesc;

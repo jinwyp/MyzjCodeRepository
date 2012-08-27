@@ -37,7 +37,7 @@ namespace Wcf.ServiceLibrary.Goods
                 var pIndex = MCvHelper.To<int>(page);
                 var pSize = MCvHelper.To<int>(size);
                 var channelId = MCvHelper.To<SystemType>(sid);
-
+                
                 result = MCacheManager.UseCached<MResultList<ItemGoods>>(
                         string.Format("GetGoodsList_{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}", sid, user_id, bid, cid, age, price, sort, page, size),
                         MCaching.CacheGroup.Goods, () => GoodsBLL.GetGoodsList(sid, uid, (int)channelId, categoryId, brandId, age, price, sort, pSize, pIndex));

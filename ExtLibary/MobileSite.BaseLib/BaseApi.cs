@@ -4,18 +4,27 @@ using System.Linq;
 using System.Web;
 using System.Web.SessionState;
 using MobileSite.BaseLib.MemberContent;
+using Core.ConfigUtility;
 
 namespace MobileSite.BaseLib
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class BaseApi : IRequiresSessionState
     {
         protected static Dictionary<string, string> ApiUrlDict = null;
-        protected const string SystemId = "MobileWebSite";
+        protected string SystemId;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public BaseApi()
         {
             if (ApiUrlDict == null)
             {
+                SystemId = MConfigManager.GetAppSettingsValue<string>("SystemType", "");
+
                 var wcfHost = WebUrls.WcfHost();
                 ApiUrlDict = new Dictionary<string, string>();
                 if (string.IsNullOrEmpty(wcfHost)) return;
