@@ -5,7 +5,7 @@
 <div data-role="navbar" data-iconpos="left">
                 <ul>
                     <li>
-                        <a href="<%= MobileSite.BaseLib.WebUrls.category() %>" data-theme="c" data-icon="grid" rel="external">商品分类</a>
+                        <a href="<%= MobileSite.BaseLib.WebUrls.category() %>" data-theme="c" data-icon="grid" >商品分类</a>
                     </li>
                     <li>
                         <a data-theme="c" data-icon="arrow-l"  data-rel="back">返回</a>

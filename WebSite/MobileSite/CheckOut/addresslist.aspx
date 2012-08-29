@@ -14,14 +14,14 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content">
     <form id="frmAddress_list">
-        <a href="<%= MobileSite.BaseLib.WebUrls.address_add() %>" data-role="button" data-theme="d" data-icon="plus" rel="external">新增一个收货地址
+        <a href="<%= MobileSite.BaseLib.WebUrls.address_add() %>" data-role="button" data-theme="d" data-icon="plus" >新增一个收货地址
         </a>
         <div data-role="fieldcontain">
             <fieldset id="addresslist_cont" data-role="controlgroup">
                 
             </fieldset>
         </div>
-        <%--<a id="addresslist_btn" href="javascript:void(0)" data-role="button" data-theme="a" rel="external">确认保存 </a>--%>
+        <%--<a id="addresslist_btn" href="javascript:void(0)" data-role="button" data-theme="a" >确认保存 </a>--%>
         <input id="addresslist_btn" value="确认保存" type="submit" data-theme="e"/>
         <span class="error" id="Add_mesage"></span>
         </form>
@@ -40,7 +40,7 @@
                         <p>
                             电话：{$T.dr.mobile}</p>
                     </label>
-                    <a href='<%= MobileSite.BaseLib.WebUrls.address_edit("{$T.dr.id}") %>' data-role="button" data-theme="d" rel="external">修改</a>
+                    <a href='<%= MobileSite.BaseLib.WebUrls.address_edit("{$T.dr.id}") %>' data-role="button" data-theme="d" >修改</a>
                 </div>
         {#/for}
     </script>

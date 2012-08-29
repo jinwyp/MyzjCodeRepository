@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div data-role="navbar" data-iconpos="left">
         <ul>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" data-theme="c" data-icon="star" rel="external">购物车</a></li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" data-theme="c" data-icon="star" >购物车</a></li>
             <li><a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" data-theme="c" data-icon="arrow-l"  data-rel="back">返回</a></li>
         </ul>
     </div>
@@ -22,9 +22,9 @@
             <div class="ui-font-bold">
                 商品总金额：<strong class="ui-font-red" id="goodsTotal">25145元</strong></div>
             <a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" data-role="button" data-icon="arrow-l" data-iconpos="left"
-                data-theme="c" data-inline="true" data-mini="true" rel="external">继续购物</a> <a id="ShoppingCart_btn" href="javascript:void(0)"
+                data-theme="c" data-inline="true" data-mini="true" >继续购物</a> <a id="ShoppingCart_btn" href="javascript:void(0)"
                     data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a" data-inline="true"
-                    rel="external" id="balance">去结算</a><%--<a href="#"  data-role="button" data-icon="arrow-r"
+                     id="balance">去结算</a><%--<a href="#"  data-role="button" data-icon="arrow-r"
                        data-iconpos="right" data-theme="a" data-inline="true" id="balance">去结算</a>--%>
             <ul id="tis_Tip" class="error">
             </ul>
@@ -36,7 +36,7 @@
                 <li>
                     <img src="{$T.Puct.vchPicURL}" alt="{$T.Puct.nchProductName}" />
                     <h3>
-                        <a href="<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.Puct.intProductID}") %>" rel="external">{$T.Puct.nchProductName}</a></h3>
+                        <a href="<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.Puct.intProductID}") %>" >{$T.Puct.nchProductName}</a></h3>
                     <div data-role="fieldcontain" data-theme="c">
                         <label>
                             单价:</label>

@@ -7,7 +7,7 @@
     <div data-role="navbar" data-iconpos="left">
         <ul>
             <li><a href="<%= MobileSite.BaseLib.WebUrls.category() %>" data-theme="c" data-icon="grid"
-                rel="external">商品分类</a> </li>
+                >商品分类</a> </li>
             <li><a data-theme="c" data-icon="arrow-l" data-rel="back">返回</a> </li>
         </ul>
     </div>
@@ -17,29 +17,29 @@
         <div class="content-primary">
             <ul data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
                 <li data-role="list-divider">妈妈食品</li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">孕妇奶粉</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >孕妇奶粉</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">叶酸</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >叶酸</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">孕妇奶粉</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >孕妇奶粉</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">叶酸</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >叶酸</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">孕妇奶粉</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >孕妇奶粉</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">叶酸</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >叶酸</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">孕妇奶粉</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >孕妇奶粉</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">叶酸</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >叶酸</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">孕妇奶粉</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >孕妇奶粉</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">叶酸</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >叶酸</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">孕妇奶粉</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >孕妇奶粉</a>
                 </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" rel="external">叶酸</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >叶酸</a>
                 </li>
             </ul>
         </div>

@@ -6,8 +6,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div data-role="navbar" data-iconpos="left">
         <ul>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.category() %>" data-theme="c" data-icon="grid" rel="external">商品分类</a> </li>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.category_sub() %>" data-theme="c" data-icon="grid"  rel="external">妈妈食品</a></li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.category() %>" data-theme="c" data-icon="grid" >商品分类</a> </li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.category_sub() %>" data-theme="c" data-icon="grid"  >妈妈食品</a></li>
         </ul>
     </div>
 </asp:Content>
@@ -39,7 +39,7 @@
     </div>
     <script id="jTemplate" type="text/template">
     {#foreach $T.list as Puct}
-        <li><a href='<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.Puct.gid}") %>' rel="external">
+        <li><a href='<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.Puct.gid}") %>' >
                     <img src='{$T.Puct.pic_url}' onerror='this.src="/images/errorImg_small.jpg"' />
                     <h3>
                         {$T.Puct.title}</h3>

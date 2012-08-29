@@ -22,7 +22,7 @@
             <li>（四）您随时可以登录"购物车"，进入"个人资料"查看并修改您的注册信息。</li>
             <li>（五）如果在使用中遇到程序问题或BUG，请给我们留言,我们会及时修正这些问题！谢谢支持！</li>
         </ul>
-        <a href="registration.aspx?checked_user=true" rel="external" data-role="button" data-theme="b">同意该协议</a>
+        <a href="registration.aspx?checked_user=true"  data-role="button" data-theme="b">同意该协议</a>
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">

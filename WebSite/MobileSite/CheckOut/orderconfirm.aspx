@@ -18,7 +18,7 @@
         <ul id="address_message" data-role="listview" data-divider-theme="d" data-inset="true">
             <li data-role="list-divider" role="heading">收货人信息</li>
             <li><a id="address_default" class="ui-link-inherit" href="<%= MobileSite.BaseLib.WebUrls.addresslist() %>"
-                rel="external">
+                >
                 <p>
                     正在加载中...</p>
             </a></li>
@@ -33,13 +33,13 @@
                     电话：{$T.mobile}</p>
             </script>
             <li data-role="list-divider" role="heading">支付方式</li>
-            <li><a id="paymentlist_a" href="#" rel="external">
+            <li><a id="paymentlist_a" href="#" >
                 <p id="paymentlist_p">
                     正在加载中...
                 </p>
             </a></li>
             <li data-role="list-divider" role="heading">配送方式</li>
-            <li><a id="deliverylist_a" href="#" rel="external">
+            <li><a id="deliverylist_a" href="#" >
                 <p id="delivery_text_name_p">
                     正在加载中...</p>
                 <p id="delivery_sh_time_text_p">
@@ -48,7 +48,7 @@
                 </p>
             </a></li>
             <li data-role="list-divider" role="heading">发票信息</li>
-            <li data-theme="c"><a href="<%= MobileSite.BaseLib.WebUrls.invoice() %>" rel="external">
+            <li data-theme="c"><a href="<%= MobileSite.BaseLib.WebUrls.invoice() %>" >
                 <p id="invoice_Type_Text">
                     正在加载中...</p>
                 <p id="invoice_Theader_Text">

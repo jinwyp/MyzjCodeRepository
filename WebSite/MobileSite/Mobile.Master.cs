@@ -9,6 +9,8 @@ namespace MobileSite
 {
     public partial class Mobile : System.Web.UI.MasterPage
     {
+        public string PageId { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

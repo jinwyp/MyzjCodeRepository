@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div data-role="navbar" data-iconpos="left">
         <ul>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.category() %>" data-theme="c" data-icon="grid" rel="external">商品分类</a> </li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.category() %>" data-theme="c" data-icon="grid" >商品分类</a> </li>
             <li><a href="<%= MobileSite.BaseLib.WebUrls.category_sub() %>" data-theme="c" data-icon="arrow-l"  data-rel="back">返回</a></li>
         </ul>
     </div>
@@ -55,7 +55,7 @@
                 </script>
             </div>
             <%-- <a id="AddShop_btn" href="javascript:void(0)" data-role="button" data-icon="add"
-                data-iconpos="left" data-theme="a" rel="external">加入购物车</a>--%>
+                data-iconpos="left" data-theme="a" >加入购物车</a>--%>
             <input id="AddShop_btn" type="button" data-icon="add" data-iconpos="left" data-theme="a"
                 value="加入购物车" />
             <script id="productDetailContent" type="text/template">

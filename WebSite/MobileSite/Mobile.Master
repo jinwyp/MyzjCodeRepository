@@ -24,17 +24,17 @@
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Mobile_1.1.0s&t=text/javascript&v=1" type="text/javascript"></script>
 </head>
 <body>
-    <div data-role="page">
+    <div data-role="page" id="<%= PageId %>" >
         <div data-role="header" data-theme="a">
             <div class="header">
                 <div class="logo">
-                    <a href="<%= MobileSite.BaseLib.WebUrls.index() %>" rel="external">
+                    <a href="<%= MobileSite.BaseLib.WebUrls.index() %>" >
                         <img src="/images/logo.png" />
                     </a>
                 </div>
                 <div class="nav">
-                    <a href="<%= MobileSite.BaseLib.WebUrls.category() %>" class="menu"></a><a href="<%= MobileSite.BaseLib.WebUrls.myaccount() %>" class="user" rel="external"></a>
-                    <a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" class="cart" rel="external"></a><input type="hidden" id="Hid_Good_Total_price" /><span class="cart-count ui-btn-up-c ui-btn-corner-all" id="Good_Total_Count" style="display:none"></span>
+                    <a href="<%= MobileSite.BaseLib.WebUrls.category() %>" class="menu"></a><a href="<%= MobileSite.BaseLib.WebUrls.myaccount() %>" class="user" ></a>
+                    <a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" class="cart" ></a><input type="hidden" id="Hid_Good_Total_price" /><span class="cart-count ui-btn-up-c ui-btn-corner-all" id="Good_Total_Count" style="display:none"></span>
                 </div>
             </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
@@ -45,10 +45,10 @@
         <div data-role="footer" data-theme="c" class="p10">
             <div class="ui-grid-b" style="padding-bottom: 5px;">
                 <div class="ui-block-a">
-                    <a href="<%= MobileSite.BaseLib.WebUrls.Login() %>" rel="external">登录</a>
+                    <a href="<%= MobileSite.BaseLib.WebUrls.Login() %>" >登录</a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="<%= MobileSite.BaseLib.WebUrls.registration() %>" rel="external">注册</a>
+                    <a href="<%= MobileSite.BaseLib.WebUrls.registration() %>" >注册</a>
                 </div>
                 <div class="ui-block-c">
                     <a href="http://www.muyingzhijia.com/index.aspx?refer=mobile">电脑版</a>
