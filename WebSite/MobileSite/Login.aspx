@@ -7,7 +7,7 @@
     <div data-role="navbar" data-iconpos="left">
         <ul>
             <li><a href="<%= MobileSite.BaseLib.WebUrls.index() %>" data-theme="c" data-icon="home" >首页</a> </li>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.Login() %>" data-theme="e" data-icon="grid" >登录</a> </li>
+            <li><a data-theme="e" data-icon="grid" data-rel="back">返回</a> </li>
         </ul>
     </div>
 </asp:Content>
@@ -53,5 +53,4 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/jquery.validate.min.js" type="text/javascript"></script>
 </asp:Content>

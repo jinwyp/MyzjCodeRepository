@@ -100,6 +100,15 @@ function Login_Fun() {
 
 //#region 注册
 function Register_Fun() {
+    InitYear();
+    jQuery('#select-choice-year').change(function () {
+        InitMonth();
+    })
+
+    jQuery('#select-choice-month').change(function () {
+        InitDate();
+    })
+
     //alert(/checked_user/i.test(window.location.href));
     if (/checked_user/i.test(window.location.href)) {
         $("#checkbox_agree").attr("checked", true).checkboxradio("refresh");
@@ -264,15 +273,6 @@ function Forgetpassword() {
 
     });
 
-}
-//#endregion
-
-//#region 用户协议
-function userpolicy_Fun() {
-    var url = window.location.href.toString().replace("userpolicy.aspx?", "");
-    for (var i = 0; i < url.split("&").length; i++) {
-        alert(url.split("&")[i]);
-    }
 }
 //#endregion
 
@@ -1830,60 +1830,194 @@ function orderlist_Fun() {
 }
 //#endregion
 
-$(document).ready(function () {
-    var url = window.location.pathname;
-    //alert(/\//i.test(url));
-    if (/\//i.test(url) && url.length == 1) {
-        Index_Fun();
+//#region 调用 Page Function
 
+//#region Page函数列表
+// 命名规则，funName = pageId
+// pageId = url 域名之后的 值，trim 前后的 反斜杠，然后替换所有反斜杠为 下划线
+// 比如： http://localhost:38839/User/Info 页面id：User_Info_Page
+var PageFuns = {
+    Index_Page: function () {
+        Index_Fun();
+    },
+    Member_Login_Page: function () {
+        Login_Fun();
+    },
+    Registration_Page: function () {
+        Register_Fun();
+    },
+    Product_List_Page: function () {
+        GoodProductList();
+        Salec_Price_newTime_Fun();
+    },
+    CheckOut_Address: function () {
+        myAccount_Fun();
+        LoingOut();
+    },
+    Product_Detail_Page: function () {
+        productDetail_Fun();
+    },
+    ForgotPassword_Page: function () {
+        Forgetpassword();
+    },
+    CheckOut_Shoppingcart_Page: function () {
+        shoppingcart_Fun();
+    },
+    CheckOut_OrderConfirm_Page: function () {
+        orderconfirm_Fun();
+        calculation_shipping_costs_Fun();
+    },
+    CheckOut_Shoppingcart_AddressList_Page: function () {
+        addresslist_Fun();
+    },
+    CheckOut_Shoppingcart_PaymentList_Page: function () {
+        paymentlist_Fun();
+    },
+    CheckOut_Shoppingcart_DeliveryList_Page: function () {
+        deliverylist_Fun();
+    },
+    CheckOut_Shoppingcart_Invoice_Page: function () {
+        invoice_Fun();
+    },
+    CheckOut_Address_Page: function () {
+        address_add_Fun();
+        address_edit_Fun();
+    },
+    CheckOut_Makeorder_Page: function () {
+        makeorder_Fun();
+    },
+    Member_OrderDetail_Page: function () {
+        orderdetail_Fun();
+    },
+    Member_OrderList_Page: function () {
+        orderlist_Fun();
+    }
+};
+//#endregion
+
+//#region 页面函数对象
+function PageFun() {
+
+}
+//#endregion
+
+//#region 获取函数
+PageFun.GetFun = function (pageId) {
+
+    var fun;
+
+    $.each(PageFuns, function (key, val) {
+        var regexp = new RegExp(key, "ig");
+        if (regexp.test(pageId) && typeof val == "function")
+            fun = val;
+    });
+
+    if (typeof fun != "function")
+        fun = PageFuns.Index_Page;
+
+    return fun;
+};
+//#endregion
+
+//#region 页面函数初始化
+//如果页面是手动打开，无需传入 pageid
+PageFun.Init = function (pageId) {
+    if (typeof pageId == "undefined") {
+        pageId = $(document.body).find("div[data-role = 'page']").eq(0).attr("id");
+        window.mobile.pages["MainPage"] = pageId;
     } else {
-        if (/index.aspx/i.test(url)) {
-            Index_Fun();
-        }
-        else if (/login.aspx/i.test(url)) {
-            Login_Fun();
-        } else if (/registration.aspx/i.test(url)) {
-            Register_Fun();
-        } else if (/userpolicy.aspx/i.test(url)) {
-            //userpolicy_Fun();
-        } else if (/productlist.aspx/i.test(url)) {
-            GoodProductList();
-            Salec_Price_newTime_Fun();
-        } else if (/myaccount.aspx/i.test(url)) {
-            myAccount_Fun();
-            LoingOut();
-        } else if (/productdetailinfo.aspx/i.test(url)) {
-            productDetail_Fun();
-        } else if (/forgetpassword.aspx/i.test(url)) {
-            Forgetpassword();
-        } else if (/shoppingcart.aspx/i.test(url)) {
-            shoppingcart_Fun();
-        } else if (/orderconfirm.aspx/i.test(url)) {
-            orderconfirm_Fun();
-            calculation_shipping_costs_Fun();
-        } else if (/addresslist.aspx/i.test(url)) {
-            addresslist_Fun();
-        } else if (/paymentlist.aspx/i.test(url)) {
-            paymentlist_Fun();
-        } else if (/deliverylist.aspx/i.test(url)) {
-            deliverylist_Fun();
-        } else if (/invoice.aspx/i.test(url)) {
-            invoice_Fun();
-        } else if (/address_add.aspx/i.test(url)) {
-            address_add_Fun();
-        } else if (/address_edit.aspx/i.test(url)) {
-            address_edit_Fun();
-        } else if (/makeorder.aspx/i.test(url)) {
-            makeorder_Fun();
-        } else if (/orderdetail.aspx/i.test(url)) {
-            orderdetail_Fun();
-        } else if (/orderlist.aspx/i.test(url)) {
-            orderlist_Fun();
+        if (window.mobile.pages["MainPage"] == pageId) {
+            return;
         }
     }
 
-    $('#gotop').tap(function () {
-        $.mobile.silentScroll(10);
+    var fun = PageFun.GetFun(pageId);
+    var cacheFun = window.mobile.pages[pageId];
+    //if (typeof cacheFun == "undefined") {
+    if (true) {
+        if (typeof fun == "function") {
+            fun();
+            window.mobile.pages[pageId] = fun;
+        }
+    } else {
+
+    }
+};
+//#endregion
+
+//#endregion
+
+$(function () {
+
+    PageFun.Init();
+
+    $(document).bind("pagechange", function (event, data) {
+        //Log("pagechange");
+        //Log(data);
+        console.log(data.toPage[0].id);
+        PageFun.Init(data.toPage[0].id);
+
+        //#region 回到顶部
+        $('#gotop').tap(function () {
+            $.mobile.silentScroll(10);
+        });
+        //#endregion
     });
+
 });
+
+//$(document).ready(function () {
+//    var url = window.location.pathname;
+//    //alert(/\//i.test(url));
+//    if (/\//i.test(url) && url.length == 1) {
+//        Index_Fun();
+
+//    } else {
+//        if (/index.aspx/i.test(url)) {
+//            Index_Fun();
+//        }
+//        else if (/login.aspx/i.test(url)) {
+//            Login_Fun();
+//        } else if (/registration.aspx/i.test(url)) {
+//            Register_Fun();
+//        } else if (/productlist.aspx/i.test(url)) {
+//            GoodProductList();
+//            Salec_Price_newTime_Fun();
+//        } else if (/myaccount.aspx/i.test(url)) {
+//            myAccount_Fun();
+//            LoingOut();
+//        } else if (/productdetailinfo.aspx/i.test(url)) {
+//            productDetail_Fun();
+//        } else if (/forgetpassword.aspx/i.test(url)) {
+//            Forgetpassword();
+//        } else if (/shoppingcart.aspx/i.test(url)) {
+//            shoppingcart_Fun();
+//        } else if (/orderconfirm.aspx/i.test(url)) {
+//            orderconfirm_Fun();
+//            calculation_shipping_costs_Fun();
+//        } else if (/addresslist.aspx/i.test(url)) {
+//            addresslist_Fun();
+//        } else if (/paymentlist.aspx/i.test(url)) {
+//            paymentlist_Fun();
+//        } else if (/deliverylist.aspx/i.test(url)) {
+//            deliverylist_Fun();
+//        } else if (/invoice.aspx/i.test(url)) {
+//            invoice_Fun();
+//        } else if (/address_add.aspx/i.test(url)) {
+//            address_add_Fun();
+//        } else if (/address_edit.aspx/i.test(url)) {
+//            address_edit_Fun();
+//        } else if (/makeorder.aspx/i.test(url)) {
+//            makeorder_Fun();
+//        } else if (/orderdetail.aspx/i.test(url)) {
+//            orderdetail_Fun();
+//        } else if (/orderlist.aspx/i.test(url)) {
+//            orderlist_Fun();
+//        }
+//    }
+
+//    $('#gotop').tap(function () {
+//        $.mobile.silentScroll(10);
+//    });
+//});
 

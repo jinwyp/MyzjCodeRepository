@@ -53,13 +53,3 @@ function InitDate() {
     }
     jQuery('#select-choice-day').selectmenu('refresh');
 }
-jQuery(function () {
-    InitYear();
-    jQuery('#select-choice-year').change(function () {
-        InitMonth();
-    })
-
-    jQuery('#select-choice-month').change(function () {
-        InitDate();
-    })
-})

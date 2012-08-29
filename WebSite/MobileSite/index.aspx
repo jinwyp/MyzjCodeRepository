@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content" style="padding: 0">
-        <form action="productlist.html">
+        <form action="<%= MobileSite.BaseLib.WebUrls.productlist() %>">
         <fieldset data-role="controlgroup" data-mini="true">
             <label for="searchinput1">
             </label>
@@ -31,15 +31,15 @@
             <!-- #foucs -->
             <!-- #camera_wrap_1 -->
             <ul data-role="listview" data-inset="true" data-theme="c">
-                <li><a href="productlist.html"><span class="icon-custom icon-custom-01"></span>限时抢购</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-01"></span>限时抢购</a>
                 </li>
-                <li><a href="productlist.html"><span class="icon-custom icon-custom-02"></span>促销快报</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-02"></span>促销快报</a>
                 </li>
-                <li><a href="productlist.html"><span class="icon-custom icon-custom-03"></span>新品上架</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-03"></span>新品上架</a>
                 </li>
-                <li><a href="productlist.html"><span class="icon-custom icon-custom-04"></span>热门单品</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-04"></span>热门单品</a>
                 </li>
-                <li><a href="productlist.html"><span class="icon-custom icon-custom-05"></span>推荐品牌</a>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-05"></span>推荐品牌</a>
                 </li>
             </ul>
             <ul data-role="listview" data-inset="true" data-dividertheme="d">
@@ -52,7 +52,4 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-    <%--<script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/jquery.mobile.customized.min.js"></script>--%>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/jquery.easing.1.3.js"></script>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>camera.min.js"></script>
 </asp:Content>

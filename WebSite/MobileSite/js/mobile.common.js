@@ -1,5 +1,7 @@
 ﻿var Debug = true;
 window.Tasks = {};
+window.mobile = {};
+window.mobile.pages = {};
 
 window.onload = function () {
 

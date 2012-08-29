@@ -195,13 +195,6 @@
     <Compile Include="Product\category_sub.aspx.designer.cs">
       <DependentUpon>category_sub.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Product\detail.aspx.cs">
-      <DependentUpon>detail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Product\detail.aspx.designer.cs">
-      <DependentUpon>detail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="forgetpassword.aspx.cs">
       <DependentUpon>forgetpassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -345,7 +338,6 @@
     <Content Include="images\picLoading.gif" />
     <Content Include="index.aspx" />
     <Content Include="js\bk\useragents.js" />
-    <Content Include="Product\detail.aspx" />
     <Content Include="forgetpassword.aspx" />
     <Content Include="getpassword-success.aspx" />
     <Content Include="Html\getpassword-success.html" />

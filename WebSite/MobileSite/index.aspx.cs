@@ -14,11 +14,14 @@ namespace MobileSite
         /// 设置 页面ID
         /// </summary>
         /// <param name="pageId"></param>
-        public void SetMasterPageId(string pageId)
+        public void SetMasterInfo(string pageId, string pageTitle)
         {
             var master = Master as Mobile;
             if (master != null)
+            {
                 master.PageId = pageId;
+                master.PageTitle = pageTitle;
+            }
         }
 
         /// <summary>
@@ -28,7 +31,7 @@ namespace MobileSite
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetMasterPageId("Index_Page");
+            SetMasterInfo("Index_Page", "首页");
         }
     }
 }
