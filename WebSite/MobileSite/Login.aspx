@@ -39,7 +39,7 @@
             <div class="ui-block-b">
                 <a href="registration.aspx" >立即注册</a>
             </div>
-        </div>
+        </div> 
         <%--<ul data-role="listview" data-divider-theme="c" data-inset="true">
             <li data-role="list-divider" role="heading">使用其他合作网站登录</li>
             <li><a href="#page1">
