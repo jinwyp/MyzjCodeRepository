@@ -50,7 +50,7 @@
       <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Data">
-      <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Data.dll</HintPath>
+      <HintPath>..\..\..\Resources\Assembly\Common\SpringDotNet\Spring.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

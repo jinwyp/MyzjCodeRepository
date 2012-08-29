@@ -284,8 +284,6 @@
   <ItemGroup>
     <Content Include="Api\RequestProxy.ashx" />
     <Content Include="Api\WebApi.ashx" />
-    <Content Include="bin\MobileSite.dll" />
-    <Content Include="bin\MobileSite.pdb" />
     <Content Include="CheckOut\addresslist.aspx" />
     <Content Include="CheckOut\address_add.aspx" />
     <Content Include="CheckOut\address_edit.aspx" />

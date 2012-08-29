@@ -88,10 +88,6 @@
       <Project>{C4233E3B-D9A9-412C-85B6-9B4373F3E107}</Project>
       <Name>Factory</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MobileWcf.IDAL\MobileWcf.IDAL.csproj">
-      <Project>{73750728-B473-4441-A5ED-73F0773D2EB2}</Project>
-      <Name>MobileWcf.IDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Common\DataAccess\EntityFreamwork\Module\EF.Model.csproj">
       <Project>{DA12C4CE-9261-41D1-B3EE-67C34E24D497}</Project>
       <Name>EF.Model</Name>

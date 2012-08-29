@@ -26,11 +26,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Resources\Assembly\Generate\</OutputPath>
+    <OutputPath>Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\Resources\Assembly\Generate\Wcf.ServiceHost.XML</DocumentationFile>
+    <DocumentationFile>Bin\Wcf.ServiceHost.XML</DocumentationFile>
     <PackageAsSingleFile>false</PackageAsSingleFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -63,13 +63,13 @@
       <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Data">
-      <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Data.dll</HintPath>
+      <HintPath>..\..\..\Resources\Assembly\Common\SpringDotNet\Spring.Data.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Services">
-      <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Services.dll</HintPath>
+      <HintPath>..\..\..\Resources\Assembly\Common\SpringDotNet\Spring.Services.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Web">
-      <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Web.dll</HintPath>
+      <HintPath>..\..\..\Resources\Assembly\Common\SpringDotNet\Spring.Web.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Services" />
@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -57,10 +57,10 @@
       <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Services">
-      <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Services.dll</HintPath>
+      <HintPath>..\..\..\Resources\Assembly\Common\SpringDotNet\Spring.Services.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Web">
-      <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Web.dll</HintPath>
+      <HintPath>..\..\..\Resources\Assembly\Common\SpringDotNet\Spring.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
