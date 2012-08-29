@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MobileSite.BaseLib.MemberContent;
+using MobileSite.BaseLib;
 
-namespace MobileSite.CheckOut
+namespace MobileSite.Product
 {
-    public partial class address_add : BaseMember
+    public partial class noticelist : BasePage
     {
         /// <summary>
         /// 设置 页面ID
@@ -28,8 +28,7 @@ namespace MobileSite.CheckOut
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetMasterPageId("CheckOut_Address_Page");
+            SetMasterPageId("NoticeList_Page");
         }
-
     }
 }

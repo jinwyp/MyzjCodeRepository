@@ -24,7 +24,7 @@
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Mobile_1.1.0s&t=text/javascript&v=1" type="text/javascript"></script>
 </head>
 <body>
-    <div data-role="page" id="<%= PageId %>" >
+    <div data-role="page" id="<%= PageId %>" data-id="<%= PageId %>">
         <div data-role="header" data-theme="a">
             <div class="header">
                 <div class="logo">

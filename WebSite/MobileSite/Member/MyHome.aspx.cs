@@ -10,10 +10,25 @@ namespace MobileSite.Member
 {
     public partial class MyHome : BaseMember
     {
+        /// <summary>
+        /// 设置 页面ID
+        /// </summary>
+        /// <param name="pageId"></param>
+        public void SetMasterPageId(string pageId)
+        {
+            var master = Master as Mobile;
+            if (master != null)
+                master.PageId = pageId;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            base.CheckMemberLoginStatus();
+            SetMasterPageId("CheckOut_Address");
         }
     }
 }

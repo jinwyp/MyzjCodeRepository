@@ -136,13 +136,6 @@
     <Compile Include="CheckOut\orderlist.aspx.designer.cs">
       <DependentUpon>orderlist.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CheckOut\twomonths.aspx.cs">
-      <DependentUpon>twomonths.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CheckOut\twomonths.aspx.designer.cs">
-      <DependentUpon>twomonths.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -173,6 +166,18 @@
     </Compile>
     <Compile Include="CheckOut\paymentlist.aspx.designer.cs">
       <DependentUpon>paymentlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="noticedetail.aspx.cs">
+      <DependentUpon>noticedetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="noticedetail.aspx.designer.cs">
+      <DependentUpon>noticedetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="noticelist.aspx.cs">
+      <DependentUpon>noticelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="noticelist.aspx.designer.cs">
+      <DependentUpon>noticelist.aspx</DependentUpon>
     </Compile>
     <Compile Include="Product\category.aspx.cs">
       <DependentUpon>category.aspx</DependentUpon>
@@ -237,20 +242,6 @@
     <Compile Include="Member\myaccount.aspx.designer.cs">
       <DependentUpon>myaccount.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Product\noticedetail.aspx.cs">
-      <DependentUpon>noticedetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Product\noticedetail.aspx.designer.cs">
-      <DependentUpon>noticedetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Product\noticelist.aspx.cs">
-      <DependentUpon>noticelist.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Product\noticelist.aspx.designer.cs">
-      <DependentUpon>noticelist.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Product\productdetailinfo.aspx.cs">
       <DependentUpon>productdetailinfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -301,7 +292,6 @@
     <Content Include="CheckOut\onlinepayment.aspx" />
     <Content Include="CheckOut\orderdetail.aspx" />
     <Content Include="CheckOut\orderlist.aspx" />
-    <Content Include="CheckOut\twomonths.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Html\address-add.html" />
     <Content Include="Html\address-edit.html" />
@@ -343,10 +333,10 @@
     <Content Include="js\camera.js" />
     <Content Include="js\camera.min.js" />
     <Content Include="js\mobile.checkout.js" />
+    <Content Include="noticedetail.aspx" />
+    <Content Include="noticelist.aspx" />
     <Content Include="Product\category.aspx" />
     <Content Include="Product\category_sub.aspx" />
-    <Content Include="Product\noticedetail.aspx" />
-    <Content Include="Product\noticelist.aspx" />
     <Content Include="style\camera.css" />
     <Content Include="Useragent.html" />
     <Content Include="Html\index.html" />

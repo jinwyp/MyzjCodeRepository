@@ -11,7 +11,7 @@ namespace MobileSite.BaseLib
     /// </summary>
     public class BasePage : System.Web.UI.Page
     {
-        public void Page_Load()
+        public void Page_Init(object sender, EventArgs e)
         {
             WebUtility.RefreshGuid();
         }
