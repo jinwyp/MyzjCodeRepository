@@ -10,10 +10,10 @@
     <link rel="apple-touch-icon" size="72*72" href="images/icon/Icon-72.png" />
     <link rel="apple-touch-icon" size="114*114" href="images/icon/Icon-Small@2x.png" />
     <link rel="apple-touch-icon" size="144*144" href="images/icon/Icon-144.png" />
-
     <link rel="stylesheet" href="/jquerymobile/jquery.mobile-1.1.0.min.css" />
     <link rel="stylesheet" href="<%= MobileSite.BaseLib.WebUrls.ThemesRoot() %>my.css" />
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_head_Min_Com&t=text/javascript&v=1" type="text/javascript"></script>
+    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_head_Min_Com&t=text/javascript&v=1"
+        type="text/javascript"></script>
     <script type="text/javascript">
         window.WebRoot = '<%= MobileSite.BaseLib.WebUrls.WebRoot() %>';
         window.JsRoot = '<%= MobileSite.BaseLib.WebUrls.JsRoot() %>';
@@ -21,20 +21,24 @@
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Mobile_1.1.0s&t=text/javascript&v=1" type="text/javascript"></script>
+    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Mobile_1.1.0s&t=text/javascript&v=1"
+        type="text/javascript"></script>
 </head>
 <body>
     <div data-role="page" id="<%= PageId %>" data-id="<%= PageId %>">
         <div data-role="header" data-theme="a">
             <div class="header">
                 <div class="logo">
-                    <a href="<%= MobileSite.BaseLib.WebUrls.index() %>" >
+                    <a href="<%= MobileSite.BaseLib.WebUrls.index() %>">
                         <img src="/images/logo.png" />
                     </a>
                 </div>
                 <div class="nav">
-                    <a href="<%= MobileSite.BaseLib.WebUrls.category() %>" class="menu"></a><a href="<%= MobileSite.BaseLib.WebUrls.myaccount() %>" class="user" ></a>
-                    <a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" class="cart" ></a><input type="hidden" id="Hid_Good_Total_price" /><span class="cart-count ui-btn-up-c ui-btn-corner-all" id="Good_Total_Count" style="display:none"></span>
+                    <a href="<%= MobileSite.BaseLib.WebUrls.category() %>" class="menu"></a><a href="<%= MobileSite.BaseLib.WebUrls.myaccount() %>"
+                        class="user"></a><a href="<%= MobileSite.BaseLib.WebUrls.shoppingcart() %>" class="cart">
+                        </a>
+                    <input type="hidden" id="Hid_Good_Total_price" /><span class="cart-count ui-btn-up-c ui-btn-corner-all"
+                        id="Good_Total_Count" style="display: none"></span>
                 </div>
             </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
@@ -45,10 +49,10 @@
         <div data-role="footer" data-theme="c" class="p10">
             <div class="ui-grid-b" style="padding-bottom: 5px;">
                 <div class="ui-block-a">
-                    <a href="<%= MobileSite.BaseLib.WebUrls.Login() %>" >登录</a>
+                    <a href="<%= MobileSite.BaseLib.WebUrls.Login() %>">登录</a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="<%= MobileSite.BaseLib.WebUrls.registration() %>" >注册</a>
+                    <a href="<%= MobileSite.BaseLib.WebUrls.registration() %>">注册</a>
                 </div>
                 <div class="ui-block-c">
                     <a href="http://www.muyingzhijia.com/index.aspx?refer=mobile">电脑版</a>
@@ -60,11 +64,10 @@
             <div>
                 Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
         </div>
-        <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_footer_Min_Com&t=text/javascript&v=1" type="text/javascript"></script>
         <asp:ContentPlaceHolder ID="Other" runat="server">
         </asp:ContentPlaceHolder>
-        
     </div>
-    
+    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_footer_Min_Com&t=text/javascript&v=1"
+        type="text/javascript"></script>
 </body>
 </html>

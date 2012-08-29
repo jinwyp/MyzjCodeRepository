@@ -169,12 +169,14 @@
     </Compile>
     <Compile Include="noticedetail.aspx.cs">
       <DependentUpon>noticedetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="noticedetail.aspx.designer.cs">
       <DependentUpon>noticedetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="noticelist.aspx.cs">
       <DependentUpon>noticelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="noticelist.aspx.designer.cs">
       <DependentUpon>noticelist.aspx</DependentUpon>
@@ -332,7 +334,9 @@
     <Content Include="js\bk\jquery.mobile.customized.min.js" />
     <Content Include="js\camera.js" />
     <Content Include="js\camera.min.js" />
-    <Content Include="js\mobile.checkout.js" />
+    <Content Include="js\jquerymobile.initbefore.js" />
+    <Content Include="js\bk\mobile.checkout.js" />
+    <Content Include="js\mobile.muzj.js" />
     <Content Include="noticedetail.aspx" />
     <Content Include="noticelist.aspx" />
     <Content Include="Product\category.aspx" />
@@ -382,9 +386,9 @@
     <Content Include="js\md5.js" />
     <Content Include="js\bk\_md5.js" />
     <Content Include="js\mobile.common.js" />
-    <Content Include="js\mobile.goods.js" />
+    <Content Include="js\bk\mobile.goods.js" />
     <Content Include="js\mobile.main.js" />
-    <Content Include="js\mobile.member.js" />
+    <Content Include="js\bk\mobile.member.js" />
     <Content Include="js\bk\myapp.js" />
     <Content Include="js\require.js" />
     <Content Include="Login.aspx" />

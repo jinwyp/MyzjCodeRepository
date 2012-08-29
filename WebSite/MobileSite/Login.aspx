@@ -54,5 +54,4 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.member.js" type="text/javascript"></script>
 </asp:Content>

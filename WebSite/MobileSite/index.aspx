@@ -55,5 +55,4 @@
     <%--<script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/jquery.mobile.customized.min.js"></script>--%>
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/jquery.easing.1.3.js"></script>
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>camera.min.js"></script>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.member.js" type="text/javascript"></script>
 </asp:Content>
