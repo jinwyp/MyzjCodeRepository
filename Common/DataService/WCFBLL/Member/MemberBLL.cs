@@ -210,6 +210,8 @@ namespace Wcf.BLL.Member
             {
                 try
                 {
+                    user.registertype = channelId;
+
                     se.Open();
                     string msg;
                     member.email = user.email;

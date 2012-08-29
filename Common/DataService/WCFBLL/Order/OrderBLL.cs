@@ -286,7 +286,7 @@ namespace Wcf.BLL.Order
                         #endregion
 
                         #region 同步订单信息到 BBHome
-                        orderDal.SyncOrderInfoToBBHome(result.info.oid.ToString());
+                        orderDal.SyncOrderInfoToBBHome(result.info.ocode);
                         #endregion
 
                         result.status = MResultStatus.Success;
