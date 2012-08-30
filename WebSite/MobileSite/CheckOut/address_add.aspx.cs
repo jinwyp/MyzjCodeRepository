@@ -14,11 +14,14 @@ namespace MobileSite.CheckOut
         /// 设置 页面ID
         /// </summary>
         /// <param name="pageId"></param>
-        public void SetMasterPageId(string pageId)
+        public void SetMasterPageId(string pageId, string pageTitle)
         {
             var master = Master as Mobile;
             if (master != null)
+            {
                 master.PageId = pageId;
+                master.PageTitle = pageTitle;
+            }
         }
 
         /// <summary>
@@ -28,7 +31,7 @@ namespace MobileSite.CheckOut
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetMasterPageId("CheckOut_Address_Page");
+            SetMasterPageId("CheckOut_Address_Page", "添加收货地址信息页");
         }
 
     }
