@@ -7,7 +7,7 @@
     <div data-role="navbar" data-iconpos="left">
         <ul>
             <li><a href="<%= MobileSite.BaseLib.WebUrls.category() %>" data-theme="c" data-icon="grid" >商品分类</a> </li>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.category_sub() %>" data-theme="c" data-icon="grid"  >妈妈食品</a></li>
+            <li><a data-theme="e" data-icon="grid" data-rel="back">返回</a></li>
         </ul>
     </div>
 </asp:Content>

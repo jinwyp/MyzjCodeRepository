@@ -30,16 +30,6 @@ function Index_Fun() {
         time: 4000,
         transPeriod: 1500
     });
-
-    //    $('#camera_wrap_1').camera({
-    //        thumbnails: false,
-    //        pagination: false,
-    //        fx: 'scrollHorz',
-    //        playPause: false,
-    //        mobileNavHover: true,
-    //        time: 4000,
-    //        transPeriod: 1500
-    //    });
 }
 //#endregion
 
