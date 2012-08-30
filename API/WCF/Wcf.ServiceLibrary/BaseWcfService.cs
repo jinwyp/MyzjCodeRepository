@@ -14,6 +14,9 @@ using Core.Enums;
 
 namespace Wcf.ServiceLibrary
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class BaseWcfService
     {
         protected string Uid { get; set; }
@@ -47,31 +50,5 @@ namespace Wcf.ServiceLibrary
                 }
             }
         }
-
-        /// <summary>
-        /// 初始化 权限验证列表
-        /// </summary>
-        public static void InitPermissionsVerifyList()
-        {
-
-        }
-
-        /// <summary>
-        /// 初始化 方法验证列表
-        /// </summary>
-        public static void InitMethodVerifyList()
-        {
-            var methodDict = new Dictionary<string, ItemMethodVerify>();
-            methodDict.Add("GetGoodsInfo", new ItemMethodVerify { IsVerifySystemId = true });
-            methodDict.Add("GetGoodsList", new ItemMethodVerify { IsVerifySystemId = true });
-            methodDict.Add("LoginMember", new ItemMethodVerify { IsVerifySystemId = true });
-
-            foreach (var methodInfo in methodDict)
-            {
-                MCacheManager.GetCacheObj().Set<ItemMethodVerify>(methodInfo.Key, Core.Enums.MCaching.CacheGroup.Pemissions, methodInfo.Value);
-            }
-
-        }
-
     }
 }

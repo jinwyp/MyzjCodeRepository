@@ -7,6 +7,9 @@ namespace Wcf.ServiceLibrary
 {
     //采用 add set get del 前缀
 
+    /// <summary>
+    /// 公用 Uri
+    /// </summary>
     internal static class CommonUri
     {
         /// <summary>
@@ -16,10 +19,23 @@ namespace Wcf.ServiceLibrary
 
     }
 
+    /*
     /// sid：系统ID 
     /// token：用户令牌
     /// uid:用户账号（一般为邮箱）
+    */
 
+    internal static class ManageUri
+    {
+        /// <summary>
+        /// 刷新授权数据
+        /// </summary>
+        public const string REFRESHAUTHDATA = "/RefreshAuthData/{sid}/{token}/{guid}/{user_id}/{uid}/{privatekey}";
+    }
+
+    /// <summary>
+    /// 基础Api Uri
+    /// </summary>
     internal static class BaseDataUri
     {
         /// <summary>
@@ -45,6 +61,10 @@ namespace Wcf.ServiceLibrary
         /// </summary>
         public const string GETLOGISTICSLIST = "/get_logistics_list/{sid}/{token}/{guid}/{user_id}/{uid}/{regionid}/{paygroupid}";
     }
+
+    /// <summary>
+    /// 会员Api Uri
+    /// </summary>
     internal static class MemberUri
     {
         /// <summary>
@@ -92,6 +112,10 @@ namespace Wcf.ServiceLibrary
         /// </summary>
         public const string GETADDRESSLIST = "/get_address_list/{sid}/{token}/{guid}/{user_id}/{uid}";
     }
+
+    /// <summary>
+    /// 订单Api Uri
+    /// </summary>
     internal static class OrderUri
     {
         /// <summary>
@@ -141,8 +165,12 @@ namespace Wcf.ServiceLibrary
         /// 获取订单详细
         /// </summary>
         public const string GETORDERGOODSLIST = "/get_ordergoods_list/{sid}/{token}/{guid}/{user_id}/{uid}/{ordercode}";
-        
+
     }
+
+    /// <summary>
+    /// 商品Api Uri
+    /// </summary>
     internal static class GoodsUri
     {
         /// <summary>

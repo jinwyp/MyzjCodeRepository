@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="BaseData\BaseDataBLL.cs" />
     <Compile Include="Goods\GoodsBLL.cs" />
+    <Compile Include="Manage\ManageBLL.cs" />
     <Compile Include="Member\MemberBLL.cs" />
     <Compile Include="Order\OrderBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

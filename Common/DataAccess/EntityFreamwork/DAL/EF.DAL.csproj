@@ -8,8 +8,8 @@
     <ProjectGuid>{5E944CB6-A817-4925-B77E-1CA97555C344}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EFDAL</RootNamespace>
-    <AssemblyName>EFDAL</AssemblyName>
+    <RootNamespace>EF.DAL</RootNamespace>
+    <AssemblyName>EF.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>
@@ -30,7 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\..\Resources\Assembly\Generate\EFDAL.XML</DocumentationFile>
+    <DocumentationFile>..\..\..\..\Resources\Assembly\Generate\EF.DAL.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -55,6 +55,7 @@
     <Compile Include="Goods\Goods.cs" />
     <Compile Include="Goods\GoodsList.cs" />
     <Compile Include="Goods\GoodsPic.cs" />
+    <Compile Include="Manage\Manage.cs" />
     <Compile Include="Member\base_t_member.cs" />
     <Compile Include="Member\Member.cs" />
     <Compile Include="Order\Order.cs" />

@@ -6,6 +6,9 @@ using System.Runtime.Serialization;
 
 namespace Wcf.Entity.BaseData
 {
+    /// <summary>
+    /// 方法权限验证
+    /// </summary>
     [DataContract]
     public class ItemMethodVerify
     {
