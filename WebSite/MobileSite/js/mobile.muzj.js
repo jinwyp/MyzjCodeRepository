@@ -1864,8 +1864,8 @@ $(function () {
 
     $(document).unbind("pagechange").bind("pagechange", function (event, data) {
         //Log("pagechange");
-        Log(data);
-        console.log(data.toPage[0].id);
+        //Log(data);
+        //console.log(data.toPage[0].id);
         PageFun.Init(data.toPage[0].id);
 
         //#region 回到顶部
