@@ -8,17 +8,6 @@
         <EntityContainer Name="EFModelbbHomeModelStoreContainer">
           <EntitySet Name="base_t_membAddr" EntityType="EF.Model.bbHomeModel.Store.base_t_membAddr" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="base_t_member" EntityType="EF.Model.bbHomeModel.Store.base_t_member" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="system_log" EntityType="EF.Model.bbHomeModel.Store.system_log" store:Type="Tables" store:Schema="dbo" store:Name="system_log">
-            <DefiningQuery>SELECT 
-      [system_log].[Id] AS [Id], 
-      [system_log].[Date] AS [Date], 
-      [system_log].[Thread] AS [Thread], 
-      [system_log].[Level] AS [Level], 
-      [system_log].[Logger] AS [Logger], 
-      [system_log].[Message] AS [Message], 
-      [system_log].[Exception] AS [Exception]
-      FROM [dbo].[system_log] AS [system_log]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="System_Permission" EntityType="EF.Model.bbHomeModel.Store.System_Permission" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_Blacklist" EntityType="EF.Model.bbHomeModel.Store.tb_Blacklist" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
@@ -90,36 +79,16 @@
           <Property Name="beValidate" Type="int" />
           <Property Name="orderTimes" Type="int" Nullable="false" />
         </EntityType>
-        <!--生成过程中发现错误:
-      警告 6002: 表/视图“bbHome.dbo.system_log”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
-      -->
-        <EntityType Name="system_log">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Date" />
-            <PropertyRef Name="Thread" />
-            <PropertyRef Name="Level" />
-            <PropertyRef Name="Logger" />
-            <PropertyRef Name="Message" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="Thread" Type="varchar" Nullable="false" MaxLength="255" />
-          <Property Name="Level" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Logger" Type="varchar" Nullable="false" MaxLength="255" />
-          <Property Name="Message" Type="varchar" Nullable="false" MaxLength="4000" />
-          <Property Name="Exception" Type="varchar" MaxLength="2000" />
-        </EntityType>
         <EntityType Name="System_Permission">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
           <Property Name="RefreshTime" Type="datetime" />
-          <Property Name="AssemblyName" Type="nchar" Nullable="false" MaxLength="50" />
-          <Property Name="ClassName" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="MethodName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="AssemblyName" Type="nchar" MaxLength="50" />
+          <Property Name="ClassName" Type="varchar" MaxLength="50" />
+          <Property Name="MethodName" Type="varchar" MaxLength="50" />
           <Property Name="MethodAttrs" Type="varchar" MaxLength="1000" />
           <Property Name="RequestType" Type="varchar" MaxLength="50" />
           <Property Name="RequestUri" Type="varchar" MaxLength="200" />
@@ -150,9 +119,8 @@
           <EntitySet Name="base_t_membAddr" EntityType="EF.Model.bbHomeModel.base_t_membAddr" />
           <EntitySet Name="base_t_member" EntityType="EF.Model.bbHomeModel.base_t_member" />
           <EntitySet Name="tb_Blacklist" EntityType="EF.Model.bbHomeModel.tb_Blacklist" />
-          <EntitySet Name="system_log" EntityType="EF.Model.bbHomeModel.system_log" />
           <EntitySet Name="System_Permission" EntityType="EF.Model.bbHomeModel.System_Permission" />
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="base_t_membAddr">
           <Key>
             <PropertyRef Name="addressNo" />
@@ -232,52 +200,28 @@
           <Property Type="String" Name="vchMobile" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="vchAddress" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="system_log">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Date" />
-            <PropertyRef Name="Thread" />
-            <PropertyRef Name="Level" />
-            <PropertyRef Name="Logger" />
-            <PropertyRef Name="Message" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="DateTime" Name="Date" Nullable="false" />
-          <Property Type="String" Name="Thread" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Level" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Logger" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Message" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Exception" MaxLength="2000" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="System_Permission">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Created" />
-            <PropertyRef Name="MethodName" />
-            <PropertyRef Name="IsVerifySystemId" />
-            <PropertyRef Name="IsVerifyToken" />
-            <PropertyRef Name="IsVerifyData" />
-            <PropertyRef Name="IsVerfiyPemissions" />
-            <PropertyRef Name="ClassName" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="DateTime" Name="Created" />
           <Property Type="DateTime" Name="RefreshTime" />
-          <Property Type="String" Name="MethodName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int16" Name="IsVerifySystemId" Nullable="false" />
-          <Property Type="Int16" Name="IsVerifyToken" Nullable="false" />
-          <Property Type="Int16" Name="IsVerifyData" Nullable="false" />
-          <Property Type="Int16" Name="IsVerfiyPemissions" Nullable="false" />
           <Property Type="String" Name="AssemblyName" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="ClassName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="AfferentParameters" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ReturnParameters" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Remark" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ClassName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MethodName" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="MethodAttrs" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="RequestType" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="RequestUri" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AfferentParameters" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ReturnParameters" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="IsVerifySystemId" />
+          <Property Type="Int16" Name="IsVerifyToken" />
+          <Property Type="Int16" Name="IsVerifyData" />
+          <Property Type="Int16" Name="IsVerfiyPemissions" />
+          <Property Type="String" Name="Remark" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -357,35 +301,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="system_log">
-            <EntityTypeMapping TypeName="EF.Model.bbHomeModel.system_log">
-              <MappingFragment StoreEntitySet="system_log">
-                <ScalarProperty Name="Exception" ColumnName="Exception" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Logger" ColumnName="Logger" />
-                <ScalarProperty Name="Level" ColumnName="Level" />
-                <ScalarProperty Name="Thread" ColumnName="Thread" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="System_Permission">
             <EntityTypeMapping TypeName="EF.Model.bbHomeModel.System_Permission">
               <MappingFragment StoreEntitySet="System_Permission">
-                <ScalarProperty Name="RequestUri" ColumnName="RequestUri" />
-                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
-                <ScalarProperty Name="MethodAttrs" ColumnName="MethodAttrs" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="ReturnParameters" ColumnName="ReturnParameters" />
-                <ScalarProperty Name="AfferentParameters" ColumnName="AfferentParameters" />
-                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
-                <ScalarProperty Name="AssemblyName" ColumnName="AssemblyName" />
                 <ScalarProperty Name="IsVerfiyPemissions" ColumnName="IsVerfiyPemissions" />
                 <ScalarProperty Name="IsVerifyData" ColumnName="IsVerifyData" />
                 <ScalarProperty Name="IsVerifyToken" ColumnName="IsVerifyToken" />
                 <ScalarProperty Name="IsVerifySystemId" ColumnName="IsVerifySystemId" />
+                <ScalarProperty Name="ReturnParameters" ColumnName="ReturnParameters" />
+                <ScalarProperty Name="AfferentParameters" ColumnName="AfferentParameters" />
+                <ScalarProperty Name="RequestUri" ColumnName="RequestUri" />
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="MethodAttrs" ColumnName="MethodAttrs" />
                 <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="AssemblyName" ColumnName="AssemblyName" />
                 <ScalarProperty Name="RefreshTime" ColumnName="RefreshTime" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -417,9 +348,8 @@
         <EntityTypeShape EntityType="EF.Model.bbHomeModel.base_t_membAddr" Width="1.5" PointX="0.75" PointY="0.75" Height="5.59940673828125" IsExpanded="true" />
         <EntityTypeShape EntityType="EF.Model.bbHomeModel.base_t_member" Width="1.5" PointX="2.75" PointY="0.75" Height="7.5096036783854156" IsExpanded="true" />
         <EntityTypeShape EntityType="EF.Model.bbHomeModel.tb_Blacklist" Width="1.5" PointX="5.375" PointY="0.75" Height="2.1610522460937496" />
-        <EntityTypeShape EntityType="EF.Model.bbHomeModel.system_log" Width="1.5" PointX="5.375" PointY="3.75" Height="2.3520719401041656" />
-        <EntityTypeShape EntityType="EF.Model.bbHomeModel.System_Permission" Width="1.5" PointX="7.375" PointY="0.75" Height="2.5430916341145835" />
-      </Diagram>
+        <EntityTypeShape EntityType="EF.Model.bbHomeModel.System_Permission" Width="1.5" PointX="5.375" PointY="3.75" Height="4.0712491861979174" />
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

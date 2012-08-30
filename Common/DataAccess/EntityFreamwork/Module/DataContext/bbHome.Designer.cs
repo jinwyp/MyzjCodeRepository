@@ -116,22 +116,6 @@ namespace EF.Model.DataContext
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<system_log> system_log
-        {
-            get
-            {
-                if ((_system_log == null))
-                {
-                    _system_log = base.CreateObjectSet<system_log>("system_log");
-                }
-                return _system_log;
-            }
-        }
-        private ObjectSet<system_log> _system_log;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         public ObjectSet<System_Permission> System_Permission
         {
             get
@@ -170,14 +154,6 @@ namespace EF.Model.DataContext
         public void AddTotb_Blacklist(tb_Blacklist tb_Blacklist)
         {
             base.AddObject("tb_Blacklist", tb_Blacklist);
-        }
-    
-        /// <summary>
-        /// 用于向 system_log EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddTosystem_log(system_log system_log)
-        {
-            base.AddObject("system_log", system_log);
         }
     
         /// <summary>
@@ -1661,230 +1637,6 @@ namespace EF.Model.DataContext
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="EF.Model.bbHomeModel", Name="system_log")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class system_log : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 system_log 对象。
-        /// </summary>
-        /// <param name="id">Id 属性的初始值。</param>
-        /// <param name="date">Date 属性的初始值。</param>
-        /// <param name="thread">Thread 属性的初始值。</param>
-        /// <param name="level">Level 属性的初始值。</param>
-        /// <param name="logger">Logger 属性的初始值。</param>
-        /// <param name="message">Message 属性的初始值。</param>
-        public static system_log Createsystem_log(global::System.Int32 id, global::System.DateTime date, global::System.String thread, global::System.String level, global::System.String logger, global::System.String message)
-        {
-            system_log system_log = new system_log();
-            system_log.Id = id;
-            system_log.Date = date;
-            system_log.Thread = thread;
-            system_log.Level = level;
-            system_log.Logger = logger;
-            system_log.Message = message;
-            return system_log;
-        }
-
-        #endregion
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime Date
-        {
-            get
-            {
-                return _Date;
-            }
-            set
-            {
-                if (_Date != value)
-                {
-                    OnDateChanging(value);
-                    ReportPropertyChanging("Date");
-                    _Date = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Date");
-                    OnDateChanged();
-                }
-            }
-        }
-        private global::System.DateTime _Date;
-        partial void OnDateChanging(global::System.DateTime value);
-        partial void OnDateChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Thread
-        {
-            get
-            {
-                return _Thread;
-            }
-            set
-            {
-                if (_Thread != value)
-                {
-                    OnThreadChanging(value);
-                    ReportPropertyChanging("Thread");
-                    _Thread = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Thread");
-                    OnThreadChanged();
-                }
-            }
-        }
-        private global::System.String _Thread;
-        partial void OnThreadChanging(global::System.String value);
-        partial void OnThreadChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Level
-        {
-            get
-            {
-                return _Level;
-            }
-            set
-            {
-                if (_Level != value)
-                {
-                    OnLevelChanging(value);
-                    ReportPropertyChanging("Level");
-                    _Level = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Level");
-                    OnLevelChanged();
-                }
-            }
-        }
-        private global::System.String _Level;
-        partial void OnLevelChanging(global::System.String value);
-        partial void OnLevelChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Logger
-        {
-            get
-            {
-                return _Logger;
-            }
-            set
-            {
-                if (_Logger != value)
-                {
-                    OnLoggerChanging(value);
-                    ReportPropertyChanging("Logger");
-                    _Logger = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Logger");
-                    OnLoggerChanged();
-                }
-            }
-        }
-        private global::System.String _Logger;
-        partial void OnLoggerChanging(global::System.String value);
-        partial void OnLoggerChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Message
-        {
-            get
-            {
-                return _Message;
-            }
-            set
-            {
-                if (_Message != value)
-                {
-                    OnMessageChanging(value);
-                    ReportPropertyChanging("Message");
-                    _Message = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Message");
-                    OnMessageChanged();
-                }
-            }
-        }
-        private global::System.String _Message;
-        partial void OnMessageChanging(global::System.String value);
-        partial void OnMessageChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Exception
-        {
-            get
-            {
-                return _Exception;
-            }
-            set
-            {
-                OnExceptionChanging(value);
-                ReportPropertyChanging("Exception");
-                _Exception = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Exception");
-                OnExceptionChanged();
-            }
-        }
-        private global::System.String _Exception;
-        partial void OnExceptionChanging(global::System.String value);
-        partial void OnExceptionChanged();
-
-        #endregion
-    
-    }
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="EF.Model.bbHomeModel", Name="System_Permission")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1896,24 +1648,10 @@ namespace EF.Model.DataContext
         /// 创建新的 System_Permission 对象。
         /// </summary>
         /// <param name="id">Id 属性的初始值。</param>
-        /// <param name="created">Created 属性的初始值。</param>
-        /// <param name="methodName">MethodName 属性的初始值。</param>
-        /// <param name="isVerifySystemId">IsVerifySystemId 属性的初始值。</param>
-        /// <param name="isVerifyToken">IsVerifyToken 属性的初始值。</param>
-        /// <param name="isVerifyData">IsVerifyData 属性的初始值。</param>
-        /// <param name="isVerfiyPemissions">IsVerfiyPemissions 属性的初始值。</param>
-        /// <param name="className">ClassName 属性的初始值。</param>
-        public static System_Permission CreateSystem_Permission(global::System.Int32 id, global::System.DateTime created, global::System.String methodName, global::System.Int16 isVerifySystemId, global::System.Int16 isVerifyToken, global::System.Int16 isVerifyData, global::System.Int16 isVerfiyPemissions, global::System.String className)
+        public static System_Permission CreateSystem_Permission(global::System.Int32 id)
         {
             System_Permission system_Permission = new System_Permission();
             system_Permission.Id = id;
-            system_Permission.Created = created;
-            system_Permission.MethodName = methodName;
-            system_Permission.IsVerifySystemId = isVerifySystemId;
-            system_Permission.IsVerifyToken = isVerifyToken;
-            system_Permission.IsVerifyData = isVerifyData;
-            system_Permission.IsVerfiyPemissions = isVerfiyPemissions;
-            system_Permission.ClassName = className;
             return system_Permission;
         }
 
@@ -1950,9 +1688,9 @@ namespace EF.Model.DataContext
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime Created
+        public Nullable<global::System.DateTime> Created
         {
             get
             {
@@ -1960,18 +1698,15 @@ namespace EF.Model.DataContext
             }
             set
             {
-                if (_Created != value)
-                {
-                    OnCreatedChanging(value);
-                    ReportPropertyChanging("Created");
-                    _Created = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Created");
-                    OnCreatedChanged();
-                }
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
             }
         }
-        private global::System.DateTime _Created;
-        partial void OnCreatedChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _Created;
+        partial void OnCreatedChanging(Nullable<global::System.DateTime> value);
         partial void OnCreatedChanged();
     
         /// <summary>
@@ -2001,141 +1736,6 @@ namespace EF.Model.DataContext
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String MethodName
-        {
-            get
-            {
-                return _MethodName;
-            }
-            set
-            {
-                if (_MethodName != value)
-                {
-                    OnMethodNameChanging(value);
-                    ReportPropertyChanging("MethodName");
-                    _MethodName = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("MethodName");
-                    OnMethodNameChanged();
-                }
-            }
-        }
-        private global::System.String _MethodName;
-        partial void OnMethodNameChanging(global::System.String value);
-        partial void OnMethodNameChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 IsVerifySystemId
-        {
-            get
-            {
-                return _IsVerifySystemId;
-            }
-            set
-            {
-                if (_IsVerifySystemId != value)
-                {
-                    OnIsVerifySystemIdChanging(value);
-                    ReportPropertyChanging("IsVerifySystemId");
-                    _IsVerifySystemId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("IsVerifySystemId");
-                    OnIsVerifySystemIdChanged();
-                }
-            }
-        }
-        private global::System.Int16 _IsVerifySystemId;
-        partial void OnIsVerifySystemIdChanging(global::System.Int16 value);
-        partial void OnIsVerifySystemIdChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 IsVerifyToken
-        {
-            get
-            {
-                return _IsVerifyToken;
-            }
-            set
-            {
-                if (_IsVerifyToken != value)
-                {
-                    OnIsVerifyTokenChanging(value);
-                    ReportPropertyChanging("IsVerifyToken");
-                    _IsVerifyToken = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("IsVerifyToken");
-                    OnIsVerifyTokenChanged();
-                }
-            }
-        }
-        private global::System.Int16 _IsVerifyToken;
-        partial void OnIsVerifyTokenChanging(global::System.Int16 value);
-        partial void OnIsVerifyTokenChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 IsVerifyData
-        {
-            get
-            {
-                return _IsVerifyData;
-            }
-            set
-            {
-                if (_IsVerifyData != value)
-                {
-                    OnIsVerifyDataChanging(value);
-                    ReportPropertyChanging("IsVerifyData");
-                    _IsVerifyData = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("IsVerifyData");
-                    OnIsVerifyDataChanged();
-                }
-            }
-        }
-        private global::System.Int16 _IsVerifyData;
-        partial void OnIsVerifyDataChanging(global::System.Int16 value);
-        partial void OnIsVerifyDataChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 IsVerfiyPemissions
-        {
-            get
-            {
-                return _IsVerfiyPemissions;
-            }
-            set
-            {
-                if (_IsVerfiyPemissions != value)
-                {
-                    OnIsVerfiyPemissionsChanging(value);
-                    ReportPropertyChanging("IsVerfiyPemissions");
-                    _IsVerfiyPemissions = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("IsVerfiyPemissions");
-                    OnIsVerfiyPemissionsChanged();
-                }
-            }
-        }
-        private global::System.Int16 _IsVerfiyPemissions;
-        partial void OnIsVerfiyPemissionsChanging(global::System.Int16 value);
-        partial void OnIsVerfiyPemissionsChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String AssemblyName
@@ -2160,7 +1760,7 @@ namespace EF.Model.DataContext
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String ClassName
         {
@@ -2170,14 +1770,11 @@ namespace EF.Model.DataContext
             }
             set
             {
-                if (_ClassName != value)
-                {
-                    OnClassNameChanging(value);
-                    ReportPropertyChanging("ClassName");
-                    _ClassName = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("ClassName");
-                    OnClassNameChanged();
-                }
+                OnClassNameChanging(value);
+                ReportPropertyChanging("ClassName");
+                _ClassName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ClassName");
+                OnClassNameChanged();
             }
         }
         private global::System.String _ClassName;
@@ -2189,72 +1786,24 @@ namespace EF.Model.DataContext
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String AfferentParameters
+        public global::System.String MethodName
         {
             get
             {
-                return _AfferentParameters;
+                return _MethodName;
             }
             set
             {
-                OnAfferentParametersChanging(value);
-                ReportPropertyChanging("AfferentParameters");
-                _AfferentParameters = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("AfferentParameters");
-                OnAfferentParametersChanged();
+                OnMethodNameChanging(value);
+                ReportPropertyChanging("MethodName");
+                _MethodName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MethodName");
+                OnMethodNameChanged();
             }
         }
-        private global::System.String _AfferentParameters;
-        partial void OnAfferentParametersChanging(global::System.String value);
-        partial void OnAfferentParametersChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ReturnParameters
-        {
-            get
-            {
-                return _ReturnParameters;
-            }
-            set
-            {
-                OnReturnParametersChanging(value);
-                ReportPropertyChanging("ReturnParameters");
-                _ReturnParameters = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ReturnParameters");
-                OnReturnParametersChanged();
-            }
-        }
-        private global::System.String _ReturnParameters;
-        partial void OnReturnParametersChanging(global::System.String value);
-        partial void OnReturnParametersChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Remark
-        {
-            get
-            {
-                return _Remark;
-            }
-            set
-            {
-                OnRemarkChanging(value);
-                ReportPropertyChanging("Remark");
-                _Remark = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Remark");
-                OnRemarkChanged();
-            }
-        }
-        private global::System.String _Remark;
-        partial void OnRemarkChanging(global::System.String value);
-        partial void OnRemarkChanged();
+        private global::System.String _MethodName;
+        partial void OnMethodNameChanging(global::System.String value);
+        partial void OnMethodNameChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -2327,6 +1876,174 @@ namespace EF.Model.DataContext
         private global::System.String _RequestUri;
         partial void OnRequestUriChanging(global::System.String value);
         partial void OnRequestUriChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String AfferentParameters
+        {
+            get
+            {
+                return _AfferentParameters;
+            }
+            set
+            {
+                OnAfferentParametersChanging(value);
+                ReportPropertyChanging("AfferentParameters");
+                _AfferentParameters = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("AfferentParameters");
+                OnAfferentParametersChanged();
+            }
+        }
+        private global::System.String _AfferentParameters;
+        partial void OnAfferentParametersChanging(global::System.String value);
+        partial void OnAfferentParametersChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ReturnParameters
+        {
+            get
+            {
+                return _ReturnParameters;
+            }
+            set
+            {
+                OnReturnParametersChanging(value);
+                ReportPropertyChanging("ReturnParameters");
+                _ReturnParameters = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ReturnParameters");
+                OnReturnParametersChanged();
+            }
+        }
+        private global::System.String _ReturnParameters;
+        partial void OnReturnParametersChanging(global::System.String value);
+        partial void OnReturnParametersChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> IsVerifySystemId
+        {
+            get
+            {
+                return _IsVerifySystemId;
+            }
+            set
+            {
+                OnIsVerifySystemIdChanging(value);
+                ReportPropertyChanging("IsVerifySystemId");
+                _IsVerifySystemId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsVerifySystemId");
+                OnIsVerifySystemIdChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _IsVerifySystemId;
+        partial void OnIsVerifySystemIdChanging(Nullable<global::System.Int16> value);
+        partial void OnIsVerifySystemIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> IsVerifyToken
+        {
+            get
+            {
+                return _IsVerifyToken;
+            }
+            set
+            {
+                OnIsVerifyTokenChanging(value);
+                ReportPropertyChanging("IsVerifyToken");
+                _IsVerifyToken = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsVerifyToken");
+                OnIsVerifyTokenChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _IsVerifyToken;
+        partial void OnIsVerifyTokenChanging(Nullable<global::System.Int16> value);
+        partial void OnIsVerifyTokenChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> IsVerifyData
+        {
+            get
+            {
+                return _IsVerifyData;
+            }
+            set
+            {
+                OnIsVerifyDataChanging(value);
+                ReportPropertyChanging("IsVerifyData");
+                _IsVerifyData = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsVerifyData");
+                OnIsVerifyDataChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _IsVerifyData;
+        partial void OnIsVerifyDataChanging(Nullable<global::System.Int16> value);
+        partial void OnIsVerifyDataChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> IsVerfiyPemissions
+        {
+            get
+            {
+                return _IsVerfiyPemissions;
+            }
+            set
+            {
+                OnIsVerfiyPemissionsChanging(value);
+                ReportPropertyChanging("IsVerfiyPemissions");
+                _IsVerfiyPemissions = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsVerfiyPemissions");
+                OnIsVerfiyPemissionsChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _IsVerfiyPemissions;
+        partial void OnIsVerfiyPemissionsChanging(Nullable<global::System.Int16> value);
+        partial void OnIsVerfiyPemissionsChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Remark
+        {
+            get
+            {
+                return _Remark;
+            }
+            set
+            {
+                OnRemarkChanging(value);
+                ReportPropertyChanging("Remark");
+                _Remark = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Remark");
+                OnRemarkChanged();
+            }
+        }
+        private global::System.String _Remark;
+        partial void OnRemarkChanging(global::System.String value);
+        partial void OnRemarkChanged();
 
         #endregion
     

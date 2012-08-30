@@ -55,10 +55,10 @@ namespace Wcf.BLL.Manage
                                                                    {
                                                                        MethodName = methodInfo.Name,
                                                                        ClassName = type.Name,
-                                                                       AssemblyName = assembly.GetName().Name,
-                                                                       ReturnParameters = methodInfo.ReturnType.FullName,
+                                                                       AssemblyName = assembly.GetName().Name
                                                                    };
                         permissionEntity.RefreshTime = DateTime.Now;
+                        permissionEntity.ReturnParameters = methodInfo.ReturnType.FullName;
 
                         #region 解析方法特性
                         var methodAttrData = methodInfo.GetCustomAttributesData();
@@ -70,6 +70,9 @@ namespace Wcf.BLL.Manage
                             if (customAttributeData.NamedArguments != null)
                                 foreach (var customAttributeNamedArgument in customAttributeData.NamedArguments)
                                 {
+                                    if (customAttributeNamedArgument.MemberInfo.ReflectedType == typeof(WebGetAttribute))
+                                        requestType = "GET";
+
                                     switch (customAttributeNamedArgument.MemberInfo.Name)
                                     {
                                         case "Method":
@@ -93,7 +96,6 @@ namespace Wcf.BLL.Manage
                         #endregion
                         permissionEntity.RequestType = requestType;
                         permissionEntity.RequestUri = requestUri;
-
                         permissionEntity.MethodAttrs = JsonConvert.SerializeObject(methodAttrData);
 
                         var methodParameters = methodInfo.GetParameters();
@@ -114,13 +116,13 @@ namespace Wcf.BLL.Manage
                                            {
                                                item.Id = id;
                                                if (manageDal.UpdateSystemPermission(item))
-                                                   addCount++;
+                                                   updateCount++;
                                            }
                                            else
                                            {
-                                               item.RefreshTime = DateTime.Now;
+                                               item.Created = DateTime.Now;
                                                if (manageDal.AddSystemPermission(item))
-                                                   updateCount++;
+                                                   addCount++;
                                            }
                                        });
 
