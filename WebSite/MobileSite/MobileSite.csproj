@@ -261,6 +261,7 @@
     </Compile>
     <Compile Include="CheckOut\shoppingcart.aspx.cs">
       <DependentUpon>shoppingcart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CheckOut\shoppingcart.aspx.designer.cs">
       <DependentUpon>shoppingcart.aspx</DependentUpon>

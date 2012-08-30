@@ -14,6 +14,7 @@ using Core.Caching;
 using Wcf.Entity.BaseData;
 using Core.DataType;
 using Core.ConfigUtility;
+using Spring.Web.Support;
 
 namespace Wcf.SpringDotNetAdvice
 {
