@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MobileSite.BaseLib.MemberContent;
+using MobileSite.BaseLib;
 
 namespace MobileSite
 {
-    public partial class shoppingcart : BaseMember
+    public partial class shoppingcart : BasePage
     {
         /// <summary>
         /// 设置 页面ID

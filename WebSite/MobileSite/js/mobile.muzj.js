@@ -276,72 +276,14 @@ function Forgetpassword() {
 }
 //#endregion
 
-//#region 购物车页全局变量
-var currentPage = $.cookie("currentPage") || 1; //当前页
-//alert(":p1"+currentPage);
-//if (window.location.href.toString().indexOf('&page') > 0) {
-//    if ($.mobile.path.parseUrl(window.location.href).search.toString().split('&')[1].replace("page=", "") > 0) {
-//        currentPage = $.mobile.path.parseUrl(window.location.href).search.toString().split('&')[1].replace("page=", "");
-//    }
-//}
-//alert(":p2" + currentPage);
-var lastPage = 1; //总页数
-var pageSize = 10; //每页显示的条数
-//#endregion
+////#region 购物车页全局变量
+//var currentPage = $.cookie("currentPage") || 1; //当前页
+//var lastPage = 1; //总页数
+//var pageSize = 10; //每页显示的条数
+////#endregion
 
-//#region 销量、价格、上架时间
-var sorts = $.cookie("sorts") || "100";
-//var urls_ca = $.cookie("urls_ca") || "productlist.aspx?100";
-//if ($.mobile.path.parseUrl(window.location.href).search != "") {
-//    urls_ca = "productlist.aspx" + $.mobile.path.parseUrl(window.location.href).search;
-//}
-//alert(urls_ca);
-//#endregion
-
-//#region 销量、价格、上架时间变换过程
-function Salec_Price_newTime_Cha_Fun(sorts_cookie, asc_c, aseac_c) {
-    if ($.cookie("sorts") != asc_c && $.cookie("sorts") != aseac_c) {
-        $.cookie("sorts", asc_c);
-        //urls_ca = "productlist.aspx?" + asc_c;
-    } else if ($.cookie("sorts") == asc_c && $.cookie("sorts") != aseac_c) {
-        $.cookie("sorts", aseac_c);
-        //urls_ca = "productlist.aspx?" + aseac_c;
-    } else if ($.cookie("sorts") == aseac_c && $.cookie("sorts") != asc_c) {
-        $.cookie("sorts", asc_c);
-        //urls_ca = "productlist.aspx?" + asc_c;
-    }
-    //$.cookie("urls_ca", urls_ca);
-    $.cookie("currentPage", 1);
-    currentPage = 1;
-    //DisplayUI(1, urls_ca);
-    DisplayUI(1, $.cookie("sorts"));
-}
-//#endregion
-
-//#region 销量、价格、上架时间调用
-function Salec_Price_newTime_Fun() {
-    //#region 100升序 101降序
-    $("#sales").click(function () {
-        $('#productlistContent').empty();
-        Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "100", "101");
-    });
-    //#endregion
-
-    //#region 200升序 201降序
-    $("#price").click(function () {
-        $('#productlistContent').empty();
-        Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "200", "201");
-    });
-    //#endregion
-
-    //#region 300升序 301降序
-    $("#upTime").click(function () {
-        $('#productlistContent').empty();
-        Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "300", "301");
-    });
-    //#endregion
-}
-//#endregion
+////#region 销量、价格、上架时间
+//var sorts = $.cookie("sorts") || "100";
 
 //#region 改变按钮样式
 function Change_DateIcon_Fun(id_c, arrow_c, ui_arrow_1s, ui_arrow_2s, ui_btn_1s, ui_btn_2s) {
@@ -356,13 +298,13 @@ function Change_DateIcon_Fun(id_c, arrow_c, ui_arrow_1s, ui_arrow_2s, ui_btn_1s,
     $("#intro_a,#detail_a").removeClass("ui-btn-up-e").addClass("ui-btn-up-c");
     //$("#intro_a,#detail_a,#comments_a").removeClass("ui-btn-up-e").addClass("ui-btn-up-c");
 
-    if (sorts == "?100" || sorts == "?101") {
+    if (GoodProduct.sorts == "?100" || GoodProduct.sorts == "?101") {
         $("#sales").removeClass("ui-btn-up-c").addClass("ui-btn-up-e");
     }
-    else if (sorts == "?200" || sorts == "?201") {
+    else if (GoodProduct.sorts == "?200" || GoodProduct.sorts == "?201") {
         $("#price").removeClass("ui-btn-up-c").addClass("ui-btn-up-e");
     }
-    else if (sorts == "?300" || sorts == "?301") {
+    else if (GoodProduct.sorts == "?300" || GoodProduct.sorts == "?301") {
         $("#upTime").removeClass("ui-btn-up-c").addClass("ui-btn-up-e");
     }
     if (tabs == "intro") {
@@ -376,7 +318,6 @@ function Change_DateIcon_Fun(id_c, arrow_c, ui_arrow_1s, ui_arrow_2s, ui_btn_1s,
 
 //#region 改变a便签样式
 function Change_DateIcon_Diao_Fun(sorts) {
-    console.log("sorts2:" + sorts);
     switch (sorts) {
         case "?100": Change_DateIcon_Fun("#sales", "arrow-u", "ui-icon-arrow-d", "ui-icon-arrow-u", "ui-btn-up-c", "ui-btn-up-e"); break;
         case "?101": Change_DateIcon_Fun("#sales", "arrow-d", "ui-icon-arrow-u", "ui-icon-arrow-d", "ui-btn-up-c", "ui-btn-up-e"); break;
@@ -391,138 +332,116 @@ function Change_DateIcon_Diao_Fun(sorts) {
 }
 //#endregion
 
-//#region 改变浏览器地址栏地址值
-function Change_browser_Fun(urls) {
-    if (window.history && window.history.pushState) {
-        history.replaceState("", "", urls);
-    }
-    if (jQuery.browser.msie) {
-        document.location.href = urls;
-    }
-}
-//#endregion
+//#region 商品列表页
+var GoodProduct = {
+    currentPage: $.cookie("currentPage") || 1, //当前页
+    lastPage: 1, //总页数
+    pageSize: 10, //每页显示的条数
+    sorts: $.cookie("sorts") || "100", //销量、价格、上架时间
+    DisplayProgressIndication: function () {
+        //#region 显示隐藏上一页下一页
+        if ($("#productlistContent li").length < 1) {
+            $(".page").hide();
+        }
+        //#endregion
+    },
+    ApplyTemplate: function (jsonString) {
+        //#region 给模板赋值
+        $('#productlistContent').setTemplate($('#jTemplate').html());
+        $('#productlistContent').processTemplate(jsonString, null, { append: true });
+        $("#productlistContent").listview("refresh");
+        GoodProduct.UpdatePaging();
+        //#endregion
+    },
+    DisplayUI: function (page, urls) {
+        //#region 显示界面数据列表
+        var token = $.cookie("m_token");
+        var uid = $.cookie("m_uid");
+        var obj = $.cookie("sorts") || "100";
+        GoodProduct.sorts = "?" + obj;
+        Change_DateIcon_Diao_Fun(GoodProduct.sorts);
 
-//#region 显示界面数据列表
-function DisplayUI(page, urls) {
-    var token = $.cookie("m_token");
-    var uid = $.cookie("m_uid");
-    //var obj = $.mobile.path.parseUrl(urls);
-    //obj = obj.search;
-    //    if (obj == "" || obj == "undefined") {
-    //        obj = "?100";
-    //    }
-    //sorts = obj.split('&')[0];
-    //Change_browser_Fun(urls);
-    //console.log("url:" + $.cookie("sorts"));
-    var obj = $.cookie("sorts") || "100";
-    //console.log("obj:" + obj);
-    //console.log("sorts:" + "?" + obj);
-    sorts = "?" + obj;
-    Change_DateIcon_Diao_Fun(sorts);
-    //Change_DateIcon_Diao_Fun(sorts);
-
-    GetWcf({
-        _api: "Goods.goodList",
-        _url: "0/0/0/0/" + obj + "/" + page + "/" + pageSize
-    }, function (jsonString) {
-        if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list.length > 0) {
-            lastPage = Math.ceil(jsonString.total / pageSize);
-            for (var i = 0; i < jsonString.list.length; i++) {
-                jsonString.list[i].pic_url = jsonString.list[i].pic_url.replace("{0}", "normal");
+        GetWcf({
+            _api: "Goods.goodList",
+            _url: "0/0/0/0/" + obj + "/" + page + "/" + GoodProduct.pageSize
+        }, function (jsonString) {
+            if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list.length > 0) {
+                GoodProduct.lastPage = Math.ceil(jsonString.total / GoodProduct.pageSize);
+                for (var i = 0; i < jsonString.list.length; i++) {
+                    jsonString.list[i].pic_url = jsonString.list[i].pic_url.replace("{0}", "normal");
+                }
+                //console.log("ApplyTemplate");
+                GoodProduct.ApplyTemplate(jsonString);
+            } else {
+                alert(jsonString.msg);
             }
-
-            ApplyTemplate(jsonString);
-            //$("#CurrentPages").text(page + "/" + lastPage);
+        }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
+        //#endregion
+    },
+    NextPage: function (evt) {
+        //#region 下一页
+        evt.preventDefault();
+        GoodProduct.DisplayProgressIndication();
+        GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
+        //currentPage = parseInt(currentPage) + parseInt(1);
+        //DisplayUI(currentPage, $.cookie("sorts"));
+        GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
+        //#endregion
+    },
+    UpdatePaging: function () {
+        //#region 更新分页数据
+        if (GoodProduct.currentPage != GoodProduct.lastPage) {
+            $("#morePage").unbind("click").click(GoodProduct.NextPage); ;
         } else {
-            alert(jsonString.msg);
+            $("#morePage").unbind("click");
         }
-    }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
-}
-//#endregion
-
-//#region 给模板赋值
-function ApplyTemplate(jsonString) {
-    $('#productlistContent').setTemplate($('#jTemplate').html());
-    $('#productlistContent').processTemplate(jsonString, null, { append: true });
-    $("#productlistContent").listview("refresh");
-    UpdatePaging();
-}
-//#endregion
-
-//#region 显示隐藏上一页下一页
-function DisplayProgressIndication() {
-    if ($("#productlistContent li").length < 1) {
-        //$('.paging').hide();
-        //$('.paging').unbind();
-        $(".page").hide();
-    }
-}
-//#endregion
-
-//#region 更新分页数据
-function UpdatePaging() {
-    //if (currentPage != 1) {
-    //$('#PrevPage').attr('href', '#');
-    //$('#PrevPage').unbind("click").click(PrevPage);
-    //} else {
-    //$('#PrevPage').removeAttr('href', '#');
-    //$('#PrevPage').unbind("click");
-    //}
-    if (currentPage != lastPage) {
-        $("#morePage").unbind("click").click(NextPage); ;
-        //$('#NextPage').attr('href', '#');
-        //$('#NextPage').unbind("click").click(NextPage);
-    } else {
-        $("#morePage").unbind("click");
-        //$('#NextPage').removeAttr('href', '#');
-        //$('#NextPage').unbind("click");
-    }
-}
-//#endregion
-
-//#region 更改地址栏页数
-function Change_Location_curret(cp_currentPage) {
-    if (urls_ca.indexOf('?') > 0) {
-        if (urls_ca.indexOf('&page=') > 0) {
-            urls_ca = urls_ca.replace(urls_ca.split('&')[1], "");
-            urls_ca = urls_ca + "page=" + cp_currentPage;
-        } else {
-            urls_ca = urls_ca + "&page=" + cp_currentPage;
+        //#endregion
+    },
+    GoodProductList: function () {
+        //$("#productlistContent").empty();
+        //#region 显示商品列表
+        GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts")); //显示第一页
+        //#endregion
+    },
+    Salec_Price_newTime_Cha_Fun: function (sorts_cookie, asc_c, aseac_c) {
+        //#region 销量、价格、上架时间变换过程
+        if ($.cookie("sorts") != asc_c && $.cookie("sorts") != aseac_c) {
+            $.cookie("sorts", asc_c);
+        } else if ($.cookie("sorts") == asc_c && $.cookie("sorts") != aseac_c) {
+            $.cookie("sorts", aseac_c);
+        } else if ($.cookie("sorts") == aseac_c && $.cookie("sorts") != asc_c) {
+            $.cookie("sorts", asc_c);
         }
+        $.cookie("currentPage", 1);
+        GoodProduct.currentPage = 1;
+        GoodProduct.DisplayUI(1, $.cookie("sorts"));
+        //DisplayUI(1, $.cookie("sorts"));
+        //#endregion
+    },
+    Salec_Price_newTime_Fun: function () {
+        //#region 销量、价格、上架时间调用
+        //#region 100升序 101降序
+        $("#sales").click(function () {
+            $('#productlistContent').empty();
+            GoodProduct.Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "100", "101");
+        });
+        //#endregion
+
+        //#region 200升序 201降序
+        $("#price").click(function () {
+            $('#productlistContent').empty();
+            GoodProduct.Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "200", "201");
+        });
+        //#endregion
+
+        //#region 300升序 301降序
+        $("#upTime").click(function () {
+            $('#productlistContent').empty();
+            GoodProduct.Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "300", "301");
+        });
+        //#endregion
+        //#endregion
     }
-    $.cookie("currentPage", urls_ca.split('&')[1].replace("page=", ""));
-}
-//#endregion
-
-//#region 下一页
-function NextPage(evt) {
-    evt.preventDefault();
-    DisplayProgressIndication();
-    currentPage = parseInt(currentPage) + parseInt(1);
-
-    //Change_Location_curret(currentPage);
-    //DisplayUI(currentPage, urls_ca);
-    DisplayUI(currentPage, $.cookie("sorts"));
-}
-//#endregion
-
-//#region 上一页
-function PrevPage(evt) {
-    evt.preventDefault();
-    DisplayProgressIndication();
-    currentPage = parseInt(currentPage) - parseInt(1);
-
-    //Change_Location_curret(currentPage);
-    //DisplayUI(currentPage, urls_ca);
-    DisplayUI(currentPage, $.cookie("sorts"));
-}
-//#endregion
-
-//#region 显示商品列表
-function GoodProductList() {
-    //Change_Location_curret(currentPage);
-    //DisplayUI(currentPage, urls_ca);
-    DisplayUI(currentPage, $.cookie("sorts")); //显示第一页
 };
 //#endregion
 
@@ -705,9 +624,6 @@ function hideMesage() {
 //#region 购物车
 
 function shoppingcart_Fun() {
-    //jQuery.mobile.changePage(window.WebRoot + "CheckOut/shoppingcart.aspx");
-    //alert($("#Good_Total_Count").text());
-    //alert(goodsTotal);
     var goodsTotal = $("#Hid_Good_Total_price").val() || 0;
     $("#goodsTotal").html(parseFloat(goodsTotal).toFixed(2) + "元");
 
@@ -761,11 +677,8 @@ function shoppingcart_Fun() {
 
             } else {
                 setMesage(jsonString.msg, product_id);
-                //$("#error_" + product_id).text(jsonString.msg);
-                //alert(onum);
                 $(obj).val(onum);
                 obj.val(onum).slider("refresh");
-                //$("#error_" + product_id).text("");
             }
         }, true);
     }
@@ -777,9 +690,7 @@ function shoppingcart_Fun() {
     var onum = 0; //原来的数量
     var ShopCartID = 0; //购物车ID
     var Change_Project_object = function (obj, product_id, p_num, ShopCartID) {
-        //alert(onum+":"+p_num);
         if (onum != p_num) {
-            //$(obj).attr("onum", p_num);
             Set_shoppingcartgoodsnum(ShopCartID, product_id, p_num, onum, obj);
         }
     }
@@ -1847,8 +1758,8 @@ var PageFuns = {
         Register_Fun();
     },
     Product_List_Page: function () {
-        GoodProductList();
-        Salec_Price_newTime_Fun();
+        GoodProduct.GoodProductList();
+        GoodProduct.Salec_Price_newTime_Fun();
     },
     CheckOut_Address: function () {
         myAccount_Fun();
@@ -1951,9 +1862,9 @@ $(function () {
 
     PageFun.Init();
 
-    $(document).bind("pagechange", function (event, data) {
+    $(document).unbind("pagechange").bind("pagechange", function (event, data) {
         //Log("pagechange");
-        //Log(data);
+        Log(data);
         console.log(data.toPage[0].id);
         PageFun.Init(data.toPage[0].id);
 
