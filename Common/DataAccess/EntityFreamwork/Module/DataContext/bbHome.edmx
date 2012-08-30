@@ -19,23 +19,7 @@
       [system_log].[Exception] AS [Exception]
       FROM [dbo].[system_log] AS [system_log]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="System_Permission" EntityType="EF.Model.bbHomeModel.Store.System_Permission" store:Type="Tables" store:Schema="dbo" store:Name="System_Permission">
-            <DefiningQuery>SELECT 
-      [System_Permission].[Id] AS [Id], 
-      [System_Permission].[Created] AS [Created], 
-      [System_Permission].[RefreshTime] AS [RefreshTime], 
-      [System_Permission].[AssemblyName] AS [AssemblyName], 
-      [System_Permission].[ClassName] AS [ClassName], 
-      [System_Permission].[MethodName] AS [MethodName], 
-      [System_Permission].[AfferentParameters] AS [AfferentParameters], 
-      [System_Permission].[ReturnParameters] AS [ReturnParameters], 
-      [System_Permission].[IsVerifySystemId] AS [IsVerifySystemId], 
-      [System_Permission].[IsVerifyToken] AS [IsVerifyToken], 
-      [System_Permission].[IsVerifyData] AS [IsVerifyData], 
-      [System_Permission].[IsVerfiyPemissions] AS [IsVerfiyPemissions], 
-      [System_Permission].[Remark] AS [Remark]
-      FROM [dbo].[System_Permission] AS [System_Permission]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="System_Permission" EntityType="EF.Model.bbHomeModel.Store.System_Permission" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_Blacklist" EntityType="EF.Model.bbHomeModel.Store.tb_Blacklist" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="base_t_membAddr">
@@ -126,32 +110,25 @@
           <Property Name="Message" Type="varchar" Nullable="false" MaxLength="4000" />
           <Property Name="Exception" Type="varchar" MaxLength="2000" />
         </EntityType>
-        <!--生成过程中发现错误:
-      警告 6002: 表/视图“bbHome.dbo.System_Permission”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
-      -->
         <EntityType Name="System_Permission">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Created" />
-            <PropertyRef Name="ClassName" />
-            <PropertyRef Name="MethodName" />
-            <PropertyRef Name="IsVerifySystemId" />
-            <PropertyRef Name="IsVerifyToken" />
-            <PropertyRef Name="IsVerifyData" />
-            <PropertyRef Name="IsVerfiyPemissions" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="RefreshTime" Type="datetime" />
-          <Property Name="AssemblyName" Type="nchar" MaxLength="50" />
+          <Property Name="AssemblyName" Type="nchar" Nullable="false" MaxLength="50" />
           <Property Name="ClassName" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="MethodName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="MethodAttrs" Type="varchar" MaxLength="1000" />
+          <Property Name="RequestType" Type="varchar" MaxLength="50" />
+          <Property Name="RequestUri" Type="varchar" MaxLength="200" />
           <Property Name="AfferentParameters" Type="varchar" MaxLength="1000" />
           <Property Name="ReturnParameters" Type="varchar" MaxLength="1000" />
-          <Property Name="IsVerifySystemId" Type="smallint" Nullable="false" />
-          <Property Name="IsVerifyToken" Type="smallint" Nullable="false" />
-          <Property Name="IsVerifyData" Type="smallint" Nullable="false" />
-          <Property Name="IsVerfiyPemissions" Type="smallint" Nullable="false" />
+          <Property Name="IsVerifySystemId" Type="smallint" />
+          <Property Name="IsVerifyToken" Type="smallint" />
+          <Property Name="IsVerifyData" Type="smallint" />
+          <Property Name="IsVerfiyPemissions" Type="smallint" />
           <Property Name="Remark" Type="varchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="tb_Blacklist">
@@ -296,6 +273,9 @@
           <Property Type="String" Name="AfferentParameters" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ReturnParameters" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Remark" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MethodAttrs" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RequestType" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RequestUri" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -393,6 +373,9 @@
           <EntitySetMapping Name="System_Permission">
             <EntityTypeMapping TypeName="EF.Model.bbHomeModel.System_Permission">
               <MappingFragment StoreEntitySet="System_Permission">
+                <ScalarProperty Name="RequestUri" ColumnName="RequestUri" />
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="MethodAttrs" ColumnName="MethodAttrs" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="ReturnParameters" ColumnName="ReturnParameters" />
                 <ScalarProperty Name="AfferentParameters" ColumnName="AfferentParameters" />

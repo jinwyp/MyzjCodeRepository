@@ -2255,6 +2255,78 @@ namespace EF.Model.DataContext
         private global::System.String _Remark;
         partial void OnRemarkChanging(global::System.String value);
         partial void OnRemarkChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MethodAttrs
+        {
+            get
+            {
+                return _MethodAttrs;
+            }
+            set
+            {
+                OnMethodAttrsChanging(value);
+                ReportPropertyChanging("MethodAttrs");
+                _MethodAttrs = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MethodAttrs");
+                OnMethodAttrsChanged();
+            }
+        }
+        private global::System.String _MethodAttrs;
+        partial void OnMethodAttrsChanging(global::System.String value);
+        partial void OnMethodAttrsChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RequestType
+        {
+            get
+            {
+                return _RequestType;
+            }
+            set
+            {
+                OnRequestTypeChanging(value);
+                ReportPropertyChanging("RequestType");
+                _RequestType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RequestType");
+                OnRequestTypeChanged();
+            }
+        }
+        private global::System.String _RequestType;
+        partial void OnRequestTypeChanging(global::System.String value);
+        partial void OnRequestTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RequestUri
+        {
+            get
+            {
+                return _RequestUri;
+            }
+            set
+            {
+                OnRequestUriChanging(value);
+                ReportPropertyChanging("RequestUri");
+                _RequestUri = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RequestUri");
+                OnRequestUriChanged();
+            }
+        }
+        private global::System.String _RequestUri;
+        partial void OnRequestUriChanging(global::System.String value);
+        partial void OnRequestUriChanged();
 
         #endregion
     
