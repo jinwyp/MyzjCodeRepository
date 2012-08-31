@@ -33,6 +33,3 @@
             href="#" data-theme="c">查看订单 </a>
     </div>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-<script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.muzj.js" type="text/javascript"></script>
-</asp:Content>

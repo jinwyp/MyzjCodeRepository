@@ -25,7 +25,3 @@
         <a href="registration.aspx?checked_user=true"  data-role="button" data-theme="b">同意该协议</a>
     </div>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-    <script src="js/bk/jquery.validate.min.js"></script>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.muzj.js" type="text/javascript"></script>
-</asp:Content>

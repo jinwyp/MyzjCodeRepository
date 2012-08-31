@@ -17,15 +17,15 @@
         </form>
         <div class="content-primary">
             <div class="camera_wrap camera_azure_skin" id="foucsPic">
-                <div data-src="images/slides/Accessories0705_1000x400.jpg">
+                <div data-src="/images/slides/Accessories0705_1000x400.jpg">
                 </div>
-                <div data-src="images/slides/Diapers0710_1000x400.jpg">
+                <div data-src="/images/slides/Diapers0710_1000x400.jpg">
                 </div>
-                <div data-src="images/slides/Milk0710_1.jpg">
+                <div data-src="/images/slides/Milk0710_1.jpg">
                 </div>
-                <div data-src="images/slides/Pampers0711_1000x400.jpg">
+                <div data-src="/images/slides/Pampers0711_1000x400.jpg">
                 </div>
-                <div data-src="images/slides/wanju0705_1000x4000.jpg">
+                <div data-src="/images/slides/wanju0705_1000x4000.jpg">
                 </div>
             </div>
             <!-- #foucs -->
@@ -44,12 +44,10 @@
             </ul>
             <ul data-role="listview" data-inset="true" data-dividertheme="d">
                 <li data-role="list-divider">公告11</li>
-                <li><a href="noticedetail.html">在线客服试运行 </a></li>
-                <li><a href="noticedetail.html">在线客服试运行 </a></li>
-                <li><a href="noticedetail.html">在线客服试运行 </a></li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail() %>">在线客服试运行 </a></li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail() %>">在线客服试运行 </a></li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail() %>">在线客服试运行 </a></li>
             </ul>
         </div>
     </div>
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
 </asp:Content>

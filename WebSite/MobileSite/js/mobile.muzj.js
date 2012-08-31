@@ -8,8 +8,9 @@ function LoingOut() {
         }, function (json) {
             if (json.status == 1) {
                 RemoveLoginCookie();
-                $.cookie("currentPage", null);
-                window.location.href = window.WebRoot + "index.aspx";
+                //$.cookie("currentPage", null);
+                //window.location.href = window.WebRoot + "index.aspx";
+                Change_Url(window.WebRoot + "index.aspx");
             } else
                 alert(json.msg);
         }, true);
@@ -19,7 +20,6 @@ function LoingOut() {
 
 //#region 首页动画
 function Index_Fun() {
-    //alert("aaa");
     jQuery('#foucsPic').camera({
         thumbnails: false,
         pauseOnClick: false,
@@ -34,7 +34,7 @@ function Index_Fun() {
 //#endregion
 
 //#region 登录
-function Login_Fun() {
+function Login_Fun(addUrl) {
     $("#email").focus(function () {
         jQuery("#ErroMesg").css("display", "none").text("");
     });
@@ -79,7 +79,8 @@ function Login_Fun() {
                     var wUr = GetUrlParam("returnurl") || window.WebRoot + "Member/myaccount.aspx";
                     if (wUr === "undefined") wUr = window.WebRoot + "Member/myaccount.aspx";
                     LS.clear();
-                    window.location.href = wUr;
+                    //window.location.href = wUr;
+                    Change_Url(wUr);
                 } else
                     jQuery("#ErroMesg").css("display", "block").text(json.msg);
             }, true);
@@ -89,7 +90,7 @@ function Login_Fun() {
 //#endregion
 
 //#region 注册
-function Register_Fun() {
+function Register_Fun(addUrl) {
     InitYear();
     jQuery('#select-choice-year').change(function () {
         InitMonth();
@@ -100,7 +101,7 @@ function Register_Fun() {
     })
 
     //alert(/checked_user/i.test(window.location.href));
-    if (/checked_user/i.test(window.location.href)) {
+    if (/checked_user/i.test(addUrl)) {
         $("#checkbox_agree").attr("checked", true).checkboxradio("refresh");
     }
     $("#email").focus(function () {
@@ -233,7 +234,8 @@ function Register_Fun() {
                     $.cookie("c_babybirth_year", null);
                     $.cookie("c_babybirth_month", null);
                     $.cookie("c_babybirth_day", null);
-                    window.location.href = window.WebRoot + "Member/myaccount.aspx";
+                    //window.location.href = window.WebRoot + "Member/myaccount.aspx";
+                    Change_Url(window.WebRoot + "Member/myaccount.aspx");
                 }
                 else
                     jQuery("#ErroMesg").css("display", "block").text(json.msg);
@@ -265,15 +267,6 @@ function Forgetpassword() {
 
 }
 //#endregion
-
-////#region 购物车页全局变量
-//var currentPage = $.cookie("currentPage") || 1; //当前页
-//var lastPage = 1; //总页数
-//var pageSize = 10; //每页显示的条数
-////#endregion
-
-////#region 销量、价格、上架时间
-//var sorts = $.cookie("sorts") || "100";
 
 //#region 改变按钮样式
 function Change_DateIcon_Fun(id_c, arrow_c, ui_arrow_1s, ui_arrow_2s, ui_btn_1s, ui_btn_2s) {
@@ -324,7 +317,7 @@ function Change_DateIcon_Diao_Fun(sorts) {
 
 //#region 商品列表页
 var GoodProduct = {
-    currentPage: $.cookie("currentPage") || 1, //当前页
+    currentPage: 1, //当前页
     lastPage: 1, //总页数
     pageSize: 10, //每页显示的条数
     sorts: $.cookie("sorts") || "100", //销量、价格、上架时间
@@ -402,7 +395,7 @@ var GoodProduct = {
         } else if ($.cookie("sorts") == aseac_c && $.cookie("sorts") != asc_c) {
             $.cookie("sorts", asc_c);
         }
-        $.cookie("currentPage", 1);
+        //$.cookie("currentPage", 1);
         GoodProduct.currentPage = 1;
         GoodProduct.DisplayUI(1, $.cookie("sorts"));
         //DisplayUI(1, $.cookie("sorts"));
@@ -586,13 +579,81 @@ function productDetail_Fun() {
             _url: "/" + area_id + "/" + product_id + "/" + num
         }, function (jsonString) {
             if (jsonString.status == 1) {
-                window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                //window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
             } else {
                 alert(jsonString.msg);
             }
         }, true);
     });
     //#endregion
+
+    var ImgSwipegall = function () {
+        var n = 0;
+        var num = $(".slides li").size();
+        if (num > 1) {
+            $("#imggallerynum").text((n + 1) + "/" + num);
+            $("#imgNex_Pre").css("display", "block");
+
+            var item_width = $(".slides li").outerWidth();
+            var left_value = item_width * (-1);
+
+            $(".slides li:first").before($(".slides li:last"));
+            if (num == 2) {
+                left_value = 0;
+            }
+            $(".slides ul").css({ 'left': left_value });
+
+            $("#imggalleryprev").click(function () { prev_Fun(); });
+            $("#imggallerynext").click(function () { next_Fun(); });
+            $('#imggallery').swipeleft(function () {
+                next_Fun();
+            });
+            $('#imggallery').swiperight(function () {
+                prev_Fun();
+            });
+        } else {
+            $("#imgNex_Pre").css("display", "none");
+        }
+        //上一张图片 
+        function prev_Fun() {
+            n = n == 0 ? (num - 1) : (n - 1);
+            $("#imggallerynum").text((n + 1) + "/" + num);
+            if (num == 2) {
+                left_value = -300;
+                $(".slides ul").css({ 'left': left_value });
+            }
+            //alert(parseInt($(".slides ul").css('left')));
+            var left_indent = parseInt($(".slides ul").css('left')) + item_width;
+            $(".slides ul:not(:animated)").animate({ 'left': left_indent }, 300, function () {
+                $(".slides li:first").before($(".slides li:last"));
+
+                $('.slides ul').css({ 'left': left_value });
+            });
+            return false;
+
+        }
+
+        //下一张图片 
+        function next_Fun() {
+            n = n >= (num - 1) ? 0 : n + 1;
+            $("#imggallerynum").text((n + 1) + "/" + num);
+            if (num == 2) {
+                left_value = 0;
+                $(".slides ul").css({ 'left': left_value });
+            }
+            //alert(parseInt($(".slides ul").css('left')));
+            var left_indent = parseInt($(".slides ul").css('left')) - item_width;
+            $(".slides ul:not(:animated)").animate({ 'left': left_indent }, 300, function () {
+                $(".slides li:last").after($(".slides li:first"));
+                //alert($(".slides li:last").index());
+                $('.slides ul').css({ 'left': left_value });
+            });
+            return false;
+
+        }
+
+    }
 }
 //#endregion
 
@@ -739,7 +800,8 @@ function shoppingcart_Fun() {
             },
         1500);
 
-            window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+            //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+            Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
         } else {
             $("#tis_Tip").append('<li class="error-text">您还没有购买商品！</li>');
         }
@@ -902,7 +964,8 @@ function orderconfirm_Fun() {
                 alert("请选择收货人信息！");
                 return;
             } else {
-                window.location.href = window.WebRoot + "CheckOut/paymentlist.aspx";
+                //window.location.href = window.WebRoot + "CheckOut/paymentlist.aspx";
+                Change_Url(window.WebRoot + "CheckOut/paymentlist.aspx");
             }
         });
         //#endregion
@@ -921,7 +984,8 @@ function orderconfirm_Fun() {
                 alert("请选择支付方式！");
                 return;
             } else {
-                window.location.href = window.WebRoot + "CheckOut/deliverylist.aspx";
+                //window.location.href = window.WebRoot + "CheckOut/deliverylist.aspx";
+                Change_Url(window.WebRoot + "CheckOut/deliverylist.aspx");
             }
         });
         //#endregion
@@ -991,10 +1055,12 @@ function orderconfirm_Fun() {
                             ]
                     };
                     Delivery_info_Object(delivery_array);
-                    window.location.href = window.WebRoot + "CheckOut/makeorder.aspx";
+                    //window.location.href = window.WebRoot + "CheckOut/makeorder.aspx";
+                    Change_Url(window.WebRoot + "CheckOut/makeorder.aspx");
                 } else if (json.status == "-2") {
                     alert(json.msg);
-                    window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                    //window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                    Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
                 } else {
                     alert(json.msg);
                 }
@@ -1091,7 +1157,8 @@ function addresslist_Fun() {
                         };
                         Delelt_Delivery_info_Object(delivery_array);
                         LS.set("current_addressid", address_id); //设置默认收货地址
-                        window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+                        //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+                        Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
                     } else {
                         alert(jsonString.msg);
                     }
@@ -1153,7 +1220,8 @@ function paymentlist_Fun() {
                     ]
         };
         Delelt_Delivery_info_Object(delivery_array);
-        window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+        //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+        Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
     });
     //#endregion
 }
@@ -1249,7 +1317,8 @@ function deliverylist_Fun() {
             ]
         };
         Delivery_info_Object(delivery_array);
-        window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+        //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+        Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
     });
     //#endregion
 }
@@ -1338,7 +1407,8 @@ function invoice_Fun() {
             ]
         };
         Delivery_info_Object(delivery_array); //发票信息存储
-        window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+        //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+        Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
     });
     //#endregion
 }
@@ -1510,7 +1580,8 @@ address_add_update_Object.address_valite_c = function (id_obj) {
                     if (id_obj > 0) { LS.set("current_addressid", id_obj); } else {
                         LS.set("current_addressid", json.info);
                     }
-                    window.location.href = window.WebRoot + "CheckOut/addresslist.aspx";
+                    //window.location.href = window.WebRoot + "CheckOut/addresslist.aspx";
+                    Change_Url(window.WebRoot + "CheckOut/addresslist.aspx");
                 } else
                     $("#Cah_Mesag").css("display", "block").text(json.msg);
             }, true);
@@ -1593,7 +1664,8 @@ var makeorder_Fun = function () {
         $("#online_pay").css("display", "none");
     }
     $("#checkOrderDetail").click(function () {
-        window.location.href = window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid;
+        //window.location.href = window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid;
+        Change_Url(window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid);
     });
 }
 //#endregion
@@ -1739,13 +1811,14 @@ function orderlist_Fun() {
 // 比如： http://localhost:38839/User/Info 页面id：User_Info_Page
 var PageFuns = {
     Index_Page: function () {
+        //Log($.cookie("sorts"));
         Index_Fun();
     },
-    Member_Login_Page: function () {
-        Login_Fun();
+    Member_Login_Page: function (addUrl) {
+        Login_Fun(addUrl);
     },
-    Registration_Page: function () {
-        Register_Fun();
+    Registration_Page: function (addUrl) {
+        Register_Fun(addUrl);
     },
     Product_List_Page: function () {
         GoodProduct.GoodProductList();
@@ -1762,6 +1835,7 @@ var PageFuns = {
         Forgetpassword();
     },
     CheckOut_Shoppingcart_Page: function () {
+        Log("shoppingcart_Fun");
         shoppingcart_Fun();
     },
     CheckOut_OrderConfirm_Page: function () {
@@ -1780,8 +1854,10 @@ var PageFuns = {
     CheckOut_Shoppingcart_Invoice_Page: function () {
         invoice_Fun();
     },
-    CheckOut_Address_Page: function () {
+    CheckOut_Add_Address_Page: function () {
         address_add_Fun();
+    },
+    CheckOut_Edit_Address_Page: function () {
         address_edit_Fun();
     },
     CheckOut_Makeorder_Page: function () {
@@ -1822,7 +1898,7 @@ PageFun.GetFun = function (pageId) {
 
 //#region 页面函数初始化
 //如果页面是手动打开，无需传入 pageid
-PageFun.Init = function (pageId) {
+PageFun.Init = function (pageId, objToPage) {
     if (typeof pageId == "undefined") {
         pageId = $(document.body).find("div[data-role = 'page']").eq(0).attr("id");
         window.mobile.pages["MainPage"] = pageId;
@@ -1831,13 +1907,18 @@ PageFun.Init = function (pageId) {
             return;
         }
     }
-
+    var addUrl = '';
+    if (typeof objToPage != "undefined" && typeof objToPage.toPage[0] != "undefined") {
+        addUrl = objToPage.toPage[0].baseURI;
+    } else {
+        addUrl = window.location.href;
+    }
     var fun = PageFun.GetFun(pageId);
     var cacheFun = window.mobile.pages[pageId];
     //if (typeof cacheFun == "undefined") {
     if (true) {
         if (typeof fun == "function") {
-            fun();
+            fun(addUrl);
             window.mobile.pages[pageId] = fun;
         }
     } else {
@@ -1849,14 +1930,12 @@ PageFun.Init = function (pageId) {
 //#endregion
 
 $(function () {
-
     PageFun.Init();
-
     $(document).unbind("pagechange").bind("pagechange", function (event, data) {
         //Log("pagechange");
-        //Log(data);
-        //console.log(data.toPage[0].id);
-        PageFun.Init(data.toPage[0].id);
+        Log(data);
+        Log(data.toPage[0].id);
+        PageFun.Init(data.toPage[0].id, data);
 
         //#region 回到顶部
         $('#gotop').tap(function () {

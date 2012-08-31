@@ -14,7 +14,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content">
     <form id="frmAddress_list">
-        <a href="<%= MobileSite.BaseLib.WebUrls.address_add() %>" data-role="button" data-theme="d" data-icon="plus" >新增一个收货地址
+        <a href="<%= MobileSite.BaseLib.WebUrls.address_add() %>" data-prefetch data-role="button" data-theme="d" data-icon="plus" >新增一个收货地址
         </a>
         <div data-role="fieldcontain">
             <fieldset id="addresslist_cont" data-role="controlgroup">
@@ -44,8 +44,4 @@
                 </div>
         {#/for}
     </script>
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-<script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>bk/jquery.validate.min.js" type="text/javascript"></script>
-<script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.muzj.js" type="text/javascript"></script>
 </asp:Content>

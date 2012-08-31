@@ -26,7 +26,3 @@
         </form>
     </div>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-    <script src="js/bk/jquery.validate.min.js"></script>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.muzj.js" type="text/javascript"></script>
-</asp:Content>

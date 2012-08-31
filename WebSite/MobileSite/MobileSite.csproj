@@ -122,20 +122,6 @@
     <Compile Include="CheckOut\onlinepayment.aspx.designer.cs">
       <DependentUpon>onlinepayment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CheckOut\orderdetail.aspx.cs">
-      <DependentUpon>orderdetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CheckOut\orderdetail.aspx.designer.cs">
-      <DependentUpon>orderdetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CheckOut\orderlist.aspx.cs">
-      <DependentUpon>orderlist.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CheckOut\orderlist.aspx.designer.cs">
-      <DependentUpon>orderlist.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -166,6 +152,20 @@
     </Compile>
     <Compile Include="CheckOut\paymentlist.aspx.designer.cs">
       <DependentUpon>paymentlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\orderdetail.aspx.cs">
+      <DependentUpon>orderdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\orderdetail.aspx.designer.cs">
+      <DependentUpon>orderdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Member\orderlist.aspx.cs">
+      <DependentUpon>orderlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Member\orderlist.aspx.designer.cs">
+      <DependentUpon>orderlist.aspx</DependentUpon>
     </Compile>
     <Compile Include="noticedetail.aspx.cs">
       <DependentUpon>noticedetail.aspx</DependentUpon>
@@ -283,8 +283,6 @@
     <Content Include="CheckOut\deliverylist.aspx" />
     <Content Include="CheckOut\makeorder.aspx" />
     <Content Include="CheckOut\onlinepayment.aspx" />
-    <Content Include="CheckOut\orderdetail.aspx" />
-    <Content Include="CheckOut\orderlist.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Html\address-add.html" />
     <Content Include="Html\address-edit.html" />
@@ -328,6 +326,8 @@
     <Content Include="js\jquerymobile.initbefore.js" />
     <Content Include="js\bk\mobile.checkout.js" />
     <Content Include="js\mobile.muzj.js" />
+    <Content Include="Member\orderdetail.aspx" />
+    <Content Include="Member\orderlist.aspx" />
     <Content Include="noticedetail.aspx" />
     <Content Include="noticelist.aspx" />
     <Content Include="Product\category.aspx" />

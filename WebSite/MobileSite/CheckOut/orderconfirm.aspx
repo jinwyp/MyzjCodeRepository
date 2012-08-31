@@ -17,7 +17,7 @@
     <div data-role="content">
         <ul id="address_message" data-role="listview" data-divider-theme="d" data-inset="true">
             <li data-role="list-divider" role="heading">收货人信息</li>
-            <li><a id="address_default" class="ui-link-inherit" href="<%= MobileSite.BaseLib.WebUrls.addresslist() %>"
+            <li><a id="address_default" class="ui-link-inherit" data-prefetch href="<%= MobileSite.BaseLib.WebUrls.addresslist() %>"
                 >
                 <p>
                     正在加载中...</p>
@@ -48,7 +48,7 @@
                 </p>
             </a></li>
             <li data-role="list-divider" role="heading">发票信息</li>
-            <li data-theme="c"><a href="<%= MobileSite.BaseLib.WebUrls.invoice() %>" >
+            <li data-theme="c"><a data-prefetch href="<%= MobileSite.BaseLib.WebUrls.invoice() %>" >
                 <p id="invoice_Type_Text">
                     正在加载中...</p>
                 <p id="invoice_Theader_Text">
@@ -80,7 +80,4 @@
         </div>
         <a id="orderConfirm_btn" href="#" data-role="button" data-theme="a">提交订单</a>
     </div>
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.muzj.js" type="text/javascript"></script>
 </asp:Content>

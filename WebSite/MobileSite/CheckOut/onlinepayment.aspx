@@ -34,5 +34,3 @@
         </ul>
     </div>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-</asp:Content>

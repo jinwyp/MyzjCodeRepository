@@ -246,6 +246,13 @@ return guid;
 
 //#region 公用函数
 
+//#region
+var Change_Url = function (diUrl) {
+    //window.location.href = diUrl;
+    $.mobile.changePage(diUrl); //, { transition: "slide" }
+}
+//#endregion
+
 //输出日志
 var Log = function (logstr) {
     if (typeof (window.console) == "object")

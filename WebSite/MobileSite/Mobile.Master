@@ -64,8 +64,6 @@
             <div>
                 Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
         </div>
-        <asp:ContentPlaceHolder ID="Other" runat="server">
-        </asp:ContentPlaceHolder>
     </div>
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Common_js&t=text/javascript&v=1"
         type="text/javascript"></script>

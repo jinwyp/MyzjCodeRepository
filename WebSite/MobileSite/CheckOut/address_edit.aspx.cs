@@ -28,7 +28,7 @@ namespace MobileSite.CheckOut
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetMasterPageId("CheckOut_Address_Page", "修改收货地址信息页");
+            SetMasterPageId("CheckOut_Edit_Address_Page", "修改收货地址信息页");
         }
     }
 }

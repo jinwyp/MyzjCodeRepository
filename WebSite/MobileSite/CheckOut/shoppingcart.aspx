@@ -55,6 +55,3 @@
                 {#/for}
     </script>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Other" runat="server">
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>mobile.muzj.js" type="text/javascript"></script>
-</asp:Content>

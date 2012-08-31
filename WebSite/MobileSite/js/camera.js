@@ -1,7 +1,8 @@
 ﻿// Camera slideshow v1.3.3 - a jQuery slideshow with many effects, transitions, easy to customize, using canvas and mobile ready, based on jQuery 1.4+
 // Copyright (c) 2012 by Manuel Masia - www.pixedelic.com
 // Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
-; (function (a) {
+; 
+(function (a) {
     a.fn.camera = function (b, c) {
         function e() {
             if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
@@ -2305,7 +2306,8 @@
             })
         }
     }
-})(jQuery); (function (a) {
+})(jQuery); 
+(function (a) {
     a.fn.cameraStop = function () {
         var b = a(this),
         c = a(".camera_src", b),
@@ -2317,13 +2319,15 @@
             var e = b
         }
     }
-})(jQuery); (function (a) {
+})(jQuery); 
+(function (a) {
     a.fn.cameraPause = function () {
         var b = a(this);
         var c = a(".camera_src", b);
         c.addClass("paused")
     }
-})(jQuery); (function (a) {
+})(jQuery); 
+(function (a) {
     a.fn.cameraResume = function () {
         var b = a(this);
         var c = a(".camera_src", b);

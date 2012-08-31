@@ -8,20 +8,17 @@ using MobileSite.BaseLib.MemberContent;
 
 namespace MobileSite.CheckOut
 {
-    public partial class address_add : BaseMember
+    public partial class orderdetail : BaseMember
     {
         /// <summary>
         /// 设置 页面ID
         /// </summary>
         /// <param name="pageId"></param>
-        public void SetMasterPageId(string pageId, string pageTitle)
+        public void SetMasterPageId(string pageId)
         {
             var master = Master as Mobile;
             if (master != null)
-            {
                 master.PageId = pageId;
-                master.PageTitle = pageTitle;
-            }
         }
 
         /// <summary>
@@ -31,8 +28,7 @@ namespace MobileSite.CheckOut
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetMasterPageId("CheckOut_Add_Address_Page", "添加收货地址信息页");
+            SetMasterPageId("Member_OrderDetail_Page");
         }
-
     }
 }
