@@ -102,27 +102,53 @@ namespace MobileSite.BaseLib
                 throw new Exception("节点未配置！ 请检查配置文件！");
         }
 
+        const string VersionKey = "RESOURCEVERSION";
+        static string versionId = string.Empty;
         /// <summary>
-        /// 获取资源 缓存
+        /// 获取资源 版本
         /// </summary>
         public static string GetResourceVersion
         {
             get
             {
-                const string versionKey = "RESOURCEVERSION";
-                var versionId = string.Empty;
-                var cacheVal = HttpContext.Current.Cache.Get(versionKey);
-                if (cacheVal != null && string.IsNullOrEmpty(cacheVal as string))
-                {
-                    versionId = DateTime.Now.ToString("yyyyMMddHHmmss");
-                    HttpContext.Current.Cache.Add(versionKey, versionId, null,
-                        DateTime.Now.AddMinutes(30),
-                        new TimeSpan(0, 30, 0),
-                         CacheItemPriority.Default,
-                         null);
-                }
+                if (string.IsNullOrEmpty(versionId))
+                    versionId = DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                #region 使用缓存
+                //string versionId;
+                //try
+                //{
+                //    var cacheVal = HttpContext.Current.Cache.Get(VersionKey) as string;
+                //    if (cacheVal == null || string.IsNullOrEmpty(cacheVal))
+                //    {
+                //        versionId = DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                //        HttpContext.Current.Cache.Add(VersionKey, versionId, null,
+                //            DateTime.Now.AddMinutes(30),
+                //            TimeSpan.Zero,
+                //             CacheItemPriority.Default,
+                //             null);
+                //    }
+                //    else
+                //    {
+                //        versionId = cacheVal;
+                //    }
+                //}
+                //catch
+                //{
+                //    versionId = "0";
+                //} 
+                #endregion
                 return versionId;
             }
+        }
+
+        /// <summary>
+        /// 刷新 资源 版本
+        /// </summary>
+        public static string RefreshResourceVwersion()
+        {
+            //HttpContext.Current.Cache.Remove(VersionKey);
+            versionId = "";
+            return GetResourceVersion;
         }
 
         #region 公共地址
