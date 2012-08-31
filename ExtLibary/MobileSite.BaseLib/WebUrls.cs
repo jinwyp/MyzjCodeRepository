@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Web;
+using System.Web.Caching;
 using System.Xml.Linq;
 
 namespace MobileSite.BaseLib
@@ -99,6 +100,29 @@ namespace MobileSite.BaseLib
                     return Urls[name];
             else
                 throw new Exception("节点未配置！ 请检查配置文件！");
+        }
+
+        /// <summary>
+        /// 获取资源 缓存
+        /// </summary>
+        public static string GetResourceVersion
+        {
+            get
+            {
+                const string versionKey = "RESOURCEVERSION";
+                var versionId = string.Empty;
+                var cacheVal = HttpContext.Current.Cache.Get(versionKey);
+                if (cacheVal != null && string.IsNullOrEmpty(cacheVal as string))
+                {
+                    versionId = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    HttpContext.Current.Cache.Add(versionKey, versionId, null,
+                        DateTime.Now.AddMinutes(30),
+                        new TimeSpan(0, 30, 0),
+                         CacheItemPriority.Default,
+                         null);
+                }
+                return versionId;
+            }
         }
 
         #region 公共地址
@@ -327,7 +351,7 @@ namespace MobileSite.BaseLib
         /// <returns></returns>
         public static string orderdetail(object ocode)
         {
-            return GetUrlData("orderdetail",ocode);
+            return GetUrlData("orderdetail", ocode);
         }
 
         /// <summary>
@@ -350,7 +374,7 @@ namespace MobileSite.BaseLib
             return GetUrlData("address_edit", address_id);
         }
 
-        
+
         /// <summary>
         /// 商品分类
         /// </summary>

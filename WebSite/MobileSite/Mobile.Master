@@ -10,9 +10,9 @@
     <link rel="apple-touch-icon" size="72*72" href="images/icon/Icon-72.png" />
     <link rel="apple-touch-icon" size="114*114" href="images/icon/Icon-Small@2x.png" />
     <link rel="apple-touch-icon" size="144*144" href="images/icon/Icon-144.png" />
-    <link rel="stylesheet" href="/jquerymobile/jquery.mobile-1.1.0.min.css" />
-    <link rel="stylesheet" href="<%= MobileSite.BaseLib.WebUrls.ThemesRoot() %>my.css" />
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_head_Min_Com&t=text/javascript&v=1"
+    <link rel="stylesheet" href="/jquerymobile/jquery.mobile-1.1.0.min.css?v=<%= MobileSite.BaseLib.WebUrls.GetResourceVersion %>" />
+    <link rel="stylesheet" href="<%= MobileSite.BaseLib.WebUrls.ThemesRoot() %>my.css?v=<%= MobileSite.BaseLib.WebUrls.GetResourceVersion %>" />
+    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_head_Min_Com&t=text/javascript&v=<%= MobileSite.BaseLib.WebUrls.GetResourceVersion %>"
         type="text/javascript"></script>
     <script type="text/javascript">
         window.WebRoot = '<%= MobileSite.BaseLib.WebUrls.WebRoot() %>';
@@ -21,7 +21,7 @@
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Mobile_1.1.0s&t=text/javascript&v=1"
+    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Mobile_1.1.0s&t=text/javascript&v=<%= MobileSite.BaseLib.WebUrls.GetResourceVersion %>"
         type="text/javascript"></script>
 </head>
 <body>
@@ -65,9 +65,9 @@
                 Copyright 2004 - 2012 muyingzhijia.com All Rights Reserved</div>
         </div>
     </div>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Common_js&t=text/javascript&v=1"
+    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Common_js&t=text/javascript&v=<%= MobileSite.BaseLib.WebUrls.GetResourceVersion %>"
         type="text/javascript"></script>
-    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_footer_Min_Com&t=text/javascript&v=1"
+    <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_footer_Min_Com&t=text/javascript&v=<%= MobileSite.BaseLib.WebUrls.GetResourceVersion %>"
         type="text/javascript"></script>
 </body>
 </html>
