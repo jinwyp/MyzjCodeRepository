@@ -13,7 +13,7 @@ namespace MobileSite.BaseLib
     {
         public void Page_Init(object sender, EventArgs e)
         {
-            WebUtility.RefreshGuid();
+
         }
 
     }
