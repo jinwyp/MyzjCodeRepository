@@ -20,6 +20,7 @@ function LoingOut() {
 
 //#region 首页动画
 function Index_Fun() {
+    $('#foucsPic').html($("#picList").html());
     Camera_cao.camera();
     Camera_cao.cameraStop();
     Camera_cao.cameraPause();
