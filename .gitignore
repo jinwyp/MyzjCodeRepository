@@ -4,6 +4,7 @@ obj
 
 # mstest test results
 TestResults
+/API/WCF/Wcf.ServiceHost/Log
 /MyzjCodeRepository.suo
 /MyzjMobileSite.suo
 /API/WCF/Wcf.ServiceHost/Log
