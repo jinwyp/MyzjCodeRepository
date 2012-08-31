@@ -1,6 +1,6 @@
 ﻿//#region 退出登录
 function LoingOut() {
-    jQuery("#logout").click(function () {
+    Unbind_bind("#logout", "click", function () {
         var token = $.cookie("m_token");
         var uid = $.cookie("m_uid");
         GetWcf({
@@ -39,7 +39,7 @@ function Index_Fun() {
 
 //#region 登录
 function Login_Fun(addUrl) {
-    $("#email").focus(function () {
+    Unbind_bind("#email", "focus", function () {
         jQuery("#ErroMesg").css("display", "none").text("");
     });
     $("#frmLogin").validate({
@@ -120,7 +120,7 @@ function Register_Fun(addUrl) {
     InitDate();
     $("#select-choice-day").val($.cookie("c_babybirth_day")).selectmenu('refresh');
 
-    jQuery("#userpolicy").click(function () {
+    Unbind_bind("#userpolicy", "click", function () {
         var email = $("#email").val();
         var password = $("#password").val();
         var mobile = $("#mobile").val();
@@ -335,7 +335,11 @@ var GoodProduct = {
     ApplyTemplate: function (jsonString) {
         //#region 给模板赋值
         $('#productlistContent').setTemplate($('#jTemplate').html());
-        $('#productlistContent').processTemplate(jsonString, null, { append: true });
+
+        var _append = false;
+        if (GoodProduct.currentPage > 1)
+            _append = true;
+        $('#productlistContent').processTemplate(jsonString, null, { append: _append });
         $("#productlistContent").listview("refresh");
         GoodProduct.UpdatePaging();
         //#endregion
@@ -358,6 +362,7 @@ var GoodProduct = {
                     jsonString.list[i].pic_url = jsonString.list[i].pic_url.replace("{0}", "normal");
                 }
                 //console.log("ApplyTemplate");
+                $("#totalCount").text(jsonString.total);
                 GoodProduct.ApplyTemplate(jsonString);
             } else {
                 alert(jsonString.msg);
@@ -378,7 +383,7 @@ var GoodProduct = {
     UpdatePaging: function () {
         //#region 更新分页数据
         if (GoodProduct.currentPage != GoodProduct.lastPage) {
-            $("#morePage").unbind("click").click(GoodProduct.NextPage); ;
+            Unbind_bind("#morePage", "click", GoodProduct.NextPage);
         } else {
             $("#morePage").unbind("click");
         }
@@ -408,21 +413,22 @@ var GoodProduct = {
     Salec_Price_newTime_Fun: function () {
         //#region 销量、价格、上架时间调用
         //#region 100升序 101降序
-        $("#sales").click(function () {
+
+        Unbind_bind("#sales", "click", function () {
             $('#productlistContent').empty();
             GoodProduct.Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "100", "101");
         });
         //#endregion
 
         //#region 200升序 201降序
-        $("#price").click(function () {
+        Unbind_bind("#price", "click", function () {
             $('#productlistContent').empty();
             GoodProduct.Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "200", "201");
         });
         //#endregion
 
         //#region 300升序 301降序
-        $("#upTime").click(function () {
+        Unbind_bind("#upTime", "click", function () {
             $('#productlistContent').empty();
             GoodProduct.Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "300", "301");
         });
@@ -499,13 +505,15 @@ var Font_Width_Fun = function (element) {
 function De_controlgroup_Fun() {
     $.cookie("tabs", "intro");
     Change_DateIcon_Diao_Fun($.cookie("tabs"));
-    $("#intro_a").click(function () {
+
+    Unbind_bind("#intro_a", "click", function () {
         $("#intro").css("display", "block");
         $("#detail").css("display", "none");
         $.cookie("tabs", "intro");
         Change_DateIcon_Diao_Fun($.cookie("tabs"));
     });
-    $("#detail_a").click(function () {
+
+    Unbind_bind("#detail_a", "click", function () {
         $("#intro").css("display", "none");
         $("#detail").css("display", "block");
         $.cookie("tabs", "detail");
@@ -574,7 +582,7 @@ function productDetail_Fun() {
     De_controlgroup_Fun();
 
     //#region 添加购物车
-    $("#AddShop_btn").click(function () {
+    Unbind_bind("#AddShop_btn", "click", function () {
         var area_id = 0;
         var product_id = gid;
         var num = 1;
@@ -607,15 +615,18 @@ function productDetail_Fun() {
                 left_value = 0;
             }
             $(".slides ul").css({ 'left': left_value });
-
-            $("#imggalleryprev").click(function () { prev_Fun(); });
-            $("#imggallerynext").click(function () { next_Fun(); });
-            $('#imggallery').swipeleft(function () {
-                next_Fun();
-            });
-            $('#imggallery').swiperight(function () {
-                prev_Fun();
-            });
+            Unbind_bind("#imggalleryprev", "click", prev_Fun);
+            Unbind_bind("#imggallerynext", "click", next_Fun);
+            Unbind_bind("#imggallery", "swipeleft", next_Fun);
+            Unbind_bind("#imggallery", "swiperight", prev_Fun);
+            //            $("#imggalleryprev").click(function () { prev_Fun(); });
+            //            $("#imggallerynext").click(function () { next_Fun(); });
+            //            $('#imggallery').swipeleft(function () {
+            //                next_Fun();
+            //            });
+            //            $('#imggallery').swiperight(function () {
+            //                prev_Fun();
+            //            });
         } else {
             $("#imgNex_Pre").css("display", "none");
         }
@@ -696,7 +707,7 @@ function shoppingcart_Fun() {
                 var goodsTotal = $("#Hid_Good_Total_price").val() || 0;
 
                 $("#goodsTotal").html(parseFloat(goodsTotal).toFixed(2) + "元");
-
+                window.shoppingcart_list = jsonString.info.shoppingcart_list;
                 shoppingCart_list.setTemplate($('#shoppingCart_list_template').html());
                 shoppingCart_list.processTemplate(jsonString.info.shoppingcart_list, null, { append: false });
                 shoppingCart_list.trigger('create').listview("refresh");
@@ -797,7 +808,7 @@ function shoppingcart_Fun() {
     //#endregion
 
     //#region 提交订单
-    $("#ShoppingCart_btn").click(function (e) {
+    Unbind_bind("#ShoppingCart_btn", "click", function (e) {
         if (parseInt($("#good_totals").text()) > 0) {
             $('html, body').animate({
                 scrollTop: $(document).height()
@@ -1033,7 +1044,7 @@ function orderconfirm_Fun() {
 
     //#region 提交订单
 
-    $("#orderConfirm_btn").click(function () {
+    Unbind_bind("#orderConfirm_btn", "click", function () {
         var orderEntity_c = orderEntity.createNew();
         if (orderEntity.init_Judge(orderEntity_c)) {
             PostWcf({
@@ -1366,8 +1377,7 @@ function invoice_Fun() {
         $("#FaTHeader,#invoice_Type").css("display", "block");
     }
     //#endregion
-
-    $("[name = IsNoInvoice]:radio").click(function () {
+    Unbind_bind("[name = IsNoInvoice]:radio", "click", function () {
         $("[name = IsNoInvoice]:radio").attr("checked", false).checkboxradio("refresh");
         $(this).attr("checked", true).checkboxradio("refresh");
         var current_Status = $(this).attr("value");
@@ -1381,7 +1391,7 @@ function invoice_Fun() {
     });
 
     //#region  提交发票信息
-    $("#invoice_btn").click(function () {
+    Unbind_bind("#invoice_btn", "click", function () {
         var isorInvice, FaTHeader, invoice_Type; //是否要发票、发票抬头、发票类型
         isorInvice = $("[name = IsNoInvoice]:radio:checked").attr("value") || "-1";
         FaTHeader = $("#FaTHeader").val() || "-1";
@@ -1447,8 +1457,6 @@ function ProViceCityTown_Function() {
     var myselect = $("#PCR select#s1s");
     myselect[0].selectedIndex = 0;
     myselect.selectmenu("refresh");
-    //jQuery("#PCR select#s2s").empty();
-    //jQuery("#PCR select#s3s").empty();
     getCity();
 }
 //#endregion
@@ -1667,7 +1675,8 @@ var makeorder_Fun = function () {
     if (make_paytype === "货到付款") {
         $("#online_pay").css("display", "none");
     }
-    $("#checkOrderDetail").click(function () {
+
+    Unbind_bind("#checkOrderDetail", "click", function () {
         //window.location.href = window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid;
         Change_Url(window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid);
     });
@@ -1786,7 +1795,7 @@ var changNav = {
     trige: function () {
         LS.set("tabs_order", "oneMonth");
         changNav.cangeStyle(LS.get("tabs_order"));
-        $("#oneMonth,#twoMonth").bind("click", function () {
+        Unbind_bind("#oneMonth,#twoMonth", "click", function () {
             var id = $(this).attr("id");
             changNav.cangeStyle(id);
             LS.set("tabs_order", id);
@@ -1825,6 +1834,7 @@ var PageFuns = {
         Register_Fun(addUrl);
     },
     Product_List_Page: function () {
+        GoodProduct.currentPage = 1;
         GoodProduct.GoodProductList();
         GoodProduct.Salec_Price_newTime_Fun();
     },
@@ -1839,7 +1849,6 @@ var PageFuns = {
         Forgetpassword();
     },
     CheckOut_Shoppingcart_Page: function () {
-        Log("shoppingcart_Fun");
         shoppingcart_Fun();
     },
     CheckOut_OrderConfirm_Page: function () {
@@ -1877,7 +1886,7 @@ var PageFuns = {
 //#endregion
 
 //#region 页面函数对象
-function PageFun() {}
+function PageFun() { }
 //#endregion
 
 //#region 获取函数
@@ -1910,7 +1919,7 @@ PageFun.Init = function (pageId, objToPage) {
         window.mobile.pages["MainPage"] = pageId;
     } else {
         if (window.mobile.pages["MainPage"] == pageId) {
-            return;
+            //return;
         }
     }
     var addUrl = '';
@@ -1924,6 +1933,7 @@ PageFun.Init = function (pageId, objToPage) {
     //if (typeof cacheFun == "undefined") {
     if (true) {
         if (typeof fun == "function") {
+            alert(pageId);
             fun(addUrl);
             window.mobile.pages[pageId] = fun;
         }
@@ -1937,16 +1947,21 @@ PageFun.Init = function (pageId, objToPage) {
 
 $(function () {
     PageFun.Init();
-    $(document).unbind("pagechange").bind("pagechange", function (event, data) {
+    Unbind_bind(document, "pagechange", function (event, data) {
         //Log("pagechange");
         //Log(data);
-        //Log(data.toPage[0].id);
+        Log(data.toPage[0].id);
+
         PageFun.Init(data.toPage[0].id, data);
 
         //#region 回到顶部
         $('#gotop').tap(function () {
             $.mobile.silentScroll(10);
         });
+
+        //        Unbind_bind("#gotop", "tap", function () {
+        //            $.mobile.silentScroll(10);
+        //        });
         //#endregion
     });
 

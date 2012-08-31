@@ -33,7 +33,7 @@
                         href="#next" data-role="button" data-icon="arrow-r" data-iconpos="right" id="NextPage"
                         class="paging">下一页</a>--%>
                         <div id="loading_list"></div>
-                       <a href="#" data-role="button" data-icon="arrow-d" data-iconpos="left" id="morePage">再显示10条</a>
+                       <a href="#" data-role="button" data-icon="arrow-d" data-iconpos="left" id="morePage">再显示10条&nbsp;共<label id="totalCount"></label>件商品</a>
             </div>
         </div>
     </div>

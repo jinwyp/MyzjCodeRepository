@@ -246,6 +246,14 @@ return guid;
 
 //#region 公用函数
 
+//#region 先清后绑
+var Unbind_bind = function (objs, eventName, callback) {
+    if (typeof callback == "function") {
+        jQuery(objs).unbind(eventName).bind(eventName, callback);
+    }
+}
+//#endregion
+
 //#region 跳转页面
 var Change_Url = function (diUrl) {
     //window.location.href = diUrl;
@@ -296,7 +304,7 @@ var format = function (date, format) {
     for (var k in o)
         if (new RegExp("(" + k + ")").test(format))
             format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
-    return format;
+return format;
 }
 
 var timeDate = function (obj) {
@@ -340,8 +348,8 @@ var ReLogin = function (uid, token) {
             } else
                 if (Debug)
                     Log("获取数据失败");
-        });
-    }
+    });
+}
 };
 
 //#region localStorage
