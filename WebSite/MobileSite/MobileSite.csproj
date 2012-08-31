@@ -153,6 +153,13 @@
     <Compile Include="CheckOut\paymentlist.aspx.designer.cs">
       <DependentUpon>paymentlist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manage\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Member\orderdetail.aspx.cs">
       <DependentUpon>orderdetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +333,7 @@
     <Content Include="js\jquerymobile.initbefore.js" />
     <Content Include="js\bk\mobile.checkout.js" />
     <Content Include="js\mobile.muzj.js" />
+    <Content Include="Manage\Index.aspx" />
     <Content Include="Member\orderdetail.aspx" />
     <Content Include="Member\orderlist.aspx" />
     <Content Include="noticedetail.aspx" />

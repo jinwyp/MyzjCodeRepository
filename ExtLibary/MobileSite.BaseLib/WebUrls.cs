@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Web;
+using System.Web.Caching;
 using System.Xml.Linq;
 
 namespace MobileSite.BaseLib
@@ -99,6 +100,55 @@ namespace MobileSite.BaseLib
                     return Urls[name];
             else
                 throw new Exception("节点未配置！ 请检查配置文件！");
+        }
+
+        const string VersionKey = "RESOURCEVERSION";
+        static string versionId = string.Empty;
+        /// <summary>
+        /// 获取资源 版本
+        /// </summary>
+        public static string GetResourceVersion
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(versionId))
+                    versionId = DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                #region 使用缓存
+                //string versionId;
+                //try
+                //{
+                //    var cacheVal = HttpContext.Current.Cache.Get(VersionKey) as string;
+                //    if (cacheVal == null || string.IsNullOrEmpty(cacheVal))
+                //    {
+                //        versionId = DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                //        HttpContext.Current.Cache.Add(VersionKey, versionId, null,
+                //            DateTime.Now.AddMinutes(30),
+                //            TimeSpan.Zero,
+                //             CacheItemPriority.Default,
+                //             null);
+                //    }
+                //    else
+                //    {
+                //        versionId = cacheVal;
+                //    }
+                //}
+                //catch
+                //{
+                //    versionId = "0";
+                //} 
+                #endregion
+                return versionId;
+            }
+        }
+
+        /// <summary>
+        /// 刷新 资源 版本
+        /// </summary>
+        public static string RefreshResourceVwersion()
+        {
+            //HttpContext.Current.Cache.Remove(VersionKey);
+            versionId = "";
+            return GetResourceVersion;
         }
 
         #region 公共地址
@@ -327,7 +377,7 @@ namespace MobileSite.BaseLib
         /// <returns></returns>
         public static string orderdetail(object ocode)
         {
-            return GetUrlData("orderdetail",ocode);
+            return GetUrlData("orderdetail", ocode);
         }
 
         /// <summary>
@@ -350,7 +400,7 @@ namespace MobileSite.BaseLib
             return GetUrlData("address_edit", address_id);
         }
 
-        
+
         /// <summary>
         /// 商品分类
         /// </summary>
