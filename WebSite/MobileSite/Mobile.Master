@@ -25,7 +25,7 @@
         type="text/javascript"></script>
 </head>
 <body>
-    <div data-role="page" id="<%= PageId %>" data-title="<%= PageTitle %>" data-id="<%= PageId %>">
+    <div data-role="page" id="<%= PageId %>" data-title="<%= PageTitle %>" data-id="<%= PageId %>" data-dom-cache="true">
         <div data-role="header" data-theme="a">
             <div class="header">
                 <div class="logo">

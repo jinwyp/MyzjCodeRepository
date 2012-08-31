@@ -20,6 +20,10 @@ function LoingOut() {
 
 //#region 首页动画
 function Index_Fun() {
+    Camera_cao.camera();
+    Camera_cao.cameraStop();
+    Camera_cao.cameraPause();
+    Camera_cao.cameraResume();
     jQuery('#foucsPic').camera({
         thumbnails: false,
         pauseOnClick: false,
@@ -803,7 +807,7 @@ function shoppingcart_Fun() {
             //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
             Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
         } else {
-            $("#tis_Tip").append('<li class="error-text">您还没有购买商品！</li>');
+            $("#tis_Tip").empty().append('<li class="error-text">您还没有购买商品！</li>');
         }
     });
     //#endregion
@@ -1873,9 +1877,7 @@ var PageFuns = {
 //#endregion
 
 //#region 页面函数对象
-function PageFun() {
-
-}
+function PageFun() {}
 //#endregion
 
 //#region 获取函数
@@ -1899,6 +1901,10 @@ PageFun.GetFun = function (pageId) {
 //#region 页面函数初始化
 //如果页面是手动打开，无需传入 pageid
 PageFun.Init = function (pageId, objToPage) {
+
+    Get_shoppingcartgoodsnum_Fun();
+
+    //判断页面是不是第一次打开
     if (typeof pageId == "undefined") {
         pageId = $(document.body).find("div[data-role = 'page']").eq(0).attr("id");
         window.mobile.pages["MainPage"] = pageId;
@@ -1933,8 +1939,8 @@ $(function () {
     PageFun.Init();
     $(document).unbind("pagechange").bind("pagechange", function (event, data) {
         //Log("pagechange");
-        Log(data);
-        Log(data.toPage[0].id);
+        //Log(data);
+        //Log(data.toPage[0].id);
         PageFun.Init(data.toPage[0].id, data);
 
         //#region 回到顶部
@@ -1945,59 +1951,3 @@ $(function () {
     });
 
 });
-
-//$(document).ready(function () {
-//    var url = window.location.pathname;
-//    //alert(/\//i.test(url));
-//    if (/\//i.test(url) && url.length == 1) {
-//        Index_Fun();
-
-//    } else {
-//        if (/index.aspx/i.test(url)) {
-//            Index_Fun();
-//        }
-//        else if (/login.aspx/i.test(url)) {
-//            Login_Fun();
-//        } else if (/registration.aspx/i.test(url)) {
-//            Register_Fun();
-//        } else if (/productlist.aspx/i.test(url)) {
-//            GoodProductList();
-//            Salec_Price_newTime_Fun();
-//        } else if (/myaccount.aspx/i.test(url)) {
-//            myAccount_Fun();
-//            LoingOut();
-//        } else if (/productdetailinfo.aspx/i.test(url)) {
-//            productDetail_Fun();
-//        } else if (/forgetpassword.aspx/i.test(url)) {
-//            Forgetpassword();
-//        } else if (/shoppingcart.aspx/i.test(url)) {
-//            shoppingcart_Fun();
-//        } else if (/orderconfirm.aspx/i.test(url)) {
-//            orderconfirm_Fun();
-//            calculation_shipping_costs_Fun();
-//        } else if (/addresslist.aspx/i.test(url)) {
-//            addresslist_Fun();
-//        } else if (/paymentlist.aspx/i.test(url)) {
-//            paymentlist_Fun();
-//        } else if (/deliverylist.aspx/i.test(url)) {
-//            deliverylist_Fun();
-//        } else if (/invoice.aspx/i.test(url)) {
-//            invoice_Fun();
-//        } else if (/address_add.aspx/i.test(url)) {
-//            address_add_Fun();
-//        } else if (/address_edit.aspx/i.test(url)) {
-//            address_edit_Fun();
-//        } else if (/makeorder.aspx/i.test(url)) {
-//            makeorder_Fun();
-//        } else if (/orderdetail.aspx/i.test(url)) {
-//            orderdetail_Fun();
-//        } else if (/orderlist.aspx/i.test(url)) {
-//            orderlist_Fun();
-//        }
-//    }
-
-//    $('#gotop').tap(function () {
-//        $.mobile.silentScroll(10);
-//    });
-//});
-
