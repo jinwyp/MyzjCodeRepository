@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%= PageTitle %></title>
+    <title>
+        <%= PageTitle %></title>
     <link rel="apple-touch-icon" href="images/icon/Icon.png" />
     <link rel="apple-touch-icon" size="72*72" href="images/icon/Icon-72.png" />
     <link rel="apple-touch-icon" size="114*114" href="images/icon/Icon-Small@2x.png" />
@@ -25,7 +26,7 @@
         type="text/javascript"></script>
 </head>
 <body>
-
+    <div data-role="page" id="<%= PageId %>" data-title="<%= PageTitle %>" data-id="<%= PageId %>">
         <div data-role="header" data-theme="a">
             <div class="header">
                 <div class="logo">

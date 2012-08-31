@@ -1933,7 +1933,6 @@ PageFun.Init = function (pageId, objToPage) {
     //if (typeof cacheFun == "undefined") {
     if (true) {
         if (typeof fun == "function") {
-            alert(pageId);
             fun(addUrl);
             window.mobile.pages[pageId] = fun;
         }
