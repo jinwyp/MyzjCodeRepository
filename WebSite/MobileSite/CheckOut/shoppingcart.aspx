@@ -20,7 +20,7 @@
                 
             </ul>
             <div class="ui-font-bold">
-                商品总金额：<strong class="ui-font-red" id="goodsTotal">25145元</strong></div>
+                商品总金额：<strong class="ui-font-red" id="goodsTotal">0.00元</strong></div>
             <a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" data-role="button" data-icon="arrow-l" data-iconpos="left"
                 data-theme="c" data-inline="true" data-mini="true" >继续购物</a> <a id="ShoppingCart_btn" href="javascript:void(0)"
                     data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a" data-inline="true"

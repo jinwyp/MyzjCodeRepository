@@ -246,10 +246,11 @@ return guid;
 
 //#region 公用函数
 
-//#region
+//#region 跳转页面
 var Change_Url = function (diUrl) {
     //window.location.href = diUrl;
-    $.mobile.changePage(diUrl); //, { transition: "slide" }
+    console.log("跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面");
+    $.mobile.changePage(diUrl, { reloadPage: true }); //, { transition: "slide" }
 }
 //#endregion
 
@@ -278,7 +279,7 @@ var JsDateToWcfDate = function (jsDate) {
     // \/Date(568310400000+0800)\/
     return "\/Date(" + jsDate.getTime() + "+0000)\/";
 };
-var format = function (date,format) {
+var format = function (date, format) {
     var o = {
 
         "M+": date.getMonth() + 1, //month  
@@ -444,4 +445,4 @@ var Get_shoppingcartgoodsnum_Fun = function () {
     }, false, true);
 };
 //#endregion
-Get_shoppingcartgoodsnum_Fun();
+
