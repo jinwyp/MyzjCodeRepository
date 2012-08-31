@@ -76,5 +76,19 @@ namespace Core.LogUtility
             FormatMsg(group, sid, ref msg);
             MLog4Net.GetInstance().Error(msg, ex);
         }
+
+        /// <summary>
+        /// 写错误日志
+        /// </summary>
+        /// <param name="group">MLogGroup.x</param>
+        /// <param name="sid"> </param>
+        /// <param name="userId"> </param>
+        /// <param name="msg"></param>
+        /// <param name="ex"></param>
+        public static void Error(Enum group, string sid, string userId, string msg, params Exception[] ex)
+        {
+            //FormatMsg(group, sid, ref msg);
+            MLog4Net.GetInstance().Error(sid, userId, Convert.ToInt64(group), group.ToString(), msg, ex);
+        }
     }
 }

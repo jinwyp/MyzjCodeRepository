@@ -8,6 +8,8 @@ using System.ServiceModel.Web;
 using System.Text;
 using Core.DataType;
 using Wcf.BLL.Manage;
+using Core.LogUtility;
+using Core.Enums;
 
 namespace Wcf.ServiceLibrary.Manage
 {
@@ -25,7 +27,6 @@ namespace Wcf.ServiceLibrary.Manage
             try
             {
                 result = ManageBLL.RefreshAuthData(SystemType, Token, Guid, Uid, privatekey);
-
             }
             catch (Exception ex)
             {

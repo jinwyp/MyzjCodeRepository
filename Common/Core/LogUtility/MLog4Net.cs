@@ -130,5 +130,67 @@ namespace Core.LogUtility
                 { }
             }
         }
+
+        /// <summary>
+        /// 写警告日志
+        /// </summary>
+        /// <param name="logDesc"> </param>
+        /// <param name="msg"></param>
+        /// <param name="systemType"> </param>
+        /// <param name="userId"> </param>
+        /// <param name="logCode"> </param>
+        /// <param name="args"> </param>
+        public void Warn(string systemType, string userId, Int64 logCode, string logDesc, string msg, Exception[] args)
+        {
+            if (_isInit && _warn.IsWarnEnabled)
+            {
+                try
+                {
+                    var message = new LogCustomEntity();
+                    message.SystemType = systemType;
+                    message.UserId = userId;
+                    message.LogCode = logCode.ToString();
+                    message.LogDesc = logDesc;
+
+                    if (args.Length > 0)
+                        _warn.Warn(message, args[0]);
+                    else
+                        _warn.Warn(message);
+                }
+                catch
+                { }
+            }
+        }
+
+        /// <summary>
+        /// 写错误日志
+        /// </summary>
+        /// <param name="logDesc"> </param>
+        /// <param name="msg"></param>
+        /// <param name="systemType"> </param>
+        /// <param name="userId"> </param>
+        /// <param name="logCode"> </param>
+        /// <param name="ex"></param>
+        public void Error(string systemType, string userId, Int64 logCode, string logDesc, string msg, params Exception[] ex)
+        {
+            if (_isInit && _warn.IsErrorEnabled)
+            {
+                try
+                {
+                    var message = new LogCustomEntity();
+                    message.SystemType = systemType;
+                    message.UserId = userId;
+                    message.LogCode = logCode.ToString();
+                    message.LogDesc = logDesc;
+
+                    if (ex.Length > 0)
+                        _error.Error(message, ex[0]);
+                    else
+                        _error.Error(message);
+                }
+                catch
+                { }
+            }
+        }
     }
 }

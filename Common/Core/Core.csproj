@@ -126,6 +126,9 @@
     <Compile Include="ExtMethod\StringExt.cs" />
     <Compile Include="ExtMethod\TypeExt.cs" />
     <Compile Include="Ioc\MIocUtility.cs" />
+    <Compile Include="LogUtility\LogCustomEntity.cs" />
+    <Compile Include="LogUtility\LogCustomLayout.cs" />
+    <Compile Include="LogUtility\LogCustormPatternConverter.cs" />
     <Compile Include="Mail\MailConfig.cs" />
     <Compile Include="NetUtility\MHttpHelper.cs" />
     <Compile Include="FactoryUtility\MFactoryManager.cs" />
