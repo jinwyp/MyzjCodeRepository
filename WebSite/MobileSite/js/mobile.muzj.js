@@ -18,22 +18,26 @@ function LoingOut() {
 }
 //#endregion
 
+//var cc = 0;
 //#region 首页动画
 function Index_Fun() {
-    Camera_cao.camera();
-    Camera_cao.cameraStop();
-    Camera_cao.cameraPause();
-    Camera_cao.cameraResume();
-    jQuery('#foucsPic').camera({
-        thumbnails: false,
-        pauseOnClick: false,
-        pagination: false,
-        loader: 'bar',
-        fx: 'scrollHorz',
-        playPause: false,
-        time: 4000,
-        transPeriod: 1500
-    });
+    if ($.trim($('#foucsPic').html()).length == 0) {
+        $('#foucsPic').empty().append($("#picList").html());
+        Camera_cao.camera();
+        Camera_cao.cameraStop();
+        Camera_cao.cameraPause();
+        Camera_cao.cameraResume();
+        jQuery('#foucsPic').camera({
+            thumbnails: false,
+            pauseOnClick: false,
+            pagination: false,
+            loader: 'bar',
+            fx: 'scrollHorz',
+            playPause: false,
+            time: 4000,
+            transPeriod: 1500
+        });
+    }
 }
 //#endregion
 
@@ -1946,10 +1950,11 @@ PageFun.Init = function (pageId, objToPage) {
 
 $(function () {
     PageFun.Init();
+    //cc++;
     Unbind_bind(document, "pagechange", function (event, data) {
         //Log("pagechange");
         //Log(data);
-        Log(data.toPage[0].id);
+        //Log(data.toPage[0].id);
 
         PageFun.Init(data.toPage[0].id, data);
 
