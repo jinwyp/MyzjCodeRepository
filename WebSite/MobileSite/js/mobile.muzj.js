@@ -21,7 +21,7 @@ function LoingOut() {
 //var cc = 0;
 //#region 首页动画
 function Index_Fun() {
-if ($.trim($('#foucsPic').html()).length == 0) {
+    if ($.trim($('#foucsPic').html()).length == 0) {
         $('#foucsPic').empty().append($("#picList").html());
         Camera_cao.camera();
         Camera_cao.cameraStop();
@@ -38,6 +38,7 @@ if ($.trim($('#foucsPic').html()).length == 0) {
             transPeriod: 1500
         });
     }
+}
 //#endregion
 
 //#region 登录
