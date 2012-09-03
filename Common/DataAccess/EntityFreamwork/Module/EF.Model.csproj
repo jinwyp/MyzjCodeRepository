@@ -64,6 +64,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Holyca.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Customer.cs" />
     <Compile Include="Entity\MemberAccountInfo.cs" />
     <Compile Include="Entity\OrderDetails_And_ExtInfo.cs" />
     <Compile Include="Entity\Sale_Order_Detail_And_GoodsInfo.cs" />

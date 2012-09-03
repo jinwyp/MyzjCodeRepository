@@ -9,6 +9,9 @@ using System.Threading;
 
 namespace Core
 {
+    /// <summary>
+    /// 加密 类
+    /// </summary>
     public class MEncryptUtility
     {
         /// <summary>

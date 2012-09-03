@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Web;
 using EF.Model.Entity;
 using Factory;
+using Wcf.BLL.ServiceReference.External;
 using Wcf.Entity.Member;
 using EF.Model.DataContext;
 using Core.Caching;
@@ -130,70 +132,143 @@ namespace Wcf.BLL.Member
         public static MResult ResetLoginPassword(string sid, string uid)
         {
             var result = new MResult();
-            /*
+
             try
             {
-                var mail = new MailConfig();     //发送邮件对象
-                string mailTo = uid;            //收件人
-
-                string mailSubject = "母婴之家找回密码";   //邮件标题
-                string password = MEncryptUtility.NewRandomStr(6, MRandomType.UpperChar | MRandomType.Num);
-
-                #region 找回密码给邮箱发一串密文
-                string message = "";
-                string keyString = "";
-                int id = 0;
-                bool checkflag = LoginAndReg.CheckPswKeyStatusByEmail(user.Email, out id, out keyString, out message);
-                if (!checkflag)
-                {
-                    bool flag = LoginAndReg.InsertPswKey(user.Email, out id, out keyString, out message);
-                    if (!flag)
-                    {
-                        return false;
-                    }
-                }
-                #endregion
-
-                string mbody = "<div style=\"width:750px; margin:0 auto;\"><a href=\"" + WebConfig.WEBSITE_DOMAIN_URL + "\" target=\"_blank\">";
-                mbody += "<img src=\"" + WebConfig.IMAGE_DOMAIN_URL + "/images/logo.gif\" border=\"0\"></a>";
-                mbody += "</div><br clear=\"all\" /><div style=\"background-image:url(" + WebConfig.IMAGE_DOMAIN_URL + "/images/header_bg09.gif); ";
-                mbody += "background-repeat:repeat-x; height:32px;\"></div><div style=\"width:700px; margin:0 auto; padding:0 25px; font-size:13px; ";
-                mbody += "line-height:24px; color:#b6917f;\">亲爱的" + user.Email + "，您好！<br />&nbsp;&nbsp;&nbsp;&nbsp;这是一封密码重置确认邮件。如";
-                mbody += "果您并未尝试修改密码，请忽略本邮件。<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;<strong>密码重置：</strong><br />&nbsp;&nbsp;&nbsp;";
-                mbody += "&nbsp;您可以通过点击以下链接重置帐户密码（基于安全考虑，本链接24小时内有效）。<br />&nbsp;&nbsp;&nbsp;&nbsp;点此链接继续<br />";
-                mbody += "&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"" + WebConfig.WEBSITE_DOMAIN_URL + "/findPassword.aspx?id=[EmailID]&amp;keyString=[KeyString]\"";
-                mbody += "style=\"color:#0168ac;\">" + WebConfig.WEBSITE_DOMAIN_URL + "/findPassword.aspx?id=[EmailID]&amp;keyString=[KeyString]</a><br /><br />";
-                mbody += "&nbsp;&nbsp;&nbsp;&nbsp;如果您不能点击以上链接，请将该链接复制到浏览器地址栏中访问，也可以完成新密码的创建！<br /><br /><br />";
-                mbody += "<span style=\"color:#676767;\">本邮件由母婴之家系统自动发出，请勿直接回复！ 如果有任何疑问欢迎拨打订购及咨询热线热线：";
-                mbody += "400 820 1000</span><br /><span style=\"color:#aaaaaa;\">母婴之家(<a href=\"" + WebConfig.WEBSITE_DOMAIN_URL + "\" ";
-                mbody += "style=\"color:#aaaaaa;\">" + WebConfig.WEBSITE_DOMAIN_URL + "</a>)--专业的母婴用品网上购物商城</span><br /><br /></div>";
-                mbody += "<div style=\"width:750px; margin:0 auto; font-size:13px; line-height:24px;\"><table width=\"100%\" border=\"0\" ";
-                mbody += "cellspacing=\"0\" cellpadding=\"0\" style=\"background-color:#f3f3f3; text-align:right; padding:6px 20px; color:#676767;\">";
-                mbody += "<tr><td><img src=\"" + WebConfig.IMAGE_DOMAIN_URL + "/images/mail_ico01.gif\" width=\"34\" height=\"34\" align=\"middle\"></td>";
-                mbody += "<td width=\"300\"><span style=\"font-size:14px; font-weight:bold;\">订购及咨询热线：<span style=\"font-size:18px;\">";
-                mbody += "400 820 1000</span></span><br />( 7：30-21：00周末不休 ) 仅限上海地区</td></tr></table></div>";
-
-                string mailBody = mbody.Replace("[EmailID]", id.ToString()).Replace("[KeyString]", HttpUtility.UrlEncode(keyString));
-
-                MailConfig emailInfo = new MailConfig();
-                emailInfo.MailTo = mailTo.Split(new char[] { ',', ';' });
-                emailInfo.IsHtml = true;
-                emailInfo.Subject = mailSubject;
-                emailInfo.Body = mailBody;
-
-                result = MessageProvider.Send(emailInfo, out message);
-
-                if (result)
-                {
-                    LoginAndReg.ChangePswKeyStatus(id, 1, out message);
-                }
+                SendMail(null);
             }
             catch (Exception ex)
             {
 
             }
-            */
+
             return result;
+        }
+
+        /// <summary>
+        /// 找回密码
+        /// </summary>
+        private static void SendMail(Customer user)
+        {
+            bool result = false;
+            try
+            {
+                MailConfig mail = new MailConfig(); //发送邮件对象
+                string mailTo = user.Email; //收件人
+
+                string mailSubject = "母婴之家 - 找回密码"; //邮件标题
+                string password = MEncryptUtility.NewRandomStr(6,
+                                                               MRandomType.Num | MRandomType.LowerCarh |
+                                                               MRandomType.UpperChar);
+
+                #region 找回密码给邮箱发一串密文
+
+                string message = "";
+                string keyString = "";
+                int id = 0;
+                using (BbHomeServiceClient bbHome = new BbHomeServiceClient())
+                {
+                    bbHome.Open();
+                    if (!bbHome.CheckPswKeyStatusByEmail(out id, out keyString, out message, user.Email))
+                    {
+                        bbHome.InsertPswKey(out id, out keyString, out message, user.Email);
+                    }
+                    bbHome.Close();
+                }
+
+                #endregion
+
+                #region  邮件体
+
+                string mbody = "";
+
+                mbody +=
+                    "<table cellpadding=\"5\" cellspacing=\"0\" border=\"0\" align=\"center\" width=\"600\" bgcolor=\"#ffffff\">";
+                mbody += "<tbody style=\"font-size:12px;font-family:Arial,Helvetica, sans-serif;\">";
+                mbody += "<tr>";
+                mbody += "<td style=\"border-bottom:1px solid #dddddd; padding-left:5px\">";
+                mbody +=
+                    "<a href=\"\" title=\"母婴之家\" target=\"_blank\"><img src=\"/Template/afd5/images/findPwd/logo.gif\" alt=\"母婴之家\" width=\"268\" height=\"64\" border=\"0\" /></a>";
+                mbody += "</td>";
+                mbody += "</tr>";
+                mbody += "<tr>";
+                mbody += "<td height=\"36\" style=\"font-size:14px; padding-left:10px\">";
+                mbody +=
+                    "<span style=\"font-family:'宋体'; color:#666666\">亲爱的<font style=\"color:#000; font-family: Arial, Helvetica, sans-serif;\">" +
+                    mailTo + "</font>，您好！</span>";
+                mbody += "</td>";
+                mbody += "</tr>";
+                mbody += "<tr>";
+                mbody += "<td style=\"font-size:14px;padding-left:10px\">";
+                mbody +=
+                    "<p style=\"font-size:12px; font-family:'宋体'; color:#666666\">您已在母婴之家网站通过邮件<font style=\"color:#ff0000\">找回密码</font>，本封是密码重置的确认邮件。</p>";
+                mbody +=
+                    "<p style=\"font-size:12px; font-family:'宋体'; line-height:16px; color:#666666\">您可以点击以下链接重置您的密码！若无法点击，请将链接复制到浏览器打开。";
+                mbody += "<br />(为安全起见，本链接24内小时有效）&#13;</p></td>";
+                mbody += "</tr>";
+                mbody += "<tr>";
+                mbody += "<td style=\"padding-left:10px;\">";
+                mbody +=
+                    "<a href=\"/findpassword.aspx?id=[EmailID]&amp;keyString=[KeyString]\" target=\"_blank\">/findpassword.aspx?id=[EmailID]&amp;keyString=[KeyString]</a></td>";
+                mbody += "</tr>";
+                mbody += "<tr>";
+                mbody += "<td height=\"45\" style=\"font-size:14px; padding-left:10px\">";
+                mbody += "<span style=\"font-size:12px; font-family:'宋体'; color:#666666\">如果您不想修改密码，请忽略此邮件。</span></td>";
+                mbody += "</tr>";
+                mbody += "<tr>";
+                mbody +=
+                    "<td height=\"40\" style=\"color:#666666; padding-left:10px\"><p style=\"font-family:'宋体'; line-height:16px; font-size:13px\">母婴之家--专业的母婴用品网上购物商城 ";
+                mbody += "<a href=\"\" target=\"_blank\" style=\"color:#666666\">www.muyingzhijia.com</a></p></td>";
+                mbody += "</tr>";
+                mbody += "<tr>";
+                mbody +=
+                    "<td height=\"70\"><img src=\"/Template/afd5/images/findPwd/01.jpg\" width=\"600\" height=\"70\" border=\"0\" alt=\"母婴之家客户服务热线：400 820 1000\" /></td>";
+                mbody += "</tr>";
+                mbody += "<tr>";
+                mbody +=
+                    "<td height=\"50\" align=\"center\"><p style=\"font-size:12px; font-family:'宋体'\">本邮件由母婴之家系统邮件，请勿直接回复。如有任何疑问欢迎致电客户服务热线：400 820 1000&#13;</p></td>";
+                mbody += "</tr>";
+                mbody += "</tbody>";
+                mbody += "</table>";
+
+                string mailBody = mbody.Replace("[EmailID]", id.ToString()).Replace("[KeyString]",
+                                                                                    HttpUtility.UrlEncode(keyString));
+
+                #endregion
+
+                var emailInfo = new MailConfig();
+                emailInfo.MailTo = user.Email.ToString().Trim().Split(new char[] { ',', ';' });
+                emailInfo.IsHtml = true;
+                emailInfo.Subject = mailSubject;
+                emailInfo.Body = mailBody;
+
+                using (var WcfClient = new EmailServiceClient())
+                {
+                    WcfClient.Open();
+                    WcfClient.SendCmail(MailConfigToWcfMail(emailInfo));
+                    WcfClient.Close();
+                }
+            }
+            catch
+            { }
+        }
+
+        public static WCFService.WcfMail MailConfigToWcfMail(MailConfig m)
+        {
+            WCFService.WcfMail wcfmail = new WCFService.WcfMail();
+
+            wcfmail.Subject = m.Subject;
+            wcfmail.Bcc = m.Bcc;
+            wcfmail.Body = m.Body;
+            wcfmail.Bodyencoding = m.Bodyencoding;
+            wcfmail.Bodyformat = m.Bodyformat;
+            wcfmail.Cc = m.Cc;
+            wcfmail.IsHtml = m.IsHtml;
+            wcfmail.MailTo = m.MailTo;
+            // wcfmail.Priority = (MailPriority)m.Priority;
+            wcfmail.AttachmentFiles = m.AttachmentFiles;
+
+            return wcfmail;
         }
 
         /// <summary>
@@ -249,7 +324,7 @@ namespace Wcf.BLL.Member
         /// <summary>
         /// 登录
         /// </summary>
-        /// <param name="channelId"> </param>
+        /// <para m name="channelId"> </param>
         /// <param name="uid"></param>
         /// <param name="pwd"></param>
         /// <param name="guid"> </param>
@@ -418,7 +493,8 @@ namespace Wcf.BLL.Member
                     userInfo.userlevel = memberLevelInfo.NextLevelName;
                     userInfo.locky = memberLevelInfo.NextLevelRemark;
                     userInfo.consumetotal = memberLevelInfo.OrdersTotal;
-                }else
+                }
+                else
                 {
                     userInfo.userlevel = memberEntity.userLevel.ToString();
                 }

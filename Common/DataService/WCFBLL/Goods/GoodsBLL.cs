@@ -345,6 +345,7 @@ namespace Wcf.BLL.Goods
                 var goodsDal = DALFactory.Goods();
                 var goodsCategoryList = goodsDal.GetGoodsCategoryList();
                 result.info = RecursiveGoodsCategory(systemType, 0, goodsCategoryList);
+                result.status = MResultStatus.Success;
             }
             catch (Exception)
             {
