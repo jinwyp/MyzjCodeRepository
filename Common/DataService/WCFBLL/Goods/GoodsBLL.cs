@@ -330,5 +330,71 @@ namespace Wcf.BLL.Goods
             var goods = DALFactory.Goods();
             return goods.CheckProductStockByProductID(productId, stockQuantity);
         }
+
+        /// <summary>
+        ///  获取商品分类列表
+        /// </summary>
+        /// <param name="systemType"></param>
+        /// <returns></returns>
+        public static MResult<List<ItemGoodsCategory>> GetGoodsCategoryList(SystemType systemType)
+        {
+            var result = new MResult<List<ItemGoodsCategory>>();
+
+            try
+            {
+                var goodsDal = DALFactory.Goods();
+                var goodsCategoryList = goodsDal.GetGoodsCategoryList();
+                result.info = RecursiveGoodsCategory(systemType, 0, goodsCategoryList);
+            }
+            catch (Exception)
+            {
+                result.status = MResultStatus.ExecutionError;
+                result.msg = "获取商品分类列表 数据出错！";
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 递归商品分类
+        /// </summary>
+        /// <param name="sType"> </param>
+        /// <param name="pid"> </param>
+        /// <param name="goodsCategoryList"></param>
+        /// <returns></returns>
+        public static List<ItemGoodsCategory> RecursiveGoodsCategory(SystemType sType, int pid, List<Web_Pdt_Type> goodsCategoryList)
+        {
+            var result = new List<ItemGoodsCategory>();
+            if (goodsCategoryList.Any())
+            {
+                var level1List = goodsCategoryList.FindAll(item => item.intCateFather == pid);
+                if (!level1List.Any()) return result;
+
+                foreach (var level1Info in level1List)
+                {
+                    var level1Entity = new ItemGoodsCategory();
+                    level1Entity.id = level1Info.intCateID;
+
+                    #region 判断系统
+                    if (sType == SystemType.MobileWebSite)
+                        level1Entity.name = level1Info.vchCateName;
+                    else if (sType == SystemType.WebSite)
+                        level1Entity.name = level1Info.vchWebShowName;
+                    else
+                        level1Entity.name = level1Info.vchCateName;
+                    #endregion
+
+                    level1Entity.pid = MCvHelper.To<int>(level1Info.intCateFather, 0);
+
+                    var level2List = goodsCategoryList.FindAll(item => item.intCateFather == level1Info.intCateID);
+                    if (level2List.Any())
+                        level1Entity.child = RecursiveGoodsCategory(sType, level1Info.intCateID, goodsCategoryList);
+
+                    result.Add(level1Entity);
+                }
+            }
+            return result;
+        }
+
     }
 }

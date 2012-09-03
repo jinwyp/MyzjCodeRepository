@@ -189,5 +189,9 @@ namespace Wcf.ServiceLibrary
         /// 获取商品评论列表
         /// </summary>
         public const string GETGOODSCOMMENT = "/get_goodscomment_list/{sid}/{token}/{guid}/{user_id}/{uid}/{gid}";
+        /// <summary>
+        /// 获取商品分类列表
+        /// </summary>
+        public const string GETGOODSCATEGORYLIST = "/get_goodscategory_list/{sid}/{token}/{guid}/{user_id}/{uid}";
     }
 }

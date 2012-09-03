@@ -396,6 +396,7 @@
           <Property Name="numCouponAmount" Type="numeric" Precision="12" Scale="4" />
           <Property Name="paymentAmount" Type="decimal" Scale="4" />
           <Property Name="accountAmount" Type="decimal" Scale="4" />
+          <Property Name="numSubtractCouponAmount" Type="decimal" Scale="4" />
         </EntityType>
         <EntityType Name="Sale_Order_Deliver">
           <Key>
@@ -589,7 +590,7 @@
           <Key>
             <PropertyRef Name="intCateID" />
           </Key>
-          <Property Name="intCateID" Type="int" Nullable="false" />
+          <Property Name="intCateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="vchCateName" Type="nvarchar" MaxLength="32" />
           <Property Name="vchWebShowName" Type="nvarchar" MaxLength="32" />
           <Property Name="vchMenuShowName" Type="nvarchar" MaxLength="32" />
@@ -1392,6 +1393,7 @@
           <Property Type="Decimal" Name="numCouponAmount" Precision="12" Scale="4" />
           <Property Type="Decimal" Name="paymentAmount" Precision="18" Scale="4" />
           <Property Type="Decimal" Name="accountAmount" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="numSubtractCouponAmount" Precision="18" Scale="4" />
         </EntityType>
         <EntityType Name="Sale_Order_Invoice">
           <Key>
@@ -1965,6 +1967,7 @@
           <EntitySetMapping Name="Sale_Order">
             <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Sale_Order">
               <MappingFragment StoreEntitySet="Sale_Order">
+                <ScalarProperty Name="numSubtractCouponAmount" ColumnName="numSubtractCouponAmount" />
                 <ScalarProperty Name="accountAmount" ColumnName="accountAmount" />
                 <ScalarProperty Name="paymentAmount" ColumnName="paymentAmount" />
                 <ScalarProperty Name="numCouponAmount" ColumnName="numCouponAmount" />

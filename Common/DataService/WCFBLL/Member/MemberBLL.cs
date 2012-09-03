@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using EF.Model.Entity;
 using Factory;
 using Wcf.Entity.Member;
 using EF.Model.DataContext;
@@ -387,13 +388,18 @@ namespace Wcf.BLL.Member
         {
             var result = new MResult<UserEntity>();
             var memberObj = Factory.DALFactory.Member();
+            var orderDal = DALFactory.Order();
+
             var userInfo = new UserEntity();
             var memberEntity = memberObj.GetMemberInfo(uid);
+
             if (memberEntity != null)
             {
+                var orderInfo = orderDal.GetMemberOrderStatistics(memberEntity.membNo);
+                var memberLevelInfo = memberObj.GetMemberLevelInfo(memberEntity, orderInfo);
+
                 userInfo.user_id = memberEntity.membNo;
                 userInfo.uid = memberEntity.email;
-                userInfo.userlevel = memberEntity.userLevel.ToString();
                 userInfo.sex = memberEntity.sex.ToString();
                 userInfo.nick = memberEntity.userName;
                 userInfo.location = new Location { zip = "200000" };
@@ -406,6 +412,17 @@ namespace Wcf.BLL.Member
                 userInfo.email = memberEntity.email;
                 userInfo.mobile = memberEntity.mobileTel;
                 userInfo.registertype = memberEntity.regType.ToString();
+
+                if (memberLevelInfo != null)
+                {
+                    userInfo.userlevel = memberLevelInfo.NextLevelName;
+                    userInfo.locky = memberLevelInfo.NextLevelRemark;
+                    userInfo.consumetotal = memberLevelInfo.OrdersTotal;
+                }else
+                {
+                    userInfo.userlevel = memberEntity.userLevel.ToString();
+                }
+
                 result.info = userInfo;
                 result.status = MResultStatus.Success;
             }
@@ -483,7 +500,7 @@ namespace Wcf.BLL.Member
             {
                 var member = DALFactory.Member();
                 var item = member.GetMemberDefaultAddressInfo(user_id);
-                if(item==null||item.intAddressID<=0)
+                if (item == null || item.intAddressID <= 0)
                 {
                     result.status = MResultStatus.Undefined;
                     result.msg = "没有数据！";

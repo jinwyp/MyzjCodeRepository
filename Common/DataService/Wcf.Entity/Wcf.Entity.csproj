@@ -64,6 +64,7 @@
     <Compile Include="Enum\SortType.cs" />
     <Compile Include="Enum\SystemType.cs" />
     <Compile Include="Enum\UserLevel.cs" />
+    <Compile Include="Goods\ItemGoodsCategory.cs" />
     <Compile Include="Goods\ItemGoodsDetails.cs" />
     <Compile Include="Goods\ItemGoods.cs">
       <SubType>Code</SubType>

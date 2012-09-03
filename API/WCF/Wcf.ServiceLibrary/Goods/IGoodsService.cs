@@ -3,6 +3,7 @@ using Wcf.Entity.Enum;
 using Core.DataType;
 using Wcf.Entity.Goods;
 using System.ServiceModel.Web;
+using System.Collections.Generic;
 
 namespace Wcf.ServiceLibrary.Goods
 {
@@ -52,6 +53,20 @@ namespace Wcf.ServiceLibrary.Goods
         [OperationContract]
         [WebGet(UriTemplate = GoodsUri.GETGOODSPICLIST)]
         MResultList<ProductImg> GetGoodsPicList(string sid, string token, string guid, string user_id, string uid, string gid);
+
+        /// <summary>
+        /// 获取商品分类列表
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="token"></param>
+        /// <param name="guid"></param>
+        /// <param name="user_id"></param>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebGet(UriTemplate = GoodsUri.GETGOODSCATEGORYLIST)]
+        MResult<List<ItemGoodsCategory>> GetGoodsCategoryList(string sid, string token, string guid, string user_id,
+                                                              string uid);
 
     }
 }

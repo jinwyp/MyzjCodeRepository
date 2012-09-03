@@ -61,5 +61,20 @@ namespace EF.DAL
             return queryTxt.FirstOrDefault() >= stockQuantity;
         }
 
+        /// <summary>
+        /// 查询商品分类列表
+        /// </summary>
+        /// <returns></returns>
+        public List<Web_Pdt_Type> GetGoodsCategoryList()
+        {
+            using (var db = new HolycaEntities())
+            {
+                var queryTxt = from a in db.Web_Pdt_Type
+                               where a.intIsVisible == 1
+                               orderby a.intSortOrder descending
+                               select a;
+                return queryTxt.ToList();
+            }
+        }
     }
 }

@@ -361,5 +361,34 @@ namespace EF.DAL
                 return queryTxt.ToList();
             }
         }
+
+        /// <summary>
+        /// 计算会员订单统计信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public MemberAccountInfo GetMemberOrderStatistics(int userId)
+        {
+            using (var db = new HolycaEntities())
+            {
+                var queryTxt = from a in db.Sale_Order
+                               where a.intUserID == userId && a.intOrderState == 20
+                               select new
+                                          {
+                                              a.numReceAmount,
+                                              a.intTotalStars
+                                          };
+                var orderInfo = queryTxt.ToList();
+
+                if (!orderInfo.Any()) return null;
+
+                return new MemberAccountInfo
+                           {
+                               TotalIntegral = orderInfo.Sum(p => p.intTotalStars),
+                               OrdersTotal = orderInfo.Sum(p => p.numReceAmount),
+                               OrderCount = orderInfo.Count()
+                           };
+            }
+        }
     }
 }

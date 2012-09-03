@@ -5202,6 +5202,30 @@ namespace EF.Model.DataContext
         private Nullable<global::System.Decimal> _accountAmount;
         partial void OnaccountAmountChanging(Nullable<global::System.Decimal> value);
         partial void OnaccountAmountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> numSubtractCouponAmount
+        {
+            get
+            {
+                return _numSubtractCouponAmount;
+            }
+            set
+            {
+                OnnumSubtractCouponAmountChanging(value);
+                ReportPropertyChanging("numSubtractCouponAmount");
+                _numSubtractCouponAmount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("numSubtractCouponAmount");
+                OnnumSubtractCouponAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _numSubtractCouponAmount;
+        partial void OnnumSubtractCouponAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnnumSubtractCouponAmountChanged();
 
         #endregion
     
