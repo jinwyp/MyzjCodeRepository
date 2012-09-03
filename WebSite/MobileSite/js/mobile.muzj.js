@@ -18,7 +18,7 @@ function LoingOut() {
 }
 //#endregion
 //var cc = 0;
-//#region 首页动画
+//#region 首页动画 
 function Index_Fun() {
     if ($.trim($('#foucsPic').html()).length == 0) {
         $('#foucsPic').empty().append($("#picList").html());
