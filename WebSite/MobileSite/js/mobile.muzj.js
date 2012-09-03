@@ -17,7 +17,7 @@ function LoingOut() {
     });
 }
 //#endregion
-//var cc = 0;
+
 //#region 首页动画 
 function Index_Fun() {
     if ($.trim($('#foucsPic').html()).length == 0) {
@@ -693,7 +693,7 @@ function hideMesage() {
 //#region 购物车
 
 function shoppingcart_Fun() {
-    var goodsTotal = $("#Hid_Good_Total_price").val() || 0;
+    var goodsTotal = $(".Hid_Good_Total_price").eq(0).val() || 0;
     $("#goodsTotal").html(parseFloat(goodsTotal).toFixed(2) + "元");
 
     //#region 绑定购物车列表
@@ -706,8 +706,8 @@ function shoppingcart_Fun() {
                 for (var i = 0; i < jsonString.info.shoppingcart_list.length; i++) {
                     jsonString.info.shoppingcart_list[i].vchPicURL = jsonString.info.shoppingcart_list[i].vchPicURL.toString().replace("{0}", "normal");
                 }
-                $("#good_totals").html($("#Good_Total_Count").text());
-                var goodsTotal = $("#Hid_Good_Total_price").val() || 0;
+                $("#good_totals").html($(".Good_Total_Count").eq(0).text());
+                var goodsTotal = $(".Hid_Good_Total_price").eq(0).val() || 0;
 
                 $("#goodsTotal").html(parseFloat(goodsTotal).toFixed(2) + "元");
                 window.shoppingcart_list = jsonString.info.shoppingcart_list;
@@ -737,8 +737,8 @@ function shoppingcart_Fun() {
             if (jsonString.status == 1) {
                 $("#error_" + product_id).text("");
                 Get_shoppingcartgoodsnum_Fun();
-                $("#good_totals").html($("#Good_Total_Count").text());
-                var goodsTotal = $("#Hid_Good_Total_price").val() || 0;
+                $("#good_totals").html($(".Good_Total_Count").eq(0).text());
+                var goodsTotal = $(".Hid_Good_Total_price").eq(0).val() || 0;
                 $("#goodsTotal").html(parseFloat(goodsTotal).toFixed(2) + "元");
                 if (onum != num) {
                     $(obj).attr("onum", num);
@@ -870,7 +870,7 @@ var Delelt_Delivery_info_Object = function (delivery_array) {
 
 //#region 计算总金额
 var Final_Price = function () {
-    var goodsTotal = $("#Hid_Good_Total_price").val() || 0;
+    var goodsTotal = $(".Hid_Good_Total_price").eq(0).val() || 0;
     $("#Total_Price").text(parseFloat(goodsTotal).toFixed(2));
     var _Final_price = parseFloat(goodsTotal) + parseFloat($("#Y_Price").text());
     $("#Final_Price").text(parseFloat(_Final_price).toFixed(2) + "元");
@@ -1096,7 +1096,7 @@ function orderconfirm_Fun() {
 
 //#region 收货人列表信息页面
 function addresslist_Fun() {
-
+    
     GetWcf({
         _api: "Member.get_address_list"
     }, function (jsonString) {
@@ -1915,7 +1915,7 @@ PageFun.GetFun = function (pageId) {
 PageFun.Init = function (pageId, objToPage) {
 
     Get_shoppingcartgoodsnum_Fun();
-
+    console.log("进的页面：" + pageId);
     //判断页面是不是第一次打开
     if (typeof pageId == "undefined") {
         pageId = $(document.body).find("div[data-role = 'page']").eq(0).attr("id");
@@ -1933,6 +1933,7 @@ PageFun.Init = function (pageId, objToPage) {
     }
     var fun = PageFun.GetFun(pageId);
     var cacheFun = window.mobile.pages[pageId];
+
     //if (typeof cacheFun == "undefined") {
     if (true) {
         if (typeof fun == "function") {
@@ -1949,7 +1950,6 @@ PageFun.Init = function (pageId, objToPage) {
 
 $(function () {
     PageFun.Init();
-    //cc++;
     Unbind_bind(document, "pagechange", function (event, data) {
         //Log("pagechange");
         //Log(data);

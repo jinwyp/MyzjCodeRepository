@@ -304,7 +304,7 @@ var format = function (date, format) {
     for (var k in o)
         if (new RegExp("(" + k + ")").test(format))
             format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
-return format;
+    return format;
 }
 
 var timeDate = function (obj) {
@@ -348,8 +348,8 @@ var ReLogin = function (uid, token) {
             } else
                 if (Debug)
                     Log("获取数据失败");
-    });
-}
+        });
+    }
 };
 
 //#region localStorage
@@ -443,14 +443,13 @@ var Get_shoppingcartgoodsnum_Fun = function () {
     }, function (json) {
         if (json.status == 1 && typeof (json.info) == "object") {
             if (json.info.goods_count > 0) {
-                $("#Good_Total_Count").css("display", "block").text(json.info.goods_count);
-                $("#Hid_Good_Total_price").val(json.info.goods_total);
+                $(".Good_Total_Count").css("display", "block").text(json.info.goods_count);
+                $(".Hid_Good_Total_price").val(json.info.goods_total);
             } else {
-                $("#Good_Total_Count").css("display", "none");
+                $(".Good_Total_Count").text("").css("display", "none");
             }
         } else
             alert(json.msg);
     }, false, true);
 };
 //#endregion
-

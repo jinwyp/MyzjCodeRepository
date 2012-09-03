@@ -27,8 +27,8 @@
     <script id="myAccount_Template" type="text/template">
     <li data-role="list-divider">个人信息</li>
             <li>用户名：<strong>{$T.email}</strong></li>
-            <li>会员等级：<strong>{#if $T.userlevel == 1} 普通宝宝 {#elseif $T.userlevel == 2} 星星宝宝 {#elseif $T.userlevel == 3} 月亮宝宝 {#elseif $T.userlevel == 4}太阳宝宝 {#/if}</strong></li>
-            <li>已累积幸运星：<strong>0颗</strong>（再累积5000颗幸运星，就能成为星星宝宝享受更多优惠！）</li>
-            <li>累计消费：<strong>¥0.00</strong></li>
+            <li>会员等级：<strong>{$T.userlevel}</strong></li>
+            <li>已累积幸运星：<strong>{$T.locky}</strong></li>
+            <li>累计消费：<strong>¥{$T.orderstotal}</strong></li>
     </script>
 </asp:Content>
