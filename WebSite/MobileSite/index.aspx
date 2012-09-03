@@ -18,8 +18,8 @@
         <div class="content-primary">
             <div class="camera_wrap camera_azure_skin" id="foucsPic">
             </div>
-            <div id="picList" style="display: none;">
-                <div data-src="/images/slides/Accessories0705_1000x400.jpg">
+<div id="picList" style="display: none;">
+<div data-src="/images/slides/Accessories0705_1000x400.jpg">
                 </div>
                 <div data-src="/images/slides/Diapers0710_1000x400.jpg">
                 </div>

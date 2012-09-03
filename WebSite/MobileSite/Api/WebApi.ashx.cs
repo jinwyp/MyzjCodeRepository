@@ -35,6 +35,9 @@ namespace MobileSite
             var userId = int.Parse((session["s_user_id"] != null ? session["s_user_id"].ToString() : "0"));
             var uid = session["s_uid"] != null ? session["s_uid"].ToString() : "";
             var token = session["s_token"] != null ? session["s_token"].ToString() : "";
+
+            if (string.IsNullOrEmpty(session["s_guid"].ToString()))
+                WebUtility.RefreshGuid();
             var guid = session["s_guid"] != null ? session["s_guid"].ToString() : "";
             var systemType = MConfigUtility.Get("SystemType");
             var systemkey = MConfigUtility.Get("SystemKey");
@@ -88,7 +91,7 @@ namespace MobileSite
                         ContentType = contentType,
                         Accept = accept
                     });
-                    ApiFactory.FormatResult(ref result, apiName,_memberInfo, context);
+                    ApiFactory.FormatResult(ref result, apiName, _memberInfo, context);
                 }
             }
             catch (Exception ex)
