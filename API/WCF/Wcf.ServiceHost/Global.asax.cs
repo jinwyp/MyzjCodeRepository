@@ -16,8 +16,7 @@ namespace Wcf.ServiceHost
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            WcfAuthManage.InitMethodVerifyList();
-            WcfAuthManage.InitPermissionsVerifyList();
+            WcfAuthManage.Init();
         }
 
         protected void Session_Start(object sender, EventArgs e)

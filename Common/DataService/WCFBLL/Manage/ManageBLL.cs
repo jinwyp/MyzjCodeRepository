@@ -5,11 +5,14 @@ using System.Text;
 using Core.DataType;
 using Core.Enums;
 using Newtonsoft.Json;
+using Wcf.Entity.BaseData;
 using Wcf.Entity.Enum;
 using System.Reflection;
 using EF.Model.DataContext;
 using System.ServiceModel.Web;
 using Factory;
+using Wcf.Entity.Manage;
+using Core.DataTypeUtility;
 
 namespace Wcf.BLL.Manage
 {
@@ -135,6 +138,39 @@ namespace Wcf.BLL.Manage
                 result.msg = "刷新授权 数据出错！";
             }
 
+            return result;
+        }
+
+        /// <summary>
+        /// 获取 系统权限列表
+        /// </summary>
+        /// <returns></returns>
+        public static List<ItemMethodVerify> GetSystemPermissionList()
+        {
+            var result = new List<ItemMethodVerify>();
+            var manageDal = DALFactory.Manage();
+            var permissionList = manageDal.GetSystemPermissionList();
+            if (permissionList.Any())
+            {
+                permissionList.ForEach(item =>
+                                           {
+                                               try
+                                               {
+                                                   result.Add(new ItemMethodVerify
+                                                                  {
+                                                                      MethodName = item.MethodName,
+                                                                      IsVerfiyPemissions = MCvHelper.To(item.IsVerfiyPemissions, false),
+                                                                      IsVerifyData = MCvHelper.To(item.IsVerifyData, false),
+                                                                      IsVerifySystemId = MCvHelper.To(item.IsVerifySystemId, false),
+                                                                      IsVerifyToken = MCvHelper.To(item.IsVerifyToken, false),
+                                                                      IsEnableCache = MCvHelper.To(item.IsEnableCache, false)
+                                                                  });
+                                               }
+                                               catch
+                                               {
+                                               }
+                                           });
+            }
             return result;
         }
     }

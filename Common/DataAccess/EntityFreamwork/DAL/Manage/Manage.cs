@@ -63,5 +63,20 @@ namespace EF.DAL
                 return db.SaveChanges() > 0;
             }
         }
+
+        /// <summary>
+        /// 获取系统权限
+        /// </summary>
+        /// <returns></returns>
+        public List<System_Permission> GetSystemPermissionList()
+        {
+            using(var db=new bbHomeEntities())
+            {
+                var queryTxt = from a in db.System_Permission
+                               select a;
+                return queryTxt.ToList();
+            }
+        }
+
     }
 }

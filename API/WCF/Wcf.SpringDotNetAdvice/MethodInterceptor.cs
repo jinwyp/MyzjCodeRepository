@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AopAlliance.Intercept;
+using Wcf.Entity.Manage;
 using Wcf.SpringDotNetAdvice.Validate;
 using Core.DataTypeUtility;
 using Core.LogUtility;
@@ -47,31 +48,49 @@ namespace Wcf.SpringDotNetAdvice
                     var uid = MCvHelper.To<string>(args[4]);
 
                     var methodName = invocation.Method.Name;
-                    var methodInfo = MCacheManager.GetCacheObj().GetValByKey<ItemMethodVerify>(methodName, MCaching.CacheGroup.System);
-                    if (methodInfo != null)
+                    var methodCacheList = MCacheManager.GetCacheObj().GetValByKey<List<ItemMethodVerify>>("SystemPermission", MCaching.CacheGroup.Pemissions);
+
+                    if (methodCacheList != null && methodCacheList.Any())
                     {
-                        var isVerifySystemId = methodInfo.IsVerifySystemId;
-                        var isVerifyToKen = methodInfo.IsVerifyToken;
-                        var isVerifyPermissions = methodInfo.IsVerfiyPemissions;
+                        var methodCacheInfo = methodCacheList.Find(item => item.MethodName.Equals(methodName, StringComparison.InvariantCultureIgnoreCase));
 
-                        var secureAuth = new SecureAuth
+                        if (methodCacheInfo != null)
                         {
-                            IsVerifySystemId = isVerifySystemId,
-                            IsVerifyToKen = isVerifyToKen,
-                            IsVerifyPermissions = isVerifyPermissions,
-                            Sid = sid,
-                            Token = token,
-                            Uid = uid,
-                            UserId = userID
-                        };
+                            var isVerifySystemId = methodCacheInfo.IsVerifySystemId;
+                            var isVerifyToKen = methodCacheInfo.IsVerifyToken;
+                            var isVerifyPermissions = methodCacheInfo.IsVerfiyPemissions;
 
-                        if (secureAuth.Verify().status != MResultStatus.Success)
-                        {
-                            var resultType = invocation.Method.ReturnType;
-                            return Activator.CreateInstance(resultType);
+                            var secureAuth = new SecureAuth
+                                                 {
+                                                     IsVerifySystemId = isVerifySystemId,
+                                                     IsVerifyToKen = isVerifyToKen,
+                                                     IsVerifyPermissions = isVerifyPermissions,
+                                                     Sid = sid,
+                                                     Token = token,
+                                                     Uid = uid,
+                                                     UserId = userID
+                                                 };
+
+                            if (secureAuth.Verify().status == MResultStatus.Success)
+                            {
+                                if (methodCacheInfo.IsEnableCache)
+                                {
+                                    var cacheKey = string.Format("{0}_{1}", methodName,
+                                                                 string.Join("_", invocation.Arguments));
+
+                                    result = MCacheManager.UseCached<object>(cacheKey,
+                                                                             MCaching.CacheGroup.Pemissions,
+                                                                             () =>
+                                                                             invocation.Method.Invoke(invocation.This,
+                                                                                                      args));
+                                }
+                                else
+                                {
+                                    result = invocation.Method.Invoke(invocation.This, args);
+                                }
+                            }
+                            //result = invocation.Proceed();
                         }
-                        result = invocation.Method.Invoke(invocation.This, args);
-                        //result = invocation.Proceed();
                     }
                     else
                     {

@@ -5,6 +5,9 @@ using System.Text;
 using Core.Caching;
 using Core.Enums;
 using Wcf.Entity.BaseData;
+using Factory;
+using Wcf.BLL.Manage;
+using Wcf.Entity.Manage;
 
 namespace Wcf.ServiceLibrary
 {
@@ -14,28 +17,15 @@ namespace Wcf.ServiceLibrary
     public static class WcfAuthManage
     {
         /// <summary>
-        /// 初始化 权限验证列表
+        /// 初始化
         /// </summary>
-        public static void InitPermissionsVerifyList()
+        public static void Init()
         {
-            
+            var methodPermisstionList = ManageBLL.GetSystemPermissionList();
+            if (methodPermisstionList.Any())
+                MCacheManager.GetCacheObj().Set("SystemPermission",
+                    MCaching.CacheGroup.Pemissions, methodPermisstionList);
         }
 
-        /// <summary>
-        /// 初始化 方法验证列表
-        /// </summary>
-        public static void InitMethodVerifyList()
-        {
-            var methodDict = new Dictionary<string, ItemMethodVerify>();
-            methodDict.Add("GetGoodsInfo", new ItemMethodVerify { IsVerifySystemId = true });
-            methodDict.Add("GetGoodsList", new ItemMethodVerify { IsVerifySystemId = true });
-            methodDict.Add("LoginMember", new ItemMethodVerify { IsVerifySystemId = true });
-
-            foreach (var methodInfo in methodDict)
-            {
-                MCacheManager.GetCacheObj().Set<ItemMethodVerify>(methodInfo.Key, MCaching.CacheGroup.Pemissions, methodInfo.Value);
-            }
-
-        }
     }
 }

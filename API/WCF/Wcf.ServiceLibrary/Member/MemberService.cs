@@ -83,13 +83,13 @@ namespace Wcf.ServiceLibrary.Member
             return result;
         }
 
-        public MResult ResetLoginPassword(string sid, string token, string guid, string user_id, string uid)
+        public MResult ResetLoginPassword(string sid, string token, string guid, string user_id, string uid, string email)
         {
             var result = new MResult();
 
             try
             {
-                result = MemberBLL.ResetLoginPassword(SystemType, uid);
+                result = MemberBLL.ResetLoginPassword(SystemType, email);
             }
             catch (Exception ex)
             {

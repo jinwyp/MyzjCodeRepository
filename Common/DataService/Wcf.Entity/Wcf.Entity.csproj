@@ -56,7 +56,7 @@
   <ItemGroup>
     <Compile Include="BaseData\ItemLogistics.cs" />
     <Compile Include="BaseData\ItemPay.cs" />
-    <Compile Include="BaseData\ItemMethodVerify.cs" />
+    <Compile Include="Manage\ItemMethodVerify.cs" />
     <Compile Include="BaseData\ItemRegion.cs" />
     <Compile Include="BaseData\LogisticsResult.cs" />
     <Compile Include="Enum\InvoiceType.cs" />
@@ -93,9 +93,7 @@
     <Compile Include="Product\ItemComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Manage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

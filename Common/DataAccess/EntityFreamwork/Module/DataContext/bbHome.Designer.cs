@@ -2044,6 +2044,30 @@ namespace EF.Model.DataContext
         private global::System.String _Remark;
         partial void OnRemarkChanging(global::System.String value);
         partial void OnRemarkChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> IsEnableCache
+        {
+            get
+            {
+                return _IsEnableCache;
+            }
+            set
+            {
+                OnIsEnableCacheChanging(value);
+                ReportPropertyChanging("IsEnableCache");
+                _IsEnableCache = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsEnableCache");
+                OnIsEnableCacheChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _IsEnableCache;
+        partial void OnIsEnableCacheChanging(Nullable<global::System.Int16> value);
+        partial void OnIsEnableCacheChanged();
 
         #endregion
     

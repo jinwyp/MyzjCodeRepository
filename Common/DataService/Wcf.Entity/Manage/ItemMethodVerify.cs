@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 
-namespace Wcf.Entity.BaseData
+namespace Wcf.Entity.Manage
 {
     /// <summary>
     /// 方法权限验证
@@ -37,5 +37,10 @@ namespace Wcf.Entity.BaseData
         /// </summary>
         [DataMember]
         public bool IsVerfiyPemissions { get; set; }
+        /// <summary>
+        /// 是否启用缓存
+        /// </summary>
+        [DataMember]
+        public bool IsEnableCache { get; set; }
     }
 }

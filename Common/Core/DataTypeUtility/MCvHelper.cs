@@ -19,27 +19,32 @@ namespace Core.DataTypeUtility
         /// <returns></returns>
         public static T To<T>(object obj, params T[] def)
         {
-            Type _t = typeof(T);
-            bool IsError = false;
+            Type t = typeof(T);
+            bool isError = false;
             object _obj = null;
             try
             {
-                if (_t.IsEnum)
+                if (t.IsEnum)
                 {
                     _obj = Enum.Parse(typeof(T), obj.ToString(), true);
+                    if (_obj == null)
+                    {
+                        var intEnum = MCvHelper.To(obj, 0);
+                        _obj = intEnum > 0 ? true : false;
+                    }
                 }
                 else
                 {
-                    _obj = Convert.ChangeType(obj, _t);
+                    _obj = Convert.ChangeType(obj, t);
                 }
             }
             catch
             {
-                IsError = true;
+                isError = true;
             }
             finally
             {
-                if (IsError || _obj == null)
+                if (isError || _obj == null)
                 {
                     if (def != null && def.Length > 0)
                         _obj = def[0];

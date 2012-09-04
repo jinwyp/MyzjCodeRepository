@@ -82,12 +82,14 @@ namespace Wcf.ServiceLibrary.BaseData
             var result = new MResult<List<ItemRegion>[]>();
             try
             {
+                /*
                 result =
                     MCacheManager.UseCached<MResult<List<ItemRegion>[]>>(
                         string.Format("GetAllRegionList_{0}", sid),
                         MCaching.CacheGroup.BaseData,
                         BaseDataBLL.GetAllRegionList);
-
+                */
+                result = BaseDataBLL.GetAllRegionList();
             }
             catch (Exception)
             {

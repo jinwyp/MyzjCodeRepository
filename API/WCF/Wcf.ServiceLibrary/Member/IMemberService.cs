@@ -70,10 +70,11 @@ namespace Wcf.ServiceLibrary.Member
         /// <param name="user_id"> </param>
         /// <param name="uid"></param>
         /// <param name="guid"> </param>
+        /// <param name="email"> </param>
         /// <returns></returns>
         [OperationContract]
         [WebGet(UriTemplate = MemberUri.RESETLOGINPASSWORD)]
-        MResult ResetLoginPassword(string sid, string token, string guid, string user_id, string uid);
+        MResult ResetLoginPassword(string sid, string token, string guid, string user_id, string uid,string email);
 
         /// <summary>
         /// 修改密码

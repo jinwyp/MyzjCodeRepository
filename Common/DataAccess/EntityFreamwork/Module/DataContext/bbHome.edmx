@@ -86,18 +86,19 @@
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Created" Type="datetime" />
           <Property Name="RefreshTime" Type="datetime" />
-          <Property Name="AssemblyName" Type="nchar" MaxLength="50" />
-          <Property Name="ClassName" Type="varchar" MaxLength="50" />
-          <Property Name="MethodName" Type="varchar" MaxLength="50" />
-          <Property Name="MethodAttrs" Type="varchar" MaxLength="1000" />
+          <Property Name="AssemblyName" Type="varchar" MaxLength="100" />
+          <Property Name="ClassName" Type="varchar" MaxLength="100" />
+          <Property Name="MethodName" Type="varchar" MaxLength="100" />
+          <Property Name="MethodAttrs" Type="varchar" MaxLength="3000" />
           <Property Name="RequestType" Type="varchar" MaxLength="50" />
-          <Property Name="RequestUri" Type="varchar" MaxLength="200" />
+          <Property Name="RequestUri" Type="varchar" MaxLength="400" />
           <Property Name="AfferentParameters" Type="varchar" MaxLength="1000" />
-          <Property Name="ReturnParameters" Type="varchar" MaxLength="1000" />
+          <Property Name="ReturnParameters" Type="varchar" MaxLength="2000" />
           <Property Name="IsVerifySystemId" Type="smallint" />
           <Property Name="IsVerifyToken" Type="smallint" />
           <Property Name="IsVerifyData" Type="smallint" />
           <Property Name="IsVerfiyPemissions" Type="smallint" />
+          <Property Name="IsEnableCache" Type="smallint" />
           <Property Name="Remark" Type="varchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="tb_Blacklist">
@@ -220,6 +221,7 @@
           <Property Type="Int16" Name="IsVerifyData" />
           <Property Type="Int16" Name="IsVerfiyPemissions" />
           <Property Type="String" Name="Remark" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="IsEnableCache" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -304,6 +306,7 @@
           <EntitySetMapping Name="System_Permission">
             <EntityTypeMapping TypeName="EF.Model.bbHomeModel.System_Permission">
               <MappingFragment StoreEntitySet="System_Permission">
+                <ScalarProperty Name="IsEnableCache" ColumnName="IsEnableCache" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="IsVerfiyPemissions" ColumnName="IsVerfiyPemissions" />
                 <ScalarProperty Name="IsVerifyData" ColumnName="IsVerifyData" />
