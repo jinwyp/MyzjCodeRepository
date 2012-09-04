@@ -7,9 +7,9 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace MobileSite.Product {
+namespace MobileSite {
     
     
-    public partial class category_sub {
+    public partial class Header {
     }
 }

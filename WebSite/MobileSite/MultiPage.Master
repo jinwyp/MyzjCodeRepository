@@ -1,7 +1,6 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Mobile.master.cs" Inherits="MobileSite.Mobile" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MultiPage.master.cs"
+    Inherits="MobileSite.MultiPage" %>
 
-<%@ Register Src="Header.ascx" TagName="Header" TagPrefix="uc1" %>
-<%@ Register Src="Footer.ascx" TagName="Footer" TagPrefix="uc2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,20 +23,10 @@
     </script>
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Mobile_1.1.0s&t=text/javascript&v=<%= MobileSite.BaseLib.WebUrls.GetResourceVersion %>"
         type="text/javascript"></script>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div data-role="page" id="<%= PageId %>" data-title="<%= PageTitle %>" data-id="<%= PageId %>">
-        <div data-role="header" data-theme="a">
-            <uc1:Header ID="Header1" runat="server" />
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-        <uc2:Footer ID="Footer1" runat="server" />
-    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_Common_js&t=text/javascript&v=<%= MobileSite.BaseLib.WebUrls.GetResourceVersion %>"
         type="text/javascript"></script>
     <script src="<%= MobileSite.BaseLib.WebUrls.JsRoot() %>HttpCombiner.ashx?s=Set_footer_Min_Com&t=text/javascript&v=<%= MobileSite.BaseLib.WebUrls.GetResourceVersion %>"

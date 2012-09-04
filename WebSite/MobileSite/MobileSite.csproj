@@ -122,8 +122,22 @@
     <Compile Include="CheckOut\onlinepayment.aspx.designer.cs">
       <DependentUpon>onlinepayment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -174,6 +188,13 @@
     <Compile Include="Member\orderlist.aspx.designer.cs">
       <DependentUpon>orderlist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MultiPage.Master.cs">
+      <DependentUpon>MultiPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MultiPage.Master.designer.cs">
+      <DependentUpon>MultiPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="noticedetail.aspx.cs">
       <DependentUpon>noticedetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -194,13 +215,6 @@
     </Compile>
     <Compile Include="Product\category.aspx.designer.cs">
       <DependentUpon>category.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Product\category_sub.aspx.cs">
-      <DependentUpon>category_sub.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Product\category_sub.aspx.designer.cs">
-      <DependentUpon>category_sub.aspx</DependentUpon>
     </Compile>
     <Compile Include="forgetpassword.aspx.cs">
       <DependentUpon>forgetpassword.aspx</DependentUpon>
@@ -290,7 +304,9 @@
     <Content Include="CheckOut\deliverylist.aspx" />
     <Content Include="CheckOut\makeorder.aspx" />
     <Content Include="CheckOut\onlinepayment.aspx" />
+    <Content Include="Footer.ascx" />
     <Content Include="Global.asax" />
+    <Content Include="Header.ascx" />
     <Content Include="Html\address-add.html" />
     <Content Include="Html\address-edit.html" />
     <Content Include="Html\addresslist.html" />
@@ -339,7 +355,6 @@
     <Content Include="noticedetail.aspx" />
     <Content Include="noticelist.aspx" />
     <Content Include="Product\category.aspx" />
-    <Content Include="Product\category_sub.aspx" />
     <Content Include="style\camera.css" />
     <Content Include="Useragent.html" />
     <Content Include="Html\index.html" />
@@ -414,6 +429,7 @@
     <None Include="images\alipay.psd" />
     <Content Include="js\HttpCombiner.ashx" />
     <Content Include="Mobile.Master" />
+    <Content Include="MultiPage.Master" />
     <None Include="README.md" />
     <Content Include="web.config" />
   </ItemGroup>

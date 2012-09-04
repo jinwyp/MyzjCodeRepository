@@ -56,6 +56,7 @@ namespace MobileSite.BaseLib
                 ApiUrlDict.Add("Order.get_order_info", wcfHost + "order.svc/get_order_info");
                 ApiUrlDict.Add("Order.get_ordergoods_list", wcfHost + "order.svc/get_ordergoods_list");
                 ApiUrlDict.Add("Order.get_order_list", wcfHost + "order.svc/get_order_list");
+                ApiUrlDict.Add("Goods.get_goodscategory_list", wcfHost + "goods.svc/get_goodscategory_list");
 
             }
         }

@@ -1096,7 +1096,7 @@ function orderconfirm_Fun() {
 
 //#region 收货人列表信息页面
 function addresslist_Fun() {
-    
+
     GetWcf({
         _api: "Member.get_address_list"
     }, function (jsonString) {
@@ -1819,6 +1819,38 @@ function orderlist_Fun() {
 }
 //#endregion
 
+function ShowDetails(cust) {
+    if (cust != null) {
+        $.mobile.changePage("#Product_SubCategory_Page");
+        $('#sub_categoryList').setTemplate($('#sub_category_template').html());
+        $("#sub_categoryList").processTemplate(cust, null, { append: false });
+        $("#sub_categoryList").listview("refresh");
+    }
+}
+
+//#region 分类
+var Category = {
+    bind_Template: function (jsonString) {
+        //#region 给模板赋值
+        $('#categoryList').setTemplate($('#categoryList_template').html());
+        $('#categoryList').processTemplate(jsonString, null, { append: false });
+        $("#categoryList").trigger("create");
+        //#endregion
+    },
+    bindDate: function () {
+        GetWcf({
+            _api: "Goods.get_goodscategory_list"
+        }, function (jsonString) {
+            if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info.length > 0) {
+                Category.bind_Template(jsonString.info);
+            } else {
+                alert(jsonString.msg);
+            }
+        }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
+    }
+};
+//#endregion
+
 //#region 调用 Page Function
 
 //#region Page函数列表
@@ -1884,6 +1916,12 @@ var PageFuns = {
     },
     Member_OrderList_Page: function () {
         orderlist_Fun();
+    },
+    Product_Category_Page: function () {
+        Category.bindDate();
+    },
+    Product_SubCategory_Page:function(){
+        
     }
 };
 //#endregion
@@ -1952,7 +1990,8 @@ $(function () {
     PageFun.Init();
     Unbind_bind(document, "pagechange", function (event, data) {
         //Log("pagechange");
-        //Log(data);
+        Log("Date:");
+        Log(data);
         //Log(data.toPage[0].id);
 
         PageFun.Init(data.toPage[0].id, data);
