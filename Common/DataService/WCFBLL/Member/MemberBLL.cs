@@ -177,9 +177,9 @@ namespace Wcf.BLL.Member
 
                                 #endregion
 
-                                var mailBody = emailBody.Replace("{%UlParam%}",
-                                                                 string.Format("email={0}&emailid={1}&emailkey={2}", uid, mailId,
-                                                                               HttpUtility.UrlEncode(mailKey)));
+                                var mailBody =
+                                    emailBody.Replace("{%MAILID%}", mailId.ToString()).Replace("{%MAIL%}", uid).Replace(
+                                        "{%MAILKEY%}", HttpUtility.UrlEncode(mailKey));
 
                                 var wcfmail = new WcfMail
                                                   {
