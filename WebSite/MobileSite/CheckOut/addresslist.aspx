@@ -40,7 +40,7 @@
                         <p>
                             电话：{$T.dr.mobile}</p>
                     </label>
-                    <a href='<%= MobileSite.BaseLib.WebUrls.address_edit("{$T.dr.id}") %>' data-role="button" data-theme="d" >修改</a>
+                    <a href='<%= MobileSite.BaseLib.WebUrls.address_edit("{$T.dr.id}") %>' data-role="button" data-theme="d"  rel="external">修改</a>
                 </div>
         {#/for}
     </script>

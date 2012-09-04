@@ -8,8 +8,6 @@ function LoingOut() {
         }, function (json) {
             if (json.status == 1) {
                 RemoveLoginCookie();
-                //$.cookie("currentPage", null);
-                //window.location.href = window.WebRoot + "index.aspx";
                 Change_Url(window.WebRoot + "index.aspx");
             } else
                 alert(json.msg);
@@ -252,7 +250,7 @@ function Register_Fun(addUrl) {
 }
 //#endregion
 
-//#region 忘记密码
+//#region 找回密码
 function Forgetpassword() {
     jQuery("#frmgetpassword").validate({
         errorElement: "span",
@@ -262,15 +260,37 @@ function Forgetpassword() {
                 email: true
             }
         },
-
         messages: {
             email: {
                 required: "请输入Email地址",
                 email: "请输入正确的email地址 / 填写的用户名不存在"
             }
+        },
+        submitHandler: function (form) {
+            var email = $("#email").val() || "";
+            var jobj = { email: email };
+            if (email != "") {
+                PostWcf({
+                    _api: "Member.get_goodscategory_list",
+                    _data: JSON.stringify(jobj)
+                }, function (jsonString) {
+                    if (jsonString.status == 1) {
+                        window.location.href = window.WebRoot + "getpassword-success.aspx?email=" + email;
+                        //Change_Url(window.WebRoot + "getpassword-success.aspx");
+                    } else {
+                        alert(jsonString.msg);
+                    }
+                }, true);
+            }
         }
-
     });
+
+}
+//#endregion
+
+//#region 找回密码成功后
+var ForgotPassword_Result = function () {
+    var email = getParameter('email') || "";
 
 }
 //#endregion
@@ -388,9 +408,10 @@ var GoodProduct = {
     UpdatePaging: function () {
         //#region 更新分页数据
         if (GoodProduct.currentPage != GoodProduct.lastPage) {
+            $("#morePage").show();
             Unbind_bind("#morePage", "click", GoodProduct.NextPage);
         } else {
-            $("#morePage").unbind("click");
+            $("#morePage").hide().unbind("click");
         }
         //#endregion
     },
@@ -1459,6 +1480,7 @@ function ProViceCityTown_Function() {
         s1P[i] = "<option value='" + proviceA[i].id + "'>" + proviceA[i].name + "</option>";
     }
     $(s1P.join('')).appendTo(s1);
+    $("#PCR select#s1s").selectmenu('refresh');
     var myselect = $("#PCR select#s1s");
     myselect[0].selectedIndex = 0;
     myselect.selectmenu("refresh");
@@ -1628,6 +1650,7 @@ function address_edit_Fun() {
         if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info.contact_name != null) {
             $("#acc_id").val(jsonString.info.id);
             $("#email").val(jsonString.info.contact_name);
+            //alert(jsonString.info.province_id);
             $("#s1s option[value=" + jsonString.info.province_id + "]").attr("selected", true); //省
             $("#s1s").selectmenu('refresh').trigger("change");
             $("#s2s option[value=" + jsonString.info.city_id + "]").attr("selected", true); //市
@@ -1826,6 +1849,7 @@ function ShowDetails(cust, id) {
     if (cust != null) {//alert(cust.child == null);
         if (cust.child == null) { Change_Url(window.WebRoot + "Product/productlist.aspx?categoryId=" + id); } else {
             Change_Url("#Product_SubCategory_Page");
+            //alert($('#sub_category_template').html());
             $('#sub_categoryList').setTemplate($('#sub_category_template').html());
             $("#sub_categoryList").processTemplate(cust, null, { append: false });
             $("#sub_categoryList").listview("refresh");
@@ -1838,6 +1862,7 @@ function ShowDetails(cust, id) {
 
 //#region 分类
 var Category = {
+    date_cate_list: null,
     bind_Template: function (jsonString) {
         //#region 给模板赋值
         $('#categoryList').setTemplate($('#categoryList_template').html());
@@ -1846,15 +1871,19 @@ var Category = {
         //#endregion
     },
     bindDate: function () {
-        GetWcf({
-            _api: "Goods.get_goodscategory_list"
-        }, function (jsonString) {
-            if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info.length > 0) {
-                Category.bind_Template(jsonString.info);
-            } else {
-                alert(jsonString.msg);
-            }
-        }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
+        //alert(Category.date_cate_list == null);
+        if (Category.date_cate_list == null) {
+            GetWcf({
+                _api: "Goods.get_goodscategory_list"
+            }, function (jsonString) {
+                if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info.length > 0) {
+                    Category.date_cate_list = jsonString.info;
+                    Category.bind_Template(jsonString.info);
+                } else {
+                    alert(jsonString.msg);
+                }
+            }, true, { "ref_loading_c": $('.loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
+        }
     }
 };
 //#endregion
@@ -1890,6 +1919,9 @@ var PageFuns = {
     },
     ForgotPassword_Page: function () {
         Forgetpassword();
+    },
+    ForgotPassword_Result_Page: function () {
+        ForgotPassword_Result();
     },
     CheckOut_Shoppingcart_Page: function () {
         shoppingcart_Fun();
@@ -1959,7 +1991,9 @@ PageFun.GetFun = function (pageId) {
 //#region 页面函数初始化
 //如果页面是手动打开，无需传入 pageid
 PageFun.Init = function (pageId, objToPage) {
-
+    Unbind_bind(".gotop", "tap", function () {
+        $.mobile.silentScroll(0);
+    });
     Get_shoppingcartgoodsnum_Fun();
     console.log("进的页面：" + pageId);
     //判断页面是不是第一次打开
@@ -1997,22 +2031,9 @@ PageFun.Init = function (pageId, objToPage) {
 $(function () {
     PageFun.Init();
     Unbind_bind(document, "pagechange", function (event, data) {
-        //Log("pagechange");
-        Log("Date:");
-        Log(data);
         //Log(data.toPage[0].id);
 
         PageFun.Init(data.toPage[0].id, data);
-
-        //#region 回到顶部
-        $('#gotop').tap(function () {
-            $.mobile.silentScroll(10);
-        });
-
-        //        Unbind_bind("#gotop", "tap", function () {
-        //            $.mobile.silentScroll(10);
-        //        });
-        //#endregion
     });
 
 });

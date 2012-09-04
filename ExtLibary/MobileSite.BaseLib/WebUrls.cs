@@ -441,6 +441,16 @@ namespace MobileSite.BaseLib
             return GetUrlData("noticedetail");
         }
 
+        /// <summary>
+        /// 忘记密码
+        /// </summary>
+        /// <param name="gid"></param>
+        /// <returns></returns>
+        public static string forgetpassword()
+        {
+            return GetUrlData("forgetpassword");
+        }
+
         #endregion
 
     }

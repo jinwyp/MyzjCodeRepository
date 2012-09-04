@@ -34,10 +34,10 @@
         <input data-theme="b" value="登录" type="submit" />
         <div class="ui-grid-a p10">
             <div class="ui-block-a">
-                <a href="forgetpassword.aspx" >忘记密码</a>
+                <a href="<%= MobileSite.BaseLib.WebUrls.forgetpassword() %>" >忘记密码</a>
             </div>
             <div class="ui-block-b">
-                <a href="registration.aspx" >立即注册</a>
+                <a href="<%= MobileSite.BaseLib.WebUrls.registration() %>" >立即注册</a>
             </div>
         </div> 
         <%--<ul data-role="listview" data-divider-theme="c" data-inset="true">

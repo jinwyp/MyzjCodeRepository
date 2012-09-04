@@ -22,7 +22,7 @@
                     value="" />
             </fieldset>
         </div>
-        <input data-theme="b" value="找回密码" type="submit" />
+        <input id="forGet_btn" data-theme="b" value="找回密码" type="submit" />
         </form>
     </div>
 </asp:Content>
