@@ -88,6 +88,10 @@ namespace Wcf.ServiceLibrary
         /// </summary>
         public const string RESETLOGINPASSWORD = "/reset_member_loginpassword/{sid}/{token}/{guid}/{user_id}/{uid}";
         /// <summary>
+        /// 修改密码
+        /// </summary>
+        public const string CHANGELOGINPASSWORD = "/change_loginpassword/{sid}/{token}/{guid}/{user_id}/{uid}";
+        /// <summary>
         /// 获取用户信息
         /// </summary>
         public const string GETMEMBERINFO = "/get_member_info/{sid}/{token}/{guid}/{user_id}/{uid}";

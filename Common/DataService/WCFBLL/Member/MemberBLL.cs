@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using EF.Model.Entity;
 using Factory;
+using WCFService;
 using Wcf.BLL.ServiceReference.External;
 using Wcf.Entity.Member;
 using EF.Model.DataContext;
@@ -20,6 +21,8 @@ using Core.Mail;
 using Core;
 
 using Wcf.BLL.ShoppingCart;
+using Wcf.Entity.Enum;
+using System.Xml.Linq;
 
 namespace Wcf.BLL.Member
 {
@@ -126,149 +129,137 @@ namespace Wcf.BLL.Member
         /// <summary>
         /// 重置登录密码
         /// </summary>
-        /// <param name="sid"></param>
+        /// <param name="sType"></param>
         /// <param name="uid"></param>
         /// <returns></returns>
-        public static MResult ResetLoginPassword(string sid, string uid)
+        public static MResult ResetLoginPassword(SystemType sType, string uid)
         {
+
             var result = new MResult();
 
             try
             {
-                SendMail(null);
+                var memberDal = DALFactory.Member();
+                var memberInfo = memberDal.GetMemberInfo(uid);
+                if (memberInfo != null && memberInfo.membNo > 0)
+                {
+                    var templatePath = HttpContext.Current.Server.MapPath("/Template/" + sType + "/ForgotPassword.xml");
+                    var templateInit = false;
+                    if (File.Exists(templatePath))
+                    {
+                        var xdom = XElement.Load(templatePath);
+                        var titleElement = xdom.Element("Title");
+                        var bodyElement = xdom.Element("Body");
+
+                        if (titleElement != null && bodyElement != null)
+                        {
+                            var emailTitle = titleElement.Value.Replace("\r", "").Replace("\n", "").Trim();
+                            var emailBody = bodyElement.Value.Replace("\r", "").Replace("\n", "").Trim();
+
+                            if (!string.IsNullOrEmpty(emailTitle) && !string.IsNullOrEmpty(emailBody))
+                            {
+                                templateInit = true;
+                                string mailKey;
+                                int mailId;
+
+                                #region 写入 找回密码 记录到数据库
+
+                                using (var bbHome = new BbHomeServiceClient())
+                                {
+                                    bbHome.Open();
+                                    string message;
+                                    if (!bbHome.CheckPswKeyStatusByEmail(out mailId, out mailKey, out message, uid))
+                                    {
+                                        bbHome.InsertPswKey(out mailId, out mailKey, out message, uid);
+                                    }
+                                    bbHome.Close();
+                                }
+
+                                #endregion
+
+                                var mailBody = emailBody.Replace("{%UlParam%}",
+                                                                 string.Format("email={0}&emailid={1}&emailkey={2}", uid, mailId,
+                                                                               HttpUtility.UrlEncode(mailKey)));
+
+                                var wcfmail = new WcfMail
+                                                  {
+                                                      MailTo = uid.Trim().Split(new[] { ',', ';' }),
+                                                      IsHtml = true,
+                                                      Subject = emailTitle,
+                                                      Body = mailBody
+                                                  };
+
+                                using (var wcfClient = new EmailServiceClient())
+                                {
+                                    wcfClient.Open();
+                                    wcfClient.SendCmail(wcfmail);
+                                    wcfClient.Close();
+                                }
+                                result.status = MResultStatus.Success;
+                            }
+                        }
+                    }
+                    if (!templateInit)
+                    {
+                        result.status = MResultStatus.LogicError;
+                        result.msg = "模板不存在";
+                    }
+                }
+                else
+                {
+                    result.status = MResultStatus.LogicError;
+                    result.msg = "邮箱不存在！";
+                }
             }
             catch (Exception ex)
             {
-
+                result.status = MResultStatus.ExecutionError;
+                result.msg = "重置登录密码 出错！";
             }
 
             return result;
         }
 
         /// <summary>
-        /// 找回密码
+        /// 修改密码
         /// </summary>
-        private static void SendMail(Customer user)
+        /// <param name="sType"> </param>
+        /// <param name="loginPassword"> </param>
+        /// <returns></returns>
+        public static MResult ChangeLoginPassword(SystemType sType, LoginPasswordEntity loginPassword)
         {
-            bool result = false;
-            try
+            var result = new MResult();
+
+            if (loginPassword != null &&
+                !string.IsNullOrEmpty(loginPassword.email) &&
+                !string.IsNullOrEmpty(loginPassword.emailkey) &&
+                loginPassword.emailid > 0)
             {
-                MailConfig mail = new MailConfig(); //发送邮件对象
-                string mailTo = user.Email; //收件人
-
-                string mailSubject = "母婴之家 - 找回密码"; //邮件标题
-                string password = MEncryptUtility.NewRandomStr(6,
-                                                               MRandomType.Num | MRandomType.LowerCarh |
-                                                               MRandomType.UpperChar);
-
-                #region 找回密码给邮箱发一串密文
-
-                string message = "";
-                string keyString = "";
-                int id = 0;
-                using (BbHomeServiceClient bbHome = new BbHomeServiceClient())
+                var changeSuccess = false;
+                string message;
+                using (var bbHome = new BbHomeServiceClient())
                 {
                     bbHome.Open();
-                    if (!bbHome.CheckPswKeyStatusByEmail(out id, out keyString, out message, user.Email))
+                    int mailId;
+                    string mailKey;
+                    if (bbHome.CheckPswKeyStatusByEmail(out mailId, out mailKey, out message, loginPassword.email))
                     {
-                        bbHome.InsertPswKey(out id, out keyString, out message, user.Email);
+                        changeSuccess = bbHome.ChangePassWordByEmail(out message, loginPassword.email, loginPassword.password);
                     }
                     bbHome.Close();
                 }
-
-                #endregion
-
-                #region  邮件体
-
-                string mbody = "";
-
-                mbody +=
-                    "<table cellpadding=\"5\" cellspacing=\"0\" border=\"0\" align=\"center\" width=\"600\" bgcolor=\"#ffffff\">";
-                mbody += "<tbody style=\"font-size:12px;font-family:Arial,Helvetica, sans-serif;\">";
-                mbody += "<tr>";
-                mbody += "<td style=\"border-bottom:1px solid #dddddd; padding-left:5px\">";
-                mbody +=
-                    "<a href=\"\" title=\"母婴之家\" target=\"_blank\"><img src=\"/Template/afd5/images/findPwd/logo.gif\" alt=\"母婴之家\" width=\"268\" height=\"64\" border=\"0\" /></a>";
-                mbody += "</td>";
-                mbody += "</tr>";
-                mbody += "<tr>";
-                mbody += "<td height=\"36\" style=\"font-size:14px; padding-left:10px\">";
-                mbody +=
-                    "<span style=\"font-family:'宋体'; color:#666666\">亲爱的<font style=\"color:#000; font-family: Arial, Helvetica, sans-serif;\">" +
-                    mailTo + "</font>，您好！</span>";
-                mbody += "</td>";
-                mbody += "</tr>";
-                mbody += "<tr>";
-                mbody += "<td style=\"font-size:14px;padding-left:10px\">";
-                mbody +=
-                    "<p style=\"font-size:12px; font-family:'宋体'; color:#666666\">您已在母婴之家网站通过邮件<font style=\"color:#ff0000\">找回密码</font>，本封是密码重置的确认邮件。</p>";
-                mbody +=
-                    "<p style=\"font-size:12px; font-family:'宋体'; line-height:16px; color:#666666\">您可以点击以下链接重置您的密码！若无法点击，请将链接复制到浏览器打开。";
-                mbody += "<br />(为安全起见，本链接24内小时有效）&#13;</p></td>";
-                mbody += "</tr>";
-                mbody += "<tr>";
-                mbody += "<td style=\"padding-left:10px;\">";
-                mbody +=
-                    "<a href=\"/findpassword.aspx?id=[EmailID]&amp;keyString=[KeyString]\" target=\"_blank\">/findpassword.aspx?id=[EmailID]&amp;keyString=[KeyString]</a></td>";
-                mbody += "</tr>";
-                mbody += "<tr>";
-                mbody += "<td height=\"45\" style=\"font-size:14px; padding-left:10px\">";
-                mbody += "<span style=\"font-size:12px; font-family:'宋体'; color:#666666\">如果您不想修改密码，请忽略此邮件。</span></td>";
-                mbody += "</tr>";
-                mbody += "<tr>";
-                mbody +=
-                    "<td height=\"40\" style=\"color:#666666; padding-left:10px\"><p style=\"font-family:'宋体'; line-height:16px; font-size:13px\">母婴之家--专业的母婴用品网上购物商城 ";
-                mbody += "<a href=\"\" target=\"_blank\" style=\"color:#666666\">www.muyingzhijia.com</a></p></td>";
-                mbody += "</tr>";
-                mbody += "<tr>";
-                mbody +=
-                    "<td height=\"70\"><img src=\"/Template/afd5/images/findPwd/01.jpg\" width=\"600\" height=\"70\" border=\"0\" alt=\"母婴之家客户服务热线：400 820 1000\" /></td>";
-                mbody += "</tr>";
-                mbody += "<tr>";
-                mbody +=
-                    "<td height=\"50\" align=\"center\"><p style=\"font-size:12px; font-family:'宋体'\">本邮件由母婴之家系统邮件，请勿直接回复。如有任何疑问欢迎致电客户服务热线：400 820 1000&#13;</p></td>";
-                mbody += "</tr>";
-                mbody += "</tbody>";
-                mbody += "</table>";
-
-                string mailBody = mbody.Replace("[EmailID]", id.ToString()).Replace("[KeyString]",
-                                                                                    HttpUtility.UrlEncode(keyString));
-
-                #endregion
-
-                var emailInfo = new MailConfig();
-                emailInfo.MailTo = user.Email.ToString().Trim().Split(new char[] { ',', ';' });
-                emailInfo.IsHtml = true;
-                emailInfo.Subject = mailSubject;
-                emailInfo.Body = mailBody;
-
-                using (var WcfClient = new EmailServiceClient())
+                if (changeSuccess)
                 {
-                    WcfClient.Open();
-                    WcfClient.SendCmail(MailConfigToWcfMail(emailInfo));
-                    WcfClient.Close();
+                    result.status = MResultStatus.Success;
+                }
+                else
+                {
+                    result.status = MResultStatus.LogicError;
+                    result.msg = message;
                 }
             }
-            catch
-            { }
-        }
 
-        public static WCFService.WcfMail MailConfigToWcfMail(MailConfig m)
-        {
-            WCFService.WcfMail wcfmail = new WCFService.WcfMail();
-
-            wcfmail.Subject = m.Subject;
-            wcfmail.Bcc = m.Bcc;
-            wcfmail.Body = m.Body;
-            wcfmail.Bodyencoding = m.Bodyencoding;
-            wcfmail.Bodyformat = m.Bodyformat;
-            wcfmail.Cc = m.Cc;
-            wcfmail.IsHtml = m.IsHtml;
-            wcfmail.MailTo = m.MailTo;
-            // wcfmail.Priority = (MailPriority)m.Priority;
-            wcfmail.AttachmentFiles = m.AttachmentFiles;
-
-            return wcfmail;
+            return result;
         }
 
         /// <summary>
@@ -324,7 +315,7 @@ namespace Wcf.BLL.Member
         /// <summary>
         /// 登录
         /// </summary>
-        /// <para m name="channelId"> </param>
+        /// <param name="channelId"> </param>
         /// <param name="uid"></param>
         /// <param name="pwd"></param>
         /// <param name="guid"> </param>

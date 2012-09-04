@@ -89,12 +89,27 @@ namespace Wcf.ServiceLibrary.Member
 
             try
             {
-                result = MemberBLL.ResetLoginPassword(sid, uid);
+                result = MemberBLL.ResetLoginPassword(SystemType, uid);
             }
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
                 result.msg = "处理数据出错！";
+            }
+            return result;
+        }
+
+        public MResult ChangeLoginPassword(string sid, string token, string guid, string user_id, string uid, LoginPasswordEntity loginPassword)
+        {
+            var result = new MResult();
+            try
+            {
+                result = MemberBLL.ChangeLoginPassword(SystemType, loginPassword);
+            }
+            catch (Exception)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "处理 数据出错!";
             }
             return result;
         }

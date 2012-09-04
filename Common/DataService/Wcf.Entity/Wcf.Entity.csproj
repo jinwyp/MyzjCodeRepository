@@ -72,6 +72,7 @@
     <Compile Include="Goods\ItemGoodsSearch.cs" />
     <Compile Include="Member\ItemPermissions.cs" />
     <Compile Include="Member\LoginEntity.cs" />
+    <Compile Include="Member\LoginPasswordEntity.cs" />
     <Compile Include="Member\UserRegister.cs" />
     <Compile Include="Member\AddressEntity.cs" />
     <Compile Include="BaseData\CarriageDetail.cs" />

@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 using System.ServiceModel.Web;
 using Wcf.Entity.Member;
 using Core.DataType;
@@ -58,7 +59,7 @@ namespace Wcf.ServiceLibrary.Member
         /// <param name="token"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebGet(UriTemplate=MemberUri.LOGOUT)]
+        [WebGet(UriTemplate = MemberUri.LOGOUT)]
         MResult LogOut(string sid, string token, string guid, string user_id, string uid);
 
         /// <summary>
@@ -73,6 +74,20 @@ namespace Wcf.ServiceLibrary.Member
         [OperationContract]
         [WebGet(UriTemplate = MemberUri.RESETLOGINPASSWORD)]
         MResult ResetLoginPassword(string sid, string token, string guid, string user_id, string uid);
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="token"></param>
+        /// <param name="guid"></param>
+        /// <param name="user_id"></param>
+        /// <param name="uid"></param>
+        /// <param name="loginPassword"> </param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = MemberUri.CHANGELOGINPASSWORD)]
+        MResult ChangeLoginPassword(string sid, string token, string guid, string user_id, string uid, LoginPasswordEntity loginPassword);
 
         /// <summary>
         /// 获取用户信息
@@ -138,7 +153,7 @@ namespace Wcf.ServiceLibrary.Member
         /// <param name="guid"> </param>
         /// <returns></returns>
         [OperationContract]
-        [WebInvoke(Method="POST", UriTemplate=MemberUri.SETADDRESS)]
+        [WebInvoke(Method = "POST", UriTemplate = MemberUri.SETADDRESS)]
         MResult<int> SetAddress(string sid, string token, string guid, string user_id, string uid, AddressEntity address);
 
         /// <summary>
