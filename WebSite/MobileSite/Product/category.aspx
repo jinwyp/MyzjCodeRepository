@@ -47,7 +47,7 @@
                     {$T.dr.name}{$T.begin}</h3>
                 <ul data-role="listview">
                     {#foreach $T.dr.child as drC}
-                    <li><a class="SubZC" onclick="ShowDetails({#var $T.drC})" href="javascript:void(null);" >{$T.drC.name}</a></li>
+                    <li><a class="SubZC" onclick="ShowDetails({#var $T.drC},{$T.drC.id})" href="javascript:void(null);" >{$T.drC.name}</a></li>
                     {#/for}
                 </ul>
             </div>
@@ -58,7 +58,7 @@
                     {$T.dr.name}{$T.begin}</h3>
                 <ul data-role="listview">
                     {#foreach $T.dr.child as drC}
-                    <li><a class="SubZC" onclick="ShowDetails({#var $T.drC})" href="javascript:void(null);" >{$T.drC.name}</a></li>
+                    <li><a class="SubZC" onclick="ShowDetails({#var $T.drC},{$T.drC.id})" href="javascript:void(null);" >{$T.drC.name}</a></li>
                     {#/for}
                 </ul>
             </div>
@@ -67,7 +67,7 @@
     <script id="sub_category_template" type="text/template">
         <li data-role="list-divider">{$T.name}</li>
         {#foreach $T.child as drCC}
-        <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>" >{$T.drCC.name}</a>
+        <li><a class="cidA" href="javascript:void(0);" id="{$T.drCC.id}" >{$T.drCC.name}</a>
         </li>
         {#/for}
     </script>

@@ -257,8 +257,8 @@ var Unbind_bind = function (objs, eventName, callback) {
 //#region 跳转页面
 var Change_Url = function (diUrl) {
     //window.location.href = diUrl;
-    console.log("跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面");
-    $.mobile.changePage(diUrl, { reloadPage: true }); //, { transition: "slide" }
+    //console.log("跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面");
+    $.mobile.changePage(diUrl); //, { transition: "slide" }, { reloadPage: true }
 }
 //#endregion
 

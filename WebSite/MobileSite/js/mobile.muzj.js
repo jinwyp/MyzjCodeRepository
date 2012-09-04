@@ -352,12 +352,14 @@ var GoodProduct = {
         var token = $.cookie("m_token");
         var uid = $.cookie("m_uid");
         var obj = $.cookie("sorts") || "100";
+        //var cid = LS.get("categoryId") || 0; //分类ID
+        var cid = getParameter('categoryId') || 0;
         GoodProduct.sorts = "?" + obj;
         Change_DateIcon_Diao_Fun(GoodProduct.sorts);
 
         GetWcf({
             _api: "Goods.goodList",
-            _url: "0/0/0/0/" + obj + "/" + page + "/" + GoodProduct.pageSize
+            _url: "0/" + cid + "/0/0/" + obj + "/" + page + "/" + GoodProduct.pageSize
         }, function (jsonString) {
             if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list.length > 0) {
                 GoodProduct.lastPage = Math.ceil(jsonString.total / GoodProduct.pageSize);
@@ -1819,12 +1821,18 @@ function orderlist_Fun() {
 }
 //#endregion
 
-function ShowDetails(cust) {
-    if (cust != null) {
-        $.mobile.changePage("#Product_SubCategory_Page");
-        $('#sub_categoryList').setTemplate($('#sub_category_template').html());
-        $("#sub_categoryList").processTemplate(cust, null, { append: false });
-        $("#sub_categoryList").listview("refresh");
+function ShowDetails(cust, id) {
+
+    if (cust != null) {//alert(cust.child == null);
+        if (cust.child == null) { Change_Url(window.WebRoot + "Product/productlist.aspx?categoryId=" + id); } else {
+            Change_Url("#Product_SubCategory_Page");
+            $('#sub_categoryList').setTemplate($('#sub_category_template').html());
+            $("#sub_categoryList").processTemplate(cust, null, { append: false });
+            $("#sub_categoryList").listview("refresh");
+            Unbind_bind(".cidA", "click", function () {
+                Change_Url(window.WebRoot + "Product/productlist.aspx?categoryId=" + $(this).attr("id"));
+            });
+        }
     }
 }
 
@@ -1920,8 +1928,8 @@ var PageFuns = {
     Product_Category_Page: function () {
         Category.bindDate();
     },
-    Product_SubCategory_Page:function(){
-        
+    Product_SubCategory_Page: function () {
+        Category.bindDate();
     }
 };
 //#endregion
