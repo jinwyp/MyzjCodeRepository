@@ -628,8 +628,8 @@ function productDetail_Fun() {
             _url: "/" + area_id + "/" + product_id + "/" + num
         }, function (jsonString) {
             if (jsonString.status == 1) {
-                //window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
-                Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
+                window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                //Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
             } else {
                 alert(jsonString.msg);
             }
@@ -1116,8 +1116,8 @@ function orderconfirm_Fun() {
                     Change_Url(window.WebRoot + "CheckOut/makeorder.aspx");
                 } else if (json.status == "-2") {
                     alert(json.msg);
-                    //window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
-                    Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
+                    window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                    //Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
                 } else {
                     alert(json.msg);
                 }
