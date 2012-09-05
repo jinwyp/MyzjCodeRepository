@@ -8,7 +8,7 @@ function LoingOut() {
         }, function (json) {
             if (json.status == 1) {
                 RemoveLoginCookie();
-                Change_Url(window.WebRoot + "index.aspx");
+                window.location.href = window.WebRoot + "index.aspx";
             } else
                 alert(json.msg);
         }, true);
@@ -40,16 +40,16 @@ function Index_Fun() {
 
 //#region 登录
 function Login_Fun(addUrl) {
-    Unbind_bind("#email", "focus", function () {
-        jQuery("#ErroMesg").css("display", "none").text("");
+    Unbind_bind("#login_email", "focus", function () {
+        jQuery("#login_ErroMesg").css("display", "none").text("");
     });
     $("#frmLogin").validate({
         rules: {
-            email: {
+            login_email: {
                 required: true,
                 email: true
             },
-            password: {
+            login_password: {
                 required: true,
                 minlength: 6,
                 maxlength: 20
@@ -57,19 +57,19 @@ function Login_Fun(addUrl) {
         },
 
         messages: {
-            email: {
+            login_email: {
                 required: "请输入Email地址",
                 email: "请输入正确的email地址"
             },
-            password: {
+            login_password: {
                 required: "请输入密码",
                 minlength: jQuery.validator.format("密码不能小于{0}个字符"),
                 maxlength: jQuery.validator.format("密码不能最多超过{0}的字符")
             }
         },
         submitHandler: function (form) {
-            var email = $("#email").val();
-            var password = $("#password").val();
+            var email = $("#login_email").val();
+            var password = $("#login_password").val();
 
             var jobj = { uid: email, pwd: password };
 
@@ -87,7 +87,7 @@ function Login_Fun(addUrl) {
                     //window.location.href = wUr;
                     Change_Url(wUr);
                 } else
-                    jQuery("#ErroMesg").css("display", "block").text(json.msg);
+                    jQuery("#login_ErroMesg").css("display", "block").text(json.msg);
             }, true);
         }
     });
@@ -99,22 +99,22 @@ function Register_Fun(addUrl) {
     InitYear();
     jQuery('#select-choice-year').change(function () {
         InitMonth();
-    })
+    });
 
     jQuery('#select-choice-month').change(function () {
         InitDate();
-    })
+    });
 
     //alert(/checked_user/i.test(window.location.href));
     if (/checked_user/i.test(addUrl)) {
         $("#checkbox_agree").attr("checked", true).checkboxradio("refresh");
     }
-    $("#email").focus(function () {
-        jQuery("#ErroMesg").css("display", "none").text("");
+    $("#register_email").focus(function () {
+        jQuery("#register_ErroMesg").css("display", "none").text("");
     });
-    $("#email").val($.cookie("c_email"));
-    $("#password").val($.cookie("c_password"));
-    $("#mobile").val($.cookie("c_mobile"));
+    $("#register_email").val($.cookie("c_email"));
+    $("#register_password").val($.cookie("c_password"));
+    $("#register_mobile").val($.cookie("c_mobile"));
 
     $("#select-choice-year").val($.cookie("c_babybirth_year")).selectmenu('refresh');
     $("#select-choice-month").val($.cookie("c_babybirth_month")).selectmenu('refresh');
@@ -122,9 +122,9 @@ function Register_Fun(addUrl) {
     $("#select-choice-day").val($.cookie("c_babybirth_day")).selectmenu('refresh');
 
     Unbind_bind("#userpolicy", "click", function () {
-        var email = $("#email").val();
-        var password = $("#password").val();
-        var mobile = $("#mobile").val();
+        var email = $("#register_email").val();
+        var password = $("#register_password").val();
+        var mobile = $("#register_mobile").val();
         var babybirth_year = $("#select-choice-year").val();
         var babybirth_month = $("#select-choice-month").val();
         var babybirth_day = $("#select-choice-day").val();
@@ -152,7 +152,7 @@ function Register_Fun(addUrl) {
                 required: true,
                 minlength: 6,
                 maxlength: 20,
-                equalTo: "#password"
+                equalTo: "#register_password"
             },
             mobile: {
                 required: true,
@@ -213,10 +213,10 @@ function Register_Fun(addUrl) {
             if (!$("#checkbox_agree").attr("checked")) {
                 return;
             }
-            var email = $("#email").val();
-            var password = $("#password").val();
-            var confirm_password = $("#confirm_password").val();
-            var mobile = $("#mobile").val();
+            var email = $("#register_email").val();
+            var password = $("#register_password").val();
+            var confirm_password = $("#register_confirm_password").val();
+            var mobile = $("#register_mobile").val();
             var babybirthday = $("#select-choice-year").val() + "/" + $("#select-choice-month").val() + "/" + $("#select-choice-day").val();
 
             var jsonData = {};
@@ -243,7 +243,7 @@ function Register_Fun(addUrl) {
                     Change_Url(window.WebRoot + "Member/myaccount.aspx");
                 }
                 else
-                    jQuery("#ErroMesg").css("display", "block").text(json.msg);
+                    jQuery("#register_ErroMesg").css("display", "block").text(json.msg);
             }, true);
         }
     });
@@ -255,28 +255,26 @@ function Forgetpassword() {
     jQuery("#frmgetpassword").validate({
         errorElement: "span",
         rules: {
-            email: {
+            userEmail: {
                 required: true,
                 email: true
             }
         },
         messages: {
-            email: {
+            userEmail: {
                 required: "请输入Email地址",
                 email: "请输入正确的email地址 / 填写的用户名不存在"
             }
         },
         submitHandler: function (form) {
-            var email = $("#email").val() || "";
-            var jobj = { email: email };
+            var email = $("#userEmail").val() || "";
             if (email != "") {
-                PostWcf({
-                    _api: "Member.get_goodscategory_list",
-                    _data: JSON.stringify(jobj)
+                GetWcf({
+                    _api: "Member.reset_member_loginpassword",
+                    _url: email
                 }, function (jsonString) {
                     if (jsonString.status == 1) {
-                        window.location.href = window.WebRoot + "getpassword-success.aspx?email=" + email;
-                        //Change_Url(window.WebRoot + "getpassword-success.aspx");
+                        Change_Url(window.WebRoot + "getpassword-success.aspx?email=" + email);
                     } else {
                         alert(jsonString.msg);
                     }
@@ -290,8 +288,21 @@ function Forgetpassword() {
 
 //#region 找回密码成功后
 var ForgotPassword_Result = function () {
-    var email = getParameter('email') || "";
-
+    var email = (getParameter('email') || "").toString().toLowerCase();
+    var emaildomain, emailname;
+    emailname = email.split("@")[1];
+    for (var mail in emails) {
+        if (mail == emailname) {
+            emaildomain = emails[mail];
+        }
+    }
+    var $body = $("#getpassword_success");
+    $body.setTemplate($("#template_getpassword_success").html());
+    $body.processTemplate({
+        email: email,
+        emaildomain: emaildomain,
+        emailname: emailname
+    });
 }
 //#endregion
 
@@ -816,6 +827,7 @@ function shoppingcart_Fun() {
     //#region 删除购物车
     var del_ShoppingCart = function () {
         $("#shoppingCart_list a.Del_id").live("click", function () {
+            var $obj = $(this);
             var intShopCartID = $(this).attr("delete_id");
             product_id = $(this).attr("product_id");
             GetWcf({
@@ -824,7 +836,11 @@ function shoppingcart_Fun() {
             }, function (jsonString) {
                 if (jsonString.status == 1) {
                     Get_shoppingcartgoodsnum_Fun();
-                    BindDate_Shopcart();
+                    $obj.parents("li").fadeOut(500, function () {
+                        $(this).remove();
+                        $('#shoppingCart_list').trigger('create').listview("refresh");
+                    });
+                    //BindDate_Shopcart();
                 } else {
                     $("#error_" + product_id).text(jsonString.msg);
                 }
@@ -1677,6 +1693,7 @@ function address_edit_Fun() {
 
 //#region 订单成功页面
 var makeorder_Fun = function () {
+
     var make_oid = LS.get("make_ocode") || "no_c";
     var make_total_order = LS.get("make_total_order") || "no_c";
     var make_paytype = LS.get("make_paytype") || "no_c";
@@ -1699,6 +1716,8 @@ var makeorder_Fun = function () {
     make_Nub("make_paytype", make_paytype); //支付方式
     make_Nub("make_logisticstype", make_logisticstype); //配送方式
     make_Nub("make_posttimetype", make_posttimetype); //送货时间
+
+    $("#checkOrderDetail").attr("href", $("#orderdetail_url").val() + make_oid);
 
     if (make_paytype === "货到付款") {
         $("#online_pay").css("display", "none");
@@ -2032,7 +2051,7 @@ $(function () {
     PageFun.Init();
     Unbind_bind(document, "pagechange", function (event, data) {
         //Log(data.toPage[0].id);
-
+        Log($("#" + data.toPage[0].id));
         PageFun.Init(data.toPage[0].id, data);
     });
 

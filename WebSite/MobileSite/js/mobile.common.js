@@ -262,13 +262,14 @@ var Change_Url = function (diUrl) {
 }
 //#endregion
 
-//输出日志
+//#region 输出日志
 var Log = function (logstr) {
     if (typeof (window.console) == "object")
         window.console.log(logstr);
     else
         alert(logstr);
 };
+//#endregion
 
 //#region 获取url中的参数
 var getParameter = function (name) {
@@ -312,7 +313,7 @@ var timeDate = function (obj) {
 }
 //#endregion
 
-//验证用户Cookie 信息（登录信息）
+//#region  验证用户Cookie 信息（登录信息）
 var VerifyUserCookie = function () {
     var token = $.cookie("m_token");
     var uid = $.cookie("m_uid");
@@ -330,8 +331,9 @@ var VerifyUserCookie = function () {
     } else LinkToLogin();
 };
 VerifyUserCookie.loading = false;
+//#endregion
 
-//重新登录 通过Token
+//#region 重新登录 通过Token
 var ReLogin = function (uid, token) {
     if (VerifyUserCookie.loading == false) {
         VerifyUserCookie.loading = true;
@@ -348,9 +350,10 @@ var ReLogin = function (uid, token) {
             } else
                 if (Debug)
                     Log("获取数据失败");
-        });
-    }
+    });
+}
 };
+//#endregion
 
 //#region localStorage
 var LS = {
@@ -371,7 +374,7 @@ var LS = {
 };
 //#endregion
 
-//更新（写入）用户信息到Cookie（登录）
+//#region 更新（写入）用户信息到Cookie（登录）
 var UpdateLoginCookie = function (user_id, uid, token) {
     $.cookie("m_user_id", user_id);
     $.cookie("m_token", token);
@@ -381,8 +384,9 @@ var UpdateLoginCookie = function (user_id, uid, token) {
     var md5 = hex_md5(user_id + uid + token + lastUpdateTime);
     $.cookie("m_md5", md5);
 };
+//#endregion
 
-//清除用户信息（退出）
+//#region 清除用户信息（退出）
 var RemoveLoginCookie = function () {
     $.cookie("m_user_id", null);
     $.cookie("m_token", null);
@@ -392,8 +396,9 @@ var RemoveLoginCookie = function () {
     LS.clear();
     Get_shoppingcartgoodsnum_Fun();
 };
+//#endregion
 
-//跳转到登录页面
+//#region 跳转到登录页面
 var LinkToLogin = function () {
 
     var url = window.location.href;
@@ -403,8 +408,9 @@ var LinkToLogin = function () {
     }
 
 };
+//#endregion
 
-//获取url参数的值
+//#region 获取url参数的值
 var GetUrlParam = function (pName) {
 
     if (typeof (window.location.paramobj) == 'undefined') {
@@ -430,6 +436,33 @@ var GetUrlParam = function (pName) {
         return decodeURIComponent(window.location.paramobj[pName]);
     }
 };
+//#endregion
+
+//#region 所有邮箱列表
+var emails = {
+    'qq.com': 'http://mail.qq.com',
+    'gmail.com': 'http://mail.google.com',
+    'sina.com': 'http://mail.sina.com.cn',
+    '163.com': 'http://mail.163.com',
+    '126.com': 'http://mail.126.com',
+    'yeah.net': 'http://www.yeah.net/',
+    'sohu.com': 'http://mail.sohu.com/',
+    'tom.com': 'http://mail.tom.com/',
+    'sogou.com': 'http://mail.sogou.com/',
+    '139.com': 'http://mail.10086.cn/',
+    'hotmail.com': 'http://www.hotmail.com',
+    'live.com': 'http://login.live.com/',
+    'live.cn': 'http://login.live.cn/',
+    'live.com.cn': 'http://login.live.com.cn',
+    '189.com': 'http://webmail16.189.cn/webmail/',
+    'yahoo.com.cn': 'http://mail.cn.yahoo.com/',
+    'yahoo.cn': 'http://mail.cn.yahoo.com/',
+    'eyou.com': 'http://www.eyou.com/',
+    '21cn.com': 'http://mail.21cn.com/',
+    '188.com': 'http://www.188.com/',
+    'foxmail.coom': 'http://www.foxmail.com'
+};
+//#endregion
 
 //#endregion
 

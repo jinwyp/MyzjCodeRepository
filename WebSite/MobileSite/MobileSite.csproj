@@ -304,6 +304,7 @@
     <Content Include="CheckOut\deliverylist.aspx" />
     <Content Include="CheckOut\makeorder.aspx" />
     <Content Include="CheckOut\onlinepayment.aspx" />
+    <None Include="Configs\restful.config" />
     <Content Include="Footer.ascx" />
     <Content Include="Global.asax" />
     <Content Include="Header.ascx" />

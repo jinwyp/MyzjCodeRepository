@@ -91,13 +91,21 @@ namespace Wcf.SpringDotNetAdvice
                             }
                             //result = invocation.Proceed();
                         }
+                        else
+                        {
+                            result = invocation.Method.Invoke(invocation.This, args);
+                        }
                     }
                     else
                     {
                         result = invocation.Method.Invoke(invocation.This, args);
                     }
                 }
-
+                if (result == null)
+                {
+                    var resultType = invocation.Method.ReturnType;
+                    result = Activator.CreateInstance(resultType);
+                }
                 return result;
             }
             catch (Exception ex)

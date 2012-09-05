@@ -18,26 +18,26 @@
         <form id="frmReg" action="login.aspx">
         <div data-role="fieldcontain" class="ui-hide-label">
             <fieldset data-role="controlgroup">
-                <label for="email">
+                <label for="register_email">
                     邮箱地址</label>
-                <input type="text" id="email" name="email" class="required email" placeholder="请填写有效的Email地址"
+                <input type="text" id="register_email" name="email" class="required email" placeholder="请填写有效的Email地址"
                     value="" />
-                <span id="ErroMesg" class="error" generated="true" style="display:none"></span>
+                <span id="register_ErroMesg" class="error" generated="true" style="display:none"></span>
             </fieldset>
         </div>
         <div data-role="fieldcontain" class="ui-hide-label">
             <fieldset data-role="controlgroup">
-                <label for="password">
+                <label for="register_password">
                     密码</label>
-                <input type="password" id="password" name="password" class="required" placeholder="请输入密码,为6-20位英文字母、字符或数字"
+                <input type="password" id="register_password" name="password" class="required" placeholder="请输入密码,为6-20位英文字母、字符或数字"
                     value="" />
             </fieldset>
         </div>
         <div data-role="fieldcontain" class="ui-hide-label">
             <fieldset data-role="controlgroup">
-                <label for="confirm_password">
+                <label for="register_confirm_password">
                     确认密码</label>
-                <input type="password" id="confirm_password" name="confirm_password" class="required"
+                <input type="password" id="register_confirm_password" name="confirm_password" class="required"
                     placeholder="请输入确认密码" value="" />
             </fieldset>
         </div>
@@ -45,7 +45,7 @@
             <fieldset data-role="controlgroup">
                 <label for="mobile">
                     手机号码</label>
-                <input type="text" id="mobile" name="mobile" class="required" placeholder="请输入手机号用于接收母婴之家优惠礼券"
+                <input type="text" id="register_mobile" name="mobile" class="required" placeholder="请输入手机号用于接收母婴之家优惠礼券"
                     value="" />
             </fieldset>
         </div>

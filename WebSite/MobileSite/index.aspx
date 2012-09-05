@@ -18,8 +18,8 @@
         <div class="content-primary">
             <div class="camera_wrap camera_azure_skin" id="foucsPic">
             </div>
-<div id="picList" style="display: none;">
-<div data-src="/images/slides/Accessories0705_1000x400.jpg">
+            <div id="picList" style="display: none;">
+                <div data-src="/images/slides/Accessories0705_1000x400.jpg">
                 </div>
                 <div data-src="/images/slides/Diapers0710_1000x400.jpg">
                 </div>
@@ -45,7 +45,7 @@
                 </span>推荐品牌</a> </li>
             </ul>
             <ul data-role="listview" data-inset="true" data-dividertheme="d">
-                <li data-role="list-divider">公告11</li>
+                <li data-role="list-divider">公告</li>
                 <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail() %>">在线客服试运行 </a></li>
                 <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail() %>">在线客服试运行 </a></li>
                 <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail() %>">在线客服试运行 </a></li>

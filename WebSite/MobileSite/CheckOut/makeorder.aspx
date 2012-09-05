@@ -29,7 +29,9 @@
             <label>
                 送货时间：</label><span id="make_posttimetype"></span>
         </div>
-        <a id="online_pay" style="display:none;" data-role="button" href="<%= MobileSite.BaseLib.WebUrls.onlinepayment() %>" data-theme="a">继续完成在线支付 </a><a id="checkOrderDetail" data-role="button"
-            href="#" data-theme="c">查看订单 </a>
+        <a id="online_pay" style="display: none;" data-role="button" href="<%= MobileSite.BaseLib.WebUrls.onlinepayment() %>"
+            data-theme="a">继续完成在线支付 </a><a id="checkOrderDetail" data-role="button" href="" data-theme="c">
+                查看订单 </a>
+        <input type="hidden" id="orderdetail_url" value="<%= MobileSite.BaseLib.WebUrls.orderdetail("") %>" />
     </div>
 </asp:Content>

@@ -26,7 +26,7 @@ namespace MobileSite.BaseLib
             string xmlPath = string.Format("{0}/Configs/SiteUrls.config",
                                            HttpContext.Current.Server.MapPath("/").TrimEnd('/'));
             const string urlsCacheKey = "CONFIG_URLS";
-            const string locationsCacheKey = "CONFIG_LOCATIONS";
+            const string locationsCacheKey = "CONFIG_URL_LOCATIONS";
             Urls = new Dictionary<string, string>();
             Locations = new Dictionary<string, string>();
 
@@ -187,15 +187,6 @@ namespace MobileSite.BaseLib
         public static string ThemesRoot()
         {
             return GetUrlData("ThemesRoot");
-        }
-
-        /// <summary>
-        /// 获取 Wcf Host
-        /// </summary>
-        /// <returns></returns>
-        public static string WcfHost()
-        {
-            return GetUrlData("WcfHost");
         }
 
         /// <summary>

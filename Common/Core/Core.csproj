@@ -125,6 +125,7 @@
     <Compile Include="ExtMethod\RequestExt.cs" />
     <Compile Include="ExtMethod\StringExt.cs" />
     <Compile Include="ExtMethod\TypeExt.cs" />
+    <Compile Include="FileUtility\XmlFileUtility.cs" />
     <Compile Include="Ioc\MIocUtility.cs" />
     <Compile Include="LogUtility\LogCustomEntity.cs" />
     <Compile Include="LogUtility\LogCustomLayout.cs" />

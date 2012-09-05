@@ -18,7 +18,7 @@
             <fieldset data-role="controlgroup">
                 <label for="email">
                     邮箱地址</label>
-                <input type="text" id="email" name="email" class="required email" placeholder="请填写您注册时的Email地址"
+                <input type="text" id="userEmail" name="userEmail" class="required email" placeholder="请填写您注册时的Email地址"
                     value="" />
             </fieldset>
         </div>

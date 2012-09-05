@@ -16,18 +16,18 @@
         <form id="frmLogin" action="myaccount.aspx">
         <div data-role="fieldcontain">
             <fieldset data-role="controlgroup" id="test">
-                <label for="email">
+                <label for="login_email">
                     邮箱地址</label>
-                <input type="text" id="email" name="email" class="required email" placeholder="请填写Email地址"
+                <input type="text" id="login_email" name="login_email" class="required email" placeholder="请填写Email地址"
                     value="" />
-                <span id="ErroMesg" class="error" generated="true" style="display: none"></span>
+                <span id="login_ErroMesg" class="error" generated="true" style="display: none"></span>
             </fieldset>
         </div>
         <div data-role="fieldcontain">
             <fieldset data-role="controlgroup">
-                <label for="password">
+                <label for="login_password">
                     密码</label>
-                <input type="password" id="password" name="password" class="required" placeholder="请输入密码"
+                <input type="password" id="login_password" name="login_password" class="required" placeholder="请输入密码"
                     value="" />
             </fieldset>
         </div>
