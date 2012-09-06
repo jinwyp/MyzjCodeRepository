@@ -409,20 +409,39 @@ var GoodProduct = {
     NextPage: function (evt) {
         //#region 下一页
         evt.preventDefault();
+        ft = $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
+        if($(document).scrollTop()+$(window).height()<ft){
+            return false;
+        }
         GoodProduct.DisplayProgressIndication();
         GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
         //currentPage = parseInt(currentPage) + parseInt(1);
         //DisplayUI(currentPage, $.cookie("sorts"));
         GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
-        //#endregion
+        //#endregion;
     },
     UpdatePaging: function () {
         //#region 更新分页数据
         if (GoodProduct.currentPage != GoodProduct.lastPage) {
             $("#morePage").show();
-            Unbind_bind("#morePage", "click", GoodProduct.NextPage);
+            Unbind_bind("#morePage", "tap", GoodProduct.NextPage);
+            $(document).bind("swipeup",function(evt){
+                var set_scroll_back;
+                if(set_scroll_back){clearTimeout(set_scroll_back)};
+                set_scroll_back = setTimeout(function(){
+                    evt.preventDefault();
+                    ft = $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
+                    if($(document).scrollTop()+$(window).height()<ft){
+                        return false;
+                    }
+                    GoodProduct.DisplayProgressIndication();
+                    GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
+                    GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
+                },0)
+            });
         } else {
-            $("#morePage").hide().unbind("click");
+            $("#morePage").hide().unbind("tap");
+            $(document).unbind("swipeup")
         }
         //#endregion
     },
@@ -493,7 +512,7 @@ function myAccount_Fun() {
 }
 //#endregion
 
-//#region 最小值  
+//#region 最小值
 Array.prototype.min = function () {
     var min = this[0];
     var len = this.length;
@@ -506,7 +525,7 @@ Array.prototype.min = function () {
 }
 //#endregion
 
-//#region 最大值  
+//#region 最大值
 Array.prototype.max = function () {
     var max = this[0];
     var len = this.length;
@@ -535,7 +554,7 @@ var Font_Width_Fun = function (element) {
     var _fontNum = Font_Num_Fun(element);
     //alert(parseInt(_fontNum) * parseInt(10) + "px");
     $(".ui-font-width").css("width", parseInt(_fontNum) * parseInt(14) + "px");
-}
+};
 //#endregion
 
 //#region 给商品菜单加click事件
@@ -587,7 +606,7 @@ function productDetail_Fun() {
             Font_Width_Fun(jsonString.info);
         } else {
             alert(jsonString.msg);
-        }
+        };
     }, false);
     //#endregion
 
@@ -628,8 +647,8 @@ function productDetail_Fun() {
             _url: "/" + area_id + "/" + product_id + "/" + num
         }, function (jsonString) {
             if (jsonString.status == 1) {
-                window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
-                //Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
+                //window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
             } else {
                 alert(jsonString.msg);
             }
@@ -667,7 +686,7 @@ function productDetail_Fun() {
         } else {
             $("#imgNex_Pre").css("display", "none");
         }
-        //上一张图片 
+        //上一张图片
         function prev_Fun() {
             n = n == 0 ? (num - 1) : (n - 1);
             $("#imggallerynum").text((n + 1) + "/" + num);
@@ -686,7 +705,7 @@ function productDetail_Fun() {
 
         }
 
-        //下一张图片 
+        //下一张图片
         function next_Fun() {
             n = n >= (num - 1) ? 0 : n + 1;
             $("#imggallerynum").text((n + 1) + "/" + num);
@@ -984,7 +1003,7 @@ var calculation_shipping_costs_Fun = function () {
             //Final_Price();
         }, true);
     }
-}
+};
 //#endregion
 
 //#region 去结算页面
@@ -1116,8 +1135,8 @@ function orderconfirm_Fun() {
                     Change_Url(window.WebRoot + "CheckOut/makeorder.aspx");
                 } else if (json.status == "-2") {
                     alert(json.msg);
-                    window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
-                    //Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
+                    //window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                    Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
                 } else {
                     alert(json.msg);
                 }
@@ -2046,6 +2065,82 @@ PageFun.Init = function (pageId, objToPage) {
 //#endregion
 
 //#endregion
+
+// swipeup & swipedown 扩展方法
+(function() {
+    var supportTouch = $.support.touch,
+        scrollEvent = "touchmove scroll",
+        touchStartEvent = supportTouch ? "touchstart" : "mousedown",
+        touchStopEvent = supportTouch ? "touchend" : "mouseup",
+        touchMoveEvent = supportTouch ? "touchmove" : "mousemove",
+        ft = $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
+
+    $.event.special.swipeupdown = {
+        setup: function() {
+            var thisObject = this;
+            var $this = $(thisObject);
+
+            $this.bind(touchStartEvent, function(event) {
+                var data = event.originalEvent.touches ?
+                        event.originalEvent.touches[ 0 ] :
+                        event,
+                    start = {
+                        time: (new Date).getTime(),
+                        coords: [ data.pageX, data.pageY ],
+                        origin: $(event.target)
+                    },
+                    stop;
+
+                function moveHandler(event) {
+                    if (!start) {
+                        return;
+                    }
+
+                    var data = event.originalEvent.touches ?
+                        event.originalEvent.touches[ 0 ] :
+                        event;
+                    stop = {
+                        time: (new Date).getTime(),
+                        coords: [ data.pageX, data.pageY ]
+                    };
+
+//                    // prevent scrolling
+//                    if (Math.abs(start.coords[1] - stop.coords[1]) > 10) {
+//                        event.preventDefault();
+//                    }
+                }
+
+                $this
+                    .bind(touchMoveEvent, moveHandler)
+                    .one(touchStopEvent, function(event) {
+                        $this.unbind(touchMoveEvent, moveHandler);
+                        if (start && stop) {
+                            if (stop.time - start.time > 200 && stop.time - start.time < 1000 &&
+                                Math.abs(start.coords[1] - stop.coords[1]) > 40 &&
+                                Math.abs(start.coords[0] - stop.coords[0]) < 75 && $(window).height()+$(document).scrollTop()>=ft) {
+                                start.origin
+                                    .trigger("swipeupdown")
+                                    .trigger(start.coords[1] > stop.coords[1] ? "swipeup" : "swipedown");
+                            }
+                        }
+                        start = stop = undefined;
+                    });
+            });
+        }
+    };
+
+    $.each({
+        swipedown: "swipeupdown",
+        swipeup: "swipeupdown"
+    }, function(event, sourceEvent){
+        $.event.special[event] = {
+            setup: function(){
+                $(this).bind(sourceEvent, $.noop);
+            }
+        };
+    });
+
+})();
 
 $(function () {
     PageFun.Init();
