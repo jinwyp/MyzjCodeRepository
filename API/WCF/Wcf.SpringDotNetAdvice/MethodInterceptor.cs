@@ -19,6 +19,9 @@ using Spring.Web.Support;
 
 namespace Wcf.SpringDotNetAdvice
 {
+    /// <summary>
+    /// 拦截方法
+    /// </summary>
     public class MethodInterceptor : IMethodInterceptor
     {
         /// <summary>
@@ -34,6 +37,8 @@ namespace Wcf.SpringDotNetAdvice
             try
             {
                 shopWatch.Start();
+
+                var resultType = invocation.Method.ReturnType;
 
                 //{sid}/{token}/{guid}/{user_id}/{uid}
                 var args = invocation.Arguments;
@@ -78,11 +83,10 @@ namespace Wcf.SpringDotNetAdvice
                                     var cacheKey = string.Format("{0}_{1}", methodName,
                                                                  string.Join("_", invocation.Arguments));
 
-                                    result = MCacheManager.UseCached<object>(cacheKey,
-                                                                             MCaching.CacheGroup.Pemissions,
-                                                                             () =>
-                                                                             invocation.Method.Invoke(invocation.This,
-                                                                                                      args));
+
+
+                                    result = MCacheManager.UseCached<dynamic>(cacheKey, MCaching.CacheGroup.Pemissions,
+                                                                             () => invocation.Method.Invoke(invocation.This, args));
                                 }
                                 else
                                 {
@@ -103,7 +107,6 @@ namespace Wcf.SpringDotNetAdvice
                 }
                 if (result == null)
                 {
-                    var resultType = invocation.Method.ReturnType;
                     result = Activator.CreateInstance(resultType);
                 }
                 return result;

@@ -144,7 +144,7 @@ namespace Core.Caching
                 T cacheResult;
                 if (cache.Contains(key, cacheGroup))
                 {
-                    cacheResult = cache.GetValByKey<T>(key, cacheGroup);
+                    cacheResult = (T)cache.GetValByKey<T>(key, cacheGroup);
                     return cacheResult;
                 }
                 else

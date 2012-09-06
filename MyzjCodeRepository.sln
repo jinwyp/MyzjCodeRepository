@@ -63,7 +63,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Resources", "Resources\", "
 		VWDPort = "16005"
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6_ResourcesWeb", "6_ResourcesWeb", "{582B8194-06B4-4599-B3F4-F36825062489}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6_ResourcesSite", "6_ResourcesSite", "{582B8194-06B4-4599-B3F4-F36825062489}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{033B655C-A65C-43E3-A879-33B9B92247F0}"
 EndProject
@@ -75,6 +75,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		MyzjCodeRepository.vsmdi = MyzjCodeRepository.vsmdi
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageCenter", "ResourcesSite\ManageCenter\ManageCenter.csproj", "{3CBE4C9F-B7B8-4580-914C-3AE6D32F11E5}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -141,6 +143,10 @@ Global
 		{9A26962A-277E-41C9-9976-2B10B6A8CA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A26962A-277E-41C9-9976-2B10B6A8CA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A26962A-277E-41C9-9976-2B10B6A8CA62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CBE4C9F-B7B8-4580-914C-3AE6D32F11E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CBE4C9F-B7B8-4580-914C-3AE6D32F11E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CBE4C9F-B7B8-4580-914C-3AE6D32F11E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CBE4C9F-B7B8-4580-914C-3AE6D32F11E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -162,6 +168,7 @@ Global
 		{F8D0E5C4-FAAC-4B6D-BCBB-C81CA9424E6E} = {7D790905-929A-49F3-A000-797D7F4F4CE8}
 		{4ACD0453-6F92-4813-8B91-3A63251F8ACA} = {7D790905-929A-49F3-A000-797D7F4F4CE8}
 		{326BF8F1-186E-432E-94BB-F092D7EF0212} = {28D23F35-2D63-4ADF-80DC-5F0195B60764}
+		{3CBE4C9F-B7B8-4580-914C-3AE6D32F11E5} = {582B8194-06B4-4599-B3F4-F36825062489}
 		{9A26962A-277E-41C9-9976-2B10B6A8CA62} = {033B655C-A65C-43E3-A879-33B9B92247F0}
 		{3969D62D-4915-4B4E-A18C-87FB816DE5F7} = {033B655C-A65C-43E3-A879-33B9B92247F0}
 	EndGlobalSection
