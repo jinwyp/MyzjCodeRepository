@@ -9,8 +9,9 @@ function LoingOut() {
             if (json.status == 1) {
                 RemoveLoginCookie();
                 window.location.href = window.WebRoot + "index.aspx";
-            } else
-                alert(json.msg);
+            } else {
+                alert(json.msg)
+            };
         }, true);
     });
 }
@@ -425,6 +426,7 @@ var GoodProduct = {
         if (GoodProduct.currentPage != GoodProduct.lastPage) {
             $("#morePage").show();
             Unbind_bind("#morePage", "tap", GoodProduct.NextPage);
+            // 拖拽加载
             $(document).bind("swipeup",function(evt){
                 var set_scroll_back;
                 if(set_scroll_back){clearTimeout(set_scroll_back)};
@@ -437,7 +439,7 @@ var GoodProduct = {
                     GoodProduct.DisplayProgressIndication();
                     GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
                     GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
-                },0)
+                },0);
             });
         } else {
             $("#morePage").hide().unbind("tap");
