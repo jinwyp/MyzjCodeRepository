@@ -423,8 +423,8 @@ var GoodProduct = {
             //currentPage = parseInt(currentPage) + parseInt(1);
             //DisplayUI(currentPage, $.cookie("sorts"));
             GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
-            //#endregion;
         }
+        //#endregion;
     },
     UpdatePaging: function () {
         //#region 更新分页数据
