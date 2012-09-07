@@ -243,10 +243,8 @@ function Register_Fun(addUrl) {
                     //window.location.href = window.WebRoot + "Member/myaccount.aspx";
                     Change_Url(window.WebRoot + "Member/myaccount.aspx");
                 }
-                else {
-                    $(".gotop").tap();
+                else
                     jQuery("#register_ErroMesg").css("display", "block").text(json.msg);
-                }
             }, true);
         }
     });
@@ -409,39 +407,39 @@ var GoodProduct = {
         }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
         //#endregion
     },
+    CheckIsnotLoading:function(){
+        return $('#loading_list').is(":hidden");
+    },
+    CheckIsBottom:function(){
+        return $(window).height()+$(document).scrollTop() > $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
+    },
     NextPage: function (evt) {
         //#region 下一页
         evt.preventDefault();
-        ft = $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
-        if($(document).scrollTop()+$(window).height()<ft){
-            return false;
+        if(GoodProduct.CheckIsnotLoading()){
+            GoodProduct.DisplayProgressIndication();
+            GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
+            //currentPage = parseInt(currentPage) + parseInt(1);
+            //DisplayUI(currentPage, $.cookie("sorts"));
+            GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
+            //#endregion;
         }
-        GoodProduct.DisplayProgressIndication();
-        GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
-        //currentPage = parseInt(currentPage) + parseInt(1);
-        //DisplayUI(currentPage, $.cookie("sorts"));
-        GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
-        //#endregion;
     },
     UpdatePaging: function () {
         //#region 更新分页数据
         if (GoodProduct.currentPage != GoodProduct.lastPage) {
             $("#morePage").show();
-            Unbind_bind("#morePage", "tap", GoodProduct.NextPage);
+            //Unbind_bind("#morePage", "tap", GoodProduct.NextPage);
+            $("#morePage").one("tap",GoodProduct.NextPage);
             // 拖拽加载
-            $(document).bind("swipeup",function(evt){
-                var set_scroll_back;
-                if(set_scroll_back){clearTimeout(set_scroll_back)};
-                set_scroll_back = setTimeout(function(){
-                    evt.preventDefault();
-                    ft = $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
-                    if($(document).scrollTop()+$(window).height()<ft){
-                        return false;
-                    }
-                    GoodProduct.DisplayProgressIndication();
-                    GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
-                    GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
-                },0);
+            $(document).one("swipeup",function(){
+                if(GoodProduct.CheckIsBottom() && GoodProduct.CheckIsnotLoading()){
+                    setTimeout(function(){
+                        GoodProduct.DisplayProgressIndication();
+                        GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
+                        GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
+                    },0);
+                }
             });
         } else {
             $("#morePage").hide().unbind("tap");
@@ -876,9 +874,9 @@ function shoppingcart_Fun() {
     Unbind_bind("#ShoppingCart_btn", "click", function (e) {
         if (parseInt($("#good_totals").text()) > 0) {
             $('html, body').animate({
-                scrollTop: $(document).height()
-            },
-        1500);
+                    scrollTop: $(document).height()
+                },
+                1500);
 
             //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
             Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
@@ -1120,19 +1118,19 @@ function orderconfirm_Fun() {
                     LS.clear(); //先清再存
                     var delivery_array = {
                         slides: [
-                                "make_ocode", //订单号
-                                "make_total_order", //应付金额
-                                "make_paytype", //支付方式
-                                "make_logisticstype", //配送方式
-                                "make_posttimetype" //送货时间
-                            ],
+                            "make_ocode", //订单号
+                            "make_total_order", //应付金额
+                            "make_paytype", //支付方式
+                            "make_logisticstype", //配送方式
+                            "make_posttimetype" //送货时间
+                        ],
                         values: [
-                                json.info.ocode,
-                                json.info.total_order,
-                                json.info.paytype,
-                                json.info.logisticstype,
-                                json.info.posttimetype
-                            ]
+                            json.info.ocode,
+                            json.info.total_order,
+                            json.info.paytype,
+                            json.info.logisticstype,
+                            json.info.posttimetype
+                        ]
                     };
                     Delivery_info_Object(delivery_array);
                     //window.location.href = window.WebRoot + "CheckOut/makeorder.aspx";
@@ -1297,7 +1295,7 @@ function paymentlist_Fun() {
                 "delivery_sh_time_id", //送货时间的值
                 "delivery_fk_text", //付款类型名称  如现金
                 "delivery_fk_id"//付款类型值
-                    ]
+            ]
         };
         Delelt_Delivery_info_Object(delivery_array);
         //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
@@ -1386,7 +1384,7 @@ function deliverylist_Fun() {
                 "delivery_sh_time_id", //送货时间的值
                 "delivery_fk_text", //付款类型名称  如现金
                 "delivery_fk_id"//付款类型值
-                    ],
+            ],
             values: [
                 $("[name = radio-type-1]:radio:checked").parent().find("span.ui-btn-text").text() || "null",
                 $("[name = radio-type-1]:radio:checked").attr("value") || "null",
@@ -1477,7 +1475,7 @@ function invoice_Fun() {
                 "FaTHeader", //发票抬头
                 "invoice_Type", //发票类型
                 "invoice_Type_Text"
-                    ],
+            ],
             values: [
                 isorInvice,
                 FaTHeader,
@@ -2076,8 +2074,7 @@ PageFun.Init = function (pageId, objToPage) {
         scrollEvent = "touchmove scroll",
         touchStartEvent = supportTouch ? "touchstart" : "mousedown",
         touchStopEvent = supportTouch ? "touchend" : "mouseup",
-        touchMoveEvent = supportTouch ? "touchmove" : "mousemove",
-        ft = $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
+        touchMoveEvent = supportTouch ? "touchmove" : "mousemove";
 
     $.event.special.swipeupdown = {
         setup: function() {
@@ -2120,8 +2117,8 @@ PageFun.Init = function (pageId, objToPage) {
                         $this.unbind(touchMoveEvent, moveHandler);
                         if (start && stop) {
                             if (stop.time - start.time > 200 && stop.time - start.time < 1000 &&
-                                Math.abs(start.coords[1] - stop.coords[1]) > 40 &&
-                                Math.abs(start.coords[0] - stop.coords[0]) < 75 && $(window).height()+$(document).scrollTop()>=ft) {
+                                Math.abs(start.coords[1] - stop.coords[1]) > 30 &&
+                                Math.abs(start.coords[0] - stop.coords[0]) < 75 ) {
                                 start.origin
                                     .trigger("swipeupdown")
                                     .trigger(start.coords[1] > stop.coords[1] ? "swipeup" : "swipedown");
