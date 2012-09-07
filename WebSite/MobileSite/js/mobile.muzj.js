@@ -242,9 +242,10 @@ function Register_Fun(addUrl) {
                     $.cookie("c_babybirth_day", null);
                     //window.location.href = window.WebRoot + "Member/myaccount.aspx";
                     Change_Url(window.WebRoot + "Member/myaccount.aspx");
-                }
-                else
+                } else {
+                    $(".gotop").tap();
                     jQuery("#register_ErroMesg").css("display", "block").text(json.msg);
+                }
             }, true);
         }
     });
