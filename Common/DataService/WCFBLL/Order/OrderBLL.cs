@@ -695,6 +695,7 @@ namespace Wcf.BLL.Order
                                              titletype = orderInfo.InvoiceType,
                                              mobile = orderInfo.Mobile,
                                              paytype = orderInfo.PayType,
+                                             paytypeid = orderInfo.PayId,
                                              statusid = orderInfo.OrderStatusId,
                                              zip = orderInfo.Zip,
                                              paystatus = orderInfo.PayStatus,

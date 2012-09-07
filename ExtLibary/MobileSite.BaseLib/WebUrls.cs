@@ -336,9 +336,9 @@ namespace MobileSite.BaseLib
         /// </summary>
         /// <param name="gid"></param>
         /// <returns></returns>
-        public static string onlinepayment()
+        public static string onlinepayment(object ocode,object paygroup)
         {
-            return GetUrlData("onlinepayment");
+            return GetUrlData("onlinepayment", ocode, paygroup);
         }
 
         /// <summary>

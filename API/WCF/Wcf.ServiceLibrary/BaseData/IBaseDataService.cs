@@ -21,7 +21,22 @@ namespace Wcf.ServiceLibrary.BaseData
         /// <returns></returns>
         [WebGet(UriTemplate = BaseDataUri.GETPAYMENTLIST)]
         [OperationContract]
-        MResultList<ItemPay> GetPayList(string sid, string token, string guid, string user_id, string uid, string regionid);
+        MResultList<ItemPay> GetPayMentList(string sid, string token, string guid, string user_id, string uid, string regionid);
+
+        /// <summary>
+        /// 获取支付列表
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="token"></param>
+        /// <param name="guid"></param>
+        /// <param name="user_id"></param>
+        /// <param name="uid"></param>
+        /// <param name="paygroupid"></param>
+        /// <returns></returns>
+        [WebGet(UriTemplate = BaseDataUri.GETPAYLIST)]
+        [OperationContract]
+        MResultList<ItemPay> GetPayList(string sid, string token, string guid, string user_id, string uid,
+                                                 string paygroupid);
 
         /// <summary>
         /// 获取配送方式
@@ -59,7 +74,7 @@ namespace Wcf.ServiceLibrary.BaseData
         /// <param name="user_id"></param>
         /// <param name="uid"></param>
         /// <returns></returns>
-        [WebGet(UriTemplate=BaseDataUri.GETALLREGIONLIST)]
+        [WebGet(UriTemplate = BaseDataUri.GETALLREGIONLIST)]
         [OperationContract]
         MResult<List<ItemRegion>[]> GetAllRegionList(string sid, string token, string guid, string user_id, string uid);
 

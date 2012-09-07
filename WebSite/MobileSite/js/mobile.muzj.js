@@ -412,8 +412,8 @@ var GoodProduct = {
     NextPage: function (evt) {
         //#region 下一页
         evt.preventDefault();
-        ft = $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
-        if($(document).scrollTop()+$(window).height()<ft){
+        ft = $("div[data-role='footer']").offset().top + $("div[data-role='footer']").height();
+        if ($(document).scrollTop() + $(window).height() < ft) {
             return false;
         }
         GoodProduct.DisplayProgressIndication();
@@ -429,19 +429,19 @@ var GoodProduct = {
             $("#morePage").show();
             Unbind_bind("#morePage", "tap", GoodProduct.NextPage);
             // 拖拽加载
-            $(document).bind("swipeup",function(evt){
+            $(document).bind("swipeup", function (evt) {
                 var set_scroll_back;
-                if(set_scroll_back){clearTimeout(set_scroll_back)};
-                set_scroll_back = setTimeout(function(){
+                if (set_scroll_back) { clearTimeout(set_scroll_back) };
+                set_scroll_back = setTimeout(function () {
                     evt.preventDefault();
-                    ft = $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
-                    if($(document).scrollTop()+$(window).height()<ft){
+                    ft = $("div[data-role='footer']").offset().top + $("div[data-role='footer']").height();
+                    if ($(document).scrollTop() + $(window).height() < ft) {
                         return false;
                     }
                     GoodProduct.DisplayProgressIndication();
                     GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
                     GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
-                },0);
+                }, 0);
             });
         } else {
             $("#morePage").hide().unbind("tap");
@@ -1766,7 +1766,10 @@ function orderdetail_Fun() {
         }, function (jsonString) {
             if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info != null) {
                 if (jsonString.info.paystatusid === 0) {//未付款
-                    $(".zaixian").css("display", "inline-block");
+                    var btnOrderPay = $(".zaixian");
+                    var url = btnOrderPay.attr("url");
+                    btnOrderPay.css("display", "inline-block")
+                        .attr("href", url.format([jsonString.info.ocode, jsonString.info.paytypeid]));
                 }
                 if (jsonString.info.statusid == 0 || jsonString.info.statusid == 1) {
                     $(".cancels_btn").css("display", "inline-block");
@@ -1930,6 +1933,36 @@ var Category = {
 };
 //#endregion
 
+//#region 订单支付
+function CheckOut_Onlinepayment() {
+    $.jTemplatesDebugMode(true);
+    var ocode = parseInt(GetUrlParam("ocode") || 0);
+    var paygroup = parseInt(GetUrlParam("paygroup") || 0);
+    if (!isNaN(ocode) && !isNaN(paygroup)) {
+        GetWcf({
+            _api: "BaseData.get_pay_list",
+            _url: paygroup
+        }, function (result) {
+            window.result = result;
+            if (result instanceof Object && result.list instanceof Array) {
+                var payTitle = result.data;
+                var payList = result.list;
+                if (payList.length > 0) {
+                    var $payList = $("#payList");
+                    //$payList.setTemplateElement("payList_template");
+                    $payList.setTemplateURL("/PageTemplate/PayListItem.tpl");
+                    $payList.processTemplate(result);
+                    $payList.listview("refresh");
+                }
+
+            } else {
+                alert("获取数据出错！");
+            }
+        }, true);
+    }
+}
+//#endregion
+
 //#region 调用 Page Function
 
 //#region Page函数列表
@@ -2004,6 +2037,9 @@ var PageFuns = {
     },
     Product_SubCategory_Page: function () {
         Category.bindDate();
+    },
+    CheckOut_Onlinepayment_Page: function () {
+        CheckOut_Onlinepayment();
     }
 };
 //#endregion
@@ -2017,14 +2053,15 @@ PageFun.GetFun = function (pageId) {
 
     var fun;
 
-    $.each(PageFuns, function (key, val) {
-        var regexp = new RegExp(key, "ig");
-        if (regexp.test(pageId) && typeof val == "function")
-            fun = val;
-    });
-
-    if (typeof fun != "function")
+    if (typeof pageId == "undefined")
         fun = PageFuns.Index_Page;
+    else {
+        $.each(PageFuns, function (key, val) {
+            var regexp = new RegExp(key, "ig");
+            if (regexp.test(pageId) && typeof val == "function")
+                fun = val;
+        });
+    }
 
     return fun;
 };
@@ -2037,7 +2074,7 @@ PageFun.Init = function (pageId, objToPage) {
         $.mobile.silentScroll(0);
     });
     Get_shoppingcartgoodsnum_Fun();
-    console.log("进的页面：" + pageId);
+    Log("进的页面：" + pageId);
     //判断页面是不是第一次打开
     if (typeof pageId == "undefined") {
         pageId = $(document.body).find("div[data-role = 'page']").eq(0).attr("id");
@@ -2070,27 +2107,27 @@ PageFun.Init = function (pageId, objToPage) {
 
 //#endregion
 
-// swipeup & swipedown 扩展方法
-(function() {
+//#region swipeup & swipedown 扩展方法
+(function () {
     var supportTouch = $.support.touch,
         scrollEvent = "touchmove scroll",
         touchStartEvent = supportTouch ? "touchstart" : "mousedown",
         touchStopEvent = supportTouch ? "touchend" : "mouseup",
         touchMoveEvent = supportTouch ? "touchmove" : "mousemove",
-        ft = $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
+        ft = $("div[data-role='footer']").offset().top + $("div[data-role='footer']").height();
 
     $.event.special.swipeupdown = {
-        setup: function() {
+        setup: function () {
             var thisObject = this;
             var $this = $(thisObject);
 
-            $this.bind(touchStartEvent, function(event) {
+            $this.bind(touchStartEvent, function (event) {
                 var data = event.originalEvent.touches ?
-                        event.originalEvent.touches[ 0 ] :
+                        event.originalEvent.touches[0] :
                         event,
                     start = {
                         time: (new Date).getTime(),
-                        coords: [ data.pageX, data.pageY ],
+                        coords: [data.pageX, data.pageY],
                         origin: $(event.target)
                     },
                     stop;
@@ -2101,27 +2138,27 @@ PageFun.Init = function (pageId, objToPage) {
                     }
 
                     var data = event.originalEvent.touches ?
-                        event.originalEvent.touches[ 0 ] :
+                        event.originalEvent.touches[0] :
                         event;
                     stop = {
                         time: (new Date).getTime(),
-                        coords: [ data.pageX, data.pageY ]
+                        coords: [data.pageX, data.pageY]
                     };
 
-//                    // prevent scrolling
-//                    if (Math.abs(start.coords[1] - stop.coords[1]) > 10) {
-//                        event.preventDefault();
-//                    }
+                    //                    // prevent scrolling
+                    //                    if (Math.abs(start.coords[1] - stop.coords[1]) > 10) {
+                    //                        event.preventDefault();
+                    //                    }
                 }
 
                 $this
                     .bind(touchMoveEvent, moveHandler)
-                    .one(touchStopEvent, function(event) {
+                    .one(touchStopEvent, function (event) {
                         $this.unbind(touchMoveEvent, moveHandler);
                         if (start && stop) {
                             if (stop.time - start.time > 200 && stop.time - start.time < 1000 &&
                                 Math.abs(start.coords[1] - stop.coords[1]) > 40 &&
-                                Math.abs(start.coords[0] - stop.coords[0]) < 75 && $(window).height()+$(document).scrollTop()>=ft) {
+                                Math.abs(start.coords[0] - stop.coords[0]) < 75 && $(window).height() + $(document).scrollTop() >= ft) {
                                 start.origin
                                     .trigger("swipeupdown")
                                     .trigger(start.coords[1] > stop.coords[1] ? "swipeup" : "swipedown");
@@ -2136,16 +2173,18 @@ PageFun.Init = function (pageId, objToPage) {
     $.each({
         swipedown: "swipeupdown",
         swipeup: "swipeupdown"
-    }, function(event, sourceEvent){
+    }, function (event, sourceEvent) {
         $.event.special[event] = {
-            setup: function(){
+            setup: function () {
                 $(this).bind(sourceEvent, $.noop);
             }
         };
     });
 
 })();
+//#endregion
 
+//#region 绑定事件
 $(function () {
     PageFun.Init();
     Unbind_bind(document, "pagechange", function (event, data) {
@@ -2155,3 +2194,4 @@ $(function () {
     });
 
 });
+//#endregion

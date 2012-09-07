@@ -7,6 +7,7 @@ using Wcf.Entity.BaseData;
 using EF.Model.DataContext;
 using Core.DataTypeUtility;
 using System.Data;
+using Wcf.Entity.Enum;
 
 namespace EF.DAL
 {
@@ -18,7 +19,7 @@ namespace EF.DAL
         /// <param name="channelId"></param>
         /// <param name="regionId"> </param>
         /// <returns>list</returns>
-        public List<ItemPay> GetPayList(int channelId, int regionId)
+        public List<ItemPay> GetPaymentList(int channelId, int regionId)
         {
             var result = new List<ItemPay>();
 
@@ -36,8 +37,17 @@ namespace EF.DAL
                                 {
                                     if (item.Key == 0)
                                         result.Add(new ItemPay { payid = 0, payname = "货到付款", paytype = 0, remark = "（送货上门后再付款，支持现金或POS机刷卡)" });
-                                    if (item.Key == 1)
-                                        result.Add(new ItemPay { payid = 1, payname = "在线支付", paytype = 1, remark = "（支持绝大数银行借记卡及部分银行信息卡）" });
+                                    else if (item.Key == 1)
+                                    {
+                                        if (channelId != (int)SystemType.MobileWebSite)
+                                            result.Add(new ItemPay { payid = 1, payname = "在线支付", paytype = 1, remark = "（支持绝大数银行借记卡及部分银行信息卡）" });
+                                    }
+                                    else if (item.Key == 3)
+                                    {
+                                        if (channelId == (int)SystemType.MobileWebSite)
+                                            result.Add(new ItemPay { payid = 3, payname = "支付宝（手机）支付", paytype = 3, remark = "（支持支付宝）" });
+                                    }
+
                                 });
 
             result.Sort((l1, l2) => l2.payid.CompareTo(l1.payid));
@@ -141,5 +151,22 @@ namespace EF.DAL
             }
         }
 
+        /// <summary>
+        /// 获取支付列表
+        /// </summary>
+        /// <param name="sType"></param>
+        /// <param name="paygroupId"></param>
+        /// <returns></returns>
+        public List<Base_Pay_Type> GetPayList(SystemType sType, int paygroupId)
+        {
+            using (var db = new HolycaEntities())
+            {
+                var queryTxt = from a in db.Base_Pay_Type
+                               where a.intPayGroup == paygroupId && a.intIsEnable == 1
+                               orderby a.intSortID descending
+                               select a;
+                return queryTxt.ToList();
+            }
+        }
     }
 }

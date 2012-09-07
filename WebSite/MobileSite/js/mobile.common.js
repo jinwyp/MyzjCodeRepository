@@ -115,21 +115,21 @@ var CallWcf = function (method, data, callback, showLoading, options) {
                     } else {
                         $.mobile.hidePageLoadingMsg();
                     }
-            },
-            error: function () {
-                alert("获取数据发生异常！");
-            }
-        };
-
-        $.extend({}, OPTIONS, options);
-
-        if (Debug) {
-            Log("ajax 请求数据：");
-            Log(OPTIONS);
+        },
+        error: function () {
+            alert("获取数据发生异常！");
         }
+    };
 
-        $.ajax(OPTIONS);
+    $.extend({}, OPTIONS, options);
+
+    if (Debug) {
+        Log("ajax 请求数据：");
+        Log(OPTIONS);
     }
+
+    $.ajax(OPTIONS);
+}
 
 };
 
@@ -288,7 +288,7 @@ var JsDateToWcfDate = function (jsDate) {
     // \/Date(568310400000+0800)\/
     return "\/Date(" + jsDate.getTime() + "+0000)\/";
 };
-var format = function (date, format) {
+var Dateformat = function (date, format) {
     var o = {
 
         "M+": date.getMonth() + 1, //month  
@@ -309,7 +309,7 @@ var format = function (date, format) {
 }
 
 var timeDate = function (obj) {
-    return format(WcfDateToJsDate(obj), "yyyy/MM/dd hh:mm:ss");
+    return Dateformat(WcfDateToJsDate(obj), "yyyy/MM/dd hh:mm:ss");
 }
 //#endregion
 
@@ -461,6 +461,17 @@ var emails = {
     '21cn.com': 'http://mail.21cn.com/',
     '188.com': 'http://www.188.com/',
     'foxmail.coom': 'http://www.foxmail.com'
+};
+//#endregion
+
+//#region string format
+String.prototype.format = function (arg) {
+    var str = this || "";
+    for (var a = 0; a < arg.length; a++) {
+        var reg = new RegExp("\\{" + a + "\\}", "g");
+        str = str.replace(reg, arg[a]);
+    }
+    return str;
 };
 //#endregion
 

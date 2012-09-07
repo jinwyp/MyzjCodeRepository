@@ -11,6 +11,7 @@ using Core.Enums;
 using System.Web;
 using Core.DataTypeUtility;
 using Core.Caching;
+using Wcf.Entity.Enum;
 
 namespace Wcf.BLL.BaseData
 {
@@ -25,14 +26,14 @@ namespace Wcf.BLL.BaseData
         /// <param name="channelId"></param>
         /// <param name="regionId"> </param>
         /// <returns></returns>
-        public static MResultList<ItemPay> GetPayList(int channelId, int regionId)
+        public static MResultList<ItemPay> GetPaymentList(int channelId, int regionId)
         {
             var result = new MResultList<ItemPay>(true);
 
             try
             {
                 var basedata = DALFactory.BaseData();
-                result.list = basedata.GetPayList(channelId, regionId);
+                result.list = basedata.GetPaymentList(channelId, regionId);
                 result.status = MResultStatus.Success;
             }
             catch (Exception ex)
@@ -316,6 +317,59 @@ namespace Wcf.BLL.BaseData
             {
                 result.status = MResultStatus.ExceptionError;
                 result.msg = "获取区域列表数据异常";
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取支付列表
+        /// </summary>
+        /// <param name="sType"></param>
+        /// <param name="paygroupId"></param>
+        /// <returns></returns>
+        public static MResultList<ItemPay> GetPayList(SystemType sType, int paygroupId)
+        {
+            var result = new MResultList<ItemPay>(true);
+            try
+            {
+                var baseDataDal = DALFactory.BaseData();
+                List<Base_Pay_Type> payList = baseDataDal.GetPayList(sType, paygroupId);
+                if (payList != null && payList.Any())
+                {
+                    payList.ForEach(item =>
+                                        {
+                                            try
+                                            {
+                                                var payItem = new ItemPay
+                                                                {
+                                                                    payid = item.intPayID,
+                                                                    payname = item.vchPayName,
+                                                                    paytype = item.intPayGroup,
+                                                                    icon = string.IsNullOrWhiteSpace(item.vchPicAddr) ? "" : "http://muyingzhijia.com/" + item.vchPicAddr,
+                                                                    payurl = item.vchPayURL,
+                                                                    remark = item.vchPayDesc
+                                                                };
+                                                result.list.Add(payItem);
+                                            }
+                                            catch
+                                            {
+                                            }
+                                        });
+                }
+
+                if (paygroupId == 0)
+                    result.data = "货到付款（送货上门后再付款，支持现金或POS机刷卡)";
+                else if (paygroupId == 1)
+                    result.data = "在线支付（支持绝大数银行借记卡及部分银行信息卡）";
+                else if (paygroupId == 3)
+                    result.data = "支付宝（手机）支付（支持支付宝）";
+
+                result.status = MResultStatus.Success;
+            }
+            catch (Exception)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "获取支付列表 异常";
             }
             return result;
         }

@@ -22,7 +22,7 @@ namespace Wcf.ServiceLibrary.BaseData
     [JavascriptCallbackBehavior(UrlParameterName = CommonUri.JAVASCRIPT_CALLBACKNAME)]
     public class BaseDataService : BaseWcfService, IBaseDataService
     {
-        public MResultList<ItemPay> GetPayList(string sid, string token, string guid, string user_id, string uid, string regionid)
+        public MResultList<ItemPay> GetPayMentList(string sid, string token, string guid, string user_id, string uid, string regionid)
         {
             var result = new MResultList<ItemPay>();
             try
@@ -30,13 +30,32 @@ namespace Wcf.ServiceLibrary.BaseData
                 var regionId = MCvHelper.To<int>(regionid);
                 result = MCacheManager.UseCached<MResultList<ItemPay>>(
                         string.Format("GetPayList_{0}_{1}", sid, regionid),
-                        MCaching.CacheGroup.BaseData, () => BaseDataBLL.GetPayList((int)SystemType, regionId));
+                        MCaching.CacheGroup.BaseData, () => BaseDataBLL.GetPaymentList((int)SystemType, regionId));
             }
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
                 result.msg = "处理数据出错！";
             }
+            return result;
+        }
+
+        public MResultList<ItemPay> GetPayList(string sid, string token, string guid, string user_id, string uid,
+                                                 string paygroupid)
+        {
+            var result = new MResultList<ItemPay>();
+
+            try
+            {
+                var paygroupId = MCvHelper.To<int>(paygroupid);
+                result = BaseDataBLL.GetPayList(SystemType, paygroupId);
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "处理数据出错！";
+            }
+
             return result;
         }
 

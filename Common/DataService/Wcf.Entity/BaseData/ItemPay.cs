@@ -31,9 +31,21 @@ namespace Wcf.Entity.BaseData
         public int paytype { get; set; }
 
         /// <summary>
+        /// 图标
+        /// </summary>
+        [DataMember]
+        public string icon { get; set; }
+
+        /// <summary>
         /// 备注
         /// </summary>
         [DataMember]
         public string remark { get; set; }
+
+        /// <summary>
+        /// 支付url
+        /// </summary>
+        [DataMember]
+        public string payurl { get; set; }
     }
 }

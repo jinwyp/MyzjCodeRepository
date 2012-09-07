@@ -46,6 +46,10 @@ namespace Wcf.ServiceLibrary
         /// </summary>
         public const string GETREGIONLIST = "/get_region_list/{sid}/{token}/{guid}/{user_id}/{uid}/{parentid}";
         /// <summary>
+        /// 获取支付列表
+        /// </summary>
+        public const string GETPAYLIST = "/get_pay_list/{sid}/{token}/{guid}/{user_id}/{uid}/{paygroupid}";
+        /// <summary>
         /// 获取全部地区列表
         /// sid：系统ID 
         /// token：用户令牌

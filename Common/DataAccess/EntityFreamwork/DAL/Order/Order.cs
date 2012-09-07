@@ -293,7 +293,8 @@ namespace EF.DAL
                                               Zip = d.vchPostCode,
                                               PayStatusId = e.intPayState,
                                               OrderStatusId = a.intOrderState,
-                                              DeliveryType = f.vchDeliverName
+                                              DeliveryType = f.vchDeliverName,
+                                              PayId = a.intPayID
                                           };
                 return queryTxt.FirstOrDefault();
             }
@@ -357,6 +358,7 @@ namespace EF.DAL
             {
                 var queryTxt = from a in db.Sale_Order
                                where a.intUserID == userId && a.dtCreateDate <= endTime && a.dtCreateDate >= begimTime
+                               orderby a.dtCreateDate descending
                                select a;
                 return queryTxt.ToList();
             }

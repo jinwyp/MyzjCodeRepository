@@ -105,6 +105,11 @@ namespace Wcf.Entity.Order
         [DataMember]
         public string paytype { get; set; }
         /// <summary>
+        /// 支付id
+        /// </summary>
+        [DataMember]
+        public int paytypeid { get; set; }
+        /// <summary>
         /// 支付状态Id
         /// </summary>
         [DataMember]

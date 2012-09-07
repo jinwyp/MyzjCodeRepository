@@ -44,7 +44,7 @@
                 </li>
             </script>
             <div data-role="">
-                <a href="<%= MobileSite.BaseLib.WebUrls.onlinepayment() %>" data-role="button" data-inline="true" data-theme="e" class="zaixian">在线支付</a><a
+                <a href="#" url="<%= MobileSite.BaseLib.WebUrls.onlinepayment("{0}","{1}") %>" data-role="button" data-inline="true" data-theme="e" class="zaixian">在线支付</a><a
                     href="#" data-role="button" data-inline="true" data-mini="true" class="cancels_btn">取消订单</a></div>
             <ul id="ordergoods_list_template_container" data-role="listview" data-inset="true" data-divider-theme="d">
                 
@@ -69,7 +69,7 @@
                 <li data-icon="arrow-l" data-iconpos="left"><a href="<%= MobileSite.BaseLib.WebUrls.orderlist() %>">返回</a> </li>
             </script>
             <div data-role="">
-                <a href="<%= MobileSite.BaseLib.WebUrls.onlinepayment() %>" data-role="button" data-inline="true" data-theme="e" class="zaixian">在线支付</a><a
+                <a href="#" url="<%= MobileSite.BaseLib.WebUrls.onlinepayment("{0}","{1}") %>" data-role="button" data-inline="true" data-theme="e" class="zaixian">在线支付</a><a
                     href="#" data-role="button" data-inline="true" data-mini="true" class="cancels_btn">取消订单</a></div>
         </div>
     </div>

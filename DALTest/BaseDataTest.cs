@@ -66,19 +66,5 @@ namespace DALTest
         #endregion
 
 
-        /// <summary>
-        ///GetPayList 的测试
-        ///</summary>
-        [TestMethod()]
-        public void GetPayListTest()
-        {
-            BaseData target = new BaseData(); // TODO: 初始化为适当的值
-            int channelId = 102; // TODO: 初始化为适当的值
-            int regionId = 12326; // TODO: 初始化为适当的值
-            List<ItemPay> expected = null; // TODO: 初始化为适当的值
-            List<ItemPay> actual;
-            actual = target.GetPayList(channelId, regionId);
-            Assert.IsTrue(actual.Count > 0);
-        }
     }
 }

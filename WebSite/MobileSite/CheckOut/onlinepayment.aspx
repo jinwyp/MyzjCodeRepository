@@ -14,23 +14,18 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content">
-        <ul data-role="listview" data-divider-theme="d" data-inset="true">
-            <li data-role="list-divider" role="heading">在线支付（暂时仅支持信用卡支付，请选择以下信用卡银行） </li>
-            <li><a href="http://www.icbc.com.cn/icbc/">
-                <img src="/images/bank01.jpg" alt="" />
-                <h3>
-                    中国工商银行</h3>
-            </a></li>
-            <li><a href="http://www.icbc.com.cn/icbc/">
-                <img src="/images/bank01.jpg" alt="" />
-                <h3>
-                    中国工商银行</h3>
-            </a></li>
-            <li><a href="http://www.icbc.com.cn/icbc/">
-                <img src="/images/bank01.jpg" alt="" />
-                <h3>
-                    中国工商银行</h3>
-            </a></li>
+        <ul data-role="listview" id="payList" data-divider-theme="d" data-inset="true">
+            
         </ul>
+        <script type="text/template" id="payList_template">
+            {#foreach $T.list as pay}
+                
+                <li><a href="">
+                    <img src="/images/bank01.jpg" alt="" />
+                    <h3>
+                        {$T.pay.payname}</h3>
+                </a></li>
+            {#/for}
+        </script>
     </div>
 </asp:Content>
