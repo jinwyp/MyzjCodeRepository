@@ -173,7 +173,10 @@ namespace Wcf.ServiceLibrary
         /// 获取订单详细
         /// </summary>
         public const string GETORDERGOODSLIST = "/get_ordergoods_list/{sid}/{token}/{guid}/{user_id}/{uid}/{ordercode}";
-
+        /// <summary>
+        /// 订单支付成功
+        /// </summary>
+        public const string ORDERPAYMENTSUCCESS = "/orderpayment_success/{sid}/{token}/{guid}/{user_id}/{uid}/{getdata}/{postdata}";
     }
 
     /// <summary>

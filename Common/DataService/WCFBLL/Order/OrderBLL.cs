@@ -869,5 +869,22 @@ namespace Wcf.BLL.Order
 
             return result;
         }
+
+        /// <summary>
+        /// 支付完成
+        /// </summary>
+        /// <param name="SystemType"></param>
+        /// <param name="UserId"></param>
+        /// <param name="Uid"></param>
+        /// <param name="getdata"></param>
+        /// <param name="postdata"></param>
+        /// <returns></returns>
+        public static MResult OrderPaymentSuccess(SystemType SystemType, int UserId, string Uid, string getdata, string postdata)
+        {
+            //TODO: 处理 支付完成的回调
+            var result = new MResult();
+
+            return result;
+        }
     }
 }

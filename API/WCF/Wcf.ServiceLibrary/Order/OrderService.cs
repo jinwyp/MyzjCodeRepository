@@ -183,5 +183,20 @@ namespace Wcf.ServiceLibrary.Order
             return result;
         }
 
+        public MResult OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, string getdata, string postdata)
+        {
+            var result = new MResult();
+            try
+            {
+                result = OrderBLL.OrderPaymentSuccess(SystemType, UserId, Uid, getdata, postdata);
+            }
+            catch (Exception)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "处理数据出错！";
+            }
+            return result;
+        }
+
     }
 }

@@ -52,7 +52,7 @@ namespace Wcf.ServiceLibrary.Order
         /// <returns></returns>
         [WebInvoke(Method = "GET", UriTemplate = OrderUri.SETSHOPPINGCARTGOODSNUM)]
         [OperationContract]
-        MResult SetShoppingCartGoodsNum(string sid, string token, string guid, string user_id, string uid, string shoppingcarid,string gid, string num);
+        MResult SetShoppingCartGoodsNum(string sid, string token, string guid, string user_id, string uid, string shoppingcarid, string gid, string num);
 
         /// <summary>
         /// 获取购物车商品列表
@@ -150,7 +150,22 @@ namespace Wcf.ServiceLibrary.Order
         /// <returns></returns>
         [WebInvoke(Method = "GET", UriTemplate = OrderUri.GETORDERSLIST)]
         [OperationContract]
-        MResultList<ItemOrder> GetOrdersList(string sid, string token, string guid, string user_id, string uid,string begintime,string endtime);
+        MResultList<ItemOrder> GetOrdersList(string sid, string token, string guid, string user_id, string uid, string begintime, string endtime);
+
+        /// <summary>
+        /// 设置订单支付成功
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="token"></param>
+        /// <param name="guid"></param>
+        /// <param name="user_id"></param>
+        /// <param name="uid"></param>
+        /// <param name="getdata"> </param>
+        /// <param name="postdata"> </param>
+        /// <returns></returns>
+        [WebGet(UriTemplate = OrderUri.ORDERPAYMENTSUCCESS)]
+        [OperationContract]
+        MResult OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, string getdata, string postdata);
 
     }
 }
