@@ -88,5 +88,14 @@ namespace Factory
             return new EF.DAL.ShoppingCartDal();
             //return MIocUtility.GetObject<IShoppingCartDal>("ShoppingCartDal");
         }
+
+        /// <summary>
+        /// 支付数据
+        /// </summary>
+        /// <returns></returns>
+        public static Payment Payment()
+        {
+            return new EF.DAL.Payment();
+        }
     }
 }

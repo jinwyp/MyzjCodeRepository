@@ -76,6 +76,7 @@
     <Compile Include="Manage\ManageBLL.cs" />
     <Compile Include="Member\MemberBLL.cs" />
     <Compile Include="Order\OrderBLL.cs" />
+    <Compile Include="Payment\PaymentBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\EmailService.cs" />
     <Compile Include="Service References\ServiceReference.External\Reference.cs">

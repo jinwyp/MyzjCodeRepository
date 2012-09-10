@@ -135,6 +135,12 @@
     <Compile Include="FactoryUtility\MFactoryManager.cs" />
     <Compile Include="LogUtility\MLog4Net.cs" />
     <Compile Include="LogUtility\MLogManager.cs" />
+    <Compile Include="Payment\AbsPayment.cs" />
+    <Compile Include="Payment\AlipayWapPayment.cs" />
+    <Compile Include="Payment\Alipay\AlipayFunction.cs" />
+    <Compile Include="Payment\Alipay\AlipayService.cs" />
+    <Compile Include="Payment\Alipay\AlipaySubmit.cs" />
+    <Compile Include="Payment\PayConfigs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TokenUtility\MHttpVerify.cs" />
     <Compile Include="TokenUtility\ToKenManager.cs" />

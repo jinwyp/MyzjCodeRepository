@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Enyim.Caching, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
+    <Reference Include="MemcachedProviders">
+      <HintPath>..\Resources\Assembly\Generate\MemcachedProviders.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -42,6 +48,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -53,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BaseDataTest.cs" />
     <Compile Include="OrderTest.cs" />
+    <Compile Include="PaymentBLLTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,9 +79,17 @@
       <Project>{DA12C4CE-9261-41D1-B3EE-67C34E24D497}</Project>
       <Name>EF.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\DataService\Factory\Factory.csproj">
+      <Project>{C4233E3B-D9A9-412C-85B6-9B4373F3E107}</Project>
+      <Name>Factory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\DataService\Wcf.Entity\Wcf.Entity.csproj">
       <Project>{44438E27-5943-4CF1-A4C0-DBAE6492CC32}</Project>
       <Name>Wcf.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\DataService\WCFBLL\Wcf.BLL.csproj">
+      <Project>{AE915E20-9A8D-480B-9A15-33469599C79A}</Project>
+      <Name>Wcf.BLL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

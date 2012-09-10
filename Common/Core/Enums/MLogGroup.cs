@@ -38,11 +38,19 @@ namespace Core.Enums
             获取订单列表
         }
         /// <summary>
-        /// 系统管理 取值 400-499
+        /// 支付相关 取值 700-800
+        /// </summary>
+        public enum Payment
+        {
+            创建支付对象=700
+
+        }
+        /// <summary>
+        /// 系统管理 取值 800-999
         /// </summary>
         public enum Manage
         {
-            重建接口权限 = 400
+            重建接口权限 = 800
         }
         /// <summary>
         /// 面向切面通知 取值 1000-1099

@@ -590,19 +590,19 @@
           <Key>
             <PropertyRef Name="intCateID" />
           </Key>
-          <Property Name="intCateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intCateID" Type="int" Nullable="false" />
           <Property Name="vchCateName" Type="nvarchar" MaxLength="32" />
-          <Property Name="vchWebShowName" Type="nvarchar" MaxLength="32" />
-          <Property Name="vchMenuShowName" Type="nvarchar" MaxLength="32" />
-          <Property Name="vchMobileShowName" Type="nvarchar" MaxLength="32" />
           <Property Name="intCateLevel" Type="int" Nullable="false" />
           <Property Name="intCateFather" Type="int" />
           <Property Name="intSortOrder" Type="int" />
           <Property Name="intIsVisible" Type="tinyint" Nullable="false" />
-          <Property Name="intMenuIsVisible" Type="int" />
           <Property Name="vchCateNo" Type="varchar" MaxLength="32" />
           <Property Name="vchPicAddr" Type="varchar" MaxLength="128" />
           <Property Name="vchViewEn" Type="varchar" MaxLength="32" />
+          <Property Name="vchWebShowName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchMenuShowName" Type="nvarchar" MaxLength="32" />
+          <Property Name="vchMobileShowName" Type="nvarchar" MaxLength="32" />
+          <Property Name="intMenuIsVisible" Type="int" />
         </EntityType>
         <EntityType Name="Web_Type_FlagBrand">
           <Key>
@@ -833,6 +833,12 @@
         <Function Name="Up_Syn_ToBBHome_Now" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OrderCode" Type="varchar" Mode="In" />
           <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="Up_Synchro_OrderPayState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchOrderCode" Type="varchar" Mode="In" />
+          <Parameter Name="intOrderState" Type="int" Mode="In" />
+          <Parameter Name="intOrderPayState" Type="int" Mode="In" />
+          <Parameter Name="intResult" Type="int" Mode="InOut" />
         </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->

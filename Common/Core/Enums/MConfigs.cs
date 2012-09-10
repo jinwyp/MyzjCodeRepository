@@ -26,7 +26,11 @@ namespace Core.Enums
             /// <summary>
             /// 
             /// </summary>
-            Host
+            Host,
+            /// <summary>
+            /// 
+            /// </summary>
+            Payment
         }
         
     }

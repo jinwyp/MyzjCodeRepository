@@ -202,4 +202,15 @@ namespace Wcf.ServiceLibrary
         /// </summary>
         public const string GETGOODSCATEGORYLIST = "/get_goodscategory_list/{sid}/{token}/{guid}/{user_id}/{uid}";
     }
+
+    /// <summary>
+    /// 支付Api Uri
+    /// </summary>
+    internal static class PaymentUri
+    {
+        /// <summary>
+        /// 订单支付
+        /// </summary>
+        public const string ORDERPAYMENT = "/order_payment/{sid}/{token}/{guid}/{user_id}/{uid}/{ocode}/{payid}";
+    }
 }

@@ -301,6 +301,22 @@ namespace EF.DAL
         }
 
         /// <summary>
+        /// 获取订单信息
+        /// </summary>
+        /// <param name="orderCode"></param>
+        /// <returns></returns>
+        public Sale_Order GetOrderInfo(string orderCode)
+        {
+            using(var db=new HolycaEntities())
+            {
+                var queryTxt = from a in db.Sale_Order
+                               where a.vchOrderCode == orderCode
+                               select a;
+                return queryTxt.First();
+            }
+        }
+
+        /// <summary>
         /// 获取商品
         /// </summary>
         /// <param name="userId"></param>

@@ -168,5 +168,21 @@ namespace EF.DAL
                 return queryTxt.ToList();
             }
         }
+
+        /// <summary>
+        /// 获取支付信息
+        /// </summary>
+        /// <param name="payId"></param>
+        /// <returns></returns>
+        public Base_Pay_Type GetPaymentInfo(int payId)
+        {
+            using (var db = new HolycaEntities())
+            {
+                var queryTxt = from a in db.Base_Pay_Type
+                               where a.intPayID == payId && a.intIsEnable == 1
+                               select a;
+                return queryTxt.First();
+            }
+        }
     }
 }
