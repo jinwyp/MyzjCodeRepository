@@ -85,8 +85,8 @@ function Login_Fun(addUrl) {
                     var wUr = GetUrlParam("returnurl") || window.WebRoot + "Member/myaccount.aspx";
                     if (wUr === "undefined") wUr = window.WebRoot + "Member/myaccount.aspx";
                     LS.clear();
-                    //window.location.href = wUr;
-                    Change_Url(wUr);
+                    window.location.href = wUr;
+                    //Change_Url(wUr);
                 } else
                     jQuery("#login_ErroMesg").css("display", "block").text(json.msg);
             }, true);
@@ -408,16 +408,16 @@ var GoodProduct = {
         }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
         //#endregion
     },
-    CheckIsnotLoading:function(){
+    CheckIsnotLoading: function () {
         return $('#loading_list').is(":hidden");
     },
-    CheckIsBottom:function(){
-        return $(window).height()+$(document).scrollTop() > $("div[data-role='footer']").offset().top+$("div[data-role='footer']").height();
+    CheckIsBottom: function () {
+        return $(window).height() + $(document).scrollTop() > $("div[data-role='footer']").offset().top + $("div[data-role='footer']").height();
     },
     NextPage: function (evt) {
         //#region 下一页
         evt.preventDefault();
-        if(GoodProduct.CheckIsnotLoading()){
+        if (GoodProduct.CheckIsnotLoading()) {
             GoodProduct.DisplayProgressIndication();
             GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
             //currentPage = parseInt(currentPage) + parseInt(1);
@@ -431,15 +431,15 @@ var GoodProduct = {
         if (GoodProduct.currentPage != GoodProduct.lastPage) {
             $("#morePage").show();
             //Unbind_bind("#morePage", "tap", GoodProduct.NextPage);
-            $("#morePage").one("tap",GoodProduct.NextPage);
+            $("#morePage").one("tap", GoodProduct.NextPage);
             // 拖拽加载
-            $(document).one("swipeup",function(){
-                if(GoodProduct.CheckIsBottom() && GoodProduct.CheckIsnotLoading()){
-                    setTimeout(function(){
+            $(document).one("swipeup", function () {
+                if (GoodProduct.CheckIsBottom() && GoodProduct.CheckIsnotLoading()) {
+                    setTimeout(function () {
                         GoodProduct.DisplayProgressIndication();
                         GoodProduct.currentPage = parseInt(GoodProduct.currentPage) + parseInt(1);
                         GoodProduct.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
-                    },0);
+                    }, 0);
                 }
             });
         } else {
@@ -875,8 +875,8 @@ function shoppingcart_Fun() {
     Unbind_bind("#ShoppingCart_btn", "click", function (e) {
         if (parseInt($("#good_totals").text()) > 0) {
             $('html, body').animate({
-                    scrollTop: $(document).height()
-                },
+                scrollTop: $(document).height()
+            },
                 1500);
 
             //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
@@ -1934,7 +1934,26 @@ var Category = {
 
 //#region 订单支付
 function CheckOut_Onlinepayment() {
-    $.jTemplatesDebugMode(true);
+    //$.jTemplatesDebugMode(true);
+
+    //#region 支付 列表 项目绑定
+    function payListItemLister() {
+        Unbind_bind($("#payList").find(".orderPayment"), "click", function () {
+            var payId = $(this).attr("_payid");
+            GetWcf({
+                _api: "Payment.order_payment",
+                _url: ocode + "/" + payId
+            }, function (result) {
+                if (result instanceof Object && result.status == 1) {
+                    window.location = result.info;
+                } else {
+                    alert("网络异常，请稍后重试！");
+                }
+            });
+        });
+    };
+    //#endregion
+
     var ocode = parseInt(GetUrlParam("ocode") || 0);
     var paygroup = parseInt(GetUrlParam("paygroup") || 0);
     if (!isNaN(ocode) && !isNaN(paygroup)) {
@@ -1952,6 +1971,7 @@ function CheckOut_Onlinepayment() {
                     $payList.setTemplateURL("/PageTemplate/PayListItem.tpl");
                     $payList.processTemplate(result);
                     $payList.listview("refresh");
+                    payListItemLister();
                 }
 
             } else {
@@ -2156,7 +2176,7 @@ PageFun.Init = function (pageId, objToPage) {
                         if (start && stop) {
                             if (stop.time - start.time > 200 && stop.time - start.time < 1000 &&
                                 Math.abs(start.coords[1] - stop.coords[1]) > 30 &&
-                                Math.abs(start.coords[0] - stop.coords[0]) < 75 ) {
+                                Math.abs(start.coords[0] - stop.coords[0]) < 75) {
                                 start.origin
                                     .trigger("swipeupdown")
                                     .trigger(start.coords[1] > stop.coords[1] ? "swipeup" : "swipedown");

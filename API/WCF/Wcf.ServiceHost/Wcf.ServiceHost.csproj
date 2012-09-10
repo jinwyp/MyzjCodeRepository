@@ -97,6 +97,7 @@
     <Content Include="Global.asax" />
     <Content Include="Goods.svc" />
     <Content Include="Member.svc" />
+    <Content Include="Payment.svc" />
     <Content Include="Template\MobileWebSite\ForgotPassword.xml" />
     <Content Include="Template\WebSite\ForgotPassword.xml" />
     <Content Include="Web.config">

@@ -17,15 +17,5 @@
         <ul data-role="listview" id="payList" data-divider-theme="d" data-inset="true">
             
         </ul>
-        <script type="text/template" id="payList_template">
-            {#foreach $T.list as pay}
-                
-                <li><a href="">
-                    <img src="/images/bank01.jpg" alt="" />
-                    <h3>
-                        {$T.pay.payname}</h3>
-                </a></li>
-            {#/for}
-        </script>
     </div>
 </asp:Content>

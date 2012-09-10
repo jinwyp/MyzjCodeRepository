@@ -27,9 +27,8 @@ namespace Wcf.ServiceLibrary.Payment
             try
             {
                 var payId = MCvHelper.To<int>(payid, 0);
-                var userId = MCvHelper.To<int>(user_id, 0);
 
-                result = PaymentBLL.OrderPayment(SystemType, userId, uid, ocode, payid);
+                result = PaymentBLL.OrderPayment(SystemType, UserId, uid, ocode, payId);
             }
             catch (Exception ex)
             {

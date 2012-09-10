@@ -105,6 +105,7 @@ namespace Wcf.BLL.Payment
                                 {
                                     var paymentManage = new AlipayWapPayment(payCofnig);
                                     result.info = paymentManage.Init().CreateRequestUrl();
+                                    result.status = Core.Enums.MResultStatus.Success;
                                     break;
                                 }
                             #endregion

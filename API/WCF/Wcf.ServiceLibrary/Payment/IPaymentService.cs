@@ -26,7 +26,7 @@ namespace Wcf.ServiceLibrary.Payment
         /// <param name="ocode"></param>
         /// <param name="payid"></param>
         /// <returns></returns>
-        [WebInvoke(Method = "POST", UriTemplate = PaymentUri.ORDERPAYMENT)]
+        [WebInvoke(Method = "GET", UriTemplate = PaymentUri.ORDERPAYMENT)]
         [OperationContract]
         MResult<string> OrderPayment(string sid, string token, string guid, string user_id, string uid, string ocode, string payid);
     }
