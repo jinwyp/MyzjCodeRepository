@@ -883,6 +883,12 @@
             <Parameter Name="OrderCode" Mode="In" Type="String" />
             <Parameter Name="result" Mode="InOut" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="Up_Synchro_OrderPayState">
+            <Parameter Name="vchOrderCode" Mode="In" Type="String" />
+            <Parameter Name="intOrderState" Mode="In" Type="Int32" />
+            <Parameter Name="intOrderPayState" Mode="In" Type="Int32" />
+            <Parameter Name="intResult" Mode="InOut" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Base_Brand">
           <Key>
@@ -2137,6 +2143,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Up_Syn_ToBBHome_Now" FunctionName="MobileWcf.DataContext.HolycaModel.Store.Up_Syn_ToBBHome_Now" />
+          <FunctionImportMapping FunctionImportName="Up_Synchro_OrderPayState" FunctionName="MobileWcf.DataContext.HolycaModel.Store.Up_Synchro_OrderPayState" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

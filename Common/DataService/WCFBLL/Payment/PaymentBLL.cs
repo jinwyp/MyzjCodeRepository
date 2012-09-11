@@ -8,6 +8,7 @@ using Wcf.Entity.Enum;
 using Factory;
 using EF.Model.DataContext;
 using Core.Payment;
+using Core.DataTypeUtility;
 
 namespace Wcf.BLL.Payment
 {
@@ -49,10 +50,10 @@ namespace Wcf.BLL.Payment
 
                     var orderInfo = orderDal.GetOrderInfo(oCode);
                     //订单编码正确
-                    if (orderInfo != null && orderInfo.intOrderNO > 0)
+                    if (orderInfo != null && orderInfo.orderNo > 0)
                     {
                         #region 验证订单创建用户
-                        if (orderInfo.intUserID != userId)
+                        if (orderInfo.userCode != memberInfo.userCode)
                         {
                             result.status = Core.Enums.MResultStatus.LogicError;
                             result.msg = "该订单不属于次用户！";
@@ -61,7 +62,7 @@ namespace Wcf.BLL.Payment
                         #endregion
 
                         #region 验正 订单状态
-                        if (orderInfo.intOrderState < 0)
+                        if (orderInfo.flowStatus < 0)
                         {
                             result.status = Core.Enums.MResultStatus.LogicError;
                             result.msg = "订单状态错误！";
@@ -70,7 +71,7 @@ namespace Wcf.BLL.Payment
                         #endregion
 
                         #region 验证 订单支付状态
-                        if (orderInfo.intPayState != 0)
+                        if (orderInfo.payStatus != 0)
                         {
                             result.status = Core.Enums.MResultStatus.LogicError;
                             result.msg = "订单支付状态错误！";
@@ -91,11 +92,13 @@ namespace Wcf.BLL.Payment
 
                         var payCofnig = new PayConfigs()
                                             {
-                                                OutTradeNo = string.Format("{0}-{1}", orderInfo.vchOrderCode, orderInfo.vchUserCode),
+                                                OutTradeNo = string.Format("{0}-{1}", orderInfo.orderCode, orderInfo.userCode),
                                                 OutUser = memberInfo.email,
                                                 Subject = "母婴之家订单支付",
-                                                RequestIdentity = string.Format("{0}_{1}", orderInfo.intUserID, memberInfo.email),
-                                                TotalFee = orderInfo.numReceAmount.ToString(CultureInfo.InvariantCulture)
+                                                RequestIdentity = string.Format("{0}_{1}", orderInfo.userCode, memberInfo.email),
+                                                TotalFee = MCvHelper.To(orderInfo.shouldPay, "0.00")
+                                                //TODO: 测试支付的时候请取消注视
+                                                //TotalFee = MCvHelper.To("0.01", "0.00")
                                             };
 
                         switch (payInfo.intPayID)

@@ -11,6 +11,7 @@ using Core.Enums;
 using Core.LogUtility;
 using Core.Payment;
 using EF.Model.DataContext;
+using EF.Model.Entity;
 using Factory;
 using Wcf.BLL.BaseData;
 using Wcf.BLL.Goods;
@@ -281,7 +282,8 @@ namespace Wcf.BLL.Order
 
                     #region 保存订单
                     string message;
-                    result.info.oid = orderDal.SaveWebOrder(order, invoice, deliver, null, userId, guid, channelId, MCvHelper.To<int>(memberInfo.clusterId, 0), -1, out message);
+                    result.info.oid = orderDal.SaveWebOrder(order, invoice, deliver, null, userId, guid, channelId,
+                                                        MCvHelper.To<int>(memberInfo.clusterId, 0), -1, out message);
                     if (result.info.oid > 0)
                     {
                         #region 清空购物车
@@ -289,7 +291,7 @@ namespace Wcf.BLL.Order
                         #endregion
 
                         #region 同步订单信息到 BBHome
-                        orderDal.SyncOrderInfoToBBHome(result.info.ocode);
+                        orderDal.SyncOrderInfoToBBHome(order.vchOrderCode);
                         #endregion
 
                         result.status = MResultStatus.Success;
@@ -829,12 +831,12 @@ namespace Wcf.BLL.Order
                 {
                     orderList.ForEach(item =>
                                           {
-                                              var payType = item.intPayID == 0 ? "货到付款" : "在线支付";
+                                              var payType = item.payMethod == 0 ? "货到付款" : "在线支付";
 
-                                              var payStatus = item.intPayState == 2 ? "已付款" : "未付款";
+                                              var payStatus = item.payStatus == 2 ? "已付款" : "未付款";
                                               #region 订单状态
                                               string orderStatus;
-                                              switch (item.intOrderState)
+                                              switch (item.flowStatus)
                                               {
                                                   case 0: orderStatus = "付款未审核"; break;
                                                   case 1: orderStatus = "未确定"; break;
@@ -848,15 +850,15 @@ namespace Wcf.BLL.Order
                                               #endregion
                                               var orderInfo = new ItemOrder
                                                                   {
-                                                                      oid = item.intOrderNO,
-                                                                      ocode = item.vchOrderCode,
-                                                                      created = item.dtCreateDate,
-                                                                      statusid = item.intOrderState,
+                                                                      oid = item.orderNo,
+                                                                      ocode = item.orderCode,
+                                                                      created = item.createDate,
+                                                                      statusid = item.flowStatus,
                                                                       paytype = payType,
                                                                       status = orderStatus,
-                                                                      total_fee = item.numGoodsAmount,
-                                                                      total_freight = item.numCarriage,
-                                                                      total_order = item.numReceAmount
+                                                                      total_fee = item.actuallyPay,
+                                                                      total_freight = item.carriage,
+                                                                      total_order = item.shouldPay
                                                                   };
                                               result.list.Add(orderInfo);
                                           });
@@ -874,7 +876,7 @@ namespace Wcf.BLL.Order
         }
 
         /// <summary>
-        /// 支付完成
+        /// 订单支付成功 
         /// </summary>
         /// <param name="sType"></param>
         /// <param name="userId"></param>
@@ -891,31 +893,60 @@ namespace Wcf.BLL.Order
                 if (!string.IsNullOrWhiteSpace(getData))
                 {
                     var getDataForNameValue = HttpUtility.ParseQueryString(getData);
+
+                    #region 解析 query 参数集合 组成 SortedDictionary
                     var sortDict = new SortedDictionary<string, string>();
                     foreach (string name in getDataForNameValue)
                         sortDict.Add(name, getDataForNameValue.Get(name));
+                    #endregion
 
+                    #region 解析参数
                     var outTradeNo = getDataForNameValue.Get("out_trade_no");
                     var requestToken = getDataForNameValue.Get("request_token");
                     var resultStatus = getDataForNameValue.Get("result");
                     var tradeNo = getDataForNameValue.Get("trade_no");
+                    #endregion
 
+                    #region 验证 签名是否合法
                     var alipayPayment = new AlipayWapPayment();
                     var validationPass = alipayPayment.ValidationSign(sortDict);
+                    #endregion
 
+                    #region 解析订单编号和用户编号
                     var orderCode = string.Empty;
                     var userCode = string.Empty;
+
                     var tradeNosplit = (outTradeNo ?? "").Split('-');
                     if (tradeNosplit.Length == 2)
                     {
                         orderCode = tradeNosplit[0];
                         userCode = tradeNosplit[1];
                     }
+                    #endregion
 
-                    if (resultStatus.Equals("success", StringComparison.InvariantCultureIgnoreCase) && validationPass)
+                    if (!string.IsNullOrEmpty(orderCode) &&
+                        !string.IsNullOrEmpty(userCode) &&
+                        resultStatus.Equals("success", StringComparison.InvariantCultureIgnoreCase) &&
+                        validationPass)
                     {
-                        result.status = MResultStatus.Success;
-                        result.info = orderCode;
+                        #region 更新订单状态
+                        var orderDal = DALFactory.Order();
+                        var orderInfo = orderDal.GetOrderInfo(orderCode);
+                        if (orderInfo != null && orderInfo.orderNo > 0)
+                        {
+                            if (orderInfo.payStatus == 2 || orderInfo.payStatus == 1)
+                            {
+                                result.status = MResultStatus.LogicError;
+                                result.msg = "该订单已经支付 或正在支付中！";
+                            }
+                            else
+                            {
+                                result.info = orderCode;
+                                orderDal.UpdateOrderPayStatusSuccess(orderCode, userCode);
+                                result.status = MResultStatus.Success;
+                            }
+                        }
+                        #endregion
                     }
                     else
                     {
@@ -927,10 +958,11 @@ namespace Wcf.BLL.Order
             }
             catch (Exception)
             {
-
-                throw;
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "处理订单支付成功 出现异常！";
             }
             return result;
         }
+
     }
 }

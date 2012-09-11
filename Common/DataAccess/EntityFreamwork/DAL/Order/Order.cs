@@ -95,7 +95,7 @@ namespace EF.DAL
                         if (v.Any())
                         {
                             decimal totalMoney = 0;
-                            foreach (Sale_ShoppingCart cartItem in v)
+                            foreach (var cartItem in v)
                             {
                                 #region 购物车转订单明细
                                 item = new Sale_Order_Detail();
@@ -268,35 +268,32 @@ namespace EF.DAL
         /// <returns></returns>
         public OrderDetails_ExtInfo GetOrderInfo(int userId, string orderCode)
         {
-            using (var db = new HolycaEntities())
+            using (var db = new bbHomeEntities())
             {
-                var queryTxt = from a in db.Sale_Order
-                               join b in db.Sale_Order_State on a.vchOrderCode equals b.vchOrderCode
-                               join c in db.Sale_Order_Invoice on a.vchOrderCode equals c.vchOrderCode
-                               join d in db.Sale_Order_Deliver on a.vchOrderCode equals d.vchOrderCode
-                               join e in db.Sale_Order_PayState on a.vchOrderCode equals e.vchOrderCode
-                               join f in db.Base_Deliver on a.intDeliverID equals f.intDeliverID
-                               where a.intUserID == userId && a.vchOrderCode == orderCode
+                var queryTxt = from a in db.sale_v_order
+                               join b in db.base_t_member on a.userCode equals b.userCode
+                               join c in db.sale_t_orderInvoice on a.invoiceNo equals c.invoiceNo
+                               where b.membNo == userId && a.orderCode == orderCode
                                select new OrderDetails_ExtInfo
-                                          {
-                                              OrderNo = a.intOrderNO,
-                                              OrderCode = a.vchOrderCode,
-                                              Provinces = d.vchStateName,
-                                              City = d.vchCityName,
-                                              County = d.vchCountyName,
-                                              AddressInfo = d.vchDetailAddr,
-                                              Phone = d.vchPhone,
-                                              Mobile = d.vchMobile,
-                                              Consignee = d.vchConsignee,
-                                              InvoiceCategory = c.intInvoiceType,
-                                              InvoiceTitle = c.vchInvoicTitile,
-                                              Zip = d.vchPostCode,
-                                              PayStatusId = e.intPayState,
-                                              OrderStatusId = a.intOrderState,
-                                              DeliveryType = f.vchDeliverName,
-                                              PayId = a.intPayID
-                                          };
-                return queryTxt.FirstOrDefault();
+                                              {
+                                                  OrderNo = a.orderNo,
+                                                  OrderCode = a.orderCode,
+                                                  Provinces = "",
+                                                  City = "",
+                                                  County = "",
+                                                  AddressInfo = a.address,
+                                                  Phone = a.mobile,
+                                                  Mobile = a.mobile,
+                                                  Consignee = a.sendTo,
+                                                  InvoiceCategory = c.InvType,
+                                                  InvoiceTitle = c.InvTitle,
+                                                  Zip = a.zip,
+                                                  PayStatusId = a.payStatus ?? 0,
+                                                  OrderStatusId = a.flowStatus ?? 0,
+                                                  DeliveryType = a.deliverName,
+                                                  PayId = a.payMethod ?? 0
+                                              };
+                return queryTxt.First();
             }
         }
 
@@ -305,14 +302,15 @@ namespace EF.DAL
         /// </summary>
         /// <param name="orderCode"></param>
         /// <returns></returns>
-        public Sale_Order GetOrderInfo(string orderCode)
+        public sale_v_order GetOrderInfo(string orderCode)
         {
-            using(var db=new HolycaEntities())
+            using (var db = new bbHomeEntities())
             {
-                var queryTxt = from a in db.Sale_Order
-                               where a.vchOrderCode == orderCode
+                var queryTxt = from a in db.sale_v_order
+                               where a.orderCode == orderCode
                                select a;
-                return queryTxt.First();
+                var orderInfo = queryTxt.First();
+                return orderInfo;
             }
         }
 
@@ -325,22 +323,22 @@ namespace EF.DAL
         /// <returns></returns>
         public List<Sale_Order_Detail_And_GoodsInfo> GetOrderGoodsList(int userId, string orderCode, int clusterId)
         {
-            using (var db = new HolycaEntities())
+            using (var db = new bbHomeEntities())
             {
-                var queryTxt = from a in db.Sale_Order_Detail
-                               join b in db.Vi_Web_Pdt_Detail on a.intProductID equals b.intProductID
-                               where a.intUserID == userId && a.vchOrderCode == orderCode && b.intHerdID == clusterId
+                var queryTxt = from a in db.sale_v_orderItem
+                               join b in db.cg_t_products on a.productId equals b.productId
+                               join c in db.sale_t_order on a.orderNo equals c.orderNo
+                               where a.membNo == userId && c.orderCode == orderCode
                                select new Sale_Order_Detail_And_GoodsInfo
-                                          {
-                                              PicUrl = b.vchMainPicURL,
-                                              intProductID = a.intProductID,
-                                              vchProductName = a.vchProductName,
-                                              numSalePrice = a.numSalePrice,
-                                              intHerdPriceID = a.intHerdPriceID,
-                                              intQty = a.intQty,
-                                              intScores = a.intScores,
-                                              numTotalAmount = a.numTotalAmount
-                                          };
+                                           {
+                                               PicUrl = b.pictureUrl,
+                                               intProductID = a.productId ?? 0,
+                                               vchProductName = a.productName,
+                                               numSalePrice = a.price ?? 0,
+                                               intQty = a.qty ?? 0,
+                                               intScores = a.scores ?? 0,
+                                               numTotalAmount = a.amount ?? 0
+                                           };
                 return queryTxt.ToList();
             }
         }
@@ -368,13 +366,22 @@ namespace EF.DAL
         /// <param name="begimTime"></param>
         /// <param name="endTime"></param>
         /// <returns></returns>
-        public List<Sale_Order> GetOrdersList(int userId, DateTime begimTime, DateTime endTime)
+        public List<sale_v_order> GetOrdersList(int userId, DateTime begimTime, DateTime endTime)
         {
-            using (var db = new HolycaEntities())
+            //using (var db = new HolycaEntities())
+            //{
+            //    var queryTxt = from a in db.Sale_Order
+            //                   where a.intUserID == userId && a.dtCreateDate <= endTime && a.dtCreateDate >= begimTime
+            //                   orderby a.dtCreateDate descending
+            //                   select a;
+            //    return queryTxt.ToList();
+            //}
+            using (var db = new bbHomeEntities())
             {
-                var queryTxt = from a in db.Sale_Order
-                               where a.intUserID == userId && a.dtCreateDate <= endTime && a.dtCreateDate >= begimTime
-                               orderby a.dtCreateDate descending
+                var queryTxt = from a in db.sale_v_order
+                               join b in db.base_t_member on a.userCode equals b.userCode
+                               where b.membNo == userId && a.createDate <= endTime && a.createDate >= begimTime
+                               orderby a.createDate descending
                                select a;
                 return queryTxt.ToList();
             }
@@ -408,5 +415,92 @@ namespace EF.DAL
                            };
             }
         }
+
+        /// <summary>
+        /// 更新订单支付状态为成功
+        /// </summary>
+        /// <param name="orderCode"></param>
+        /// <param name="userCode"></param>
+        public void UpdateOrderPayStatusSuccess(string orderCode, string userCode)
+        {
+            using (var db = new HolycaEntities())
+            {
+                var result = new ObjectParameter("intResult", DbType.Int32);
+                db.Up_Synchro_OrderPayState(orderCode, 0, 2, result);
+            }
+        }
+
+        /// <summary>
+        /// 获取订单所有状态
+        /// </summary>
+        /// <param name="oCodes"></param>
+        /// <returns></returns>
+        public List<OrderAllStatus> GetOrderAllStatusByOrderCodes(List<string> oCodes)
+        {
+            var result = new List<OrderAllStatus>();
+            using (var db = new bbHomeEntities())
+            {
+                var queryTxt = from a in db.sale_t_order
+                               join b in db.sale_t_orderStatus on a.orderNo equals b.orderNo
+                               join c in db.sale_t_orderPayStatus on a.orderNo equals c.orderNo
+                               where oCodes.Contains(a.orderCode)
+                               select new OrderAllStatus
+                                          {
+                                              OrderCode = a.orderCode,
+                                              OrderNo = a.orderNo,
+                                              OrderStatus = b.flowStatus,
+                                              PayStatus = c.payStatus
+                                          };
+                result = queryTxt.ToList();
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 更新订单所有状态
+        /// </summary>
+        /// <param name="orderList"></param>
+        public void UpdateOrderAllStatus(ref List<Sale_Order> orderList)
+        {
+            if (orderList != null && orderList.Any())
+            {
+                try
+                {
+                    var oCodes = new List<string>();
+                    orderList.ForEach(item => oCodes.Add(item.vchOrderCode));
+                    var orderStatusList = GetOrderAllStatusByOrderCodes(oCodes);
+                    orderList.ForEach(item =>
+                    {
+                        var orderAllStatus = orderStatusList.Find(o => o.OrderCode == item.vchOrderCode);
+                        if (orderAllStatus != null && !string.IsNullOrEmpty(orderAllStatus.OrderCode))
+                        {
+                            item.intPayState = MCvHelper.To(orderAllStatus.PayStatus, 0);
+                            item.intOrderState = MCvHelper.To(orderAllStatus.OrderStatus, 1);
+                        }
+                    });
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// 更新订单所有状态
+        /// </summary>
+        /// <param name="orderInfo"></param>
+        public void UpdateOrderAllStatus(ref Sale_Order orderInfo)
+        {
+            try
+            {
+                var orderList = new List<Sale_Order> { orderInfo };
+                UpdateOrderAllStatus(ref orderList);
+            }
+            catch (Exception)
+            {
+            }
+        }
+
     }
 }

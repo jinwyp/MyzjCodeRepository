@@ -804,6 +804,48 @@ namespace EF.Model.DataContext
     
             return base.ExecuteFunction("Up_Syn_ToBBHome_Now", orderCodeParameter, result);
         }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        /// <param name="vchOrderCode">没有元数据文档可用。</param>
+        /// <param name="intOrderState">没有元数据文档可用。</param>
+        /// <param name="intOrderPayState">没有元数据文档可用。</param>
+        /// <param name="intResult">没有元数据文档可用。</param>
+        public int Up_Synchro_OrderPayState(global::System.String vchOrderCode, Nullable<global::System.Int32> intOrderState, Nullable<global::System.Int32> intOrderPayState, ObjectParameter intResult)
+        {
+            ObjectParameter vchOrderCodeParameter;
+            if (vchOrderCode != null)
+            {
+                vchOrderCodeParameter = new ObjectParameter("vchOrderCode", vchOrderCode);
+            }
+            else
+            {
+                vchOrderCodeParameter = new ObjectParameter("vchOrderCode", typeof(global::System.String));
+            }
+    
+            ObjectParameter intOrderStateParameter;
+            if (intOrderState.HasValue)
+            {
+                intOrderStateParameter = new ObjectParameter("intOrderState", intOrderState);
+            }
+            else
+            {
+                intOrderStateParameter = new ObjectParameter("intOrderState", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter intOrderPayStateParameter;
+            if (intOrderPayState.HasValue)
+            {
+                intOrderPayStateParameter = new ObjectParameter("intOrderPayState", intOrderPayState);
+            }
+            else
+            {
+                intOrderPayStateParameter = new ObjectParameter("intOrderPayState", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("Up_Synchro_OrderPayState", vchOrderCodeParameter, intOrderStateParameter, intOrderPayStateParameter, intResult);
+        }
 
         #endregion
     }

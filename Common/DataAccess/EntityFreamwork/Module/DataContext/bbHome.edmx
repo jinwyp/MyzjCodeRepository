@@ -8,12 +8,103 @@
         <EntityContainer Name="EFModelbbHomeModelStoreContainer">
           <EntitySet Name="base_t_membAddr" EntityType="EF.Model.bbHomeModel.Store.base_t_membAddr" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="base_t_member" EntityType="EF.Model.bbHomeModel.Store.base_t_member" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cg_t_products" EntityType="EF.Model.bbHomeModel.Store.cg_t_products" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sale_t_order" EntityType="EF.Model.bbHomeModel.Store.sale_t_order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sale_t_orderInvoice" EntityType="EF.Model.bbHomeModel.Store.sale_t_orderInvoice" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sale_t_orderItem" EntityType="EF.Model.bbHomeModel.Store.sale_t_orderItem" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sale_t_orderPayStatus" EntityType="EF.Model.bbHomeModel.Store.sale_t_orderPayStatus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sale_t_orderStatus" EntityType="EF.Model.bbHomeModel.Store.sale_t_orderStatus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="System_Permission" EntityType="EF.Model.bbHomeModel.Store.System_Permission" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_Blacklist" EntityType="EF.Model.bbHomeModel.Store.tb_Blacklist" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sale_v_order" EntityType="EF.Model.bbHomeModel.Store.sale_v_order" store:Type="Views" store:Schema="dbo" store:Name="sale_v_order">
+            <DefiningQuery>SELECT 
+      [sale_v_order].[flowStatus] AS [flowStatus], 
+      [sale_v_order].[payStatus] AS [payStatus], 
+      [sale_v_order].[orderNo] AS [orderNo], 
+      [sale_v_order].[recordingNo] AS [recordingNo], 
+      [sale_v_order].[orderCode] AS [orderCode], 
+      [sale_v_order].[memberNo] AS [memberNo], 
+      [sale_v_order].[actorNo] AS [actorNo], 
+      [sale_v_order].[actorName] AS [actorName], 
+      [sale_v_order].[orderType] AS [orderType], 
+      [sale_v_order].[sendTime] AS [sendTime], 
+      [sale_v_order].[sendTo] AS [sendTo], 
+      [sale_v_order].[sendDate] AS [sendDate], 
+      [sale_v_order].[tel] AS [tel], 
+      [sale_v_order].[mobile] AS [mobile], 
+      [sale_v_order].[memo] AS [memo], 
+      [sale_v_order].[zip] AS [zip], 
+      [sale_v_order].[lineCode] AS [lineCode], 
+      [sale_v_order].[lineName] AS [lineName], 
+      [sale_v_order].[carriage] AS [carriage], 
+      [sale_v_order].[change] AS [change], 
+      [sale_v_order].[actuallyPay] AS [actuallyPay], 
+      [sale_v_order].[shouldPay] AS [shouldPay], 
+      [sale_v_order].[payMethod] AS [payMethod], 
+      [sale_v_order].[deliveryType] AS [deliveryType], 
+      [sale_v_order].[packageWeight] AS [packageWeight], 
+      [sale_v_order].[innerMemo] AS [innerMemo], 
+      [sale_v_order].[ownCity] AS [ownCity], 
+      [sale_v_order].[ownStorage] AS [ownStorage], 
+      [sale_v_order].[address] AS [address], 
+      [sale_v_order].[updateDate] AS [updateDate], 
+      [sale_v_order].[createDate] AS [createDate], 
+      [sale_v_order].[updateBy] AS [updateBy], 
+      [sale_v_order].[createBy] AS [createBy], 
+      [sale_v_order].[areaNo] AS [areaNo], 
+      [sale_v_order].[channelid] AS [channelid], 
+      [sale_v_order].[opDate] AS [opDate], 
+      [sale_v_order].[invoiceNo] AS [invoiceNo], 
+      [sale_v_order].[hasInv] AS [hasInv], 
+      [sale_v_order].[createByName] AS [createByName], 
+      [sale_v_order].[updateByName] AS [updateByName], 
+      [sale_v_order].[payName] AS [payName], 
+      [sale_v_order].[deliverName] AS [deliverName], 
+      [sale_v_order].[scores] AS [scores], 
+      [sale_v_order].[sendActor] AS [sendActor], 
+      [sale_v_order].[sendActorTypeName] AS [sendActorTypeName], 
+      [sale_v_order].[actorTypeName] AS [actorTypeName], 
+      [sale_v_order].[batchNo] AS [batchNo], 
+      [sale_v_order].[addressNo] AS [addressNo], 
+      [sale_v_order].[userCode] AS [userCode], 
+      [sale_v_order].[sender] AS [sender], 
+      [sale_v_order].[senderName] AS [senderName], 
+      [sale_v_order].[lockStatus] AS [lockStatus], 
+      [sale_v_order].[couponAmount] AS [couponAmount], 
+      [sale_v_order].[paymentAmount] AS [paymentAmount], 
+      [sale_v_order].[accountAmount] AS [accountAmount]
+      FROM [dbo].[sale_v_order] AS [sale_v_order]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sale_v_orderItem" EntityType="EF.Model.bbHomeModel.Store.sale_v_orderItem" store:Type="Views" store:Schema="dbo" store:Name="sale_v_orderItem">
+            <DefiningQuery>SELECT 
+      [sale_v_orderItem].[clusterName] AS [clusterName], 
+      [sale_v_orderItem].[Id] AS [Id], 
+      [sale_v_orderItem].[orderNo] AS [orderNo], 
+      [sale_v_orderItem].[productId] AS [productId], 
+      [sale_v_orderItem].[productName] AS [productName], 
+      [sale_v_orderItem].[rtnQty] AS [rtnQty], 
+      [sale_v_orderItem].[qty] AS [qty], 
+      [sale_v_orderItem].[cost] AS [cost], 
+      [sale_v_orderItem].[cleanCost] AS [cleanCost], 
+      [sale_v_orderItem].[price] AS [price], 
+      [sale_v_orderItem].[pdate] AS [pdate], 
+      [sale_v_orderItem].[StandarPrice] AS [StandarPrice], 
+      [sale_v_orderItem].[productPrinted] AS [productPrinted], 
+      [sale_v_orderItem].[beInvoice] AS [beInvoice], 
+      [sale_v_orderItem].[scores] AS [scores], 
+      [sale_v_orderItem].[membNo] AS [membNo], 
+      [sale_v_orderItem].[ownCity] AS [ownCity], 
+      [sale_v_orderItem].[ownStorage] AS [ownStorage], 
+      [sale_v_orderItem].[amount] AS [amount], 
+      [sale_v_orderItem].[opDate] AS [opDate], 
+      [sale_v_orderItem].[priceId] AS [priceId], 
+      [sale_v_orderItem].[promId] AS [promId], 
+      [sale_v_orderItem].[ls] AS [ls], 
+      [sale_v_orderItem].[monCost] AS [monCost], 
+      [sale_v_orderItem].[monCleancost] AS [monCleancost], 
+      [sale_v_orderItem].[PromName] AS [PromName]
+      FROM [dbo].[sale_v_orderItem] AS [sale_v_orderItem]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
         <EntityType Name="base_t_membAddr">
           <Key>
@@ -83,6 +174,102 @@
           <Property Name="beValidate" Type="int" />
           <Property Name="orderTimes" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="cg_t_products">
+          <Key>
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Name="productId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="productId2" Type="int" />
+          <Property Name="pdtNo" Type="varchar" MaxLength="50" />
+          <Property Name="productPrinted" Type="varchar" MaxLength="50" />
+          <Property Name="productNo" Type="varchar" MaxLength="50" />
+          <Property Name="productName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="shortName" Type="varchar" MaxLength="50" />
+          <Property Name="brandId" Type="int" Nullable="false" />
+          <Property Name="productUnit" Type="varchar" MaxLength="50" />
+          <Property Name="productStandard" Type="varchar" MaxLength="50" />
+          <Property Name="productWeight" Type="bigint" />
+          <Property Name="barcode" Type="varchar" MaxLength="40" />
+          <Property Name="useAgeBegin" Type="int" />
+          <Property Name="useAgeEnd" Type="int" />
+          <Property Name="pictureUrl" Type="varchar" MaxLength="50" />
+          <Property Name="keywords" Type="varchar" MaxLength="100" />
+          <Property Name="briefIntroduction" Type="varchar" MaxLength="1000" />
+          <Property Name="webIntroduction" Type="text" />
+          <Property Name="description" Type="text" />
+          <Property Name="productColor" Type="varchar" MaxLength="20" />
+          <Property Name="productShape" Type="varchar" MaxLength="20" />
+          <Property Name="productPattern" Type="varchar" MaxLength="20" />
+          <Property Name="validPeriod" Type="int" />
+          <Property Name="productBulk2" Type="int" />
+          <Property Name="productBulk1" Type="int" />
+          <Property Name="productBulk" Type="int" />
+          <Property Name="productAttention" Type="varchar" MaxLength="1000" />
+          <Property Name="productContent" Type="varchar" MaxLength="100" />
+          <Property Name="producer" Type="varchar" MaxLength="100" />
+          <Property Name="material" Type="varchar" MaxLength="50" />
+          <Property Name="categoryId1" Type="int" Nullable="false" />
+          <Property Name="categoryId2" Type="int" Nullable="false" />
+          <Property Name="categoryId3" Type="int" Nullable="false" />
+          <Property Name="categoryId4" Type="int" Nullable="false" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="afterService" Type="varchar" MaxLength="50" />
+          <Property Name="infoStatus" Type="int" Nullable="false" />
+          <Property Name="poUnit" Type="int" Nullable="false" />
+          <Property Name="PoUnitName" Type="varchar" MaxLength="50" />
+          <Property Name="tjKind" Type="int" />
+          <Property Name="createBy" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="updateBy" Type="varchar" MaxLength="50" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="beRelating" Type="int" />
+          <Property Name="cateId1" Type="int" />
+          <Property Name="cateId2" Type="int" />
+          <Property Name="cateId3" Type="int" />
+          <Property Name="storeType" Type="int" />
+          <Property Name="storCondition" Type="varchar" MaxLength="50" />
+          <Property Name="boxLenth" Type="float" />
+          <Property Name="boxWidth" Type="float" />
+          <Property Name="boxHight" Type="float" />
+          <Property Name="boxStuff" Type="int" />
+          <Property Name="boxWeight" Type="float" />
+          <Property Name="retailPrice" Type="decimal" Scale="4" />
+          <Property Name="input" Type="decimal" Scale="2" />
+          <Property Name="targetCustomer" Type="int" />
+          <Property Name="beExpress" Type="int" />
+          <Property Name="seasonal" Type="int" />
+          <Property Name="warranty" Type="int" />
+          <Property Name="packing" Type="int" Nullable="false" />
+          <Property Name="installation" Type="int" />
+          <Property Name="website" Type="varchar" MaxLength="50" />
+          <Property Name="history" Type="varchar" MaxLength="1500" />
+          <Property Name="manual" Type="varchar" MaxLength="1000" />
+          <Property Name="annexList" Type="varchar" MaxLength="200" />
+          <Property Name="beAnnex" Type="int" />
+          <Property Name="annexRate" Type="float" />
+          <Property Name="pdtAttribute" Type="int" />
+          <Property Name="beDistributed" Type="int" />
+          <Property Name="sendType" Type="bit" />
+          <Property Name="barCode1" Type="varchar" MaxLength="50" />
+          <Property Name="scores" Type="int" />
+          <Property Name="scoresMultiple" Type="int" />
+          <Property Name="pdtStunt" Type="varchar" MaxLength="3000" />
+          <Property Name="matchWeight" Type="decimal" Scale="2" />
+          <Property Name="colorBarcode" Type="varchar" MaxLength="20" />
+          <Property Name="sizeBarcode" Type="varchar" MaxLength="20" />
+          <Property Name="styleBarcode" Type="varchar" MaxLength="20" />
+          <Property Name="validDate" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="qcType" Type="tinyint" />
+          <Property Name="fragil" Type="tinyint" />
+          <Property Name="danger" Type="tinyint" />
+          <Property Name="auditorId" Type="varchar" MaxLength="50" />
+          <Property Name="auditorDate" Type="datetime" />
+          <Property Name="isBulkMerchandise" Type="tinyint" />
+          <Property Name="outOfStockLevel" Type="int" />
+          <Property Name="isBatch" Type="int" />
+          <Property Name="ckUpdateBy" Type="varchar" MaxLength="50" />
+          <Property Name="ckUpdateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="sale_t_order">
           <Key>
             <PropertyRef Name="orderNo" />
@@ -133,6 +320,29 @@
           <Property Name="paymentAmount" Type="decimal" Scale="4" />
           <Property Name="accountAmount" Type="decimal" Scale="4" />
           <Property Name="numSubtractCouponAmount" Type="decimal" Scale="4" />
+        </EntityType>
+        <EntityType Name="sale_t_orderInvoice">
+          <Key>
+            <PropertyRef Name="invoiceNo" />
+          </Key>
+          <Property Name="invoiceNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="orderNo" Type="int" />
+          <Property Name="InvType" Type="int" />
+          <Property Name="InvKind" Type="int" />
+          <Property Name="InvTitle" Type="varchar" MaxLength="200" />
+          <Property Name="InvIdentity" Type="varchar" MaxLength="200" />
+          <Property Name="InvAddress" Type="varchar" MaxLength="200" />
+          <Property Name="InvPhone" Type="varchar" MaxLength="50" />
+          <Property Name="InvAccount" Type="varchar" MaxLength="200" />
+          <Property Name="invMemo" Type="varchar" MaxLength="500" />
+          <Property Name="InvTime" Type="datetime" />
+          <Property Name="InvMoney" Type="decimal" Scale="4" />
+          <Property Name="InvBy" Type="char" MaxLength="10" />
+          <Property Name="beInvItems" Type="bit" />
+          <Property Name="hasInv" Type="int" />
+          <Property Name="membNo" Type="int" />
+          <Property Name="createTime" Type="smalldatetime" />
+          <Property Name="IsModel" Type="int" />
         </EntityType>
         <EntityType Name="sale_t_orderItem">
           <Key>
@@ -216,6 +426,105 @@
           <Property Name="vchMobile" Type="varchar" MaxLength="16" />
           <Property Name="vchAddress" Type="nvarchar" MaxLength="128" />
         </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“bbHome.dbo.sale_v_order”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="sale_v_order">
+          <Key>
+            <PropertyRef Name="orderNo" />
+            <PropertyRef Name="lockStatus" />
+            <PropertyRef Name="couponAmount" />
+          </Key>
+          <Property Name="flowStatus" Type="int" />
+          <Property Name="payStatus" Type="int" />
+          <Property Name="orderNo" Type="int" Nullable="false" />
+          <Property Name="recordingNo" Type="int" />
+          <Property Name="orderCode" Type="varchar" MaxLength="50" />
+          <Property Name="memberNo" Type="int" />
+          <Property Name="actorNo" Type="int" />
+          <Property Name="actorName" Type="varchar" MaxLength="50" />
+          <Property Name="orderType" Type="int" />
+          <Property Name="sendTime" Type="varchar" MaxLength="50" />
+          <Property Name="sendTo" Type="varchar" MaxLength="50" />
+          <Property Name="sendDate" Type="datetime" />
+          <Property Name="tel" Type="varchar" MaxLength="20" />
+          <Property Name="mobile" Type="varchar" MaxLength="20" />
+          <Property Name="memo" Type="varchar" MaxLength="500" />
+          <Property Name="zip" Type="varchar" MaxLength="10" />
+          <Property Name="lineCode" Type="int" />
+          <Property Name="lineName" Type="varchar" MaxLength="50" />
+          <Property Name="carriage" Type="numeric" Scale="4" />
+          <Property Name="change" Type="numeric" Scale="4" />
+          <Property Name="actuallyPay" Type="numeric" Scale="4" />
+          <Property Name="shouldPay" Type="numeric" Scale="4" />
+          <Property Name="payMethod" Type="int" />
+          <Property Name="deliveryType" Type="int" />
+          <Property Name="packageWeight" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="innerMemo" Type="varchar" MaxLength="200" />
+          <Property Name="ownCity" Type="int" />
+          <Property Name="ownStorage" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="300" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateBy" Type="varchar" MaxLength="10" />
+          <Property Name="createBy" Type="char" MaxLength="10" />
+          <Property Name="areaNo" Type="int" />
+          <Property Name="channelid" Type="int" />
+          <Property Name="opDate" Type="smalldatetime" />
+          <Property Name="invoiceNo" Type="int" />
+          <Property Name="hasInv" Type="int" />
+          <Property Name="createByName" Type="char" MaxLength="20" />
+          <Property Name="updateByName" Type="char" MaxLength="20" />
+          <Property Name="payName" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliverName" Type="nvarchar" MaxLength="50" />
+          <Property Name="scores" Type="int" />
+          <Property Name="sendActor" Type="int" />
+          <Property Name="sendActorTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="actorTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="batchNo" Type="int" />
+          <Property Name="addressNo" Type="int" />
+          <Property Name="userCode" Type="varchar" MaxLength="50" />
+          <Property Name="sender" Type="char" MaxLength="20" />
+          <Property Name="senderName" Type="char" MaxLength="20" />
+          <Property Name="lockStatus" Type="tinyint" Nullable="false" />
+          <Property Name="couponAmount" Type="numeric" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="paymentAmount" Type="decimal" Scale="4" />
+          <Property Name="accountAmount" Type="decimal" Scale="4" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“bbHome.dbo.sale_v_orderItem”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="sale_v_orderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="clusterName" Type="varchar" MaxLength="100" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="orderNo" Type="int" />
+          <Property Name="productId" Type="int" />
+          <Property Name="productName" Type="varchar" MaxLength="100" />
+          <Property Name="rtnQty" Type="int" />
+          <Property Name="qty" Type="int" />
+          <Property Name="cost" Type="numeric" Scale="4" />
+          <Property Name="cleanCost" Type="numeric" Scale="4" />
+          <Property Name="price" Type="numeric" Scale="4" />
+          <Property Name="pdate" Type="datetime" />
+          <Property Name="StandarPrice" Type="numeric" Scale="4" />
+          <Property Name="productPrinted" Type="varchar" MaxLength="50" />
+          <Property Name="beInvoice" Type="bit" />
+          <Property Name="scores" Type="int" />
+          <Property Name="membNo" Type="int" />
+          <Property Name="ownCity" Type="int" />
+          <Property Name="ownStorage" Type="int" />
+          <Property Name="amount" Type="numeric" Scale="4" />
+          <Property Name="opDate" Type="smalldatetime" />
+          <Property Name="priceId" Type="int" />
+          <Property Name="promId" Type="int" />
+          <Property Name="ls" Type="int" />
+          <Property Name="monCost" Type="decimal" Scale="4" />
+          <Property Name="monCleancost" Type="decimal" Scale="4" />
+          <Property Name="PromName" Type="nvarchar" MaxLength="128" />
+        </EntityType>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -229,6 +538,10 @@
           <EntitySet Name="sale_t_orderItem" EntityType="EF.Model.bbHomeModel.sale_t_orderItem" />
           <EntitySet Name="sale_t_orderPayStatus" EntityType="EF.Model.bbHomeModel.sale_t_orderPayStatus" />
           <EntitySet Name="sale_t_orderStatus" EntityType="EF.Model.bbHomeModel.sale_t_orderStatus" />
+          <EntitySet Name="sale_v_order" EntityType="EF.Model.bbHomeModel.sale_v_order" />
+          <EntitySet Name="sale_t_orderInvoice" EntityType="EF.Model.bbHomeModel.sale_t_orderInvoice" />
+          <EntitySet Name="sale_v_orderItem" EntityType="EF.Model.bbHomeModel.sale_v_orderItem" />
+          <EntitySet Name="cg_t_products" EntityType="EF.Model.bbHomeModel.cg_t_products" />
           </EntityContainer>
         <EntityType Name="base_t_membAddr">
           <Key>
@@ -430,6 +743,218 @@
           <Property Type="Int32" Name="flowStatus" />
           <Property Type="String" Name="createBy" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Type="DateTime" Name="opDate" />
+        </EntityType>
+        <EntityType Name="sale_v_order">
+          <Key>
+            <PropertyRef Name="orderNo" />
+            <PropertyRef Name="lockStatus" />
+            <PropertyRef Name="couponAmount" />
+          </Key>
+          <Property Type="Int32" Name="flowStatus" />
+          <Property Type="Int32" Name="payStatus" />
+          <Property Type="Int32" Name="orderNo" Nullable="false" />
+          <Property Type="Int32" Name="recordingNo" />
+          <Property Type="String" Name="orderCode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="memberNo" />
+          <Property Type="Int32" Name="actorNo" />
+          <Property Type="String" Name="actorName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="orderType" />
+          <Property Type="String" Name="sendTime" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sendTo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="sendDate" />
+          <Property Type="String" Name="tel" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mobile" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="memo" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="zip" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="lineCode" />
+          <Property Type="String" Name="lineName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="carriage" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="change" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="actuallyPay" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="shouldPay" Precision="18" Scale="4" />
+          <Property Type="Int32" Name="payMethod" />
+          <Property Type="Int32" Name="deliveryType" />
+          <Property Type="Decimal" Name="packageWeight" Precision="9" Scale="2" />
+          <Property Type="String" Name="innerMemo" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ownCity" />
+          <Property Type="Int32" Name="ownStorage" />
+          <Property Type="String" Name="address" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="updateDate" />
+          <Property Type="DateTime" Name="createDate" />
+          <Property Type="String" Name="updateBy" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="createBy" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="areaNo" />
+          <Property Type="Int32" Name="channelid" />
+          <Property Type="DateTime" Name="opDate" />
+          <Property Type="Int32" Name="invoiceNo" />
+          <Property Type="Int32" Name="hasInv" />
+          <Property Type="String" Name="createByName" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="updateByName" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="payName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="deliverName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="scores" />
+          <Property Type="Int32" Name="sendActor" />
+          <Property Type="String" Name="sendActorTypeName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="actorTypeName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="batchNo" />
+          <Property Type="Int32" Name="addressNo" />
+          <Property Type="String" Name="userCode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sender" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="senderName" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="Byte" Name="lockStatus" Nullable="false" />
+          <Property Type="Decimal" Name="couponAmount" Nullable="false" Precision="12" Scale="4" />
+          <Property Type="Decimal" Name="paymentAmount" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="accountAmount" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="sale_t_orderInvoice">
+          <Key>
+            <PropertyRef Name="invoiceNo" />
+          </Key>
+          <Property Type="Int32" Name="invoiceNo" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="orderNo" />
+          <Property Type="Int32" Name="InvType" />
+          <Property Type="Int32" Name="InvKind" />
+          <Property Type="String" Name="InvTitle" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="InvIdentity" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="InvAddress" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="InvPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="InvAccount" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="invMemo" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="InvTime" />
+          <Property Type="Decimal" Name="InvMoney" Precision="18" Scale="4" />
+          <Property Type="String" Name="InvBy" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="Boolean" Name="beInvItems" />
+          <Property Type="Int32" Name="hasInv" />
+          <Property Type="Int32" Name="membNo" />
+          <Property Type="DateTime" Name="createTime" />
+          <Property Type="Int32" Name="IsModel" />
+        </EntityType>
+        <EntityType Name="sale_v_orderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="String" Name="clusterName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="orderNo" />
+          <Property Type="Int32" Name="productId" />
+          <Property Type="String" Name="productName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="rtnQty" />
+          <Property Type="Int32" Name="qty" />
+          <Property Type="Decimal" Name="cost" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="cleanCost" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="price" Precision="18" Scale="4" />
+          <Property Type="DateTime" Name="pdate" />
+          <Property Type="Decimal" Name="StandarPrice" Precision="18" Scale="4" />
+          <Property Type="String" Name="productPrinted" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="beInvoice" />
+          <Property Type="Int32" Name="scores" />
+          <Property Type="Int32" Name="membNo" />
+          <Property Type="Int32" Name="ownCity" />
+          <Property Type="Int32" Name="ownStorage" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="4" />
+          <Property Type="DateTime" Name="opDate" />
+          <Property Type="Int32" Name="priceId" />
+          <Property Type="Int32" Name="promId" />
+          <Property Type="Int32" Name="ls" />
+          <Property Type="Decimal" Name="monCost" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="monCleancost" Precision="18" Scale="4" />
+          <Property Type="String" Name="PromName" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="cg_t_products">
+          <Key>
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Type="Int32" Name="productId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="productId2" />
+          <Property Type="String" Name="pdtNo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="productPrinted" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="productNo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="productName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="shortName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="brandId" Nullable="false" />
+          <Property Type="String" Name="productUnit" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="productStandard" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int64" Name="productWeight" />
+          <Property Type="String" Name="barcode" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="useAgeBegin" />
+          <Property Type="Int32" Name="useAgeEnd" />
+          <Property Type="String" Name="pictureUrl" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="keywords" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="briefIntroduction" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="webIntroduction" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="productColor" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="productShape" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="productPattern" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="validPeriod" />
+          <Property Type="Int32" Name="productBulk2" />
+          <Property Type="Int32" Name="productBulk1" />
+          <Property Type="Int32" Name="productBulk" />
+          <Property Type="String" Name="productAttention" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="productContent" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="producer" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="material" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="categoryId1" Nullable="false" />
+          <Property Type="Int32" Name="categoryId2" Nullable="false" />
+          <Property Type="Int32" Name="categoryId3" Nullable="false" />
+          <Property Type="Int32" Name="categoryId4" Nullable="false" />
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+          <Property Type="String" Name="afterService" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="infoStatus" Nullable="false" />
+          <Property Type="Int32" Name="poUnit" Nullable="false" />
+          <Property Type="String" Name="PoUnitName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="tjKind" />
+          <Property Type="String" Name="createBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="createTime" />
+          <Property Type="String" Name="updateBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="updateTime" />
+          <Property Type="Int32" Name="beRelating" />
+          <Property Type="Int32" Name="cateId1" />
+          <Property Type="Int32" Name="cateId2" />
+          <Property Type="Int32" Name="cateId3" />
+          <Property Type="Int32" Name="storeType" />
+          <Property Type="String" Name="storCondition" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="boxLenth" />
+          <Property Type="Double" Name="boxWidth" />
+          <Property Type="Double" Name="boxHight" />
+          <Property Type="Int32" Name="boxStuff" />
+          <Property Type="Double" Name="boxWeight" />
+          <Property Type="Decimal" Name="retailPrice" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="input" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="targetCustomer" />
+          <Property Type="Int32" Name="beExpress" />
+          <Property Type="Int32" Name="seasonal" />
+          <Property Type="Int32" Name="warranty" />
+          <Property Type="Int32" Name="packing" Nullable="false" />
+          <Property Type="Int32" Name="installation" />
+          <Property Type="String" Name="website" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="history" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="manual" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="annexList" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="beAnnex" />
+          <Property Type="Double" Name="annexRate" />
+          <Property Type="Int32" Name="pdtAttribute" />
+          <Property Type="Int32" Name="beDistributed" />
+          <Property Type="Boolean" Name="sendType" />
+          <Property Type="String" Name="barCode1" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="scores" />
+          <Property Type="Int32" Name="scoresMultiple" />
+          <Property Type="String" Name="pdtStunt" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="matchWeight" Precision="18" Scale="2" />
+          <Property Type="String" Name="colorBarcode" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sizeBarcode" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="styleBarcode" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="validDate" Precision="5" Scale="2" />
+          <Property Type="Byte" Name="qcType" />
+          <Property Type="Byte" Name="fragil" />
+          <Property Type="Byte" Name="danger" />
+          <Property Type="String" Name="auditorId" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="auditorDate" />
+          <Property Type="Byte" Name="isBulkMerchandise" />
+          <Property Type="Int32" Name="outOfStockLevel" />
+          <Property Type="Int32" Name="isBatch" />
+          <Property Type="String" Name="ckUpdateBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ckUpdateTime" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -638,6 +1163,220 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sale_v_order">
+            <EntityTypeMapping TypeName="EF.Model.bbHomeModel.sale_v_order">
+              <MappingFragment StoreEntitySet="sale_v_order">
+                <ScalarProperty Name="accountAmount" ColumnName="accountAmount" />
+                <ScalarProperty Name="paymentAmount" ColumnName="paymentAmount" />
+                <ScalarProperty Name="couponAmount" ColumnName="couponAmount" />
+                <ScalarProperty Name="lockStatus" ColumnName="lockStatus" />
+                <ScalarProperty Name="senderName" ColumnName="senderName" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="userCode" ColumnName="userCode" />
+                <ScalarProperty Name="addressNo" ColumnName="addressNo" />
+                <ScalarProperty Name="batchNo" ColumnName="batchNo" />
+                <ScalarProperty Name="actorTypeName" ColumnName="actorTypeName" />
+                <ScalarProperty Name="sendActorTypeName" ColumnName="sendActorTypeName" />
+                <ScalarProperty Name="sendActor" ColumnName="sendActor" />
+                <ScalarProperty Name="scores" ColumnName="scores" />
+                <ScalarProperty Name="deliverName" ColumnName="deliverName" />
+                <ScalarProperty Name="payName" ColumnName="payName" />
+                <ScalarProperty Name="updateByName" ColumnName="updateByName" />
+                <ScalarProperty Name="createByName" ColumnName="createByName" />
+                <ScalarProperty Name="hasInv" ColumnName="hasInv" />
+                <ScalarProperty Name="invoiceNo" ColumnName="invoiceNo" />
+                <ScalarProperty Name="opDate" ColumnName="opDate" />
+                <ScalarProperty Name="channelid" ColumnName="channelid" />
+                <ScalarProperty Name="areaNo" ColumnName="areaNo" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="ownStorage" ColumnName="ownStorage" />
+                <ScalarProperty Name="ownCity" ColumnName="ownCity" />
+                <ScalarProperty Name="innerMemo" ColumnName="innerMemo" />
+                <ScalarProperty Name="packageWeight" ColumnName="packageWeight" />
+                <ScalarProperty Name="deliveryType" ColumnName="deliveryType" />
+                <ScalarProperty Name="payMethod" ColumnName="payMethod" />
+                <ScalarProperty Name="shouldPay" ColumnName="shouldPay" />
+                <ScalarProperty Name="actuallyPay" ColumnName="actuallyPay" />
+                <ScalarProperty Name="change" ColumnName="change" />
+                <ScalarProperty Name="carriage" ColumnName="carriage" />
+                <ScalarProperty Name="lineName" ColumnName="lineName" />
+                <ScalarProperty Name="lineCode" ColumnName="lineCode" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="sendDate" ColumnName="sendDate" />
+                <ScalarProperty Name="sendTo" ColumnName="sendTo" />
+                <ScalarProperty Name="sendTime" ColumnName="sendTime" />
+                <ScalarProperty Name="orderType" ColumnName="orderType" />
+                <ScalarProperty Name="actorName" ColumnName="actorName" />
+                <ScalarProperty Name="actorNo" ColumnName="actorNo" />
+                <ScalarProperty Name="memberNo" ColumnName="memberNo" />
+                <ScalarProperty Name="orderCode" ColumnName="orderCode" />
+                <ScalarProperty Name="recordingNo" ColumnName="recordingNo" />
+                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+                <ScalarProperty Name="payStatus" ColumnName="payStatus" />
+                <ScalarProperty Name="flowStatus" ColumnName="flowStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sale_t_orderInvoice">
+            <EntityTypeMapping TypeName="EF.Model.bbHomeModel.sale_t_orderInvoice">
+              <MappingFragment StoreEntitySet="sale_t_orderInvoice">
+                <ScalarProperty Name="IsModel" ColumnName="IsModel" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="membNo" ColumnName="membNo" />
+                <ScalarProperty Name="hasInv" ColumnName="hasInv" />
+                <ScalarProperty Name="beInvItems" ColumnName="beInvItems" />
+                <ScalarProperty Name="InvBy" ColumnName="InvBy" />
+                <ScalarProperty Name="InvMoney" ColumnName="InvMoney" />
+                <ScalarProperty Name="InvTime" ColumnName="InvTime" />
+                <ScalarProperty Name="invMemo" ColumnName="invMemo" />
+                <ScalarProperty Name="InvAccount" ColumnName="InvAccount" />
+                <ScalarProperty Name="InvPhone" ColumnName="InvPhone" />
+                <ScalarProperty Name="InvAddress" ColumnName="InvAddress" />
+                <ScalarProperty Name="InvIdentity" ColumnName="InvIdentity" />
+                <ScalarProperty Name="InvTitle" ColumnName="InvTitle" />
+                <ScalarProperty Name="InvKind" ColumnName="InvKind" />
+                <ScalarProperty Name="InvType" ColumnName="InvType" />
+                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+                <ScalarProperty Name="invoiceNo" ColumnName="invoiceNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sale_v_orderItem">
+            <EntityTypeMapping TypeName="EF.Model.bbHomeModel.sale_v_orderItem">
+              <MappingFragment StoreEntitySet="sale_v_orderItem">
+                <ScalarProperty Name="PromName" ColumnName="PromName" />
+                <ScalarProperty Name="monCleancost" ColumnName="monCleancost" />
+                <ScalarProperty Name="monCost" ColumnName="monCost" />
+                <ScalarProperty Name="ls" ColumnName="ls" />
+                <ScalarProperty Name="promId" ColumnName="promId" />
+                <ScalarProperty Name="priceId" ColumnName="priceId" />
+                <ScalarProperty Name="opDate" ColumnName="opDate" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="ownStorage" ColumnName="ownStorage" />
+                <ScalarProperty Name="ownCity" ColumnName="ownCity" />
+                <ScalarProperty Name="membNo" ColumnName="membNo" />
+                <ScalarProperty Name="scores" ColumnName="scores" />
+                <ScalarProperty Name="beInvoice" ColumnName="beInvoice" />
+                <ScalarProperty Name="productPrinted" ColumnName="productPrinted" />
+                <ScalarProperty Name="StandarPrice" ColumnName="StandarPrice" />
+                <ScalarProperty Name="pdate" ColumnName="pdate" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="cleanCost" ColumnName="cleanCost" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="rtnQty" ColumnName="rtnQty" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="orderNo" ColumnName="orderNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="clusterName" ColumnName="clusterName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cg_t_products">
+            <EntityTypeMapping TypeName="EF.Model.bbHomeModel.cg_t_products">
+              <MappingFragment StoreEntitySet="cg_t_products">
+                <ScalarProperty Name="ckUpdateTime" ColumnName="ckUpdateTime" />
+                <ScalarProperty Name="ckUpdateBy" ColumnName="ckUpdateBy" />
+                <ScalarProperty Name="isBatch" ColumnName="isBatch" />
+                <ScalarProperty Name="outOfStockLevel" ColumnName="outOfStockLevel" />
+                <ScalarProperty Name="isBulkMerchandise" ColumnName="isBulkMerchandise" />
+                <ScalarProperty Name="auditorDate" ColumnName="auditorDate" />
+                <ScalarProperty Name="auditorId" ColumnName="auditorId" />
+                <ScalarProperty Name="danger" ColumnName="danger" />
+                <ScalarProperty Name="fragil" ColumnName="fragil" />
+                <ScalarProperty Name="qcType" ColumnName="qcType" />
+                <ScalarProperty Name="validDate" ColumnName="validDate" />
+                <ScalarProperty Name="styleBarcode" ColumnName="styleBarcode" />
+                <ScalarProperty Name="sizeBarcode" ColumnName="sizeBarcode" />
+                <ScalarProperty Name="colorBarcode" ColumnName="colorBarcode" />
+                <ScalarProperty Name="matchWeight" ColumnName="matchWeight" />
+                <ScalarProperty Name="pdtStunt" ColumnName="pdtStunt" />
+                <ScalarProperty Name="scoresMultiple" ColumnName="scoresMultiple" />
+                <ScalarProperty Name="scores" ColumnName="scores" />
+                <ScalarProperty Name="barCode1" ColumnName="barCode1" />
+                <ScalarProperty Name="sendType" ColumnName="sendType" />
+                <ScalarProperty Name="beDistributed" ColumnName="beDistributed" />
+                <ScalarProperty Name="pdtAttribute" ColumnName="pdtAttribute" />
+                <ScalarProperty Name="annexRate" ColumnName="annexRate" />
+                <ScalarProperty Name="beAnnex" ColumnName="beAnnex" />
+                <ScalarProperty Name="annexList" ColumnName="annexList" />
+                <ScalarProperty Name="manual" ColumnName="manual" />
+                <ScalarProperty Name="history" ColumnName="history" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="installation" ColumnName="installation" />
+                <ScalarProperty Name="packing" ColumnName="packing" />
+                <ScalarProperty Name="warranty" ColumnName="warranty" />
+                <ScalarProperty Name="seasonal" ColumnName="seasonal" />
+                <ScalarProperty Name="beExpress" ColumnName="beExpress" />
+                <ScalarProperty Name="targetCustomer" ColumnName="targetCustomer" />
+                <ScalarProperty Name="input" ColumnName="input" />
+                <ScalarProperty Name="retailPrice" ColumnName="retailPrice" />
+                <ScalarProperty Name="boxWeight" ColumnName="boxWeight" />
+                <ScalarProperty Name="boxStuff" ColumnName="boxStuff" />
+                <ScalarProperty Name="boxHight" ColumnName="boxHight" />
+                <ScalarProperty Name="boxWidth" ColumnName="boxWidth" />
+                <ScalarProperty Name="boxLenth" ColumnName="boxLenth" />
+                <ScalarProperty Name="storCondition" ColumnName="storCondition" />
+                <ScalarProperty Name="storeType" ColumnName="storeType" />
+                <ScalarProperty Name="cateId3" ColumnName="cateId3" />
+                <ScalarProperty Name="cateId2" ColumnName="cateId2" />
+                <ScalarProperty Name="cateId1" ColumnName="cateId1" />
+                <ScalarProperty Name="beRelating" ColumnName="beRelating" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="updateBy" ColumnName="updateBy" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="tjKind" ColumnName="tjKind" />
+                <ScalarProperty Name="PoUnitName" ColumnName="PoUnitName" />
+                <ScalarProperty Name="poUnit" ColumnName="poUnit" />
+                <ScalarProperty Name="infoStatus" ColumnName="infoStatus" />
+                <ScalarProperty Name="afterService" ColumnName="afterService" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="categoryId4" ColumnName="categoryId4" />
+                <ScalarProperty Name="categoryId3" ColumnName="categoryId3" />
+                <ScalarProperty Name="categoryId2" ColumnName="categoryId2" />
+                <ScalarProperty Name="categoryId1" ColumnName="categoryId1" />
+                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="producer" ColumnName="producer" />
+                <ScalarProperty Name="productContent" ColumnName="productContent" />
+                <ScalarProperty Name="productAttention" ColumnName="productAttention" />
+                <ScalarProperty Name="productBulk" ColumnName="productBulk" />
+                <ScalarProperty Name="productBulk1" ColumnName="productBulk1" />
+                <ScalarProperty Name="productBulk2" ColumnName="productBulk2" />
+                <ScalarProperty Name="validPeriod" ColumnName="validPeriod" />
+                <ScalarProperty Name="productPattern" ColumnName="productPattern" />
+                <ScalarProperty Name="productShape" ColumnName="productShape" />
+                <ScalarProperty Name="productColor" ColumnName="productColor" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="webIntroduction" ColumnName="webIntroduction" />
+                <ScalarProperty Name="briefIntroduction" ColumnName="briefIntroduction" />
+                <ScalarProperty Name="keywords" ColumnName="keywords" />
+                <ScalarProperty Name="pictureUrl" ColumnName="pictureUrl" />
+                <ScalarProperty Name="useAgeEnd" ColumnName="useAgeEnd" />
+                <ScalarProperty Name="useAgeBegin" ColumnName="useAgeBegin" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="productWeight" ColumnName="productWeight" />
+                <ScalarProperty Name="productStandard" ColumnName="productStandard" />
+                <ScalarProperty Name="productUnit" ColumnName="productUnit" />
+                <ScalarProperty Name="brandId" ColumnName="brandId" />
+                <ScalarProperty Name="shortName" ColumnName="shortName" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="productNo" ColumnName="productNo" />
+                <ScalarProperty Name="productPrinted" ColumnName="productPrinted" />
+                <ScalarProperty Name="pdtNo" ColumnName="pdtNo" />
+                <ScalarProperty Name="productId2" ColumnName="productId2" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -668,6 +1407,10 @@
         <EntityTypeShape EntityType="EF.Model.bbHomeModel.sale_t_orderItem" Width="1.5" PointX="9.75" PointY="0.75" Height="5.59940673828125" />
         <EntityTypeShape EntityType="EF.Model.bbHomeModel.sale_t_orderPayStatus" Width="1.5" PointX="0.75" PointY="9.75" Height="1.9700325520833317" />
         <EntityTypeShape EntityType="EF.Model.bbHomeModel.sale_t_orderStatus" Width="1.5" PointX="2.75" PointY="9.75" Height="1.9700325520833317" />
+        <EntityTypeShape EntityType="EF.Model.bbHomeModel.sale_v_order" Width="1.5" PointX="10.375" PointY="7.75" Height="11.521017252604167" />
+        <EntityTypeShape EntityType="EF.Model.bbHomeModel.sale_t_orderInvoice" Width="1.5" PointX="5.375" PointY="11.75" Height="4.4532885742187531" />
+        <EntityTypeShape EntityType="EF.Model.bbHomeModel.sale_v_orderItem" Width="1.5" PointX="7.375" PointY="11.75" Height="5.9814461263020817" />
+        <EntityTypeShape EntityType="EF.Model.bbHomeModel.cg_t_products" Width="1.5" PointX="12.375" PointY="0.75" Height="18.397726236979167" />
         </Diagram>
     </Diagrams>
   </Designer>

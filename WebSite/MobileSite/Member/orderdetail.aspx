@@ -6,8 +6,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div data-role="navbar" data-iconpos="left">
         <ul>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.myaccount() %>" data-theme="c" data-icon="star" >个人中心</a> </li>
-            <li><a href="<%= MobileSite.BaseLib.WebUrls.myaccount() %>" data-theme="c" data-icon="arrow-l"  data-rel="back">返回</a> </li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.myaccount() %>" data-theme="c" data-icon="star">
+                个人中心</a> </li>
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.myaccount() %>" data-theme="c" data-icon="arrow-l"
+                data-rel="back">返回</a> </li>
         </ul>
     </div>
 </asp:Content>
@@ -15,7 +17,6 @@
     <div data-role="content">
         <div class="content-primary">
             <ul id="orderdetail_template_container" data-role="listview" data-inset="true" data-divider-theme="d">
-                
             </ul>
             <script id="orderdetail_template" type="text/template">
                 <li data-role="list-divider">订单{$T.ocode}信息</li>
@@ -43,11 +44,8 @@
                     {#/if}
                 </li>
             </script>
-            <div data-role="">
-                <a href="#" url="<%= MobileSite.BaseLib.WebUrls.onlinepayment("{0}","{1}") %>" data-role="button" data-inline="true" data-theme="e" class="zaixian">在线支付</a><a
-                    href="#" data-role="button" data-inline="true" data-mini="true" class="cancels_btn">取消订单</a></div>
-            <ul id="ordergoods_list_template_container" data-role="listview" data-inset="true" data-divider-theme="d">
-                
+            <ul id="ordergoods_list_template_container" data-role="listview" data-inset="true"
+                data-divider-theme="d">
             </ul>
             <script id="ordergoods_list_template" type="text/template">
             <li data-role="list-divider">订单商品列表</li>
@@ -69,8 +67,9 @@
                 <li data-icon="arrow-l" data-iconpos="left"><a href="<%= MobileSite.BaseLib.WebUrls.orderlist() %>">返回</a> </li>
             </script>
             <div data-role="">
-                <a href="#" url="<%= MobileSite.BaseLib.WebUrls.onlinepayment("{0}","{1}") %>" data-role="button" data-inline="true" data-theme="e" class="zaixian">在线支付</a><a
-                    href="#" data-role="button" data-inline="true" data-mini="true" class="cancels_btn">取消订单</a></div>
+                <a href="#" url="<%= MobileSite.BaseLib.WebUrls.onlinepayment("{0}","{1}") %>" data-role="button"
+                    data-inline="true" data-theme="e" class="zaixian">在线支付</a><!--<a href="#"
+                        data-role="button" data-inline="true" data-mini="true" class="cancels_btn">取消订单</a>--></div>
         </div>
     </div>
 </asp:Content>

@@ -72,12 +72,12 @@ namespace DALTest
         [TestMethod()]
         public void OrderPaymentTest()
         {
-            SystemType sType = SystemType.MobileWebSite; // TODO: 初始化为适当的值
-            int userId = 616732; // TODO: 初始化为适当的值
-            string uid = "zhangbin5171291@163.com"; // TODO: 初始化为适当的值
-            string oCode = "5437140"; // TODO: 初始化为适当的值
-            int payId = 20049; // TODO: 初始化为适当的值
-            MResult<string> expected = null; // TODO: 初始化为适当的值
+            SystemType sType = SystemType.MobileWebSite; 
+            int userId = 616732;
+            string uid = "zhangbin5171291@163.com"; 
+            string oCode = "5437140";
+            int payId = 20049;
+            MResult<string> expected = null;
             MResult<string> actual;
             actual = PaymentBLL.OrderPayment(sType, userId, uid, oCode, payId);
         }

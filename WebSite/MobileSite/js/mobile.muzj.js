@@ -240,8 +240,8 @@ function Register_Fun(addUrl) {
                     $.cookie("c_babybirth_year", null);
                     $.cookie("c_babybirth_month", null);
                     $.cookie("c_babybirth_day", null);
-                    //window.location.href = window.WebRoot + "Member/myaccount.aspx";
-                    Change_Url(window.WebRoot + "Member/myaccount.aspx");
+                    window.location.href = window.WebRoot + "Member/myaccount.aspx";
+                    //Change_Url(window.WebRoot + "Member/myaccount.aspx");
                 } else {
                     $(".gotop").tap();
                     jQuery("#register_ErroMesg").css("display", "block").text(json.msg);
@@ -276,7 +276,8 @@ function Forgetpassword() {
                     _url: email
                 }, function (jsonString) {
                     if (jsonString.status == 1) {
-                        Change_Url(window.WebRoot + "getpassword-success.aspx?email=" + email);
+                        window.location.href = window.WebRoot + "getpassword-success.aspx?email=" + email;
+                        //Change_Url(window.WebRoot + "getpassword-success.aspx?email=" + email);
                     } else {
                         alert(jsonString.msg);
                     }
@@ -650,8 +651,8 @@ function productDetail_Fun() {
             _url: "/" + area_id + "/" + product_id + "/" + num
         }, function (jsonString) {
             if (jsonString.status == 1) {
-                //window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
-                Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
+                window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                //Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
             } else {
                 alert(jsonString.msg);
             }
@@ -1138,8 +1139,8 @@ function orderconfirm_Fun() {
                     Change_Url(window.WebRoot + "CheckOut/makeorder.aspx");
                 } else if (json.status == "-2") {
                     alert(json.msg);
-                    //window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
-                    Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
+                    window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
+                    //Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
                 } else {
                     alert(json.msg);
                 }
