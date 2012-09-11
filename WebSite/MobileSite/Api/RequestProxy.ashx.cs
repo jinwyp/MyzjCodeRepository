@@ -108,7 +108,7 @@ namespace MobileSite
             else
                 url = string.Format("{0}/{1}",
                 url.TrimEnd(new char[] { '?', '/', ' ' }),
-                SystemId.Trim('/'));
+                MConfigUtility.Get("SystemType").Trim('/'));
         }
 
         /// <summary>

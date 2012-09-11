@@ -21,5 +21,12 @@ namespace Core.Payment
         /// </summary>
         /// <returns></returns>
         string CreateRequestUrl();
+
+        /// <summary>
+        /// 验证 Sign 签名
+        /// </summary>
+        /// <param name="sortDict"></param>
+        /// <returns></returns>
+        bool ValidationSign(SortedDictionary<string, string> sortDict);
     }
 }

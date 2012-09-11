@@ -183,9 +183,9 @@ namespace Wcf.ServiceLibrary.Order
             return result;
         }
 
-        public MResult OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, string getdata, string postdata)
+        public MResult<string> OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, string getdata, string postdata)
         {
-            var result = new MResult();
+            var result = new MResult<string>();
             try
             {
                 result = OrderBLL.OrderPaymentSuccess(SystemType, UserId, Uid, getdata, postdata);

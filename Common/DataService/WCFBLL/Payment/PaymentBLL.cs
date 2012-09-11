@@ -91,7 +91,7 @@ namespace Wcf.BLL.Payment
 
                         var payCofnig = new PayConfigs()
                                             {
-                                                OutTradeNo = orderInfo.vchOrderCode,
+                                                OutTradeNo = string.Format("{0}-{1}", orderInfo.vchOrderCode, orderInfo.vchUserCode),
                                                 OutUser = memberInfo.email,
                                                 Subject = "母婴之家订单支付",
                                                 RequestIdentity = string.Format("{0}_{1}", orderInfo.intUserID, memberInfo.email),

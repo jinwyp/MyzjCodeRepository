@@ -135,7 +135,7 @@
     <Compile Include="FactoryUtility\MFactoryManager.cs" />
     <Compile Include="LogUtility\MLog4Net.cs" />
     <Compile Include="LogUtility\MLogManager.cs" />
-    <Compile Include="Payment\AbsPayment.cs" />
+    <Compile Include="Payment\IPayment.cs" />
     <Compile Include="Payment\AlipayWapPayment.cs" />
     <Compile Include="Payment\Alipay\AlipayFunction.cs" />
     <Compile Include="Payment\Alipay\AlipayService.cs" />

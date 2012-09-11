@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Alipay.Class;
 using Core.ConfigUtility;
 
 namespace Core.Payment
@@ -84,9 +85,16 @@ namespace Core.Payment
         /// </summary>
         /// <param name="payConfig"></param>
         public AlipayWapPayment(PayConfigs payConfig)
+            : this()
         {
             PayConfig = payConfig;
+        }
 
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public AlipayWapPayment()
+        {
             NotifyUrl = MConfigManager.GetAppSettingsValue<string>(MConfigManager.FormatKey("Alipay_NotifyUrl", Enums.MConfigs.ConfigsCategory.Payment));
             MerchantUrl = MConfigManager.GetAppSettingsValue<string>(MConfigManager.FormatKey("Alipay_MerchantUrl", Enums.MConfigs.ConfigsCategory.Payment));
             CallbackUrl = MConfigManager.GetAppSettingsValue<string>(MConfigManager.FormatKey("Alipay_CallbackUrl", Enums.MConfigs.ConfigsCategory.Payment));
@@ -94,7 +102,6 @@ namespace Core.Payment
             Partner = MConfigManager.GetAppSettingsValue<string>(MConfigManager.FormatKey("Alipay_Partner", Enums.MConfigs.ConfigsCategory.Payment));// "2088201564809153";
             Key = MConfigManager.GetAppSettingsValue<string>(MConfigManager.FormatKey("Alipay_Key", Enums.MConfigs.ConfigsCategory.Payment));// "zpdjh9ywq433ejjnkrbc5pys7ipkosnz";
             SellerAccount = MConfigManager.GetAppSettingsValue<string>(MConfigManager.FormatKey("Alipay_SellerAccount", Enums.MConfigs.ConfigsCategory.Payment));// "alipay-test12@alipay.com";
-
         }
 
         /// <summary>
@@ -124,6 +131,27 @@ namespace Core.Payment
                 CallbackUrl, Format, Version, ServiceAuth, Token, InputCharset,
                 RequestUrl, Key, SecId);
             return payUrl;
+        }
+
+        /// <summary>
+        /// 验证 Sign 签名
+        /// </summary>
+        /// <param name="sortDict"></param>
+        /// <returns></returns>
+        public bool ValidationSign(SortedDictionary<string, string> sortDict)
+        {
+            var result = false;
+            if (sortDict.Count > 0)
+            {
+                string sign;
+                sortDict.TryGetValue("sign", out sign);
+                if (!string.IsNullOrEmpty(sign))
+                {
+                    var strSign = Function.BuildMysign(sortDict, Key, SecId, InputCharset);
+                    result = sign.Equals(strSign, StringComparison.InvariantCultureIgnoreCase);
+                }
+            }
+            return result;
         }
     }
 }

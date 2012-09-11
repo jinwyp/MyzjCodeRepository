@@ -9,6 +9,7 @@ using Core.DataType;
 using Core.DataTypeUtility;
 using Core.Enums;
 using Core.LogUtility;
+using Core.Payment;
 using EF.Model.DataContext;
 using Factory;
 using Wcf.BLL.BaseData;
@@ -16,6 +17,8 @@ using Wcf.BLL.Goods;
 using Wcf.BLL.ServiceReference.External;
 using Wcf.Entity.Enum;
 using Wcf.Entity.Order;
+using System.Collections.Specialized;
+using System.Web;
 
 namespace Wcf.BLL.Order
 {
@@ -873,17 +876,60 @@ namespace Wcf.BLL.Order
         /// <summary>
         /// 支付完成
         /// </summary>
-        /// <param name="SystemType"></param>
-        /// <param name="UserId"></param>
-        /// <param name="Uid"></param>
-        /// <param name="getdata"></param>
-        /// <param name="postdata"></param>
+        /// <param name="sType"></param>
+        /// <param name="userId"></param>
+        /// <param name="uid"></param>
+        /// <param name="getData"></param>
+        /// <param name="postData"></param>
         /// <returns></returns>
-        public static MResult OrderPaymentSuccess(SystemType SystemType, int UserId, string Uid, string getdata, string postdata)
+        public static MResult<string> OrderPaymentSuccess(SystemType sType, int userId, string uid, string getData, string postData)
         {
-            //TODO: 处理 支付完成的回调
-            var result = new MResult();
+            var result = new MResult<string>();
 
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(getData))
+                {
+                    var getDataForNameValue = HttpUtility.ParseQueryString(getData);
+                    var sortDict = new SortedDictionary<string, string>();
+                    foreach (string name in getDataForNameValue)
+                        sortDict.Add(name, getDataForNameValue.Get(name));
+
+                    var outTradeNo = getDataForNameValue.Get("out_trade_no");
+                    var requestToken = getDataForNameValue.Get("request_token");
+                    var resultStatus = getDataForNameValue.Get("result");
+                    var tradeNo = getDataForNameValue.Get("trade_no");
+
+                    var alipayPayment = new AlipayWapPayment();
+                    var validationPass = alipayPayment.ValidationSign(sortDict);
+
+                    var orderCode = string.Empty;
+                    var userCode = string.Empty;
+                    var tradeNosplit = (outTradeNo ?? "").Split('-');
+                    if (tradeNosplit.Length == 2)
+                    {
+                        orderCode = tradeNosplit[0];
+                        userCode = tradeNosplit[1];
+                    }
+
+                    if (resultStatus.Equals("success", StringComparison.InvariantCultureIgnoreCase) && validationPass)
+                    {
+                        result.status = MResultStatus.Success;
+                        result.info = orderCode;
+                    }
+                    else
+                    {
+                        result.status = MResultStatus.LogicError;
+                        result.msg = "支付失败！";
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return result;
         }
     }

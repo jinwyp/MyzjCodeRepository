@@ -41,6 +41,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Resources\Assembly\Common\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -79,6 +83,9 @@
     </Compile>
     <Compile Include="Api\WebApi.ashx.cs">
       <DependentUpon>WebApi.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="callback\alipay_wap.ashx.cs">
+      <DependentUpon>alipay_wap.ashx</DependentUpon>
     </Compile>
     <Compile Include="CheckOut\addresslist.aspx.cs">
       <DependentUpon>addresslist.aspx</DependentUpon>
@@ -304,6 +311,7 @@
     <Content Include="CheckOut\deliverylist.aspx" />
     <Content Include="CheckOut\makeorder.aspx" />
     <Content Include="CheckOut\onlinepayment.aspx" />
+    <Content Include="callback\alipay_wap.ashx" />
     <None Include="Configs\restful.config" />
     <Content Include="Footer.ascx" />
     <Content Include="Global.asax" />

@@ -13,8 +13,7 @@ namespace MobileSite.BaseLib
     /// </summary>
     public class BaseApi : IRequiresSessionState
     {
-        protected static Dictionary<string, string> ApiUrlDict = null;
-        protected string SystemId;
+        public static Dictionary<string, string> ApiUrlDict = WebApis.GetApiList();
 
         /// <summary>
         /// 

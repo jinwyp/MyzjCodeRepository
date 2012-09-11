@@ -165,7 +165,7 @@ namespace Wcf.ServiceLibrary.Order
         /// <returns></returns>
         [WebGet(UriTemplate = OrderUri.ORDERPAYMENTSUCCESS)]
         [OperationContract]
-        MResult OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, string getdata, string postdata);
+        MResult<string> OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, string getdata, string postdata);
 
     }
 }
