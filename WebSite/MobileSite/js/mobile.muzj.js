@@ -1756,7 +1756,9 @@ var makeorder_Fun = function () {
 //#region 查看订单详细页
 function orderdetail_Fun() {
     var ocode = getParameter('ocode') || LS.get("make_ocode") || "no_c";
+    var make_paytype = LS.get("make_paytype") || "no_c";
     //alert(ocode);
+
     if (ocode != "no_c") {
         //#region 获取订单用户信息
         var orderdetail_template_container = $("#orderdetail_template_container");
@@ -1770,10 +1772,13 @@ function orderdetail_Fun() {
                     var url = btnOrderPay.attr("url");
                     btnOrderPay.css("display", "inline-block")
                         .attr("href", url.format([jsonString.info.ocode, jsonString.info.paytypeid]));
-                }
+                };
                 if (jsonString.info.statusid == 0 || jsonString.info.statusid == 1) {
                     $(".cancels_btn").css("display", "inline-block");
-                }
+                };
+                if (jsonString.info.paytype === "货到付款") {
+                    $(".zaixian").hide();
+                };
                 orderdetail_template_container.setTemplate($('#orderdetail_template').html());
                 orderdetail_template_container.processTemplate(jsonString.info, null, { append: false });
                 orderdetail_template_container.listview('refresh');
