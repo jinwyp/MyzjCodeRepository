@@ -96,9 +96,9 @@ namespace Wcf.BLL.Payment
                                                 OutUser = memberInfo.email,
                                                 Subject = "母婴之家订单支付",
                                                 RequestIdentity = string.Format("{0}_{1}", orderInfo.userCode, memberInfo.email),
-                                                TotalFee = MCvHelper.To(orderInfo.shouldPay, "0.00")
+                                                //TotalFee = MCvHelper.To(orderInfo.shouldPay, "0.00")
                                                 //TODO: 测试支付的时候请取消注视
-                                                //TotalFee = MCvHelper.To("0.01", "0.00")
+                                                TotalFee = MCvHelper.To("0.01", "0.00")
                                             };
 
                         switch (payInfo.intPayID)
