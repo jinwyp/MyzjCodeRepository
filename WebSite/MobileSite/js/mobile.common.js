@@ -27,10 +27,6 @@ var GetWcf = function (data, callback, showLoading, options) {
 
 };
 
-var GetWcf_F = function (data, callback, showLoading, async) {
-    CallWcf_F("GET", data, callback, showLoading, async);
-};
-
 var PostWcf = function (data, callback, showLoading, options) {
 
     CallWcf("POST", data, callback, showLoading, options);
@@ -74,7 +70,7 @@ var CallWcf = function (method, data, callback, showLoading, options) {
             url: WcfProxyUrl,
             data: data,
             type: method,
-            dataType: 'json',
+            dataType: 'jsonp',
             contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             beforeSend: function (XMLHttpRequest) {
                 if (showLoading) {
@@ -130,63 +126,6 @@ var CallWcf = function (method, data, callback, showLoading, options) {
 
     $.ajax(OPTIONS);
 }
-
-};
-
-var CallWcf_F = function (method, data, callback, showLoading, async) {
-
-    if (typeof (method) == "string" && method.length > 0
-        && typeof (data) == "object"
-            && typeof (callback) == "function") {
-
-        data._type = method;
-        if (typeof (data._data) == "string" && data._data.length > 0) {
-            try {
-                JSON.parse(data._data);
-                data._contentType = "application/json";
-            } catch (e) {
-
-            }
-        }
-
-        if (Debug) {
-            Log("ajax 请求数据：");
-            Log(data);
-        }
-
-        $.ajax({
-            url: WcfProxyUrl,
-            data: data,
-            type: method,
-            dataType: 'json',
-            async: false,
-            beforeSend: function (XMLHttpRequest) {
-                if (showLoading) {
-                    //$.mobile.showPageLoadingMsg();
-                    $.mobile.loadingMessageTextVisible = false;
-                    $.mobile.loadingMessageTheme = 'c';
-                    $.mobile.showPageLoadingMsg();
-                }
-            },
-            success: function (json) {
-                if (typeof (callback) == "function")
-                    callback(json);
-                if (Debug) {
-                    Log("ajax 返回结果：");
-                    Log(json);
-                }
-            },
-            complete: function (XMLHttpRequest, textStatus) {
-                if (showLoading) {
-                    $.mobile.hidePageLoadingMsg();
-                }
-            },
-            error: function () {
-                alert("获取数据发生异常！");
-            }
-        });
-
-    }
 
 };
 
@@ -482,7 +421,7 @@ var Get_shoppingcartgoodsnum_Fun = function () {
     var token = $.cookie("m_token");
     var uid = $.cookie("m_uid");
     var user_id = $.cookie("m_user_id");
-    GetWcf_F({
+    GetWcf({
         _api: "Goods.shoppingcartgoodsnum"
     }, function (json) {
         if (json.status == 1 && typeof (json.info) == "object") {

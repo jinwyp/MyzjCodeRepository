@@ -1,4 +1,6 @@
-﻿//#region 退出登录
+﻿
+
+//#region 退出登录
 function LoingOut() {
     Unbind_bind("#logout", "click", function () {
         var token = $.cookie("m_token");
@@ -1567,7 +1569,6 @@ function getTown() {
 }
 //#endregion
 
-var a = 0;
 //#region 给省市区绑定事件
 function BindClick_Pro_City_Town_Event_Fun() {
     GetPrCiTownAjaxDate();
@@ -1581,9 +1582,8 @@ function BindClick_Pro_City_Town_Event_Fun() {
 }
 //#endregion
 
-var address_add_update_Object = {};
-
 //#region 点击给radio赋值
+var address_add_update_Object = {};
 address_add_update_Object.addressRadioChange = function () {
     $("[name = radio-choice-1]:radio").live('change', function () {
         $("[name = radio-choice-1]:radio").attr("checked", false).checkboxradio("refresh");
@@ -1894,6 +1894,7 @@ function orderlist_Fun() {
 }
 //#endregion
 
+//#region 分类跳转到 商品列表
 function ShowDetails(cust, id) {
 
     if (cust != null) {//alert(cust.child == null);
@@ -1909,6 +1910,7 @@ function ShowDetails(cust, id) {
         }
     }
 }
+//#endregion
 
 //#region 分类
 var Category = {
