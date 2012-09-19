@@ -111,6 +111,7 @@
     </Content>
     <Content Include="BaseData.svc" />
     <Content Include="Order.svc" />
+    <Content Include="CMS.svc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

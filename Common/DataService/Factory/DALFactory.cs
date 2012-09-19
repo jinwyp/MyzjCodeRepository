@@ -97,5 +97,15 @@ namespace Factory
         {
             return new EF.DAL.Payment();
         }
+
+        /// <summary>
+        /// 内容管理
+        /// </summary>
+        /// <returns></returns>
+        public static Cms Cms()
+        {
+            return new Cms();
+        }
+
     }
 }

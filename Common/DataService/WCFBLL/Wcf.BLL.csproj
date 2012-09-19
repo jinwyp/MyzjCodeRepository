@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseData\BaseDataBLL.cs" />
+    <Compile Include="Cms\CmsBLL.cs" />
     <Compile Include="Goods\GoodsBLL.cs" />
     <Compile Include="Manage\ManageBLL.cs" />
     <Compile Include="Member\MemberBLL.cs" />

@@ -37,7 +37,9 @@ namespace Core.Enums
             Member,
             Goods,
             Order,
-            BaseData
+            BaseData,
+            Payment,
+            Cms
         }
 
     }

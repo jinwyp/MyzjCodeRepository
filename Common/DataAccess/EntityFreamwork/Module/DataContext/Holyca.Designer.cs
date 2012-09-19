@@ -512,6 +512,86 @@ namespace EF.Model.DataContext
             }
         }
         private ObjectSet<Sale_ShopCart_Prom_Rela> _Sale_ShopCart_Prom_Rela;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Web_ContentData> Web_ContentData
+        {
+            get
+            {
+                if ((_Web_ContentData == null))
+                {
+                    _Web_ContentData = base.CreateObjectSet<Web_ContentData>("Web_ContentData");
+                }
+                return _Web_ContentData;
+            }
+        }
+        private ObjectSet<Web_ContentData> _Web_ContentData;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Web_SitePageColumns> Web_SitePageColumns
+        {
+            get
+            {
+                if ((_Web_SitePageColumns == null))
+                {
+                    _Web_SitePageColumns = base.CreateObjectSet<Web_SitePageColumns>("Web_SitePageColumns");
+                }
+                return _Web_SitePageColumns;
+            }
+        }
+        private ObjectSet<Web_SitePageColumns> _Web_SitePageColumns;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Web_SitePages> Web_SitePages
+        {
+            get
+            {
+                if ((_Web_SitePages == null))
+                {
+                    _Web_SitePages = base.CreateObjectSet<Web_SitePages>("Web_SitePages");
+                }
+                return _Web_SitePages;
+            }
+        }
+        private ObjectSet<Web_SitePages> _Web_SitePages;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Web_Sites> Web_Sites
+        {
+            get
+            {
+                if ((_Web_Sites == null))
+                {
+                    _Web_Sites = base.CreateObjectSet<Web_Sites>("Web_Sites");
+                }
+                return _Web_Sites;
+            }
+        }
+        private ObjectSet<Web_Sites> _Web_Sites;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<Web_Bulletin> Web_Bulletin
+        {
+            get
+            {
+                if ((_Web_Bulletin == null))
+                {
+                    _Web_Bulletin = base.CreateObjectSet<Web_Bulletin>("Web_Bulletin");
+                }
+                return _Web_Bulletin;
+            }
+        }
+        private ObjectSet<Web_Bulletin> _Web_Bulletin;
 
         #endregion
         #region AddTo 方法
@@ -738,6 +818,46 @@ namespace EF.Model.DataContext
         public void AddToSale_ShopCart_Prom_Rela(Sale_ShopCart_Prom_Rela sale_ShopCart_Prom_Rela)
         {
             base.AddObject("Sale_ShopCart_Prom_Rela", sale_ShopCart_Prom_Rela);
+        }
+    
+        /// <summary>
+        /// 用于向 Web_ContentData EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToWeb_ContentData(Web_ContentData web_ContentData)
+        {
+            base.AddObject("Web_ContentData", web_ContentData);
+        }
+    
+        /// <summary>
+        /// 用于向 Web_SitePageColumns EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToWeb_SitePageColumns(Web_SitePageColumns web_SitePageColumns)
+        {
+            base.AddObject("Web_SitePageColumns", web_SitePageColumns);
+        }
+    
+        /// <summary>
+        /// 用于向 Web_SitePages EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToWeb_SitePages(Web_SitePages web_SitePages)
+        {
+            base.AddObject("Web_SitePages", web_SitePages);
+        }
+    
+        /// <summary>
+        /// 用于向 Web_Sites EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToWeb_Sites(Web_Sites web_Sites)
+        {
+            base.AddObject("Web_Sites", web_Sites);
+        }
+    
+        /// <summary>
+        /// 用于向 Web_Bulletin EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToWeb_Bulletin(Web_Bulletin web_Bulletin)
+        {
+            base.AddObject("Web_Bulletin", web_Bulletin);
         }
 
         #endregion
@@ -12466,6 +12586,952 @@ namespace EF.Model.DataContext
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Web_Bulletin")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Web_Bulletin : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Web_Bulletin 对象。
+        /// </summary>
+        /// <param name="intBulletinID">intBulletinID 属性的初始值。</param>
+        public static Web_Bulletin CreateWeb_Bulletin(global::System.Int32 intBulletinID)
+        {
+            Web_Bulletin web_Bulletin = new Web_Bulletin();
+            web_Bulletin.intBulletinID = intBulletinID;
+            return web_Bulletin;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 intBulletinID
+        {
+            get
+            {
+                return _intBulletinID;
+            }
+            set
+            {
+                if (_intBulletinID != value)
+                {
+                    OnintBulletinIDChanging(value);
+                    ReportPropertyChanging("intBulletinID");
+                    _intBulletinID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("intBulletinID");
+                    OnintBulletinIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _intBulletinID;
+        partial void OnintBulletinIDChanging(global::System.Int32 value);
+        partial void OnintBulletinIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchBulletinName
+        {
+            get
+            {
+                return _vchBulletinName;
+            }
+            set
+            {
+                OnvchBulletinNameChanging(value);
+                ReportPropertyChanging("vchBulletinName");
+                _vchBulletinName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchBulletinName");
+                OnvchBulletinNameChanged();
+            }
+        }
+        private global::System.String _vchBulletinName;
+        partial void OnvchBulletinNameChanging(global::System.String value);
+        partial void OnvchBulletinNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchBulletinContent
+        {
+            get
+            {
+                return _vchBulletinContent;
+            }
+            set
+            {
+                OnvchBulletinContentChanging(value);
+                ReportPropertyChanging("vchBulletinContent");
+                _vchBulletinContent = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchBulletinContent");
+                OnvchBulletinContentChanged();
+            }
+        }
+        private global::System.String _vchBulletinContent;
+        partial void OnvchBulletinContentChanging(global::System.String value);
+        partial void OnvchBulletinContentChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Byte> intIsEnable
+        {
+            get
+            {
+                return _intIsEnable;
+            }
+            set
+            {
+                OnintIsEnableChanging(value);
+                ReportPropertyChanging("intIsEnable");
+                _intIsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intIsEnable");
+                OnintIsEnableChanged();
+            }
+        }
+        private Nullable<global::System.Byte> _intIsEnable;
+        partial void OnintIsEnableChanging(Nullable<global::System.Byte> value);
+        partial void OnintIsEnableChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String vchBulletinURL
+        {
+            get
+            {
+                return _vchBulletinURL;
+            }
+            set
+            {
+                OnvchBulletinURLChanging(value);
+                ReportPropertyChanging("vchBulletinURL");
+                _vchBulletinURL = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("vchBulletinURL");
+                OnvchBulletinURLChanged();
+            }
+        }
+        private global::System.String _vchBulletinURL;
+        partial void OnvchBulletinURLChanging(global::System.String value);
+        partial void OnvchBulletinURLChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intSort
+        {
+            get
+            {
+                return _intSort;
+            }
+            set
+            {
+                OnintSortChanging(value);
+                ReportPropertyChanging("intSort");
+                _intSort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intSort");
+                OnintSortChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intSort;
+        partial void OnintSortChanging(Nullable<global::System.Int32> value);
+        partial void OnintSortChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intAddUserID
+        {
+            get
+            {
+                return _intAddUserID;
+            }
+            set
+            {
+                OnintAddUserIDChanging(value);
+                ReportPropertyChanging("intAddUserID");
+                _intAddUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intAddUserID");
+                OnintAddUserIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intAddUserID;
+        partial void OnintAddUserIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintAddUserIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dtAddDate
+        {
+            get
+            {
+                return _dtAddDate;
+            }
+            set
+            {
+                OndtAddDateChanging(value);
+                ReportPropertyChanging("dtAddDate");
+                _dtAddDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtAddDate");
+                OndtAddDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dtAddDate;
+        partial void OndtAddDateChanging(Nullable<global::System.DateTime> value);
+        partial void OndtAddDateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> intModUserID
+        {
+            get
+            {
+                return _intModUserID;
+            }
+            set
+            {
+                OnintModUserIDChanging(value);
+                ReportPropertyChanging("intModUserID");
+                _intModUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("intModUserID");
+                OnintModUserIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _intModUserID;
+        partial void OnintModUserIDChanging(Nullable<global::System.Int32> value);
+        partial void OnintModUserIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dtModDate
+        {
+            get
+            {
+                return _dtModDate;
+            }
+            set
+            {
+                OndtModDateChanging(value);
+                ReportPropertyChanging("dtModDate");
+                _dtModDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dtModDate");
+                OndtModDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dtModDate;
+        partial void OndtModDateChanging(Nullable<global::System.DateTime> value);
+        partial void OndtModDateChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Web_ContentData")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Web_ContentData : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Web_ContentData 对象。
+        /// </summary>
+        /// <param name="wcd_Id">Wcd_Id 属性的初始值。</param>
+        /// <param name="wspc_Id">Wspc_Id 属性的初始值。</param>
+        /// <param name="wcd_Title">Wcd_Title 属性的初始值。</param>
+        /// <param name="wcd_Sort">Wcd_Sort 属性的初始值。</param>
+        /// <param name="wcd_Category">Wcd_Category 属性的初始值。</param>
+        /// <param name="wcd_IsEnable">Wcd_IsEnable 属性的初始值。</param>
+        /// <param name="wcd_Created">Wcd_Created 属性的初始值。</param>
+        /// <param name="wcd_CreateUser">Wcd_CreateUser 属性的初始值。</param>
+        /// <param name="wcd_BeginTime">Wcd_BeginTime 属性的初始值。</param>
+        /// <param name="wcd_EndTime">Wcd_EndTime 属性的初始值。</param>
+        /// <param name="wcd_ModifyTime">Wcd_ModifyTime 属性的初始值。</param>
+        public static Web_ContentData CreateWeb_ContentData(global::System.Int32 wcd_Id, global::System.Int32 wspc_Id, global::System.String wcd_Title, global::System.Int32 wcd_Sort, global::System.Int16 wcd_Category, global::System.Int16 wcd_IsEnable, global::System.DateTime wcd_Created, global::System.Int32 wcd_CreateUser, global::System.DateTime wcd_BeginTime, global::System.DateTime wcd_EndTime, global::System.DateTime wcd_ModifyTime)
+        {
+            Web_ContentData web_ContentData = new Web_ContentData();
+            web_ContentData.Wcd_Id = wcd_Id;
+            web_ContentData.Wspc_Id = wspc_Id;
+            web_ContentData.Wcd_Title = wcd_Title;
+            web_ContentData.Wcd_Sort = wcd_Sort;
+            web_ContentData.Wcd_Category = wcd_Category;
+            web_ContentData.Wcd_IsEnable = wcd_IsEnable;
+            web_ContentData.Wcd_Created = wcd_Created;
+            web_ContentData.Wcd_CreateUser = wcd_CreateUser;
+            web_ContentData.Wcd_BeginTime = wcd_BeginTime;
+            web_ContentData.Wcd_EndTime = wcd_EndTime;
+            web_ContentData.Wcd_ModifyTime = wcd_ModifyTime;
+            return web_ContentData;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wcd_Id
+        {
+            get
+            {
+                return _Wcd_Id;
+            }
+            set
+            {
+                if (_Wcd_Id != value)
+                {
+                    OnWcd_IdChanging(value);
+                    ReportPropertyChanging("Wcd_Id");
+                    _Wcd_Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Wcd_Id");
+                    OnWcd_IdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Wcd_Id;
+        partial void OnWcd_IdChanging(global::System.Int32 value);
+        partial void OnWcd_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wspc_Id
+        {
+            get
+            {
+                return _Wspc_Id;
+            }
+            set
+            {
+                OnWspc_IdChanging(value);
+                ReportPropertyChanging("Wspc_Id");
+                _Wspc_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wspc_Id");
+                OnWspc_IdChanged();
+            }
+        }
+        private global::System.Int32 _Wspc_Id;
+        partial void OnWspc_IdChanging(global::System.Int32 value);
+        partial void OnWspc_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_Title
+        {
+            get
+            {
+                return _Wcd_Title;
+            }
+            set
+            {
+                OnWcd_TitleChanging(value);
+                ReportPropertyChanging("Wcd_Title");
+                _Wcd_Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Wcd_Title");
+                OnWcd_TitleChanged();
+            }
+        }
+        private global::System.String _Wcd_Title;
+        partial void OnWcd_TitleChanging(global::System.String value);
+        partial void OnWcd_TitleChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_Image
+        {
+            get
+            {
+                return _Wcd_Image;
+            }
+            set
+            {
+                OnWcd_ImageChanging(value);
+                ReportPropertyChanging("Wcd_Image");
+                _Wcd_Image = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_Image");
+                OnWcd_ImageChanged();
+            }
+        }
+        private global::System.String _Wcd_Image;
+        partial void OnWcd_ImageChanging(global::System.String value);
+        partial void OnWcd_ImageChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_Link
+        {
+            get
+            {
+                return _Wcd_Link;
+            }
+            set
+            {
+                OnWcd_LinkChanging(value);
+                ReportPropertyChanging("Wcd_Link");
+                _Wcd_Link = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_Link");
+                OnWcd_LinkChanged();
+            }
+        }
+        private global::System.String _Wcd_Link;
+        partial void OnWcd_LinkChanging(global::System.String value);
+        partial void OnWcd_LinkChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_Content
+        {
+            get
+            {
+                return _Wcd_Content;
+            }
+            set
+            {
+                OnWcd_ContentChanging(value);
+                ReportPropertyChanging("Wcd_Content");
+                _Wcd_Content = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_Content");
+                OnWcd_ContentChanged();
+            }
+        }
+        private global::System.String _Wcd_Content;
+        partial void OnWcd_ContentChanging(global::System.String value);
+        partial void OnWcd_ContentChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wcd_Sort
+        {
+            get
+            {
+                return _Wcd_Sort;
+            }
+            set
+            {
+                OnWcd_SortChanging(value);
+                ReportPropertyChanging("Wcd_Sort");
+                _Wcd_Sort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_Sort");
+                OnWcd_SortChanged();
+            }
+        }
+        private global::System.Int32 _Wcd_Sort;
+        partial void OnWcd_SortChanging(global::System.Int32 value);
+        partial void OnWcd_SortChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Wcd_Category
+        {
+            get
+            {
+                return _Wcd_Category;
+            }
+            set
+            {
+                OnWcd_CategoryChanging(value);
+                ReportPropertyChanging("Wcd_Category");
+                _Wcd_Category = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_Category");
+                OnWcd_CategoryChanged();
+            }
+        }
+        private global::System.Int16 _Wcd_Category;
+        partial void OnWcd_CategoryChanging(global::System.Int16 value);
+        partial void OnWcd_CategoryChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Wcd_ResId
+        {
+            get
+            {
+                return _Wcd_ResId;
+            }
+            set
+            {
+                OnWcd_ResIdChanging(value);
+                ReportPropertyChanging("Wcd_ResId");
+                _Wcd_ResId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_ResId");
+                OnWcd_ResIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Wcd_ResId;
+        partial void OnWcd_ResIdChanging(Nullable<global::System.Int32> value);
+        partial void OnWcd_ResIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> Wcd_ResType
+        {
+            get
+            {
+                return _Wcd_ResType;
+            }
+            set
+            {
+                OnWcd_ResTypeChanging(value);
+                ReportPropertyChanging("Wcd_ResType");
+                _Wcd_ResType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_ResType");
+                OnWcd_ResTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _Wcd_ResType;
+        partial void OnWcd_ResTypeChanging(Nullable<global::System.Int16> value);
+        partial void OnWcd_ResTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_F1
+        {
+            get
+            {
+                return _Wcd_F1;
+            }
+            set
+            {
+                OnWcd_F1Changing(value);
+                ReportPropertyChanging("Wcd_F1");
+                _Wcd_F1 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_F1");
+                OnWcd_F1Changed();
+            }
+        }
+        private global::System.String _Wcd_F1;
+        partial void OnWcd_F1Changing(global::System.String value);
+        partial void OnWcd_F1Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_F2
+        {
+            get
+            {
+                return _Wcd_F2;
+            }
+            set
+            {
+                OnWcd_F2Changing(value);
+                ReportPropertyChanging("Wcd_F2");
+                _Wcd_F2 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_F2");
+                OnWcd_F2Changed();
+            }
+        }
+        private global::System.String _Wcd_F2;
+        partial void OnWcd_F2Changing(global::System.String value);
+        partial void OnWcd_F2Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_F3
+        {
+            get
+            {
+                return _Wcd_F3;
+            }
+            set
+            {
+                OnWcd_F3Changing(value);
+                ReportPropertyChanging("Wcd_F3");
+                _Wcd_F3 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_F3");
+                OnWcd_F3Changed();
+            }
+        }
+        private global::System.String _Wcd_F3;
+        partial void OnWcd_F3Changing(global::System.String value);
+        partial void OnWcd_F3Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_F4
+        {
+            get
+            {
+                return _Wcd_F4;
+            }
+            set
+            {
+                OnWcd_F4Changing(value);
+                ReportPropertyChanging("Wcd_F4");
+                _Wcd_F4 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_F4");
+                OnWcd_F4Changed();
+            }
+        }
+        private global::System.String _Wcd_F4;
+        partial void OnWcd_F4Changing(global::System.String value);
+        partial void OnWcd_F4Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_F5
+        {
+            get
+            {
+                return _Wcd_F5;
+            }
+            set
+            {
+                OnWcd_F5Changing(value);
+                ReportPropertyChanging("Wcd_F5");
+                _Wcd_F5 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_F5");
+                OnWcd_F5Changed();
+            }
+        }
+        private global::System.String _Wcd_F5;
+        partial void OnWcd_F5Changing(global::System.String value);
+        partial void OnWcd_F5Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_F6
+        {
+            get
+            {
+                return _Wcd_F6;
+            }
+            set
+            {
+                OnWcd_F6Changing(value);
+                ReportPropertyChanging("Wcd_F6");
+                _Wcd_F6 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_F6");
+                OnWcd_F6Changed();
+            }
+        }
+        private global::System.String _Wcd_F6;
+        partial void OnWcd_F6Changing(global::System.String value);
+        partial void OnWcd_F6Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_F7
+        {
+            get
+            {
+                return _Wcd_F7;
+            }
+            set
+            {
+                OnWcd_F7Changing(value);
+                ReportPropertyChanging("Wcd_F7");
+                _Wcd_F7 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_F7");
+                OnWcd_F7Changed();
+            }
+        }
+        private global::System.String _Wcd_F7;
+        partial void OnWcd_F7Changing(global::System.String value);
+        partial void OnWcd_F7Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_F8
+        {
+            get
+            {
+                return _Wcd_F8;
+            }
+            set
+            {
+                OnWcd_F8Changing(value);
+                ReportPropertyChanging("Wcd_F8");
+                _Wcd_F8 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_F8");
+                OnWcd_F8Changed();
+            }
+        }
+        private global::System.String _Wcd_F8;
+        partial void OnWcd_F8Changing(global::System.String value);
+        partial void OnWcd_F8Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_F9
+        {
+            get
+            {
+                return _Wcd_F9;
+            }
+            set
+            {
+                OnWcd_F9Changing(value);
+                ReportPropertyChanging("Wcd_F9");
+                _Wcd_F9 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_F9");
+                OnWcd_F9Changed();
+            }
+        }
+        private global::System.String _Wcd_F9;
+        partial void OnWcd_F9Changing(global::System.String value);
+        partial void OnWcd_F9Changed();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Wcd_IsEnable
+        {
+            get
+            {
+                return _Wcd_IsEnable;
+            }
+            set
+            {
+                OnWcd_IsEnableChanging(value);
+                ReportPropertyChanging("Wcd_IsEnable");
+                _Wcd_IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_IsEnable");
+                OnWcd_IsEnableChanged();
+            }
+        }
+        private global::System.Int16 _Wcd_IsEnable;
+        partial void OnWcd_IsEnableChanging(global::System.Int16 value);
+        partial void OnWcd_IsEnableChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Wcd_Created
+        {
+            get
+            {
+                return _Wcd_Created;
+            }
+            set
+            {
+                OnWcd_CreatedChanging(value);
+                ReportPropertyChanging("Wcd_Created");
+                _Wcd_Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_Created");
+                OnWcd_CreatedChanged();
+            }
+        }
+        private global::System.DateTime _Wcd_Created;
+        partial void OnWcd_CreatedChanging(global::System.DateTime value);
+        partial void OnWcd_CreatedChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wcd_CreateUser
+        {
+            get
+            {
+                return _Wcd_CreateUser;
+            }
+            set
+            {
+                OnWcd_CreateUserChanging(value);
+                ReportPropertyChanging("Wcd_CreateUser");
+                _Wcd_CreateUser = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_CreateUser");
+                OnWcd_CreateUserChanged();
+            }
+        }
+        private global::System.Int32 _Wcd_CreateUser;
+        partial void OnWcd_CreateUserChanging(global::System.Int32 value);
+        partial void OnWcd_CreateUserChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wspc_Code
+        {
+            get
+            {
+                return _Wspc_Code;
+            }
+            set
+            {
+                OnWspc_CodeChanging(value);
+                ReportPropertyChanging("Wspc_Code");
+                _Wspc_Code = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wspc_Code");
+                OnWspc_CodeChanged();
+            }
+        }
+        private global::System.String _Wspc_Code;
+        partial void OnWspc_CodeChanging(global::System.String value);
+        partial void OnWspc_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Wcd_BeginTime
+        {
+            get
+            {
+                return _Wcd_BeginTime;
+            }
+            set
+            {
+                OnWcd_BeginTimeChanging(value);
+                ReportPropertyChanging("Wcd_BeginTime");
+                _Wcd_BeginTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_BeginTime");
+                OnWcd_BeginTimeChanged();
+            }
+        }
+        private global::System.DateTime _Wcd_BeginTime;
+        partial void OnWcd_BeginTimeChanging(global::System.DateTime value);
+        partial void OnWcd_BeginTimeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Wcd_EndTime
+        {
+            get
+            {
+                return _Wcd_EndTime;
+            }
+            set
+            {
+                OnWcd_EndTimeChanging(value);
+                ReportPropertyChanging("Wcd_EndTime");
+                _Wcd_EndTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_EndTime");
+                OnWcd_EndTimeChanged();
+            }
+        }
+        private global::System.DateTime _Wcd_EndTime;
+        partial void OnWcd_EndTimeChanging(global::System.DateTime value);
+        partial void OnWcd_EndTimeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Wcd_ModifyTime
+        {
+            get
+            {
+                return _Wcd_ModifyTime;
+            }
+            set
+            {
+                OnWcd_ModifyTimeChanging(value);
+                ReportPropertyChanging("Wcd_ModifyTime");
+                _Wcd_ModifyTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_ModifyTime");
+                OnWcd_ModifyTimeChanged();
+            }
+        }
+        private global::System.DateTime _Wcd_ModifyTime;
+        partial void OnWcd_ModifyTimeChanging(global::System.DateTime value);
+        partial void OnWcd_ModifyTimeChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Web_Pdt_Type")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -12805,6 +13871,876 @@ namespace EF.Model.DataContext
         private Nullable<global::System.Int32> _intMenuIsVisible;
         partial void OnintMenuIsVisibleChanging(Nullable<global::System.Int32> value);
         partial void OnintMenuIsVisibleChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Web_SitePageColumns")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Web_SitePageColumns : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Web_SitePageColumns 对象。
+        /// </summary>
+        /// <param name="wspc_Id">Wspc_Id 属性的初始值。</param>
+        /// <param name="wsp_Id">Wsp_Id 属性的初始值。</param>
+        /// <param name="wsp_Code">Wsp_Code 属性的初始值。</param>
+        /// <param name="ws_Id">Ws_Id 属性的初始值。</param>
+        /// <param name="ws_Code">Ws_Code 属性的初始值。</param>
+        /// <param name="wspc_Name">Wspc_Name 属性的初始值。</param>
+        /// <param name="wspc_Code">Wspc_Code 属性的初始值。</param>
+        /// <param name="wspc_ContentDataTotal">Wspc_ContentDataTotal 属性的初始值。</param>
+        /// <param name="wspc_IsEnable">Wspc_IsEnable 属性的初始值。</param>
+        /// <param name="wspc_Created">Wspc_Created 属性的初始值。</param>
+        /// <param name="wspc_CreateUser">Wspc_CreateUser 属性的初始值。</param>
+        public static Web_SitePageColumns CreateWeb_SitePageColumns(global::System.Int32 wspc_Id, global::System.Int32 wsp_Id, global::System.String wsp_Code, global::System.Int32 ws_Id, global::System.String ws_Code, global::System.String wspc_Name, global::System.String wspc_Code, global::System.Int32 wspc_ContentDataTotal, global::System.Int16 wspc_IsEnable, global::System.DateTime wspc_Created, global::System.Int32 wspc_CreateUser)
+        {
+            Web_SitePageColumns web_SitePageColumns = new Web_SitePageColumns();
+            web_SitePageColumns.Wspc_Id = wspc_Id;
+            web_SitePageColumns.Wsp_Id = wsp_Id;
+            web_SitePageColumns.Wsp_Code = wsp_Code;
+            web_SitePageColumns.Ws_Id = ws_Id;
+            web_SitePageColumns.Ws_Code = ws_Code;
+            web_SitePageColumns.Wspc_Name = wspc_Name;
+            web_SitePageColumns.Wspc_Code = wspc_Code;
+            web_SitePageColumns.Wspc_ContentDataTotal = wspc_ContentDataTotal;
+            web_SitePageColumns.Wspc_IsEnable = wspc_IsEnable;
+            web_SitePageColumns.Wspc_Created = wspc_Created;
+            web_SitePageColumns.Wspc_CreateUser = wspc_CreateUser;
+            return web_SitePageColumns;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wspc_Id
+        {
+            get
+            {
+                return _Wspc_Id;
+            }
+            set
+            {
+                if (_Wspc_Id != value)
+                {
+                    OnWspc_IdChanging(value);
+                    ReportPropertyChanging("Wspc_Id");
+                    _Wspc_Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Wspc_Id");
+                    OnWspc_IdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Wspc_Id;
+        partial void OnWspc_IdChanging(global::System.Int32 value);
+        partial void OnWspc_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wsp_Id
+        {
+            get
+            {
+                return _Wsp_Id;
+            }
+            set
+            {
+                OnWsp_IdChanging(value);
+                ReportPropertyChanging("Wsp_Id");
+                _Wsp_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_Id");
+                OnWsp_IdChanged();
+            }
+        }
+        private global::System.Int32 _Wsp_Id;
+        partial void OnWsp_IdChanging(global::System.Int32 value);
+        partial void OnWsp_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wsp_Code
+        {
+            get
+            {
+                return _Wsp_Code;
+            }
+            set
+            {
+                OnWsp_CodeChanging(value);
+                ReportPropertyChanging("Wsp_Code");
+                _Wsp_Code = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Wsp_Code");
+                OnWsp_CodeChanged();
+            }
+        }
+        private global::System.String _Wsp_Code;
+        partial void OnWsp_CodeChanging(global::System.String value);
+        partial void OnWsp_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Ws_Id
+        {
+            get
+            {
+                return _Ws_Id;
+            }
+            set
+            {
+                OnWs_IdChanging(value);
+                ReportPropertyChanging("Ws_Id");
+                _Ws_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_Id");
+                OnWs_IdChanged();
+            }
+        }
+        private global::System.Int32 _Ws_Id;
+        partial void OnWs_IdChanging(global::System.Int32 value);
+        partial void OnWs_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Ws_Code
+        {
+            get
+            {
+                return _Ws_Code;
+            }
+            set
+            {
+                OnWs_CodeChanging(value);
+                ReportPropertyChanging("Ws_Code");
+                _Ws_Code = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Ws_Code");
+                OnWs_CodeChanged();
+            }
+        }
+        private global::System.String _Ws_Code;
+        partial void OnWs_CodeChanging(global::System.String value);
+        partial void OnWs_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wspc_Name
+        {
+            get
+            {
+                return _Wspc_Name;
+            }
+            set
+            {
+                OnWspc_NameChanging(value);
+                ReportPropertyChanging("Wspc_Name");
+                _Wspc_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Wspc_Name");
+                OnWspc_NameChanged();
+            }
+        }
+        private global::System.String _Wspc_Name;
+        partial void OnWspc_NameChanging(global::System.String value);
+        partial void OnWspc_NameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wspc_Code
+        {
+            get
+            {
+                return _Wspc_Code;
+            }
+            set
+            {
+                if (_Wspc_Code != value)
+                {
+                    OnWspc_CodeChanging(value);
+                    ReportPropertyChanging("Wspc_Code");
+                    _Wspc_Code = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Wspc_Code");
+                    OnWspc_CodeChanged();
+                }
+            }
+        }
+        private global::System.String _Wspc_Code;
+        partial void OnWspc_CodeChanging(global::System.String value);
+        partial void OnWspc_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wspc_Remark
+        {
+            get
+            {
+                return _Wspc_Remark;
+            }
+            set
+            {
+                OnWspc_RemarkChanging(value);
+                ReportPropertyChanging("Wspc_Remark");
+                _Wspc_Remark = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wspc_Remark");
+                OnWspc_RemarkChanged();
+            }
+        }
+        private global::System.String _Wspc_Remark;
+        partial void OnWspc_RemarkChanging(global::System.String value);
+        partial void OnWspc_RemarkChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wspc_ContentDataTotal
+        {
+            get
+            {
+                return _Wspc_ContentDataTotal;
+            }
+            set
+            {
+                OnWspc_ContentDataTotalChanging(value);
+                ReportPropertyChanging("Wspc_ContentDataTotal");
+                _Wspc_ContentDataTotal = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wspc_ContentDataTotal");
+                OnWspc_ContentDataTotalChanged();
+            }
+        }
+        private global::System.Int32 _Wspc_ContentDataTotal;
+        partial void OnWspc_ContentDataTotalChanging(global::System.Int32 value);
+        partial void OnWspc_ContentDataTotalChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Wspc_IsEnable
+        {
+            get
+            {
+                return _Wspc_IsEnable;
+            }
+            set
+            {
+                OnWspc_IsEnableChanging(value);
+                ReportPropertyChanging("Wspc_IsEnable");
+                _Wspc_IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wspc_IsEnable");
+                OnWspc_IsEnableChanged();
+            }
+        }
+        private global::System.Int16 _Wspc_IsEnable;
+        partial void OnWspc_IsEnableChanging(global::System.Int16 value);
+        partial void OnWspc_IsEnableChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Wspc_Created
+        {
+            get
+            {
+                return _Wspc_Created;
+            }
+            set
+            {
+                OnWspc_CreatedChanging(value);
+                ReportPropertyChanging("Wspc_Created");
+                _Wspc_Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wspc_Created");
+                OnWspc_CreatedChanged();
+            }
+        }
+        private global::System.DateTime _Wspc_Created;
+        partial void OnWspc_CreatedChanging(global::System.DateTime value);
+        partial void OnWspc_CreatedChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wspc_CreateUser
+        {
+            get
+            {
+                return _Wspc_CreateUser;
+            }
+            set
+            {
+                OnWspc_CreateUserChanging(value);
+                ReportPropertyChanging("Wspc_CreateUser");
+                _Wspc_CreateUser = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wspc_CreateUser");
+                OnWspc_CreateUserChanged();
+            }
+        }
+        private global::System.Int32 _Wspc_CreateUser;
+        partial void OnWspc_CreateUserChanging(global::System.Int32 value);
+        partial void OnWspc_CreateUserChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Web_SitePages")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Web_SitePages : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Web_SitePages 对象。
+        /// </summary>
+        /// <param name="wsp_Id">Wsp_Id 属性的初始值。</param>
+        /// <param name="ws_Id">Ws_Id 属性的初始值。</param>
+        /// <param name="ws_Code">Ws_Code 属性的初始值。</param>
+        /// <param name="wsp_Name">Wsp_Name 属性的初始值。</param>
+        /// <param name="wsp_Code">Wsp_Code 属性的初始值。</param>
+        /// <param name="wsp_ColumnsTotal">Wsp_ColumnsTotal 属性的初始值。</param>
+        /// <param name="wsp_IsEnable">Wsp_IsEnable 属性的初始值。</param>
+        /// <param name="wsp_Created">Wsp_Created 属性的初始值。</param>
+        /// <param name="wsp_CreateUser">Wsp_CreateUser 属性的初始值。</param>
+        public static Web_SitePages CreateWeb_SitePages(global::System.Int32 wsp_Id, global::System.Int32 ws_Id, global::System.String ws_Code, global::System.String wsp_Name, global::System.String wsp_Code, global::System.Int32 wsp_ColumnsTotal, global::System.Int16 wsp_IsEnable, global::System.DateTime wsp_Created, global::System.Int32 wsp_CreateUser)
+        {
+            Web_SitePages web_SitePages = new Web_SitePages();
+            web_SitePages.Wsp_Id = wsp_Id;
+            web_SitePages.Ws_Id = ws_Id;
+            web_SitePages.Ws_Code = ws_Code;
+            web_SitePages.Wsp_Name = wsp_Name;
+            web_SitePages.Wsp_Code = wsp_Code;
+            web_SitePages.Wsp_ColumnsTotal = wsp_ColumnsTotal;
+            web_SitePages.Wsp_IsEnable = wsp_IsEnable;
+            web_SitePages.Wsp_Created = wsp_Created;
+            web_SitePages.Wsp_CreateUser = wsp_CreateUser;
+            return web_SitePages;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wsp_Id
+        {
+            get
+            {
+                return _Wsp_Id;
+            }
+            set
+            {
+                if (_Wsp_Id != value)
+                {
+                    OnWsp_IdChanging(value);
+                    ReportPropertyChanging("Wsp_Id");
+                    _Wsp_Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Wsp_Id");
+                    OnWsp_IdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Wsp_Id;
+        partial void OnWsp_IdChanging(global::System.Int32 value);
+        partial void OnWsp_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Ws_Id
+        {
+            get
+            {
+                return _Ws_Id;
+            }
+            set
+            {
+                OnWs_IdChanging(value);
+                ReportPropertyChanging("Ws_Id");
+                _Ws_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_Id");
+                OnWs_IdChanged();
+            }
+        }
+        private global::System.Int32 _Ws_Id;
+        partial void OnWs_IdChanging(global::System.Int32 value);
+        partial void OnWs_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Ws_Code
+        {
+            get
+            {
+                return _Ws_Code;
+            }
+            set
+            {
+                OnWs_CodeChanging(value);
+                ReportPropertyChanging("Ws_Code");
+                _Ws_Code = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Ws_Code");
+                OnWs_CodeChanged();
+            }
+        }
+        private global::System.String _Ws_Code;
+        partial void OnWs_CodeChanging(global::System.String value);
+        partial void OnWs_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wsp_Name
+        {
+            get
+            {
+                return _Wsp_Name;
+            }
+            set
+            {
+                OnWsp_NameChanging(value);
+                ReportPropertyChanging("Wsp_Name");
+                _Wsp_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Wsp_Name");
+                OnWsp_NameChanged();
+            }
+        }
+        private global::System.String _Wsp_Name;
+        partial void OnWsp_NameChanging(global::System.String value);
+        partial void OnWsp_NameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wsp_Code
+        {
+            get
+            {
+                return _Wsp_Code;
+            }
+            set
+            {
+                if (_Wsp_Code != value)
+                {
+                    OnWsp_CodeChanging(value);
+                    ReportPropertyChanging("Wsp_Code");
+                    _Wsp_Code = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Wsp_Code");
+                    OnWsp_CodeChanged();
+                }
+            }
+        }
+        private global::System.String _Wsp_Code;
+        partial void OnWsp_CodeChanging(global::System.String value);
+        partial void OnWsp_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wsp_Remark
+        {
+            get
+            {
+                return _Wsp_Remark;
+            }
+            set
+            {
+                OnWsp_RemarkChanging(value);
+                ReportPropertyChanging("Wsp_Remark");
+                _Wsp_Remark = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wsp_Remark");
+                OnWsp_RemarkChanged();
+            }
+        }
+        private global::System.String _Wsp_Remark;
+        partial void OnWsp_RemarkChanging(global::System.String value);
+        partial void OnWsp_RemarkChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wsp_ColumnsTotal
+        {
+            get
+            {
+                return _Wsp_ColumnsTotal;
+            }
+            set
+            {
+                OnWsp_ColumnsTotalChanging(value);
+                ReportPropertyChanging("Wsp_ColumnsTotal");
+                _Wsp_ColumnsTotal = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_ColumnsTotal");
+                OnWsp_ColumnsTotalChanged();
+            }
+        }
+        private global::System.Int32 _Wsp_ColumnsTotal;
+        partial void OnWsp_ColumnsTotalChanging(global::System.Int32 value);
+        partial void OnWsp_ColumnsTotalChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Wsp_IsEnable
+        {
+            get
+            {
+                return _Wsp_IsEnable;
+            }
+            set
+            {
+                OnWsp_IsEnableChanging(value);
+                ReportPropertyChanging("Wsp_IsEnable");
+                _Wsp_IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_IsEnable");
+                OnWsp_IsEnableChanged();
+            }
+        }
+        private global::System.Int16 _Wsp_IsEnable;
+        partial void OnWsp_IsEnableChanging(global::System.Int16 value);
+        partial void OnWsp_IsEnableChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Wsp_Created
+        {
+            get
+            {
+                return _Wsp_Created;
+            }
+            set
+            {
+                OnWsp_CreatedChanging(value);
+                ReportPropertyChanging("Wsp_Created");
+                _Wsp_Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_Created");
+                OnWsp_CreatedChanged();
+            }
+        }
+        private global::System.DateTime _Wsp_Created;
+        partial void OnWsp_CreatedChanging(global::System.DateTime value);
+        partial void OnWsp_CreatedChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wsp_CreateUser
+        {
+            get
+            {
+                return _Wsp_CreateUser;
+            }
+            set
+            {
+                OnWsp_CreateUserChanging(value);
+                ReportPropertyChanging("Wsp_CreateUser");
+                _Wsp_CreateUser = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_CreateUser");
+                OnWsp_CreateUserChanged();
+            }
+        }
+        private global::System.Int32 _Wsp_CreateUser;
+        partial void OnWsp_CreateUserChanging(global::System.Int32 value);
+        partial void OnWsp_CreateUserChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MobileWcf.DataContext.HolycaModel", Name="Web_Sites")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Web_Sites : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 Web_Sites 对象。
+        /// </summary>
+        /// <param name="ws_Id">Ws_Id 属性的初始值。</param>
+        /// <param name="ws_Name">Ws_Name 属性的初始值。</param>
+        /// <param name="ws_Code">Ws_Code 属性的初始值。</param>
+        /// <param name="ws_PagesTotal">Ws_PagesTotal 属性的初始值。</param>
+        /// <param name="ws_IsEnable">Ws_IsEnable 属性的初始值。</param>
+        /// <param name="ws_Created">Ws_Created 属性的初始值。</param>
+        /// <param name="ws_CreateUser">Ws_CreateUser 属性的初始值。</param>
+        public static Web_Sites CreateWeb_Sites(global::System.Int32 ws_Id, global::System.String ws_Name, global::System.String ws_Code, global::System.Int32 ws_PagesTotal, global::System.Int16 ws_IsEnable, global::System.DateTime ws_Created, global::System.Int32 ws_CreateUser)
+        {
+            Web_Sites web_Sites = new Web_Sites();
+            web_Sites.Ws_Id = ws_Id;
+            web_Sites.Ws_Name = ws_Name;
+            web_Sites.Ws_Code = ws_Code;
+            web_Sites.Ws_PagesTotal = ws_PagesTotal;
+            web_Sites.Ws_IsEnable = ws_IsEnable;
+            web_Sites.Ws_Created = ws_Created;
+            web_Sites.Ws_CreateUser = ws_CreateUser;
+            return web_Sites;
+        }
+
+        #endregion
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Ws_Id
+        {
+            get
+            {
+                return _Ws_Id;
+            }
+            set
+            {
+                if (_Ws_Id != value)
+                {
+                    OnWs_IdChanging(value);
+                    ReportPropertyChanging("Ws_Id");
+                    _Ws_Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Ws_Id");
+                    OnWs_IdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Ws_Id;
+        partial void OnWs_IdChanging(global::System.Int32 value);
+        partial void OnWs_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Ws_Name
+        {
+            get
+            {
+                return _Ws_Name;
+            }
+            set
+            {
+                OnWs_NameChanging(value);
+                ReportPropertyChanging("Ws_Name");
+                _Ws_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Ws_Name");
+                OnWs_NameChanged();
+            }
+        }
+        private global::System.String _Ws_Name;
+        partial void OnWs_NameChanging(global::System.String value);
+        partial void OnWs_NameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Ws_Code
+        {
+            get
+            {
+                return _Ws_Code;
+            }
+            set
+            {
+                if (_Ws_Code != value)
+                {
+                    OnWs_CodeChanging(value);
+                    ReportPropertyChanging("Ws_Code");
+                    _Ws_Code = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Ws_Code");
+                    OnWs_CodeChanged();
+                }
+            }
+        }
+        private global::System.String _Ws_Code;
+        partial void OnWs_CodeChanging(global::System.String value);
+        partial void OnWs_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Ws_Remark
+        {
+            get
+            {
+                return _Ws_Remark;
+            }
+            set
+            {
+                OnWs_RemarkChanging(value);
+                ReportPropertyChanging("Ws_Remark");
+                _Ws_Remark = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Ws_Remark");
+                OnWs_RemarkChanged();
+            }
+        }
+        private global::System.String _Ws_Remark;
+        partial void OnWs_RemarkChanging(global::System.String value);
+        partial void OnWs_RemarkChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Ws_PagesTotal
+        {
+            get
+            {
+                return _Ws_PagesTotal;
+            }
+            set
+            {
+                OnWs_PagesTotalChanging(value);
+                ReportPropertyChanging("Ws_PagesTotal");
+                _Ws_PagesTotal = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_PagesTotal");
+                OnWs_PagesTotalChanged();
+            }
+        }
+        private global::System.Int32 _Ws_PagesTotal;
+        partial void OnWs_PagesTotalChanging(global::System.Int32 value);
+        partial void OnWs_PagesTotalChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Ws_IsEnable
+        {
+            get
+            {
+                return _Ws_IsEnable;
+            }
+            set
+            {
+                OnWs_IsEnableChanging(value);
+                ReportPropertyChanging("Ws_IsEnable");
+                _Ws_IsEnable = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_IsEnable");
+                OnWs_IsEnableChanged();
+            }
+        }
+        private global::System.Int16 _Ws_IsEnable;
+        partial void OnWs_IsEnableChanging(global::System.Int16 value);
+        partial void OnWs_IsEnableChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Ws_Created
+        {
+            get
+            {
+                return _Ws_Created;
+            }
+            set
+            {
+                OnWs_CreatedChanging(value);
+                ReportPropertyChanging("Ws_Created");
+                _Ws_Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_Created");
+                OnWs_CreatedChanged();
+            }
+        }
+        private global::System.DateTime _Ws_Created;
+        partial void OnWs_CreatedChanging(global::System.DateTime value);
+        partial void OnWs_CreatedChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Ws_CreateUser
+        {
+            get
+            {
+                return _Ws_CreateUser;
+            }
+            set
+            {
+                OnWs_CreateUserChanging(value);
+                ReportPropertyChanging("Ws_CreateUser");
+                _Ws_CreateUser = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_CreateUser");
+                OnWs_CreateUserChanged();
+            }
+        }
+        private global::System.Int32 _Ws_CreateUser;
+        partial void OnWs_CreateUserChanging(global::System.Int32 value);
+        partial void OnWs_CreateUserChanged();
 
         #endregion
     

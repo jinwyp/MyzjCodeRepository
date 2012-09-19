@@ -61,6 +61,8 @@
     <Compile Include="BaseData\BaseDataService.cs" />
     <Compile Include="BaseData\IBaseDataService.cs" />
     <Compile Include="BaseWcfService.cs" />
+    <Compile Include="Cms\CmsService.cs" />
+    <Compile Include="Cms\ICmsService.cs" />
     <Compile Include="Goods\GoodsService.cs" />
     <Compile Include="Goods\IGoodsService.cs" />
     <Compile Include="Manage\IManageService.cs" />

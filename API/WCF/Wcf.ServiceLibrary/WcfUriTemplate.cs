@@ -216,4 +216,24 @@ namespace Wcf.ServiceLibrary
         /// </summary>
         public const string ORDERPAYMENT = "/order_payment/{sid}/{token}/{guid}/{user_id}/{uid}/{ocode}/{payid}";
     }
+
+    /// <summary>
+    /// 内容管理
+    /// </summary>
+    internal static class CmsUri
+    {
+        /// <summary>
+        /// 获取栏位数据列表
+        /// </summary>
+        public const string GETCOLUMNDATALIST = "/get_columndata_list/{sid}/{token}/{guid}/{user_id}/{uid}/{columncode}/{page}/{size}";
+        /// <summary>
+        /// 获取公告列表
+        /// </summary>
+        public const string GETNOTICELIST = "/get_notice_list/{sid}/{token}/{guid}/{user_id}/{uid}/{page}/{size}";
+        /// <summary>
+        /// 获取公告详细
+        /// </summary>
+        public const string GETNOTICEINFO = "/get_notice_info/{sid}/{token}/{guid}/{user_id}/{uid}/{noticeid}";
+    }
+
 }

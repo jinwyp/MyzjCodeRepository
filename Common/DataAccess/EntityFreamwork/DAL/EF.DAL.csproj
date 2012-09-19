@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseData\BaseData.cs" />
+    <Compile Include="Cms\Cms.cs" />
     <Compile Include="Goods\Goods.cs" />
     <Compile Include="Goods\GoodsList.cs" />
     <Compile Include="Goods\GoodsPic.cs" />
