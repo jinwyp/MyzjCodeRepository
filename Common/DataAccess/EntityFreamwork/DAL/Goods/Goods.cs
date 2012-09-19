@@ -71,7 +71,7 @@ namespace EF.DAL
             {
                 var queryTxt = from a in db.Web_Pdt_Type
                                where a.intIsVisible == 1
-                               orderby a.intSortOrder descending
+                               orderby a.intSortOrder ascending
                                select a;
                 return queryTxt.ToList();
             }

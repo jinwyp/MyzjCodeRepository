@@ -516,6 +516,22 @@ namespace EF.Model.DataContext
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
+        public ObjectSet<Web_Bulletin> Web_Bulletin
+        {
+            get
+            {
+                if ((_Web_Bulletin == null))
+                {
+                    _Web_Bulletin = base.CreateObjectSet<Web_Bulletin>("Web_Bulletin");
+                }
+                return _Web_Bulletin;
+            }
+        }
+        private ObjectSet<Web_Bulletin> _Web_Bulletin;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
         public ObjectSet<Web_ContentData> Web_ContentData
         {
             get
@@ -576,22 +592,6 @@ namespace EF.Model.DataContext
             }
         }
         private ObjectSet<Web_Sites> _Web_Sites;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<Web_Bulletin> Web_Bulletin
-        {
-            get
-            {
-                if ((_Web_Bulletin == null))
-                {
-                    _Web_Bulletin = base.CreateObjectSet<Web_Bulletin>("Web_Bulletin");
-                }
-                return _Web_Bulletin;
-            }
-        }
-        private ObjectSet<Web_Bulletin> _Web_Bulletin;
 
         #endregion
         #region AddTo 方法
@@ -821,6 +821,14 @@ namespace EF.Model.DataContext
         }
     
         /// <summary>
+        /// 用于向 Web_Bulletin EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToWeb_Bulletin(Web_Bulletin web_Bulletin)
+        {
+            base.AddObject("Web_Bulletin", web_Bulletin);
+        }
+    
+        /// <summary>
         /// 用于向 Web_ContentData EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
         public void AddToWeb_ContentData(Web_ContentData web_ContentData)
@@ -850,14 +858,6 @@ namespace EF.Model.DataContext
         public void AddToWeb_Sites(Web_Sites web_Sites)
         {
             base.AddObject("Web_Sites", web_Sites);
-        }
-    
-        /// <summary>
-        /// 用于向 Web_Bulletin EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToWeb_Bulletin(Web_Bulletin web_Bulletin)
-        {
-            base.AddObject("Web_Bulletin", web_Bulletin);
         }
 
         #endregion
@@ -12868,38 +12868,40 @@ namespace EF.Model.DataContext
         /// 创建新的 Web_ContentData 对象。
         /// </summary>
         /// <param name="wcd_Id">Wcd_Id 属性的初始值。</param>
-        /// <param name="wspc_Id">Wspc_Id 属性的初始值。</param>
-        /// <param name="wcd_Title">Wcd_Title 属性的初始值。</param>
-        /// <param name="wcd_Sort">Wcd_Sort 属性的初始值。</param>
-        /// <param name="wcd_Category">Wcd_Category 属性的初始值。</param>
-        /// <param name="wcd_IsEnable">Wcd_IsEnable 属性的初始值。</param>
-        /// <param name="wcd_Created">Wcd_Created 属性的初始值。</param>
-        /// <param name="wcd_CreateUser">Wcd_CreateUser 属性的初始值。</param>
-        /// <param name="wcd_BeginTime">Wcd_BeginTime 属性的初始值。</param>
-        /// <param name="wcd_EndTime">Wcd_EndTime 属性的初始值。</param>
-        /// <param name="wcd_ModifyTime">Wcd_ModifyTime 属性的初始值。</param>
         /// <param name="ws_Id">Ws_Id 属性的初始值。</param>
         /// <param name="ws_Code">Ws_Code 属性的初始值。</param>
         /// <param name="wsp_Id">Wsp_Id 属性的初始值。</param>
         /// <param name="wsp_Code">Wsp_Code 属性的初始值。</param>
-        public static Web_ContentData CreateWeb_ContentData(global::System.Int32 wcd_Id, global::System.Int32 wspc_Id, global::System.String wcd_Title, global::System.Int32 wcd_Sort, global::System.Int16 wcd_Category, global::System.Int16 wcd_IsEnable, global::System.DateTime wcd_Created, global::System.Int32 wcd_CreateUser, global::System.DateTime wcd_BeginTime, global::System.DateTime wcd_EndTime, global::System.DateTime wcd_ModifyTime, global::System.Int32 ws_Id, global::System.String ws_Code, global::System.Int32 wsp_Id, global::System.String wsp_Code)
+        /// <param name="wspc_Id">Wspc_Id 属性的初始值。</param>
+        /// <param name="wcd_Title">Wcd_Title 属性的初始值。</param>
+        /// <param name="wcd_Sort">Wcd_Sort 属性的初始值。</param>
+        /// <param name="wcd_Category">Wcd_Category 属性的初始值。</param>
+        /// <param name="wcd_BeginTime">Wcd_BeginTime 属性的初始值。</param>
+        /// <param name="wcd_EndTime">Wcd_EndTime 属性的初始值。</param>
+        /// <param name="wcd_ModifyTime">Wcd_ModifyTime 属性的初始值。</param>
+        /// <param name="wcd_IsDelete">Wcd_IsDelete 属性的初始值。</param>
+        /// <param name="wcd_Created">Wcd_Created 属性的初始值。</param>
+        /// <param name="wcd_CreateUser">Wcd_CreateUser 属性的初始值。</param>
+        /// <param name="wcd_Status">Wcd_Status 属性的初始值。</param>
+        public static Web_ContentData CreateWeb_ContentData(global::System.Int32 wcd_Id, global::System.Int32 ws_Id, global::System.String ws_Code, global::System.Int32 wsp_Id, global::System.String wsp_Code, global::System.Int32 wspc_Id, global::System.String wcd_Title, global::System.Int32 wcd_Sort, global::System.Int16 wcd_Category, global::System.DateTime wcd_BeginTime, global::System.DateTime wcd_EndTime, global::System.DateTime wcd_ModifyTime, global::System.Int16 wcd_IsDelete, global::System.DateTime wcd_Created, global::System.Int32 wcd_CreateUser, global::System.Int16 wcd_Status)
         {
             Web_ContentData web_ContentData = new Web_ContentData();
             web_ContentData.Wcd_Id = wcd_Id;
-            web_ContentData.Wspc_Id = wspc_Id;
-            web_ContentData.Wcd_Title = wcd_Title;
-            web_ContentData.Wcd_Sort = wcd_Sort;
-            web_ContentData.Wcd_Category = wcd_Category;
-            web_ContentData.Wcd_IsEnable = wcd_IsEnable;
-            web_ContentData.Wcd_Created = wcd_Created;
-            web_ContentData.Wcd_CreateUser = wcd_CreateUser;
-            web_ContentData.Wcd_BeginTime = wcd_BeginTime;
-            web_ContentData.Wcd_EndTime = wcd_EndTime;
-            web_ContentData.Wcd_ModifyTime = wcd_ModifyTime;
             web_ContentData.Ws_Id = ws_Id;
             web_ContentData.Ws_Code = ws_Code;
             web_ContentData.Wsp_Id = wsp_Id;
             web_ContentData.Wsp_Code = wsp_Code;
+            web_ContentData.Wspc_Id = wspc_Id;
+            web_ContentData.Wcd_Title = wcd_Title;
+            web_ContentData.Wcd_Sort = wcd_Sort;
+            web_ContentData.Wcd_Category = wcd_Category;
+            web_ContentData.Wcd_BeginTime = wcd_BeginTime;
+            web_ContentData.Wcd_EndTime = wcd_EndTime;
+            web_ContentData.Wcd_ModifyTime = wcd_ModifyTime;
+            web_ContentData.Wcd_IsDelete = wcd_IsDelete;
+            web_ContentData.Wcd_Created = wcd_Created;
+            web_ContentData.Wcd_CreateUser = wcd_CreateUser;
+            web_ContentData.Wcd_Status = wcd_Status;
             return web_ContentData;
         }
 
@@ -12938,6 +12940,102 @@ namespace EF.Model.DataContext
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.Int32 Ws_Id
+        {
+            get
+            {
+                return _Ws_Id;
+            }
+            set
+            {
+                OnWs_IdChanging(value);
+                ReportPropertyChanging("Ws_Id");
+                _Ws_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_Id");
+                OnWs_IdChanged();
+            }
+        }
+        private global::System.Int32 _Ws_Id;
+        partial void OnWs_IdChanging(global::System.Int32 value);
+        partial void OnWs_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Ws_Code
+        {
+            get
+            {
+                return _Ws_Code;
+            }
+            set
+            {
+                OnWs_CodeChanging(value);
+                ReportPropertyChanging("Ws_Code");
+                _Ws_Code = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Ws_Code");
+                OnWs_CodeChanged();
+            }
+        }
+        private global::System.String _Ws_Code;
+        partial void OnWs_CodeChanging(global::System.String value);
+        partial void OnWs_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wsp_Id
+        {
+            get
+            {
+                return _Wsp_Id;
+            }
+            set
+            {
+                OnWsp_IdChanging(value);
+                ReportPropertyChanging("Wsp_Id");
+                _Wsp_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_Id");
+                OnWsp_IdChanged();
+            }
+        }
+        private global::System.Int32 _Wsp_Id;
+        partial void OnWsp_IdChanging(global::System.Int32 value);
+        partial void OnWsp_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wsp_Code
+        {
+            get
+            {
+                return _Wsp_Code;
+            }
+            set
+            {
+                OnWsp_CodeChanging(value);
+                ReportPropertyChanging("Wsp_Code");
+                _Wsp_Code = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Wsp_Code");
+                OnWsp_CodeChanged();
+            }
+        }
+        private global::System.String _Wsp_Code;
+        partial void OnWsp_CodeChanging(global::System.String value);
+        partial void OnWsp_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.Int32 Wspc_Id
         {
             get
@@ -12956,6 +13054,54 @@ namespace EF.Model.DataContext
         private global::System.Int32 _Wspc_Id;
         partial void OnWspc_IdChanging(global::System.Int32 value);
         partial void OnWspc_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wspc_Code
+        {
+            get
+            {
+                return _Wspc_Code;
+            }
+            set
+            {
+                OnWspc_CodeChanging(value);
+                ReportPropertyChanging("Wspc_Code");
+                _Wspc_Code = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wspc_Code");
+                OnWspc_CodeChanged();
+            }
+        }
+        private global::System.String _Wspc_Code;
+        partial void OnWspc_CodeChanging(global::System.String value);
+        partial void OnWspc_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_Code
+        {
+            get
+            {
+                return _Wcd_Code;
+            }
+            set
+            {
+                OnWcd_CodeChanging(value);
+                ReportPropertyChanging("Wcd_Code");
+                _Wcd_Code = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_Code");
+                OnWcd_CodeChanged();
+            }
+        }
+        private global::System.String _Wcd_Code;
+        partial void OnWcd_CodeChanging(global::System.String value);
+        partial void OnWcd_CodeChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -13370,102 +13516,6 @@ namespace EF.Model.DataContext
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 Wcd_IsEnable
-        {
-            get
-            {
-                return _Wcd_IsEnable;
-            }
-            set
-            {
-                OnWcd_IsEnableChanging(value);
-                ReportPropertyChanging("Wcd_IsEnable");
-                _Wcd_IsEnable = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Wcd_IsEnable");
-                OnWcd_IsEnableChanged();
-            }
-        }
-        private global::System.Int16 _Wcd_IsEnable;
-        partial void OnWcd_IsEnableChanging(global::System.Int16 value);
-        partial void OnWcd_IsEnableChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime Wcd_Created
-        {
-            get
-            {
-                return _Wcd_Created;
-            }
-            set
-            {
-                OnWcd_CreatedChanging(value);
-                ReportPropertyChanging("Wcd_Created");
-                _Wcd_Created = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Wcd_Created");
-                OnWcd_CreatedChanged();
-            }
-        }
-        private global::System.DateTime _Wcd_Created;
-        partial void OnWcd_CreatedChanging(global::System.DateTime value);
-        partial void OnWcd_CreatedChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Wcd_CreateUser
-        {
-            get
-            {
-                return _Wcd_CreateUser;
-            }
-            set
-            {
-                OnWcd_CreateUserChanging(value);
-                ReportPropertyChanging("Wcd_CreateUser");
-                _Wcd_CreateUser = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Wcd_CreateUser");
-                OnWcd_CreateUserChanged();
-            }
-        }
-        private global::System.Int32 _Wcd_CreateUser;
-        partial void OnWcd_CreateUserChanging(global::System.Int32 value);
-        partial void OnWcd_CreateUserChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Wspc_Code
-        {
-            get
-            {
-                return _Wspc_Code;
-            }
-            set
-            {
-                OnWspc_CodeChanging(value);
-                ReportPropertyChanging("Wspc_Code");
-                _Wspc_Code = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Wspc_Code");
-                OnWspc_CodeChanged();
-            }
-        }
-        private global::System.String _Wspc_Code;
-        partial void OnWspc_CodeChanging(global::System.String value);
-        partial void OnWspc_CodeChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.DateTime Wcd_BeginTime
         {
             get
@@ -13538,120 +13588,96 @@ namespace EF.Model.DataContext
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Ws_Id
+        public global::System.Int16 Wcd_IsDelete
         {
             get
             {
-                return _Ws_Id;
+                return _Wcd_IsDelete;
             }
             set
             {
-                OnWs_IdChanging(value);
-                ReportPropertyChanging("Ws_Id");
-                _Ws_Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Ws_Id");
-                OnWs_IdChanged();
+                OnWcd_IsDeleteChanging(value);
+                ReportPropertyChanging("Wcd_IsDelete");
+                _Wcd_IsDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_IsDelete");
+                OnWcd_IsDeleteChanged();
             }
         }
-        private global::System.Int32 _Ws_Id;
-        partial void OnWs_IdChanging(global::System.Int32 value);
-        partial void OnWs_IdChanged();
+        private global::System.Int16 _Wcd_IsDelete;
+        partial void OnWcd_IsDeleteChanging(global::System.Int16 value);
+        partial void OnWcd_IsDeleteChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Ws_Code
+        public global::System.DateTime Wcd_Created
         {
             get
             {
-                return _Ws_Code;
+                return _Wcd_Created;
             }
             set
             {
-                OnWs_CodeChanging(value);
-                ReportPropertyChanging("Ws_Code");
-                _Ws_Code = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Ws_Code");
-                OnWs_CodeChanged();
+                OnWcd_CreatedChanging(value);
+                ReportPropertyChanging("Wcd_Created");
+                _Wcd_Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_Created");
+                OnWcd_CreatedChanged();
             }
         }
-        private global::System.String _Ws_Code;
-        partial void OnWs_CodeChanging(global::System.String value);
-        partial void OnWs_CodeChanged();
+        private global::System.DateTime _Wcd_Created;
+        partial void OnWcd_CreatedChanging(global::System.DateTime value);
+        partial void OnWcd_CreatedChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Wsp_Id
+        public global::System.Int32 Wcd_CreateUser
         {
             get
             {
-                return _Wsp_Id;
+                return _Wcd_CreateUser;
             }
             set
             {
-                OnWsp_IdChanging(value);
-                ReportPropertyChanging("Wsp_Id");
-                _Wsp_Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Wsp_Id");
-                OnWsp_IdChanged();
+                OnWcd_CreateUserChanging(value);
+                ReportPropertyChanging("Wcd_CreateUser");
+                _Wcd_CreateUser = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_CreateUser");
+                OnWcd_CreateUserChanged();
             }
         }
-        private global::System.Int32 _Wsp_Id;
-        partial void OnWsp_IdChanging(global::System.Int32 value);
-        partial void OnWsp_IdChanged();
+        private global::System.Int32 _Wcd_CreateUser;
+        partial void OnWcd_CreateUserChanging(global::System.Int32 value);
+        partial void OnWcd_CreateUserChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Wsp_Code
+        public global::System.Int16 Wcd_Status
         {
             get
             {
-                return _Wsp_Code;
+                return _Wcd_Status;
             }
             set
             {
-                OnWsp_CodeChanging(value);
-                ReportPropertyChanging("Wsp_Code");
-                _Wsp_Code = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Wsp_Code");
-                OnWsp_CodeChanged();
+                OnWcd_StatusChanging(value);
+                ReportPropertyChanging("Wcd_Status");
+                _Wcd_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wcd_Status");
+                OnWcd_StatusChanged();
             }
         }
-        private global::System.String _Wsp_Code;
-        partial void OnWsp_CodeChanging(global::System.String value);
-        partial void OnWsp_CodeChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Wcd_Code
-        {
-            get
-            {
-                return _Wcd_Code;
-            }
-            set
-            {
-                OnWcd_CodeChanging(value);
-                ReportPropertyChanging("Wcd_Code");
-                _Wcd_Code = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Wcd_Code");
-                OnWcd_CodeChanged();
-            }
-        }
-        private global::System.String _Wcd_Code;
-        partial void OnWcd_CodeChanging(global::System.String value);
-        partial void OnWcd_CodeChanged();
+        private global::System.Int16 _Wcd_Status;
+        partial void OnWcd_StatusChanging(global::System.Int16 value);
+        partial void OnWcd_StatusChanged();
 
         #endregion
     
@@ -14018,28 +14044,30 @@ namespace EF.Model.DataContext
         /// 创建新的 Web_SitePageColumns 对象。
         /// </summary>
         /// <param name="wspc_Id">Wspc_Id 属性的初始值。</param>
-        /// <param name="wsp_Id">Wsp_Id 属性的初始值。</param>
-        /// <param name="wsp_Code">Wsp_Code 属性的初始值。</param>
         /// <param name="ws_Id">Ws_Id 属性的初始值。</param>
         /// <param name="ws_Code">Ws_Code 属性的初始值。</param>
-        /// <param name="wspc_Name">Wspc_Name 属性的初始值。</param>
+        /// <param name="wsp_Id">Wsp_Id 属性的初始值。</param>
+        /// <param name="wsp_Code">Wsp_Code 属性的初始值。</param>
         /// <param name="wspc_Code">Wspc_Code 属性的初始值。</param>
+        /// <param name="wspc_Name">Wspc_Name 属性的初始值。</param>
         /// <param name="wspc_ContentDataTotal">Wspc_ContentDataTotal 属性的初始值。</param>
-        /// <param name="wspc_IsEnable">Wspc_IsEnable 属性的初始值。</param>
+        /// <param name="wspc_IsDelete">Wspc_IsDelete 属性的初始值。</param>
+        /// <param name="wspc_Status">Wspc_Status 属性的初始值。</param>
         /// <param name="wspc_Created">Wspc_Created 属性的初始值。</param>
         /// <param name="wspc_CreateUser">Wspc_CreateUser 属性的初始值。</param>
-        public static Web_SitePageColumns CreateWeb_SitePageColumns(global::System.Int32 wspc_Id, global::System.Int32 wsp_Id, global::System.String wsp_Code, global::System.Int32 ws_Id, global::System.String ws_Code, global::System.String wspc_Name, global::System.String wspc_Code, global::System.Int32 wspc_ContentDataTotal, global::System.Int16 wspc_IsEnable, global::System.DateTime wspc_Created, global::System.Int32 wspc_CreateUser)
+        public static Web_SitePageColumns CreateWeb_SitePageColumns(global::System.Int32 wspc_Id, global::System.Int32 ws_Id, global::System.String ws_Code, global::System.Int32 wsp_Id, global::System.String wsp_Code, global::System.String wspc_Code, global::System.String wspc_Name, global::System.Int32 wspc_ContentDataTotal, global::System.Int16 wspc_IsDelete, global::System.Int16 wspc_Status, global::System.DateTime wspc_Created, global::System.Int32 wspc_CreateUser)
         {
             Web_SitePageColumns web_SitePageColumns = new Web_SitePageColumns();
             web_SitePageColumns.Wspc_Id = wspc_Id;
-            web_SitePageColumns.Wsp_Id = wsp_Id;
-            web_SitePageColumns.Wsp_Code = wsp_Code;
             web_SitePageColumns.Ws_Id = ws_Id;
             web_SitePageColumns.Ws_Code = ws_Code;
-            web_SitePageColumns.Wspc_Name = wspc_Name;
+            web_SitePageColumns.Wsp_Id = wsp_Id;
+            web_SitePageColumns.Wsp_Code = wsp_Code;
             web_SitePageColumns.Wspc_Code = wspc_Code;
+            web_SitePageColumns.Wspc_Name = wspc_Name;
             web_SitePageColumns.Wspc_ContentDataTotal = wspc_ContentDataTotal;
-            web_SitePageColumns.Wspc_IsEnable = wspc_IsEnable;
+            web_SitePageColumns.Wspc_IsDelete = wspc_IsDelete;
+            web_SitePageColumns.Wspc_Status = wspc_Status;
             web_SitePageColumns.Wspc_Created = wspc_Created;
             web_SitePageColumns.Wspc_CreateUser = wspc_CreateUser;
             return web_SitePageColumns;
@@ -14074,54 +14102,6 @@ namespace EF.Model.DataContext
         private global::System.Int32 _Wspc_Id;
         partial void OnWspc_IdChanging(global::System.Int32 value);
         partial void OnWspc_IdChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Wsp_Id
-        {
-            get
-            {
-                return _Wsp_Id;
-            }
-            set
-            {
-                OnWsp_IdChanging(value);
-                ReportPropertyChanging("Wsp_Id");
-                _Wsp_Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Wsp_Id");
-                OnWsp_IdChanged();
-            }
-        }
-        private global::System.Int32 _Wsp_Id;
-        partial void OnWsp_IdChanging(global::System.Int32 value);
-        partial void OnWsp_IdChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Wsp_Code
-        {
-            get
-            {
-                return _Wsp_Code;
-            }
-            set
-            {
-                OnWsp_CodeChanging(value);
-                ReportPropertyChanging("Wsp_Code");
-                _Wsp_Code = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Wsp_Code");
-                OnWsp_CodeChanged();
-            }
-        }
-        private global::System.String _Wsp_Code;
-        partial void OnWsp_CodeChanging(global::System.String value);
-        partial void OnWsp_CodeChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -14176,24 +14156,48 @@ namespace EF.Model.DataContext
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Wspc_Name
+        public global::System.Int32 Wsp_Id
         {
             get
             {
-                return _Wspc_Name;
+                return _Wsp_Id;
             }
             set
             {
-                OnWspc_NameChanging(value);
-                ReportPropertyChanging("Wspc_Name");
-                _Wspc_Name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Wspc_Name");
-                OnWspc_NameChanged();
+                OnWsp_IdChanging(value);
+                ReportPropertyChanging("Wsp_Id");
+                _Wsp_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_Id");
+                OnWsp_IdChanged();
             }
         }
-        private global::System.String _Wspc_Name;
-        partial void OnWspc_NameChanging(global::System.String value);
-        partial void OnWspc_NameChanged();
+        private global::System.Int32 _Wsp_Id;
+        partial void OnWsp_IdChanging(global::System.Int32 value);
+        partial void OnWsp_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wsp_Code
+        {
+            get
+            {
+                return _Wsp_Code;
+            }
+            set
+            {
+                OnWsp_CodeChanging(value);
+                ReportPropertyChanging("Wsp_Code");
+                _Wsp_Code = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Wsp_Code");
+                OnWsp_CodeChanged();
+            }
+        }
+        private global::System.String _Wsp_Code;
+        partial void OnWsp_CodeChanging(global::System.String value);
+        partial void OnWsp_CodeChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -14221,6 +14225,30 @@ namespace EF.Model.DataContext
         private global::System.String _Wspc_Code;
         partial void OnWspc_CodeChanging(global::System.String value);
         partial void OnWspc_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wspc_Name
+        {
+            get
+            {
+                return _Wspc_Name;
+            }
+            set
+            {
+                OnWspc_NameChanging(value);
+                ReportPropertyChanging("Wspc_Name");
+                _Wspc_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Wspc_Name");
+                OnWspc_NameChanged();
+            }
+        }
+        private global::System.String _Wspc_Name;
+        partial void OnWspc_NameChanging(global::System.String value);
+        partial void OnWspc_NameChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -14275,24 +14303,48 @@ namespace EF.Model.DataContext
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 Wspc_IsEnable
+        public global::System.Int16 Wspc_IsDelete
         {
             get
             {
-                return _Wspc_IsEnable;
+                return _Wspc_IsDelete;
             }
             set
             {
-                OnWspc_IsEnableChanging(value);
-                ReportPropertyChanging("Wspc_IsEnable");
-                _Wspc_IsEnable = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Wspc_IsEnable");
-                OnWspc_IsEnableChanged();
+                OnWspc_IsDeleteChanging(value);
+                ReportPropertyChanging("Wspc_IsDelete");
+                _Wspc_IsDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wspc_IsDelete");
+                OnWspc_IsDeleteChanged();
             }
         }
-        private global::System.Int16 _Wspc_IsEnable;
-        partial void OnWspc_IsEnableChanging(global::System.Int16 value);
-        partial void OnWspc_IsEnableChanged();
+        private global::System.Int16 _Wspc_IsDelete;
+        partial void OnWspc_IsDeleteChanging(global::System.Int16 value);
+        partial void OnWspc_IsDeleteChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Wspc_Status
+        {
+            get
+            {
+                return _Wspc_Status;
+            }
+            set
+            {
+                OnWspc_StatusChanging(value);
+                ReportPropertyChanging("Wspc_Status");
+                _Wspc_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wspc_Status");
+                OnWspc_StatusChanged();
+            }
+        }
+        private global::System.Int16 _Wspc_Status;
+        partial void OnWspc_StatusChanging(global::System.Int16 value);
+        partial void OnWspc_StatusChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -14362,22 +14414,24 @@ namespace EF.Model.DataContext
         /// <param name="wsp_Id">Wsp_Id 属性的初始值。</param>
         /// <param name="ws_Id">Ws_Id 属性的初始值。</param>
         /// <param name="ws_Code">Ws_Code 属性的初始值。</param>
-        /// <param name="wsp_Name">Wsp_Name 属性的初始值。</param>
         /// <param name="wsp_Code">Wsp_Code 属性的初始值。</param>
+        /// <param name="wsp_Name">Wsp_Name 属性的初始值。</param>
         /// <param name="wsp_ColumnsTotal">Wsp_ColumnsTotal 属性的初始值。</param>
-        /// <param name="wsp_IsEnable">Wsp_IsEnable 属性的初始值。</param>
+        /// <param name="wsp_IsDelete">Wsp_IsDelete 属性的初始值。</param>
+        /// <param name="wsp_Status">Wsp_Status 属性的初始值。</param>
         /// <param name="wsp_Created">Wsp_Created 属性的初始值。</param>
         /// <param name="wsp_CreateUser">Wsp_CreateUser 属性的初始值。</param>
-        public static Web_SitePages CreateWeb_SitePages(global::System.Int32 wsp_Id, global::System.Int32 ws_Id, global::System.String ws_Code, global::System.String wsp_Name, global::System.String wsp_Code, global::System.Int32 wsp_ColumnsTotal, global::System.Int16 wsp_IsEnable, global::System.DateTime wsp_Created, global::System.Int32 wsp_CreateUser)
+        public static Web_SitePages CreateWeb_SitePages(global::System.Int32 wsp_Id, global::System.Int32 ws_Id, global::System.String ws_Code, global::System.String wsp_Code, global::System.String wsp_Name, global::System.Int32 wsp_ColumnsTotal, global::System.Int16 wsp_IsDelete, global::System.Int16 wsp_Status, global::System.DateTime wsp_Created, global::System.Int32 wsp_CreateUser)
         {
             Web_SitePages web_SitePages = new Web_SitePages();
             web_SitePages.Wsp_Id = wsp_Id;
             web_SitePages.Ws_Id = ws_Id;
             web_SitePages.Ws_Code = ws_Code;
-            web_SitePages.Wsp_Name = wsp_Name;
             web_SitePages.Wsp_Code = wsp_Code;
+            web_SitePages.Wsp_Name = wsp_Name;
             web_SitePages.Wsp_ColumnsTotal = wsp_ColumnsTotal;
-            web_SitePages.Wsp_IsEnable = wsp_IsEnable;
+            web_SitePages.Wsp_IsDelete = wsp_IsDelete;
+            web_SitePages.Wsp_Status = wsp_Status;
             web_SitePages.Wsp_Created = wsp_Created;
             web_SitePages.Wsp_CreateUser = wsp_CreateUser;
             return web_SitePages;
@@ -14464,30 +14518,6 @@ namespace EF.Model.DataContext
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Wsp_Name
-        {
-            get
-            {
-                return _Wsp_Name;
-            }
-            set
-            {
-                OnWsp_NameChanging(value);
-                ReportPropertyChanging("Wsp_Name");
-                _Wsp_Name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Wsp_Name");
-                OnWsp_NameChanged();
-            }
-        }
-        private global::System.String _Wsp_Name;
-        partial void OnWsp_NameChanging(global::System.String value);
-        partial void OnWsp_NameChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Wsp_Code
@@ -14511,6 +14541,30 @@ namespace EF.Model.DataContext
         private global::System.String _Wsp_Code;
         partial void OnWsp_CodeChanging(global::System.String value);
         partial void OnWsp_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wsp_Name
+        {
+            get
+            {
+                return _Wsp_Name;
+            }
+            set
+            {
+                OnWsp_NameChanging(value);
+                ReportPropertyChanging("Wsp_Name");
+                _Wsp_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Wsp_Name");
+                OnWsp_NameChanged();
+            }
+        }
+        private global::System.String _Wsp_Name;
+        partial void OnWsp_NameChanging(global::System.String value);
+        partial void OnWsp_NameChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -14565,24 +14619,48 @@ namespace EF.Model.DataContext
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 Wsp_IsEnable
+        public global::System.Int16 Wsp_IsDelete
         {
             get
             {
-                return _Wsp_IsEnable;
+                return _Wsp_IsDelete;
             }
             set
             {
-                OnWsp_IsEnableChanging(value);
-                ReportPropertyChanging("Wsp_IsEnable");
-                _Wsp_IsEnable = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Wsp_IsEnable");
-                OnWsp_IsEnableChanged();
+                OnWsp_IsDeleteChanging(value);
+                ReportPropertyChanging("Wsp_IsDelete");
+                _Wsp_IsDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_IsDelete");
+                OnWsp_IsDeleteChanged();
             }
         }
-        private global::System.Int16 _Wsp_IsEnable;
-        partial void OnWsp_IsEnableChanging(global::System.Int16 value);
-        partial void OnWsp_IsEnableChanged();
+        private global::System.Int16 _Wsp_IsDelete;
+        partial void OnWsp_IsDeleteChanging(global::System.Int16 value);
+        partial void OnWsp_IsDeleteChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Wsp_Status
+        {
+            get
+            {
+                return _Wsp_Status;
+            }
+            set
+            {
+                OnWsp_StatusChanging(value);
+                ReportPropertyChanging("Wsp_Status");
+                _Wsp_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_Status");
+                OnWsp_StatusChanged();
+            }
+        }
+        private global::System.Int16 _Wsp_Status;
+        partial void OnWsp_StatusChanging(global::System.Int16 value);
+        partial void OnWsp_StatusChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -14650,20 +14728,22 @@ namespace EF.Model.DataContext
         /// 创建新的 Web_Sites 对象。
         /// </summary>
         /// <param name="ws_Id">Ws_Id 属性的初始值。</param>
-        /// <param name="ws_Name">Ws_Name 属性的初始值。</param>
         /// <param name="ws_Code">Ws_Code 属性的初始值。</param>
+        /// <param name="ws_Name">Ws_Name 属性的初始值。</param>
         /// <param name="ws_PagesTotal">Ws_PagesTotal 属性的初始值。</param>
-        /// <param name="ws_IsEnable">Ws_IsEnable 属性的初始值。</param>
+        /// <param name="ws_IsDelete">Ws_IsDelete 属性的初始值。</param>
+        /// <param name="ws_Status">Ws_Status 属性的初始值。</param>
         /// <param name="ws_Created">Ws_Created 属性的初始值。</param>
         /// <param name="ws_CreateUser">Ws_CreateUser 属性的初始值。</param>
-        public static Web_Sites CreateWeb_Sites(global::System.Int32 ws_Id, global::System.String ws_Name, global::System.String ws_Code, global::System.Int32 ws_PagesTotal, global::System.Int16 ws_IsEnable, global::System.DateTime ws_Created, global::System.Int32 ws_CreateUser)
+        public static Web_Sites CreateWeb_Sites(global::System.Int32 ws_Id, global::System.String ws_Code, global::System.String ws_Name, global::System.Int32 ws_PagesTotal, global::System.Int16 ws_IsDelete, global::System.Int16 ws_Status, global::System.DateTime ws_Created, global::System.Int32 ws_CreateUser)
         {
             Web_Sites web_Sites = new Web_Sites();
             web_Sites.Ws_Id = ws_Id;
-            web_Sites.Ws_Name = ws_Name;
             web_Sites.Ws_Code = ws_Code;
+            web_Sites.Ws_Name = ws_Name;
             web_Sites.Ws_PagesTotal = ws_PagesTotal;
-            web_Sites.Ws_IsEnable = ws_IsEnable;
+            web_Sites.Ws_IsDelete = ws_IsDelete;
+            web_Sites.Ws_Status = ws_Status;
             web_Sites.Ws_Created = ws_Created;
             web_Sites.Ws_CreateUser = ws_CreateUser;
             return web_Sites;
@@ -14702,30 +14782,6 @@ namespace EF.Model.DataContext
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Ws_Name
-        {
-            get
-            {
-                return _Ws_Name;
-            }
-            set
-            {
-                OnWs_NameChanging(value);
-                ReportPropertyChanging("Ws_Name");
-                _Ws_Name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Ws_Name");
-                OnWs_NameChanged();
-            }
-        }
-        private global::System.String _Ws_Name;
-        partial void OnWs_NameChanging(global::System.String value);
-        partial void OnWs_NameChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Ws_Code
@@ -14749,6 +14805,30 @@ namespace EF.Model.DataContext
         private global::System.String _Ws_Code;
         partial void OnWs_CodeChanging(global::System.String value);
         partial void OnWs_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Ws_Name
+        {
+            get
+            {
+                return _Ws_Name;
+            }
+            set
+            {
+                OnWs_NameChanging(value);
+                ReportPropertyChanging("Ws_Name");
+                _Ws_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Ws_Name");
+                OnWs_NameChanged();
+            }
+        }
+        private global::System.String _Ws_Name;
+        partial void OnWs_NameChanging(global::System.String value);
+        partial void OnWs_NameChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -14803,24 +14883,48 @@ namespace EF.Model.DataContext
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 Ws_IsEnable
+        public global::System.Int16 Ws_IsDelete
         {
             get
             {
-                return _Ws_IsEnable;
+                return _Ws_IsDelete;
             }
             set
             {
-                OnWs_IsEnableChanging(value);
-                ReportPropertyChanging("Ws_IsEnable");
-                _Ws_IsEnable = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Ws_IsEnable");
-                OnWs_IsEnableChanged();
+                OnWs_IsDeleteChanging(value);
+                ReportPropertyChanging("Ws_IsDelete");
+                _Ws_IsDelete = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_IsDelete");
+                OnWs_IsDeleteChanged();
             }
         }
-        private global::System.Int16 _Ws_IsEnable;
-        partial void OnWs_IsEnableChanging(global::System.Int16 value);
-        partial void OnWs_IsEnableChanged();
+        private global::System.Int16 _Ws_IsDelete;
+        partial void OnWs_IsDeleteChanging(global::System.Int16 value);
+        partial void OnWs_IsDeleteChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Ws_Status
+        {
+            get
+            {
+                return _Ws_Status;
+            }
+            set
+            {
+                OnWs_StatusChanging(value);
+                ReportPropertyChanging("Ws_Status");
+                _Ws_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_Status");
+                OnWs_StatusChanged();
+            }
+        }
+        private global::System.Int16 _Ws_Status;
+        partial void OnWs_StatusChanging(global::System.Int16 value);
+        partial void OnWs_StatusChanged();
     
         /// <summary>
         /// 没有元数据文档可用。

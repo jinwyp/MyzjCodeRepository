@@ -638,7 +638,8 @@
           <Property Name="Wcd_BeginTime" Type="datetime" Nullable="false" />
           <Property Name="Wcd_EndTime" Type="datetime" Nullable="false" />
           <Property Name="Wcd_ModifyTime" Type="datetime" Nullable="false" />
-          <Property Name="Wcd_IsEnable" Type="smallint" Nullable="false" />
+          <Property Name="Wcd_IsDelete" Type="smallint" Nullable="false" />
+          <Property Name="Wcd_Status" Type="smallint" Nullable="false" />
           <Property Name="Wcd_Created" Type="datetime" Nullable="false" />
           <Property Name="Wcd_CreateUser" Type="int" Nullable="false" />
         </EntityType>
@@ -674,7 +675,8 @@
           <Property Name="Wspc_Name" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Wspc_Remark" Type="varchar" MaxLength="500" />
           <Property Name="Wspc_ContentDataTotal" Type="int" Nullable="false" />
-          <Property Name="Wspc_IsEnable" Type="smallint" Nullable="false" />
+          <Property Name="Wspc_IsDelete" Type="smallint" Nullable="false" />
+          <Property Name="Wspc_Status" Type="smallint" Nullable="false" />
           <Property Name="Wspc_Created" Type="datetime" Nullable="false" />
           <Property Name="Wspc_CreateUser" Type="int" Nullable="false" />
         </EntityType>
@@ -690,7 +692,8 @@
           <Property Name="Wsp_Name" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Wsp_Remark" Type="varchar" MaxLength="500" />
           <Property Name="Wsp_ColumnsTotal" Type="int" Nullable="false" />
-          <Property Name="Wsp_IsEnable" Type="smallint" Nullable="false" />
+          <Property Name="Wsp_IsDelete" Type="smallint" Nullable="false" />
+          <Property Name="Wsp_Status" Type="smallint" Nullable="false" />
           <Property Name="Wsp_Created" Type="datetime" Nullable="false" />
           <Property Name="Wsp_CreateUser" Type="int" Nullable="false" />
         </EntityType>
@@ -704,7 +707,8 @@
           <Property Name="Ws_Name" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Ws_Remark" Type="varchar" MaxLength="500" />
           <Property Name="Ws_PagesTotal" Type="int" Nullable="false" />
-          <Property Name="Ws_IsEnable" Type="smallint" Nullable="false" />
+          <Property Name="Ws_IsDelete" Type="smallint" Nullable="false" />
+          <Property Name="Ws_Status" Type="smallint" Nullable="false" />
           <Property Name="Ws_Created" Type="datetime" Nullable="false" />
           <Property Name="Ws_CreateUser" Type="int" Nullable="false" />
         </EntityType>
@@ -993,11 +997,11 @@
             <Parameter Name="intOrderPayState" Mode="In" Type="Int32" />
             <Parameter Name="intResult" Mode="InOut" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="Web_Bulletin" EntityType="MobileWcf.DataContext.HolycaModel.Web_Bulletin" />
           <EntitySet Name="Web_ContentData" EntityType="MobileWcf.DataContext.HolycaModel.Web_ContentData" />
           <EntitySet Name="Web_SitePageColumns" EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePageColumns" />
           <EntitySet Name="Web_SitePages" EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePages" />
           <EntitySet Name="Web_Sites" EntityType="MobileWcf.DataContext.HolycaModel.Web_Sites" />
-          <EntitySet Name="Web_Bulletin" EntityType="MobileWcf.DataContext.HolycaModel.Web_Bulletin" />
         </EntityContainer>
         <EntityType Name="Base_Brand">
           <Key>
@@ -1639,12 +1643,33 @@
           <Property Type="Int32" Name="intChannelID" Nullable="false" />
           <Property Type="Int32" Name="intUserID" Nullable="false" />
         </EntityType>
+        <EntityType Name="Web_Bulletin">
+          <Key>
+            <PropertyRef Name="intBulletinID" />
+          </Key>
+          <Property Type="Int32" Name="intBulletinID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="vchBulletinName" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchBulletinContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="intIsEnable" />
+          <Property Type="String" Name="vchBulletinURL" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intSort" />
+          <Property Type="Int32" Name="intAddUserID" />
+          <Property Type="DateTime" Name="dtAddDate" />
+          <Property Type="Int32" Name="intModUserID" />
+          <Property Type="DateTime" Name="dtModDate" />
+        </EntityType>
         <EntityType Name="Web_ContentData">
           <Key>
             <PropertyRef Name="Wcd_Id" />
           </Key>
           <Property Type="Int32" Name="Wcd_Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="Ws_Id" Nullable="false" />
+          <Property Type="String" Name="Ws_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Wsp_Id" Nullable="false" />
+          <Property Type="String" Name="Wsp_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Wspc_Id" Nullable="false" />
+          <Property Type="String" Name="Wspc_Code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Wcd_Code" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Wcd_Title" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Wcd_Image" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Wcd_Link" MaxLength="300" FixedLength="false" Unicode="false" />
@@ -1662,18 +1687,13 @@
           <Property Type="String" Name="Wcd_F7" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Wcd_F8" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Wcd_F9" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Int16" Name="Wcd_IsEnable" Nullable="false" />
-          <Property Type="DateTime" Name="Wcd_Created" Nullable="false" />
-          <Property Type="Int32" Name="Wcd_CreateUser" Nullable="false" />
-          <Property Type="String" Name="Wspc_Code" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="Wcd_BeginTime" Nullable="false" />
           <Property Type="DateTime" Name="Wcd_EndTime" Nullable="false" />
           <Property Type="DateTime" Name="Wcd_ModifyTime" Nullable="false" />
-          <Property Type="Int32" Name="Ws_Id" Nullable="false" />
-          <Property Type="String" Name="Ws_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="Wsp_Id" Nullable="false" />
-          <Property Type="String" Name="Wsp_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Wcd_Code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="Wcd_IsDelete" Nullable="false" />
+          <Property Type="DateTime" Name="Wcd_Created" Nullable="false" />
+          <Property Type="Int32" Name="Wcd_CreateUser" Nullable="false" />
+          <Property Type="Int16" Name="Wcd_Status" Nullable="false" />
         </EntityType>
         <EntityType Name="Web_SitePageColumns">
           <Key>
@@ -1681,15 +1701,16 @@
             <PropertyRef Name="Wspc_Code" />
           </Key>
           <Property Type="Int32" Name="Wspc_Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="Int32" Name="Wsp_Id" Nullable="false" />
-          <Property Type="String" Name="Wsp_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Ws_Id" Nullable="false" />
           <Property Type="String" Name="Ws_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Wspc_Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Wsp_Id" Nullable="false" />
+          <Property Type="String" Name="Wsp_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Wspc_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Wspc_Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Wspc_Remark" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Wspc_ContentDataTotal" Nullable="false" />
-          <Property Type="Int16" Name="Wspc_IsEnable" Nullable="false" />
+          <Property Type="Int16" Name="Wspc_IsDelete" Nullable="false" />
+          <Property Type="Int16" Name="Wspc_Status" Nullable="false" />
           <Property Type="DateTime" Name="Wspc_Created" Nullable="false" />
           <Property Type="Int32" Name="Wspc_CreateUser" Nullable="false" />
         </EntityType>
@@ -1701,11 +1722,12 @@
           <Property Type="Int32" Name="Wsp_Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="Int32" Name="Ws_Id" Nullable="false" />
           <Property Type="String" Name="Ws_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Wsp_Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Wsp_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Wsp_Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Wsp_Remark" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Wsp_ColumnsTotal" Nullable="false" />
-          <Property Type="Int16" Name="Wsp_IsEnable" Nullable="false" />
+          <Property Type="Int16" Name="Wsp_IsDelete" Nullable="false" />
+          <Property Type="Int16" Name="Wsp_Status" Nullable="false" />
           <Property Type="DateTime" Name="Wsp_Created" Nullable="false" />
           <Property Type="Int32" Name="Wsp_CreateUser" Nullable="false" />
         </EntityType>
@@ -1715,28 +1737,14 @@
             <PropertyRef Name="Ws_Code" />
           </Key>
           <Property Type="Int32" Name="Ws_Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="String" Name="Ws_Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Ws_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ws_Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Ws_Remark" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Ws_PagesTotal" Nullable="false" />
-          <Property Type="Int16" Name="Ws_IsEnable" Nullable="false" />
+          <Property Type="Int16" Name="Ws_IsDelete" Nullable="false" />
+          <Property Type="Int16" Name="Ws_Status" Nullable="false" />
           <Property Type="DateTime" Name="Ws_Created" Nullable="false" />
           <Property Type="Int32" Name="Ws_CreateUser" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Web_Bulletin">
-          <Key>
-            <PropertyRef Name="intBulletinID" />
-          </Key>
-          <Property Type="Int32" Name="intBulletinID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="String" Name="vchBulletinName" MaxLength="64" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="vchBulletinContent" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Byte" Name="intIsEnable" />
-          <Property Type="String" Name="vchBulletinURL" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="intSort" />
-          <Property Type="Int32" Name="intAddUserID" />
-          <Property Type="DateTime" Name="dtAddDate" />
-          <Property Type="Int32" Name="intModUserID" />
-          <Property Type="DateTime" Name="dtModDate" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2352,21 +2360,32 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Up_Syn_ToBBHome_Now" FunctionName="MobileWcf.DataContext.HolycaModel.Store.Up_Syn_ToBBHome_Now" />
           <FunctionImportMapping FunctionImportName="Up_Synchro_OrderPayState" FunctionName="MobileWcf.DataContext.HolycaModel.Store.Up_Synchro_OrderPayState" />
+          <EntitySetMapping Name="Web_Bulletin">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Bulletin">
+              <MappingFragment StoreEntitySet="Web_Bulletin">
+                <ScalarProperty Name="dtModDate" ColumnName="dtModDate" />
+                <ScalarProperty Name="intModUserID" ColumnName="intModUserID" />
+                <ScalarProperty Name="dtAddDate" ColumnName="dtAddDate" />
+                <ScalarProperty Name="intAddUserID" ColumnName="intAddUserID" />
+                <ScalarProperty Name="intSort" ColumnName="intSort" />
+                <ScalarProperty Name="vchBulletinURL" ColumnName="vchBulletinURL" />
+                <ScalarProperty Name="intIsEnable" ColumnName="intIsEnable" />
+                <ScalarProperty Name="vchBulletinContent" ColumnName="vchBulletinContent" />
+                <ScalarProperty Name="vchBulletinName" ColumnName="vchBulletinName" />
+                <ScalarProperty Name="intBulletinID" ColumnName="intBulletinID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Web_ContentData">
             <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_ContentData">
               <MappingFragment StoreEntitySet="Web_ContentData">
-                <ScalarProperty Name="Wcd_Code" ColumnName="Wcd_Code" />
-                <ScalarProperty Name="Wsp_Code" ColumnName="Wsp_Code" />
-                <ScalarProperty Name="Wsp_Id" ColumnName="Wsp_Id" />
-                <ScalarProperty Name="Ws_Code" ColumnName="Ws_Code" />
-                <ScalarProperty Name="Ws_Id" ColumnName="Ws_Id" />
+                <ScalarProperty Name="Wcd_Status" ColumnName="Wcd_Status" />
+                <ScalarProperty Name="Wcd_CreateUser" ColumnName="Wcd_CreateUser" />
+                <ScalarProperty Name="Wcd_Created" ColumnName="Wcd_Created" />
+                <ScalarProperty Name="Wcd_IsDelete" ColumnName="Wcd_IsDelete" />
                 <ScalarProperty Name="Wcd_ModifyTime" ColumnName="Wcd_ModifyTime" />
                 <ScalarProperty Name="Wcd_EndTime" ColumnName="Wcd_EndTime" />
                 <ScalarProperty Name="Wcd_BeginTime" ColumnName="Wcd_BeginTime" />
-                <ScalarProperty Name="Wspc_Code" ColumnName="Wspc_Code" />
-                <ScalarProperty Name="Wcd_CreateUser" ColumnName="Wcd_CreateUser" />
-                <ScalarProperty Name="Wcd_Created" ColumnName="Wcd_Created" />
-                <ScalarProperty Name="Wcd_IsEnable" ColumnName="Wcd_IsEnable" />
                 <ScalarProperty Name="Wcd_F9" ColumnName="Wcd_F9" />
                 <ScalarProperty Name="Wcd_F8" ColumnName="Wcd_F8" />
                 <ScalarProperty Name="Wcd_F7" ColumnName="Wcd_F7" />
@@ -2384,7 +2403,13 @@
                 <ScalarProperty Name="Wcd_Link" ColumnName="Wcd_Link" />
                 <ScalarProperty Name="Wcd_Image" ColumnName="Wcd_Image" />
                 <ScalarProperty Name="Wcd_Title" ColumnName="Wcd_Title" />
+                <ScalarProperty Name="Wcd_Code" ColumnName="Wcd_Code" />
+                <ScalarProperty Name="Wspc_Code" ColumnName="Wspc_Code" />
                 <ScalarProperty Name="Wspc_Id" ColumnName="Wspc_Id" />
+                <ScalarProperty Name="Wsp_Code" ColumnName="Wsp_Code" />
+                <ScalarProperty Name="Wsp_Id" ColumnName="Wsp_Id" />
+                <ScalarProperty Name="Ws_Code" ColumnName="Ws_Code" />
+                <ScalarProperty Name="Ws_Id" ColumnName="Ws_Id" />
                 <ScalarProperty Name="Wcd_Id" ColumnName="Wcd_Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2394,15 +2419,16 @@
               <MappingFragment StoreEntitySet="Web_SitePageColumns">
                 <ScalarProperty Name="Wspc_CreateUser" ColumnName="Wspc_CreateUser" />
                 <ScalarProperty Name="Wspc_Created" ColumnName="Wspc_Created" />
-                <ScalarProperty Name="Wspc_IsEnable" ColumnName="Wspc_IsEnable" />
+                <ScalarProperty Name="Wspc_Status" ColumnName="Wspc_Status" />
+                <ScalarProperty Name="Wspc_IsDelete" ColumnName="Wspc_IsDelete" />
                 <ScalarProperty Name="Wspc_ContentDataTotal" ColumnName="Wspc_ContentDataTotal" />
                 <ScalarProperty Name="Wspc_Remark" ColumnName="Wspc_Remark" />
-                <ScalarProperty Name="Wspc_Code" ColumnName="Wspc_Code" />
                 <ScalarProperty Name="Wspc_Name" ColumnName="Wspc_Name" />
-                <ScalarProperty Name="Ws_Code" ColumnName="Ws_Code" />
-                <ScalarProperty Name="Ws_Id" ColumnName="Ws_Id" />
+                <ScalarProperty Name="Wspc_Code" ColumnName="Wspc_Code" />
                 <ScalarProperty Name="Wsp_Code" ColumnName="Wsp_Code" />
                 <ScalarProperty Name="Wsp_Id" ColumnName="Wsp_Id" />
+                <ScalarProperty Name="Ws_Code" ColumnName="Ws_Code" />
+                <ScalarProperty Name="Ws_Id" ColumnName="Ws_Id" />
                 <ScalarProperty Name="Wspc_Id" ColumnName="Wspc_Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2412,11 +2438,12 @@
               <MappingFragment StoreEntitySet="Web_SitePages">
                 <ScalarProperty Name="Wsp_CreateUser" ColumnName="Wsp_CreateUser" />
                 <ScalarProperty Name="Wsp_Created" ColumnName="Wsp_Created" />
-                <ScalarProperty Name="Wsp_IsEnable" ColumnName="Wsp_IsEnable" />
+                <ScalarProperty Name="Wsp_Status" ColumnName="Wsp_Status" />
+                <ScalarProperty Name="Wsp_IsDelete" ColumnName="Wsp_IsDelete" />
                 <ScalarProperty Name="Wsp_ColumnsTotal" ColumnName="Wsp_ColumnsTotal" />
                 <ScalarProperty Name="Wsp_Remark" ColumnName="Wsp_Remark" />
-                <ScalarProperty Name="Wsp_Code" ColumnName="Wsp_Code" />
                 <ScalarProperty Name="Wsp_Name" ColumnName="Wsp_Name" />
+                <ScalarProperty Name="Wsp_Code" ColumnName="Wsp_Code" />
                 <ScalarProperty Name="Ws_Code" ColumnName="Ws_Code" />
                 <ScalarProperty Name="Ws_Id" ColumnName="Ws_Id" />
                 <ScalarProperty Name="Wsp_Id" ColumnName="Wsp_Id" />
@@ -2428,28 +2455,13 @@
               <MappingFragment StoreEntitySet="Web_Sites">
                 <ScalarProperty Name="Ws_CreateUser" ColumnName="Ws_CreateUser" />
                 <ScalarProperty Name="Ws_Created" ColumnName="Ws_Created" />
-                <ScalarProperty Name="Ws_IsEnable" ColumnName="Ws_IsEnable" />
+                <ScalarProperty Name="Ws_Status" ColumnName="Ws_Status" />
+                <ScalarProperty Name="Ws_IsDelete" ColumnName="Ws_IsDelete" />
                 <ScalarProperty Name="Ws_PagesTotal" ColumnName="Ws_PagesTotal" />
                 <ScalarProperty Name="Ws_Remark" ColumnName="Ws_Remark" />
-                <ScalarProperty Name="Ws_Code" ColumnName="Ws_Code" />
                 <ScalarProperty Name="Ws_Name" ColumnName="Ws_Name" />
+                <ScalarProperty Name="Ws_Code" ColumnName="Ws_Code" />
                 <ScalarProperty Name="Ws_Id" ColumnName="Ws_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Web_Bulletin">
-            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Bulletin">
-              <MappingFragment StoreEntitySet="Web_Bulletin">
-                <ScalarProperty Name="dtModDate" ColumnName="dtModDate" />
-                <ScalarProperty Name="intModUserID" ColumnName="intModUserID" />
-                <ScalarProperty Name="dtAddDate" ColumnName="dtAddDate" />
-                <ScalarProperty Name="intAddUserID" ColumnName="intAddUserID" />
-                <ScalarProperty Name="intSort" ColumnName="intSort" />
-                <ScalarProperty Name="vchBulletinURL" ColumnName="vchBulletinURL" />
-                <ScalarProperty Name="intIsEnable" ColumnName="intIsEnable" />
-                <ScalarProperty Name="vchBulletinContent" ColumnName="vchBulletinContent" />
-                <ScalarProperty Name="vchBulletinName" ColumnName="vchBulletinName" />
-                <ScalarProperty Name="intBulletinID" ColumnName="intBulletinID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2503,11 +2515,11 @@
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Deliver" Width="1.5" PointX="10.75" PointY="0.75" Height="0.40000000000000036" IsExpanded="false" />
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_PayState" Width="1.5" PointX="0.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShopCart_Prom_Rela" Width="1.5" PointX="10.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_ContentData" Width="1.5" PointX="2.75" PointY="10.75" Height="0.4" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePageColumns" Width="1.5" PointX="10.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePages" Width="1.5" PointX="4.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Sites" Width="1.5" PointX="10.75" PointY="6.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Bulletin" Width="1.5" PointX="6.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Bulletin" Width="1.5" PointX="2.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_ContentData" Width="1.5" PointX="10.75" PointY="4.75" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePageColumns" Width="1.5" PointX="4.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePages" Width="1.5" PointX="10.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Sites" Width="1.5" PointX="6.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
       </Diagram>
     </Diagrams>
   </Designer>
