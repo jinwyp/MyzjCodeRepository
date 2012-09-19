@@ -13,19 +13,23 @@ namespace Core.Enums
         /// <summary>
         /// 异常错误
         /// </summary>
-        ExceptionError = -4,
+        ExceptionError = -100,
         /// <summary>
         /// 参数错误
         /// </summary>
-        ParamsError = -3,
+        ParamsError=-90,
         /// <summary>
         /// 逻辑错误
         /// </summary>
-        LogicError = -2,
+        LogicError=-80,
         /// <summary>
         /// 执行错误
         /// </summary>
-        ExecutionError = -1,
+        ExecutionError=-70,
+        /// <summary>
+        /// 需要登录
+        /// </summary>
+        NeedLogin=-1,
         /// <summary>
         /// 未定义
         /// </summary>

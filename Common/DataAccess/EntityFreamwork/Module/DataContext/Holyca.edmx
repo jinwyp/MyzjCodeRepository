@@ -611,9 +611,14 @@
             <PropertyRef Name="Wcd_Id" />
           </Key>
           <Property Name="Wcd_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ws_Id" Type="int" Nullable="false" />
+          <Property Name="Ws_Code" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Wsp_Id" Type="int" Nullable="false" />
+          <Property Name="Wsp_Code" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Wspc_Id" Type="int" Nullable="false" />
-          <Property Name="Wcd_Title" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="Wspc_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Wcd_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Wcd_Title" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="Wcd_Image" Type="varchar" MaxLength="500" />
           <Property Name="Wcd_Link" Type="varchar" MaxLength="300" />
           <Property Name="Wcd_Content" Type="varchar" MaxLength="4000" />
@@ -661,12 +666,12 @@
             <PropertyRef Name="Wspc_Code" />
           </Key>
           <Property Name="Wspc_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Wsp_Id" Type="int" Nullable="false" />
-          <Property Name="Wsp_Code" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Ws_Id" Type="int" Nullable="false" />
           <Property Name="Ws_Code" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Wspc_Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Wsp_Id" Type="int" Nullable="false" />
+          <Property Name="Wsp_Code" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Wspc_Code" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Wspc_Name" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Wspc_Remark" Type="varchar" MaxLength="500" />
           <Property Name="Wspc_ContentDataTotal" Type="int" Nullable="false" />
           <Property Name="Wspc_IsEnable" Type="smallint" Nullable="false" />
@@ -681,8 +686,8 @@
           <Property Name="Wsp_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Ws_Id" Type="int" Nullable="false" />
           <Property Name="Ws_Code" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Wsp_Name" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Wsp_Code" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Wsp_Name" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Wsp_Remark" Type="varchar" MaxLength="500" />
           <Property Name="Wsp_ColumnsTotal" Type="int" Nullable="false" />
           <Property Name="Wsp_IsEnable" Type="smallint" Nullable="false" />
@@ -695,8 +700,8 @@
             <PropertyRef Name="Ws_Code" />
           </Key>
           <Property Name="Ws_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Ws_Name" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Ws_Code" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ws_Name" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Ws_Remark" Type="varchar" MaxLength="500" />
           <Property Name="Ws_PagesTotal" Type="int" Nullable="false" />
           <Property Name="Ws_IsEnable" Type="smallint" Nullable="false" />
@@ -1664,6 +1669,11 @@
           <Property Type="DateTime" Name="Wcd_BeginTime" Nullable="false" />
           <Property Type="DateTime" Name="Wcd_EndTime" Nullable="false" />
           <Property Type="DateTime" Name="Wcd_ModifyTime" Nullable="false" />
+          <Property Type="Int32" Name="Ws_Id" Nullable="false" />
+          <Property Type="String" Name="Ws_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Wsp_Id" Nullable="false" />
+          <Property Type="String" Name="Wsp_Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Wcd_Code" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Web_SitePageColumns">
           <Key>
@@ -2345,6 +2355,11 @@
           <EntitySetMapping Name="Web_ContentData">
             <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_ContentData">
               <MappingFragment StoreEntitySet="Web_ContentData">
+                <ScalarProperty Name="Wcd_Code" ColumnName="Wcd_Code" />
+                <ScalarProperty Name="Wsp_Code" ColumnName="Wsp_Code" />
+                <ScalarProperty Name="Wsp_Id" ColumnName="Wsp_Id" />
+                <ScalarProperty Name="Ws_Code" ColumnName="Ws_Code" />
+                <ScalarProperty Name="Ws_Id" ColumnName="Ws_Id" />
                 <ScalarProperty Name="Wcd_ModifyTime" ColumnName="Wcd_ModifyTime" />
                 <ScalarProperty Name="Wcd_EndTime" ColumnName="Wcd_EndTime" />
                 <ScalarProperty Name="Wcd_BeginTime" ColumnName="Wcd_BeginTime" />
@@ -2459,40 +2474,40 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Holyca" ZoomLevel="73" DisplayType="false" ShowGrid="true">
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Brand" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3520719401041665" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Region" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type" Width="1.5" PointX="4.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_FlagBrand" Width="1.5" PointX="0.75" PointY="4.75" Height="1.5879931640624996" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Base_Info" Width="1.5" PointX="3.375" PointY="4.75" Height="8.4647021484375" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_AllList" Width="1.5" PointX="5.75" PointY="4.75" Height="7.318583984375" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_Detail" Width="1.5" PointX="7.75" PointY="0.75" Height="8.6557218424479174" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_List" Width="1.5" PointX="0.75" PointY="7.75" Height="7.1275642903645853" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_HotProduct" Width="1.5" PointX="10.375" PointY="0.75" Height="1.9700325520833317" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Pic" Width="1.5" PointX="9.5" PointY="3.125" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Other_Info" Width="1.5" PointX="10.375" PointY="6.75" Height="3.8802294921875031" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShoppingCart" Width="1.5" PointX="8.375" PointY="11.75" Height="7.3185839843750031" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Stock" Width="1.5" PointX="10.375" PointY="11.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver" Width="1.5" PointX="12.375" PointY="0.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Area" Width="1.5" PointX="12.375" PointY="4.75" Height="2.7341113281250031" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Pay" Width="1.5" PointX="12.375" PointY="8.75" Height="1.5879931640625031" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Pay_Type" Width="1.5" PointX="12.375" PointY="11.75" Height="5.4083870442708388" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.User_Consignee_Address" Width="1.5" PointX="5.375" PointY="13.75" Height="5.2173673502604174" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_User_Shortage" Width="1.5" PointX="14.375" PointY="0.75" Height="4.8353279622395888" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_SaleArea_Product" Width="1.5" PointX="14.375" PointY="6.75" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order" Width="1.5" PointX="14.75" PointY="9.75" Height="6.5545052083333282" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Invoice" Width="1.5" PointX="0.75" PointY="15.75" Height="4.2622688802083264" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_State" Width="1.5" PointX="2.75" PointY="15.75" Height="1.9700325520833246" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Detail" Width="1.5" PointX="16.375" PointY="0.75" Height="5.9814461263020746" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Prom_Rela" Width="1.5" PointX="17.375" PointY="7.75" Height="2.7341113281250102" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Deliver" Width="1.5" PointX="17.375" PointY="11.75" Height="4.45328857421876" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_PayState" Width="1.5" PointX="14.375" PointY="17.75" Height="1.9700325520833246" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShopCart_Prom_Rela" Width="1.5" PointX="16.375" PointY="17.75" Height="2.5430916341145746" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_ContentData" Width="1.5" PointX="18.375" PointY="0.75" Height="5.2173673502604174" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePageColumns" Width="1.5" PointX="10.375" PointY="18.75" Height="3.3071704101562602" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePages" Width="1.5" PointX="18.375" PointY="17.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Sites" Width="1.5" PointX="3.375" PointY="19.75" Height="2.5430916341145746" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Bulletin" Width="1.5" PointX="5.375" PointY="19.75" Height="2.9251310221354174" />
+      <Diagram Name="Holyca" ZoomLevel="98" DisplayType="false" ShowGrid="true" SnapToGrid="true">
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Brand" Width="1.5" PointX="0.75" PointY="0.75" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Region" Width="1.5" PointX="2.75" PointY="0.75" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type" Width="1.5" PointX="0.75" PointY="2.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_FlagBrand" Width="1.5" PointX="2.75" PointY="2.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Base_Info" Width="1.5" PointX="4.75" PointY="0.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_AllList" Width="1.5" PointX="0.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_Detail" Width="1.5" PointX="4.75" PointY="2.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_List" Width="1.5" PointX="2.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_HotProduct" Width="1.5" PointX="4.75" PointY="4.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Pic" Width="1.5" PointX="6.75" PointY="0.75" Height="0.39999999999999991" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Other_Info" Width="1.5" PointX="0.75" PointY="6.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShoppingCart" Width="1.5" PointX="6.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Stock" Width="1.5" PointX="2.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver" Width="1.5" PointX="6.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Area" Width="1.5" PointX="4.75" PointY="6.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Pay" Width="1.5" PointX="6.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Pay_Type" Width="1.5" PointX="8.75" PointY="0.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.User_Consignee_Address" Width="1.5" PointX="0.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_User_Shortage" Width="1.5" PointX="8.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_SaleArea_Product" Width="1.5" PointX="2.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order" Width="1.5" PointX="8.75" PointY="4.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Invoice" Width="1.5" PointX="4.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_State" Width="1.5" PointX="8.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Detail" Width="1.5" PointX="6.75" PointY="8.75" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Prom_Rela" Width="1.5" PointX="8.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Deliver" Width="1.5" PointX="10.75" PointY="0.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_PayState" Width="1.5" PointX="0.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShopCart_Prom_Rela" Width="1.5" PointX="10.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_ContentData" Width="1.5" PointX="2.75" PointY="10.75" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePageColumns" Width="1.5" PointX="10.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePages" Width="1.5" PointX="4.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Sites" Width="1.5" PointX="10.75" PointY="6.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Bulletin" Width="1.5" PointX="6.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
       </Diagram>
     </Diagrams>
   </Designer>

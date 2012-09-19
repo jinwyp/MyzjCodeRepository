@@ -143,11 +143,14 @@ namespace Wcf.BLL.Goods
         /// <returns></returns>
         public static string FormatProductPicUrl(string imgUrl)
         {
+            if(string.IsNullOrWhiteSpace(imgUrl)) return imgUrl;
+            if (imgUrl.StartsWith("http://", StringComparison.CurrentCultureIgnoreCase)) return imgUrl;
+
             var picHost =
                 MConfigManager.GetAppSettingsValue<string>(MConfigManager.FormatKey("Pic",
                                                                                     Core.Enums.MConfigs.
                                                                                         ConfigsCategory.Host));
-            return (string.IsNullOrWhiteSpace(imgUrl) || string.IsNullOrWhiteSpace(picHost)) ? "" : picHost + "product/{0}/" + imgUrl.Trim('/');
+            return string.IsNullOrWhiteSpace(picHost) ? imgUrl : picHost + "product/{0}/" + imgUrl.Trim('/');
         }
 
         /// <summary>

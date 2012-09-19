@@ -12878,7 +12878,11 @@ namespace EF.Model.DataContext
         /// <param name="wcd_BeginTime">Wcd_BeginTime 属性的初始值。</param>
         /// <param name="wcd_EndTime">Wcd_EndTime 属性的初始值。</param>
         /// <param name="wcd_ModifyTime">Wcd_ModifyTime 属性的初始值。</param>
-        public static Web_ContentData CreateWeb_ContentData(global::System.Int32 wcd_Id, global::System.Int32 wspc_Id, global::System.String wcd_Title, global::System.Int32 wcd_Sort, global::System.Int16 wcd_Category, global::System.Int16 wcd_IsEnable, global::System.DateTime wcd_Created, global::System.Int32 wcd_CreateUser, global::System.DateTime wcd_BeginTime, global::System.DateTime wcd_EndTime, global::System.DateTime wcd_ModifyTime)
+        /// <param name="ws_Id">Ws_Id 属性的初始值。</param>
+        /// <param name="ws_Code">Ws_Code 属性的初始值。</param>
+        /// <param name="wsp_Id">Wsp_Id 属性的初始值。</param>
+        /// <param name="wsp_Code">Wsp_Code 属性的初始值。</param>
+        public static Web_ContentData CreateWeb_ContentData(global::System.Int32 wcd_Id, global::System.Int32 wspc_Id, global::System.String wcd_Title, global::System.Int32 wcd_Sort, global::System.Int16 wcd_Category, global::System.Int16 wcd_IsEnable, global::System.DateTime wcd_Created, global::System.Int32 wcd_CreateUser, global::System.DateTime wcd_BeginTime, global::System.DateTime wcd_EndTime, global::System.DateTime wcd_ModifyTime, global::System.Int32 ws_Id, global::System.String ws_Code, global::System.Int32 wsp_Id, global::System.String wsp_Code)
         {
             Web_ContentData web_ContentData = new Web_ContentData();
             web_ContentData.Wcd_Id = wcd_Id;
@@ -12892,6 +12896,10 @@ namespace EF.Model.DataContext
             web_ContentData.Wcd_BeginTime = wcd_BeginTime;
             web_ContentData.Wcd_EndTime = wcd_EndTime;
             web_ContentData.Wcd_ModifyTime = wcd_ModifyTime;
+            web_ContentData.Ws_Id = ws_Id;
+            web_ContentData.Ws_Code = ws_Code;
+            web_ContentData.Wsp_Id = wsp_Id;
+            web_ContentData.Wsp_Code = wsp_Code;
             return web_ContentData;
         }
 
@@ -13524,6 +13532,126 @@ namespace EF.Model.DataContext
         private global::System.DateTime _Wcd_ModifyTime;
         partial void OnWcd_ModifyTimeChanging(global::System.DateTime value);
         partial void OnWcd_ModifyTimeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Ws_Id
+        {
+            get
+            {
+                return _Ws_Id;
+            }
+            set
+            {
+                OnWs_IdChanging(value);
+                ReportPropertyChanging("Ws_Id");
+                _Ws_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Ws_Id");
+                OnWs_IdChanged();
+            }
+        }
+        private global::System.Int32 _Ws_Id;
+        partial void OnWs_IdChanging(global::System.Int32 value);
+        partial void OnWs_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Ws_Code
+        {
+            get
+            {
+                return _Ws_Code;
+            }
+            set
+            {
+                OnWs_CodeChanging(value);
+                ReportPropertyChanging("Ws_Code");
+                _Ws_Code = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Ws_Code");
+                OnWs_CodeChanged();
+            }
+        }
+        private global::System.String _Ws_Code;
+        partial void OnWs_CodeChanging(global::System.String value);
+        partial void OnWs_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Wsp_Id
+        {
+            get
+            {
+                return _Wsp_Id;
+            }
+            set
+            {
+                OnWsp_IdChanging(value);
+                ReportPropertyChanging("Wsp_Id");
+                _Wsp_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Wsp_Id");
+                OnWsp_IdChanged();
+            }
+        }
+        private global::System.Int32 _Wsp_Id;
+        partial void OnWsp_IdChanging(global::System.Int32 value);
+        partial void OnWsp_IdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Wsp_Code
+        {
+            get
+            {
+                return _Wsp_Code;
+            }
+            set
+            {
+                OnWsp_CodeChanging(value);
+                ReportPropertyChanging("Wsp_Code");
+                _Wsp_Code = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Wsp_Code");
+                OnWsp_CodeChanged();
+            }
+        }
+        private global::System.String _Wsp_Code;
+        partial void OnWsp_CodeChanging(global::System.String value);
+        partial void OnWsp_CodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wcd_Code
+        {
+            get
+            {
+                return _Wcd_Code;
+            }
+            set
+            {
+                OnWcd_CodeChanging(value);
+                ReportPropertyChanging("Wcd_Code");
+                _Wcd_Code = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Wcd_Code");
+                OnWcd_CodeChanged();
+            }
+        }
+        private global::System.String _Wcd_Code;
+        partial void OnWcd_CodeChanging(global::System.String value);
+        partial void OnWcd_CodeChanged();
 
         #endregion
     

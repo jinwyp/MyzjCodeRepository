@@ -8,6 +8,7 @@ using Wcf.Entity.Cms;
 using Wcf.Entity.Enum;
 using Factory;
 using Core.DataTypeUtility;
+using Wcf.BLL.Goods;
 
 namespace Wcf.BLL.Cms
 {
@@ -42,24 +43,24 @@ namespace Wcf.BLL.Cms
                                                    {
                                                        #region 实体赋值
                                                        var columnItem = new ColumnData
-                                                                                                                           {
-                                                                                                                               id = item.Wcd_Id,
-                                                                                                                               content = item.Wcd_Content,
-                                                                                                                               link = item.Wcd_Link,
-                                                                                                                               pic_url = item.Wcd_Image,
-                                                                                                                               resid = item.Wcd_ResId,
-                                                                                                                               restype = item.Wcd_ResType,
-                                                                                                                               title = item.Wcd_Title,
-                                                                                                                               f1 = item.Wcd_F1,
-                                                                                                                               f2 = item.Wcd_F2,
-                                                                                                                               f3 = item.Wcd_F3,
-                                                                                                                               f4 = item.Wcd_F4,
-                                                                                                                               f5 = item.Wcd_F5,
-                                                                                                                               f6 = item.Wcd_F6,
-                                                                                                                               f7 = item.Wcd_F7,
-                                                                                                                               f8 = item.Wcd_F8,
-                                                                                                                               f9 = item.Wcd_F9
-                                                                                                                           };
+                                                                        {
+                                                                            id = item.Wcd_Id,
+                                                                            content = item.Wcd_Content,
+                                                                            link = item.Wcd_Link,
+                                                                            pic_url = GoodsBLL.FormatProductPicUrl(item.Wcd_Image),
+                                                                            resid = item.Wcd_ResId,
+                                                                            restype = item.Wcd_ResType,
+                                                                            title = item.Wcd_Title,
+                                                                            f1 = item.Wcd_F1,
+                                                                            f2 = item.Wcd_F2,
+                                                                            f3 = item.Wcd_F3,
+                                                                            f4 = item.Wcd_F4,
+                                                                            f5 = item.Wcd_F5,
+                                                                            f6 = item.Wcd_F6,
+                                                                            f7 = item.Wcd_F7,
+                                                                            f8 = item.Wcd_F8,
+                                                                            f9 = item.Wcd_F9
+                                                                        };
                                                        #endregion
                                                        result.list.Add(columnItem);
                                                    }

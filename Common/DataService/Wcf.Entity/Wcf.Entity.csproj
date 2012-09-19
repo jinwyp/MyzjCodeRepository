@@ -58,6 +58,7 @@
     <Compile Include="BaseData\ItemPay.cs" />
     <Compile Include="Cms\ColumnData.cs" />
     <Compile Include="Cms\ItemNotice.cs" />
+    <Compile Include="Manage\Cms\ItemSite.cs" />
     <Compile Include="Manage\ItemMethodVerify.cs" />
     <Compile Include="BaseData\ItemRegion.cs" />
     <Compile Include="BaseData\LogisticsResult.cs" />

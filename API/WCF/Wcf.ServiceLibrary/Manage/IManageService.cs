@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using Core.DataType;
 using System.ServiceModel.Web;
+using Wcf.Entity.Manage.Cms;
 
 namespace Wcf.ServiceLibrary.Manage
 {
@@ -28,5 +29,6 @@ namespace Wcf.ServiceLibrary.Manage
         [OperationContract]
         [WebGet(UriTemplate = ManageUri.REFRESHAUTHDATA)]
         MResult RefreshAuthData(string sid, string token, string guid, string user_id, string uid, string privatekey);
+
     }
 }
