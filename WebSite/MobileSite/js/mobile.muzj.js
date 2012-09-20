@@ -397,14 +397,16 @@ var GoodProduct = {
             _api: "Goods.goodList",
             _url: "0/" + cid + "/0/0/" + obj + "/" + page + "/" + GoodProduct.pageSize
         }, function (jsonString) {
-            if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list.length > 0) {
-                GoodProduct.lastPage = Math.ceil(jsonString.total / GoodProduct.pageSize);
-                for (var i = 0; i < jsonString.list.length; i++) {
-                    jsonString.list[i].pic_url = jsonString.list[i].pic_url.replace("{0}", "normal");
+            if (jsonString.status == 1 && typeof (jsonString.list) == "object") {
+                if (jsonString.list.length > 0) {
+                    GoodProduct.lastPage = Math.ceil(jsonString.total / GoodProduct.pageSize);
+                    for (var i = 0; i < jsonString.list.length; i++) {
+                        jsonString.list[i].pic_url = jsonString.list[i].pic_url.replace("{0}", "normal");
+                    }
+                    //console.log("ApplyTemplate");
+                    $("#totalCount").text(jsonString.total);
+                    GoodProduct.ApplyTemplate(jsonString);
                 }
-                //console.log("ApplyTemplate");
-                $("#totalCount").text(jsonString.total);
-                GoodProduct.ApplyTemplate(jsonString);
             } else {
                 alert(jsonString.msg);
             }
@@ -548,7 +550,6 @@ Array.prototype.max = function () {
 var Font_Num_Fun = function (element) {
     var De_array = new Array();
     for (var i = 0; i < element.attrs.length; i++) {
-        //alert(element.attrs[i].key + ":" + element.attrs[i].key.length);
         De_array.push(element.attrs[i].key.length);
     }
     return De_array.max();
@@ -558,7 +559,6 @@ var Font_Num_Fun = function (element) {
 //#region 字体宽度
 var Font_Width_Fun = function (element) {
     var _fontNum = Font_Num_Fun(element);
-    //alert(parseInt(_fontNum) * parseInt(10) + "px");
     $(".ui-font-width").css("width", parseInt(_fontNum) * parseInt(14) + "px");
 };
 //#endregion
