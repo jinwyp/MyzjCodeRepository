@@ -1750,7 +1750,7 @@ var makeorder_Fun = function () {
         if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info != null) {
             if (jsonString.info.paystatusid === 0) {//未付款
                 var url = $("#online_pay").attr("url");
-                $("#online_pay").css("display", "inline-block")
+                $("#online_pay").css("display", "block")
                     .attr("href", url.format([jsonString.info.ocode, jsonString.info.paytypeid]));
             }
             if (jsonString.info.paytype === "货到付款") {
