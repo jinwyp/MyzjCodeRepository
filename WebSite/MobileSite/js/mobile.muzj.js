@@ -1722,6 +1722,7 @@ var makeorder_Fun = function () {
     var make_paytype = LS.get("make_paytype") || "no_c";
     var make_logisticstype = LS.get("make_logisticstype") || "no_c";
     var make_posttimetype = LS.get("make_posttimetype") || "no_c";
+    var ocode = getParameter('ocode') || LS.get("make_ocode") || "no_c";
     var make_Nub = function (canstring, cansb) {
         if (cansb === "no_c") {
             $("#" + canstring).hide().text("");
@@ -1742,9 +1743,22 @@ var makeorder_Fun = function () {
 
     $("#checkOrderDetail").attr("href", $("#orderdetail_url").val() + make_oid);
 
-    if (make_paytype === "货到付款") {
-        $("#online_pay").css("display", "none");
-    }
+    GetWcf({
+        _api: "Order.get_order_info",
+        _url: ocode
+    }, function (jsonString) {
+        if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info != null) {
+            if (jsonString.info.paystatusid === 0) {//未付款
+                var url = $("#online_pay").attr("url");
+                $("#online_pay").css("display", "inline-block")
+                    .attr("href", url.format([jsonString.info.ocode, jsonString.info.paytypeid]));
+            }
+            if (jsonString.info.paytype === "货到付款") {
+                $("#online_pay").hide();
+            }
+
+        }
+    }, false, {});
 
     Unbind_bind("#checkOrderDetail", "click", function () {
         //window.location.href = window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid;
