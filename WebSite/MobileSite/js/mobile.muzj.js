@@ -1,6 +1,4 @@
-﻿
-
-//#region 退出登录
+﻿//#region 退出登录
 function LoingOut() {
     Unbind_bind("#logout", "click", function () {
         var token = $.cookie("m_token");
@@ -21,23 +19,89 @@ function LoingOut() {
 
 //#region 首页动画 
 function Index_Fun() {
-    if ($.trim($('#foucsPic').html()).length == 0) {
-        $('#foucsPic').empty().append($("#picList").html());
-        Camera_cao.camera();
-        Camera_cao.cameraStop();
-        Camera_cao.cameraPause();
-        Camera_cao.cameraResume();
-        jQuery('#foucsPic').camera({
-            thumbnails: false,
-            pauseOnClick: false,
-            pagination: false,
-            loader: 'bar',
-            fx: 'scrollHorz',
-            playPause: false,
-            time: 4000,
-            transPeriod: 1500
-        });
-    }
+
+    //绑定动画图片
+    var bind_Index_pic = function () {
+        GetWcf({
+            _api: "Cms.get_columndata_list",
+            _url: "B-A1-A1/1/5"
+        }, function (jsonString) {
+            console.log(jsonString.list[0].pic_url);
+            if (jsonString.status == 1 && typeof (jsonString.list) == "object") {
+
+                if (jsonString.list.length > 0) {
+                    var sthH = '';
+                    for (var i = 0; i < jsonString.list.length; i++) {
+                        jsonString.list[i].pic_url = jsonString.list[i].pic_url.toString().replace("http://img.muyingzhijia.com/product/{0}/", "http://m.muyingzhijia.me/");
+                        sthH += '<div data-src="' + jsonString.list[i].pic_url + '"></div>';
+                    }
+
+                    if ($.trim($('#foucsPic').html()).length == 0) {
+                        $('#foucsPic').empty().append(sthH);
+                        Camera_cao.camera();
+                        Camera_cao.cameraStop();
+                        Camera_cao.cameraPause();
+                        Camera_cao.cameraResume();
+                        jQuery('#foucsPic').camera({
+                            thumbnails: false,
+                            pauseOnClick: false,
+                            pagination: false,
+                            loader: 'bar',
+                            fx: 'scrollHorz',
+                            playPause: false,
+                            time: 4000,
+                            transPeriod: 1500
+                        });
+                    }
+                }
+            } else {
+                alert(jsonString.msg);
+            }
+        }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
+    } ();
+    //公告列表
+    var noticelist_index = function () {
+        GetWcf({
+            _api: "Cms.get_notice_list",
+            _url: "1/5"
+        }, function (jsonString) {
+            if (jsonString.status == 1 && typeof (jsonString.list) == "object") {
+                if (jsonString.list.length > 0) {
+                    $('#noticelistContent').setTemplate($('#notice_jTemplate').html());
+                    $('#noticelistContent').processTemplate(jsonString, null, { append: false });
+                    $("#noticelistContent").listview("refresh");
+                } else {
+                    $('#noticelistContent').setTemplate("<li>暂时无公告列表！</li>");
+                    $('#noticelistContent').processTemplate(jsonString, null, { append: false });
+                    $("#noticelistContent").listview("refresh");
+                }
+            } else {
+                alert(jsonString.msg);
+            }
+        }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
+    } ();
+}
+//#endregion
+
+//#region 公告详情
+var noticedetail = function () {
+    var noticeid = (getParameter('notice_id') || "");
+
+    GetWcf({
+        _api: "Cms.get_notice_info",
+        _url: noticeid
+    }, function (jsonString) {
+        if (jsonString.status == 1 && typeof (jsonString.info) == "object") {
+            jsonString.info.created = timeDate(jsonString.info.created);
+            //alert(timeDate(jsonString.info.created));
+            $('#noticedetailContent').setTemplate($('#notice_detail_jTemplate').html());
+            $('#noticedetailContent').processTemplate(jsonString.info, null, { append: false });
+            $("#noticedetailContent").trigger("create");
+
+        } else {
+            alert(jsonString.msg);
+        }
+    }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
 }
 //#endregion
 
@@ -2067,6 +2131,9 @@ var PageFuns = {
     },
     CheckOut_Onlinepayment_Page: function () {
         CheckOut_Onlinepayment();
+    },
+    NoticeDetail_Page: function () {
+        noticedetail();
     }
 };
 //#endregion

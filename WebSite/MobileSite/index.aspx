@@ -19,7 +19,7 @@
             <div class="camera_wrap camera_azure_skin" id="foucsPic">
             </div>
             <div id="picList" style="display: none;">
-                <div data-src="/images/slides/Accessories0705_1000x400.jpg">
+                <%--<div data-src="/images/slides/Accessories0705_1000x400.jpg">
                 </div>
                 <div data-src="/images/slides/Diapers0710_1000x400.jpg">
                 </div>
@@ -28,7 +28,7 @@
                 <div data-src="/images/slides/Pampers0711_1000x400.jpg">
                 </div>
                 <div data-src="/images/slides/wanju0705_1000x4000.jpg">
-                </div>
+                </div>--%>
             </div>
             <!-- #foucs -->
             <!-- #camera_wrap_1 -->
@@ -44,12 +44,14 @@
                 <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-05">
                 </span>推荐品牌</a> </li>
             </ul>
-            <ul data-role="listview" data-inset="true" data-dividertheme="d">
-                <li data-role="list-divider">公告</li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail() %>">在线客服试运行 </a></li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail() %>">在线客服试运行 </a></li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail() %>">在线客服试运行 </a></li>
+            <ul data-role="listview" data-inset="true" data-dividertheme="d" id="noticelistContent">
             </ul>
+            <script id="notice_jTemplate" type="text/template">
+            <li data-role="list-divider">公告</li>
+            {#foreach $T.list as notice}
+            <li><a href="<%= MobileSite.BaseLib.WebUrls.noticedetail("{$T.notice.id}") %>">{$T.notice.title}</a></li>
+            {#/for}
+            </script>
         </div>
     </div>
 </asp:Content>

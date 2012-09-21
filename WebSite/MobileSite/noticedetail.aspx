@@ -12,17 +12,19 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div data-role="content">
+    <div data-role="content" id="noticedetailContent">
+        
+    </div>
+    <script id="notice_detail_jTemplate" type="text/template">
         <div class="content-primary">
             <h2>
-                在线客服试运行</h2>
+                {$T.title}</h2>
             <p>
-                2012/5/31 10:58:57</p>
+                {$T.created}</p>
         </div>
         <div>
             <p>
-                亲爱的会员： 母婴之家在线客服正式上线了！现在您可在首页左侧的在线客服功能窗进行产品、配送相关问题的咨询或留言，我们的客服专员将在第一时间为您解答。 在线客服试运行期间，开放时间为工作日的上午9：00——晚上17：30，周末及节假日暂不开放。
-                其它时间段，您可拨打我们的客服热线 400-820-1000 垂询。热线服务时间：每天上午8：00——晚上21：00。 祝您购物愉快！ 特此告知。</p>
+                {$T.content}</p>
         </div>
-    </div>
+    </script>
 </asp:Content>

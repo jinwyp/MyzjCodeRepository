@@ -220,8 +220,10 @@ var getParameter = function (name) {
 
 //#region 时间转换
 var WcfDateToJsDate = function (wcfDate) {
-    var date = new Date(parseInt(wcfDate.substring(6)));
-    return date;
+    if (typeof wcfDate == 'string' && wcfDate.length > 5) {
+        var date = new Date(parseInt(wcfDate.substring(6)));
+        return date;
+    } else return wcfDate;
 };
 var JsDateToWcfDate = function (jsDate) {
     // \/Date(568310400000+0800)\/

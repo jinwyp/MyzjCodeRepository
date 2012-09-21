@@ -427,9 +427,9 @@ namespace MobileSite.BaseLib
         /// </summary>
         /// <param name="gid"></param>
         /// <returns></returns>
-        public static string noticedetail()
+        public static string noticedetail(object notice_id)
         {
-            return GetUrlData("noticedetail");
+            return GetUrlData("noticedetail",notice_id);
         }
 
         /// <summary>
