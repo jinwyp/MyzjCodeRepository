@@ -32,20 +32,20 @@
             </div>
             <!-- #foucs -->
             <!-- #camera_wrap_1 -->
-            <ul data-role="listview" data-inset="true" data-theme="c">
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-01">
-                </span>限时抢购</a> </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-02">
-                </span>促销快报</a> </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-03">
-                </span>新品上架</a> </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-04">
-                </span>热门单品</a> </li>
-                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>"><span class="icon-custom icon-custom-05">
-                </span>推荐品牌</a> </li>
+            <ul data-role="listview" data-inset="true" data-theme="c" id="columnlistContent">
+                <%--<li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>">限时抢购</a> </li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>">促销快报</a> </li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>">新品上架</a> </li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>">热门单品</a> </li>
+                <li><a href="<%= MobileSite.BaseLib.WebUrls.productlist() %>">推荐品牌</a> </li>--%>
             </ul>
             <ul data-role="listview" data-inset="true" data-dividertheme="d" id="noticelistContent">
             </ul>
+            <script id="columnlist_jTemplate" type="text/template">
+                        {#foreach $T.list as col}
+                        <li><a href="<%= MobileSite.BaseLib.WebUrls.GoodsTopic("{$T.col.id}") %>">{$T.col.title}</a></li>
+                        {#/for}
+            </script>
             <script id="notice_jTemplate" type="text/template">
             <li data-role="list-divider">公告</li>
             {#foreach $T.list as notice}
