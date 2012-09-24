@@ -336,7 +336,7 @@ namespace MobileSite.BaseLib
         /// </summary>
         /// <param name="gid"></param>
         /// <returns></returns>
-        public static string onlinepayment(object ocode,object paygroup)
+        public static string onlinepayment(object ocode, object paygroup)
         {
             return GetUrlData("onlinepayment", ocode, paygroup);
         }
@@ -429,7 +429,7 @@ namespace MobileSite.BaseLib
         /// <returns></returns>
         public static string noticedetail(object notice_id)
         {
-            return GetUrlData("noticedetail",notice_id);
+            return GetUrlData("noticedetail", notice_id);
         }
 
         /// <summary>
@@ -440,6 +440,15 @@ namespace MobileSite.BaseLib
         public static string forgetpassword()
         {
             return GetUrlData("forgetpassword");
+        }
+
+        /// <summary>
+        /// 商品专题
+        /// </summary>
+        /// <returns></returns>
+        public static string GoodsTopic(object id)
+        {
+            return GetUrlData("goodstopic", id);
         }
 
         #endregion

@@ -58,6 +58,7 @@
     <Compile Include="BaseData\ItemPay.cs" />
     <Compile Include="Cms\ColumnData.cs" />
     <Compile Include="Cms\ItemNotice.cs" />
+    <Compile Include="Enum\PaymentType.cs" />
     <Compile Include="Manage\Cms\ItemSite.cs" />
     <Compile Include="Manage\ItemMethodVerify.cs" />
     <Compile Include="BaseData\ItemRegion.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Order\OrderEntity.cs" />
     <Compile Include="Order\OrderResult.cs" />
     <Compile Include="Order\OrderSumaryEntity.cs" />
+    <Compile Include="Order\PaymentCallback.cs" />
     <Compile Include="Order\Shipping.cs" />
     <Compile Include="Order\ShoppingCartResult.cs" />
     <Compile Include="Order\ShoppingCartEntity.cs" />

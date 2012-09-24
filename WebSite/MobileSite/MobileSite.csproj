@@ -87,6 +87,9 @@
     <Compile Include="callback\alipay_wap.ashx.cs">
       <DependentUpon>alipay_wap.ashx</DependentUpon>
     </Compile>
+    <Compile Include="callback\alipay_wap_notify.ashx.cs">
+      <DependentUpon>alipay_wap_notify.ashx</DependentUpon>
+    </Compile>
     <Compile Include="CheckOut\addresslist.aspx.cs">
       <DependentUpon>addresslist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -216,6 +219,13 @@
     <Compile Include="noticelist.aspx.designer.cs">
       <DependentUpon>noticelist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GoodsTopic.aspx.cs">
+      <DependentUpon>GoodsTopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GoodsTopic.aspx.designer.cs">
+      <DependentUpon>GoodsTopic.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product\category.aspx.cs">
       <DependentUpon>category.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -312,6 +322,7 @@
     <Content Include="CheckOut\makeorder.aspx" />
     <Content Include="CheckOut\onlinepayment.aspx" />
     <Content Include="callback\alipay_wap.ashx" />
+    <Content Include="callback\alipay_wap_notify.ashx" />
     <None Include="Configs\restful.config" />
     <Content Include="Footer.ascx" />
     <Content Include="Global.asax" />
@@ -364,6 +375,7 @@
     <Content Include="noticedetail.aspx" />
     <Content Include="noticelist.aspx" />
     <None Include="PageTemplate\PayListItem.tpl" />
+    <Content Include="GoodsTopic.aspx" />
     <Content Include="Product\category.aspx" />
     <Content Include="style\camera.css" />
     <Content Include="Useragent.html" />

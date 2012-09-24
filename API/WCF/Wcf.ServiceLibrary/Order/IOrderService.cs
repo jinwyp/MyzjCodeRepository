@@ -160,12 +160,11 @@ namespace Wcf.ServiceLibrary.Order
         /// <param name="guid"></param>
         /// <param name="user_id"></param>
         /// <param name="uid"></param>
-        /// <param name="getdata"> </param>
-        /// <param name="postdata"> </param>
+        /// <param name="paymentnotify"> </param>
         /// <returns></returns>
-        [WebGet(UriTemplate = OrderUri.ORDERPAYMENTSUCCESS)]
+        [WebInvoke(Method = "POST", UriTemplate = OrderUri.ORDERPAYMENTSUCCESS)]
         [OperationContract]
-        MResult<string> OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, string getdata, string postdata);
+        MResult<string> OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, PaymentNotify paymentnotify);
 
     }
 }

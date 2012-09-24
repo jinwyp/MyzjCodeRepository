@@ -876,90 +876,126 @@ namespace Wcf.BLL.Order
         }
 
         /// <summary>
-        /// 订单支付成功 
+        /// 订单支付通知 
         /// </summary>
         /// <param name="sType"></param>
         /// <param name="userId"></param>
         /// <param name="uid"></param>
+        /// <param name="paymentNotifyType"> </param>
         /// <param name="getData"></param>
         /// <param name="postData"></param>
         /// <returns></returns>
-        public static MResult<string> OrderPaymentSuccess(SystemType sType, int userId, string uid, string getData, string postData)
+        public static MResult<string> OrderPaymentNotify(SystemType sType, int userId, string uid, PaymentNotifyType paymentNotifyType, string getData, string postData)
         {
             var result = new MResult<string>();
 
             try
             {
+                #region 解析 query 参数集合 组成 SortedDictionary
+                var sortDictByget = new SortedDictionary<string, string>();
                 if (!string.IsNullOrWhiteSpace(getData))
                 {
                     var getDataForNameValue = HttpUtility.ParseQueryString(getData);
-
-                    #region 解析 query 参数集合 组成 SortedDictionary
-                    var sortDict = new SortedDictionary<string, string>();
                     foreach (string name in getDataForNameValue)
-                        sortDict.Add(name, getDataForNameValue.Get(name));
-                    #endregion
-
-                    #region 解析参数
-                    var outTradeNo = getDataForNameValue.Get("out_trade_no");
-                    var requestToken = getDataForNameValue.Get("request_token");
-                    var resultStatus = getDataForNameValue.Get("result");
-                    var tradeNo = getDataForNameValue.Get("trade_no");
-                    #endregion
-
-                    #region 验证 签名是否合法
-                    var alipayPayment = new AlipayWapPayment();
-                    var validationPass = alipayPayment.ValidationSign(sortDict);
-                    #endregion
-
-                    #region 解析订单编号和用户编号
-                    var orderCode = string.Empty;
-                    var userCode = string.Empty;
-
-                    var tradeNosplit = (outTradeNo ?? "").Split('-');
-                    if (tradeNosplit.Length == 2)
                     {
-                        orderCode = tradeNosplit[0];
-                        userCode = tradeNosplit[1];
+                        if (!string.IsNullOrWhiteSpace(name))
+                            sortDictByget.Add(name, getDataForNameValue.Get(name));
                     }
-                    #endregion
+                }
+                #endregion
 
-                    if (!string.IsNullOrEmpty(orderCode) &&
-                        !string.IsNullOrEmpty(userCode) &&
-                        resultStatus.Equals("success", StringComparison.InvariantCultureIgnoreCase) &&
-                        validationPass)
+                #region 解析 post 参数集合 组成 SortedDictionary
+                var sortDictBypost = new SortedDictionary<string, string>();
+                if (!string.IsNullOrWhiteSpace(postData))
+                {
+                    var postDataForNameValue = HttpUtility.ParseQueryString(postData);
+                    foreach (string name in postDataForNameValue)
                     {
-                        #region 更新订单状态
-                        var orderDal = DALFactory.Order();
-                        var orderInfo = orderDal.GetOrderInfo(orderCode);
-                        if (orderInfo != null && orderInfo.orderNo > 0)
+                        if (!string.IsNullOrWhiteSpace(name))
+                            sortDictBypost.Add(name, postDataForNameValue.Get(name));
+                    }
+                }
+                #endregion
+
+                switch (paymentNotifyType)
+                {
+                    case PaymentNotifyType.Alipay_Wap_Callback:
                         {
-                            if (orderInfo.payStatus == 2 || orderInfo.payStatus == 1)
+                            #region 支付宝 Wap Callback
+                            if (sortDictByget.Count > 0)
                             {
-                                result.status = MResultStatus.LogicError;
-                                result.msg = "该订单已经支付 或正在支付中！";
-                            }
-                            else
-                            {
-                                result.info = orderCode;
-                                orderDal.UpdateOrderPayStatusSuccess(orderCode, userCode);
-                                result.status = MResultStatus.Success;
-                            }
-                        }
-                        #endregion
-                    }
-                    else
-                    {
-                        result.status = MResultStatus.LogicError;
-                        result.msg = "支付失败！";
-                    }
+                                #region 解析参数
+                                var outTradeNo = sortDictByget["out_trade_no"];
+                                var requestToken = sortDictByget["request_token"];
+                                var resultStatus = sortDictByget["result"];
+                                var tradeNo = sortDictByget["trade_no"];
+                                #endregion
 
+                                #region 验证 签名是否合法
+                                var alipayPayment = new AlipayWapPayment();
+                                var validationPass = alipayPayment.ValidationSign(sortDictByget);
+                                #endregion
+
+                                #region 解析订单编号和用户编号
+                                var orderCode = string.Empty;
+                                var userCode = string.Empty;
+
+                                var tradeNosplit = (outTradeNo ?? "").Split('-');
+                                if (tradeNosplit.Length == 2)
+                                {
+                                    orderCode = tradeNosplit[0];
+                                    userCode = tradeNosplit[1];
+                                }
+                                #endregion
+
+                                if (!string.IsNullOrEmpty(orderCode) &&
+                                    !string.IsNullOrEmpty(userCode) &&
+                                    resultStatus.Equals("success", StringComparison.InvariantCultureIgnoreCase) &&
+                                    validationPass)
+                                {
+                                    #region 更新订单状态
+                                    var orderDal = DALFactory.Order();
+                                    var orderInfo = orderDal.GetOrderInfo(orderCode);
+                                    if (orderInfo != null && orderInfo.orderNo > 0)
+                                    {
+                                        if (orderInfo.payStatus == 2 || orderInfo.payStatus == 1)
+                                        {
+                                            result.status = MResultStatus.LogicError;
+                                            result.msg = "该订单已经支付 或正在支付中！";
+                                        }
+                                        else
+                                        {
+                                            result.info = orderCode;
+                                            orderDal.UpdateOrderPayStatusSuccess(orderCode, userCode);
+                                            result.status = MResultStatus.Success;
+                                        }
+                                    }
+                                    #endregion
+                                }
+                                else
+                                {
+                                    result.status = MResultStatus.LogicError;
+                                    result.msg = "支付失败！";
+                                }
+                            }
+                            #endregion
+                        }
+                        break;
+                    case PaymentNotifyType.Alipay_Wap_Notify:
+                        {
+                            #region 支付宝 Wap Notify
+
+                            #endregion
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
             catch (Exception)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理订单支付成功 出现异常！";
+                result.msg = "处理订单支付状态 出现异常！";
             }
             return result;
         }

@@ -3,28 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MobileSite.BaseLib;
-using Newtonsoft.Json.Linq;
-using System.Text;
 
 namespace MobileSite.callback
 {
     /// <summary>
-    /// alipay_wap 的摘要说明
+    /// alipay_wap_notify 的摘要说明
     /// </summary>
-    public class alipay_wap : IHttpHandler
+    public class alipay_wap_notify : IHttpHandler
     {
 
         public void ProcessRequest(HttpContext context)
         {
-            var jobj = WebUtility.CallPaymentNotifyApi(context, 101);
+            var jobj = WebUtility.CallPaymentNotifyApi(context, 102);
             if (jobj.Value<int>("status") == 1)
             {
-                var orderCode = jobj.Value<string>("info");
-                context.Response.Redirect(WebUrls.orderdetail(orderCode));
+                context.Response.Write("success");
             }
             else
             {
-                context.Response.Write(jobj.Value<string>("msg"));
+                context.Response.Write("fail");
             }
         }
 

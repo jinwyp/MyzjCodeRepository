@@ -183,12 +183,12 @@ namespace Wcf.ServiceLibrary.Order
             return result;
         }
 
-        public MResult<string> OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, string getdata, string postdata)
+        public MResult<string> OrderPaymentSuccess(string sid, string token, string guid, string user_id, string uid, PaymentNotify paymentnotify)
         {
             var result = new MResult<string>();
             try
             {
-                result = OrderBLL.OrderPaymentSuccess(SystemType, UserId, Uid, getdata, postdata);
+                result = OrderBLL.OrderPaymentNotify(SystemType, UserId, Uid, paymentnotify.paymentnotifytype, paymentnotify.getdata, paymentnotify.postdata);
             }
             catch (Exception)
             {

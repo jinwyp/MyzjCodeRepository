@@ -176,7 +176,7 @@ namespace Wcf.ServiceLibrary
         /// <summary>
         /// 订单支付成功
         /// </summary>
-        public const string ORDERPAYMENTSUCCESS = "/orderpayment_success/{sid}/{token}/{guid}/{user_id}/{uid}/{getdata}/{postdata}";
+        public const string ORDERPAYMENTSUCCESS = "/orderpayment_success/{sid}/{token}/{guid}/{user_id}/{uid}";
     }
 
     /// <summary>
