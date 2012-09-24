@@ -984,6 +984,71 @@ namespace Wcf.BLL.Order
                     case PaymentNotifyType.Alipay_Wap_Notify:
                         {
                             #region 支付宝 Wap Notify
+                            if (sortDictBypost.Count > 0)
+                            {
+                                //创建待签名数组，注意Notify这里数组不需要进行排序，请保持以下顺序
+                                var sArrary = new SortedDictionary<string, string>();
+                                sArrary.Add("service", sortDictBypost["service"]);
+                                sArrary.Add("v", sortDictBypost["v"]);
+                                sArrary.Add("sec_id", sortDictBypost["sec_id"]);
+                                sArrary.Add("notify_data", sortDictBypost["notify_data"]);
+                                sArrary.Add("sign", sortDictBypost["sign"]);
+
+                                var alipayPayment = new AlipayWapPayment();
+                                var validationPass = alipayPayment.ValidationSign(sArrary);
+
+                                if(!validationPass)
+                                {
+                                    result.status = MResultStatus.ParamsError;
+                                    result.msg = "签名验证失败";
+                                    return result;
+                                }
+
+                                //获取notify_data的值
+                                var notify_data = sortDictBypost["notify_data"];
+                                //获取 notify_data 参数中xml格式里面的 trade_status 值
+                                var trade_status = Alipay.Class.Function.GetStrForXmlDoc(notify_data,
+                                                                                            "notify/trade_status");
+                                var out_trade_no = Alipay.Class.Function.GetStrForXmlDoc(notify_data,
+                                                                                            "notify/out_trade_no");
+                                //判断trade_status是否为TRADE_FINISHED
+                                if (!trade_status.Equals("TRADE_FINISHED"))
+                                {
+                                    #region 解析订单编号和用户编号
+                                    var orderCode = string.Empty;
+                                    var userCode = string.Empty;
+
+                                    var tradeNosplit = (out_trade_no ?? "").Split('-');
+                                    if (tradeNosplit.Length == 2)
+                                    {
+                                        orderCode = tradeNosplit[0];
+                                        userCode = tradeNosplit[1];
+                                    }
+                                    #endregion
+
+                                    var orderDal = DALFactory.Order();
+                                    var orderInfo = orderDal.GetOrderInfo(orderCode);
+                                    if (orderInfo != null && orderInfo.orderNo > 0)
+                                    {
+                                        if (orderInfo.payStatus == 2 || orderInfo.payStatus == 1)
+                                        {
+                                            result.status = MResultStatus.LogicError;
+                                            result.msg = "该订单已经支付 或正在支付中！";
+                                        }
+                                        else
+                                        {
+                                            result.info = orderCode;
+                                            orderDal.UpdateOrderPayStatusSuccess(orderCode, userCode);
+                                            result.status = MResultStatus.Success;
+                                        }
+                                    }
+                                }else
+                                {
+                                    result.status = MResultStatus.ParamsError;
+                                    result.msg = "支付失败";
+                                    return result;
+                                }
+                            }
 
                             #endregion
                         }
