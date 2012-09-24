@@ -7,7 +7,7 @@
     <div data-role="navbar" data-iconpos="left">
         <ul>
             <li><a href="<%= MobileSite.BaseLib.WebUrls.index() %>" data-theme="c" data-icon="home" >首页</a> </li>
-            <li><a data-theme="e" data-icon="grid" data-rel="back">返回</a> </li>
+            <li><a data-theme="c" data-icon="grid" data-rel="back">返回</a> </li>
         </ul>
     </div>
 </asp:Content>

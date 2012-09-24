@@ -17,7 +17,7 @@ function LoingOut() {
 }
 //#endregion
 
-//#region 首页动画 
+//#region 首页动画
 function Index_Fun() {
 
     //绑定动画图片
@@ -147,11 +147,10 @@ function Login_Fun(addUrl) {
             }, function (json) {
                 if (json.status == 1 && typeof (json.data) == "string" && json.data.length > 0) {
                     UpdateLoginCookie(json.info, email, json.data);
-
                     var wUr = GetUrlParam("returnurl") || window.WebRoot + "Member/myaccount.aspx";
-                    if (wUr === "undefined") wUr = window.WebRoot + "Member/myaccount.aspx";
+                    //if (wUr === "undefined") wUr = window.WebRoot + "Member/myaccount.aspx";
                     LS.clear();
-                    window.location.href = wUr;
+                    window.location.href = $("a[data-rel='back']").attr("href") || wUr;
                     //Change_Url(wUr);
                 } else
                     jQuery("#login_ErroMesg").css("display", "block").text(json.msg);
