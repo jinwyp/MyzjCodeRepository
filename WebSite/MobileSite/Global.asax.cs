@@ -41,6 +41,7 @@ namespace MobileSite
         protected void Session_End(object sender, EventArgs e)
         {
             //MyzjHttpUtility.CheckRequestClient(true);
+            WebUtility.RefreshGuid();
         }
 
         protected void Application_End(object sender, EventArgs e)
