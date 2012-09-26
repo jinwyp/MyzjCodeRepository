@@ -55,13 +55,13 @@ namespace Wcf.ServiceLibrary.Cms
                 var columngId = MCvHelper.To<int>(columnid);
                 var pageIndex = MCvHelper.To(page, 1);
                 var pageSize = MCvHelper.To(size, 1);
-                /*
-                result = MCacheManager.UseCached<MResult<Object>>(
+
+                result = MCacheManager.UseCached<MResultList<object>>(
                     string.Format("GetColumnDataInfo_{0}_{1}_{2}_{3}_{4}", sid, columncode, columngId,pageIndex,pageSize),
                         MCaching.CacheGroup.Cms,
-                        () => CmsBLL.GetColumnDataInfo(SystemType, user_id, uid, columncode, columngId)
-                    );*/
-                result = CmsBLL.GetColumnDataInfo(SystemType, user_id, uid, columncode, columngId, pageIndex, pageSize);
+                        () => CmsBLL.GetColumnDataInfo(SystemType, user_id, uid, columncode, columngId, pageIndex, pageSize)
+                    );
+                //result = CmsBLL.GetColumnDataInfo(SystemType, user_id, uid, columncode, columngId, pageIndex, pageSize);
             }
             catch (Exception)
             {

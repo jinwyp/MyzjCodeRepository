@@ -5,14 +5,14 @@
     <file relUrl="Global.asax" publishTime="08/29/2012 14:30:08" />
     <file relUrl="bin/Spring.Core.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/Factory.dll" publishTime="09/26/2012 12:56:18" />
-    <file relUrl="bin/Wcf.ServiceHost.dll" publishTime="09/26/2012 12:56:23" />
+    <file relUrl="bin/Wcf.ServiceHost.dll" publishTime="09/26/2012 15:21:24" />
     <file relUrl="bin/log4net.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.ServiceLibrary.pdb" publishTime="09/26/2012 12:56:21" />
+    <file relUrl="bin/Wcf.ServiceLibrary.pdb" publishTime="09/26/2012 14:58:37" />
     <file relUrl="bin/ServiceStack.Common.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/EF.Model.dll" publishTime="09/26/2012 12:13:20" />
     <file relUrl="bin/Wcf.Entity.pdb" publishTime="09/24/2012 13:30:09" />
     <file relUrl="bin/MemcachedProviders.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.ServiceLibrary.dll" publishTime="09/26/2012 12:56:22" />
+    <file relUrl="bin/Wcf.ServiceLibrary.dll" publishTime="09/26/2012 14:58:38" />
     <file relUrl="bin/EF.DAL.xml" publishTime="09/26/2012 12:56:18" />
     <file relUrl="bin/EF.Model.xml" publishTime="09/26/2012 12:13:20" />
     <file relUrl="bin/Wcf.BLL.dll" publishTime="09/26/2012 12:56:19" />
@@ -28,7 +28,8 @@
     <file relUrl="bin/Spring.Web.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="Member.svc" publishTime="08/29/2012 13:40:46" />
     <file relUrl="bin/Enyim.Caching.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.ServiceHost.XML" publishTime="09/26/2012 12:56:23" />
+    <file relUrl="bin/Wcf.ServiceHost.XML" publishTime="09/26/2012 15:21:23" />
+    <file relUrl="bin/ServiceStack.Text.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/Wcf.SpringDotNetAdvice.pdb" publishTime="09/26/2012 12:56:20" />
     <file relUrl="bin/Newtonsoft.Json.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/Core.xml" publishTime="09/19/2012 12:25:31" />
@@ -49,11 +50,11 @@
     <file relUrl="Configs/appSettings.config" publishTime="09/26/2012 13:50:04" />
     <file relUrl="bin/EF.DAL.pdb" publishTime="09/26/2012 12:56:18" />
     <file relUrl="bin/Wcf.BLL.pdb" publishTime="09/26/2012 12:56:19" />
-    <file relUrl="bin/Wcf.ServiceHost.pdb" publishTime="09/26/2012 12:56:23" />
+    <file relUrl="bin/Wcf.ServiceHost.pdb" publishTime="09/26/2012 15:21:23" />
     <file relUrl="bin/Wcf.SpringDotNetAdvice.dll" publishTime="09/26/2012 12:56:20" />
     <file relUrl="bin/Spring.Aop.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="Payment.svc" publishTime="09/14/2012 11:57:07" />
     <file relUrl="bin/ServiceStack.Interfaces.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.ServiceLibrary.xml" publishTime="09/26/2012 12:56:21" />
+    <file relUrl="bin/Wcf.ServiceLibrary.xml" publishTime="09/26/2012 14:58:37" />
   </publishProfile>
 </publishData>

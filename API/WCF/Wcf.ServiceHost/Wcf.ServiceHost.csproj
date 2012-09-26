@@ -56,6 +56,10 @@
       <HintPath>..\Myzj.ProjectResources\Assembly\Common\MemcachedProviders.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ServiceStack.Text, Version=2.0.9.600, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Resources\Assembly\Common\Redis\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="Spring.Aop">
       <HintPath>..\Myzj.ProjectResources\Assembly\Common\SpringDotNet\Spring.Aop.dll</HintPath>
     </Reference>
