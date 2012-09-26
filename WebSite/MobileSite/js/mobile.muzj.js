@@ -19,7 +19,16 @@ function LoingOut() {
 
 //#region 首页动画
 function Index_Fun() {
-
+    //传递搜索key值
+    $("#searchinput1").keydown(function(e){
+        if(e.keyCode==13){
+            var keyval = $(this).val();
+            if(keyval!==""){
+                window.location.href="/product/productlist.aspx?key="+keyval;
+            }
+            return false
+        }
+    });
     //绑定动画图片
     var bind_Index_pic = function () {
         GetWcf({
@@ -33,7 +42,7 @@ function Index_Fun() {
                     var sthH = '';
                     for (var i = 0; i < jsonString.list.length; i++) {
                         //jsonString.list[i].pic_url = jsonString.list[i].pic_url.toString().replace("http://img.muyingzhijia.com/product/{0}/", "http://m.muyingzhijia.me/");
-                        sthH += '<div data-src="' + jsonString.list[i].pic_url + '"></div>';
+                        sthH += '<div data-src="' + jsonString.list[i].pic_url + '" data-link="/goodstopic.aspx?id=' + jsonString.list[i].id + '"></div>';
                     }
 
                     if ($.trim($('#foucsPic').html()).length == 0) {
@@ -444,6 +453,7 @@ function Change_DateIcon_Diao_Fun(sorts) {
 
 //#region 商品列表页
 var GoodProduct = {
+    key:getParameter("key"),
     currentPage: 1, //当前页
     lastPage: 1, //总页数
     pageSize: 10, //每页显示的条数
@@ -479,7 +489,7 @@ var GoodProduct = {
 
         GetWcf({
             _api: "Goods.goodList",
-            _url: "0/" + cid + "/0/0/" + obj + "/" + page + "/" + GoodProduct.pageSize
+            _url: GoodProduct.key + "/0/" + cid + "/0/0/" + obj + "/" + page + "/" + GoodProduct.pageSize
         }, function (jsonString) {
             if (jsonString.status == 1 && typeof (jsonString.list) == "object") {
                 if (jsonString.list.length > 0) {
@@ -594,7 +604,7 @@ var GoodTopic ={
     currentPage: 1, //当前页
     lastPage: 1, //总页数
     pageSize: 10, //每页显示的条数
-    sorts: $.cookie("sorts") || "100", //销量、价格、上架时间
+    sorts: $.cookie("colsorts") || "100", //销量、价格、上架时间
     DisplayProgressIndication: function () {
         //#region 显示隐藏上一页下一页
         if ($("#productlistContent li").length < 1) {
@@ -618,25 +628,28 @@ var GoodTopic ={
         //#region 显示界面数据列表
         var token = $.cookie("m_token");
         var uid = $.cookie("m_uid");
-        var obj = $.cookie("sorts") || "100";
-        //var cid = LS.get("categoryId") || 0; //分类ID
-        var cid = getParameter('categoryId') || 0;
+        var obj = $.cookie("colsorts") || "100";
+        var cid = getParameter('id') || 0;
         GoodTopic.sorts = "?" + obj;
         Change_DateIcon_Diao_Fun(GoodTopic.sorts);
 
         GetWcf({
-            _api: "Goods.goodList",
-            _url: "0/" + cid + "/0/0/" + obj + "/" + page + "/" + GoodTopic.pageSize
+            _api: "Cms.get_columndata_info",
+            _url: "B-A1-A2/"+cid+"/"+page+"/"+GoodTopic.pageSize
         }, function (jsonString) {
-            if (jsonString.status == 1 && typeof (jsonString.list) == "object") {
-                if (jsonString.list.length > 0) {
+            var data = JSON.parse(jsonString.data);
+            if (jsonString.status == 1) {
+                if (typeof (data) == "object" && data.length > 0) {
                     GoodTopic.lastPage = Math.ceil(jsonString.total / GoodTopic.pageSize);
-                    for (var i = 0; i < jsonString.list.length; i++) {
-                        jsonString.list[i].pic_url = jsonString.list[i].pic_url.replace("{0}", "normal");
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].pic_url = data[i].pic_url.replace("{0}", "normal");
                     }
                     //console.log("ApplyTemplate");
                     $("#totalCount").text(jsonString.total);
-                    GoodTopic.ApplyTemplate(jsonString);
+                    GoodTopic.ApplyTemplate(data);
+                } else {
+                    $('#productlistContent').html("<li style='text-align: center'>商品列表为空</li>");
+                    $("#productlistContent").listview("refresh");
                 }
             } else {
                 alert(jsonString.msg);
@@ -658,7 +671,7 @@ var GoodTopic ={
             GoodTopic.currentPage = parseInt(GoodTopic.currentPage) + parseInt(1);
             //currentPage = parseInt(currentPage) + parseInt(1);
             //DisplayUI(currentPage, $.cookie("sorts"));
-            GoodTopic.DisplayUI(GoodTopic.currentPage, $.cookie("sorts"));
+            GoodTopic.DisplayUI(GoodTopic.currentPage, $.cookie("colsorts"));
         }
         //#endregion;
     },
@@ -674,7 +687,7 @@ var GoodTopic ={
                     setTimeout(function () {
                         GoodTopic.DisplayProgressIndication();
                         GoodTopic.currentPage = parseInt(GoodTopic.currentPage) + parseInt(1);
-                        GoodTopic.DisplayUI(GoodProduct.currentPage, $.cookie("sorts"));
+                        GoodTopic.DisplayUI(GoodProduct.currentPage, $.cookie("colsorts"));
                     }, 0);
                 }
             });
@@ -687,21 +700,21 @@ var GoodTopic ={
     GoodProductList: function () {
         //$("#productlistContent").empty();
         //#region 显示商品列表
-        GoodTopic.DisplayUI(GoodTopic.currentPage, $.cookie("sorts")); //显示第一页
+        GoodTopic.DisplayUI(GoodTopic.currentPage, $.cookie("colsorts")); //显示第一页
         //#endregion
     },
     Salec_Price_newTime_Cha_Fun: function (sorts_cookie, asc_c, aseac_c) {
         //#region 销量、价格、上架时间变换过程
-        if ($.cookie("sorts") != asc_c && $.cookie("sorts") != aseac_c) {
-            $.cookie("sorts", asc_c);
-        } else if ($.cookie("sorts") == asc_c && $.cookie("sorts") != aseac_c) {
-            $.cookie("sorts", aseac_c);
-        } else if ($.cookie("sorts") == aseac_c && $.cookie("sorts") != asc_c) {
-            $.cookie("sorts", asc_c);
+        if ($.cookie("colsorts") != asc_c && $.cookie("colsorts") != aseac_c) {
+            $.cookie("colsorts", asc_c);
+        } else if ($.cookie("colsorts") == asc_c && $.cookie("colsorts") != aseac_c) {
+            $.cookie("colsorts", aseac_c);
+        } else if ($.cookie("colsorts") == aseac_c && $.cookie("colsorts") != asc_c) {
+            $.cookie("colsorts", asc_c);
         }
         //$.cookie("currentPage", 1);
         GoodTopic.currentPage = 1;
-        GoodTopic.DisplayUI(1, $.cookie("sorts"));
+        GoodTopic.DisplayUI(1, $.cookie("colsorts"));
         //DisplayUI(1, $.cookie("sorts"));
         //#endregion
     },
@@ -711,21 +724,21 @@ var GoodTopic ={
 
         Unbind_bind("#sales", "click", function () {
             $('#productlistContent').empty();
-            GoodTopic.Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "100", "101");
+            GoodTopic.Salec_Price_newTime_Cha_Fun($.cookie("colsorts"), "100", "101");
         });
         //#endregion
 
         //#region 200升序 201降序
         Unbind_bind("#price", "click", function () {
             $('#productlistContent').empty();
-            GoodTopic.Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "200", "201");
+            GoodTopic.Salec_Price_newTime_Cha_Fun($.cookie("colsorts"), "200", "201");
         });
         //#endregion
 
         //#region 300升序 301降序
         Unbind_bind("#upTime", "click", function () {
             $('#productlistContent').empty();
-            GoodTopic.Salec_Price_newTime_Cha_Fun($.cookie("sorts"), "300", "301");
+            GoodTopic.Salec_Price_newTime_Cha_Fun($.cookie("colsorts"), "300", "301");
         });
         //#endregion
         //#endregion

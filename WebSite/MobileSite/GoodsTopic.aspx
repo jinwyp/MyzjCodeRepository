@@ -14,13 +14,11 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content">
         <div class="content-primary">
-            <div data-role="controlgroup" data-type="horizontal" class="groupbuttonfullwidth">
+            <%--div data-role="controlgroup" data-type="horizontal" class="groupbuttonfullwidth">
                 <a id="sales" data-theme="e" data-role="button" data-icon="arrow-d" data-mini="true">销量</a>
                 <a id="price" data-theme="e" data-role="button" data-icon="arrow-d" data-mini="true">价格</a>
                 <a id="upTime" data-theme="e" data-role="button" data-icon="arrow-d" data-mini="true">上架时间</a>
-            </div>
-            <div class="p10">
-            </div>
+            </div--%>
             <ul id="productlistContent" data-role="listview" data-filter="true" data-filter-placeholder="快速筛选">
             </ul>
             <div class="p10">
@@ -36,7 +34,7 @@
         </div>
     </div>
     <script id="jTemplate" type="text/template">
-    {#foreach $T.list as Puct}
+    {#foreach $T as Puct}
         <li>
             <a href='<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.Puct.gid}") %>' >
                 <img src='{$T.Puct.pic_url}' onerror='this.src="/images/errorImg_small.jpg"' />
