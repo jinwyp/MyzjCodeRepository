@@ -9,6 +9,7 @@ namespace Wcf.Entity.Member
     /// <summary>
     /// 用户位置信息
     /// </summary>
+    [Serializable]
     [DataContract]
     public class Location
     {

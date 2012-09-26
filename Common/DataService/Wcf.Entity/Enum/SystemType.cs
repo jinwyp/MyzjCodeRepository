@@ -9,6 +9,7 @@ namespace Wcf.Entity.Enum
     /// <summary>
     /// 系统类型
     /// </summary>
+    [Serializable]
     [DataContract]
     public enum SystemType
     {

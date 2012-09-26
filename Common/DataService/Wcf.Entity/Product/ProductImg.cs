@@ -9,6 +9,7 @@ namespace Wcf.Entity.Goods
     /// <summary>
     /// 产品属性图片
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ProductImg
     {

@@ -14,6 +14,7 @@ namespace Wcf.Entity.Enum
         /// <summary>
         /// 发票title 类型
         /// </summary>
+        [Serializable]
         [DataContract]
         public enum TitleType
         {
@@ -33,6 +34,7 @@ namespace Wcf.Entity.Enum
         /// <summary>
         /// 发票分类
         /// </summary>
+        [Serializable]
         [DataContract]
         public enum InvoiceCategory
         {

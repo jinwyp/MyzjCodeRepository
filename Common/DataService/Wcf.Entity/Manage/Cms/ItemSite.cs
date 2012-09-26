@@ -9,6 +9,7 @@ namespace Wcf.Entity.Manage.Cms
     /// <summary>
     /// 站点
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ItemSite
     {

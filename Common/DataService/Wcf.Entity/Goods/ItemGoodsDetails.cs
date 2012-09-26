@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 
 namespace Wcf.Entity.Goods
 {
+    [Serializable]
     [DataContract]
     public class ItemGoodsDetails
     {

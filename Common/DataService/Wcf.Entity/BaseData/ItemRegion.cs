@@ -9,6 +9,7 @@ namespace Wcf.Entity.BaseData
     /// <summary>
     /// 地区行数据
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ItemRegion
     {

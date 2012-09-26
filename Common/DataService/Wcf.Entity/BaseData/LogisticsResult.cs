@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 
 namespace Wcf.Entity.BaseData
 {
+    [Serializable]
     [DataContract]
     public class LogisticsResult
     {

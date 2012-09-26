@@ -9,6 +9,7 @@ namespace Wcf.Entity.Manage
     /// <summary>
     /// 方法权限验证
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ItemMethodVerify
     {

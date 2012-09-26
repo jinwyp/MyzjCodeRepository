@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 
 namespace Wcf.Entity.Enum
 {
+    [Serializable]
     [DataContract]
     public enum SeasonType
     {

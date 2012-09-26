@@ -9,6 +9,7 @@ namespace Wcf.Entity.Enum
     /// <summary>
     /// 排序类型
     /// </summary>
+    [Serializable]
     [DataContract]
     public enum SortType
     {

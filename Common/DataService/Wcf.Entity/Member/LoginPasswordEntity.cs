@@ -9,6 +9,7 @@ namespace Wcf.Entity.Member
     /// <summary>
     /// 登录密码实体 用户修改登录密码
     /// </summary>
+    [Serializable]
     [DataContract]
     public class LoginPasswordEntity
     {

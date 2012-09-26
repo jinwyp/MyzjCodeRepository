@@ -9,6 +9,7 @@ namespace Wcf.Entity.Cms
     /// <summary>
     /// 公告类
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ItemNotice
     {

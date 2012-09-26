@@ -9,6 +9,7 @@ namespace Wcf.Entity.Product
     /// <summary>
     /// 评价列表
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ItemComment
     {

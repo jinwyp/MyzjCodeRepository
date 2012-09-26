@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 
 namespace Wcf.Entity.Member
 {
+    [Serializable]
     [DataContract]
     public class LoginEntity
     {

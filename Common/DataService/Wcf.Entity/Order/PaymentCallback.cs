@@ -10,6 +10,7 @@ namespace Wcf.Entity.Order
     /// <summary>
     /// 支付通知
     /// </summary>
+    [Serializable]
     [DataContract]
     public class PaymentNotify
     {

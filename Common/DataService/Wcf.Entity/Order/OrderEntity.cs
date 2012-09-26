@@ -10,6 +10,7 @@ namespace Wcf.Entity.Order
     /// <summary>
     /// 订单数据结构
     /// </summary>
+    [Serializable]
     [DataContract]
     public class OrderEntity
     {

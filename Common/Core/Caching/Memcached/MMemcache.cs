@@ -39,7 +39,7 @@ namespace Core.Caching.Memcached
             try
             {
                 _cacheClient = new MemcachedClient();
-                _cacheClient.FlushAll();
+                //_cacheClient.FlushAll();
             }
             catch (Exception ex)
             {
@@ -226,7 +226,6 @@ namespace Core.Caching.Memcached
 
         public bool RemoveByKey(string key, Enums.MCaching.CacheGroup cacheGroup)
         {
-            MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "没有方法实现");
             return RemoveByKey(FormatKey(key, cacheGroup));
         }
 
@@ -238,8 +237,8 @@ namespace Core.Caching.Memcached
 
         public bool Contains(string key, Enums.MCaching.CacheGroup cacheGroup)
         {
-            MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "没有方法实现");
-            throw new Exception("没有方法实现");
+            var val = GetValByKey<object>(key, cacheGroup);
+            return val != null;
         }
 
     }

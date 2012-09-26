@@ -9,6 +9,7 @@ namespace Wcf.Entity.Member
     /// <summary>
     /// 地址库返回信息
     /// </summary>
+    [Serializable]
     [DataContract]
     public class AddressEntity
     {

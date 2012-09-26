@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 
 namespace Wcf.Entity.Order
 {
+    [Serializable]
     [DataContract]
     public class ItemOrder
     {

@@ -9,6 +9,7 @@ namespace Wcf.Entity.Cms
     /// <summary>
     /// 栏位数据
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ColumnData
     {

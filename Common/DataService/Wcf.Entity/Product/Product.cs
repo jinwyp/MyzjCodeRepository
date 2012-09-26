@@ -9,6 +9,7 @@ namespace Wcf.Entity.Goods
     /// <summary>
     /// 产品结构
     /// </summary>
+    [Serializable]
     [DataContract]
     public class Product
     {

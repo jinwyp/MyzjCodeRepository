@@ -9,6 +9,7 @@ namespace Wcf.Entity.Goods
     /// <summary>
     /// 商品搜索结构
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ItemGoodsSearch
     {

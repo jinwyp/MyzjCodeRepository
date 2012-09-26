@@ -9,6 +9,7 @@ namespace Wcf.Entity.BaseData
     /// <summary>
     /// 物流项目
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ItemLogistics
     {

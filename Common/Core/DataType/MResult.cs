@@ -11,6 +11,7 @@ namespace Core.DataType
     /// <summary>
     /// 返回结果
     /// </summary>
+    [Serializable]
     [DataContract]
     public class MResult
     {
@@ -37,6 +38,7 @@ namespace Core.DataType
     /// 返回结果
     /// </summary>
     /// <typeparam name="T"></typeparam>
+    [Serializable]
     [DataContract]
     public class MResultList<T> : MResult where T : new()
     {
@@ -87,6 +89,7 @@ namespace Core.DataType
     /// 返回结果
     /// </summary>
     /// <typeparam name="T"></typeparam>
+    [Serializable]
     [DataContract]
     public class MResult<T> : MResult
     {

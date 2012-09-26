@@ -9,6 +9,7 @@ namespace Wcf.Entity.Enum
     /// <summary>
     /// 支付类型
     /// </summary>
+    [Serializable]
     [DataContract]
     public enum PaymentNotifyType
     {

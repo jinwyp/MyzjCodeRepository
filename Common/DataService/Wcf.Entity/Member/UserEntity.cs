@@ -13,6 +13,7 @@ namespace Wcf.Entity.Member
     /// <summary>
     /// 用户信息
     /// </summary>
+    [Serializable]
     [DataContract]
     public class UserEntity
     {

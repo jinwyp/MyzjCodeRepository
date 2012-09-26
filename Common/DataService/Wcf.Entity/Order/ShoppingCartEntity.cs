@@ -11,6 +11,7 @@ namespace Wcf.Entity.Order
     /// <summary>
     /// 购物车
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ShoppingCartEntity
     {

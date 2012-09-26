@@ -9,6 +9,7 @@ namespace Wcf.Entity.BaseData
     /// <summary>
     /// 支付项目
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ItemPay
     {

@@ -11,6 +11,7 @@ namespace Wcf.Entity.Goods
     /// <summary>
     /// 商品结构
     /// </summary>
+    [Serializable]
     [DataContract]
     public class ItemGoods
     {

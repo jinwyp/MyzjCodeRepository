@@ -10,6 +10,7 @@ namespace Wcf.Entity.Member
     /// <summary>
     /// 用户注册
     /// </summary>
+    [Serializable]
     [DataContract]
     public class UserRegister
     {

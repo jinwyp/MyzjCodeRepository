@@ -9,6 +9,7 @@ namespace Wcf.Entity.Enum
     /// <summary>
     /// 
     /// </summary>
+    [Serializable]
     [DataContract]
     public class UserLevel
     {
