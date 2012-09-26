@@ -33,6 +33,24 @@ namespace Wcf.ServiceLibrary.Cms
         MResultList<ColumnData> GetColumnDataList(string sid, string token, string guid, string user_id, string uid, string columncode, string page, string size);
 
         /// <summary>
+        /// 获取栏位数据信息
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="token"></param>
+        /// <param name="guid"></param>
+        /// <param name="user_id"></param>
+        /// <param name="uid"></param>
+        /// <param name="columncode"></param>
+        /// <param name="columnid"></param>
+        /// <param name="page"> </param>
+        /// <param name="size"> </param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebGet(UriTemplate = CmsUri.GETCOLUMNDATAINFO)]
+        MResultList<object> GetColumnDataInfo(string sid, string token, string guid, string user_id, string uid,
+                                          string columncode, string columnid, string page, string size);
+
+        /// <summary>
         /// 获取公告列表
         /// </summary>
         /// <param name="sid"></param>

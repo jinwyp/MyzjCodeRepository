@@ -33,6 +33,9 @@
           <EntitySet Name="Web_SitePageColumns" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_SitePageColumns" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Web_SitePages" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_SitePages" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Web_Sites" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Sites" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Web_Subject" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Subject" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Web_Subject_Section" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Subject_Section" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Web_Subject_Section_Pdt" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Subject_Section_Pdt" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Web_Type_FlagBrand" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Type_FlagBrand" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Web_Type_HotProduct" EntityType="MobileWcf.DataContext.HolycaModel.Store.Web_Type_HotProduct" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Vi_User_Shortage" EntityType="MobileWcf.DataContext.HolycaModel.Store.Vi_User_Shortage" store:Type="Views" store:Schema="dbo" store:Name="Vi_User_Shortage">
@@ -656,10 +659,10 @@
           <Property Name="vchCateNo" Type="varchar" MaxLength="32" />
           <Property Name="vchPicAddr" Type="varchar" MaxLength="128" />
           <Property Name="vchViewEn" Type="varchar" MaxLength="32" />
-          <Property Name="vchWebShowName" Type="nvarchar" MaxLength="32" />
-          <Property Name="vchMenuShowName" Type="nvarchar" MaxLength="32" />
-          <Property Name="vchMobileShowName" Type="nvarchar" MaxLength="32" />
-          <Property Name="intMenuIsVisible" Type="int" />
+          <Property Name="vchWebShowName" Type="varchar" MaxLength="40" />
+          <Property Name="vchMenuShowName" Type="varchar" MaxLength="40" />
+          <Property Name="vchMobileShowName" Type="varchar" MaxLength="40" />
+          <Property Name="intMenuIsVisible" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Web_SitePageColumns">
           <Key>
@@ -711,6 +714,55 @@
           <Property Name="Ws_Status" Type="smallint" Nullable="false" />
           <Property Name="Ws_Created" Type="datetime" Nullable="false" />
           <Property Name="Ws_CreateUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Web_Subject">
+          <Key>
+            <PropertyRef Name="intSubjectID" />
+          </Key>
+          <Property Name="intSubjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vchSubjectName" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="dtBeginDate" Type="datetime" Nullable="false" />
+          <Property Name="dtEndDate" Type="datetime" Nullable="false" />
+          <Property Name="intState" Type="int" Nullable="false" />
+          <Property Name="vchMetaInfo" Type="nvarchar" MaxLength="64" />
+          <Property Name="vchStyleCss" Type="varchar" MaxLength="4000" />
+          <Property Name="intAddUserID" Type="int" />
+          <Property Name="dtAddTime" Type="datetime" Nullable="false" />
+          <Property Name="vchPicAddr" Type="varchar" MaxLength="128" />
+          <Property Name="vchFootPicAddr" Type="varchar" MaxLength="128" />
+          <Property Name="vchCoords" Type="varchar" MaxLength="128" />
+          <Property Name="vchCoordsUrl" Type="varchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="Web_Subject_Section">
+          <Key>
+            <PropertyRef Name="intSectionID" />
+          </Key>
+          <Property Name="intSectionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intSubjectID" Type="int" Nullable="false" />
+          <Property Name="vchHtml" Type="text" />
+          <Property Name="intSubjectType" Type="int" />
+          <Property Name="vchSectonName" Type="nvarchar" Nullable="false" MaxLength="2048" />
+          <Property Name="intAddUserID" Type="int" />
+          <Property Name="dtAddTime" Type="datetime" Nullable="false" />
+          <Property Name="intIsVisible" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="vchPicAddr" Type="varchar" MaxLength="128" />
+          <Property Name="vchFootPicAddr" Type="varchar" MaxLength="128" />
+          <Property Name="intPromID" Type="int" />
+          <Property Name="intSortID" Type="int" />
+          <Property Name="vchSectonCoords" Type="varchar" MaxLength="128" />
+          <Property Name="vchSectonCoordsUrl" Type="varchar" MaxLength="1024" />
+        </EntityType>
+        <EntityType Name="Web_Subject_Section_Pdt">
+          <Key>
+            <PropertyRef Name="intSectionPdtID" />
+          </Key>
+          <Property Name="intSectionPdtID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="intSectionID" Type="int" Nullable="false" />
+          <Property Name="intSubjectID" Type="int" Nullable="false" />
+          <Property Name="intProductID" Type="int" Nullable="false" />
+          <Property Name="vchProductName" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="vchPdtInfo" Type="nvarchar" MaxLength="64" />
+          <Property Name="intSort" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Web_Type_FlagBrand">
           <Key>
@@ -955,7 +1007,6 @@
         <EntityContainer Name="HolycaEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="Base_Brand" EntityType="MobileWcf.DataContext.HolycaModel.Base_Brand" />
           <EntitySet Name="Base_Region" EntityType="MobileWcf.DataContext.HolycaModel.Base_Region" />
-          <EntitySet Name="Web_Pdt_Type" EntityType="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type" />
           <EntitySet Name="Web_Type_FlagBrand" EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_FlagBrand" />
           <EntitySet Name="Pdt_Base_Info" EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Base_Info" />
           <EntitySet Name="Vi_Web_Pdt_AllList" EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_AllList" />
@@ -1002,6 +1053,10 @@
           <EntitySet Name="Web_SitePageColumns" EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePageColumns" />
           <EntitySet Name="Web_SitePages" EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePages" />
           <EntitySet Name="Web_Sites" EntityType="MobileWcf.DataContext.HolycaModel.Web_Sites" />
+          <EntitySet Name="Web_Subject" EntityType="MobileWcf.DataContext.HolycaModel.Web_Subject" />
+          <EntitySet Name="Web_Subject_Section" EntityType="MobileWcf.DataContext.HolycaModel.Web_Subject_Section" />
+          <EntitySet Name="Web_Subject_Section_Pdt" EntityType="MobileWcf.DataContext.HolycaModel.Web_Subject_Section_Pdt" />
+          <EntitySet Name="Web_Pdt_Type" EntityType="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type" />
         </EntityContainer>
         <EntityType Name="Base_Brand">
           <Key>
@@ -1028,24 +1083,6 @@
           <Property Name="intIsEnable" Type="Int32" />
           <Property Name="intAreaID" Type="Int32" Nullable="false" />
           <Property Name="vchShortSpell" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Web_Pdt_Type">
-          <Key>
-            <PropertyRef Name="intCateID" />
-          </Key>
-          <Property Name="intCateID" Type="Int32" Nullable="false" />
-          <Property Name="vchCateName" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
-          <Property Name="intCateLevel" Type="Int32" Nullable="false" />
-          <Property Name="intCateFather" Type="Int32" />
-          <Property Name="intSortOrder" Type="Int32" />
-          <Property Name="intIsVisible" Type="Byte" Nullable="false" />
-          <Property Name="vchCateNo" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Name="vchPicAddr" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
-          <Property Name="vchViewEn" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
-          <Property Type="String" Name="vchWebShowName" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="vchMenuShowName" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="vchMobileShowName" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="intMenuIsVisible" />
         </EntityType>
         <EntityType Name="Web_Type_FlagBrand">
           <Key>
@@ -1746,6 +1783,73 @@
           <Property Type="DateTime" Name="Ws_Created" Nullable="false" />
           <Property Type="Int32" Name="Ws_CreateUser" Nullable="false" />
         </EntityType>
+        <EntityType Name="Web_Subject">
+          <Key>
+            <PropertyRef Name="intSubjectID" />
+          </Key>
+          <Property Type="Int32" Name="intSubjectID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="vchSubjectName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dtBeginDate" Nullable="false" />
+          <Property Type="DateTime" Name="dtEndDate" Nullable="false" />
+          <Property Type="Int32" Name="intState" Nullable="false" />
+          <Property Type="String" Name="vchMetaInfo" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchStyleCss" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intAddUserID" />
+          <Property Type="DateTime" Name="dtAddTime" Nullable="false" />
+          <Property Type="String" Name="vchPicAddr" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchFootPicAddr" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchCoords" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchCoordsUrl" MaxLength="1024" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Web_Subject_Section">
+          <Key>
+            <PropertyRef Name="intSectionID" />
+          </Key>
+          <Property Type="Int32" Name="intSectionID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intSubjectID" Nullable="false" />
+          <Property Type="String" Name="vchHtml" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intSubjectType" />
+          <Property Type="String" Name="vchSectonName" Nullable="false" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intAddUserID" />
+          <Property Type="DateTime" Name="dtAddTime" Nullable="false" />
+          <Property Type="String" Name="intIsVisible" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="vchPicAddr" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchFootPicAddr" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intPromID" />
+          <Property Type="Int32" Name="intSortID" />
+          <Property Type="String" Name="vchSectonCoords" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchSectonCoordsUrl" MaxLength="1024" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Web_Subject_Section_Pdt">
+          <Key>
+            <PropertyRef Name="intSectionPdtID" />
+          </Key>
+          <Property Type="Int32" Name="intSectionPdtID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="intSectionID" Nullable="false" />
+          <Property Type="Int32" Name="intSubjectID" Nullable="false" />
+          <Property Type="Int32" Name="intProductID" Nullable="false" />
+          <Property Type="String" Name="vchProductName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vchPdtInfo" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intSort" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Web_Pdt_Type">
+          <Key>
+            <PropertyRef Name="intCateID" />
+          </Key>
+          <Property Type="Int32" Name="intCateID" Nullable="false" />
+          <Property Type="String" Name="vchCateName" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="intCateLevel" Nullable="false" />
+          <Property Type="Int32" Name="intCateFather" />
+          <Property Type="Int32" Name="intSortOrder" />
+          <Property Type="Byte" Name="intIsVisible" Nullable="false" />
+          <Property Type="String" Name="vchCateNo" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchPicAddr" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchViewEn" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchWebShowName" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchMenuShowName" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchMobileShowName" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="intMenuIsVisible" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1771,21 +1875,6 @@
             <ScalarProperty Name="intIsEnable" ColumnName="intIsEnable" />
             <ScalarProperty Name="intAreaID" ColumnName="intAreaID" />
             <ScalarProperty Name="vchShortSpell" ColumnName="vchShortSpell" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Web_Pdt_Type"><EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type"><MappingFragment StoreEntitySet="Web_Pdt_Type">
-            <ScalarProperty Name="intMenuIsVisible" ColumnName="intMenuIsVisible" />
-                <ScalarProperty Name="vchMobileShowName" ColumnName="vchMobileShowName" />
-                <ScalarProperty Name="vchMenuShowName" ColumnName="vchMenuShowName" />
-                <ScalarProperty Name="vchWebShowName" ColumnName="vchWebShowName" />
-                <ScalarProperty Name="intCateID" ColumnName="intCateID" />
-            <ScalarProperty Name="vchCateName" ColumnName="vchCateName" />
-            <ScalarProperty Name="intCateLevel" ColumnName="intCateLevel" />
-            <ScalarProperty Name="intCateFather" ColumnName="intCateFather" />
-            <ScalarProperty Name="intSortOrder" ColumnName="intSortOrder" />
-            <ScalarProperty Name="intIsVisible" ColumnName="intIsVisible" />
-            <ScalarProperty Name="vchCateNo" ColumnName="vchCateNo" />
-            <ScalarProperty Name="vchPicAddr" ColumnName="vchPicAddr" />
-            <ScalarProperty Name="vchViewEn" ColumnName="vchViewEn" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Web_Type_FlagBrand"><EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Type_FlagBrand"><MappingFragment StoreEntitySet="Web_Type_FlagBrand">
             <ScalarProperty Name="intID" ColumnName="intID" />
@@ -2465,6 +2554,77 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Web_Subject">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Subject">
+              <MappingFragment StoreEntitySet="Web_Subject">
+                <ScalarProperty Name="vchCoordsUrl" ColumnName="vchCoordsUrl" />
+                <ScalarProperty Name="vchCoords" ColumnName="vchCoords" />
+                <ScalarProperty Name="vchFootPicAddr" ColumnName="vchFootPicAddr" />
+                <ScalarProperty Name="vchPicAddr" ColumnName="vchPicAddr" />
+                <ScalarProperty Name="dtAddTime" ColumnName="dtAddTime" />
+                <ScalarProperty Name="intAddUserID" ColumnName="intAddUserID" />
+                <ScalarProperty Name="vchStyleCss" ColumnName="vchStyleCss" />
+                <ScalarProperty Name="vchMetaInfo" ColumnName="vchMetaInfo" />
+                <ScalarProperty Name="intState" ColumnName="intState" />
+                <ScalarProperty Name="dtEndDate" ColumnName="dtEndDate" />
+                <ScalarProperty Name="dtBeginDate" ColumnName="dtBeginDate" />
+                <ScalarProperty Name="vchSubjectName" ColumnName="vchSubjectName" />
+                <ScalarProperty Name="intSubjectID" ColumnName="intSubjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Web_Subject_Section">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Subject_Section">
+              <MappingFragment StoreEntitySet="Web_Subject_Section">
+                <ScalarProperty Name="vchSectonCoordsUrl" ColumnName="vchSectonCoordsUrl" />
+                <ScalarProperty Name="vchSectonCoords" ColumnName="vchSectonCoords" />
+                <ScalarProperty Name="intSortID" ColumnName="intSortID" />
+                <ScalarProperty Name="intPromID" ColumnName="intPromID" />
+                <ScalarProperty Name="vchFootPicAddr" ColumnName="vchFootPicAddr" />
+                <ScalarProperty Name="vchPicAddr" ColumnName="vchPicAddr" />
+                <ScalarProperty Name="intIsVisible" ColumnName="intIsVisible" />
+                <ScalarProperty Name="dtAddTime" ColumnName="dtAddTime" />
+                <ScalarProperty Name="intAddUserID" ColumnName="intAddUserID" />
+                <ScalarProperty Name="vchSectonName" ColumnName="vchSectonName" />
+                <ScalarProperty Name="intSubjectType" ColumnName="intSubjectType" />
+                <ScalarProperty Name="vchHtml" ColumnName="vchHtml" />
+                <ScalarProperty Name="intSubjectID" ColumnName="intSubjectID" />
+                <ScalarProperty Name="intSectionID" ColumnName="intSectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Web_Subject_Section_Pdt">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Subject_Section_Pdt">
+              <MappingFragment StoreEntitySet="Web_Subject_Section_Pdt">
+                <ScalarProperty Name="intSort" ColumnName="intSort" />
+                <ScalarProperty Name="vchPdtInfo" ColumnName="vchPdtInfo" />
+                <ScalarProperty Name="vchProductName" ColumnName="vchProductName" />
+                <ScalarProperty Name="intProductID" ColumnName="intProductID" />
+                <ScalarProperty Name="intSubjectID" ColumnName="intSubjectID" />
+                <ScalarProperty Name="intSectionID" ColumnName="intSectionID" />
+                <ScalarProperty Name="intSectionPdtID" ColumnName="intSectionPdtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Web_Pdt_Type">
+            <EntityTypeMapping TypeName="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type">
+              <MappingFragment StoreEntitySet="Web_Pdt_Type">
+                <ScalarProperty Name="intMenuIsVisible" ColumnName="intMenuIsVisible" />
+                <ScalarProperty Name="vchMobileShowName" ColumnName="vchMobileShowName" />
+                <ScalarProperty Name="vchMenuShowName" ColumnName="vchMenuShowName" />
+                <ScalarProperty Name="vchWebShowName" ColumnName="vchWebShowName" />
+                <ScalarProperty Name="vchViewEn" ColumnName="vchViewEn" />
+                <ScalarProperty Name="vchPicAddr" ColumnName="vchPicAddr" />
+                <ScalarProperty Name="vchCateNo" ColumnName="vchCateNo" />
+                <ScalarProperty Name="intIsVisible" ColumnName="intIsVisible" />
+                <ScalarProperty Name="intSortOrder" ColumnName="intSortOrder" />
+                <ScalarProperty Name="intCateFather" ColumnName="intCateFather" />
+                <ScalarProperty Name="intCateLevel" ColumnName="intCateLevel" />
+                <ScalarProperty Name="vchCateName" ColumnName="vchCateName" />
+                <ScalarProperty Name="intCateID" ColumnName="intCateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2489,37 +2649,40 @@
       <Diagram Name="Holyca" ZoomLevel="98" DisplayType="false" ShowGrid="true" SnapToGrid="true">
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Brand" Width="1.5" PointX="0.75" PointY="0.75" Height="0.4" IsExpanded="false" />
         <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Region" Width="1.5" PointX="2.75" PointY="0.75" Height="0.4" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type" Width="1.5" PointX="0.75" PointY="2.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_FlagBrand" Width="1.5" PointX="2.75" PointY="2.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Base_Info" Width="1.5" PointX="4.75" PointY="0.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_AllList" Width="1.5" PointX="0.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_Detail" Width="1.5" PointX="4.75" PointY="2.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_List" Width="1.5" PointX="2.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_HotProduct" Width="1.5" PointX="4.75" PointY="4.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Pic" Width="1.5" PointX="6.75" PointY="0.75" Height="0.39999999999999991" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Other_Info" Width="1.5" PointX="0.75" PointY="6.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShoppingCart" Width="1.5" PointX="6.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Stock" Width="1.5" PointX="2.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver" Width="1.5" PointX="6.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Area" Width="1.5" PointX="4.75" PointY="6.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Pay" Width="1.5" PointX="6.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Pay_Type" Width="1.5" PointX="8.75" PointY="0.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.User_Consignee_Address" Width="1.5" PointX="0.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_User_Shortage" Width="1.5" PointX="8.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_SaleArea_Product" Width="1.5" PointX="2.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order" Width="1.5" PointX="8.75" PointY="4.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Invoice" Width="1.5" PointX="4.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_State" Width="1.5" PointX="8.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Detail" Width="1.5" PointX="6.75" PointY="8.75" Height="0.4" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Prom_Rela" Width="1.5" PointX="8.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Deliver" Width="1.5" PointX="10.75" PointY="0.75" Height="0.40000000000000036" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_PayState" Width="1.5" PointX="0.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShopCart_Prom_Rela" Width="1.5" PointX="10.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Bulletin" Width="1.5" PointX="2.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_ContentData" Width="1.5" PointX="10.75" PointY="4.75" Height="0.4" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePageColumns" Width="1.5" PointX="4.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePages" Width="1.5" PointX="10.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
-        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Sites" Width="1.5" PointX="6.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_FlagBrand" Width="1.5" PointX="0.75" PointY="2.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Base_Info" Width="1.5" PointX="2.75" PointY="2.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_AllList" Width="1.5" PointX="4.75" PointY="0.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_Detail" Width="1.5" PointX="0.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_Web_Pdt_List" Width="1.5" PointX="4.75" PointY="2.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Type_HotProduct" Width="1.5" PointX="2.75" PointY="4.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Pic" Width="1.5" PointX="4.75" PointY="4.75" Height="0.40000000000000036" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Other_Info" Width="1.5" PointX="6.75" PointY="0.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShoppingCart" Width="1.5" PointX="0.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Pdt_Stock" Width="1.5" PointX="6.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver" Width="1.5" PointX="2.75" PointY="6.75" Height="0.40000000000000213" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Area" Width="1.5" PointX="6.75" PointY="4.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Deliver_Pay" Width="1.5" PointX="4.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_Pay_Type" Width="1.5" PointX="6.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.User_Consignee_Address" Width="1.5" PointX="8.75" PointY="0.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Vi_User_Shortage" Width="1.5" PointX="0.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Base_SaleArea_Product" Width="1.5" PointX="8.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order" Width="1.5" PointX="2.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Invoice" Width="1.5" PointX="8.75" PointY="4.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_State" Width="1.5" PointX="4.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Detail" Width="1.5" PointX="8.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Prom_Rela" Width="1.5" PointX="6.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_Deliver" Width="1.5" PointX="8.75" PointY="8.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_Order_PayState" Width="1.5" PointX="10.75" PointY="0.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Sale_ShopCart_Prom_Rela" Width="1.5" PointX="0.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Bulletin" Width="1.5" PointX="10.75" PointY="2.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_ContentData" Width="1.5" PointX="2.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePageColumns" Width="1.5" PointX="10.75" PointY="4.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_SitePages" Width="1.5" PointX="4.75" PointY="10.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Sites" Width="1.5" PointX="10.75" PointY="6.75" Height="0.39999999999999858" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Subject" Width="1.5" PointX="6.75" PointY="10.75" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Subject_Section" Width="1.5" PointX="10.75" PointY="8.75" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Subject_Section_Pdt" Width="1.5" PointX="12.75" PointY="0.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="MobileWcf.DataContext.HolycaModel.Web_Pdt_Type" Width="1.5" PointX="0.75" PointY="12.75" Height="0.4" IsExpanded="false" />
       </Diagram>
     </Diagrams>
   </Designer>

@@ -46,6 +46,31 @@ namespace Wcf.ServiceLibrary.Cms
             return result;
         }
 
+        public MResultList<object> GetColumnDataInfo(string sid, string token, string guid, string user_id, string uid,
+                                          string columncode, string columnid, string page, string size)
+        {
+            var result = new MResultList<object>();
+            try
+            {
+                var columngId = MCvHelper.To<int>(columnid);
+                var pageIndex = MCvHelper.To(page, 1);
+                var pageSize = MCvHelper.To(size, 1);
+                /*
+                result = MCacheManager.UseCached<MResult<Object>>(
+                    string.Format("GetColumnDataInfo_{0}_{1}_{2}_{3}_{4}", sid, columncode, columngId,pageIndex,pageSize),
+                        MCaching.CacheGroup.Cms,
+                        () => CmsBLL.GetColumnDataInfo(SystemType, user_id, uid, columncode, columngId)
+                    );*/
+                result = CmsBLL.GetColumnDataInfo(SystemType, user_id, uid, columncode, columngId, pageIndex, pageSize);
+            }
+            catch (Exception)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "处理数据出错！";
+            }
+            return result;
+        }
+
         public MResultList<ItemNotice> GetNoticeList(string sid, string token, string guid, string user_id, string uid, string page, string size)
         {
             var result = new MResultList<ItemNotice>();

@@ -26,7 +26,7 @@ namespace Wcf.ServiceLibrary.Goods
     [JavascriptCallbackBehavior(UrlParameterName = CommonUri.JAVASCRIPT_CALLBACKNAME)]
     public class GoodsService : BaseWcfService, IGoodsService
     {
-        public MResultList<ItemGoods> GetGoodsList(string sid, string token, string guid, string user_id, string uid, string bid, string cid, string age, string price, string sort, string page, string size)
+        public MResultList<ItemGoods> GetGoodsList(string sid, string token, string guid, string user_id, string uid, string key, string bid, string cid, string age, string price, string sort, string page, string size)
         {
             var result = new MResultList<ItemGoods>(true);
 
@@ -39,8 +39,8 @@ namespace Wcf.ServiceLibrary.Goods
                 var channelId = MCvHelper.To<SystemType>(sid);
 
                 result = MCacheManager.UseCached<MResultList<ItemGoods>>(
-                        string.Format("GetGoodsList_{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}", sid, user_id, bid, cid, age, price, sort, page, size),
-                        MCaching.CacheGroup.Goods, () => GoodsBLL.GetGoodsList(sid, uid, (int)channelId, categoryId, brandId, age, price, sort, pSize, pIndex));
+                        string.Format("GetGoodsList_{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}_{9}", sid, user_id, bid, cid, age, price, sort, page, size, key),
+                        MCaching.CacheGroup.Goods, () => GoodsBLL.GetGoodsList(sid, uid, key, (int)channelId, categoryId, brandId, age, price, sort, pSize, pIndex));
             }
             catch (Exception ex)
             {

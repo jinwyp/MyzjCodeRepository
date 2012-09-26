@@ -67,5 +67,22 @@ namespace EF.DAL
                 return queryTxt.First();
             }
         }
+
+        /// <summary>
+        /// 获取栏位数据信息
+        /// </summary>
+        /// <param name="columncode"></param>
+        /// <param name="columngId"></param>
+        /// <returns></returns>
+        public Web_ContentData GetColumnDataInfo(string columncode, int columngId)
+        {
+            using(var db=new HolycaEntities())
+            {
+                var queryTxt = from a in db.Web_ContentData
+                               where a.Wcd_Id == columngId && a.Wcd_Code == columncode
+                               select a;
+                return queryTxt.First();
+            }
+        }
     }
 }

@@ -187,7 +187,7 @@ namespace Wcf.ServiceLibrary
         /// <summary>
         /// 获取商品列表
         /// </summary>
-        public const string GETGOODSLIST = "/get_goods_list/{sid}/{token}/{guid}/{user_id}/{uid}/{bid}/{cid}/{age}/{price}/{sort}/{page}/{size}";
+        public const string GETGOODSLIST = "/get_goods_list/{sid}/{token}/{guid}/{user_id}/{uid}/{key}/{bid}/{cid}/{age}/{price}/{sort}/{page}/{size}";
         /// <summary>
         /// 获取商品详细
         /// </summary>
@@ -226,6 +226,10 @@ namespace Wcf.ServiceLibrary
         /// 获取栏位数据列表
         /// </summary>
         public const string GETCOLUMNDATALIST = "/get_columndata_list/{sid}/{token}/{guid}/{user_id}/{uid}/{columncode}/{page}/{size}";
+        /// <summary>
+        /// 获取栏位数据信息
+        /// </summary>
+        public const string GETCOLUMNDATAINFO = "/get_columndata_info/{sid}/{token}/{guid}/{user_id}/{uid}/{columncode}/{columnid}/{page}/{size}";
         /// <summary>
         /// 获取公告列表
         /// </summary>

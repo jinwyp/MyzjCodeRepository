@@ -16,6 +16,7 @@ namespace Wcf.ServiceLibrary.Goods
         /// <param name="sid">系统ID</param>
         /// <param name="token">用户令牌</param>
         /// <param name="uid">用户ID</param>
+        /// <param name="key">搜索 关键字</param>
         /// <param name="bid">品牌ID</param>
         /// <param name="cid">分类ID</param>
         /// <param name="price">价格区间 10-20</param>
@@ -26,7 +27,7 @@ namespace Wcf.ServiceLibrary.Goods
         /// <returns></returns>
         [OperationContract]
         [WebGet(UriTemplate = GoodsUri.GETGOODSLIST)]
-        MResultList<ItemGoods> GetGoodsList(string sid, string token, string guid, string user_id, string uid, string bid, string cid, string age, string price, string sort, string page, string size);
+        MResultList<ItemGoods> GetGoodsList(string sid, string token, string guid, string user_id, string uid, string key, string bid, string cid, string age, string price, string sort, string page, string size);
 
         /// <summary>
         /// 获取商品详细信息

@@ -24,6 +24,7 @@ namespace Wcf.BLL.Goods
         /// </summary>
         /// <param name="sid"> </param>
         /// <param name="uid">用户id</param>
+        /// <param name="key">关键字 </param>
         /// <param name="channelId">调用 渠道</param>
         /// <param name="categoryId">分类id</param>
         /// <param name="brandId">品牌id</param>
@@ -33,7 +34,7 @@ namespace Wcf.BLL.Goods
         /// <param name="pageSize">每页数据条数</param>
         /// <param name="pageIndex">当前页数</param>
         /// <returns></returns>
-        public static MResultList<ItemGoods> GetGoodsList(string sid, string uid, int channelId, int categoryId, int brandId,
+        public static MResultList<ItemGoods> GetGoodsList(string sid, string uid, string key, int channelId, int categoryId, int brandId,
                                                     string age, string price, string sort, int pageSize, int pageIndex)
         {
             var result = new MResultList<ItemGoods>(true);
@@ -54,7 +55,8 @@ namespace Wcf.BLL.Goods
                 {
                     var member = Factory.DALFactory.Member();
                     var memberInfo = member.GetMemberInfo(uid);
-                    clusterId = MCvHelper.To(memberInfo.clusterId, 0);
+                    if (memberInfo != null)
+                        clusterId = MCvHelper.To(memberInfo.clusterId, 0);
                 }
                 if (clusterId < 1)
                     clusterId = 1;
@@ -104,7 +106,7 @@ namespace Wcf.BLL.Goods
             try
             {
                 var goods = Factory.DALFactory.Goods();
-                var list = goods.GetGoodsList(clusterId, channelId, categoryId, brandId, starAge, endAge, startPrice,
+                var list = goods.GetGoodsList(clusterId, channelId, categoryId, key, brandId, starAge, endAge, startPrice,
                     endPrice, sortType, pageSize, pageIndex, out pageTotal);
                 result.page = pageIndex;
                 result.size = pageSize;
@@ -143,7 +145,7 @@ namespace Wcf.BLL.Goods
         /// <returns></returns>
         public static string FormatProductPicUrl(string imgUrl)
         {
-            if(string.IsNullOrWhiteSpace(imgUrl)) return imgUrl;
+            if (string.IsNullOrWhiteSpace(imgUrl)) return imgUrl;
             if (imgUrl.StartsWith("http://", StringComparison.CurrentCultureIgnoreCase)) return imgUrl;
 
             var picHost =

@@ -9,6 +9,8 @@ using Wcf.Entity.Enum;
 using Factory;
 using Core.DataTypeUtility;
 using Wcf.BLL.Goods;
+using Wcf.Entity.Goods;
+using Newtonsoft.Json;
 
 namespace Wcf.BLL.Cms
 {
@@ -166,6 +168,92 @@ namespace Wcf.BLL.Cms
                 result.status = MResultStatus.ExceptionError;
                 result.msg = "";
             }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取栏位数据信息
+        /// </summary>
+        /// <param name="systemType"></param>
+        /// <param name="userId"></param>
+        /// <param name="uid"></param>
+        /// <param name="columncode"></param>
+        /// <param name="columnId"></param>
+        /// <param name="page"> </param>
+        /// <param name="size"> </param>
+        /// <returns></returns>
+        public static MResultList<object> GetColumnDataInfo(SystemType systemType, string userId, string uid, string columncode, int columnId, int page, int size)
+        {
+            var result = new MResultList<object>();
+
+            try
+            {
+                var cmsDal = DALFactory.Cms();
+                var columnData = cmsDal.GetColumnDataInfo(columncode, columnId);
+                if (columnData != null)
+                {
+                    /*
+                        文章 = 1,
+                        图片 = 2,
+                        商品 = 3,
+                        专题 = 4
+                     */
+
+                    switch (columnData.Wcd_ResType)
+                    {
+                        case 4:
+                            {
+                                var clusterId = 1;
+                                #region 会员等级
+                                if (!string.IsNullOrEmpty(uid))
+                                {
+                                    var member = Factory.DALFactory.Member();
+                                    var memberInfo = member.GetMemberInfo(uid);
+                                    if (memberInfo != null)
+                                        clusterId = MCvHelper.To(memberInfo.clusterId, 0);
+                                }
+                                #endregion
+
+                                var pageTotal = 0;
+                                var goodsDal = DALFactory.Goods();
+                                var list = goodsDal.GetGoodsListBySubject(clusterId, (int)systemType, columncode, columnId, page, size, out pageTotal);
+                                var resultList = new List<ItemGoods>();
+                                list.ForEach(item =>
+                                {
+                                    try
+                                    {
+                                        resultList.Add(new ItemGoods()
+                                        {
+                                            gid = item.intProductID,
+                                            title = item.vchProductName,
+                                            pic_url = GoodsBLL.FormatProductPicUrl(item.vchMainPicURL),
+                                            price = MCvHelper.To<decimal>(item.numVipPrice, 0)
+                                        });
+                                    }
+                                    catch
+                                    {
+                                    }
+                                });
+                                result.total = pageTotal;
+                                result.page = page;
+                                result.size = size;
+                                result.data = JsonConvert.SerializeObject(resultList);
+                                result.status = MResultStatus.Success;
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    result.status = MResultStatus.ParamsError;
+                    result.msg = "没有找到该栏位数据！";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("获取栏位数据信息", ex);
+            }
+
             return result;
         }
     }
