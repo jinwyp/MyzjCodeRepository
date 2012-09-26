@@ -32,7 +32,7 @@ function Index_Fun() {
                 if (jsonString.list.length > 0) {
                     var sthH = '';
                     for (var i = 0; i < jsonString.list.length; i++) {
-                        jsonString.list[i].pic_url = jsonString.list[i].pic_url.toString().replace("http://img.muyingzhijia.com/product/{0}/", "http://m.muyingzhijia.me/");
+                        //jsonString.list[i].pic_url = jsonString.list[i].pic_url.toString().replace("http://img.muyingzhijia.com/product/{0}/", "http://m.muyingzhijia.me/");
                         sthH += '<div data-src="' + jsonString.list[i].pic_url + '"></div>';
                     }
 
@@ -63,7 +63,7 @@ function Index_Fun() {
     var columnlist_index = function () {
         GetWcf({
             _api: "Cms.get_columndata_list",
-            _url: "B-A1-A1/1/5"
+            _url: "B-A1-A2/1/5"
         }, function (jsonString) {
             if (jsonString.status == 1 && typeof (jsonString.list) == "object") {
                 if (jsonString.list.length > 0) {
