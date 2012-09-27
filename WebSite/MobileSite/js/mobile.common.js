@@ -123,6 +123,7 @@ var CallWcf = function (method, data, callback, showLoading, options) {
             }
         };
 
+        //var op = $.extend(true, OPTIONS, options);
         var op = $.extend({}, OPTIONS, options);
         Log("ajax 请求数据：");
         Log(op);
@@ -251,7 +252,7 @@ var Dateformat = function (date, format) {
     for (var k in o)
         if (new RegExp("(" + k + ")").test(format))
             format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
-return format;
+    return format;
 }
 
 var timeDate = function (obj) {

@@ -113,6 +113,7 @@ namespace Core.Caching.Redis
             var result = true;
             try
             {
+                _cacheClient.Dispose();
                 _cachePool.Dispose();
             }
             catch
@@ -131,7 +132,7 @@ namespace Core.Caching.Redis
             var result = true;
             try
             {
-                GetClient().RemoveAll(GetClient().GetAllKeys());
+                GetClient().FlushDb();
             }
             catch
             {
