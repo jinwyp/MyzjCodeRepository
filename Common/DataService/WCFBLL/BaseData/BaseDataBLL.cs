@@ -161,7 +161,7 @@ namespace Wcf.BLL.BaseData
                         result.info = 0;
                     }
                 }
-
+                result.status = MResultStatus.Success;
             }
             catch (Exception ex)
             {
@@ -310,8 +310,6 @@ namespace Wcf.BLL.BaseData
                         };
 
                 result.status = MResultStatus.Success;
-                return result;
-
             }
             catch (Exception)
             {

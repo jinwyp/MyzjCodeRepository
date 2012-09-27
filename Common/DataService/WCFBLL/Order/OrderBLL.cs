@@ -781,14 +781,13 @@ namespace Wcf.BLL.Order
                                                                        };
                                                    result.list.Add(goodsItem);
                                                });
-                    result.status = MResultStatus.Success;
+                    
                 }
                 else
                 {
-                    result.status = MResultStatus.Undefined;
                     result.msg = "没有数据！";
                 }
-
+                result.status = MResultStatus.Success;
             }
             catch (Exception ex)
             {
@@ -862,9 +861,9 @@ namespace Wcf.BLL.Order
                                                                   };
                                               result.list.Add(orderInfo);
                                           });
-                    result.status = MResultStatus.Success;
+                    
                 }
-
+                result.status = MResultStatus.Success;
             }
             catch (Exception ex)
             {

@@ -1,60 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="E:\Project\Web\Release\Wcf.ServiceHost\20120927" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="bin/MongoDB.Driver.dll" publishTime="08/29/2012 13:40:47" />
+    <file relUrl="bin/Configs/appSettings.config" publishTime="09/27/2012 10:39:58" />
     <file relUrl="BaseData.svc" publishTime="08/29/2012 13:40:46" />
+    <file relUrl="bin/Wcf.ServiceHost.dll" publishTime="09/27/2012 17:54:17" />
     <file relUrl="Global.asax" publishTime="08/29/2012 14:30:08" />
     <file relUrl="bin/Spring.Core.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/Factory.dll" publishTime="09/26/2012 17:42:11" />
     <file relUrl="bin/ServiceStack.Text.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/MemcachedProviders.dll" publishTime="08/29/2012 13:40:47" />
+    <file relUrl="bin/log4net.dll" publishTime="08/29/2012 13:40:47" />
+    <file relUrl="bin/Wcf.ServiceLibrary.pdb" publishTime="09/27/2012 17:54:16" />
     <file relUrl="bin/ServiceStack.Common.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.ServiceHost.dll" publishTime="09/27/2012 10:21:18" />
-    <file relUrl="bin/Wcf.ServiceLibrary.pdb" publishTime="09/27/2012 10:21:17" />
+    <file relUrl="bin/Wcf.BLL.pdb" publishTime="09/27/2012 17:54:14" />
+    <file relUrl="bin/Wcf.Entity.pdb" publishTime="09/26/2012 17:40:50" />
+    <file relUrl="bin/MemcachedProviders.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/EF.DAL.xml" publishTime="09/26/2012 17:42:10" />
     <file relUrl="bin/EF.Model.xml" publishTime="09/26/2012 12:13:20" />
-    <file relUrl="bin/Wcf.BLL.dll" publishTime="09/27/2012 10:01:36" />
+    <file relUrl="bin/Wcf.BLL.dll" publishTime="09/27/2012 17:54:14" />
     <file relUrl="bin/Common.Logging.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="Goods.svc" publishTime="08/29/2012 13:40:46" />
-    <file relUrl="bin/Wcf.ServiceLibrary.dll" publishTime="09/27/2012 10:21:17" />
+    <file relUrl="bin/Wcf.ServiceLibrary.dll" publishTime="09/27/2012 17:54:16" />
     <file relUrl="Manage.svc" publishTime="09/14/2012 11:28:15" />
+    <file relUrl="bin/EF.DAL.pdb" publishTime="09/26/2012 17:42:10" />
     <file relUrl="bin/Core.pdb" publishTime="09/26/2012 17:42:08" />
-    <file relUrl="bin/MongoDB.Bson.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.BLL.pdb" publishTime="09/27/2012 10:01:36" />
+    <file relUrl="Configs/connectionStrings.config" publishTime="09/27/2012 15:13:12" />
+    <file relUrl="bin/Configs/connectionStrings.config" publishTime="09/27/2012 15:13:12" />
     <file relUrl="bin/Core.dll" publishTime="09/26/2012 17:42:08" />
     <file relUrl="bin/Spring.Services.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="Template/WebSite/ForgotPassword.xml" publishTime="09/14/2012 11:32:20" />
     <file relUrl="bin/Spring.Web.dll" publishTime="08/29/2012 13:40:47" />
+    <file relUrl="Member.svc" publishTime="08/29/2012 13:40:46" />
     <file relUrl="bin/Enyim.Caching.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Factory.xml" publishTime="09/26/2012 17:42:11" />
-    <file relUrl="bin/Wcf.SpringDotNetAdvice.dll" publishTime="09/27/2012 10:21:16" />
-    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.SpringDotNetAdvice.pdb" publishTime="09/27/2012 10:21:15" />
-    <file relUrl="bin/Core.xml" publishTime="09/26/2012 17:42:08" />
-    <file relUrl="Payment.svc" publishTime="09/14/2012 11:57:07" />
+    <file relUrl="Web.config" publishTime="09/27/2012 15:41:46" />
+    <file relUrl="bin/Wcf.ServiceHost.XML" publishTime="09/27/2012 17:54:17" />
+    <file relUrl="bin/EF.Model.pdb" publishTime="09/26/2012 12:13:20" />
     <file relUrl="Template/MobileWebSite/ForgotPassword.xml" publishTime="09/14/2012 11:32:20" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="08/29/2012 13:40:47" />
+    <file relUrl="bin/Wcf.SpringDotNetAdvice.pdb" publishTime="09/27/2012 17:54:14" />
+    <file relUrl="bin/MongoDB.Driver.dll" publishTime="08/29/2012 13:40:47" />
+    <file relUrl="bin/Core.xml" publishTime="09/26/2012 17:42:08" />
+    <file relUrl="bin/Factory.xml" publishTime="09/26/2012 17:42:11" />
     <file relUrl="Order.svc" publishTime="08/29/2012 13:40:46" />
     <file relUrl="bin/Spring.Data.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/EF.Model.dll" publishTime="09/26/2012 12:13:20" />
     <file relUrl="bin/Factory.pdb" publishTime="09/26/2012 17:42:11" />
     <file relUrl="bin/Wcf.Entity.dll" publishTime="09/26/2012 17:40:50" />
-    <file relUrl="bin/Wcf.BLL.xml" publishTime="09/27/2012 10:01:36" />
+    <file relUrl="bin/Wcf.BLL.xml" publishTime="09/27/2012 17:54:14" />
     <file relUrl="bin/ServiceStack.Redis.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="CMS.svc" publishTime="09/18/2012 14:49:12" />
-    <file relUrl="bin/log4net.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/Wcf.Entity.xml" publishTime="09/26/2012 17:40:50" />
-    <file relUrl="bin/Wcf.Entity.pdb" publishTime="09/26/2012 17:40:50" />
+    <file relUrl="bin/MongoDB.Bson.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/EF.DAL.dll" publishTime="09/26/2012 17:42:10" />
-    <file relUrl="bin/ServiceStack.Interfaces.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.ServiceLibrary.xml" publishTime="09/27/2012 10:21:17" />
-    <file relUrl="bin/Wcf.SpringDotNetAdvice.xml" publishTime="09/27/2012 10:21:15" />
+    <file relUrl="bin/Wcf.SpringDotNetAdvice.xml" publishTime="09/27/2012 17:54:14" />
     <file relUrl="Configs/appSettings.config" publishTime="09/27/2012 10:39:58" />
-    <file relUrl="bin/Wcf.ServiceHost.pdb" publishTime="09/27/2012 10:21:18" />
-    <file relUrl="bin/EF.Model.pdb" publishTime="09/26/2012 12:13:20" />
+    <file relUrl="bin/Wcf.ServiceHost.pdb" publishTime="09/27/2012 17:54:17" />
+    <file relUrl="bin/Wcf.SpringDotNetAdvice.dll" publishTime="09/27/2012 17:54:15" />
     <file relUrl="bin/Spring.Aop.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.ServiceHost.XML" publishTime="09/27/2012 10:21:18" />
-    <file relUrl="Member.svc" publishTime="08/29/2012 13:40:46" />
-    <file relUrl="bin/EF.DAL.pdb" publishTime="09/26/2012 17:42:10" />
-    <file relUrl="Web.config" publishTime="09/26/2012 14:45:12" />
+    <file relUrl="Payment.svc" publishTime="09/14/2012 11:57:07" />
+    <file relUrl="bin/ServiceStack.Interfaces.dll" publishTime="08/29/2012 13:40:47" />
+    <file relUrl="bin/Wcf.ServiceLibrary.xml" publishTime="09/27/2012 17:54:16" />
   </publishProfile>
 </publishData>

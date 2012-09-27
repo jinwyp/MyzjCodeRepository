@@ -23,7 +23,7 @@ namespace MobileSite.BaseLib.MemberContent
         {
             if (!WebUtility.VerifyMemberSession())
             {
-                Response.Redirect(WebUrls.Login(HttpUtility.UrlEncode(Request.Url.AbsoluteUri, Encoding.UTF8)));
+                Response.Redirect(WebUrls.Login(HttpUtility.UrlEncode(Request.RawUrl, Encoding.UTF8)));
             }
         }
     }

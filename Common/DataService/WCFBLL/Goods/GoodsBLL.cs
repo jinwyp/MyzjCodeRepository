@@ -111,8 +111,7 @@ namespace Wcf.BLL.Goods
                 result.page = pageIndex;
                 result.size = pageSize;
                 result.total = pageTotal;
-                result.status = MResultStatus.Success;
-
+                
                 list.ForEach(item =>
                 {
                     try
@@ -129,6 +128,7 @@ namespace Wcf.BLL.Goods
                     {
                     }
                 });
+                result.status = MResultStatus.Success;
             }
             catch (Exception ex)
             {
@@ -235,7 +235,7 @@ namespace Wcf.BLL.Goods
                         gid = info.intProductID,
                         title = info.vchProductName,
                         productcode = info.vchProductPrinted,
-                        desc = (HttpUtility.HtmlDecode(info.txtWebShowInfo).Replace("/Purchase/img/Description/", picHost + "product/Description/")),
+                        desc = (HttpUtility.HtmlDecode(info.txtWebShowInfo ?? "").Replace("/Purchase/img/Description/", picHost + "product/Description/")),
                         marketprice = MCvHelper.To<decimal>(info.numMarketPrice, 0),
                         price = MCvHelper.To<decimal>(info.numVipPrice, 0),
                         pic_url = FormatProductPicUrl(info.vchMainPicURL),
@@ -243,8 +243,8 @@ namespace Wcf.BLL.Goods
                         stock = MCvHelper.To<long>(info.intStockQty, 0),
                         attrs = attrList
                     };
-                    result.status = MResultStatus.Success;
                 }
+                result.status = MResultStatus.Success;
             }
             catch (Exception ex)
             {

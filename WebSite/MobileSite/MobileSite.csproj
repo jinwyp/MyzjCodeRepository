@@ -323,7 +323,7 @@
     <Content Include="CheckOut\onlinepayment.aspx" />
     <Content Include="callback\alipay_wap.ashx" />
     <Content Include="callback\alipay_wap_notify.ashx" />
-    <None Include="Configs\restful.config" />
+    <Content Include="Configs\restful.config" />
     <Content Include="Footer.ascx" />
     <Content Include="Global.asax" />
     <Content Include="Header.ascx" />

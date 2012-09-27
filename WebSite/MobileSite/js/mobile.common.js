@@ -94,12 +94,10 @@ var CallWcf = function (method, data, callback, showLoading, options) {
             success: function (json) {
                 if (typeof (callback) == "function")
                     callback(json);
-                if (Debug) {
-                    Log("ajax 返回结果：");
-                    Log(json);
-                }
+                Log("ajax 返回结果：");
+                Log(json);
             },
-            complete: function (XMLHttpRequest, textStatus) {
+            complete: function (request, textStatus) {
                 if (showLoading)
                     if (typeof (options) != "undefined") {
                         if (typeof (options.ref_loading) == "object" && options.ref_loading.length > 0) {
@@ -113,15 +111,13 @@ var CallWcf = function (method, data, callback, showLoading, options) {
                     }
             },
             error: function () {
-                alert("获取数据发生异常！");
+                alert("网络异常，请稍后重试！");
             }
         };
 
         var op = $.extend({}, OPTIONS, options);
-        if (Debug) {
-            Log("ajax 请求数据：");
-            Log(op);
-        }
+        Log("ajax 请求数据：");
+        Log(op);
 
         $.ajax(op);
     }
@@ -202,10 +198,12 @@ var Change_Url = function (diUrl) {
 
 //#region 输出日志
 var Log = function (logstr) {
-    if (typeof (window.console) == "object")
-        window.console.log(logstr);
-    else
-        alert(logstr);
+    if (Debug) {
+        if (typeof (window.console) == "object")
+            window.console.log(logstr);
+        else
+            alert(logstr);
+    }
 };
 //#endregion
 
@@ -245,7 +243,7 @@ var Dateformat = function (date, format) {
     for (var k in o)
         if (new RegExp("(" + k + ")").test(format))
             format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
-    return format;
+return format;
 }
 
 var timeDate = function (obj) {
@@ -288,8 +286,7 @@ var ReLogin = function (uid, token) {
                 } else
                     LinkToLogin();
             } else
-                if (Debug)
-                    Log("获取数据失败");
+                Log("获取数据失败");
         });
     }
 };
@@ -365,10 +362,9 @@ var GetUrlParam = function (pName) {
                 paramobj[key] = val;
             }
         }
-        if (Debug) {
-            Log("地址解析后的对象");
-            Log(paramobj);
-        }
+        Log("地址解析后的对象");
+        Log(paramobj);
+
         window.location.paramobj = paramobj;
     }
 
@@ -432,8 +428,9 @@ var Get_shoppingcartgoodsnum_Fun = function () {
             } else {
                 $(".Good_Total_Count").text("").css("display", "none");
             }
-        } else
-            alert(json.msg);
+        } else {
+            Log(json.msg);
+        }
     }, false, true);
 };
 //#endregion

@@ -7,10 +7,10 @@ function LoingOut() {
             _api: "Member.logout"
         }, function (json) {
             if (json.status == 1) {
-                RemoveLoginCookie();
+                //RemoveLoginCookie();
                 window.location.href = window.WebRoot + "index.aspx";
             } else {
-                alert(json.msg)
+                alert(json.msg);
             };
         }, true);
     });
@@ -1073,7 +1073,6 @@ function shoppingcart_Fun() {
             product_id = Find_Number_object.attr("product_id");
             onum = Find_Number_object.attr("onum") || 0;
             p_num = Find_Number_object.val();
-            //Log("slider商品ID：" + product_id + "现数量:" + p_num + "原数量:" + onum);
             Change_Project_object(Find_Number_object, product_id, p_num, ShopCartID);
         });
 
@@ -1083,7 +1082,6 @@ function shoppingcart_Fun() {
             onum = $(this).attr("onum") || 0;
             p_num = $(this).val();
 
-            //Log("input商品ID：" + product_id + "现数量:" + p_num + "原数量:" + onum);
             Change_Project_object($(this), product_id, p_num, ShopCartID);
 
         });
@@ -2258,7 +2256,6 @@ function CheckOut_Onlinepayment() {
 // 比如： http://localhost:38839/User/Info 页面id：User_Info_Page
 var PageFuns = {
     Index_Page: function () {
-        //Log($.cookie("sorts"));
         Index_Fun();
     },
     Member_Login_Page: function (addUrl) {
@@ -2369,7 +2366,6 @@ PageFun.Init = function (pageId, objToPage) {
         $.mobile.silentScroll(0);
     });
     Get_shoppingcartgoodsnum_Fun();
-    Log("进的页面：" + pageId);
     //判断页面是不是第一次打开
     if (typeof pageId == "undefined") {
         pageId = $(document.body).find("div[data-role = 'page']").eq(0).attr("id");
@@ -2482,7 +2478,6 @@ PageFun.Init = function (pageId, objToPage) {
 $(function () {
     PageFun.Init();
     Unbind_bind(document, "pagechange", function (event, data) {
-        //Log(data.toPage[0].id);
         Log($("#" + data.toPage[0].id));
         PageFun.Init(data.toPage[0].id, data);
     });

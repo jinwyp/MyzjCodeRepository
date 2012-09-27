@@ -73,8 +73,8 @@ namespace Wcf.BLL.Cms
                     result.page = page;
                     result.size = size;
                     result.total = total;
-                    result.status = MResultStatus.Success;
                 }
+                result.status = MResultStatus.Success;
             }
             catch (Exception)
             {
@@ -125,8 +125,8 @@ namespace Wcf.BLL.Cms
                     result.page = page;
                     result.size = size;
                     result.total = total;
-                    result.status = MResultStatus.Success;
                 }
+                result.status = MResultStatus.Success;
             }
             catch (Exception)
             {
@@ -160,8 +160,8 @@ namespace Wcf.BLL.Cms
                         created = noticeInfo.dtAddDate
                     };
                     #endregion
-                    result.status = MResultStatus.Success;
                 }
+                result.status = MResultStatus.Success;
             }
             catch (Exception)
             {

@@ -17,6 +17,7 @@ namespace Wcf.ServiceHost
         protected void Application_Start(object sender, EventArgs e)
         {
             WcfAuthManage.Init();
+            Spring.Context.Support.ContextRegistry.GetContext();
         }
 
         protected void Session_Start(object sender, EventArgs e)
