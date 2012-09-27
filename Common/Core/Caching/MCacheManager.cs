@@ -160,5 +160,22 @@ namespace Core.Caching
             }
             return null;
         }
+
+        /// <summary>
+        /// 刷新缓存分组版本
+        /// </summary>
+        /// <param name="cacheGroup"></param>
+        /// <returns></returns>
+        public static string RefreshCacheGroupVersion(MCaching.CacheGroup cacheGroup)
+        {
+            var cacheKey = cacheGroup + "_Version";
+            var cache = GetCacheObj();
+            var versionId = DateTime.Now.ToString("yyyyMMddHHmmssffff");
+            if (cache.Set(cacheKey, MCaching.CacheGroup.Cache, versionId))
+                return versionId;
+            else
+                return null;
+        }
+
     }
 }

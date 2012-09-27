@@ -28,11 +28,11 @@ namespace Core.Caching.Redis
             {
                 var onlyReadServers = MConfigManager.GetAppSettingsValue<string>(
                         MConfigManager.FormatKey("RedisServers_readOnly", MConfigs.ConfigsCategory.Cache),
-                        "").Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                        "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
                 var readWriteServers = MConfigManager.GetAppSettingsValue<string>(
                     MConfigManager.FormatKey("RedisServers_readWrite", MConfigs.ConfigsCategory.Cache),
-                    "").Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
                 _cachePool = new PooledRedisClientManager(readWriteServers, onlyReadServers,
                                                           new RedisClientManagerConfig
@@ -132,7 +132,7 @@ namespace Core.Caching.Redis
             var result = true;
             try
             {
-                GetClient().FlushDb();
+                GetClient().FlushAll();
             }
             catch
             {

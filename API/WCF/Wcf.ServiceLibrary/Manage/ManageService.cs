@@ -10,6 +10,7 @@ using Core.DataType;
 using Wcf.BLL.Manage;
 using Core.LogUtility;
 using Core.Enums;
+using Core.DataTypeUtility;
 
 namespace Wcf.ServiceLibrary.Manage
 {
@@ -36,5 +37,23 @@ namespace Wcf.ServiceLibrary.Manage
 
             return result;
         }
+
+        public MResult RefreshCacheGroupVersion(string sid, string token, string guid, string user_id, string uid,
+                                         string cachegroup)
+        {
+            var result = new MResult();
+            try
+            {
+                var cacheGroup = MCvHelper.To<MCaching.CacheGroup>(cachegroup);
+                result = ManageBLL.RefreshCacheGroupVersion(SystemType, user_id, uid, cacheGroup);
+            }
+            catch
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "处理数据报错！";
+            }
+            return result;
+        }
+
     }
 }

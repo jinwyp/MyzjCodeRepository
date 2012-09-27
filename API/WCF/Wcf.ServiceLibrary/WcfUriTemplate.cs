@@ -31,6 +31,11 @@ namespace Wcf.ServiceLibrary
         /// 刷新授权数据
         /// </summary>
         public const string REFRESHAUTHDATA = "/RefreshAuthData/{sid}/{token}/{guid}/{user_id}/{uid}/{privatekey}";
+
+        /// <summary>
+        /// 刷新缓存组版本
+        /// </summary>
+        public const string REFRESHCACHEGROUPVERSION = "/RefreshCacheGroupVersion/{sid}/{token}/{guid}/{user_id}/{uid}/{cachegroup}";
     }
 
     /// <summary>

@@ -13,6 +13,7 @@ using System.ServiceModel.Web;
 using Factory;
 using Wcf.Entity.Manage;
 using Core.DataTypeUtility;
+using Core.Caching;
 
 namespace Wcf.BLL.Manage
 {
@@ -174,6 +175,40 @@ namespace Wcf.BLL.Manage
                                                {
                                                }
                                            });
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 刷新缓存组版本
+        /// </summary>
+        /// <param name="sType"></param>
+        /// <param name="userId"></param>
+        /// <param name="uid"></param>
+        /// <param name="cacheGroup"></param>
+        /// <returns></returns>
+        public static MResult RefreshCacheGroupVersion(SystemType sType, string userId, string uid, MCaching.CacheGroup cacheGroup)
+        {
+            var result = new MResult();
+            try
+            {
+                var version = MCacheManager.RefreshCacheGroupVersion(cacheGroup);
+                if (!string.IsNullOrEmpty(version))
+                {
+                    result.status = MResultStatus.Success;
+                    result.msg = cacheGroup + "版本更新为：" + version;
+                    result.data = version;
+                }
+                else
+                {
+                    result.status = MResultStatus.ParamsError;
+                    result.msg = "刷新缓存版本失败！";
+                }
+            }
+            catch (Exception)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "执行刷新缓存组版本异常";
             }
             return result;
         }

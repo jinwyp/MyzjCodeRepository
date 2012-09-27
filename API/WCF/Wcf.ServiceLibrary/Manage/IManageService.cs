@@ -30,5 +30,20 @@ namespace Wcf.ServiceLibrary.Manage
         [WebGet(UriTemplate = ManageUri.REFRESHAUTHDATA)]
         MResult RefreshAuthData(string sid, string token, string guid, string user_id, string uid, string privatekey);
 
+        /// <summary>
+        /// 刷新缓存组版本
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="token"></param>
+        /// <param name="guid"></param>
+        /// <param name="user_id"></param>
+        /// <param name="uid"></param>
+        /// <param name="cachegroup"></param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebGet(UriTemplate = ManageUri.REFRESHCACHEGROUPVERSION)]
+        MResult RefreshCacheGroupVersion(string sid, string token, string guid, string user_id, string uid,
+                                         string cachegroup);
+
     }
 }
