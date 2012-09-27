@@ -82,7 +82,7 @@ namespace Wcf.BLL.Payment
                         var payInfo = baseDataDal.GetPaymentInfo(payId);
 
                         #region 验证支付信息
-                        if (payInfo == null)
+                        if (payInfo == null && payInfo.intPayID > 0)
                         {
                             result.status = Core.Enums.MResultStatus.LogicError;
                             result.msg = "支付方式错误！";

@@ -37,7 +37,7 @@ namespace EF.DAL
                                where a.Id == item.Id
                                select a;
 
-                var systemPermission = queryTxt.First();
+                var systemPermission = queryTxt.FirstOrDefault();
 
                 systemPermission.RefreshTime = item.RefreshTime;
                 systemPermission.RequestType = item.RequestType;
@@ -45,6 +45,8 @@ namespace EF.DAL
                 systemPermission.ReturnParameters = item.ReturnParameters;
                 systemPermission.AfferentParameters = item.AfferentParameters;
                 systemPermission.MethodAttrs = item.MethodAttrs;
+                if (systemPermission.Id > 0)
+                    db.AddToSystem_Permission(systemPermission);
 
                 return db.SaveChanges() > 0;
             }
@@ -70,7 +72,7 @@ namespace EF.DAL
         /// <returns></returns>
         public List<System_Permission> GetSystemPermissionList()
         {
-            using(var db=new bbHomeEntities())
+            using (var db = new bbHomeEntities())
             {
                 var queryTxt = from a in db.System_Permission
                                select a;

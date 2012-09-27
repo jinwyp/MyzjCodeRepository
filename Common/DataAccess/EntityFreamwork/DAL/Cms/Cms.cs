@@ -64,7 +64,7 @@ namespace EF.DAL
                 var queryTxt = from a in db.Web_Bulletin
                                where a.intIsEnable == 1 && a.intBulletinID == noticeId
                                select a;
-                return queryTxt.First();
+                return queryTxt.FirstOrDefault();
             }
         }
 
@@ -81,7 +81,7 @@ namespace EF.DAL
                 var queryTxt = from a in db.Web_ContentData
                                where a.Wcd_Id == columngId && a.Wcd_Code == columncode
                                select a;
-                return queryTxt.First();
+                return queryTxt.FirstOrDefault();
             }
         }
     }

@@ -149,7 +149,7 @@ namespace Wcf.BLL.Cms
             {
                 var cmsDal = DALFactory.Cms();
                 var noticeInfo = cmsDal.GetNoticeInfo(noticeid);
-                if (noticeInfo != null)
+                if (noticeInfo != null && noticeInfo.intBulletinID > 0)
                 {
                     #region 实体赋值
                     result.info = new ItemNotice
@@ -166,7 +166,7 @@ namespace Wcf.BLL.Cms
             catch (Exception)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "";
+                result.msg = "获取公告详细异常";
             }
             return result;
         }
@@ -190,7 +190,7 @@ namespace Wcf.BLL.Cms
             {
                 var cmsDal = DALFactory.Cms();
                 var columnData = cmsDal.GetColumnDataInfo(columncode, columnId);
-                if (columnData != null)
+                if (columnData != null && columnData.Wcd_Id > 0)
                 {
                     /*
                         文章 = 1,

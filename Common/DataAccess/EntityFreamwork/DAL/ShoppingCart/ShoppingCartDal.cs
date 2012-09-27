@@ -111,8 +111,8 @@ namespace EF.DAL
             {
                 using (var holycaDb = new HolycaEntities())
                 {
-                    var shoppingCartEntity = holycaDb.Sale_ShoppingCart.First(s => s.intShopCartID == shoppingCartId);
-                    if (shoppingCartEntity != null)
+                    var shoppingCartEntity = holycaDb.Sale_ShoppingCart.FirstOrDefault(s => s.intShopCartID == shoppingCartId);
+                    if (shoppingCartEntity != null && shoppingCartEntity.intShopCartID > 0)
                     {
                         try
                         {

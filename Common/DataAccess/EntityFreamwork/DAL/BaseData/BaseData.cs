@@ -181,7 +181,7 @@ namespace EF.DAL
                 var queryTxt = from a in db.Base_Pay_Type
                                where a.intPayID == payId && a.intIsEnable == 1
                                select a;
-                return queryTxt.First();
+                return queryTxt.FirstOrDefault();
             }
         }
     }

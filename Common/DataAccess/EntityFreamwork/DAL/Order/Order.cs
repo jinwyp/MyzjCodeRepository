@@ -293,7 +293,7 @@ namespace EF.DAL
                                                   DeliveryType = a.deliverName,
                                                   PayId = a.payMethod ?? 0
                                               };
-                return queryTxt.First();
+                return queryTxt.FirstOrDefault();
             }
         }
 
@@ -309,7 +309,7 @@ namespace EF.DAL
                 var queryTxt = from a in db.sale_v_order
                                where a.orderCode == orderCode
                                select a;
-                var orderInfo = queryTxt.First();
+                var orderInfo = queryTxt.FirstOrDefault();
                 return orderInfo;
             }
         }

@@ -178,7 +178,7 @@ namespace EF.DAL
                 try
                 {
                     ReSetAddressDefaultStatus(userId);
-                    var address = holycaDb.User_Consignee_Address.First(c => c.intAddressID == addressId);
+                    var address = holycaDb.User_Consignee_Address.FirstOrDefault(c => c.intAddressID == addressId);
                     if (address != null && address.intAddressID > 0)
                     {
                         address.intIsDefaultAddr = 1;
