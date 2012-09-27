@@ -72,6 +72,9 @@ var CallWcf = function (method, data, callback, showLoading, options) {
             type: method,
             dataType: 'jsonp',
             contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            headers: {},
+            //jsonp: "callback",
+            //jsonpCallback: "jqeurycallback",
             beforeSend: function (XMLHttpRequest) {
                 if (showLoading) {
                     //alert(typeof (options)); //undefined
@@ -110,8 +113,13 @@ var CallWcf = function (method, data, callback, showLoading, options) {
                         $.mobile.hidePageLoadingMsg();
                     }
             },
-            error: function () {
-                alert("网络异常，请稍后重试！");
+            error: function (jqXHR, status) {
+                //alert("网络异常，请稍后重试！");
+            },
+            statusCode: {
+                404: function () {
+                    alert("网络异常，请稍后重试！");
+                }
             }
         };
 
