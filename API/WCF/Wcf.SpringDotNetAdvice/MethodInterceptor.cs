@@ -83,9 +83,7 @@ namespace Wcf.SpringDotNetAdvice
                                     var cacheKey = string.Format("{0}_{1}", methodName,
                                                                  string.Join("_", invocation.Arguments));
 
-
-
-                                    result = MCacheManager.UseCached<dynamic>(cacheKey, MCaching.CacheGroup.Pemissions,
+                                    result = MCacheManager.UseCached<object>(cacheKey, MCaching.CacheGroup.Pemissions,
                                                                              () => invocation.Method.Invoke(invocation.This, args));
                                 }
                                 else

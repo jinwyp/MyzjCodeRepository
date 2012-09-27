@@ -43,6 +43,9 @@ namespace Wcf.ServiceLibrary
                     Guid = MCvHelper.To<string>(args[5]);
                     UserId = MCvHelper.To<int>(args[6]);
                     Uid = MCvHelper.To<string>(args[7]);
+
+                    if (!string.IsNullOrWhiteSpace(Token))
+                        SecureAuth.RefreshToken(Uid, Token);
                 }
                 else
                 {

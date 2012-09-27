@@ -58,7 +58,11 @@ namespace Wcf.BLL.Manage
                                                                    {
                                                                        MethodName = methodInfo.Name,
                                                                        ClassName = type.Name,
-                                                                       AssemblyName = assembly.GetName().Name
+                                                                       AssemblyName = assembly.GetName().Name,
+                                                                       IsVerifySystemId = 1,
+                                                                       IsEnableCache = 0,
+                                                                       IsVerifyData = 0,
+                                                                       IsVerifyToken = 0
                                                                    };
                         permissionEntity.RefreshTime = DateTime.Now;
                         permissionEntity.ReturnParameters = methodInfo.ReturnType.FullName;

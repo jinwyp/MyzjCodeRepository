@@ -111,21 +111,20 @@ var CallWcf = function (method, data, callback, showLoading, options) {
                     } else {
                         $.mobile.hidePageLoadingMsg();
                     }
-        },
-        error: function () {
-            alert("获取数据发生异常！");
+            },
+            error: function () {
+                alert("获取数据发生异常！");
+            }
+        };
+
+        var op = $.extend({}, OPTIONS, options);
+        if (Debug) {
+            Log("ajax 请求数据：");
+            Log(op);
         }
-    };
 
-    $.extend({}, OPTIONS, options);
-
-    if (Debug) {
-        Log("ajax 请求数据：");
-        Log(OPTIONS);
+        $.ajax(op);
     }
-
-    $.ajax(OPTIONS);
-}
 
 };
 
@@ -291,8 +290,8 @@ var ReLogin = function (uid, token) {
             } else
                 if (Debug)
                     Log("获取数据失败");
-    });
-}
+        });
+    }
 };
 //#endregion
 

@@ -44,13 +44,13 @@ namespace Wcf.BLL.Member
         /// <param name="uid">用户 字符串id（此处邮箱） 如果是更新用户状态可以为空，如果是登录则必填</param>
         /// <param name="token"></param>
         /// <returns></returns>
-        public static MResult<int> UpdateUserCache(string uid, string token)
+        public static MResult<int> RefreshUserToken(string uid, string token)
         {
             var result = new MResult<int>();
 
             try
             {
-                var cache = MCacheManager.GetCacheObj(MCaching.Provider.Redis);
+                var cache = MCacheManager.GetCacheObj();
                 if (cache.Contains(token, MCaching.CacheGroup.Member))
                 {
                     uid = cache.GetValByKey<string>(token, MCaching.CacheGroup.Member);
@@ -98,7 +98,7 @@ namespace Wcf.BLL.Member
             {
                 var userInfo = new UserEntity();
 
-                if (MCacheManager.GetCacheObj(MCaching.Provider.Redis).RemoveByKey(token, MCaching.CacheGroup.Member))
+                if (MCacheManager.GetCacheObj().RemoveByKey(token, MCaching.CacheGroup.Member))
                     result.status = MResultStatus.Success;
                 else
                 {
@@ -122,7 +122,7 @@ namespace Wcf.BLL.Member
         /// <returns></returns>
         public static bool CheckUserState(string token)
         {
-            var cache = MCacheManager.GetCacheObj(MCaching.Provider.Redis);
+            var cache = MCacheManager.GetCacheObj();
             return cache.Contains(token, MCaching.CacheGroup.Member);
         }
 
@@ -333,7 +333,7 @@ namespace Wcf.BLL.Member
                 {
                     if (memberInfo.passward.Equals(passWord, StringComparison.OrdinalIgnoreCase) && memberInfo.valid == 1)
                     {
-                        result = UpdateUserCache(uid, token);
+                        result = RefreshUserToken(uid, token);
                         if (result.status == MResultStatus.Success)
                         {
                             result.msg = "成功登录 ！";
@@ -381,13 +381,13 @@ namespace Wcf.BLL.Member
             {
                 var memberObj = Factory.DALFactory.Member();
                 var memberInfo = memberObj.GetMemberInfo(uid);
-                var cache = MCacheManager.GetCacheObj(MCaching.Provider.Redis);
+                var cache = MCacheManager.GetCacheObj();
                 if (memberInfo != null && memberInfo.valid == 1)
                 {
                     var uId = cache.GetValByKey<string>(token, MCaching.CacheGroup.Member);
                     if (uId != null && !string.IsNullOrEmpty(uId))
                     {
-                        result = UpdateUserCache(uid, token);
+                        result = RefreshUserToken(uid, token);
                         if (result.status == MResultStatus.Success)
                         {
                             result.msg = "登录成功！";

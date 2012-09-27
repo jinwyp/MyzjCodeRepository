@@ -1,25 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections.Specialized;
 using System.Text;
 using System.Web;
-using Wcf.BLL;
-using Wcf.BLL.Member;
-using Wcf.Entity.Enum;
+using System.Web.Security;
+using Core.Caching;
+using Core.ConfigUtility;
 using Core.DataType;
 using Core.Enums;
-using Core.Caching;
 using Core.NetUtility;
-using Core.ConfigUtility;
+using Wcf.BLL.Member;
 using Wcf.Entity.Enum;
 
 namespace Wcf.SpringDotNetAdvice.Validate
 {
     /// <summary>
-    /// 安全验证
+    ///   安全验证
     /// </summary>
     public class SecureAuth
     {
+        private SystemType _systemType;
         public bool IsVerifyData { get; set; }
         public bool IsVerifySystemId { get; set; }
         public bool IsVerifyToKen { get; set; }
@@ -34,19 +33,18 @@ namespace Wcf.SpringDotNetAdvice.Validate
         {
             get { return _systemType; }
         }
-        private SystemType _systemType;
 
         /// <summary>
-        /// 验证
+        ///   验证
         /// </summary>
-        /// <returns></returns>
+        /// <returns> </returns>
         public MResult Verify()
         {
             var result = new MResult();
 
             MResult dataSuccess = null,
-            toKenSuccess = null,
-            systemIdSuccess = null;
+                    toKenSuccess = null,
+                    systemIdSuccess = null;
 
             dataSuccess = VerifyData();
 
@@ -70,36 +68,36 @@ namespace Wcf.SpringDotNetAdvice.Validate
         }
 
         /// <summary>
-        /// 验证数据一致性
+        ///   验证数据一致性
         /// </summary>
-        /// <returns></returns>
+        /// <returns> </returns>
         public MResult VerifyData()
         {
             var result = new MResult();
 
-            var httpContext = HttpContext.Current;
+            HttpContext httpContext = HttpContext.Current;
             var md5 = MHttpHelper.GetParam<string>("md5");
-            var requestTime = MHttpHelper.GetParam<DateTime>("time", DateTime.MaxValue);
+            DateTime requestTime = MHttpHelper.GetParam("time", DateTime.MaxValue);
             var systemKey = MConfigManager.GetAppSettingsValue<string>("SystemKey");
             if (!string.IsNullOrEmpty(md5) && !string.IsNullOrEmpty(systemKey) && requestTime != DateTime.MaxValue)
             {
-                var newMd5 = string.Empty;
-                var uri = httpContext.Request.Url;
+                string newMd5 = string.Empty;
+                Uri uri = httpContext.Request.Url;
 
                 //var url = string.Format("{0}://{1}{2}", uri.Scheme, uri.Host, uri.AbsolutePath);
 
-                var url = uri.ToString().Split('?')[0];
+                string url = uri.ToString().Split('?')[0];
 
                 var getData = new StringBuilder(1000);
-                var getParams = httpContext.Request.QueryString;
-                foreach (var p in getParams)
+                NameValueCollection getParams = httpContext.Request.QueryString;
+                foreach (object p in getParams)
                 {
-                    var key = p.ToString();
+                    string key = p.ToString();
                     if (!key.Equals("md5", StringComparison.CurrentCultureIgnoreCase))
                     {
-                        var values = getParams.GetValues(key);
+                        string[] values = getParams.GetValues(key);
                         if (values != null)
-                            foreach (var v in values)
+                            foreach (string v in values)
                             {
                                 getData.AppendFormat("{0}={1}", p, v);
                             }
@@ -107,22 +105,24 @@ namespace Wcf.SpringDotNetAdvice.Validate
                 }
 
                 var postData = new StringBuilder(1000);
-                var postParams = httpContext.Request.Form;
-                foreach (var p in postParams)
+                NameValueCollection postParams = httpContext.Request.Form;
+                foreach (object p in postParams)
                 {
-                    var key = p.ToString();
+                    string key = p.ToString();
                     if (!key.Equals("md5", StringComparison.CurrentCultureIgnoreCase))
                     {
-                        var values = postParams.GetValues(key);
+                        string[] values = postParams.GetValues(key);
                         if (values != null)
-                            foreach (var v in values)
+                            foreach (string v in values)
                             {
                                 postData.AppendFormat("{0}={1}", p, v);
                             }
                     }
                 }
 
-                newMd5 = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(string.Format("{0}{1}{2}{3}", url, requestTime, postData, systemKey).ToUpper(), "MD5");
+                newMd5 =
+                    FormsAuthentication.HashPasswordForStoringInConfigFile(
+                        string.Format("{0}{1}{2}{3}", url, requestTime, postData, systemKey).ToUpper(), "MD5");
 
                 if (md5.Equals(newMd5, StringComparison.CurrentCultureIgnoreCase))
                 {
@@ -143,10 +143,10 @@ namespace Wcf.SpringDotNetAdvice.Validate
         }
 
         /// <summary>
-        /// 验证系统id
+        ///   验证系统id
         /// </summary>
-        /// <param name="sid"></param>
-        /// <returns></returns>
+        /// <param name="sid"> </param>
+        /// <returns> </returns>
         public MResult VerifySystemId(string sid)
         {
             SystemType systemType;
@@ -165,18 +165,40 @@ namespace Wcf.SpringDotNetAdvice.Validate
         }
 
         /// <summary>
-        /// 验证token
+        ///   验证token
         /// </summary>
         /// <param name="uid"> </param>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        public MResult VerifyToKen(string uid, string token)
+        /// <param name="token"> </param>
+        /// <returns> </returns>
+        public static MResult VerifyToKen(string uid, string token)
         {
             var result = new MResult();
-            var cache = MCacheManager.GetCacheObj(MCaching.Provider.Redis);
+            ICache cache = MCacheManager.GetCacheObj();
             if (cache.Contains(token, MCaching.CacheGroup.Member))
             {
-                MemberBLL.UpdateUserCache(uid, token);
+                result.status = MResultStatus.Success;
+            }
+            else
+            {
+                result.msg += "请登录系统！";
+                result.status = MResultStatus.LogicError;
+            }
+            return result;
+        }
+
+        /// <summary>
+        ///   刷新 token
+        /// </summary>
+        /// <param name="uid"> </param>
+        /// <param name="token"> </param>
+        /// <returns> </returns>
+        public static MResult RefreshToken(string uid, string token)
+        {
+            var result = new MResult();
+            MResult isExists = VerifyToKen(uid, token);
+            if (isExists.status == MResultStatus.Success)
+            {
+                MemberBLL.RefreshUserToken(uid, token);
                 result.status = MResultStatus.Success;
             }
             else
