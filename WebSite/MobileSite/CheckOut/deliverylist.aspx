@@ -16,7 +16,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content">
         <div data-role="fieldcontain" id="deliverylist_cont">
-            
+            <div style="text-align:center; background:#ffffff url(../images/loading.gif) no-repeat center center; height:60px;"></div>
         </div>
         <div id="sh_time" data-role="fieldcontain" style="display:none;">
             <fieldset data-role="controlgroup" data-type="">

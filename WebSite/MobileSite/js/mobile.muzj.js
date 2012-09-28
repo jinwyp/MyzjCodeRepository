@@ -1120,8 +1120,8 @@ function shoppingcart_Fun() {
                 },
                 1500);
 
-            //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
-            Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
+            window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+            //Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
         } else {
             $("#tis_Tip").empty().append('<li class="error-text">您还没有购买商品！</li>');
         }
@@ -1284,8 +1284,8 @@ function orderconfirm_Fun() {
                 alert("请选择收货人信息！");
                 return;
             } else {
-                //window.location.href = window.WebRoot + "CheckOut/paymentlist.aspx";
-                Change_Url(window.WebRoot + "CheckOut/paymentlist.aspx");
+                window.location.href = window.WebRoot + "CheckOut/paymentlist.aspx";
+                //Change_Url(window.WebRoot + "CheckOut/paymentlist.aspx");
             }
         });
         //#endregion
@@ -1304,8 +1304,8 @@ function orderconfirm_Fun() {
                 alert("请选择支付方式！");
                 return;
             } else {
-                //window.location.href = window.WebRoot + "CheckOut/deliverylist.aspx";
-                Change_Url(window.WebRoot + "CheckOut/deliverylist.aspx");
+                window.location.href = window.WebRoot + "CheckOut/deliverylist.aspx";
+                //Change_Url(window.WebRoot + "CheckOut/deliverylist.aspx");
             }
         });
         //#endregion
@@ -1348,20 +1348,22 @@ function orderconfirm_Fun() {
     Final_Price();
 
     //#region 提交订单
-
+    var submitting;
     Unbind_bind("#orderConfirm_btn", "click", function () {
-        var unbindclick = function(){
+        if(submitting){
             return false;
-        },$this = $(this);
+        }
+        var $this = $(this);
         $("span.ui-btn-text",$this).text("提交中，请稍后……");
-        $this.bind("click",unbindclick());
         var orderEntity_c = orderEntity.createNew();
         if (orderEntity.init_Judge(orderEntity_c)) {
+            submitting = true;
             PostWcf({
                 _api: "Order.add_order_info",
                 _data: JSON.stringify(orderEntity_c)
             }, function (json) {
                 if (json.status === 1 && typeof (json.info) == "object" && json.info != null) {
+                    $("span.ui-btn-text",$this).text("提交订单");
                     LS.clear(); //先清再存
                     var delivery_array = {
                         slides: [
@@ -1380,24 +1382,27 @@ function orderconfirm_Fun() {
                         ]
                     };
                     Delivery_info_Object(delivery_array);
-                    $("span.ui-btn-text",$this).text("提交订单");
-                    $this.unbind("click",unbindclick());
-                    //window.location.href = window.WebRoot + "CheckOut/makeorder.aspx";
-                    Change_Url(window.WebRoot + "CheckOut/makeorder.aspx");
+                    submitting = false;
+                    window.location.href = window.WebRoot + "CheckOut/makeorder.aspx";
+                    //Change_Url(window.WebRoot + "CheckOut/makeorder.aspx");
                 } else if (json.status == "-2") {
                     alert(json.msg);
                     window.location.href = window.WebRoot + "CheckOut/shoppingcart.aspx";
                     //Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
                 } else {
                     alert(json.msg);
+                    $("span.ui-btn-text",$this).text("提交订单");
                 }
 
             }, true);
         }
         else {
-            $("span.ui-btn-text",$this).text("提交订单");
-            $this.unbind("click",unbindclick());
+            if(submitting==false){
+                return false
+            }
             alert("信息还不完全！");
+            submitting = true;
+            $("span.ui-btn-text",this).text("提交订单");
         }
     });
 
@@ -1486,8 +1491,8 @@ function addresslist_Fun() {
                         };
                         Delelt_Delivery_info_Object(delivery_array);
                         LS.set("current_addressid", address_id); //设置默认收货地址
-                        //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
-                        Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
+                        window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+                        //Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
                     } else {
                         alert(jsonString.msg);
                     }
@@ -1549,8 +1554,8 @@ function paymentlist_Fun() {
             ]
         };
         Delelt_Delivery_info_Object(delivery_array);
-        //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
-        Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
+        window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+        //Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
     });
     //#endregion
 }
@@ -1646,8 +1651,8 @@ function deliverylist_Fun() {
             ]
         };
         Delivery_info_Object(delivery_array);
-        //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
-        Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
+        window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+        //Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
     });
     //#endregion
 }
@@ -1735,8 +1740,8 @@ function invoice_Fun() {
             ]
         };
         Delivery_info_Object(delivery_array); //发票信息存储
-        //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
-        Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
+        window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
+        //Change_Url(window.WebRoot + "CheckOut/orderconfirm.aspx");
     });
     //#endregion
 }
@@ -1905,8 +1910,8 @@ address_add_update_Object.address_valite_c = function (id_obj) {
                     if (id_obj > 0) { LS.set("current_addressid", id_obj); } else {
                         LS.set("current_addressid", json.info);
                     }
-                    //window.location.href = window.WebRoot + "CheckOut/addresslist.aspx";
-                    Change_Url(window.WebRoot + "CheckOut/addresslist.aspx");
+                    window.location.href = window.WebRoot + "CheckOut/addresslist.aspx";
+                    //Change_Url(window.WebRoot + "CheckOut/addresslist.aspx");
                 } else
                     $("#Cah_Mesag").css("display", "block").text(json.msg);
             }, true);
@@ -2008,8 +2013,8 @@ var makeorder_Fun = function () {
     }, false, {});
 
     Unbind_bind("#checkOrderDetail", "click", function () {
-        //window.location.href = window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid;
-        Change_Url(window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid);
+        window.location.href = window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid;
+        //Change_Url(window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid);
     });
 }
 //#endregion

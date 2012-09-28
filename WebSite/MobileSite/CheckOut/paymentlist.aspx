@@ -17,6 +17,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content">
         <div data-role="fieldcontain" id="field_pay_list">
+            <div style="text-align:center; background:#ffffff url(../images/loading.gif) no-repeat center center; height:60px;"></div>
         </div>
         <a href="javascript:void(0)" id="paymentlist_sub_btn" data-role="button" data-theme="a">
             确认保存</a>
