@@ -1,5 +1,4 @@
-﻿
-//#region 退出登录
+﻿//#region 退出登录
 function LoingOut() {
     Unbind_bind("#logout", "click", function () {
         var token = $.cookie("m_token");
@@ -8,7 +7,7 @@ function LoingOut() {
             _api: "Member.logout"
         }, function (json) {
             if (json.status == 1) {
-                RemoveLoginCookie();
+                //RemoveLoginCookie();
                 window.location.href = window.WebRoot + "index.aspx";
             } else {
                 alert(json.msg);
@@ -23,11 +22,11 @@ function Index_Fun() {
     //传递搜索key值
     $("#search-form").submit(function(e){
         //if(e.keyCode==13){
-            var keyval = $("#searchinput1").val();
-            if(keyval!==""){
-                window.location.href="/product/productlist.aspx?key="+keyval;
-            }
-            return false
+        var keyval = $("#searchinput1").val();
+        if(keyval!==""){
+            window.location.href="/product/productlist.aspx?key="+keyval;
+        }
+        return false
         //}
     });
     //绑定动画图片
@@ -1117,8 +1116,8 @@ function shoppingcart_Fun() {
     Unbind_bind("#ShoppingCart_btn", "click", function (e) {
         if (parseInt($("#good_totals").text()) > 0) {
             $('html, body').animate({
-                scrollTop: $(document).height()
-            },
+                    scrollTop: $(document).height()
+                },
                 1500);
 
             //window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
@@ -1351,6 +1350,11 @@ function orderconfirm_Fun() {
     //#region 提交订单
 
     Unbind_bind("#orderConfirm_btn", "click", function () {
+        var unbindclick = function(){
+            return false;
+        },$this = $(this);
+        $("span.ui-btn-text",$this).text("提交中，请稍后……");
+        $this.bind("click",unbindclick());
         var orderEntity_c = orderEntity.createNew();
         if (orderEntity.init_Judge(orderEntity_c)) {
             PostWcf({
@@ -1376,6 +1380,8 @@ function orderconfirm_Fun() {
                         ]
                     };
                     Delivery_info_Object(delivery_array);
+                    $("span.ui-btn-text",$this).text("提交订单");
+                    $this.unbind("click",unbindclick());
                     //window.location.href = window.WebRoot + "CheckOut/makeorder.aspx";
                     Change_Url(window.WebRoot + "CheckOut/makeorder.aspx");
                 } else if (json.status == "-2") {
@@ -1389,6 +1395,8 @@ function orderconfirm_Fun() {
             }, true);
         }
         else {
+            $("span.ui-btn-text",$this).text("提交订单");
+            $this.unbind("click",unbindclick());
             alert("信息还不完全！");
         }
     });
