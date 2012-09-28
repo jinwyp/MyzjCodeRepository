@@ -10,12 +10,11 @@ namespace HttpManager
     {
         public bool IsReusable
         {
-            get { throw new NotImplementedException(); }
+            get { return true; }
         }
 
         public void ProcessRequest(HttpContext context)
         {
-            throw new NotImplementedException();
         }
     }
 }
