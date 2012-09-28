@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div data-role="content" style="padding: 0">
-        <form action="<%= MobileSite.BaseLib.WebUrls.productlist() %>">
+        <form action="<%= MobileSite.BaseLib.WebUrls.productlist() %>" id="search-form">
         <fieldset data-role="controlgroup" data-mini="true">
             <label for="searchinput1">
             </label>
