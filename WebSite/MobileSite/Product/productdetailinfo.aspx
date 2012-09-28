@@ -82,7 +82,7 @@
                         幸运星：</label>{$T.score}
                 </fieldset>
             </script>
-            <script id="picList" type="text/template">
+            <script id="picdetailList" type="text/template">
                 {#foreach $T.list as Puct}
                     <li>
                         <img src="{$T.Puct.url}" onerror='this.src="/images/errorImg_big.jpg"' width="300"

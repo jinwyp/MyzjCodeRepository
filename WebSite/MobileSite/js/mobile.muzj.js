@@ -20,14 +20,14 @@ function LoingOut() {
 //#region 首页动画
 function Index_Fun() {
     //传递搜索key值
-    $("#searchinput1").keydown(function(e){
-        if(e.keyCode==13){
-            var keyval = $(this).val();
+    $("#search-form").submit(function(e){
+        //if(e.keyCode==13){
+            var keyval = $("#searchinput1").val();
             if(keyval!==""){
                 window.location.href="/product/productlist.aspx?key="+keyval;
             }
             return false
-        }
+        //}
     });
     //绑定动画图片
     var bind_Index_pic = function () {
@@ -865,19 +865,18 @@ function productDetail_Fun() {
         if (jsonString.status == 1 && typeof (jsonString.list) == "object" && jsonString.list != null) {
             for (var i = 0; i < jsonString.list.length; i++) {
                 jsonString.list[i].url = jsonString.list[i].url.toString().replace("{0}", "org");
-                //alert(jsonString.list[i].url);
+                //alert(jsonString.list[i].url); 此处停用图片模板，改为直接向dom添加
+                //$("<li><img src='"+ jsonString.list[i].url +"' width='300' height='300' /></li>").appendTo("#imggallery_iteminfo");
             }
-
-            $('#imggallery_iteminfo').setTemplate($('#picList').html());
+            $('#imggallery_iteminfo').setTemplate($('#picdetailList').html());
             $('#imggallery_iteminfo').processTemplate(jsonString, null, { append: false });
-
             ImgSwipegall();
         } else {
             //alert(jsonString.msg);
             $('#imggallery_iteminfo').setTemplate('<li><img src="/images/errorImg_big.jpg" width="300" height="300" /></li>');
             $('#imggallery_iteminfo').processTemplate(jsonString, null, { append: false });
         }
-    }, true, {
+    }, false, {
         "ref_loading": $('#imggallery_iteminfo'), "ref_loading_text": '<li style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:300px;"></li>'
     });
     //#endregion
