@@ -43,8 +43,11 @@ namespace Wcf.ServiceLibrary.BaseData
         /// </summary>
         /// <param name="sid"></param>
         /// <param name="token"></param>
+        /// <param name="uid"> </param>
         /// <param name="regionid"> </param>
         /// <param name="paygroupid"> </param>
+        /// <param name="guid"> </param>
+        /// <param name="user_id"> </param>
         /// <returns></returns>
         [WebGet(UriTemplate = BaseDataUri.GETLOGISTICSLIST)]
         [OperationContract]
@@ -58,7 +61,7 @@ namespace Wcf.ServiceLibrary.BaseData
         /// <param name="guid"></param>
         /// <param name="user_id"></param>
         /// <param name="uid"></param>
-        /// <param name="regionid"></param>
+        /// <param name="parentid"> </param>
         /// <returns></returns>
         [WebGet(UriTemplate = BaseDataUri.GETREGIONLIST)]
         [OperationContract]

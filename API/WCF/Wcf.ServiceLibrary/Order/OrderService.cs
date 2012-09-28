@@ -7,6 +7,7 @@ using Core.DataType;
 using Core.DataTypeUtility;
 using Core.Enums;
 using Wcf.BLL.ShoppingCart;
+using System.Threading;
 
 namespace Wcf.ServiceLibrary.Order
 {
