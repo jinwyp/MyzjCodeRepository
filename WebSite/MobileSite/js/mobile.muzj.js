@@ -1,4 +1,5 @@
-﻿//#region 退出登录
+﻿
+//#region 退出登录
 function LoingOut() {
     Unbind_bind("#logout", "click", function () {
         var token = $.cookie("m_token");
@@ -7,7 +8,7 @@ function LoingOut() {
             _api: "Member.logout"
         }, function (json) {
             if (json.status == 1) {
-                //RemoveLoginCookie();
+                RemoveLoginCookie();
                 window.location.href = window.WebRoot + "index.aspx";
             } else {
                 alert(json.msg);

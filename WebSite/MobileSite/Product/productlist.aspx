@@ -39,7 +39,7 @@
     </div>
     <script id="jTemplate" type="text/template">
     {#foreach $T.list as Puct}
-        <li><a rel="external" href='<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.Puct.gid}") %>' >
+        <li><a href='<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.Puct.gid}") %>' >
                     <img src='{$T.Puct.pic_url}' onerror='this.src="/images/errorImg_small.jpg"' />
                     <h3>
                         {$T.Puct.title}</h3>
