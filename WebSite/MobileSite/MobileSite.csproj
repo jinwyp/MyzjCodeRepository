@@ -374,7 +374,7 @@
     <Content Include="Member\orderlist.aspx" />
     <Content Include="noticedetail.aspx" />
     <Content Include="noticelist.aspx" />
-    <None Include="PageTemplate\PayListItem.tpl" />
+    <Content Include="PageTemplate\PayListItem.tpl" />
     <Content Include="GoodsTopic.aspx" />
     <Content Include="Product\category.aspx" />
     <Content Include="style\camera.css" />
