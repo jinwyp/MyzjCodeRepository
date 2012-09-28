@@ -36,7 +36,7 @@
     <script id="jTemplate" type="text/template">
     {#foreach $T as Puct}
         <li>
-            <a href='<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.Puct.gid}") %>' >
+            <a rel="external" href='<%= MobileSite.BaseLib.WebUrls.productdetailinfo("{$T.Puct.gid}") %>' >
                 <img src='{$T.Puct.pic_url}' onerror='this.src="/images/errorImg_small.jpg"' />
                 <h3>{$T.Puct.title}</h3>
                 <p>价格： <strong class="ui-font-red">￥{$T.Puct.price}</strong></p>
