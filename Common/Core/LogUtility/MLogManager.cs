@@ -32,10 +32,9 @@ namespace Core.LogUtility
         /// <param name="sid"> </param>
         /// <param name="msg"></param>
         /// <param name="args"></param>
-        public static void Debug(Enum group, string sid, string msg, params object[] args)
+        public static void Debug(Enum group, string sid, string userId, string msg, params object[] args)
         {
-            FormatMsg(group, sid, ref msg);
-            MLog4Net.GetInstance().Debug(msg, args);
+            MLog4Net.GetInstance().Debug(sid, userId, Convert.ToInt64(group), group.ToString(), msg, args);
         }
 
         /// <summary>
@@ -45,10 +44,9 @@ namespace Core.LogUtility
         /// <param name="sid"> </param>
         /// <param name="msg"></param>
         /// <param name="args"></param>
-        public static void Warn(Enum group, string sid, string msg, params Exception[] args)
+        public static void Warn(Enum group, string sid, string userId, string msg, params Exception[] args)
         {
-            FormatMsg(group, sid, ref msg);
-            MLog4Net.GetInstance().Warn(msg, args);
+            MLog4Net.GetInstance().Warn(sid, userId, Convert.ToInt64(group), group.ToString(), msg, args);
         }
 
         /// <summary>
@@ -58,23 +56,9 @@ namespace Core.LogUtility
         /// <param name="sid"> </param>
         /// <param name="msg"></param>
         /// <param name="args"></param>
-        public static void Info(Enum group, string sid, string msg, params object[] args)
+        public static void Info(Enum group, string sid, string userId, string msg, params object[] args)
         {
-            FormatMsg(group, sid, ref msg);
-            MLog4Net.GetInstance().Info(msg, args);
-        }
-
-        /// <summary>
-        /// 写错误日志
-        /// </summary>
-        /// <param name="group">MLogGroup.x</param>
-        /// <param name="sid"> </param>
-        /// <param name="msg"></param>
-        /// <param name="ex"></param>
-        public static void Error(Enum group, string sid, string msg, params Exception[] ex)
-        {
-            FormatMsg(group, sid, ref msg);
-            MLog4Net.GetInstance().Error(msg, ex);
+            MLog4Net.GetInstance().Info(sid, userId, Convert.ToInt64(group), group.ToString(), msg, args);
         }
 
         /// <summary>
@@ -87,7 +71,6 @@ namespace Core.LogUtility
         /// <param name="ex"></param>
         public static void Error(Enum group, string sid, string userId, string msg, params Exception[] ex)
         {
-            //FormatMsg(group, sid, ref msg);
             MLog4Net.GetInstance().Error(sid, userId, Convert.ToInt64(group), group.ToString(), msg, ex);
         }
     }

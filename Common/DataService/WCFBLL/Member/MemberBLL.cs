@@ -78,7 +78,7 @@ namespace Wcf.BLL.Member
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Member.登陆, null, "更新用户状态缓存失败！", ex);
+                MLogManager.Error(MLogGroup.Member.登陆, null, null, "更新用户状态缓存失败！", ex);
             }
             return result;
         }
@@ -362,7 +362,7 @@ namespace Wcf.BLL.Member
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Member.登陆, channelId + "", "获取数据错误");
+                MLogManager.Error(MLogGroup.Member.登陆, channelId + "", null, "获取数据错误");
             }
             return result;
         }
@@ -410,7 +410,7 @@ namespace Wcf.BLL.Member
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Member.登陆, sid, "获取数据错误");
+                MLogManager.Error(MLogGroup.Member.登陆, sid, uid, "获取数据错误");
             }
             return result;
         }
@@ -440,7 +440,7 @@ namespace Wcf.BLL.Member
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Member.登陆, sid, "获取数据错误");
+                MLogManager.Error(MLogGroup.Member.登陆, sid,uid, "获取数据错误");
             }
             return result;
         }

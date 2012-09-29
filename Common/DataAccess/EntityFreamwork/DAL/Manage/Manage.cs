@@ -39,16 +39,20 @@ namespace EF.DAL
 
                 var systemPermission = queryTxt.FirstOrDefault();
 
-                systemPermission.RefreshTime = item.RefreshTime;
-                systemPermission.RequestType = item.RequestType;
-                systemPermission.RequestUri = item.RequestUri;
-                systemPermission.ReturnParameters = item.ReturnParameters;
-                systemPermission.AfferentParameters = item.AfferentParameters;
-                systemPermission.MethodAttrs = item.MethodAttrs;
-                if (systemPermission.Id > 0)
-                    db.AddToSystem_Permission(systemPermission);
+                if (systemPermission != null && systemPermission.Id > 0)
+                {
+                    systemPermission.RefreshTime = item.RefreshTime;
+                    systemPermission.RequestType = item.RequestType;
+                    systemPermission.RequestUri = item.RequestUri;
+                    systemPermission.ReturnParameters = item.ReturnParameters;
+                    systemPermission.AfferentParameters = item.AfferentParameters;
+                    systemPermission.MethodAttrs = item.MethodAttrs;
 
-                return db.SaveChanges() > 0;
+                    //db.AddToSystem_Permission(systemPermission);
+                    return db.SaveChanges() > 0;
+                }
+                else
+                    return false;
             }
         }
 

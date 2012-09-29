@@ -45,7 +45,8 @@ namespace Wcf.ServiceLibrary.Goods
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理数据出错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
 
             return result;
@@ -58,13 +59,15 @@ namespace Wcf.ServiceLibrary.Goods
             try
             {
                 var iGid = MCvHelper.To<int>(gid);
-                result = GoodsBLL.GetGoodsInfo(base.SystemType.ToString(), base.Uid, (int)base.SystemType, iGid);
+                result = GoodsBLL.GetGoodsInfo(SystemType.ToString(), Uid, (int)SystemType, iGid);
             }
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理数据出错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
+
             return result;
         }
 
@@ -83,7 +86,8 @@ namespace Wcf.ServiceLibrary.Goods
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理图片列表数据出错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
 
             return result;
@@ -101,7 +105,8 @@ namespace Wcf.ServiceLibrary.Goods
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理数据出错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
 
             return result;

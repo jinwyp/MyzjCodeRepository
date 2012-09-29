@@ -31,8 +31,9 @@ namespace Wcf.ServiceLibrary.Manage
             }
             catch (Exception ex)
             {
-                result.status = Core.Enums.MResultStatus.ExceptionError;
-                result.msg = "处理数据出错！";
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
 
             return result;
@@ -44,13 +45,15 @@ namespace Wcf.ServiceLibrary.Manage
             var result = new MResult();
             try
             {
+                throw new Exception("test");
                 var cacheGroup = MCvHelper.To<MCaching.CacheGroup>(cachegroup);
                 result = ManageBLL.RefreshCacheGroupVersion(SystemType, user_id, uid, cacheGroup);
             }
-            catch
+            catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理数据报错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
             return result;
         }

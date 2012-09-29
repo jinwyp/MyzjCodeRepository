@@ -33,31 +33,33 @@ namespace Wcf.SpringDotNetAdvice
         {
             var shopWatch = new Stopwatch();
             object result = null;
+            var resultType = invocation.Method.ReturnType;
             var enableMethodLog = MConfigManager.GetAppSettingsValue<bool>("EnableMethodLog", false);
-            try
+
+            shopWatch.Start();
+
+            //{sid}/{token}/{guid}/{user_id}/{uid}
+            var args = invocation.Arguments;
+            for (var i = 0; i < args.Length; i++)
+                args[i] = ValidateUtility.CheckNull(args[i]);
+            if (args.Length >= 5)
             {
-                shopWatch.Start();
+                var sid = MCvHelper.To<string>(args[0]);
+                var token = MCvHelper.To<string>(args[1]);
+                var guid = MCvHelper.To<string>(args[2]);
+                var userID = MCvHelper.To<int>(args[3]);
+                var uid = MCvHelper.To<string>(args[4]);
 
-                var resultType = invocation.Method.ReturnType;
-
-                //{sid}/{token}/{guid}/{user_id}/{uid}
-                var args = invocation.Arguments;
-                for (var i = 0; i < args.Length; i++)
-                    args[i] = ValidateUtility.CheckNull(args[i]);
-                if (args.Length >= 5)
+                try
                 {
-                    var sid = MCvHelper.To<string>(args[0]);
-                    var token = MCvHelper.To<string>(args[1]);
-                    var guid = MCvHelper.To<string>(args[2]);
-                    var userID = MCvHelper.To<int>(args[3]);
-                    var uid = MCvHelper.To<string>(args[4]);
-
                     var methodName = invocation.Method.Name;
                     var methodCacheList = MCacheManager.GetCacheObj().GetValByKey<List<ItemMethodVerify>>("SystemPermission", MCaching.CacheGroup.Pemissions);
 
                     if (methodCacheList != null && methodCacheList.Any())
                     {
-                        var methodCacheInfo = methodCacheList.Find(item => item.MethodName.Equals(methodName, StringComparison.InvariantCultureIgnoreCase));
+                        var methodCacheInfo =
+                            methodCacheList.Find(
+                                item => item.MethodName.Equals(methodName, StringComparison.InvariantCultureIgnoreCase));
 
                         if (methodCacheInfo != null)
                         {
@@ -65,17 +67,20 @@ namespace Wcf.SpringDotNetAdvice
                             var isVerifyToKen = methodCacheInfo.IsVerifyToken;
                             var isVerifyPermissions = methodCacheInfo.IsVerfiyPemissions;
 
+                            #region 初始化 验证对象
                             var secureAuth = new SecureAuth
-                                                 {
-                                                     IsVerifySystemId = isVerifySystemId,
-                                                     IsVerifyToKen = isVerifyToKen,
-                                                     IsVerifyPermissions = isVerifyPermissions,
-                                                     Sid = sid,
-                                                     Token = token,
-                                                     Uid = uid,
-                                                     UserId = userID
-                                                 };
+                                                                     {
+                                                                         IsVerifySystemId = isVerifySystemId,
+                                                                         IsVerifyToKen = isVerifyToKen,
+                                                                         IsVerifyPermissions = isVerifyPermissions,
+                                                                         Sid = sid,
+                                                                         Token = token,
+                                                                         Uid = uid,
+                                                                         UserId = userID
+                                                                     };
+                            #endregion
 
+                            #region 验证 权限 和 调用方法
                             if (secureAuth.Verify().status == MResultStatus.Success)
                             {
                                 if (methodCacheInfo.IsEnableCache)
@@ -84,52 +89,53 @@ namespace Wcf.SpringDotNetAdvice
                                                                  string.Join("_", invocation.Arguments));
 
                                     result = MCacheManager.UseCached<object>(cacheKey, MCaching.CacheGroup.Pemissions,
-                                                                             () => invocation.Method.Invoke(invocation.This, args));
+                                                                             () =>
+                                                                             invocation.Method.Invoke(invocation.This,
+                                                                                                      args));
                                 }
                                 else
                                 {
                                     result = invocation.Method.Invoke(invocation.This, args);
                                 }
                             }
+                            #endregion
                             //result = invocation.Proceed();
                         }
-                        else
-                        {
-                            result = invocation.Method.Invoke(invocation.This, args);
-                        }
                     }
-                    else
+                }
+                catch (Exception ex)
+                {
+                    MLogManager.Error(MLogGroup.AopAdvice.方法拦截, sid, uid, "所有内部错误", ex);
+                }
+                finally
+                {
+                    if (enableMethodLog)
                     {
-                        result = invocation.Method.Invoke(invocation.This, args);
+                        shopWatch.Stop();
+                        MLogManager.Info(MLogGroup.AopAdvice.方法拦截, sid, uid, "执行用时：{0}毫秒;请求信息：{1};返回信息：{2};",
+                            shopWatch.ElapsedMilliseconds,
+                            invocation.ToString(),
+                            JsonConvert.SerializeObject(result));
                     }
                 }
-                if (result == null)
-                {
-                    result = Activator.CreateInstance(resultType);
-                }
-                return result;
             }
-            catch (Exception ex)
+
+            if (result == null)
             {
-                MLogManager.Error(MLogGroup.AopAdvice.方法拦截, "", "", ex);
+                result = Activator.CreateInstance(resultType);
+
+                var statusProperty = resultType.GetProperty("status");
+                if (statusProperty != null)
+                    statusProperty.SetValue(result, (int)MResultStatus.ExceptionError, null);
+
+                var msgProperty = resultType.GetProperty("msg");
+                if (msgProperty != null)
+                    msgProperty.SetValue(result, "调用异常", null);
+
             }
-            finally
-            {
-                if (result == null)
-                {
-                    var resultType = invocation.Method.ReturnType;
-                    result = Activator.CreateInstance(resultType);
-                }
-                if (enableMethodLog)
-                {
-                    shopWatch.Stop();
-                    MLogManager.Info(MLogGroup.AopAdvice.方法拦截, "", "执行用时：{0}毫秒;请求信息：{1};返回信息：{2};",
-                        shopWatch.ElapsedMilliseconds,
-                        invocation.ToString(),
-                        JsonConvert.SerializeObject(result));
-                }
-            }
+
             return result;
+
         }
     }
 }

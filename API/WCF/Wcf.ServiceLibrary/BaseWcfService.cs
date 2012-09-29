@@ -49,7 +49,7 @@ namespace Wcf.ServiceLibrary
                 }
                 else
                 {
-                    MLogManager.Error(MLogGroup.WcfService.构造函数, "", "wcf 服务基类 构造函数初始化 ，uri参数错误");
+                    MLogManager.Error(MLogGroup.WcfService.构造函数, "","", "wcf 服务基类 构造函数初始化 ，uri参数错误");
                 }
             }
         }

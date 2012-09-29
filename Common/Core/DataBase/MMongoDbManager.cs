@@ -41,12 +41,12 @@ namespace Core.DataBase
                     var serverCon = string.Format("mongodb://{0}:{1}", host.Trim(), port);
                     _server = MongoServer.Create(serverCon);
                     if (_server == null)
-                        MLogManager.Error(MLogGroup.Other.MongoDb, null, "初始化 失败！");
+                        MLogManager.Error(MLogGroup.Other.MongoDb, "", null, "初始化 失败！");
                 }
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.MongoDb, null, "初始化 失败！", ex);
+                MLogManager.Error(MLogGroup.Other.MongoDb, null,"", "初始化 失败！", ex);
             }
         }
 

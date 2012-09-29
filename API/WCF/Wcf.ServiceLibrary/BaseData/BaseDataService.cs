@@ -35,8 +35,10 @@ namespace Wcf.ServiceLibrary.BaseData
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理数据出错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
+
             return result;
         }
 
@@ -48,12 +50,18 @@ namespace Wcf.ServiceLibrary.BaseData
             try
             {
                 var paygroupId = MCvHelper.To<int>(paygroupid);
-                result = BaseDataBLL.GetPayList(SystemType, paygroupId);
+                //result = BaseDataBLL.GetPayList(SystemType, paygroupId);
+                result =
+                    MCacheManager.UseCached<MResultList<ItemPay>>(
+                        string.Format("GetPayList_{0}_{1}", SystemType, paygroupId),
+                        MCaching.CacheGroup.BaseData,
+                        () => BaseDataBLL.GetPayList(SystemType, paygroupId));
             }
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理数据出错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
 
             return result;
@@ -75,7 +83,8 @@ namespace Wcf.ServiceLibrary.BaseData
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理数据出错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
             return result;
         }
@@ -86,12 +95,18 @@ namespace Wcf.ServiceLibrary.BaseData
             try
             {
                 var parentId = MCvHelper.To<int>(parentid);
-                result = BaseDataBLL.GetRegionList(parentId);
+                //result = BaseDataBLL.GetRegionList(parentId);
+                result =
+                    MCacheManager.UseCached<MResultList<ItemRegion>>(
+                        string.Format("GetRegionList_{0}", parentId),
+                        MCaching.CacheGroup.BaseData,
+                        () => BaseDataBLL.GetRegionList(parentId));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理数据出错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
             return result;
         }
@@ -101,19 +116,19 @@ namespace Wcf.ServiceLibrary.BaseData
             var result = new MResult<List<ItemRegion>[]>();
             try
             {
-                /*
                 result =
                     MCacheManager.UseCached<MResult<List<ItemRegion>[]>>(
                         string.Format("GetAllRegionList_{0}", sid),
                         MCaching.CacheGroup.BaseData,
                         BaseDataBLL.GetAllRegionList);
-                */
-                result = BaseDataBLL.GetAllRegionList();
+
+                //result = BaseDataBLL.GetAllRegionList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 result.status = MResultStatus.ExceptionError;
-                result.msg = "处理数据出错！";
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
             }
             return result;
         }

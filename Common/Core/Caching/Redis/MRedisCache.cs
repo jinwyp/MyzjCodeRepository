@@ -46,7 +46,7 @@ namespace Core.Caching.Redis
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "初始化 ReidaCache 失败！", ex);
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "初始化 ReidaCache 失败！", ex);
             }
         }
 
@@ -70,13 +70,13 @@ namespace Core.Caching.Redis
                 }
                 catch (Exception)
                 {
-                    MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取缓存连接对象失败！");
+                    MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "获取缓存连接对象失败！");
                     throw new Exception("获取缓存连接对象失败!");
                 }
             }
             else
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "连接池初始化失败！");
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "连接池初始化失败！");
                 throw new Exception("连接池初始化失败!");
             }
         }
@@ -159,7 +159,7 @@ namespace Core.Caching.Redis
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "设置缓存 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "设置缓存 出错！", ex);
             }
             return result;
         }
@@ -181,7 +181,7 @@ namespace Core.Caching.Redis
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "设置缓存 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "设置缓存 出错！", ex);
             }
             return result;
         }
@@ -204,7 +204,7 @@ namespace Core.Caching.Redis
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "添加缓存 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "添加缓存 出错！", ex);
             }
             return result;
         }
@@ -226,7 +226,7 @@ namespace Core.Caching.Redis
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "添加缓存 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null,null, "添加缓存 出错！", ex);
             }
             return result;
         }
@@ -283,7 +283,7 @@ namespace Core.Caching.Redis
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取所有缓存Key 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "获取所有缓存Key 出错！", ex);
             }
             return result;
         }
@@ -310,7 +310,7 @@ namespace Core.Caching.Redis
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取缓存key", ex);
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "获取缓存key", ex);
             }
             return result;
         }
@@ -329,7 +329,7 @@ namespace Core.Caching.Redis
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取所有缓存Key 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "获取所有缓存Key 出错！", ex);
             }
             return result;
         }
@@ -364,7 +364,7 @@ namespace Core.Caching.Redis
                 }
                 catch (Exception ex)
                 {
-                    MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取所有缓存Key 出错！", ex);
+                    MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "获取所有缓存Key 出错！", ex);
                 }
             }
 

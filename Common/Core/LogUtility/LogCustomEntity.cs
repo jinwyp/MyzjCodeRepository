@@ -11,6 +11,10 @@ namespace Core.LogUtility
     public class LogCustomEntity
     {
         /// <summary>
+        /// 消息
+        /// </summary>
+        public string Msg { get; set; }
+        /// <summary>
         /// 系统Id
         /// </summary>
         public string SystemType { get; set; }

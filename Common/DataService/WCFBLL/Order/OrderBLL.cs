@@ -332,7 +332,7 @@ namespace Wcf.BLL.Order
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExecutionError;
-                MLogManager.Error(MLogGroup.Order.创建订单, null, "", ex);
+                MLogManager.Error(MLogGroup.Order.创建订单, null, null, "", ex);
             }
 
             return result;
@@ -410,7 +410,7 @@ namespace Wcf.BLL.Order
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExecutionError;
-                MLogManager.Error(MLogGroup.Order.获取临时订单信息, null, "", ex);
+                MLogManager.Error(MLogGroup.Order.获取临时订单信息, null, null, "", ex);
             }
 
             return result;
@@ -450,7 +450,7 @@ namespace Wcf.BLL.Order
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Order.订单汇总信息, null, "", ex);
+                MLogManager.Error(MLogGroup.Order.订单汇总信息, null, null, "", ex);
             }
             return result;
         }
@@ -479,7 +479,7 @@ namespace Wcf.BLL.Order
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Order.检查商品销售区域, null, "", ex);
+                MLogManager.Error(MLogGroup.Order.检查商品销售区域, null, null, "", ex);
             }
 
             return result;
@@ -718,7 +718,7 @@ namespace Wcf.BLL.Order
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExecutionError;
-                MLogManager.Error(MLogGroup.Order.获取订单信息, null, "获取订单信息", ex);
+                MLogManager.Error(MLogGroup.Order.获取订单信息, null, null, "获取订单信息", ex);
             }
 
             return result;
@@ -792,7 +792,7 @@ namespace Wcf.BLL.Order
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExecutionError;
-                MLogManager.Error(MLogGroup.Order.获取订单信息, null, "获取订单信息", ex);
+                MLogManager.Error(MLogGroup.Order.获取订单信息, null, null, "获取订单信息", ex);
             }
 
             return result;
@@ -868,7 +868,7 @@ namespace Wcf.BLL.Order
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExecutionError;
-                MLogManager.Error(MLogGroup.Order.获取订单列表, null, "获取订单列表", ex);
+                MLogManager.Error(MLogGroup.Order.获取订单列表, null, null, "获取订单列表", ex);
             }
 
             return result;

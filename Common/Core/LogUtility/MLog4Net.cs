@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Core.Enums;
 using log4net;
 
@@ -56,36 +57,28 @@ namespace Core.LogUtility
         /// <summary>
         /// 写调试日志
         /// </summary>
+        /// <param name="systemType"></param>
+        /// <param name="userId"></param>
+        /// <param name="logCode"></param>
+        /// <param name="logDesc"></param>
         /// <param name="msg"></param>
         /// <param name="args"></param>
-        public void Debug(string msg, params object[] args)
+        public void Debug(string systemType, string userId, Int64 logCode, string logDesc, string msg, params object[] args)
         {
             if (_isInit && _warn.IsDebugEnabled)
             {
                 try
                 {
-                    _debug.DebugFormat(msg, args);
-                }
-                catch
-                { }
-            }
-        }
+                    var message = new LogCustomEntity
+                    {
+                        SystemType = systemType,
+                        UserId = userId,
+                        LogCode = logCode.ToString(),
+                        LogDesc = logDesc,
+                        Msg = string.Format(msg, args)
+                    };
 
-        /// <summary>
-        /// 写警告日志
-        /// </summary>
-        /// <param name="msg"></param>
-        /// <param name="args"></param>
-        public void Warn(string msg, Exception[] args)
-        {
-            if (_isInit && _warn.IsWarnEnabled)
-            {
-                try
-                {
-                    if (args.Length > 0)
-                        _warn.Warn(msg, args[0]);
-                    else
-                        _warn.Warn(msg);
+                    _debug.Debug(message);
                 }
                 catch
                 { }
@@ -95,36 +88,28 @@ namespace Core.LogUtility
         /// <summary>
         /// 写信息日志
         /// </summary>
+        /// <param name="systemType"></param>
+        /// <param name="userId"></param>
+        /// <param name="logCode"></param>
+        /// <param name="logDesc"></param>
         /// <param name="msg"></param>
         /// <param name="args"></param>
-        public void Info(string msg, params object[] args)
+        public void Info(string systemType, string userId, Int64 logCode, string logDesc, string msg, params object[] args)
         {
             if (_isInit && _warn.IsInfoEnabled)
             {
                 try
                 {
-                    _info.InfoFormat(msg, args);
-                }
-                catch
-                { }
-            }
-        }
+                    var message = new LogCustomEntity
+                    {
+                        SystemType = systemType,
+                        UserId = userId,
+                        LogCode = logCode.ToString(),
+                        LogDesc = logDesc,
+                        Msg = string.Format(msg, args)
+                    };
 
-        /// <summary>
-        /// 写错误日志
-        /// </summary>
-        /// <param name="msg"></param>
-        /// <param name="ex"></param>
-        public void Error(string msg, params Exception[] ex)
-        {
-            if (_isInit && _warn.IsErrorEnabled)
-            {
-                try
-                {
-                    if (ex.Length > 0)
-                        _error.Error(msg, ex[0]);
-                    else
-                        _error.Error(msg);
+                    _info.Info(message);
                 }
                 catch
                 { }
@@ -146,11 +131,14 @@ namespace Core.LogUtility
             {
                 try
                 {
-                    var message = new LogCustomEntity();
-                    message.SystemType = systemType;
-                    message.UserId = userId;
-                    message.LogCode = logCode.ToString();
-                    message.LogDesc = logDesc;
+                    var message = new LogCustomEntity
+                                      {
+                                          SystemType = systemType,
+                                          UserId = userId,
+                                          LogCode = logCode.ToString(),
+                                          LogDesc = logDesc,
+                                          Msg = msg
+                                      };
 
                     if (args.Length > 0)
                         _warn.Warn(message, args[0]);
@@ -177,11 +165,14 @@ namespace Core.LogUtility
             {
                 try
                 {
-                    var message = new LogCustomEntity();
-                    message.SystemType = systemType;
-                    message.UserId = userId;
-                    message.LogCode = logCode.ToString();
-                    message.LogDesc = logDesc;
+                    var message = new LogCustomEntity
+                                      {
+                                          SystemType = systemType,
+                                          UserId = userId,
+                                          LogCode = logCode.ToString(CultureInfo.InvariantCulture),
+                                          LogDesc = logDesc,
+                                          Msg = msg
+                                      };
 
                     if (ex.Length > 0)
                         _error.Error(message, ex[0]);

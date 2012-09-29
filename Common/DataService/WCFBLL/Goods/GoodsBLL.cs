@@ -98,7 +98,7 @@ namespace Wcf.BLL.Goods
             {
                 result.status = MResultStatus.ExecutionError;
                 result.msg = "调用参数异常，请检查参数格式";
-                MLogManager.Error(MLogGroup.Goods.读取商品数据, null, "调用参数异常，请检查参数格式", ex);
+                MLogManager.Error(MLogGroup.Goods.读取商品数据, null, null, "调用参数异常，请检查参数格式", ex);
             }
 
             #endregion
@@ -133,7 +133,7 @@ namespace Wcf.BLL.Goods
             catch (Exception ex)
             {
                 result.status = MResultStatus.ExecutionError;
-                MLogManager.Error(MLogGroup.Goods.读取商品数据, null, "调用读取商品列表出错", ex);
+                MLogManager.Error(MLogGroup.Goods.读取商品数据, null, null, "调用读取商品列表出错", ex);
             }
             return result;
         }

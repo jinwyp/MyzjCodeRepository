@@ -44,4 +44,13 @@ namespace Core.LogUtility
                 writer.Write(logMessage.LogDesc);
         }
     }
+    internal sealed class MessagePatternConverter : PatternLayoutConverter
+    {
+        protected override void Convert(TextWriter writer, LoggingEvent loggingEvent)
+        {
+            var logMessage = loggingEvent.MessageObject as LogCustomEntity;
+            if (logMessage != null)
+                writer.Write(logMessage.Msg);
+        }
+    }
 }

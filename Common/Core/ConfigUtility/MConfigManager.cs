@@ -31,7 +31,7 @@ namespace Core.ConfigUtility
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.配置文件操作,null, "初始化配置文件错误", ex);
+                MLogManager.Error(MLogGroup.Other.配置文件操作, null, null, "初始化配置文件错误", ex);
             }
         }
 
@@ -69,7 +69,7 @@ namespace Core.ConfigUtility
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.配置文件操作, null, string.Format("获取 配置文件 AppSettings 节点 {0}={1}", key, def[0]), ex);
+                MLogManager.Error(MLogGroup.Other.配置文件操作, null, null, string.Format("获取 配置文件 AppSettings 节点 {0}={1}", key, def[0]), ex);
             }
             return MCvHelper.To<T>(val);
         }
@@ -91,7 +91,7 @@ namespace Core.ConfigUtility
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.配置文件操作, null, string.Format("添加 配置文件 AppSettings 节点 {0}={1}", key, val), ex);
+                MLogManager.Error(MLogGroup.Other.配置文件操作, null, null, string.Format("添加 配置文件 AppSettings 节点 {0}={1}", key, val), ex);
             }
             return result;
         }
@@ -113,7 +113,7 @@ namespace Core.ConfigUtility
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.配置文件操作, null, string.Format("设置 配置文件 AppSettings 节点 {0}={1}", key, val), ex);
+                MLogManager.Error(MLogGroup.Other.配置文件操作, null, null, string.Format("设置 配置文件 AppSettings 节点 {0}={1}", key, val), ex);
             }
             return result;
         }
@@ -137,7 +137,7 @@ namespace Core.ConfigUtility
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.配置文件操作, null, string.Format("移除 配置文件 AppSettings 节点 {0}", key), ex);
+                MLogManager.Error(MLogGroup.Other.配置文件操作, null, null, string.Format("移除 配置文件 AppSettings 节点 {0}", key), ex);
             }
             return result;
         }

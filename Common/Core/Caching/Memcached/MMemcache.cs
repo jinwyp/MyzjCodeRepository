@@ -43,7 +43,7 @@ namespace Core.Caching.Memcached
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "缓存初始化失败！", ex);
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "缓存初始化失败！", ex);
             }
         }
 
@@ -104,7 +104,7 @@ namespace Core.Caching.Memcached
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "设置缓存 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "设置缓存 出错！", ex);
             }
 
             return result;
@@ -121,7 +121,7 @@ namespace Core.Caching.Memcached
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "设置缓存 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "设置缓存 出错！", ex);
             }
 
             return result;
@@ -138,7 +138,7 @@ namespace Core.Caching.Memcached
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "添加缓存 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "添加缓存 出错！", ex);
             }
 
             return result;
@@ -155,7 +155,7 @@ namespace Core.Caching.Memcached
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "添加缓存 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "添加缓存 出错！", ex);
             }
 
             return result;
@@ -171,7 +171,7 @@ namespace Core.Caching.Memcached
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "获取缓存值 出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "获取缓存值 出错！", ex);
             }
             return result;
         }
@@ -189,7 +189,7 @@ namespace Core.Caching.Memcached
                     }
                     catch (Exception ex)
                     {
-                        MLogManager.Error(MLogGroup.Other.Redis缓存, null, "获取缓存值 出错！", ex);
+                        MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "获取缓存值 出错！", ex);
                     }
                 }
             }
@@ -198,13 +198,13 @@ namespace Core.Caching.Memcached
 
         public List<string> GetKeys()
         {
-            MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "没有方法实现");
+            MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "没有方法实现");
             throw new Exception("没有方法实现");
         }
 
         public List<string> GetKeys(Enums.MCaching.CacheGroup cacheGroup)
         {
-            MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "没有方法实现");
+            MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "没有方法实现");
             throw new Exception("没有方法实现");
         }
 
@@ -218,7 +218,7 @@ namespace Core.Caching.Memcached
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "移除缓存出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "移除缓存出错！", ex);
             }
 
             return result;
@@ -231,7 +231,7 @@ namespace Core.Caching.Memcached
 
         public int RemoveByKeyGroup(Enums.MCaching.CacheGroup cacheGroup)
         {
-            MLogManager.Error(MLogGroup.Other.Memcached缓存, null, "没有方法实现");
+            MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "没有方法实现");
             throw new Exception("没有方法实现");
         }
 

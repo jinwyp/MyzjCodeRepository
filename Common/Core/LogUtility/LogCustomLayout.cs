@@ -16,10 +16,11 @@ namespace Core.LogUtility
         /// </summary>
         public LogCustomLayout()
         {
-            this.AddConverter("system_type", typeof(SystemTypePatternConverter));
-            this.AddConverter("user_id", typeof(UserIdPatternConverter));
-            this.AddConverter("log_code", typeof(LogCodePatternConverter));
-            this.AddConverter("log_desc", typeof(LogDescPatternConverter));
+            AddConverter("system_type", typeof(SystemTypePatternConverter));
+            AddConverter("user_id", typeof(UserIdPatternConverter));
+            AddConverter("log_code", typeof(LogCodePatternConverter));
+            AddConverter("log_desc", typeof(LogDescPatternConverter));
+            AddConverter("log_msg", typeof(MessagePatternConverter));
         }
 
 

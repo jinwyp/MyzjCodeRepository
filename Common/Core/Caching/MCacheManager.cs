@@ -52,7 +52,7 @@ namespace Core.Caching
                             break;
                         default:
                             {
-                                MLogManager.Error(MLogGroup.Other.获取缓存对象, "",
+                                MLogManager.Error(MLogGroup.Other.获取缓存对象, "", "",
                                                   "缓存方式错误 没有指定 " + MCaching.Provider.Memcached + " 缓存的实现方法！");
                             }
                             break;
@@ -86,11 +86,11 @@ namespace Core.Caching
                                                   StringComparison.OrdinalIgnoreCase))
                             _cacheObj = MMemcache.GetInstance();
                         else
-                            MLogManager.Error(MLogGroup.Other.获取缓存对象, "", "缓存方式配置无法识别，节点" + key);
+                            MLogManager.Error(MLogGroup.Other.获取缓存对象, null, "", "缓存方式配置无法识别，节点" + key);
                     }
                     else
                     {
-                        MLogManager.Error(MLogGroup.Other.获取缓存对象, "", "请配置缓存方式，节点" + key);
+                        MLogManager.Error(MLogGroup.Other.获取缓存对象, null, "", "请配置缓存方式，节点" + key);
                     }
                 }
                 else
@@ -156,7 +156,7 @@ namespace Core.Caching
             }
             catch (Exception ex)
             {
-                MLogManager.Error(MLogGroup.Other.Redis缓存, "", "使用缓存数据出错！", ex);
+                MLogManager.Error(MLogGroup.Other.Redis缓存, "", null, "使用缓存数据出错！", ex);
             }
             return null;
         }
