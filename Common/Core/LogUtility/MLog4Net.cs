@@ -2,9 +2,32 @@
 using System.Globalization;
 using Core.Enums;
 using log4net;
+using log4net.Appender;
+using log4net.Config;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace Core.LogUtility
 {
+    /// <summary>
+    /// 消息队列实体
+    /// </summary>
+    public class LogQueueItem
+    {
+        /// <summary>
+        /// 消息类型
+        /// </summary>
+        public MLoggerType LogType { get; set; }
+        /// <summary>
+        /// 消息主体
+        /// </summary>
+        public LogCustomEntity Message { get; set; }
+        /// <summary>
+        /// 异常信息
+        /// </summary>
+        public Exception ex { get; set; }
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -15,6 +38,9 @@ namespace Core.LogUtility
         private static MLog4Net _obj;
         private static ILog _debug, _info, _error, _warn;
         private static bool _isInit;
+        private static MemoryAppender _memoryLogger;
+        private static Queue<LogQueueItem> _queue = new Queue<LogQueueItem>();
+        private static Thread _queueThread;
         #endregion
 
         /// <summary>
@@ -25,10 +51,33 @@ namespace Core.LogUtility
             try
             {
                 log4net.Config.XmlConfigurator.Configure();
-                _debug = log4net.LogManager.GetLogger("DEBUG");
-                _info = log4net.LogManager.GetLogger("INFO");
-                _error = log4net.LogManager.GetLogger("ERROR");
-                _warn = log4net.LogManager.GetLogger("WARN");
+                _debug = LogManager.GetLogger("DEBUG");
+                _info = LogManager.GetLogger("INFO");
+                _error = LogManager.GetLogger("ERROR");
+                _warn = LogManager.GetLogger("WARN");
+
+                _memoryLogger = new MemoryAppender();
+                BasicConfigurator.Configure(_memoryLogger);
+
+                #region 写入 日志任务
+
+                _queueThread = new Thread(() =>
+                                              {
+                                                  while (true)
+                                                  {
+                                                      var size = 20;
+                                                      if (_queue.Count > size)
+                                                      {
+                                                          CommitLog(size);
+                                                      }
+                                                      Thread.Sleep(60 * 1000 * 5);
+                                                  }
+                                              });
+                _queueThread.IsBackground = true;
+                _queueThread.Start();
+
+                #endregion
+
                 _isInit = true;
             }
             catch
@@ -54,6 +103,51 @@ namespace Core.LogUtility
             return _obj;
         }
 
+
+        /// <summary>
+        /// 插入日志
+        /// </summary>
+        /// <param name="logQueueItem"></param>
+        private void WriteLog(LogQueueItem logQueueItem)
+        {
+            if (logQueueItem != null && logQueueItem.Message != null)
+            {
+                _queue.Enqueue(logQueueItem);
+            }
+        }
+
+        /// <summary>
+        /// 提交日志
+        /// </summary>
+        private static void CommitLog(int size)
+        {
+            for (var i = 0; i < size; i++)
+            {
+                var queueItem = _queue.Dequeue();
+                switch (queueItem.LogType)
+                {
+                    case MLoggerType.Debug:
+                        if (queueItem.ex != null)
+                            _debug.Debug(queueItem.Message, queueItem.ex);
+                        else
+                            _debug.Debug(queueItem.Message);
+                        break;
+                    case MLoggerType.Error:
+                        if (queueItem.ex != null)
+                            _debug.Error(queueItem.Message, queueItem.ex);
+                        else
+                            _debug.Error(queueItem.Message);
+                        break;
+                    case MLoggerType.Info:
+                        _debug.Info(queueItem.Message);
+                        break;
+                    case MLoggerType.Warn:
+                        _debug.Warn(queueItem.Message);
+                        break;
+                }
+            }
+        }
+
         /// <summary>
         /// 写调试日志
         /// </summary>
@@ -77,8 +171,13 @@ namespace Core.LogUtility
                         LogDesc = logDesc,
                         Msg = string.Format(msg, args)
                     };
-
-                    _debug.Debug(message);
+                    WriteLog(new LogQueueItem
+                                       {
+                                           Message = message,
+                                           LogType = MLoggerType.Debug,
+                                           ex = null
+                                       });
+                    //_debug.Debug(message);
                 }
                 catch
                 { }
@@ -108,8 +207,13 @@ namespace Core.LogUtility
                         LogDesc = logDesc,
                         Msg = string.Format(msg, args)
                     };
-
-                    _info.Info(message);
+                    WriteLog(new LogQueueItem
+                    {
+                        Message = message,
+                        LogType = MLoggerType.Info,
+                        ex = null
+                    });
+                    //_info.Info(message);
                 }
                 catch
                 { }
@@ -124,8 +228,8 @@ namespace Core.LogUtility
         /// <param name="systemType"> </param>
         /// <param name="userId"> </param>
         /// <param name="logCode"> </param>
-        /// <param name="args"> </param>
-        public void Warn(string systemType, string userId, Int64 logCode, string logDesc, string msg, Exception[] args)
+        /// <param name="ex"> </param>
+        public void Warn(string systemType, string userId, Int64 logCode, string logDesc, string msg, Exception[] ex)
         {
             if (_isInit && _warn.IsWarnEnabled)
             {
@@ -139,11 +243,18 @@ namespace Core.LogUtility
                                           LogDesc = logDesc,
                                           Msg = msg
                                       };
-
+                    WriteLog(new LogQueueItem
+                    {
+                        Message = message,
+                        LogType = MLoggerType.Warn,
+                        ex = ex.Length > 0 ? ex[0] : null
+                    });
+                    /*
                     if (args.Length > 0)
                         _warn.Warn(message, args[0]);
                     else
                         _warn.Warn(message);
+                    */
                 }
                 catch
                 { }
@@ -173,11 +284,18 @@ namespace Core.LogUtility
                                           LogDesc = logDesc,
                                           Msg = msg
                                       };
-
+                    WriteLog(new LogQueueItem
+                    {
+                        Message = message,
+                        LogType = MLoggerType.Error,
+                        ex = ex.Length > 0 ? ex[0] : null
+                    });
+                    /*
                     if (ex.Length > 0)
                         _error.Error(message, ex[0]);
                     else
                         _error.Error(message);
+                    */
                 }
                 catch
                 { }

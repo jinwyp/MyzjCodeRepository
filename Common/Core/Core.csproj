@@ -108,6 +108,7 @@
     <Compile Include="Enums\EnumUtility.cs" />
     <Compile Include="Enums\MCaching.cs" />
     <Compile Include="Enums\MConfigs.cs" />
+    <Compile Include="Enums\MLoggerType.cs" />
     <Compile Include="Enums\MLogGroup.cs" />
     <Compile Include="Enums\MMethodType.cs" />
     <Compile Include="Enums\MRandomType.cs" />
