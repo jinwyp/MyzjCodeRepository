@@ -45,7 +45,6 @@ namespace Wcf.ServiceLibrary.Manage
             var result = new MResult();
             try
             {
-                throw new Exception("test");
                 var cacheGroup = MCvHelper.To<MCaching.CacheGroup>(cachegroup);
                 result = ManageBLL.RefreshCacheGroupVersion(SystemType, user_id, uid, cacheGroup);
             }
