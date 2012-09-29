@@ -454,6 +454,7 @@
     <Content Include="MultiPage.Master" />
     <None Include="README.md" />
     <Content Include="web.config" />
+    <None Include="registration.api" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Core\Core.csproj">
