@@ -112,24 +112,24 @@ var CallWcf = function (method, data, callback, showLoading, options) {
                     } else {
                         $.mobile.hidePageLoadingMsg();
                     }
-            },
-            error: function (jqXHR, status) {
-                //alert("网络异常，请稍后重试！");
-            },
-            statusCode: {
-                404: function () {
-                    alert("网络异常，请稍后重试！");
-                }
+        },
+        error: function (jqXHR, status) {
+            //alert("网络异常，请稍后重试！");
+        },
+        statusCode: {
+            404: function () {
+                alert("网络异常，请稍后重试！");
             }
-        };
+        }
+    };
 
-        //var op = $.extend(true, OPTIONS, options);
-        var op = $.extend({}, OPTIONS, options);
-        Log("ajax 请求数据：");
-        Log(op);
+    //var op = $.extend(true, OPTIONS, options);
+    var op = $.extend({}, OPTIONS, options);
+    Log("ajax 请求数据：");
+    Log(op);
 
-        $.ajax(op);
-    }
+    $.ajax(op);
+}
 
 };
 
@@ -252,7 +252,7 @@ var Dateformat = function (date, format) {
     for (var k in o)
         if (new RegExp("(" + k + ")").test(format))
             format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
-    return format;
+return format;
 }
 
 var timeDate = function (obj) {
@@ -440,6 +440,8 @@ var Get_shoppingcartgoodsnum_Fun = function () {
         } else {
             Log(json.msg);
         }
-    }, false, true);
+    }, false, {
+        async: false
+    });
 };
 //#endregion

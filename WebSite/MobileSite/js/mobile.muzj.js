@@ -20,11 +20,11 @@ function LoingOut() {
 //#region 首页动画
 function Index_Fun() {
     //传递搜索key值
-    $("#search-form").submit(function(e){
+    $("#search-form").submit(function (e) {
         //if(e.keyCode==13){
         var keyval = $("#searchinput1").val();
-        if(keyval!==""){
-            window.location.href="/product/productlist.aspx?key="+keyval;
+        if (keyval !== "") {
+            window.location.href = "/product/productlist.aspx?key=" + keyval;
         }
         return false
         //}
@@ -453,7 +453,7 @@ function Change_DateIcon_Diao_Fun(sorts) {
 
 //#region 商品列表页
 var GoodProduct = {
-    key:getParameter("key"),
+    key: getParameter("key"),
     currentPage: 1, //当前页
     lastPage: 1, //总页数
     pageSize: 10, //每页显示的条数
@@ -600,7 +600,7 @@ var GoodProduct = {
 //#endregion
 
 //#region 首页推荐位列表页
-var GoodTopic ={
+var GoodTopic = {
     currentPage: 1, //当前页
     lastPage: 1, //总页数
     pageSize: 10, //每页显示的条数
@@ -635,7 +635,7 @@ var GoodTopic ={
 
         GetWcf({
             _api: "Cms.get_columndata_info",
-            _url: "B-A1-A2/"+cid+"/"+page+"/"+GoodTopic.pageSize
+            _url: "B-A1-A2/" + cid + "/" + page + "/" + GoodTopic.pageSize
         }, function (jsonString) {
             var data = JSON.parse(jsonString.data);
             if (jsonString.status == 1) {
@@ -1116,8 +1116,8 @@ function shoppingcart_Fun() {
     Unbind_bind("#ShoppingCart_btn", "click", function (e) {
         if (parseInt($("#good_totals").text()) > 0) {
             $('html, body').animate({
-                    scrollTop: $(document).height()
-                },
+                scrollTop: $(document).height()
+            },
                 1500);
 
             window.location.href = window.WebRoot + "CheckOut/orderconfirm.aspx";
@@ -1350,11 +1350,11 @@ function orderconfirm_Fun() {
     //#region 提交订单
     var submitting;
     Unbind_bind("#orderConfirm_btn", "click", function () {
-        if(submitting){
+        if (submitting) {
             return false;
         }
         var $this = $(this);
-        $("span.ui-btn-text",$this).text("提交中，请稍后……");
+        $("span.ui-btn-text", $this).text("提交中，请稍后……");
         var orderEntity_c = orderEntity.createNew();
         if (orderEntity.init_Judge(orderEntity_c)) {
             submitting = true;
@@ -1363,7 +1363,7 @@ function orderconfirm_Fun() {
                 _data: JSON.stringify(orderEntity_c)
             }, function (json) {
                 if (json.status === 1 && typeof (json.info) == "object" && json.info != null) {
-                    $("span.ui-btn-text",$this).text("提交订单");
+                    $("span.ui-btn-text", $this).text("提交订单");
                     LS.clear(); //先清再存
                     var delivery_array = {
                         slides: [
@@ -1391,18 +1391,18 @@ function orderconfirm_Fun() {
                     //Change_Url(window.WebRoot + "CheckOut/shoppingcart.aspx");
                 } else {
                     alert(json.msg);
-                    $("span.ui-btn-text",$this).text("提交订单");
+                    $("span.ui-btn-text", $this).text("提交订单");
                 }
 
             }, true);
         }
         else {
-            if(submitting==false){
+            if (submitting == false) {
                 return false
             }
             alert("信息还不完全！");
             submitting = true;
-            $("span.ui-btn-text",this).text("提交订单");
+            $("span.ui-btn-text", this).text("提交订单");
         }
     });
 
@@ -1750,7 +1750,7 @@ function invoice_Fun() {
 //#region 获取省市区数据
 var proviceA = "", cityA = "", townA = "";
 function GetPrCiTownAjaxDate() {
-    GetWcf_F({
+    GetWcf({
         _api: "Order.get_allregion_list"
     }, function (jsonString) {
         if (jsonString.status == 1 && typeof (jsonString.info) == "object" && jsonString.info.length > 0) {
@@ -1760,7 +1760,9 @@ function GetPrCiTownAjaxDate() {
         } else {
             alert(jsonString.msg);
         }
-    }, true, true);
+    }, true, {
+        async: false
+    });
 }
 //#endregion
 
@@ -1934,7 +1936,7 @@ function address_edit_Fun() {
     //alert(window.location.search);
     var address_id = window.location.search.toString().replace("?address_id=", "");
     //#region 绑定收货人详细信息
-    GetWcf_F({
+    GetWcf({
         _api: "Member.get_address_info",
         _url: "/" + address_id
     }, function (jsonString) {
@@ -1958,7 +1960,9 @@ function address_edit_Fun() {
         } else {
             $("#Cah_Mesag").text(jsonString.msg);
         }
-    }, true, true);
+    }, true, {
+        async: false
+    });
     //#endregion
     address_add_update_Object.addressRadioChange();
     //alert($("#acc_id").val());
