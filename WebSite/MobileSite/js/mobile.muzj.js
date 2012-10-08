@@ -2017,7 +2017,7 @@ var makeorder_Fun = function () {
     }, false, {});
 
     Unbind_bind("#checkOrderDetail", "click", function () {
-        window.location.href = window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid;
+        window.location.href = window.WebRoot + "Member/orderdetail.aspx?ocode=" + make_oid;
         //Change_Url(window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid);
     });
 }
