@@ -1,7 +1,10 @@
 ﻿
 define(function (require, exports, module) {
 
+    var $ = require("jquery").sub();
     var basejs = require("basejs");
+    var camera = require("../plugin/camera");
+    require("jquery.templates")($);
 
     //#region 首页动画
     //传递搜索key值
@@ -20,7 +23,7 @@ define(function (require, exports, module) {
             _api: "Cms.get_columndata_list",
             _url: "B-A1-A1/1/5"
         }, function (jsonString) {
-            console.log(jsonString.list[0].pic_url);
+
             if (jsonString.status == 1 && typeof (jsonString.list) == "object") {
 
                 if (jsonString.list.length > 0) {
@@ -32,10 +35,10 @@ define(function (require, exports, module) {
 
                     if ($.trim($('#foucsPic').html()).length == 0) {
                         $('#foucsPic').empty().append(sthH);
-                        Camera_cao.camera();
-                        Camera_cao.cameraStop();
-                        Camera_cao.cameraPause();
-                        Camera_cao.cameraResume();
+                        camera.Camera_cao.camera();
+                        camera.Camera_cao.cameraStop();
+                        camera.Camera_cao.cameraPause();
+                        camera.Camera_cao.cameraResume();
                         jQuery('#foucsPic').camera({
                             thumbnails: false,
                             pauseOnClick: false,
@@ -73,7 +76,7 @@ define(function (require, exports, module) {
                 alert(jsonString.msg);
             }
         }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
-    } ;
+    } ();
     //公告列表
     var noticelist_index = function () {
         basejs.GetWcf({
@@ -94,7 +97,7 @@ define(function (require, exports, module) {
                 alert(jsonString.msg);
             }
         }, true, { "ref_loading_c": $('#loading_list'), "ref_loading_text_c": '<div style="text-align:center; background:url(../images/loading.gif) no-repeat center center; height:80px;"></div>' });
-    } ;
+    } ();
     //#endregion
 
 });

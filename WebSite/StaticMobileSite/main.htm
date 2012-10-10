@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>母婴之家</title>
     <link href="/scripts/jquerymobile/jquery.mobile-1.1.0.min.css" rel="Stylesheet" />
-    <script type="text/javascript" src="/scripts/jquery/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="/scripts/configs/jqm.config.js"></script>
-    <script type="text/javascript" src="/scripts/jquerymobile/jquery.mobile-1.1.0.min.js"></script>
-    <script type="text/javascript" src="/scripts/seajs/sea.js" data-main="/scripts/configs/seajs.init"></script>
+    <script type="text/javascript" src="/scripts/seajs/sea.js" id="seajsnode" data-main="/scripts/configs/seajs.init"></script>
 </head>
 <body>
     <div data-role="page" id="Index_Page" data-title="">
@@ -62,10 +59,10 @@
         <div data-role="footer" data-theme="c" class="p10">
             <div class="ui-grid-b" style="padding-bottom: 5px;">
                 <div class="ui-block-a">
-                    <a href="">登录</a>
+                    <a href="#login">登录</a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="">注册</a>
+                    <a href="registration.htm">注册</a>
                 </div>
                 <div class="ui-block-c">
                     <a href="http://www.muyingzhijia.com/index.aspx?refer=mobile">电脑版</a>

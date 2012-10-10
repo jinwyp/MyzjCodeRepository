@@ -9,11 +9,16 @@ define(function () {
         charset: 'utf-8',
         debug: true,
         alias: {
-            'jquery': 'seajs/modules/jquery/1.7.2/jquery',
-            'cookie':'jquery-plugin/jquery.cookie',
+            'jquery': 'jquery/jquery-debug',
+            'jqm':'jquerymobile/jquery.mobile-1.1.0.min',
             'webconfig':'configs/web.config',
             'pagejs':'pagejs/mobile.page',
-            'basejs':'pagejs/mobile.common'
+            'basejs':'pagejs/mobile.common',
+            'cookie':'jquery-plugin/jquery.cookie',
+            'jquery.validate':'jquery-plugin/jquery.validate.min',
+            'jquery.templates':'jquery-plugin/jquery-jtemplates_uncompressed',
+            'md5':'plugin/md5',
+            'json':'plugin/json2'
         },
         preload: ['seajs/plugin-json', 'seajs/plugin-text']
     });

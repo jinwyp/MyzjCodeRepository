@@ -1,15 +1,12 @@
 ﻿define(function (require, exports, module) {
 
     var $ = require("jquery").sub();
-    $.cookie = require("cookie")($);
-
-    console.log($.cookie);
+    require("cookie")($);
 
     exports.Debug = window.Debug = true;
     exports.Tasks = window.Tasks = {};
     exports.mobile = window.mobile = {};
     exports.mobile.pages = window.mobile.pages = {};
-
 
     //#region 日期函数
 
@@ -64,20 +61,34 @@
     //#endregion
 
     //#region 属性
-    var MToken = function () {
-        return $.cookie("m_token") || "";
+    function MToken() {
+        var token = $.cookie("m_token") || [];
+        if (token.length == 0)
+            return "null";
+        else
+            return token[0];
     };
     var MUid = function () {
-        return $.cookie("m_uid") || "";
+        var uid = $.cookie("m_uid") || [];
+        if (uid.length == 0)
+            return "null";
+        else
+            return uid[0];
     };
     var MUserId = function () {
-        return $.cookie("m_user_id") || "";
+        var userId = $.cookie("m_user_id") || [];
+        if (userId.length == 0)
+            return "0";
+        else
+            return userId[0];
     };
     var MGuid = function () {
-        var guid = $.cookie("m_guid") || "";
+        var guid = $.cookie("m_guid") || [];
         if (guid.length == 0) {
-            guid = $.cookie("m_guid", NewGuid("N"));
-        }
+            guid = NewGuid("N");
+            $.cookie("m_guid", guid);
+        } else
+            guid = "null";
         return guid;
     };
     //#endregion
@@ -93,7 +104,7 @@
     //#endregion
 
     //#region 跳转页面
-    var Change_Url = function (diUrl) {
+    var Change_Url = window.Change_Url = function (diUrl) {
         //window.location.href = diUrl;
         //console.log("跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面");
         $.mobile.changePage(diUrl); //, { transition: "slide" }, { reloadPage: true }
@@ -101,7 +112,7 @@
     //#endregion
 
     //#region 输出日志
-    var Log = function (logstr) {
+    var Log = window.Log = function (logstr) {
         if (Debug) {
             if (typeof (window.console) == "object")
                 window.console.log(logstr);
