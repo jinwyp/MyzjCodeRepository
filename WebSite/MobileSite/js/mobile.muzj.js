@@ -35,7 +35,7 @@ function Index_Fun() {
             _api: "Cms.get_columndata_list",
             _url: "B-A1-A1/1/5"
         }, function (jsonString) {
-            console.log(jsonString.list[0].pic_url);
+            //console.log(jsonString.list[0].pic_url);
             if (jsonString.status == 1 && typeof (jsonString.list) == "object") {
 
                 if (jsonString.list.length > 0) {
