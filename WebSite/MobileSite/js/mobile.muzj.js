@@ -42,7 +42,7 @@ function Index_Fun() {
                     var sthH = '';
                     for (var i = 0; i < jsonString.list.length; i++) {
                         //jsonString.list[i].pic_url = jsonString.list[i].pic_url.toString().replace("http://img.muyingzhijia.com/product/{0}/", "http://m.muyingzhijia.me/");
-                        sthH += '<div data-src="' + jsonString.list[i].pic_url + '" data-link="/goodstopic.aspx?id=' + jsonString.list[i].id + '"></div>';
+                        sthH += '<div data-src="' + jsonString.list[i].pic_url + '" data-link="/goodstopic.aspx?id=' + jsonString.list[i].id + '&code=1"></div>';
                     }
 
                     if ($.trim($('#foucsPic').html()).length == 0) {
@@ -630,12 +630,13 @@ var GoodTopic = {
         var uid = $.cookie("m_uid");
         var obj = $.cookie("colsorts") || "100";
         var cid = getParameter('id') || 0;
+        var code = getParameter("code");
+        var columnid = (code==1)? "B-A1-A1/":"B-A1-A2/";
         GoodTopic.sorts = "?" + obj;
         Change_DateIcon_Diao_Fun(GoodTopic.sorts);
-
         GetWcf({
             _api: "Cms.get_columndata_info",
-            _url: "B-A1-A2/" + cid + "/" + page + "/" + GoodTopic.pageSize
+            _url: columnid + cid + "/" + page + "/" + GoodTopic.pageSize
         }, function (jsonString) {
             var data = JSON.parse(jsonString.data);
             if (jsonString.status == 1) {
