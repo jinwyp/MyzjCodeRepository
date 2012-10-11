@@ -1,9 +1,9 @@
 ﻿define(function (require, exports, module) {
 
     var $ = require("jquery").sub();
-    require("cookie")($);
+    var cookie = require("cookie");
 
-    exports.Debug = window.Debug = true;
+    exports.Debug = window.Debug = false;
     exports.Tasks = window.Tasks = {};
     exports.mobile = window.mobile = {};
     exports.mobile.pages = window.mobile.pages = {};
@@ -62,31 +62,31 @@
 
     //#region 属性
     function MToken() {
-        var token = $.cookie("m_token") || [];
+        var token = cookie.get("m_token") || [];
         if (token.length == 0)
             return "null";
         else
             return token[0];
     };
     var MUid = function () {
-        var uid = $.cookie("m_uid") || [];
+        var uid = cookie.get("m_uid") || [];
         if (uid.length == 0)
             return "null";
         else
             return uid[0];
     };
     var MUserId = function () {
-        var userId = $.cookie("m_user_id") || [];
+        var userId = cookie.get("m_user_id") || [];
         if (userId.length == 0)
             return "0";
         else
             return userId[0];
     };
     var MGuid = function () {
-        var guid = $.cookie("m_guid") || [];
+        var guid = cookie.get("m_guid") || [];
         if (guid.length == 0) {
             guid = NewGuid("N");
-            $.cookie("m_guid", guid);
+            cookie.set("m_guid", guid);
         } else
             guid = "null";
         return guid;
@@ -102,6 +102,21 @@
         }
     }
     //#endregion
+	
+	//#region 刷新page 样式
+	var RefreshPage=function(){
+		$( ":jqmData(role='page'), :jqmData(role='dialog')" ).trigger("pagecreate");
+	};
+	//#endregion
+	
+	//#region
+	var PageChange=function(obj,templateText,data,callback){
+		var template = Handlebars.compile(templateText);
+		if(typeof(data)!=='undefined')
+			template(data);
+		$(obj).hide().html(template).fadeIn(400);
+	};
+	//#endregion
 
     //#region 跳转页面
     var Change_Url = window.Change_Url = function (diUrl) {
@@ -168,10 +183,10 @@
 
     //#region  验证用户Cookie 信息（登录信息）
     var VerifyUserCookie = function () {
-        var token = $.cookie("m_token");
-        var uid = $.cookie("m_uid");
-        var lastUpdateTime = $.cookie("m_lutime");
-        var md5 = $.cookie("m_md5");
+        var token = cookie.get("m_token");
+        var uid = cookie.get("m_uid");
+        var lastUpdateTime = cookie.get("m_lutime");
+        var md5 = cookie.get("m_md5");
         var nMd5 = hex_md5(uid + token + lastUpdateTime);
         if (md5 == nMd5) {
             var luTime = lastUpdateTime;
@@ -228,23 +243,23 @@
 
     //#region 更新（写入）用户信息到Cookie（登录）
     var UpdateLoginCookie = function (user_id, uid, token) {
-        $.cookie("m_user_id", user_id);
-        $.cookie("m_token", token);
-        $.cookie("m_uid", uid);
+        cookie.set("m_user_id", user_id);
+        cookie.set("m_token", token);
+        cookie.set("m_uid", uid);
         var lastUpdateTime = new Date().getTime();
-        $.cookie("m_lutime", lastUpdateTime);
+        cookie.set("m_lutime", lastUpdateTime);
         var md5 = hex_md5(user_id + uid + token + lastUpdateTime);
-        $.cookie("m_md5", md5);
+        cookie.set("m_md5", md5);
     };
     //#endregion
 
     //#region 清除用户信息（退出）
     var RemoveLoginCookie = function () {
-        $.cookie("m_user_id", null);
-        $.cookie("m_token", null);
-        $.cookie("m_uid", null);
-        $.cookie("m_lutime", null);
-        $.cookie("m_md5", null);
+        cookie.remove("m_user_id");
+        cookie.remove("m_token");
+        cookie.remove("m_uid");
+        cookie.remove("m_lutime");
+        cookie.remove("m_md5");
         LS.clear();
         Get_shoppingcartgoodsnum_Fun();
     };
@@ -424,9 +439,9 @@
 
     //#region 获取购物车数量
     var Get_shoppingcartgoodsnum_Fun = function () {
-        var token = $.cookie("m_token");
-        var uid = $.cookie("m_uid");
-        var user_id = $.cookie("m_user_id");
+        var token = cookie.get("m_token");
+        var uid = cookie.get("m_uid");
+        var user_id = cookie.get("m_user_id");
         GetWcf({
             _api: "Goods.shoppingcartgoodsnum"
         }, function (json) {
@@ -466,5 +481,7 @@
 
     exports.GetWcf = GetWcf;
     exports.PostWcf = PostWcf;
+	exports.RefreshPage=RefreshPage;
+	exports.PageChange=PageChange;
 
 });

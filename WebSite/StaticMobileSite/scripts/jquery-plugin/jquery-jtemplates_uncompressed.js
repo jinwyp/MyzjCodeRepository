@@ -18,10 +18,9 @@
 
 define(function (require, exports, module) {
     return function ($) {
-        
-        if (window.jQuery && !window.jQuery.createTemplate) {
+        var jQuery = $;
+        if (jQuery && !jQuery.createTemplate) {
             (function (jQuery) {
-
                 /**
                 * [abstract]
                 * @name BaseNode
@@ -1420,9 +1419,9 @@ define(function (require, exports, module) {
                 }
             });
 
-        })($);
+        })(jQuery);
     }
-
-        return $;
-    };
+        
+    return jQuery;
+};
 });

@@ -10,10 +10,12 @@
 (function ( root, doc, factory ) {
 	if ( typeof define === "function" && define.cmd ) {
 		// AMD. Register as an anonymous module.
-		define( [ "jquery" ], function ( $ ) {
+		define(function(require){
+			var $=require("jquery");
 			factory( $, root, doc );
 			return $.mobile;
 		});
+		
 	} else {
 		// Browser globals
 		factory( root.jQuery, root, doc );
@@ -837,6 +839,7 @@ if ( $.uiBackCompat !== false ) {
 
 (function( $, undefined ) {
 
+
 $.widget( "mobile.widget", {
 	// decorate the parent _createWidget to trigger `widgetinit` for users
 	// who wish to do post post `widgetcreate` alterations/additions
@@ -1405,6 +1408,7 @@ function getSpecialEventObject( eventType ) {
 
 	return {
 		setup: function( data, namespace ) {
+
 			// If this is the first virtual mouse binding for this element,
 			// add a bindings object to its data.
 
