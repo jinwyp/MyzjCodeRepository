@@ -110,10 +110,7 @@
 	//#endregion
 	
 	//#region
-	var PageChange=function(obj,templateText,data,callback){
-		var template = Handlebars.compile(templateText);
-		if(typeof(data)!=='undefined')
-			template(data);
+	var PageChange=function(obj,template){
 		$(obj).hide().html(template).fadeIn(400);
 	};
 	//#endregion

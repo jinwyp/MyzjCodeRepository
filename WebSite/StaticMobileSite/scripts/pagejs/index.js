@@ -6,6 +6,7 @@ define(function (require, exports, module) {
 		var $ = require("jquery");
 		var jQuery = $;
 		var basejs = require("basejs");
+		var Handlebars=require("handlebars");
 		var camera = require("../jquery-plugin/camera")($);
 		require("jquery.templates")($);
 		
@@ -18,7 +19,8 @@ define(function (require, exports, module) {
 				basejs.RefreshPage();
 			},	
 			render: function () {
-				basejs.PageChange(this.el,require("/templates/index.tpl"),{});
+				var template = Handlebars.compile(require("/templates/index.tpl"))
+				basejs.PageChange(this.el, template);
 				return this;
 			}
 		});
