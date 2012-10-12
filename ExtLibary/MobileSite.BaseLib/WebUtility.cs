@@ -10,6 +10,7 @@ using System.Web.SessionState;
 using System.Configuration;
 using Core.DataType;
 using Core.Enums;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace MobileSite.BaseLib
@@ -121,6 +122,12 @@ namespace MobileSite.BaseLib
         /// <returns></returns>
         public static JObject CallPaymentNotifyApi(HttpContext context, object paymentNotifyType)
         {
+            var logPath = context.Server.MapPath("/") + "log/";
+            if (!Directory.Exists(logPath))
+                Directory.CreateDirectory(logPath);
+            var logFile = logPath + DateTime.Now.ToString("yyyyMMdd.HHm") + ".log";
+            var stream = new StreamWriter(logFile);
+            
             var queryData = context.Request.QueryString;
             var formData = context.Request.Form;
             var postData = new StringBuilder();
@@ -140,6 +147,11 @@ namespace MobileSite.BaseLib
                 new JProperty("paymentnotifytype", paymentNotifyType),
                 new JProperty("getdata", getData.ToString()),
                 new JProperty("postdata", postData.ToString()));
+
+            stream.WriteLine(JsonConvert.SerializeObject(jdata));
+            stream.Flush();
+            stream.Close();
+            stream.Dispose();
 
             queryUrl += string.Format("/{0}/{1}/{2}/{3}/{4}",
                 MConfigUtility.Get("SystemType"),

@@ -1300,7 +1300,7 @@ function orderconfirm_Fun() {
         //#endregion
 
         //#region 配送时判断
-        $("#deliverylist_a").click(function () {
+        Unbind_bind("#deliverylist_a","click",function () {
             if (paygroupid === null) {
                 alert("请选择支付方式！");
                 return;
@@ -2050,6 +2050,8 @@ function orderdetail_Fun() {
                 if (jsonString.info.paytype === "货到付款") {
                     $(".zaixian").hide();
                 };
+                if ((jsonString.info.invoicetitle || "").length == 0)
+                    jsonString.info.invoicetitle = "不需要发票";
                 orderdetail_template_container.setTemplate($('#orderdetail_template').html());
                 orderdetail_template_container.processTemplate(jsonString.info, null, { append: false });
                 orderdetail_template_container.listview('refresh');

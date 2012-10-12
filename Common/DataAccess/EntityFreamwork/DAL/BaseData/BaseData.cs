@@ -27,7 +27,7 @@ namespace EF.DAL
             var queryTxt = from a in holycaDb.Base_Pay_Type
                            join b in holycaDb.Base_Deliver_Pay on a.intPayID equals b.intPayID
                            join c in holycaDb.Base_Deliver_Area on b.intDeliverID equals c.intDeliverID
-                           where c.intRegionID == regionId
+                           where c.intRegionID == regionId  && a.intIsEnable==1
                            group a by a.intPayGroup into g
                            select g;
 
@@ -72,6 +72,7 @@ namespace EF.DAL
                            join c in holycaDb.Base_Pay_Type on a.intPayID equals c.intPayID
                            where b.intIsEnable == 1 && b.intRegionID == regionId
                            && c.intIsEnable == 1 && c.intPayGroup == payGroupId
+                           && s.intIsEnable==1
                            select a.intDeliverID).Contains(s.intDeliverID)
                            select s;
             var result = queryTxt.ToList();
