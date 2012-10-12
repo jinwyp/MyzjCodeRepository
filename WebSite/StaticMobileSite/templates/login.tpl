@@ -14,7 +14,7 @@
                     value="" />
     </fieldset>
   </div>
-  <input data-theme="b" value="登录" id="btnLoginSubmit" type="submit" />
+  <input data-theme="b" value="登录" id="btnLoginSubmit" type="button" />
   <div class="ui-grid-a p10">
     <div class="ui-block-a"> <a href="<%= MobileSite.BaseLib.WebUrls.forgetpassword() %>" >忘记密码</a> </div>
     <div class="ui-block-b"> <a href="<%= MobileSite.BaseLib.WebUrls.registration() %>" >立即注册</a> </div>

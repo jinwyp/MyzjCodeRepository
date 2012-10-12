@@ -7,7 +7,7 @@ define(function(require, exports, module) {
 			email : '',
 			password : ''
 		},
-		initalize : function() {
+		initialize : function() {
 
 		},
 		validation : {
@@ -28,6 +28,6 @@ define(function(require, exports, module) {
 		}
 	});
 
-	exports.Model = new Model();
+	exports.Model = Model;
 
 });

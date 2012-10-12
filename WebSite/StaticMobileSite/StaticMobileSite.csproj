@@ -52,7 +52,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="scripts\pagejs\view\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="images\16-sinaweibo.png" />
     <Content Include="images\alipay.jpg" />
@@ -95,6 +97,8 @@
     <Content Include="scripts\jquery-plugin\date.js" />
     <Content Include="scripts\jquery-plugin\jquery.cookie.js" />
     <Content Include="scripts\pagejs\login.js" />
+    <Content Include="scripts\pagejs\model\login.js" />
+    <Content Include="scripts\pagejs\register.js" />
     <Content Include="scripts\plugin\json2.js" />
     <Content Include="scripts\plugin\md5.js" />
     <Content Include="scripts\pagejs\mobile.common.js" />
