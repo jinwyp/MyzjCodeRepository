@@ -43,7 +43,7 @@
             </ul>
             <script id="columnlist_jTemplate" type="text/template">
                         {#foreach $T.list as col}
-                        <li><a href="<%= MobileSite.BaseLib.WebUrls.GoodsTopic("{$T.col.id}") %>">{$T.col.title}</a></li>
+                        <li><a href="<%= MobileSite.BaseLib.WebUrls.GoodsTopic("{$T.col.id}","") %>">{$T.col.title}</a></li>
                         {#/for}
             </script>
             <script id="notice_jTemplate" type="text/template">

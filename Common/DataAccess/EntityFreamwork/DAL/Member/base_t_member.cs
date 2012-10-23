@@ -62,18 +62,34 @@ namespace EF.DAL
                 var currentLevel = (memberInfo.userLevel ?? 0);
                 var currentLevelName = levelList[(memberInfo.userLevel ?? 0) - 1].Value;
                 var currentIntegral = (memberInfo.scores ?? 0);
-                var nextLevel = currentLevel + 1;
-                var nextLevelName = levelList[nextLevel - 1].Value;
-                var nextLevelIntegral = levelList[nextLevel - 1].Key - currentIntegral;
 
-                return new MemberAccountInfo
-                           {
-                               CurrentLevel = currentLevel,
-                               NextLevel = nextLevel,
-                               NextLevelRemark = string.Format("{0}颗（再累积{1}颗幸运星，就能成为{2}享受更多优惠！）", currentIntegral, nextLevelIntegral, nextLevelName),
-                               NextLevelIntegral = nextLevelIntegral,
-                               NextLevelName = currentLevelName
-                           };
+                if (currentLevel < 4)
+                {
+                    var nextLevel = currentLevel + 1;
+                    var nextLevelName = levelList[nextLevel - 1].Value;
+                    var nextLevelIntegral = levelList[nextLevel - 1].Key - currentIntegral;
+                    return new MemberAccountInfo
+                    {
+                        CurrentLevel = currentLevel,
+                        NextLevel = nextLevel,
+                        NextLevelRemark = string.Format("{0}颗（再累积{1}颗幸运星，就能成为{2}享受更多优惠！）", currentIntegral, nextLevelIntegral, nextLevelName),
+                        NextLevelIntegral = nextLevelIntegral,
+                        NextLevelName = currentLevelName
+                    };
+                }
+                else
+                {
+                    return new MemberAccountInfo
+                    {
+                        CurrentLevel = currentLevel,
+                        NextLevel = 0,
+                        NextLevelRemark = "",
+                        NextLevelIntegral = 0,
+                        NextLevelName = currentLevelName
+                    };
+                }
+
+
             }
             return null;
         }

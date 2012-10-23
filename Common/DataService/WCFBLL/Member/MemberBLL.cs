@@ -482,7 +482,7 @@ namespace Wcf.BLL.Member
                 if (memberLevelInfo != null)
                 {
                     userInfo.userlevel = memberLevelInfo.NextLevelName;
-                    userInfo.locky = memberLevelInfo.NextLevelRemark;
+                    userInfo.locky = memberEntity.scores.ToString();
                     userInfo.consumetotal = memberLevelInfo.OrdersTotal;
                 }
                 else

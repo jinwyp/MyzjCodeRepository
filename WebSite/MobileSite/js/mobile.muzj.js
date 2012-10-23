@@ -35,14 +35,14 @@ function Index_Fun() {
             _api: "Cms.get_columndata_list",
             _url: "B-A1-A1/1/5"
         }, function (jsonString) {
-            console.log(jsonString.list[0].pic_url);
+            //console.log(jsonString.list[0].pic_url);
             if (jsonString.status == 1 && typeof (jsonString.list) == "object") {
 
                 if (jsonString.list.length > 0) {
                     var sthH = '';
                     for (var i = 0; i < jsonString.list.length; i++) {
                         //jsonString.list[i].pic_url = jsonString.list[i].pic_url.toString().replace("http://img.muyingzhijia.com/product/{0}/", "http://m.muyingzhijia.me/");
-                        sthH += '<div data-src="' + jsonString.list[i].pic_url + '" data-link="/goodstopic.aspx?id=' + jsonString.list[i].id + '"></div>';
+                        sthH += '<div data-src="' + jsonString.list[i].pic_url + '" data-link="/goodstopic.aspx?id=' + jsonString.list[i].id + '&code=1"></div>';
                     }
 
                     if ($.trim($('#foucsPic').html()).length == 0) {
@@ -630,12 +630,13 @@ var GoodTopic = {
         var uid = $.cookie("m_uid");
         var obj = $.cookie("colsorts") || "100";
         var cid = getParameter('id') || 0;
+        var code = getParameter("code");
+        var columnid = (code==1)? "B-A1-A1/":"B-A1-A2/";
         GoodTopic.sorts = "?" + obj;
         Change_DateIcon_Diao_Fun(GoodTopic.sorts);
-
         GetWcf({
             _api: "Cms.get_columndata_info",
-            _url: "B-A1-A2/" + cid + "/" + page + "/" + GoodTopic.pageSize
+            _url: columnid + cid + "/" + page + "/" + GoodTopic.pageSize
         }, function (jsonString) {
             var data = JSON.parse(jsonString.data);
             if (jsonString.status == 1) {
@@ -1299,7 +1300,7 @@ function orderconfirm_Fun() {
         //#endregion
 
         //#region 配送时判断
-        $("#deliverylist_a").click(function () {
+        Unbind_bind("#deliverylist_a","click",function () {
             if (paygroupid === null) {
                 alert("请选择支付方式！");
                 return;
@@ -2017,7 +2018,7 @@ var makeorder_Fun = function () {
     }, false, {});
 
     Unbind_bind("#checkOrderDetail", "click", function () {
-        window.location.href = window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid;
+        window.location.href = window.WebRoot + "Member/orderdetail.aspx?ocode=" + make_oid;
         //Change_Url(window.WebRoot + "CheckOut/orderdetail.aspx?ocode=" + make_oid);
     });
 }
@@ -2049,6 +2050,8 @@ function orderdetail_Fun() {
                 if (jsonString.info.paytype === "货到付款") {
                     $(".zaixian").hide();
                 };
+                if ((jsonString.info.invoicetitle || "").length == 0)
+                    jsonString.info.invoicetitle = "不需要发票";
                 orderdetail_template_container.setTemplate($('#orderdetail_template').html());
                 orderdetail_template_container.processTemplate(jsonString.info, null, { append: false });
                 orderdetail_template_container.listview('refresh');

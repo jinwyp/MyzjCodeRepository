@@ -1,63 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="E:\Project\Web\Release\Wcf.ServiceHost\20120929" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+  <publishProfile publishUrl="E:\Project\Web\Release\Wcf.ServiceHost\20121012" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
     <file relUrl="BaseData.svc" publishTime="08/29/2012 13:40:46" />
     <file relUrl="Global.asax" publishTime="08/29/2012 14:30:08" />
     <file relUrl="bin/Spring.Core.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Factory.dll" publishTime="09/29/2012 16:35:22" />
+    <file relUrl="bin/Factory.dll" publishTime="10/12/2012 15:23:12" />
     <file relUrl="bin/ServiceStack.Text.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/MemcachedProviders.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="bin/ServiceStack.Common.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.ServiceHost.dll" publishTime="09/29/2012 16:35:35" />
-    <file relUrl="bin/Wcf.ServiceLibrary.pdb" publishTime="09/29/2012 16:35:32" />
-    <file relUrl="bin/EF.DAL.xml" publishTime="09/29/2012 16:35:20" />
+    <file relUrl="bin/Wcf.ServiceHost.dll" publishTime="10/12/2012 15:39:50" />
+    <file relUrl="bin/Wcf.ServiceLibrary.pdb" publishTime="10/12/2012 15:39:48" />
+    <file relUrl="bin/EF.DAL.xml" publishTime="10/12/2012 15:23:11" />
     <file relUrl="Payment.svc" publishTime="09/14/2012 11:57:07" />
-    <file relUrl="bin/EF.Model.xml" publishTime="09/28/2012 12:22:13" />
-    <file relUrl="bin/Wcf.BLL.dll" publishTime="09/29/2012 16:35:25" />
+    <file relUrl="bin/EF.Model.xml" publishTime="10/10/2012 11:13:03" />
+    <file relUrl="bin/Wcf.BLL.dll" publishTime="10/12/2012 15:39:46" />
     <file relUrl="bin/Common.Logging.dll" publishTime="08/29/2012 13:40:47" />
     <file relUrl="Goods.svc" publishTime="08/29/2012 13:40:46" />
-    <file relUrl="bin/Wcf.Entity.xml" publishTime="09/28/2012 12:22:14" />
-    <file relUrl="bin/Wcf.ServiceLibrary.dll" publishTime="09/29/2012 16:35:32" />
+    <file relUrl="bin/Wcf.Entity.xml" publishTime="10/10/2012 11:13:04" />
+    <file relUrl="bin/Wcf.ServiceLibrary.dll" publishTime="10/12/2012 15:39:49" />
     <file relUrl="Manage.svc" publishTime="09/14/2012 11:28:15" />
-    <file relUrl="bin/Core.pdb" publishTime="09/29/2012 16:34:59" />
+    <file relUrl="bin/Core.pdb" publishTime="10/10/2012 11:13:06" />
     <file relUrl="bin/MongoDB.Bson.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.BLL.pdb" publishTime="09/29/2012 16:35:24" />
+    <file relUrl="bin/Wcf.BLL.pdb" publishTime="10/12/2012 15:39:46" />
     <file relUrl="bin/Spring.Services.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Core.dll" publishTime="09/29/2012 16:34:59" />
     <file relUrl="Template/WebSite/ForgotPassword.xml" publishTime="09/14/2012 11:32:20" />
+    <file relUrl="bin/Factory.pdb" publishTime="10/12/2012 15:23:12" />
     <file relUrl="bin/Spring.Web.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Enyim.Caching.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.SpringDotNetAdvice.dll" publishTime="09/29/2012 16:35:27" />
-    <file relUrl="bin/Factory.xml" publishTime="09/29/2012 16:35:21" />
-    <file relUrl="bin/Wcf.SpringDotNetAdvice.xml" publishTime="09/29/2012 16:35:26" />
-    <file relUrl="bin/EF.Model.pdb" publishTime="09/28/2012 12:22:13" />
+    <file relUrl="bin/Core.dll" publishTime="10/10/2012 11:13:07" />
+    <file relUrl="bin/Factory.xml" publishTime="10/12/2012 15:23:12" />
+    <file relUrl="bin/Wcf.SpringDotNetAdvice.dll" publishTime="10/12/2012 15:39:47" />
+    <file relUrl="bin/EF.Model.pdb" publishTime="10/10/2012 11:13:03" />
+    <file relUrl="bin/Wcf.SpringDotNetAdvice.pdb" publishTime="10/12/2012 15:39:47" />
     <file relUrl="bin/Newtonsoft.Json.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.SpringDotNetAdvice.pdb" publishTime="09/29/2012 16:35:26" />
+    <file relUrl="bin/Wcf.SpringDotNetAdvice.xml" publishTime="10/12/2012 15:39:47" />
     <file relUrl="bin/MongoDB.Driver.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Core.xml" publishTime="09/29/2012 16:34:59" />
+    <file relUrl="bin/Core.xml" publishTime="10/10/2012 11:13:06" />
     <file relUrl="Template/MobileWebSite/ForgotPassword.xml" publishTime="09/14/2012 11:32:20" />
     <file relUrl="Order.svc" publishTime="08/29/2012 13:40:46" />
-    <file relUrl="Configs/connectionStrings.config" publishTime="09/28/2012 12:15:32" />
+    <file relUrl="Configs/connectionStrings.config" publishTime="10/10/2012 10:16:22" />
     <file relUrl="bin/Spring.Data.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/EF.Model.dll" publishTime="09/28/2012 12:22:13" />
-    <file relUrl="bin/Factory.pdb" publishTime="09/29/2012 16:35:21" />
-    <file relUrl="bin/Wcf.Entity.dll" publishTime="09/28/2012 12:22:14" />
-    <file relUrl="bin/Wcf.BLL.xml" publishTime="09/29/2012 16:35:24" />
+    <file relUrl="bin/EF.Model.dll" publishTime="10/10/2012 11:13:04" />
+    <file relUrl="bin/Enyim.Caching.dll" publishTime="08/29/2012 13:40:47" />
+    <file relUrl="bin/Wcf.Entity.dll" publishTime="10/10/2012 11:13:04" />
+    <file relUrl="bin/Wcf.BLL.xml" publishTime="10/12/2012 15:39:46" />
     <file relUrl="bin/ServiceStack.Redis.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="CMS.svc" publishTime="09/28/2012 12:15:32" />
+    <file relUrl="CMS.svc" publishTime="10/10/2012 10:16:22" />
     <file relUrl="bin/log4net.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Configs/appSettings.config" publishTime="09/28/2012 12:15:32" />
-    <file relUrl="bin/Wcf.Entity.pdb" publishTime="09/28/2012 12:22:14" />
-    <file relUrl="bin/EF.DAL.dll" publishTime="09/29/2012 16:35:20" />
-    <file relUrl="bin/Wcf.ServiceLibrary.xml" publishTime="09/29/2012 16:35:32" />
-    <file relUrl="bin/EF.DAL.pdb" publishTime="09/29/2012 16:35:20" />
-    <file relUrl="Configs/appSettings.config" publishTime="09/28/2012 12:15:32" />
-    <file relUrl="bin/Wcf.ServiceHost.pdb" publishTime="09/29/2012 16:35:35" />
-    <file relUrl="bin/Configs/connectionStrings.config" publishTime="09/28/2012 12:15:32" />
+    <file relUrl="bin/Configs/appSettings.config" publishTime="10/12/2012 13:35:40" />
+    <file relUrl="bin/Wcf.Entity.pdb" publishTime="10/10/2012 11:13:04" />
+    <file relUrl="bin/EF.DAL.dll" publishTime="10/12/2012 15:23:11" />
+    <file relUrl="bin/Wcf.ServiceLibrary.xml" publishTime="10/12/2012 15:39:48" />
+    <file relUrl="bin/EF.DAL.pdb" publishTime="10/12/2012 15:23:11" />
+    <file relUrl="Configs/appSettings.config" publishTime="10/12/2012 13:35:40" />
+    <file relUrl="bin/Wcf.ServiceHost.pdb" publishTime="10/12/2012 15:39:49" />
+    <file relUrl="bin/Configs/connectionStrings.config" publishTime="10/10/2012 10:16:22" />
     <file relUrl="bin/Spring.Aop.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="bin/Wcf.ServiceHost.XML" publishTime="09/29/2012 16:35:35" />
+    <file relUrl="bin/Wcf.ServiceHost.XML" publishTime="10/12/2012 15:39:49" />
     <file relUrl="Member.svc" publishTime="08/29/2012 13:40:46" />
     <file relUrl="bin/ServiceStack.Interfaces.dll" publishTime="08/29/2012 13:40:47" />
-    <file relUrl="Web.config" publishTime="09/29/2012 16:52:51" />
+    <file relUrl="Web.config" publishTime="10/11/2012 16:42:36" />
   </publishProfile>
 </publishData>

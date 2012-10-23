@@ -838,8 +838,8 @@ namespace Wcf.BLL.Order
                                               switch (item.flowStatus)
                                               {
                                                   case 0: orderStatus = "付款未审核"; break;
-                                                  case 1: orderStatus = "未确定"; break;
-                                                  case 4: orderStatus = "客户已确认"; break;
+                                                  case 1: orderStatus = "新建"; break;
+                                                  case 4: orderStatus = "已确认"; break;
                                                   case 5: orderStatus = "生成配货单"; break;
                                                   case 7: orderStatus = "已出库"; break;
                                                   case 20: orderStatus = "完成"; break;

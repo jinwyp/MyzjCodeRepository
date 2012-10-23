@@ -446,9 +446,9 @@ namespace MobileSite.BaseLib
         /// 商品专题
         /// </summary>
         /// <returns></returns>
-        public static string GoodsTopic(object id)
+        public static string GoodsTopic(object id, object code)
         {
-            return GetUrlData("goodstopic", id);
+            return GetUrlData("goodstopic", id, code);
         }
 
         #endregion
