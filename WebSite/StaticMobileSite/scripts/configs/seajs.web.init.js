@@ -8,11 +8,21 @@ define(function(require, exports, module) {
 	var Backbone = require("backbone");
 
 	var Handlebars = require("handlebars");
-	Backbone.Validation = require('backbonevalidation');
-	Backbone.ModelBinder = require('backbonemodelbinder');
 	var _ = require("underscore");
 
-	window.context = {};
+	require("backbone-modelbinder");
+	require("backbone-validation");
+
+	Backbone.Validation.configure({
+		forceUpdate : true
+	});
+
+	window.context = {
+		router : {},
+		view : {},
+		model : {}
+	};
+
 	window.$ = $;
 	window.jQuery = $;
 	window.Backbone = Backbone;
@@ -41,6 +51,7 @@ define(function(require, exports, module) {
 			Backbone.history.start({
 				pushState : false
 			});
+
 		},
 		routes : {
 			'' : 'index',
@@ -69,6 +80,12 @@ define(function(require, exports, module) {
 		}
 	});
 
-	window.context["approuter"] = new appRouter();
+	window.context.router = new appRouter();
+
+	window.context.router.on("route:index", function(page) {
+		console.log(page);
+	});
+	
+	window.context.router.navigate("login/abc.aspx", {trigger: true});
 
 });

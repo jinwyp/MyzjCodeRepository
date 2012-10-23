@@ -23,8 +23,8 @@ define(function () {
             'backbone': 'seajs/modules/backbone/0.9.2/backbone-debug',
             'handlebars': 'seajs/modules/handlebars/1.0.0/handlebars.js',
             
-            'backbonemodelbinder': 'seajs/modules/backbonemodelbinder/backbone-modelbinder.js',
-	        'backbonevalidation': 'seajs/modules/backbonevalidation/backbone-validation-amd.js',
+            'backbone-modelbinder': 'seajs/modules/backbonemodelbinder/backbone-modelbinder.js',
+	        'backbone-validation': 'seajs/modules/backbonevalidation/backbone-validation-amd.js',
 
             'cookie': 'seajs/modules/cookie/1.0.2/cookie-debug',
             'jquery.validate': 'jquery-plugin/jquery.validate.min',

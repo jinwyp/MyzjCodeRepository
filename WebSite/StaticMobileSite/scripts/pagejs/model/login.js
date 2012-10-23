@@ -3,31 +3,35 @@ define(function(require, exports, module) {
 	var Backbone = require("backbone");
 
 	var Model = Backbone.Model.extend({
-		defaults : {
-			email : '',
-			password : ''
-		},
+		/*defaults : {
+		 email : '',
+		 password : ''
+		 },*/
 		initialize : function() {
 
 		},
 		validation : {
 			email : [{
-				require : true,
+				required : true,
 				msg : '请输入Email地址'
 			}, {
-				rpattern : 'email',
+				pattern : 'email',
 				msg : '请输入正确的email地址'
 			}],
 			password : [{
-				require : true,
+				required : true,
 				msg : '请输入密码'
 			}, {
 				rangeLength : [6, 20],
 				msg : '密码长度在 6-20 之间'
 			}]
+		},
+		labels : {
+			email : "emailTip",
+			password : "passwordTip"
 		}
 	});
 
-	exports.Model = Model;
+	return Model;
 
 });
