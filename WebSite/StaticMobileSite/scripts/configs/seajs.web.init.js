@@ -12,10 +12,13 @@ define(function(require, exports, module) {
 
 	require("backbone-modelbinder");
 	require("backbone-validation");
+	require("backbone.routefilter");
 
 	Backbone.Validation.configure({
 		forceUpdate : true
 	});
+
+	var basejs = require("basejs");
 
 	window.context = {
 		router : {},
@@ -28,6 +31,7 @@ define(function(require, exports, module) {
 	window.Backbone = Backbone;
 	window._ = _;
 	window.Handlebars = Handlebars;
+	window.Core = basejs;
 
 	$.extend($.mobile, {
 		//defaultPageTransition: "slide", //转场默认效果，设置 NONE 为 没有转场动画
@@ -51,41 +55,39 @@ define(function(require, exports, module) {
 			Backbone.history.start({
 				pushState : false
 			});
-
 		},
 		routes : {
-			'' : 'index',
-			'index' : 'index',
+			'index' : 'abc',
 			'login' : 'login',
 			'login/:url' : 'login',
 			'register' : 'register'
 		},
-		index : function() {
-			window.context["urlparams"] = arguments;
-			require.async("../pagejs/index", function(page) {
+		before : function(route, name, args) {
+			window.context["urlparams"] = args;
+			var pageJsUrl = "../pagejs/controler/" + route;
+			require.async(pageJsUrl, function(page) {
 				page.initalize();
 			});
+
+			return false;
 		},
-		login : function() {
-			window.context["urlparams"] = arguments;
-			require.async("../pagejs/login", function(page) {
-				page.initalize();
-			});
-		},
-		register : function() {
-			window.context["urlparams"] = arguments;
-			require.async("../pagejs/register", function(page) {
-				page.initalize();
-			});
+		after : function(route, args) {
 		}
 	});
 
 	window.context.router = new appRouter();
 
-	window.context.router.on("route:index", function(page) {
-		console.log(page);
+	//#region 自定义方法
+
+	//路由自定义方法
+	_.extend(Backbone.Router, {
+		Redirect : function(url) {
+			window.context.router.navigate(url, {
+				trigger : true
+			});
+		}
 	});
-	
-	window.context.router.navigate("login/abc.aspx", {trigger: true});
+
+	//#endregion
 
 });

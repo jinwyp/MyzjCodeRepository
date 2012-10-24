@@ -3,10 +3,12 @@ define(function(require, exports, module) {
 	var Backbone = require("backbone");
 
 	var Model = Backbone.Model.extend({
-		/*defaults : {
-		 email : '',
-		 password : ''
-		 },*/
+		defaults : function() {
+			return {
+				email : '',
+				password : ''
+			};
+		},
 		initialize : function() {
 
 		},
