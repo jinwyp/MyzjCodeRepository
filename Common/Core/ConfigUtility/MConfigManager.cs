@@ -14,7 +14,7 @@ namespace Core.ConfigUtility
     /// </summary>
     public static class MConfigManager
     {
-        private static readonly Configuration Config = null;
+        private static readonly Configuration Config;
 
         /// <summary>
         /// 构造函数
@@ -75,6 +75,19 @@ namespace Core.ConfigUtility
         }
 
         /// <summary>
+        /// 获取 配置文件 AppSettings 节点的值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key"></param>
+        /// <param name="configsCategory"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
+        public static T GetAppSettingsValue<T>(string key, MConfigs.ConfigsCategory configsCategory, params T[] def)
+        {
+            return GetAppSettingsValue<T>(FormatKey(key, configsCategory), def);
+        }
+
+        /// <summary>
         /// 添加 配置文件 AppSettings 节点
         /// </summary>
         /// <param name="key"></param>
@@ -97,6 +110,18 @@ namespace Core.ConfigUtility
         }
 
         /// <summary>
+        ///  添加 配置文件 AppSettings 节点
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="configsCategory"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public static bool AddAppSettings(string key, MConfigs.ConfigsCategory configsCategory, string val)
+        {
+            return AddAppSettings(FormatKey(key, configsCategory), val);
+        }
+
+        /// <summary>
         /// 设置 配置文件 AppSettings 节点的值
         /// </summary>
         /// <param name="key"></param>
@@ -107,6 +132,7 @@ namespace Core.ConfigUtility
             var result = false;
             try
             {
+                RemoveAppSettings(key);
                 Config.AppSettings.Settings.Add(key, val);
                 Config.Save();
                 result = true;
@@ -116,6 +142,18 @@ namespace Core.ConfigUtility
                 MLogManager.Error(MLogGroup.Other.配置文件操作, null, null, string.Format("设置 配置文件 AppSettings 节点 {0}={1}", key, val), ex);
             }
             return result;
+        }
+
+        /// <summary>
+        /// 设置 配置文件 AppSettings 节点的值
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="configsCategory"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public static bool SetAppSettingsValue(string key, MConfigs.ConfigsCategory configsCategory, string val)
+        {
+            return SetAppSettingsValue(FormatKey(key, configsCategory), val);
         }
 
         /// <summary>
@@ -140,6 +178,17 @@ namespace Core.ConfigUtility
                 MLogManager.Error(MLogGroup.Other.配置文件操作, null, null, string.Format("移除 配置文件 AppSettings 节点 {0}", key), ex);
             }
             return result;
+        }
+
+        /// <summary>
+        /// 移除 配置文件 AppSettings 节点
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="configsCategory"></param>
+        /// <returns></returns>
+        public static bool RemoveAppSettings(string key, MConfigs.ConfigsCategory configsCategory)
+        {
+            return RemoveAppSettings(FormatKey(key, configsCategory));
         }
 
     }

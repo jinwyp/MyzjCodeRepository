@@ -8,6 +8,7 @@ using Core.ConfigUtility;
 using Core.Enums;
 using ServiceStack.CacheAccess;
 using Core.LogUtility;
+using Core.Caching.HttpRuntime;
 
 namespace Core.Caching
 {
@@ -42,12 +43,17 @@ namespace Core.Caching
                     {
                         case MCaching.Provider.Redis:
                             {
-                                _cacheObj = MRedisCache.GetInstance();
+                                _cacheObj = MRedisCache.GetInstance;
                             }
                             break;
                         case MCaching.Provider.Memcached:
                             {
-                                _cacheObj = MMemcache.GetInstance();
+                                _cacheObj = MMemcache.GetInstance;
+                            }
+                            break;
+                        case MCaching.Provider.HttpRuntime:
+                            {
+                                _cacheObj = MHttpRuntime.GetInstance;
                             }
                             break;
                         default:
@@ -81,10 +87,10 @@ namespace Core.Caching
                     if (!string.IsNullOrEmpty(cacheType))
                     {
                         if (cacheType.Equals(MCaching.Provider.Redis.ToString(), StringComparison.OrdinalIgnoreCase))
-                            _cacheObj = MRedisCache.GetInstance();
+                            _cacheObj = MRedisCache.GetInstance;
                         else if (cacheType.Equals(MCaching.Provider.Memcached.ToString(),
                                                   StringComparison.OrdinalIgnoreCase))
-                            _cacheObj = MMemcache.GetInstance();
+                            _cacheObj = MMemcache.GetInstance;
                         else
                             MLogManager.Error(MLogGroup.Other.获取缓存对象, null, "", "缓存方式配置无法识别，节点" + key);
                     }

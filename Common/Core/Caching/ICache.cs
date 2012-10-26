@@ -126,5 +126,12 @@ namespace Core.Caching
         /// <returns></returns>
         bool Contains(string key, MCaching.CacheGroup cacheGroup);
 
+        /// <summary>
+        /// 是否存在 该Key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        bool Contains(string key);
+
     }
 }

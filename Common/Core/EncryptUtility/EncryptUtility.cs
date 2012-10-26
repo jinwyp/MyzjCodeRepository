@@ -17,15 +17,15 @@ namespace Core
         /// <summary>
         /// MD5加密
         /// </summary>
-        /// <param name="txtEncrypt">加密字符串</param>
+        /// <param name="strEncrypt">加密字符串</param>
         /// <param name="number">固定入参16,密码截取前16位</param>
         /// <returns>密文</returns>
-        public static string MD5Encrypt(string txtEncrypt, int number)
+        public static string MD5Encrypt(string strEncrypt, int number)
         {
-            byte[] buffer1 = Encoding.Default.GetBytes(txtEncrypt);
+            byte[] buffer1 = Encoding.Default.GetBytes(strEncrypt);
             buffer1 = new MD5CryptoServiceProvider().ComputeHash(buffer1);
             var text1 = "";
-            for (int num1 = 0; num1 < buffer1.Length; num1++)
+            for (var num1 = 0; num1 < buffer1.Length; num1++)
             {
                 text1 = text1 + buffer1[num1].ToString("x").PadLeft(2, '0');
             }
@@ -42,7 +42,6 @@ namespace Core
         /// <returns></returns>
         public static string NewGuid()
         {
-            NewRandomStr(10, MRandomType.LowerCarh | MRandomType.Num);
             return Guid.NewGuid().ToString("N");
         }
 

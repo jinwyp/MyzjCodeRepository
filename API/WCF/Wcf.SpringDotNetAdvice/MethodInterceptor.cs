@@ -120,8 +120,9 @@ namespace Wcf.SpringDotNetAdvice
                 }
             }
 
-            if (result == null)
+            if (result == null && resultType != typeof(void))
             {
+
                 result = Activator.CreateInstance(resultType);
 
                 var statusProperty = resultType.GetProperty("status");
