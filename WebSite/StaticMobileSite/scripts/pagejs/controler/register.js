@@ -4,17 +4,16 @@ define(function (require, exports, module) {
 
 		var $=require("jquery");
 		var jQuery=$;
-		var basejs=require("basejs");
 		var Backbone=require("backbone");
 		var _=require("underscore");
 		
 		var viewContent=Backbone.View.extend({
 			initialize: function () {
 				this.render();
-				basejs.RefreshPage();
+				Core.RefreshPage();
 			},	
 			render: function () {
-				basejs.PageChange(this.el,require("/templates/register.tpl"),{});
+				Core.PageChange(this.el,require("/templates/register.tpl"),{});
 				return this;
 			}
 		});

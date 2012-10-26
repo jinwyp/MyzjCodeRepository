@@ -9,7 +9,7 @@ define(function() {
 		alias : {
 			'webconfig' : 'configs/web.config',
 			'pagejs' : 'pagejs/mobile.page',
-			'basejs' : 'pagejs/mobile.common',
+			'corejs' : 'pagejs/mobile.core',
 
 			'md5' : 'plugin/md5',
 			'json2' : 'plugin/json2',

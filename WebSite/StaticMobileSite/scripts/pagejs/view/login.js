@@ -1,16 +1,13 @@
 define(function(require, exports, module) {
 
-	var basejs = require("basejs");
-	var Backbone = require("backbone");
-
 	var view = Backbone.View.extend({
 		initialize : function() {
 			this.render();
-			basejs.RefreshPage();
+			Core.RefreshPage();
 		},
 		render : function() {
 			var template = Handlebars.compile(require("/templates/login.tpl"));
-			basejs.PageChange(this.el, template);
+			Core.PageChange(this.el, template);
 
 			Backbone.Validation.bind(this, {
 				valid : function(view, attr, selector) {

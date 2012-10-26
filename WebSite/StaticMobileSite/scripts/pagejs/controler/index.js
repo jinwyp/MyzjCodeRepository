@@ -9,11 +9,11 @@ define(function (require, exports, module) {
 		var viewContent=Backbone.View.extend({
 			initialize: function () {
 				this.render();
-				basejs.RefreshPage();
+				Core.RefreshPage();
 			},	
 			render: function () {
 				var template = Handlebars.compile(require("/templates/index.tpl"))
-				basejs.PageChange(this.el, template);
+				Core.PageChange(this.el, template);
 				return this;
 			}
 		});
@@ -34,7 +34,7 @@ define(function (require, exports, module) {
 		});
 		//绑定动画图片
 		var bind_Index_pic = function () {
-			basejs.GetWcf({
+			Core.GetWcf({
 				_api: "Cms.get_columndata_list",
 				_url: "B-A1-A1/1/5"
 			}, function (jsonString) {
@@ -73,7 +73,7 @@ define(function (require, exports, module) {
 		} ();
 		//产品推荐列表
 		var columnlist_index = function () {
-			basejs.GetWcf({
+			Core.GetWcf({
 				_api: "Cms.get_columndata_list",
 				_url: "B-A1-A2/1/5"
 			}, function (jsonString) {
@@ -94,7 +94,7 @@ define(function (require, exports, module) {
 		} ();
 		//公告列表
 		var noticelist_index = function () {
-			basejs.GetWcf({
+			Core.GetWcf({
 				_api: "Cms.get_notice_list",
 				_url: "1/5"
 			}, function (jsonString) {

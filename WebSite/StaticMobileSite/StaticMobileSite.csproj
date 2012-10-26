@@ -111,7 +111,7 @@
     <Content Include="scripts\jquery-plugin\jquery.cookie.js" />
     <Content Include="scripts\plugin\json2.js" />
     <Content Include="scripts\plugin\md5.js" />
-    <Content Include="scripts\pagejs\mobile.common.js" />
+    <Content Include="scripts\pagejs\mobile.core.js" />
     <Content Include="scripts\pagejs\mobile.page.js" />
     <Content Include="scripts\seajs\modules\async\0.1.15\async-debug.js" />
     <Content Include="scripts\seajs\modules\async\0.1.15\async.js" />
