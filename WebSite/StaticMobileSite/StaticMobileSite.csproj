@@ -52,10 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="scripts\pagejs\view\" />
-    <Folder Include="themes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="images\16-sinaweibo.png" />
     <Content Include="images\alipay.jpg" />
@@ -84,7 +81,6 @@
     <Content Include="images\slides\Milk0710_1.jpg" />
     <Content Include="images\slides\Pampers0711_1000x400.jpg" />
     <Content Include="images\slides\wanju0705_1000x4000.jpg" />
-    <Content Include="registration.htm" />
     <Content Include="scripts\configs\jqm.config.js" />
     <Content Include="scripts\configs\seajs.init.js" />
     <Content Include="scripts\configs\seajs.web.init.js" />
@@ -93,14 +89,14 @@
     <Content Include="scripts\jquery-plugin\jquery.validate.min.js" />
     <Content Include="scripts\jquerymobile\jquery.mobile-1.1.0.min.js" />
     <Content Include="index.htm" />
-    <Content Include="scripts\jquery\jquery-debug.js" />
-    <Content Include="scripts\pagejs\index.js" />
+    <Content Include="scripts\jquery\jquery-1.7.2.min.js" />
+    <Content Include="scripts\pagejs\controler\index.js" />
+    <Content Include="scripts\pagejs\controler\login.js" />
+    <Content Include="scripts\pagejs\controler\register.js" />
     <Content Include="scripts\jquery-plugin\camera.js" />
     <Content Include="scripts\jquery-plugin\date.js" />
     <Content Include="scripts\jquery-plugin\jquery.cookie.js" />
-    <Content Include="scripts\pagejs\login.js" />
     <Content Include="scripts\pagejs\model\login.js" />
-    <Content Include="scripts\pagejs\register.js" />
     <Content Include="scripts\jquerymobile\images\ajax-loader.gif" />
     <Content Include="scripts\jquerymobile\images\icon-custom.png" />
     <Content Include="scripts\jquerymobile\images\icons-18-black.png" />
@@ -109,10 +105,8 @@
     <Content Include="scripts\jquerymobile\images\icons-36-white.png" />
     <Content Include="scripts\jquerymobile\jquery.mobile-1.1.0.min.css" />
     <Content Include="scripts\jquerymobile\jquery.mobile-1.1.0.min.js" />
-    <Content Include="main.htm" />
     <Content Include="scripts\jquery\jquery-debug.js" />
-    <Content Include="scripts\pagejs\index.js" />
-    <Content Include="scripts\plugin\camera.js" />
+    <Content Include="scripts\pagejs\view\login.js" />
     <Content Include="scripts\jquery-plugin\date.js" />
     <Content Include="scripts\jquery-plugin\jquery.cookie.js" />
     <Content Include="scripts\plugin\json2.js" />
@@ -139,6 +133,8 @@
     <Content Include="scripts\seajs\modules\backbone\0.9.2\backbone-debug.js" />
     <Content Include="scripts\seajs\modules\backbone\0.9.2\backbone.js" />
     <Content Include="scripts\seajs\modules\backbone\plugin\backbone.cookie.js" />
+    <Content Include="scripts\seajs\modules\backbone\plugin\backbone.localstorage.js" />
+    <Content Include="scripts\seajs\modules\backbone\plugin\backbone.routefilter.js" />
     <Content Include="scripts\seajs\modules\backbone\transport.js" />
     <Content Include="scripts\seajs\modules\base\0.9.16\aspect-debug.js" />
     <Content Include="scripts\seajs\modules\base\0.9.16\aspect.js" />
@@ -505,6 +501,9 @@
     <None Include="scripts\seajs\modules\widget\info.json" />
     <None Include="scripts\seajs\modules\zepto\0.8.0\zepto.tgz" />
     <None Include="scripts\seajs\modules\zepto\1.0.0\zepto.tgz" />
+    <None Include="templates\index.tpl" />
+    <None Include="templates\login.tpl" />
+    <None Include="templates\register.tpl" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
