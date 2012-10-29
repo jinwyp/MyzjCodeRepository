@@ -151,8 +151,11 @@ namespace Core.Caching.Redis
             {
                 if (Open())
                 {
-                    var cacheKey = FormatKey(key, cacheGroup);
-                    result = Cache.Set<T>(cacheKey, obj, expired);
+                    using (Cache)
+                    {
+                        var cacheKey = FormatKey(key, cacheGroup);
+                        result = Cache.Set<T>(cacheKey, obj, expired);
+                    }
                 }
             }
             catch (Exception ex)
@@ -176,8 +179,11 @@ namespace Core.Caching.Redis
             {
                 if (Open())
                 {
-                    var cacheKey = FormatKey(key, cacheGroup);
-                    result = Cache.Set<T>(cacheKey, obj);
+                    using (Cache)
+                    {
+                        var cacheKey = FormatKey(key, cacheGroup);
+                        result = Cache.Set<T>(cacheKey, obj);
+                    }
                 }
             }
             catch (Exception ex)
@@ -202,8 +208,11 @@ namespace Core.Caching.Redis
             {
                 if (Open())
                 {
-                    var cacheKey = FormatKey(key, cacheGroup);
-                    result = Cache.Add<T>(cacheKey, obj, expired);
+                    using (Cache)
+                    {
+                        var cacheKey = FormatKey(key, cacheGroup);
+                        result = Cache.Add<T>(cacheKey, obj, expired);
+                    }
                 }
             }
             catch (Exception ex)
@@ -227,8 +236,11 @@ namespace Core.Caching.Redis
             {
                 if (Open())
                 {
-                    var cacheKey = FormatKey(key, cacheGroup);
-                    result = Cache.Add<T>(cacheKey, obj);
+                    using (Cache)
+                    {
+                        var cacheKey = FormatKey(key, cacheGroup);
+                        result = Cache.Add<T>(cacheKey, obj);
+                    }
                 }
             }
             catch (Exception ex)
@@ -251,9 +263,12 @@ namespace Core.Caching.Redis
             {
                 if (Open())
                 {
-                    var cacheKey = FormatKey(key, cacheGroup);
-                    var result = Cache.Get<T>(cacheKey);
-                    return result;
+                    using (Cache)
+                    {
+                        var cacheKey = FormatKey(key, cacheGroup);
+                        var result = Cache.Get<T>(cacheKey);
+                        return result;
+                    }
                 }
             }
             catch (Exception)
@@ -276,17 +291,19 @@ namespace Core.Caching.Redis
             {
                 if (Open())
                 {
-
-                    var keyList = new List<string>();
-                    if (keys != null)
+                    using (Cache)
                     {
-                        foreach (var key in keys)
+                        var keyList = new List<string>();
+                        if (keys != null)
                         {
-                            var nKey = FormatKey(key, cacheGroup);
-                            if (!keyList.Contains(nKey))
-                                keyList.Add(nKey);
+                            foreach (var key in keys)
+                            {
+                                var nKey = FormatKey(key, cacheGroup);
+                                if (!keyList.Contains(nKey))
+                                    keyList.Add(nKey);
+                            }
+                            result = (Dictionary<string, T>)Cache.GetAll<T>(keyList);
                         }
-                        result = (Dictionary<string, T>)Cache.GetAll<T>(keyList);
                     }
                 }
             }
@@ -307,7 +324,10 @@ namespace Core.Caching.Redis
             {
                 if (Open())
                 {
-                    result = Cache.GetAllKeys();
+                    using (Cache)
+                    {
+                        result = Cache.GetAllKeys();
+                    }
                 }
             }
             catch (Exception ex)
@@ -329,13 +349,16 @@ namespace Core.Caching.Redis
             {
                 if (Open())
                 {
-                    var keyList = GetKeys();
-                    if (keyList != null && keyList.Count > 0)
+                    using (Cache)
                     {
-                        foreach (var key in keyList)
+                        var keyList = GetKeys();
+                        if (keyList != null && keyList.Count > 0)
                         {
-                            if (VerifyKeyInGroup(key, cacheGroup))
-                                result.Add(FormatKey(key, cacheGroup));
+                            foreach (var key in keyList)
+                            {
+                                if (VerifyKeyInGroup(key, cacheGroup))
+                                    result.Add(FormatKey(key, cacheGroup));
+                            }
                         }
                     }
                 }
@@ -359,7 +382,10 @@ namespace Core.Caching.Redis
             {
                 if (Open())
                 {
-                    result = Cache.Remove(key);
+                    using (Cache)
+                    {
+                        result = Cache.Remove(key);
+                    }
                 }
             }
             catch (Exception ex)
@@ -390,18 +416,21 @@ namespace Core.Caching.Redis
             var result = 0;
             if (Open())
             {
-                var keys = GetKeys();
-                foreach (var key in keys)
+                using (Cache)
                 {
-                    try
+                    var keys = GetKeys();
+                    foreach (var key in keys)
                     {
-                        if (VerifyKeyInGroup(key, cacheGroup))
-                            if (Cache.Remove(key))
-                                result++;
-                    }
-                    catch (Exception ex)
-                    {
-                        MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "获取所有缓存Key 出错！", ex);
+                        try
+                        {
+                            if (VerifyKeyInGroup(key, cacheGroup))
+                                if (Cache.Remove(key))
+                                    result++;
+                        }
+                        catch (Exception ex)
+                        {
+                            MLogManager.Error(MLogGroup.Other.Redis缓存, null, null, "获取所有缓存Key 出错！", ex);
+                        }
                     }
                 }
             }
@@ -418,7 +447,10 @@ namespace Core.Caching.Redis
         {
             if (Open())
             {
-                return GetKeys().Contains(FormatKey(key, cacheGroup));
+                using (Cache)
+                {
+                    return GetKeys().Contains(FormatKey(key, cacheGroup));
+                }
             }
             return false;
         }
@@ -431,7 +463,10 @@ namespace Core.Caching.Redis
         public bool Contains(string key)
         {
             if (Open())
-                return GetKeys().Contains(key);
+                using (Cache)
+                {
+                    return GetKeys().Contains(key);
+                }
             return false;
         }
 
