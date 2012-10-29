@@ -14,8 +14,8 @@ define(function(require, exports, module) {
 
 	// Hold reference to Underscore.js and Backbone.js in the closure in order
 	// to make things work even if they are removed from the global namespace
-	var _ = this._;
-	var Backbone = this.Backbone;
+	//var _ = this._;
+	//var Backbone = this.Backbone;
 
 	// Generate four random hex digits.
 	function S4() {

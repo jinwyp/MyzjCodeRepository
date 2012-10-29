@@ -23,8 +23,8 @@ define(function() {
 
 			'backbone-modelbinder' : 'seajs/modules/backbonemodelbinder/backbone-modelbinder.js',
 			'backbone-validation' : 'seajs/modules/backbonevalidation/backbone-validation-amd.js',
-			'backbone.routefilter' : 'seajs/modules/backbone/plugin/backbone.routefilter',
-			'backbone.localstorage' : 'seajs/modules/backbone/plugin/backbone.localstorage',
+			'backbone-routefilter' : 'seajs/modules/backbone/plugin/backbone.routefilter',
+			'backbone-localstorage' : 'seajs/modules/backbone/plugin/backbone.localstorage',
 
 			'cookie' : 'seajs/modules/cookie/1.0.2/cookie-debug',
 			'jquery.validate' : 'jquery-plugin/jquery.validate.min',

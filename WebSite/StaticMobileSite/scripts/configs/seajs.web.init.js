@@ -12,7 +12,8 @@ define(function (require, exports, module) {
 
     require("backbone-modelbinder");
     require("backbone-validation");
-    require("backbone.routefilter");
+    require("backbone-routefilter");
+    require("backbone-localstorage");
 
     Backbone.Validation.configure({
         forceUpdate: true
@@ -23,7 +24,8 @@ define(function (require, exports, module) {
     window.context = {
         router: {},
         view: {},
-        model: {}
+        model: {},
+        collection: {}
     };
 
     window.$ = $;
@@ -49,7 +51,7 @@ define(function (require, exports, module) {
 
     $.mobile.initializePage();
     $(document.body).show(300);
-
+    
     var appRouter = Backbone.Router.extend({
         initialize: function () {
             Backbone.history.start({

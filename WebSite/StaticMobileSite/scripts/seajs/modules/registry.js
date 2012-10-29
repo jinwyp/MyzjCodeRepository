@@ -573,5 +573,53 @@ define({
     "dirpath": "socketio",
     "gzipped": "13KB",
     "raw": "98KB"
+  },
+  "jasmine-jquery": {
+    "name": "jasmine-jquery",
+    "src": "https://raw.github.com/velesin/jasmine-jquery/master/lib/jasmine-jquery.js",
+    "version": "1.4.2",
+    "filename": "jasmine-jquery",
+    "dirpath": "jasmine-jquery",
+    "gzipped": "2KB",
+    "raw": "16KB"
+  },
+  "jquery-color": {
+    "package": "https://raw.github.com/jquery/jquery-color/master/package.json",
+    "src": "https://raw.github.com/jquery/jquery-color/2.1.0/jquery.color.js",
+    "name": "jquery-color",
+    "title": "jQuery Color",
+    "description": "jQuery plugin for color manipulation and animation support.",
+    "version": "2.1.0",
+    "homepage": "https://github.com/jquery/jquery-color",
+    "author": {
+      "name": "jQuery Foundation and other contributors",
+      "url": "https://github.com/jquery/jquery-color/blob/master/AUTHORS.txt"
+    },
+    "maintainers": [ {
+      "name": "Corey Frang",
+      "email": "gnarf37@gmail.com",
+      "url": "http://gnarf.net"
+    } ],
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/jquery/jquery-color.git"
+    },
+    "bugs": "https://github.com/jquery/jquery-color/issues",
+    "licenses": [ {
+      "type": "MIT",
+      "url": "https://github.com/jquery/jquery-color/blob/master/MIT-LICENSE.txt"
+    } ],
+    "dependencies": {},
+    "devDependencies": {
+      "grunt": "~0.3.9",
+      "grunt-compare-size": ">=0.1.4",
+      "grunt-git-authors": "1.0.0",
+      "testswarm": "0.2.2"
+    },
+    "keywords": [ "color", "animation" ],
+    "filename": "jquery-color",
+    "dirpath": "jquery-color",
+    "gzipped": "3KB",
+    "raw": "16KB"
   }
 });

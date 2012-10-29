@@ -17,7 +17,7 @@ var zlib = require('zlib');
 var argv2 = process.argv[2];
 var force = process.argv[3] === '-f' || process.argv[3] === '--force';
 
-var Transport = require('../lib/actions/transport.js');
+var Transport = require('../spm/lib/actions/transport.js');
 
 // init registry
 const REGISTRY_FILE = path.join(__dirname, 'registry.js');

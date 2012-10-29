@@ -1,8 +1,8 @@
 /**
  * @package https://raw.github.com/documentcloud/underscore/master/package.json
  *
- * @src http://documentcloud.github.com/underscore/underscore.js
- * @min http://documentcloud.github.com/underscore/underscore-min.js
+ * @src https://raw.github.com/documentcloud/underscore/{{version}}/underscore.js
+ * @min https://raw.github.com/documentcloud/underscore/{{version}}/underscore-min.js
  */
 
 define('#{{id}}', [], function(require, exports, module) {
