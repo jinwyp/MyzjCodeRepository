@@ -8,8 +8,6 @@
 <div class="content-primary">
     <div class="camera_wrap camera_azure_skin" id="foucsPic">
     </div>
-    <div id="picList" style="display: none;">
-    </div>
     <!-- #foucs -->
     <!-- #camera_wrap_1 -->
     <ul data-role="listview" data-inset="true" data-theme="c" id="columnlistContent">

@@ -1,9 +1,10 @@
 ﻿define(function (require, exports, module) {
 
-    var $ = require("jquery").sub();
+    var $ = require("jquery");
     var cookie = require("cookie");
 
-    exports.Debug = window.Debug = false;
+	exports.UseLocalStorage=window.UseLocalStorage=false;
+    exports.Debug = window.Debug = true;
     exports.Tasks = window.Tasks = {};
     exports.mobile = window.mobile = {};
     exports.mobile.pages = window.mobile.pages = {};
@@ -87,9 +88,27 @@
         if (guid.length == 0) {
             guid = NewGuid("N");
             cookie.set("m_guid", guid);
-        } else
-            guid = "null";
+        } 
         return guid;
+    };
+    //#endregion
+    
+    //#region 获取wcf 授权信息 
+    var WcfAuth=function(){
+    	//"/WebSite/token/guid/654/uid"
+    	var authArray=[];
+    	authArray.push(GetAppKey()||"null");
+    	authArray.push(MToken()||"null");
+    	authArray.push(MGuid()||"null");
+    	authArray.push(MUserId()||"null");
+    	authArray.push(MUid()||"null");
+    	return "/"+authArray.join("/")
+    };
+    //#endregion
+    
+    //#region 获取应用标识
+    var GetAppKey=function(){
+    	return "WebSite";
     };
     //#endregion
 
@@ -115,25 +134,56 @@
 	};
 	//#endregion
 
-    //#region 跳转页面
-    var Change_Url = window.Change_Url = function (diUrl) {
-        //window.location.href = diUrl;
-        //console.log("跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面跳转页面");
-        $.mobile.changePage(diUrl); //, { transition: "slide" }, { reloadPage: true }
-    }
-    //#endregion
-
     //#region 输出日志
-    var Log = window.Log = function (logstr) {
-        if (Debug) {
-            if (typeof (window.console) == "object")
-                window.console.log(logstr);
-            else
-                alert(logstr);
-        }
+
+    var Log=window.Log=function(){
+    	this.isGroup=false;
+    	
+    };
+    Log.instance=function(groupName){
+    	var obj=new Log();
+    	obj.group(groupName);
+    	return obj;
+    };
+    Log.prototype={
+    	group:function(groupName){
+    		if(typeof(groupName)=="string" && groupName.length>0)
+    		{
+	    		if (Debug) {
+		    		console.group(groupName);
+		    		this.isGroup=true;
+	    		}
+    		}
+    		return this;
+    	},
+    	end:function(){
+    		if(Debug&&this.isGroup)
+    		{
+    			console.groupEnd();
+    		}
+    		return this;
+    	},
+    	info:function(logStr){
+    		if (Debug) {
+    			console.log(logStr);
+    		}
+    		return this;
+    	},
+    	warn:function(logStr){
+    		if (Debug) {
+    			console.warn(logStr);
+    		}
+    		return this;
+    	},
+    	error:function(logStr){
+    		if (Debug) {
+    			console.error(logStr);
+    		}
+    		return this;
+    	}
     };
     //#endregion
-
+    
     //#region 获取url中的参数
     var getParameter = function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -219,25 +269,6 @@
     };
     //#endregion
 
-    //#region localStorage
-    var LS = {
-        set: function (key, value) {
-            if (this.get(key) != null) {
-                this.remove(key);
-            }
-            localStorage.setItem(key, value);
-        },
-        get: function (key) {
-            var v = localStorage.getItem(key);
-            return v === undefined ? null : v;
-        },
-        remove: function (key) {
-            localStorage.removeItem(key);
-        },
-        clear: function () { localStorage.clear(); }
-    };
-    //#endregion
-
     //#region 更新（写入）用户信息到Cookie（登录）
     var UpdateLoginCookie = function (user_id, uid, token) {
         cookie.set("m_user_id", user_id);
@@ -259,45 +290,6 @@
         cookie.remove("m_md5");
         LS.clear();
         Get_shoppingcartgoodsnum_Fun();
-    };
-    //#endregion
-
-    //#region 跳转到登录页面
-    var LinkToLogin = function () {
-
-        var url = window.location.href;
-        if (!/login.aspx|registration.aspx/i.test(url)) {
-            RemoveLoginCookie();
-            window.location.href = window.WebRoot + "login.aspx";
-        }
-
-    };
-    //#endregion
-
-    //#region 获取url参数的值
-    var GetUrlParam = function (pName) {
-
-        if (typeof (window.location.paramobj) == 'undefined') {
-            var paramobj = {};
-            var urlSplit = window.location.href.split('?');
-            if (urlSplit.length > 1) {
-                var searchSplit = urlSplit[1].split('&');
-                for (var i = 0; i < searchSplit.length; i++) {
-                    var paramSplit = searchSplit[i].split('=');
-                    var key = paramSplit[0];
-                    var val = paramSplit[1];
-                    paramobj[key] = val;
-                }
-            }
-            Log("地址解析后的对象");
-            Log(paramobj);
-
-            window.location.paramobj = paramobj;
-        }
-
-        if (pName != null && pName.length > 0) {
-            return decodeURIComponent(window.location.paramobj[pName]);
-        }
     };
     //#endregion
 
@@ -476,6 +468,7 @@
     };
     //#endregion
 
+	exports.WcfAuth=WcfAuth;
     exports.GetWcf = GetWcf;
     exports.PostWcf = PostWcf;
 	exports.RefreshPage=RefreshPage;

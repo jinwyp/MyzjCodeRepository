@@ -32,20 +32,21 @@ define(function(require, exports, module) {
 		},
 		submigLogin : function(e) {
 			e.preventDefault();
-			console.log(this.model.isValid(true));
-			return;
-			PostWcf({
-				_api : "Member.Login",
-				_data : loginModel.toJSON()
-			}, function(json) {
-				if (json.status == 1 && typeof (json.data) == "string" && json.data.length > 0) {
-					UpdateLoginCookie(json.info, email, json.data);
-					var returnurl = window.context.urlparams[0] || "";
-					LS.clear();
-					window.location.hash = returnurl;
-				} else
-					jQuery("#login_ErroMesg").css("display", "block").text(json.msg);
-			}, true);
+
+			Backbone.sync("update", this.model, {
+				url : 'http://api.muyingzhijia.me/Member.svc/login/WebSite/token/guid/654/uid',
+				success : function(result) {
+					if (json.status == 1 && typeof (json.data) == "string" && json.data.length > 0) {
+						UpdateLoginCookie(json.info, email, json.data);
+						var returnurl = (window.context.urlparams[0] || "").split('#');
+						if (returnurl.length > 0) {
+							Backbone.Router.Redirect(returnurl[1]);
+						}
+
+					} else
+						this.$("#login_ErroMesg").css("display", "block").text(json.msg);
+				}
+			});
 		}
 	});
 
