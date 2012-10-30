@@ -16,19 +16,22 @@ namespace Core.Caching.Memcached
     {
         private static readonly object LockObj = new object();
         private static MMemcache _obj;
-        private static MemcachedClient _cacheClient;
+        private static MemcachedClient Cache { get; set; }
 
         /// <summary>
         /// 获取单例实例
         /// </summary>
         /// <returns></returns>
-        public static MMemcache GetInstance()
+        public static MMemcache GetInstance
         {
-            if (_obj == null)
-                lock (LockObj)
-                    if (_obj == null)
-                        _obj = new MMemcache();
-            return _obj;
+            get
+            {
+                if (_obj == null)
+                    lock (LockObj)
+                        if (_obj == null)
+                            _obj = new MMemcache();
+                return _obj;
+            }
         }
 
         /// <summary>
@@ -38,7 +41,7 @@ namespace Core.Caching.Memcached
         {
             try
             {
-                _cacheClient = new MemcachedClient();
+                Cache = new MemcachedClient();
                 //_cacheClient.FlushAll();
             }
             catch (Exception ex)
@@ -53,7 +56,7 @@ namespace Core.Caching.Memcached
         /// <returns></returns>
         public bool Open()
         {
-            var result = _cacheClient != null;
+            var result = Cache != null;
             return result;
         }
 
@@ -66,7 +69,7 @@ namespace Core.Caching.Memcached
             var result = true;
             try
             {
-                _cacheClient.Dispose();
+                Cache.Dispose();
             }
             catch
             {
@@ -84,7 +87,7 @@ namespace Core.Caching.Memcached
             var result = true;
             try
             {
-                _cacheClient.FlushAll();
+                Cache.FlushAll();
             }
             catch
             {
@@ -100,7 +103,7 @@ namespace Core.Caching.Memcached
             try
             {
                 var cacheKey = FormatKey(key, cacheGroup);
-                result = _cacheClient.Store(StoreMode.Set, cacheKey, obj, expired);
+                result = Cache.Store(StoreMode.Set, cacheKey, obj, expired);
             }
             catch (Exception ex)
             {
@@ -117,7 +120,7 @@ namespace Core.Caching.Memcached
             try
             {
                 var cacheKey = FormatKey(key, cacheGroup);
-                result = _cacheClient.Store(StoreMode.Set, cacheKey, obj);
+                result = Cache.Store(StoreMode.Set, cacheKey, obj);
             }
             catch (Exception ex)
             {
@@ -134,7 +137,7 @@ namespace Core.Caching.Memcached
             try
             {
                 var cacheKey = FormatKey(key, cacheGroup);
-                result = _cacheClient.Store(StoreMode.Add, cacheKey, obj, expired);
+                result = Cache.Store(StoreMode.Add, cacheKey, obj, expired);
             }
             catch (Exception ex)
             {
@@ -151,7 +154,7 @@ namespace Core.Caching.Memcached
             try
             {
                 var cacheKey = FormatKey(key, cacheGroup);
-                result = _cacheClient.Store(StoreMode.Add, cacheKey, obj);
+                result = Cache.Store(StoreMode.Add, cacheKey, obj);
             }
             catch (Exception ex)
             {
@@ -167,7 +170,7 @@ namespace Core.Caching.Memcached
             try
             {
                 var cacheKey = FormatKey(key, cacheGroup);
-                result = _cacheClient.Get<T>(cacheKey);
+                result = Cache.Get<T>(cacheKey);
             }
             catch (Exception ex)
             {
@@ -214,7 +217,7 @@ namespace Core.Caching.Memcached
 
             try
             {
-                result = _cacheClient.Remove(key);
+                result = Cache.Remove(key);
             }
             catch (Exception ex)
             {
@@ -239,6 +242,17 @@ namespace Core.Caching.Memcached
         {
             var val = GetValByKey<object>(key, cacheGroup);
             return val != null;
+        }
+
+        /// <summary>
+        /// 是否存在 该Key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public bool Contains(string key)
+        {
+            MLogManager.Error(MLogGroup.Other.Memcached缓存, null, null, "没有方法实现");
+            throw new Exception("没有方法实现");
         }
 
     }

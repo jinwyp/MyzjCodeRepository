@@ -99,5 +99,10 @@ namespace Core.Caching
         {
             return false;
         }
+
+        public bool Contains(string key)
+        {
+            return false;
+        }
     }
 }

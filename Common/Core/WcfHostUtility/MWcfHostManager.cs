@@ -48,7 +48,7 @@ namespace Core.WcfHostUtility
 
         public void Open()
         {
-            if (_host != null && _host.State != System.ServiceModel.CommunicationState.Opened)
+            if (_host != null && _host.State != System.ServiceModel.CommunicationState.Opened && _host.State != System.ServiceModel.CommunicationState.Opening)
             {
                 _host.Open();
             }
@@ -58,7 +58,7 @@ namespace Core.WcfHostUtility
 
         public void Close()
         {
-            if (_host != null && _host.State == System.ServiceModel.CommunicationState.Opened)
+            if (_host != null && _host.State == System.ServiceModel.CommunicationState.Closed && _host.State != System.ServiceModel.CommunicationState.Opening)
             {
                 _host.Close();
             }

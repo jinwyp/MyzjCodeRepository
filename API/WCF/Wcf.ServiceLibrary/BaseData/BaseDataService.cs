@@ -12,6 +12,7 @@ using Factory;
 using Core.Enums;
 using Core.DataTypeUtility;
 using Core.Caching;
+using System.Web;
 
 namespace Wcf.ServiceLibrary.BaseData
 {
@@ -131,6 +132,50 @@ namespace Wcf.ServiceLibrary.BaseData
                 throw new Exception(result.msg, ex);
             }
             return result;
+        }
+
+        public MResult<string> GetCaptcha(string sid, string token, string guid, string user_id, string uid)
+        {
+            var result = new MResult<string>();
+            try
+            {
+                result = BaseDataBLL.GetCaptcha(guid);
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
+            }
+            return result;
+        }
+
+        public MResult<bool> VerifyCaptcha(string sid, string token, string guid, string user_id, string uid, string verifysig, string verifycode)
+        {
+            var result = new MResult<bool>();
+            try
+            {
+                result = BaseDataBLL.VerifyCaptcha(verifysig, verifycode);
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "调用业务逻辑异常！";
+                throw new Exception(result.msg, ex);
+            }
+            return result;
+        }
+
+        public void GetCaptchaStream(string sid, string token, string guid, string user_id, string uid, string verifysig)
+        {
+            try
+            {
+                BaseDataBLL.GetCaptchaStream(HttpContext.Current, verifysig);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("", ex);
+            }
         }
 
     }

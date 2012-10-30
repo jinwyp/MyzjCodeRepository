@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Core;
+using Core.Secure;
 using Factory;
 using Wcf.Entity.BaseData;
 using EF.Model.DataContext;
@@ -371,5 +372,114 @@ namespace Wcf.BLL.BaseData
             }
             return result;
         }
+
+        /// <summary>
+        /// 获取验证码地址
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public static MResult<string> GetCaptcha(string guid)
+        {
+            var result = new MResult<string>();
+            try
+            {
+                var verifysig = MEncryptUtility.NewGuid();
+                if (!string.IsNullOrEmpty(verifysig))
+                {
+                    var cacheKey = string.Format("{0}_{1}", "VerifyCode", verifysig);
+                    var verifyCode = MEncryptUtility.NewRandomStr(5, MRandomType.LowerCarh | MRandomType.Num);
+
+                    if (MCacheManager.GetCacheObj().Set(cacheKey, MCaching.CacheGroup.BaseData, verifyCode, DateTime.Now.AddMinutes(10)))
+                    {
+                        result.status = MResultStatus.Success;
+                        result.info = verifysig;
+                    }
+                    else
+                    {
+                        result.status = MResultStatus.Undefined;
+                        result.msg = "生成验证码错误！";
+                    }
+                }
+                else
+                {
+                    result.status = MResultStatus.ParamsError;
+                    result.msg = "参数错误";
+                }
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "校验验证码 异常";
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 校验验证码
+        /// </summary>
+        /// <returns></returns>
+        public static MResult<bool> VerifyCaptcha(string verifysig, string verifycode)
+        {
+            var result = new MResult<bool>();
+            try
+            {
+                if (!string.IsNullOrEmpty(verifysig) && !string.IsNullOrEmpty(verifycode))
+                {
+                    var cacheKey = string.Format("{0}_{1}", "VerifyCode", verifysig);
+                    var verifyCode = MCacheManager.GetCacheObj().GetValByKey<string>(cacheKey, MCaching.CacheGroup.BaseData);
+                    if (verifyCode.Equals(verifycode, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        result.status = MResultStatus.Success;
+                    }
+                    else
+                    {
+                        result.status = MResultStatus.Undefined;
+                        result.msg = "验证码错误！";
+                    }
+                }
+                else
+                {
+                    result.status = MResultStatus.ParamsError;
+                    result.msg = "参数错误";
+                }
+            }
+            catch (Exception ex)
+            {
+                result.status = MResultStatus.ExceptionError;
+                result.msg = "校验验证码 异常";
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取验证码图片流
+        /// </summary>
+        /// <param name="httpContext"></param>
+        /// <param name="verifysig"></param>
+        public static void GetCaptchaStream(HttpContext httpContext, string verifysig)
+        {
+            try
+            {
+                if (httpContext != null && !string.IsNullOrEmpty(verifysig))
+                {
+                    httpContext.Response.ContentType = "image/jpeg";
+
+                    var cacheKey = string.Format("{0}_{1}", "VerifyCode", verifysig);
+                    var verifyCode = MCacheManager.GetCacheObj().GetValByKey<string>(cacheKey, MCaching.CacheGroup.BaseData);
+                    if (!string.IsNullOrEmpty(verifyCode))
+                    {
+                        var captcha = new MCaptcha(new MCaptchaOptions { VerifyCode = verifyCode });
+                        var image = captcha.Gengrate();
+                        httpContext.Response.BinaryWrite(image.ToArray());
+                    }
+
+                    httpContext.Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
     }
 }

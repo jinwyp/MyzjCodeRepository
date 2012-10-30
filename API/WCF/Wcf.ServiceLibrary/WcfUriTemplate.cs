@@ -69,6 +69,21 @@ namespace Wcf.ServiceLibrary
         /// 获取配送列表
         /// </summary>
         public const string GETLOGISTICSLIST = "/get_logistics_list/{sid}/{token}/{guid}/{user_id}/{uid}/{regionid}/{paygroupid}";
+
+        /// <summary>
+        /// 获取验证码
+        /// </summary>
+        public const string GETCAPTCHA = "/get_captcha/{sid}/{token}/{guid}/{user_id}/{uid}";
+
+        /// <summary>
+        /// 检验验证码
+        /// </summary>
+        public const string VERIFYCAPTCHA = "/verify_captcha/{sid}/{token}/{guid}/{user_id}/{uid}/{verifysig}/{verifycode}";
+
+        /// <summary>
+        /// 获取验证码流
+        /// </summary>
+        public const string GETCAPTCHASTREAM = "/get_captchastream/{sid}/{token}/{guid}/{user_id}/{uid}/{verifysig}";
     }
 
     /// <summary>
