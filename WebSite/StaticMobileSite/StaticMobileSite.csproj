@@ -90,12 +90,17 @@
     <Content Include="scripts\jquery-plugin\date.js" />
     <Content Include="scripts\jquery-plugin\jquery-jtemplates_uncompressed.js" />
     <Content Include="scripts\jquery-plugin\jquery.cookie.js" />
+    <Content Include="scripts\jquery-plugin\jquery.easing.1.3.js" />
     <Content Include="scripts\jquery-plugin\jquery.validate.min.js" />
     <Content Include="scripts\jquery\jquery-1.7.2.min.js" />
+    <Content Include="scripts\pagejs\collection\datalist.js" />
+    <Content Include="scripts\pagejs\controler\category.js" />
     <Content Include="scripts\pagejs\controler\index.js" />
     <Content Include="scripts\pagejs\controler\login.js" />
+    <Content Include="scripts\pagejs\controler\notice.js" />
+    <Content Include="scripts\pagejs\controler\productlist.js" />
     <Content Include="scripts\pagejs\controler\register.js" />
-    <Content Include="scripts\pagejs\model\column.js" />
+    <Content Include="scripts\pagejs\model\datainfo.js" />
     <Content Include="scripts\pagejs\model\login.js" />
     <Content Include="scripts\jquerymobile\images\ajax-loader.gif" />
     <Content Include="scripts\jquerymobile\images\icon-custom.png" />
@@ -105,7 +110,12 @@
     <Content Include="scripts\jquerymobile\images\icons-36-white.png" />
     <Content Include="scripts\jquerymobile\jquery.mobile-1.1.0.min.css" />
     <Content Include="scripts\jquery\jquery-debug.js" />
+    <Content Include="scripts\pagejs\model\productlistseach.js" />
+    <Content Include="scripts\pagejs\view\category.js" />
+    <Content Include="scripts\pagejs\view\index.js" />
     <Content Include="scripts\pagejs\view\login.js" />
+    <Content Include="scripts\pagejs\view\notice.js" />
+    <Content Include="scripts\pagejs\view\productlist.js" />
     <Content Include="scripts\plugin\json2.js" />
     <Content Include="scripts\plugin\md5.js" />
     <Content Include="scripts\pagejs\mobile.core.js" />
@@ -453,6 +463,7 @@
     <Content Include="scripts\seajs\sea.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="templates\category.tpl" />
     <Content Include="themes\Default\css\camera.css" />
     <Content Include="themes\Default\css\jquery.mobile-1.1.0.min.css" />
     <Content Include="themes\Default\css\my.css" />
@@ -625,6 +636,10 @@
     <None Include="scripts\seajs\modules\zepto\info.json" />
     <None Include="templates\index.tpl" />
     <None Include="templates\login.tpl" />
+    <None Include="templates\notice.tpl" />
+    <None Include="templates\productlist.tpl">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="templates\register.tpl" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

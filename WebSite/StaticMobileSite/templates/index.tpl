@@ -22,7 +22,7 @@
     <script id="notice_jTemplate" type="text/template">
         <li data-role="list-divider">公告</li>
         {#foreach $T.list as notice}
-        <li><a href="{$T.notice.id}">{$T.notice.title}</a></li>
+        <li><a href="#notice/{$T.notice.id}">{$T.notice.title}</a></li>
         {#/for}
     </script>
 </div>

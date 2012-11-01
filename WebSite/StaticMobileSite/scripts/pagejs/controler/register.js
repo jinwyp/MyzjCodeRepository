@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
 
-	exports.initalize = function(){
+	exports.initialize = function(){
 
 		var $=require("jquery");
 		var jQuery=$;

@@ -1,8 +1,6 @@
 define(function (require, exports, module) {
 
-    var Backbone = require("backbone");
-
-    var Model = Backbone.Model.extend({
+    var model = Backbone.Model.extend({
         defaults: {
             email: '',
             password: ''
@@ -32,6 +30,6 @@ define(function (require, exports, module) {
         }
     });
 
-    return Model;
+    return model;
 
 });

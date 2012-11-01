@@ -3,8 +3,6 @@
     var $ = require("jquery");
     var cookie = require("cookie");
 
-	exports.UseLocalStorage=window.UseLocalStorage=false;
-    exports.Debug = window.Debug = true;
     exports.Tasks = window.Tasks = {};
     exports.mobile = window.mobile = {};
     exports.mobile.pages = window.mobile.pages = {};
@@ -88,27 +86,27 @@
         if (guid.length == 0) {
             guid = NewGuid("N");
             cookie.set("m_guid", guid);
-        } 
+        }
         return guid;
     };
     //#endregion
-    
+
     //#region 获取wcf 授权信息 
-    var WcfAuth=function(){
-    	//"/WebSite/token/guid/654/uid"
-    	var authArray=[];
-    	authArray.push(GetAppKey()||"null");
-    	authArray.push(MToken()||"null");
-    	authArray.push(MGuid()||"null");
-    	authArray.push(MUserId()||"null");
-    	authArray.push(MUid()||"null");
-    	return "/"+authArray.join("/")
+    var WcfAuth = function () {
+        //"/WebSite/token/guid/654/uid"
+        var authArray = [];
+        authArray.push(GetAppKey() || "null");
+        authArray.push(MToken() || "null");
+        authArray.push(MGuid() || "null");
+        authArray.push(MUserId() || "null");
+        authArray.push(MUid() || "null");
+        return "/" + authArray.join("/")
     };
     //#endregion
-    
+
     //#region 获取应用标识
-    var GetAppKey=function(){
-    	return "WebSite";
+    var GetAppKey = function () {
+        return "WebSite";
     };
     //#endregion
 
@@ -121,69 +119,67 @@
         }
     }
     //#endregion
-	
-	//#region 刷新page 样式
-	var RefreshPage=function(){
-		$( ":jqmData(role='page'), :jqmData(role='dialog')" ).trigger("pagecreate");
-	};
-	//#endregion
-	
-	//#region
-	var PageChange=function(obj,template){
-		$(obj).hide().html(template).fadeIn(400);
-	};
-	//#endregion
+
+    //#region 刷新page 样式
+    var RefreshPage = function () {
+        $(":jqmData(role='page'), :jqmData(role='dialog')").trigger("pagecreate");
+    };
+    //#endregion
+
+    //#region
+    var PageChange = function (obj, template) {
+        $(obj).hide().html(template).fadeIn(400);
+    };
+    //#endregion
 
     //#region 输出日志
 
-    var Log=window.Log=function(){
-    	this.isGroup=false;
-    	
+    var Log = window.Log = function () {
+        this.isGroup = false;
+
     };
-    Log.instance=function(groupName){
-    	var obj=new Log();
-    	obj.group(groupName);
-    	return obj;
+    Log.instance = function (groupName) {
+        var obj = new Log();
+        obj.group(groupName);
+        return obj;
     };
-    Log.prototype={
-    	group:function(groupName){
-    		if(typeof(groupName)=="string" && groupName.length>0)
-    		{
-	    		if (Debug) {
-		    		console.group(groupName);
-		    		this.isGroup=true;
-	    		}
-    		}
-    		return this;
-    	},
-    	end:function(){
-    		if(Debug&&this.isGroup)
-    		{
-    			console.groupEnd();
-    		}
-    		return this;
-    	},
-    	info:function(logStr){
-    		if (Debug) {
-    			console.log(logStr);
-    		}
-    		return this;
-    	},
-    	warn:function(logStr){
-    		if (Debug) {
-    			console.warn(logStr);
-    		}
-    		return this;
-    	},
-    	error:function(logStr){
-    		if (Debug) {
-    			console.error(logStr);
-    		}
-    		return this;
-    	}
+    Log.prototype = {
+        group: function (groupName) {
+            if (typeof (groupName) == "string" && groupName.length > 0) {
+                if (Debug) {
+                    console.group(groupName);
+                    this.isGroup = true;
+                }
+            }
+            return this;
+        },
+        end: function () {
+            if (Debug && this.isGroup) {
+                console.groupEnd();
+            }
+            return this;
+        },
+        info: function (logStr) {
+            if (Debug) {
+                console.log(logStr);
+            }
+            return this;
+        },
+        warn: function (logStr) {
+            if (Debug) {
+                console.warn(logStr);
+            }
+            return this;
+        },
+        error: function (logStr) {
+            if (Debug) {
+                console.error(logStr);
+            }
+            return this;
+        }
     };
     //#endregion
-    
+
     //#region 获取url中的参数
     var getParameter = function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -468,10 +464,37 @@
     };
     //#endregion
 
-	exports.WcfAuth=WcfAuth;
+    //#region url format
+    var SiteUrl = {
+        //商品列表
+        productlist: function (params) {
+            //key, bid, cid, age, price, sort, page, size
+            //null/0/185/null/null/100/1/10
+            var urlParams = [];
+            for (var key in params) {
+                var arg = params[key];
+                if (key == 'bid' || key == 'cid' || key == 'sort' || key == 'page' || key == 'size') {
+                    if (arg < 0)
+                        arg = 0;
+                } else {
+                    if (arg == null) {
+                        arg = "null";
+                    }
+                }
+                urlParams.push(arg);
+            }
+            return "productlist/" + urlParams.join("/");
+        }
+    };
+    //#endregion
+
+    exports.SiteUrl = SiteUrl;
+    exports.WcfAuth = WcfAuth;
     exports.GetWcf = GetWcf;
     exports.PostWcf = PostWcf;
-	exports.RefreshPage=RefreshPage;
-	exports.PageChange=PageChange;
+    exports.RefreshPage = RefreshPage;
+    exports.PageChange = PageChange;
+    exports.WcfDateToJsDate = WcfDateToJsDate;
+    exports.JsDateToWcfDate = JsDateToWcfDate;
 
 });

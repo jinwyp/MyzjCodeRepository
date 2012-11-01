@@ -1,15 +1,15 @@
-﻿define(function(require, exports, module) {
+﻿define(function (require, exports, module) {
 
-	exports.initalize = function() {
+    exports.initialize = function () {
 
-		context.model = require("../model/login");
-		context.view = require("../view/login");
+        var loginModel = require("../model/login");
+        var loginView = require("../view/login");
 
-		var mainView = new context.view({
-			el : $("#Index_Content"),
-			model : new context.model()
-		});
+        var mainView = new loginView({
+            el: $("#Index_Content"),
+            model: new loginModel()
+        });
 
-	};
+    };
 
 });
