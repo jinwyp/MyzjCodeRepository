@@ -91,7 +91,7 @@ define(function (require, exports, module) {
             params.processData = false;
         }
 
-        var cacheKey = "ajax_{0}_{1}_{2}".format([method, options.url, JSON.stringify(options.data)]);
+        var cacheKey = "ajax_{0}_{1}_{2}_{3}".format([params.type, options.url, Core.WcfAuth, JSON.stringify(options.data)]);
 
         if (options.useCache && UseLocalStorage && params.type == 'GET') {
             if (!_.isUndefined(window.localStorage)) {
@@ -186,7 +186,8 @@ define(function (require, exports, module) {
             'subcategory': 'category',
             'subcategory/:id': 'category',
             'productlist': 'productlist',
-            'productlist/:key/:bid/:cid/:age/:price/:sort/:page/:size': 'productlist'
+            'productlist/:key/:bid/:cid/:age/:price/:sort/:page/:size': 'productlist',
+            'usercenter': 'usercenter'
         },
         before: function (route, name, args) {
             window.context["urlparams"] = args;

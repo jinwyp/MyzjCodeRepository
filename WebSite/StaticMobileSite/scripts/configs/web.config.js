@@ -2,7 +2,7 @@
 
     //#region restful Url
     var restful = {
-        "Member.Get.Info": "Member.svc/get_info",
+        "Member.GetInfo": "Member.svc/get_member_info",
         "Member.Login": "Member.svc/login",
         "Member.logout": "Member.svc/logout",
         "Member.ReLogin": "Member.svc/relogin",
@@ -76,7 +76,8 @@
         WebRoot: '/',
         JsRoot: '/scripts/',
         PicRoot: '/images/',
-        WcfRoot: "http://api.muyingzhijia.me/",
+        //WcfRoot: "http://api.muyingzhijia.me/",
+        WcfRoot: "http://192.168.100.41:9201/",
         Restful: restful,
         EmailGroup: emails
     };

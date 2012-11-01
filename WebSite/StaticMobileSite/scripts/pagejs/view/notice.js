@@ -6,7 +6,7 @@
         initialize: function () {
             this.render();
 
-            var noticeid = (window.context.urlparams || "null");
+            var noticeid = (window.context.urlparams[0] || "null");
             this.model.fetch({
                 useCache: true,
                 url: 'http://Cms.get_notice_info->/' + noticeid,

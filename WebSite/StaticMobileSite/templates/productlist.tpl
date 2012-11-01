@@ -19,7 +19,7 @@
   <div data-role="controlgroup" data-type="horizontal" data-mini="true" data-theme="c"
       class="page">
     <div id="loading_list"></div>
-    <a href="#" data-role="button" data-icon="arrow-d" data-iconpos="left" id="morePage">
+    <a href="javascript:;" data-role="button" data-icon="arrow-d" data-iconpos="left" id="morePage">
       再显示10条&nbsp;共<label id="totalCount"></label>件商品
     </a>
   </div>
