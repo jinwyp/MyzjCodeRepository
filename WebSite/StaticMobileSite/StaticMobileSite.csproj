@@ -100,6 +100,7 @@
     <Content Include="scripts\pagejs\controler\notice.js" />
     <Content Include="scripts\pagejs\controler\productlist.js" />
     <Content Include="scripts\pagejs\controler\register.js" />
+    <Content Include="scripts\pagejs\controler\usercenter.js" />
     <Content Include="scripts\pagejs\model\datainfo.js" />
     <Content Include="scripts\pagejs\model\login.js" />
     <Content Include="scripts\jquerymobile\images\ajax-loader.gif" />
@@ -116,6 +117,7 @@
     <Content Include="scripts\pagejs\view\login.js" />
     <Content Include="scripts\pagejs\view\notice.js" />
     <Content Include="scripts\pagejs\view\productlist.js" />
+    <Content Include="scripts\pagejs\view\usercenter.js" />
     <Content Include="scripts\plugin\json2.js" />
     <Content Include="scripts\plugin\md5.js" />
     <Content Include="scripts\pagejs\mobile.core.js" />
@@ -501,6 +503,7 @@
     <Content Include="themes\Default\images\slides\Pampers0711_1000x400.jpg" />
     <Content Include="themes\Default\images\slides\wanju0705_1000x4000.jpg" />
     <Content Include="web.config" />
+    <None Include="templates\usercenter.tpl" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.Debug.config">
