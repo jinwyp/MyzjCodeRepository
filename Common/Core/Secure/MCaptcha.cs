@@ -7,11 +7,11 @@ using Core.Enums;
 namespace Core.Secure
 {
     /// <summary>
-    ///   验证码选项
+    ///   验证码选项MCaptcha
     /// </summary>
     public class MCaptchaOptions
     {
-        private int _fontSize = 20;
+        private int _fontSize = 13;
         private int _height = 35;
         private string _verifyCode;
         private int _verifyCodeLen = 4;
@@ -113,11 +113,11 @@ namespace Core.Secure
 
             //由给定的需要生成字符串中字符个数 CharNum， 图片宽度 Width 和高度 Height 确定字号 FontSize，
             //确保不因字号过大而不能全部显示在图片上
-            var fontWidth = (int)Math.Round(Options.Width / (Options.VerifyCodeLen + 2) / 1.3);
-            var fontHeight = (int)Math.Round(Options.Height / 1.5);
+            var fontWidth = (double)Options.Width / (Options.VerifyCodeLen + 2);
+            var fontHeight = (double)Options.Height / 0.5;
 
             //字号取二者中小者，以确保所有字符能够显示，并且字符的下半部分也能显示
-            Options.FontSize = fontWidth <= fontHeight ? fontWidth : fontHeight;
+            Options.FontSize = (int)Math.Min(fontWidth, fontHeight);
 
             //创建位图对象
             bitMap = new Bitmap(Options.Width + Options.FontSize, Options.Height);
@@ -131,28 +131,25 @@ namespace Core.Secure
             //产生随机干扰线条
             for (int i = 0; i < 10; i++)
             {
-                var backPen = new Pen(GetControllableColor(150), 2);
+                var backPen = new Pen(GetControllableColor(150), 1);
                 //线条起点
-                int x = random.Next(Options.Width);
-                int y = random.Next(Options.Height);
+                int x = random.Next(3, Options.Width / 2);
+                int y = random.Next(3, Options.Height / 2);
                 //线条终点
-                int x2 = random.Next(Options.Width);
-                int y2 = random.Next(Options.Height);
+                int x2 = random.Next(Options.Width / 2, Options.Width);
+                int y2 = random.Next(Options.Height / 2, Options.Height);
                 //划线
                 gph.DrawLine(backPen, x, y, x2, y2);
             }
 
             //定义一个含10种字体的数组
-            String[] fontFamily = {
-                                      "Arial", "Verdana", "Comic Sans MS", "Impact", "Haettenschweiler",
-                                      "Lucida Sans Unicode", "Garamond", "Courier New", "Book Antiqua", "Arial Narrow"
-                                  };
+            String[] fontFamily = { "Arial", "Georgia" };
             var sb = new SolidBrush(GetControllableColor(0));
 
             //通过循环,绘制每个字符,
             for (int i = 0; i < Options.VerifyCode.Length; i++)
             {
-                var textFont = new Font(fontFamily[random.Next(10)], Options.FontSize, FontStyle.Bold);
+                var textFont = new Font(fontFamily[random.Next(fontFamily.Length)], Options.FontSize, FontStyle.Bold);
                 //字体随机,字号大小30,加粗 
 
                 //每次循环绘制一个字符,设置字体格式,画笔颜色,字符相对画布的X坐标,字符相对画布的Y坐标
@@ -167,7 +164,7 @@ namespace Core.Secure
             }
 
             //扭曲图片
-            bitMap = TwistImage(bitMap, true, random.Next(3, 5), random.Next(3));
+            bitMap = TwistImage(bitMap, true, random.Next(3, 4), random.Next(2, 3));
 
             try
             {
@@ -210,10 +207,10 @@ namespace Core.Secure
         /// <returns> </returns>
         private Bitmap TwistImage(Bitmap srcBmp, bool bXDir, double dMultValue, double dPhase)
         {
-            int leftMargin = 0;
-            int rightMargin = 0;
-            int topMargin = 0;
-            int bottomMargin = 0;
+            var leftMargin = 0;
+            var rightMargin = 0;
+            var topMargin = 0;
+            var bottomMargin = 0;
             //float PI = 3.14159265358979f;
             float PI2 = 6.28318530717959f;
             var destBmp = new Bitmap(srcBmp.Width, srcBmp.Height);
