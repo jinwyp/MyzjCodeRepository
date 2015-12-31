@@ -6,6 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div data-role="navbar" data-iconpos="left">
         <ul>
+        dwddmdm
             <li><a href="<%= MobileSite.BaseLib.WebUrls.index() %>" data-theme="c" data-icon="home">首页</a> </li>
             <li><a href="<%= MobileSite.BaseLib.WebUrls.Login() %>" data-theme="e" data-icon="grid">登录</a> </li>
         </ul>
