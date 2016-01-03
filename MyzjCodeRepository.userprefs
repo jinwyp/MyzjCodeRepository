@@ -1,0 +1,12 @@
+﻿<Properties StartupItem="API/WCF/Wcf.ServiceLibrary/Wcf.ServiceLibrary.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WebSite/MobileSite/Member/MyHome.aspx">
+    <Files>
+      <File FileName="WebSite/MobileSite/Member/MyHome.aspx" Line="7" Column="39" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
